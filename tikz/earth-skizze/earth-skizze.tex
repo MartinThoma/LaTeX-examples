@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\definecolor{sky}{HTML}{AAEEEE}
+
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=1.2]
+    \draw[fill=sky] (0, 0) circle (1.5cm);
+    \draw[fill=brown] (0, 0) circle (1cm);
+
+    %tangente
+    \begin{scope}[shift={(-1.35cm,0)}, rotate=48]
+        \draw (0,0) -- node {} (2.5cm, 0);
+    \end{scope}
+
+    \draw (0,0) -- node {} (0, 1.5cm);
+    \draw (0,0) -- node[anchor=east] {$r$} (138:1cm);
+
+    % angle
+    \draw[fill=gray!30] (0,0) -- (138:0.75cm) arc (138:90:0.75cm);
+    \draw (110:0.5cm) node {$\varphi$};
+
+    % winkelbogen
+    \draw[lime] (138:1cm) arc (138:90:1cm);
+    \node[lime] at (-0.2,0.85) {$x$} ;
+
+    % height
+    \draw[blue] (0,1cm) -- node[anchor=west] {$h$} (0, 1.5cm);
+
+    \node at (0,-0.2) {Erde} ;
+
+\end{tikzpicture}
+\end{preview}
+\end{document}

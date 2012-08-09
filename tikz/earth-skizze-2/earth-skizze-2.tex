@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\definecolor{sky}{HTML}{AAEEEE}
+\definecolor{lgreen}{HTML}{77DD11}
+
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{calc, decorations.pathmorphing, decorations.text}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=3.5,dot/.style={circle,fill=black,minimum size=4pt,inner sep=0pt,
+            outer sep=-1pt}]
+    \draw[fill=sky!20] (180:1.2cm) arc (180:0:1.2cm);
+    \draw[fill=brown!20] (180:1cm) arc (180:0:1cm);
+    \draw (-1.2cm,0) -- node {} (1.2cm, 0);
+    \draw (0,0) -- node {} (0, 1cm);
+    \node at (0,1.1cm) {N} ;
+
+    \coordinate (DEnd) at (0.867cm,0.5cm) ;
+    \draw[dashed] (-0.86cm,0.5cm) -- node[above] {} (DEnd);
+
+    \node[above] at (-0.4cm, 0.45cm) {25. Breitengrad};
+    \node[above, text width=1cm] at (0.15cm, 0.5cm) {\scriptsize Burdsch\\Chalifa};
+    \node[above, text width=1cm] at (0.7cm, 0.5cm) {\scriptsize Mileiha};
+
+    \path [decorate,
+            decoration={
+                text along path,
+                text={6370 km},
+                text align={align=center}
+            }
+          ] (0,0) -- (DEnd);
+    \draw (0,0) -- node {} (DEnd);
+    \draw[arrows={stealth-stealth}] (-1cm,-0.05cm) -- node[below] {6370 km} (0,-0.05cm);
+
+    \node[dot, lgreen] at (0.2cm,0.5cm) (S) {};
+    \node[dot, lgreen] at (0.5cm,0.5cm) (E) {};
+
+
+
+    \draw[lgreen, thick] (S) -- node {} (E);
+
+    \begin{scope}[shift={(DEnd)}]
+        \draw[fill=gray!20] (0,0) -- (180:0.3cm)  arc (180:210:0.3cm);
+        \draw (195:0.2cm) node {$\scriptstyle 25^\circ$};
+    \end{scope}
+
+
+
+\end{tikzpicture}
+\end{preview}
+\end{document}
