@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.multipart,chains,arrows,positioning} 
+
+\tikzset{
+    font=\tt, 
+    >= stealth, 
+    every picture/.style={thick}, 
+    pointer/.style={*->},
+    node/.style={
+        align=center,
+        rectangle split, rectangle split horizontal,
+        rectangle split parts=#1,
+        draw, 
+        anchor=center, 
+        rectangle split part align={center},
+        rectangle split empty part width=1.5,
+        rectangle split part fill = {white}
+    }
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \node[align=center, draw, fill=yellow] at (3,3){
+        \tikz \node[node=7] (A) {
+            \nodepart{one}
+            \nodepart{two}7
+            \nodepart{three}
+            \nodepart{four}11
+            \nodepart{five}
+            \nodepart{six}15
+            \nodepart{seven}
+        };
+    };
+
+    \node[align=center, draw, fill=yellow] at (0,0){
+        \tikz \node[node=5] (B) {
+            \nodepart{one}
+            \nodepart{two}1
+            \nodepart{three}
+            \nodepart{four}4
+            \nodepart{five}
+        };
+    };
+
+    \node[align=center, draw, fill=yellow] at (3,0){
+        \tikz \node[node=5] (C) {
+            \nodepart{one}
+            \nodepart{two}4
+            \nodepart{three}
+            \nodepart{four}8
+            \nodepart{five}
+        };
+    };
+
+    \node[align=center, draw, fill=yellow] at (5.6,0){
+        \tikz \node[node=3, rectangle split part fill={red, white, green}] (D) {
+            \nodepart{one}
+            \nodepart{two}14
+            \nodepart{three}
+        };
+    };
+
+    \node[align=center, draw, fill=yellow] at (8.4,0){
+        \tikz \node[node=5, rectangle split part fill={blue, white, purple, white}] (D) {
+            \nodepart{one}
+            \nodepart{two}16
+            \nodepart{three}
+            \nodepart{four}17
+            \nodepart{five}
+        };
+    };
+
+    \draw[pointer] (1.4, 3.1) -- ($(B)+(0,0.4)$) node[] {};
+    \draw[pointer] (2.25, 3.1) -- ($(B)+(3,0.4)$) node[] {};
+    \draw[pointer] (3.3, 3.1) -- ($(B)+(5.6,0.4)$) node[] {};
+    \draw[pointer] (4.4, 3.1) -- ($(B)+(8.4,0.4)$) node[] {};
+\end{tikzpicture}
+\end{preview}
+\end{document}

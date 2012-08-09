@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.multipart,chains,arrows,positioning} 
+
+\tikzset{
+    font=\tt, 
+    >= stealth, 
+    every picture/.style={thick}, 
+    pointer/.style={*->},
+    node/.style={
+        align=center,
+        rectangle split, rectangle split horizontal,
+        rectangle split parts=#1,
+        draw, 
+        anchor=center, 
+        rectangle split part align={center},
+        rectangle split empty part width=1.5,
+        rectangle split part fill = {white}
+    }
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \node[align=center, draw, fill=yellow] at (3,3){
+        \tikz \node[node=5] (A) {
+            \nodepart{one}
+            \nodepart{two}7
+            \nodepart{three}
+            \nodepart{four}11
+            \nodepart{five}
+        };
+    };
+
+    \node[align=center, draw, fill=yellow] at (0,0){
+        \tikz \node[node=5] (B) {
+            \nodepart{one}
+            \nodepart{two}1
+            \nodepart{three}
+            \nodepart{four}4
+            \nodepart{five}
+        };
+    };
+
+    \node[align=center, draw, fill=yellow] at (3,0){
+        \tikz \node[node=5] (C) {
+            \nodepart{one}
+            \nodepart{two}4
+            \nodepart{three}
+            \nodepart{four}8
+            \nodepart{five}
+        };
+    };
+
+    \node[align=center, draw, fill=yellow] at (6.2,0){
+        \tikz \node[node=5] (D) {
+            \nodepart{one}
+            \nodepart{two}14
+            \nodepart{three}
+            \nodepart{four}15
+            \nodepart{five}
+        };
+    };
+
+    \draw[pointer] (1.9, 3.1) -- ($(B)+(0,0.4)$) node[] {};
+    \draw[pointer] (2.8, 3.1) -- ($(B)+(2.8,0.4)$) node[] {};
+    \draw[pointer] (3.9, 3.1) -- ($(B)+(6,0.4)$) node[] {};
+\end{tikzpicture}
+\end{preview}
+\end{document}

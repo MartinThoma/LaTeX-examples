@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc} 
+\tikzstyle{vertex}=[draw,fill=black!15,circle,minimum size=20pt,inner sep=0pt]
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[font=\sffamily,thick,level/.style={sibling distance=50mm/#1}]
+    \node[vertex] {S}
+        child { 
+            node[vertex] {A}
+            child { 
+                node[vertex] {a} 
+            }
+            child { 
+                node[vertex] {A} 
+                child { node[vertex] {a} }
+                child { 
+                    node[vertex] {A}
+                    child { node[vertex] {$\varepsilon$} }
+                }
+            }
+        } child {
+            node[vertex] {B}
+            child { node[vertex] {b} }
+        }
+    ;
+\end{tikzpicture}
+\end{preview}
+\end{document}

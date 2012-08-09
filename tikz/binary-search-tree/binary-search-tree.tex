@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc} 
+\tikzstyle{vertex}=[draw,fill=black!15,circle,minimum size=18pt,inner sep=0pt]
+
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,level/.style={sibling distance=70mm/#1}]
+\node [vertex] (r){$17$}
+  child {
+    node [vertex] (a) {$9$}
+    child {
+      node [vertex] {$3$}
+      child {
+        node [vertex] {$-3$}
+        child {node [vertex] {$-4$}}
+        child {
+            node [vertex] {$2$}
+            child {
+                node [vertex] {$2$}
+            }
+        }
+      } 
+      child {
+        node [vertex] {$8$}
+        child {
+            node [vertex] {$6$}
+            child {
+                node [vertex] {$5$}
+            }
+            child {
+                node [vertex] {$7$}
+            }
+        }
+      }
+    }
+    child {
+      node [vertex] {$11$}
+      child {
+        node [vertex] {$17$}
+          child {
+            node [vertex] {$17$}
+          }
+      }
+    }
+  }
+  child {
+    node [vertex] {$19$}
+    child {
+      node [vertex] {$20$}
+    }
+  };
+\end{tikzpicture}
+\end{preview}
+\end{document}

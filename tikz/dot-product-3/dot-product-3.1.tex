@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{gensymb}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,decorations.pathreplacing,shapes} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick}
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \draw[pil] (0,0)   -- node[near end, above] {$\vec a$} (3cm, 0cm);
+    \draw[pil] (0,0.5cm) -- node[near end, above] {$\vec b$} (2cm,0.5cm);
+  \end{tikzpicture}
+\end{preview}
+\end{document}

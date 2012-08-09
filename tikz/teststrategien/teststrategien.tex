@@ -1,0 +1,61 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc, shapes,snakes, automata} 
+\usepackage{amsmath,amssymb}
+
+\tikzstyle{textnode}=[
+    draw=blue!70,   % draw the border with 70% transparent blue
+    rectangle,      % the shape of the node is a rectangle
+    fill=blue!10,   % fill the box with 20% blue
+    text width=4cm,
+    inner xsep=3pt,
+    text centered]
+
+\tikzstyle{smallnode}=[
+    draw=blue!70,   % draw the border with 70% transparent blue
+    rectangle,      % the shape of the node is a rectangle
+    fill=blue!10,   % fill the box with 20% blue
+    text width=1cm,
+    text centered]
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[->,>=stealth,auto, very thick]
+        % Draw the vertices.
+        \node[textnode] (a) {Pfadüberdeckung};
+        \node[textnode, below of=a, node distance=4cm] (b) {Zweigüberdeckung};
+        \node[textnode, below of=b] (c) {Anweisungsüberdeckung};
+
+        \node[textnode, right of=a, node distance=5cm] (d) {Mehrfache\\Bedingungsüberdeckung};
+        \node[textnode, below of=d, node distance=2cm] (e) {Minimal-mehrfache Bedinungsüberdeckung};
+        \node[textnode, below of=e, node distance=2.2cm] (f) {Einfache\\Bedinungsüberdeckung};
+
+        % Legende
+        \node[smallnode, below of=c, node distance=1.5cm] (x) {x};
+        \node[smallnode, below of=x] (y) {y};
+        \draw (x.south) -- (y.north)
+            node    [midway, 
+                    right of=x, 
+                    node distance=3cm, 
+                    draw=none, 
+                    text width=4cm] 
+                    {Testverfahren x\\subsummiert\\Testverfahren y};
+ 
+        % Connect vertices with edges and draw weights
+        \path (a) edge node {} (b);
+        \path (b) edge node {} (c);
+        \path (d) edge node {} (e);
+        \path (e) edge node {} (f);
+        \path (e) edge node {} (b.east);
+
+        \path (x) edge node {} (y);
+\end{tikzpicture}
+\end{preview}
+\end{document}

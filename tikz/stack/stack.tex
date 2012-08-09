@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart} 
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[stack/.style={rectangle split, rectangle split parts=#1,draw, anchor=center, fill=white}]
+\node[stack=5]  {
+\nodepart{two}a
+\nodepart{three}c
+\nodepart{four}c
+\nodepart{five}b
+};
+\end{tikzpicture}
+\end{preview}
+\end{document}

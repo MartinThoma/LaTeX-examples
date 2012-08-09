@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.multipart,chains,arrows,positioning} 
+
+\tikzset{
+    font=\tt, 
+    >= stealth, 
+    every picture/.style={thick}, 
+    pointer/.style={*->},
+    node/.style={
+        align=center,
+        rectangle split, rectangle split horizontal,
+        rectangle split parts=#1,
+        draw, 
+        anchor=center, 
+        rectangle split part align={center},
+        rectangle split empty part width=1.5,
+        rectangle split part fill = {orange!50, blue!50, white}
+    }
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+
+    \node[align=center, draw, fill=yellow]{
+        \tikz \node[node=13] (A) {
+            \nodepart{one}\tiny False
+            \nodepart{two}5
+            \nodepart{three}
+            \nodepart{four}-3
+            \nodepart{five}
+            \nodepart{six}0
+            \nodepart{seven}
+            \nodepart{eight}4
+            \nodepart{nine}
+            \nodepart{ten}17
+            \nodepart{eleven}
+            \nodepart{twelve}42
+            \nodepart{thirteen}
+        };
+    };
+
+    \node[orange!80] at ($(A.one)+(0, 0.6)$)     {$\scriptscriptstyle isLeaf$};
+    \node[blue!80] at ($(A.two)+(0, -0.5)$)    {$\scriptscriptstyle n$};
+    \node[gray] at ($(A.three)+(0, 0.6)$)   {$\scriptscriptstyle c_1$};
+    \node[gray] at ($(A.four)+(0, -0.5)$)    {$\scriptscriptstyle key_1$};
+    \node[gray] at ($(A.five)+(0, 0.6)$)   {$\scriptscriptstyle c_2$};
+    \node[gray] at ($(A.six)+(0, -0.5)$)    {$\scriptscriptstyle key_2$};
+    \node[gray] at ($(A.seven)+(0, 0.6)$)   {$\scriptscriptstyle c_3$};
+    \node[gray] at ($(A.eight)+(0, -0.5)$)    {$\scriptscriptstyle key_3$};
+    \node[gray] at ($(A.nine)+(0, 0.6)$)   {$\scriptscriptstyle c_4$};
+    \node[gray] at ($(A.ten)+(0, -0.5)$)    {$\scriptscriptstyle key_4$};
+    \node[gray] at ($(A.eleven)+(0, 0.6)$)   {$\scriptscriptstyle c_5$};
+    \node[gray] at ($(A.twelve)+(0, -0.5)$)    {$\scriptscriptstyle key_5$};
+    \node[gray] at ($(A.thirteen)+(0, 0.6)$)   {$\scriptscriptstyle c_1$};
+
+    \draw[pointer] ($(A.three) + (0, 0.15)$) -- +(0,-1) node[] {};
+    \draw[pointer] ($(A.five)  + (0, 0.15)$) -- +(0,-1) node[] {};
+    \draw[pointer] ($(A.seven)  + (0, 0.15)$) -- +(0,-1) node[] {};
+    \draw[pointer] ($(A.nine)  + (0, 0.15)$) -- +(0,-1) node[] {};
+    \draw[pointer] ($(A.eleven)  + (0, 0.15)$) -- +(0,-1) node[] {};
+    \draw[pointer] ($(A.thirteen)  + (0, 0.15)$) -- +(0,-1) node[] {};
+
+\end{tikzpicture}
+\end{preview}
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc, shapes,snakes, automata} 
+\usepackage{amsmath,amssymb}
+
+\tikzstyle{midnode}=[
+    draw=blue!70,   % draw the border with 70% transparent blue
+    rectangle,      % the shape of the node is a rectangle
+    fill=blue!10,   % fill the box with 20% blue
+    text width=1cm,
+    text centered]
+
+\tikzstyle{smallnode}=[
+    draw=blue!70,   % draw the border with 70% transparent blue
+    rectangle,      % the shape of the node is a rectangle
+    fill=blue!10,   % fill the box with 20% blue
+    text width=0.4cm,
+    text centered]
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[->,>=stealth,auto, very thick, scale=5]
+        % Draw the vertices.
+        \node[midnode] (s) {Start};
+        \node[smallnode, right of=s, node distance=1.8cm] (a) {1};
+        \node[smallnode, below of=a] (b) {2};
+        \node[smallnode, right of=a, node distance=1.8cm] (c) {3};
+        \node[smallnode, below of=c] (d) {4};
+        \node[smallnode, right of=c, node distance=1.8cm] (e) {5};
+        \node[midnode, below of=e] (x) {Stopp};
+ 
+        % Connect vertices with edges
+        \path (s) edge node {} (a);
+        \path (a) edge node {} (c);
+        \path (a) edge node {} (b);
+        \path (b) edge node {} (c);
+        \path (c) edge node {} (d);
+        \path (c) edge node {} (e);
+        \path (d) edge node {} (e);
+        \path (e) edge node {} (x);
+
+\end{tikzpicture}
+\end{preview}
+\end{document}

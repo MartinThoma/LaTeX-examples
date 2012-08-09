@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc}
+\tikzset{
+    %Define standard arrow tip
+    ->,>=stealth',shorten >=1pt,auto,node distance=3cm, very thick,
+    % Define arrow style
+    main node/.style={
+        circle,
+        fill=blue!20,
+        draw,
+        font=\sffamily\Large\bfseries
+    }
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[,]
+
+  \node[main node] (A) {A};
+  \node[main node] (C) [below of=A] {C};
+  \node[main node] (B) [right of=A] {B};
+  \node[main node] (D) [right of=C] {D};
+
+  \path[every node/.style={font=\sffamily\small}]
+    (A) edge node {4} (C)
+        edge node {3} (B)
+    (C) edge node {-2} (B)
+    (B) edge node {1} (D);
+\end{tikzpicture}
+\end{preview}
+\end{document}

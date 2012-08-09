@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+
+    % Draw A
+    \coordinate[label=left:$A$]  (A) at (0,0);
+    
+    % Draw the Arbelos
+    \begin{scope}[shift={(4,0)}, scale=4]
+        \draw[fill=green!30, thick](-1,0) 
+            arc (180:0:1) 
+            arc (0:180:0.25) 
+            arc (0:180:0.75);
+    \end{scope}
+
+    \begin{scope}[shift={(4,0)}]
+        % Draw D
+        \coordinate[label=below:$D$] (D) at (2,0);
+
+        % Perpendicular CD
+        \draw[thick] (2,0) -- node[] {} (2,3.47);
+
+        % Draw C
+        \coordinate[label=above:$C$] (C) at (2,3.47);
+    \end{scope}
+
+    % Draw B
+    \coordinate[label=below:$B$] (B) at (8,0);
+
+    % Cirlce CD
+    \draw[thick] (6,1.735) circle (1.735cm);
+
+    % Bottom line AB
+    \draw[thick] (0,0) -- node[] {} (8,0);
+  \end{tikzpicture}
+\end{preview}
+\end{document}

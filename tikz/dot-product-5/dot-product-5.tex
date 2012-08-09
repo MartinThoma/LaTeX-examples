@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick}
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=0.8]
+    % draw the background
+    \draw [line width=0.1pt, fill=gray!2] (0,0) -- (3, 3) -- (5,0) -- cycle;
+
+    % angle gamma
+    \begin{scope}[shift={(3, 3)}]
+        \draw[fill=green!30] (0,0) -- (-135:.75cm) arc (-135:-55:.75cm);
+        \draw (-90:0.5cm) node {$\gamma$};
+    \end{scope}
+
+    \coordinate[label=left:$A$] (A) at (0,0);
+    \coordinate[label=right:$B$] (B) at (5,0);
+    \coordinate[label=above:$C$] (C) at (3,3);
+    \
+    \draw[->, very thick] (A) to[] node[above] {$\vec c$} (B);
+    \draw[->, very thick] (C) to[] node[above] {$\vec b$} (A);
+    \draw[->, very thick] (C) to[] node[above=0.1cm] {$\vec a$} (B);
+
+    \coordinate[label=-90:$c$] (c) at ($(A)!0.5!(B)$);
+    \coordinate[label=-120:$a$] (a) at ($(B)!0.5!(C)$);
+    \coordinate[label=-45:$b$] (b) at ($(C)!0.5!(A)$);
+  \end{tikzpicture}
+\end{preview}
+\end{document}

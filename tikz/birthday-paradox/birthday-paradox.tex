@@ -1,0 +1,49 @@
+% Plot of the probability that two people out of n people have the
+% same birthday.
+% Author: Martin Thoma
+% Source: http://martin-thoma.com/plotting-graphs-with-pgfplots/
+
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=15cm, height=8cm,     % size of the image
+        grid = major,
+        grid style={dashed, gray!30},
+        %xmode=log,log basis x=10,
+        %ymode=log,log basis y=10,
+        xmin=0,     % start the diagram at this x-coordinate
+        xmax=62,    % end   the diagram at this x-coordinate
+        ymin=0,     % start the diagram at this y-coordinate
+        ymax=1.1,   % end   the diagram at this y-coordinate
+        /pgfplots/xtick={0,5,...,60}, % make steps of length 5
+        extra x ticks={23},
+        extra y ticks={0.507297},
+        axis background/.style={fill=white},
+        ylabel=probability of at least one birthday-collision,
+        xlabel=people,
+        tick align=outside]
+
+      % import the correct data from a CSV file
+      \addplot table [id=exp]{data.csv};
+
+      % mark x=23
+      \coordinate (a) at (axis cs:23,0.507297);
+      \draw[blue, dashed, thick](a -| current plot begin) -- (a);
+      \draw[blue, dashed, thick](a |- current plot begin) -- (a);
+
+      % plot the stirling-formulae
+      \addplot[domain=0:60, red, thick] 
+        {1-(365/(365-x))^(365.5-x)*e^(-x)}; 
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}

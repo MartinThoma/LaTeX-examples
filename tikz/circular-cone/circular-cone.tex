@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{shapes, calc} 
+\begin{document}
+\begin{preview}
+\tdplotsetmaincoords{70}{0}
+\begin{tikzpicture}[tdplot_main_coords]
+    \def\RI{2}
+    \def\RII{1.25}
+
+    \draw[thick] (\RI,0)
+      \foreach \x in {0,300,240,180} { --  (\x:\RI) node at (\x:\RI) (R1-\x) {} };
+    \draw[dashed,thick] (R1-0.center)
+      \foreach \x in {60,120,180} { --  (\x:\RI) node at (\x:\RI) (R1-\x) {} };
+    \path[fill=gray!30] (\RI,0)
+      \foreach \x in {0,60,120,180,240,300} { --  (\x:\RI)};
+
+    \begin{scope}[yshift=2cm]
+    \draw[thick,fill=gray!30,opacity=0.2] (\RII,0)
+      \foreach \x in {0,60,120,180,240,300,360}
+        { --  (\x:\RII) node at (\x:\RII) (R2-\x) {}};
+    \end{scope}
+
+    \foreach \x in {0,180,240,300} { \draw (R1-\x.center)--(R2-\x.center); };
+    \foreach \x in {60,120} { \draw[dashed] (R1-\x.center)--(R2-\x.center); };
+\end{tikzpicture}
+\end{preview}
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\begin{preview}
+\resizebox{250px}{250px}{
+\begin{tikzpicture}[]
+    \newcommand\R{1.3cm}
+
+    \draw[fill=gray!2] (0,0) circle (\R);
+
+    % draw the background
+    \draw [line width=0.1pt, fill=gray!10] 
+        (0,0) -- 
+        (170: \R) -- 
+        (45:\R) -- cycle;
+
+    \begin{scope}[color=green]
+        \draw[fill=green!15] (0,0) -- 
+                        (170:{\R*0.3}) arc (170:45:{{(\R)*0.3}});
+    \end{scope}
+
+    % Kreisbogen
+    \begin{scope}[thick, color=red]
+        \draw[] (170:\R) arc (170:45:\R);
+    \end{scope}
+
+    % Winkel
+    \draw[] (0,0) -- (170:\R);
+    \draw[] (0,0) -- (45:\R);
+    \draw[thick, color=blue] (170:\R) -- (45:\R);
+
+    % draw alpha
+    \coordinate[label=$\alpha$] (Alpha) at (-{\R/20}, 0);
+    \coordinate[label=$r$] (Alpha) at ({\R/2}, {\R/5});
+\end{tikzpicture}
+}
+\end{preview}
+\end{document}
