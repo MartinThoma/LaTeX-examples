@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc,matrix}
+ 
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=10cm, height=10cm,     % size of the image
+        axis lines=middle,
+        grid = major,
+        grid style={dashed, gray!30},
+        %xmode=log,log basis x=10,
+        %ymode=log,log basis y=10,
+        xmin=-100,     % start the diagram at this x-coordinate
+        xmax= 100,     % end   the diagram at this x-coordinate
+        ymin=-100,     % start the diagram at this y-coordinate
+        ymax= 100,     % end   the diagram at this y-coordinate
+        /pgfplots/xtick={-100,-80,...,100},
+        /pgfplots/ytick={-100,-80,...,100},
+        tick align=outside,
+        legend pos= north west,
+        legend cell align=left,
+        legend style={legend pos=north west,font=\tiny}]
+ 
+      \addplot[domain=-100:100, red, thick]  {x};
+      \addlegendentry{$\begin{pmatrix}0\\0\end{pmatrix} + U$};
+
+      \addplot[domain=-100:100, blue, thick] {x + 12}; 
+      \addlegendentry{$\begin{pmatrix}0\\12\end{pmatrix} + U$};
+
+      \addplot[domain=-100:100, purple, thick] {x - 42};
+      \addlegendentry{$\begin{pmatrix}0\\-42\end{pmatrix} + U$};
+
+      \addplot[domain=-100:100, lime, thick] {x + 50}; 
+      \addlegendentry{$\begin{pmatrix}0\\50\end{pmatrix} + U$};
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}
