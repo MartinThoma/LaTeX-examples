@@ -1,0 +1,86 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+%layout
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{parskip}
+
+\pdfinfo{
+   /Author (Peter Merkert, Martin Thoma)
+   /Title  (Wichtige Formeln der Analysis I)
+   /CreationDate (D:20120221095400)
+   /Subject (Analysis I)
+   /Keywords (Analysis I; Formeln)
+}
+
+\everymath={\displaystyle}
+
+\begin{document}
+
+\title{Analysis Formelsammlung}
+\author{Peter Merkert, Martin Thoma}
+\date{21. Februar 2012}
+
+\section{Grenzwerte}
+\begin{table}[ht]
+\begin{minipage}[b]{0.5\linewidth}\centering
+
+\begin{align*}
+\lim_{x \to 0} \frac {\sin x}{x}  &= 1 \\
+\lim_{x \to 0} \frac {e^x - 1}{x} &= 1 \\
+\lim_{h \to 0} \frac {e^{{x_0} + h} - e^{x_0}}{h} &= e^{x_0} \\
+\sum_{n = 0}^{\infty} (-1)^n \frac {(-1)^{n + 1}}{n} &= \log 2 \\
+\cos x    &= \sum_{n = 0}^{\infty} (-1)^n \frac {x^{2n}}{(2n)!}  \\
+\sin x    &= \sum_{n = 0}^{\infty} (-1)^n \frac {x^{2n + 1}}{(2n + 1)!}
+\end{align*}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+
+\begin{align*}
+\cosh x = \frac {1}{2} (e^x + e^{-x}) &= \scriptstyle \sum_{n = 0}^{\infty} \frac {x^{2n}}{(2n)!} \\
+\sinh x = \frac {1}{2} (e^x - e^{-x}) &= \sum_{n = 0}^{\infty} \frac {x^{2n + 1}}{(2n + 1)!} \\
+e^x &= \sum_{n = 0}^{\infty} \frac {x^n}{n!} \\
+\sum_{n = 0}^{\infty} (-1)^n \frac {x^{n + 1}}{n + 1} &= \log (1+x)   (x \in (-1,1)) \\
+\sum_{n = 0}^{\infty} x^n &= \frac {1}{1 - x}    (x \in (-1,1)) \\
+0,\bar{3} &= \sum_{n = 1}^{\infty} \frac {3}{(10)^n}
+\end{align*}
+
+\end{minipage}
+\end{table}
+
+
+
+
+
+
+\section{Zusammenhänge}
+\begin{align*}
+	(\cos x)^2 + (\sin x)^2 &= 1 \\
+	(\cosh x)^2 - (\sinh x)^2 &= 1 \\
+	\tan x  &= \frac {\sin x}{\cos x} \\
+	\tanh x &= \frac {\sinh x}{\cosh x} \\
+  (x + y)^n &= \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k
+\end{align*}
+
+\section{Ableitungen}
+\begin{align*}
+	(\arctan x)' &= \frac {1}{1 + x^2} \\
+	(\sin x)'    &= \cos x \\
+	(\cos x)'    &= -\sin x \\
+	(\text{arctanh} x)' &= \frac {1}{\sqrt {1 + x^2}}
+\end{align*}
+
+
+\section{Potenzreihen}
+Zuerst den Potenzradius r berechnen:
+\(
+	r = \frac {1}{\lim \text{sup} \sqrt[n]{|a_n|}}
+\)
+
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{amssymb}        % needed for math
+\usepackage{amsmath}        % needed for math
+\usepackage{amsthm}         % needed for proof environment
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{wasysym}  % checkbox
+\usepackage{array}    % row height
+\usepackage[landscape]{geometry}
+\geometry{top=1.5cm,left=1cm,right=1cm,bottom=2cm}
+ 
+\pdfinfo{
+   /Author (Martin Thoma)
+   /Title  (Semesterplan)
+   /Subject (Semesterplan)
+   /Keywords (Semesterplan)
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Variables                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\semester}{Wintersemester}
+\newcommand{\jahr}{2012}
+\newcommand{\student}{Martin Thoma}
+ 
+\begin{document}
+\section*{Semesterplan für das \semester~\jahr~von~\student} 
+
+\begin{table}[h]
+	\setlength{\extrarowheight}{4.5pt}
+    \begin{tabular}{ |l|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|p {1.9 cm}|}
+        \hline
+        ~           & \textbf{Ü1} & \textbf{Ü2} & \textbf{Ü3} & \textbf{Ü4} & \textbf{Ü5} & \textbf{Ü6} & \textbf{Ü7} & \textbf{Ü8} & \textbf{Ü9} & \textbf{Ü10} & $\sum$ \\
+        \hline
+        \hline
+        LA II       & 144 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+        \hline
+        Analysis II & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+        \hline
+        Algo        & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+        \hline
+        SWT         & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+        \hline
+        Rechner     & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\end{document}

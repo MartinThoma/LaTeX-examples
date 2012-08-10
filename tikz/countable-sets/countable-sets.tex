@@ -1,0 +1,62 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\usepackage{sansmath} % for sans serif math
+
+%%%<
+% The data files, written on the first run.
+\begin{filecontents}{function.data}
+# n     m
+1 1
+1 2
+2 1
+1 3
+2 2
+3 1
+1 4
+2 3
+3 2
+4 1
+1 5
+2 4
+3 3
+4 2
+5 1
+\end{filecontents}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+    compat=newest, % for better label placement
+    font=\sansmath\sffamily, % math and normal text in sans serif
+    xlabel=n, ylabel=m, % the label texts
+    xmin=0, ymin=0, % axis origin
+    enlarge y limits=false, % don't enlarge the y axis beyond the data range
+    enlarge x limits={upper,abs=0.02}, % enlarge x axis slightly to make sure the last tick mark is drawn completely
+    axis lines*=left, % only draw the left axis lines, not a box
+    unit vector ratio*={1 1 1}, % equal axis scaling. "*" to make sure the axes can only be reduced in size, not enlarged
+    width=6cm, % set the overall width of the plot
+    try min ticks=5, % adjusts how many ticks are printed
+    tick align=center, % tick marks centered on the axes
+    legend style={
+        draw=none, % no frame around axes
+        at={(1,1)}, % place at upper right of plot
+        anchor=north % use upper middle edge of legend for alignment
+    },
+]
+\addplot [
+    mark=square*, mark size=0.5em, % square, filled ("*"), radius of 0.5em
+    nodes near coords={
+        \pgfmathparse{int(\coordindex+1)}
+        \pgfmathresult
+    }, % print labels on each data point, using `\coordindex` (the data point counter) increased by 1
+    every node near coord/.style={
+        font=\scriptsize\sffamily\bfseries, % smaller text size, bold for the data point labels
+        text=white,
+        anchor=center % center the labels on the plot marks
+    }
+    ] table {function.data};
+\addlegendentry{f(m,n)}
+\end{axis}
+\end{tikzpicture}
+\end{document}
