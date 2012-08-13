@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.2"
+   width="706.125"
+   height="408.40515"
+   id="svg2"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="Burdsch-Chalifa-Erdhalbkugel.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="935"
+     inkscape:window-height="641"
+     id="namedview45"
+     showgrid="false"
+     inkscape:zoom="1.2291716"
+     inkscape:cx="203.08528"
+     inkscape:cy="107.88786"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs4">
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path3768"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         id="path3765"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-52,-97.25)"
+     id="layer1">
+    <path
+       d="m 757.13413,451.32142 c -0.34262,0.36811 -704.125927,-1.01015 -704.125927,-1.01015 0,-194.439 157.623957,-352.062964 352.062977,-352.062964 194.439,0 352.06295,158.634114 352.06295,353.073114 z"
+       id="path4420"
+       style="fill:#8497e9;fill-opacity:0.3639144;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="m 698.77301,451.82648 c 2.27347,-0.59614 -600.030599,-1.51523 -600.030599,-1.51523 0,-165.69387 134.321419,-298.50007 300.015299,-298.50007 165.69388,0 300.0153,134.32143 300.0153,300.0153 z"
+       id="path2987"
+       style="fill:#a1761d;fill-opacity:0.44342508;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="m 400,451.6479 1.42857,-298.57143"
+       id="path3758"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="M 399.28571,465.93361 99.877448,465.04601"
+       id="path3760"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)" />
+    <text
+       x="212.09299"
+       y="488.00406"
+       id="text4400"
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       sodipodi:linespacing="125%"><tspan
+         x="212.09299"
+         y="488.00406"
+         id="tspan4402"
+         style="font-size:20px"><tspan
+           x="212.09299"
+           y="488.00406"
+           id="tspan4404"
+           style="font-size:20px">6370 km</tspan></tspan></text>
+    <text
+       x="387.48788"
+       y="139.35809"
+       id="text4414"
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="387.48788"
+         y="139.35809"
+         id="tspan4416"><tspan
+           x="387.48788"
+           y="139.35809"
+           id="tspan4418">N</tspan></tspan></text>
+    <path
+       d="M 400.02041,451.82649 654.57885,294.74777"
+       id="path4423"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="M 653.77636,294.74226 142.24211,294.24318"
+       id="path4425"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:16, 16;stroke-dashoffset:0" />
+    <text
+       x="192.92482"
+       y="288.40582"
+       id="text4489"
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="192.92482"
+         y="288.40582"
+         id="tspan4491"><tspan
+           x="192.92482"
+           y="288.40582"
+           id="tspan4493">Der 25. Breitengrad</tspan></tspan></text>
+    <text
+       x="582.85437"
+       y="317.67276"
+       id="text4503"
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="582.85437"
+         y="317.67276"
+         id="tspan4505"><tspan
+           x="582.85437"
+           y="317.67276"
+           id="tspan4507"
+           style="font-size:20px">25°</tspan></tspan></text>
+    <path
+       d="m 588.16132,335.15387 c 0,0 -23.48605,-16.16243 -10.35406,-40.4061"
+       id="path4509"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="200.5369"
+       y="626.0354"
+       transform="matrix(0.82583554,-0.56391104,0.56391104,0.82583554,0,0)"
+       id="text4400-1"
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="200.5369"
+         y="626.0354"
+         id="tspan4402-4"><tspan
+           x="200.5369"
+           y="626.0354"
+           id="tspan4404-2"
+           style="font-size:20px">6370 km</tspan></tspan></text>
+    <path
+       d="m 486.07143,294.54968 64.01785,0.0893"
+       id="path4613"
+       style="fill:none;stroke:#00ff00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="m 516.69304,297.39941 a 3.1567266,3.1567266 0 1 1 -6.31345,0 3.1567266,3.1567266 0 1 1 6.31345,0 z"
+       transform="translate(-28.031733,-2.7779195)"
+       id="path4535"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <path
+       d="m 516.69304,297.39941 a 3.1567266,3.1567266 0 1 1 -6.31345,0 3.1567266,3.1567266 0 1 1 6.31345,0 z"
+       transform="translate(35.986669,-2.6516413)"
+       id="path4535-2"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="435.13611"
+       y="260.22211"
+       id="text3024"
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="435.13611"
+         y="260.22211"
+         id="tspan3026"><tspan
+           x="435.13611"
+           y="260.22211"
+           id="tspan3028">Burdsch </tspan><tspan
+           x="496.38611"
+           y="260.22211"
+           dx="0"
+           id="tspan3030" /></tspan><tspan
+         x="435.13611"
+         y="277.72211"
+         id="tspan3032"><tspan
+           x="435.13611"
+           y="277.72211"
+           id="tspan3034">Chalifa</tspan></tspan></text>
+    <text
+       x="536.39056"
+       y="277.88675"
+       id="text4607"
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="536.39056"
+         y="277.88675"
+         id="tspan4609"><tspan
+           x="536.39056"
+           y="277.88675"
+           id="tspan4611">Mileiha</tspan></tspan></text>
+  </g>
+</svg>

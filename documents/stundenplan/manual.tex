@@ -1,0 +1,295 @@
+\documentclass[a4paper,10pt]{article}
+
+% Definitionen
+\usepackage{lscape}
+\usepackage{listings}
+\usepackage[left=4cm,right=4cm]{geometry}
+\usepackage{timetable}
+\usepackage{bold-extra}
+
+\lstset{language=[LaTeX]TeX, basicstyle=\ttfamily, basewidth=0.51em, morekeywords={\settopheight, \setbottomspace, \setbottomstyle, \settimestyle, \setprinttimestamps, \printheading,\setslotsize,\setslotcount,\settextframe,\englishdays,\germandays,\timemark,\daymark,\hours,\event,\defineevent,\slotevent,\setframetype,\seteventcornerradius}}
+
+\title{\texttt{timetable} package for \LaTeX\\\normalsize Version 1.41}
+\author{Pascal Gwosdek\\\small Modifications by Daniel Bader}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Still, in times when organisers are freely available on the net, there is need for a way to print out timetables. Such lists shall not only be informative and contain details suchas speaker, location, and time. They should also be pleasing to the eye and immediately reveal the information they contain. What else could be used for this task, if not \LaTeX?
+
+The present version of \texttt{timetable} is fully compatible to version 1.3, and extends it by a new \texttt{pdflatex} support for which the backend has been entirely redesigned, as well as by several `look\&feel' features. The design including colours and font faces can now be redefined. Note that like its predecessor, generation 1.4 is not compatible to 1.2 and below.
+
+\section{Command reference}
+Like in many other \LaTeX\ packages, macros are split into declaration part and body instructions:
+
+\subsection{Declaration}
+The commands presented in this section can be called at any time before the body is being processed, but do not necessarily need to be put before the \lstinline{\begin}\texttt{\{document\}} tag. Instead, it might even be better to define these things within the document section, as this allows different configurations for several time tables appearing within one large document.
+
+\subsubsection{Layout}
+The general layout can be defined by these macros:
+\begin{description}
+\item \lstinline!\setslotsize{width}{height}! defines the dimensions of the time slots themselves, standard is 2.8cm$\times$1.2cm.
+\item \lstinline!\setslotcount{columns}{rows}! specifies how many of these slots there are, $5\times9$ is predefined.
+\item \lstinline!\settextframe{width}! changes the padding of text inside coloured boxed to be different than 0.8mm.
+\item \lstinline!\settopheight{rows}! specifies how many slot heights the grey bar at the top should last, the default value is 2.
+\item \lstinline!\setbottomspace{width}! sets the distance of the small entries at the bottom of each cell to some value different to 8pt.
+\item \lstinline!\setbottomstyle{fontsize}! redefines the font size of the footlines in event blocks. It defaults to \lstinline!\scriptsize!.
+\item \lstinline!\settimestyle{fontsize}! redefines the font size of the optional time labels in event blocks. It defaults to \lstinline!\tiny!.
+\item \lstinline!\setprinttimestamps{type}! includes timestamps at top and bottom, if set to 1, and timestamps at the top, if set to 2.
+\item \lstinline!\setframetype[valign]{type}! changes the frame style. \texttt{type} can either be 1 (entries separated by lines), or 2 (entries in checkerboard layout (default)).\texttt{valign} can be one of \texttt{t} (top), \texttt{c} (centered), or \texttt{b} (bottom).
+\item \lstinline!\seteventcornerradius{radius}! defines event corners to be rounded. Admissible values for \texttt{radius} are [0pt..7pt], default is 3pt.
+\end{description}
+In addition, one may redefine the following default colours:
+\begin{description}
+\item \lstinline!ttframecol1! is the (brighter) frame colour.\\ Default: RGB 0.8,0.8,0.8.
+\item \lstinline!ttframecol2! is the (darker) frame colour.\\ Default: RGB 0.7,0.7,0.7.
+\item \lstinline!ttfontcolour! is the frame font colour.\\ Default: Black.
+\item \lstinline!ttlinecol1! is the colour of the outer boundary line.\\ Default: Black.
+\item \lstinline!ttlinecol2! is the colour of the boundary line separating frame and display area.\\ Default: Black.
+\end{description}
+Furthermore, one may influence the shape of the output font:
+\begin{description}
+\item \lstinline!\timetablefont! can be redefined with something else than \lstinline!\sffamily!.
+\end{description}
+
+\subsubsection{Event types}\label{defineevent}
+Event types are nothing more than colour combinations, which are given intuitive, i.e. associative, names. After their name, red, green and blue components for the box and text are specified as values between 0 and 1, respectively:
+\begin{lstlisting}
+\defineevent{lecturetype}{red}{green}{blue}{text red}{text green}{text blue}
+\end{lstlisting}
+
+\subsection{Body}
+\subsubsection{Heading}
+The heading can be inserted with the \lstinline{\printheading} command:
+\begin{lstlisting}
+\printheading{Text for the heading}
+\end{lstlisting}
+
+\subsubsection{Left caption}
+There are two possibilities for the left caption. The native method is given by the
+\begin{lstlisting}
+\timemark{1st entry}
+\timemark{2nd entry}
+...
+\end{lstlisting}
+macro. Each time the command is called, a new time stamp is being added to the next free line. Alternatively, the
+\begin{lstlisting}
+\hours{Start time}{Time slot duration}{Print destination?}
+\end{lstlisting}
+command fills the column with entries of type "$n:00$" or "$n:00 - (n+1):00$", depending on whether \lstinline{Print destination?} is 0 or 1, respectively. $n$ denotes hereby the start time. Just see the results displayed in Appendix A and B, they are generated by this macro. Overflows (i.e. midnight) are handled correctly.
+
+\subsubsection{Upper caption}
+Similarly, the top line can also be filled in two ways.
+\begin{lstlisting}
+\daymark{1st entry}
+\daymark{2nd entry}
+...
+\end{lstlisting}
+is the analogon to the \lstinline{\timemark} macro, while
+\begin{lstlisting}
+\englishdays{Start day}
+\end{lstlisting}
+or
+\begin{lstlisting}
+\germandays{Start day}
+\end{lstlisting}
+fills the row with day names, starting at the day given as argument (where 1 denotes monday). Again, see the reference in Appendix A to see what it looks like.
+
+\subsubsection{Events}
+\subsubsection*{The \lstinline{\\event} macro}
+The perhaps most important macro is given by
+\begin{lstlisting}
+\event {day number} {start time} {end time}
+       {name} {lecturer} {location} {type}
+\end{lstlisting}
+Each of these commands allocates a new event block on the specified day from \lstinline{start time} to \lstinline{end time}, whereby the times are given in the format `0815' for `a quarter past 8'. The block is assigned the type identifier defining background and text colour (see \ref{defineevent}). Note that if \lstinline{\hours} has not been called before, start time and end time fall back to the block number, i.e. \lstinline{\slotevent} is invoked with \lstinline{y = start time} and \lstinline{duration = end time - start time}.
+
+\subsubsection*{The \lstinline{\\slotevent} macro}
+\begin{lstlisting}
+\slotevent {x} {y} {duration}
+           {name} {lecturer} {location} {type}
+\end{lstlisting}
+Each of these macros specifies one event block in position, duration (i.e. length in time slots), certain full text parameters and finally the type defining background and text colour (see \ref{defineevent}).
+
+%\newpage
+\begin{appendix}
+\begin{landscape}
+\section{Sample time table (Standard Parameters)}
+\subsection{Rendering}
+
+% Define the layout of your time tables
+\setslotsize{2.8cm}{0.26cm}
+\setslotcount {5} {36}
+\settextframe{0.8mm}
+
+% Define event types
+\defineevent{corelecture}{0.0} {0.28}{1.0} {1.0}{1.0}{1.0}
+\defineevent{seminar}    {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{langcourse} {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{tutorial}   {0.6} {0.8} {1.0} {1.0}{1.0}{1.0}
+\defineevent{work}       {0.21}{0.5} {0.16}{1.0}{1.0}{1.0}
+
+% Start the time table
+\printheading{Time table $6^\mathsf{th}$ Semester}
+\begin{timetable}
+  \hours{9}{15}{1}
+  \englishdays{1}
+  \event 1 {1415} {1600} {Data Networks Lecture}                  {Druschel}        {E1{\tiny 3} 002}     {corelecture}
+  \event 1 {1615} {1800} {Tutorial SysArch}                       {Gwosdek}         {E1{\tiny 3} SR014}   {work}
+  \event 2 {0915} {1100} {Embedded Systems Lecture}               {Finkbeiner}      {E1{\tiny 3} 003}     {corelecture}
+  \event 2 {1115} {1300} {Differential Equations in IPCV Lecture} {Weickert}        {E1{\tiny 3} 001}     {corelecture}
+  \event 2 {1415} {1600} {Office Hour SysArch}                    {Gwosdek}         {E1{\tiny 1} HaDePra} {work}
+  \event 3 {1415} {1600} {Data Networks Lecture}                  {Druschel}        {E1{\tiny 3} 002}     {corelecture}
+  \event 3 {1615} {1800} {Numerical Algorithms in Image Analysis} {Bruhn, Weickert} {E1{\tiny 1} 3.06}    {seminar}
+  \event 4 {0915} {1100} {Embedded Systems Lecture}               {Finkbeiner}      {E1{\tiny 3} 003}     {corelecture}
+  \event 4 {1115} {1300} {Tutorial SysArch}                       {Gwosdek}         {E1{\tiny 3} SR014}   {work}
+  \event 5 {1000} {1100} {Bremser Meeting}                        {SysArch United}  {E1{\tiny 3}}         {work}
+  \event 5 {1115} {1300} {Differential Equations in IPCV Lecture} {Weickert}        {E1{\tiny 3} 001}     {corelecture}
+\end{timetable}
+\end{landscape}
+
+\begin{landscape}
+\subsection{Source code}
+\begin{lstlisting}
+\documentclass[a4paper,10pt]{report}
+
+% Definitions
+\usepackage{lscape}
+\usepackage[height=25cm]{geometry}
+\usepackage{timetable}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{landscape}
+% Define the layout of your time tables
+\setslotsize{2.8cm}{0.26cm}
+\setslotcount {5} {36}
+\settextframe{0.8mm}
+
+% Define event types
+\defineevent{corelecture}{0.0} {0.28}{1.0} {1.0}{1.0}{1.0}
+\defineevent{seminar}    {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{langcourse} {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{tutorial}   {0.6} {0.8} {1.0} {1.0}{1.0}{1.0}
+\defineevent{work}       {0.21}{0.5} {0.16}{1.0}{1.0}{1.0}
+
+% Start the time table
+\printheading{Time table $6^\mathsf{th}$ Semester}
+\begin{timetable}
+  \hours{9}{15}{1}
+  \englishdays{1}
+  \event 1 {1415} {1600} {Data Networks Lecture}                  {Druschel}        {E1{\tiny 3} 002}     {corelecture}
+  \event 1 {1615} {1800} {Tutorial SysArch}                       {Gwosdek}         {E1{\tiny 3} SR014}   {work}
+  \event 2 {0915} {1100} {Embedded Systems Lecture}               {Finkbeiner}      {E1{\tiny 3} 003}     {corelecture}
+  \event 2 {1115} {1300} {Differential Equations in IPCV Lecture} {Weickert}        {E1{\tiny 3} 001}     {corelecture}
+  \event 2 {1415} {1600} {Office Hour SysArch}                    {Gwosdek}         {E1{\tiny 1} HaDePra} {work}
+  \event 3 {1415} {1600} {Data Networks Lecture}                  {Druschel}        {E1{\tiny 3} 002}     {corelecture}
+  \event 3 {1615} {1800} {Numerical Algorithms in Image Analysis} {Bruhn, Weickert} {E1{\tiny 1} 3.06}    {seminar}
+  \event 4 {0915} {1100} {Embedded Systems Lecture}               {Finkbeiner}      {E1{\tiny 3} 003}     {corelecture}
+  \event 4 {1115} {1300} {Tutorial SysArch}                       {Gwosdek}         {E1{\tiny 3} SR014}   {work}
+  \event 5 {1000} {1100} {Bremser Meeting}                        {SysArch United}  {E1{\tiny 3}}         {work}
+  \event 5 {1115} {1300} {Differential Equations in IPCV Lecture} {Weickert}        {E1{\tiny 3} 001}     {corelecture}
+\end{timetable}
+\end{landscape}
+\end{document}          
+\end{lstlisting}
+\end{landscape}
+
+\begin{landscape}
+\section{Sample time table (Customised Variant)}
+\subsection{Rendering}
+\printheading{Stundenplan 6. Semester}
+
+% Define the layout of your time tables
+\setslotsize{2.8cm}{0.26cm}
+\setslotcount {5} {36}
+\settextframe{0.8mm}
+\setbottomstyle{\tiny}
+\setbottomspace{1pt}
+\setprinttimestamps{2}
+\setframetype[t]{1}
+\seteventcornerradius{0pt}
+\definecolor{ttframecol2}{rgb}{0.9,0.9,0.9}
+
+% Define event types
+\defineevent{corelecture}{0.0} {0.28}{1.0} {1.0}{1.0}{1.0}
+\defineevent{seminar}    {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{langcourse} {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{tutorial}   {0.6} {0.8} {1.0} {1.0}{1.0}{1.0}
+\defineevent{work}       {0.21}{0.5} {0.16}{1.0}{1.0}{1.0}
+
+% Start the time table
+\begin{timetable}
+  \hours{9}{15}{0}
+  \germandays{1}
+  \event 1 {1415} {1600} {Data Networks Lecture}                  {Druschel}        {E1{\tiny 3} 002}     {corelecture}
+  \event 1 {1615} {1800} {Tutorial SysArch}                       {Gwosdek}         {E1{\tiny 3} SR014}   {work}
+  \event 2 {0915} {1100} {Embedded Systems Lecture}               {Finkbeiner}      {E1{\tiny 3} 003}     {corelecture}
+  \event 2 {1115} {1300} {Differential Equations in IPCV Lecture} {Weickert}        {E1{\tiny 3} 001}     {corelecture}
+  \event 2 {1415} {1600} {Office Hour SysArch}                    {Gwosdek}         {E1{\tiny 1} HaDePra} {work}
+  \event 3 {1415} {1600} {Data Networks Lecture}                  {Druschel}        {E1{\tiny 3} 002}     {corelecture}
+  \event 3 {1615} {1800} {Numerical Algorithms in Image Analysis} {Bruhn, Weickert} {E1{\tiny 1} 3.06}    {seminar}
+  \event 4 {0915} {1100} {Embedded Systems Lecture}               {Finkbeiner}      {E1{\tiny 3} 003}     {corelecture}
+  \event 4 {1115} {1300} {Tutorial SysArch}                       {Gwosdek}         {E1{\tiny 3} SR014}   {work}
+  \event 5 {1000} {1100} {Bremser Meeting}                        {SysArch United}  {E1{\tiny 3}}         {work}
+  \event 5 {1115} {1300} {Differential Equations in IPCV Lecture} {Weickert}        {E1{\tiny 3} 001}     {corelecture}
+\end{timetable}
+\end{landscape}
+
+\begin{landscape}
+\subsection{Source code}
+\begin{lstlisting}
+\documentclass[a4paper,10pt]{report}
+
+% Definitions
+\usepackage{lscape}
+\usepackage[height=25cm]{geometry}
+\usepackage{timetable}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{landscape}
+\printheading{Stundenplan 6. Semester}
+
+% Define the layout of your time tables
+\setslotsize{2.8cm}{0.26cm}
+\setslotcount {5} {36}
+\settextframe{0.8mm}
+\setbottomstyle{\tiny}
+\setbottomspace{1pt}
+\setprinttimestamps{2}
+\setframetype[t]{1}
+\seteventcornerradius{0pt}
+\definecolor{ttframecol2}{rgb}{0.9,0.9,0.9}
+
+% Define event types
+\defineevent{corelecture}{0.0} {0.28}{1.0} {1.0}{1.0}{1.0}
+\defineevent{seminar}    {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{langcourse} {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{tutorial}   {0.6} {0.8} {1.0} {1.0}{1.0}{1.0}
+\defineevent{work}       {0.21}{0.5} {0.16}{1.0}{1.0}{1.0}
+
+% Start the time table
+\begin{timetable}
+  \hours{9}{15}{0}
+  \germandays{1}
+  \event 1 {1415} {1600} {Data Networks Lecture}                  {Druschel}        {E1{\tiny 3} 002}     {corelecture}
+  \event 1 {1615} {1800} {Tutorial SysArch}                       {Gwosdek}         {E1{\tiny 3} SR014}   {work}
+  \event 2 {0915} {1100} {Embedded Systems Lecture}               {Finkbeiner}      {E1{\tiny 3} 003}     {corelecture}
+  \event 2 {1115} {1300} {Differential Equations in IPCV Lecture} {Weickert}        {E1{\tiny 3} 001}     {corelecture}
+  \event 2 {1415} {1600} {Office Hour SysArch}                    {Gwosdek}         {E1{\tiny 1} HaDePra} {work}
+  \event 3 {1415} {1600} {Data Networks Lecture}                  {Druschel}        {E1{\tiny 3} 002}     {corelecture}
+  \event 3 {1615} {1800} {Numerical Algorithms in Image Analysis} {Bruhn, Weickert} {E1{\tiny 1} 3.06}    {seminar}
+  \event 4 {0915} {1100} {Embedded Systems Lecture}               {Finkbeiner}      {E1{\tiny 3} 003}     {corelecture}
+  \event 4 {1115} {1300} {Tutorial SysArch}                       {Gwosdek}         {E1{\tiny 3} SR014}   {work}
+  \event 5 {1000} {1100} {Bremser Meeting}                        {SysArch United}  {E1{\tiny 3}}         {work}
+  \event 5 {1115} {1300} {Differential Equations in IPCV Lecture} {Weickert}        {E1{\tiny 3} 001}     {corelecture}
+\end{timetable}
+\end{landscape}
+\end{document}          
+\end{lstlisting}
+\end{landscape}
+
+\end{appendix}
+\end{document}    

@@ -1,0 +1,32 @@
+\documentclass[a4paper]{article}
+\usepackage{geometry}
+
+\geometry{top=1cm,left=1cm,right=1cm,bottom=2cm}
+
+% The following is needed in order to make the code compatible
+% with both latex/dvips and pdflatex.
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
+\pdfinfo{
+   /Author (Martin Thoma)
+   /Title  (LittlePraktomat Documentation)
+   /Subject (LittlePraktomat Documentation)
+   /Keywords (LaTeX)
+}
+
+\title{LittlePraktomat Documentation}
+\author{Martin Thoma}
+
+\begin{document}
+
+\maketitle
+
+\section{UML}
+\includegraphics{meta.1}
+
+\end{document}

@@ -1,0 +1,177 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage[ngerman]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\definecolor{sky}{HTML}{AAEEEE}
+\definecolor{lgreen}{HTML}{77DD11}
+\usepackage{tikz}
+\usetikzlibrary{calc, decorations.pathmorphing, decorations.text}
+
+\geometry{a4paper,left=18mm,right=18mm, top=1cm, bottom=2cm} 
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\shorthandon{"}
+\hypersetup{
+    pdftitle={Sichtweite des Burdsch Chalifa},
+    pdfsubject={Aufgabe},
+    pdfauthor={Martin Thoma},
+    pdfkeywords={Aufgabe, Mathematik, Geometrie, Rechenweg, Lösung}}
+\shorthandoff{"}
+
+\begin{document}
+ \title{Sichtweite des Burdsch Chalifa}
+ \author{Martin Thoma}
+
+ \setcounter{section}{1}
+ \section*{Aufgabenstellung}
+    Der Burdsch Chalifa war 2010 das höchste Gebäude der Erde. Bis zur Spitze 
+    sind es 830 m.\\
+    \\
+    Angenommen, die Erde wäre eine perfekte Kugel mit einem Radius von 6370 km
+    und die Sicht wäre nicht durch Nebel, Wolken oder sonstige Hindernisse 
+    eingeschränkt. Aus welcher Entfernung, die man über die Erde direkt zum 
+    Burdsch Chalifa zurücklegt, könnte man den Burdsch Chalifa maximal sehen?
+
+    \subsection{Situationsskizze}
+
+
+\begin{tikzpicture}[scale=1.2]
+    \draw[fill=sky] (0, 0) circle (1.5cm);
+    \draw[fill=brown] (0, 0) circle (1cm);
+
+    %tangente
+    \begin{scope}[shift={(-1.35cm,0)}, rotate=48]
+        \draw (0,0) -- node {} (2.5cm, 0);
+    \end{scope}
+
+    \draw (0,0) -- node {} (0, 1.5cm);
+    \draw (0,0) -- node[anchor=east] {$r$} (138:1cm);
+
+    % angle
+    \draw[fill=gray!30] (0,0) -- (138:0.75cm) arc (138:90:0.75cm);
+    \draw (110:0.5cm) node {$\varphi$};
+
+    % winkelbogen
+    \draw[lime] (138:1cm) arc (138:90:1cm);
+    \node[lime] at (-0.2,0.85) {$x$} ;
+
+    % height
+    \draw[blue] (0,1cm) -- node[anchor=west] {$h$} (0, 1.5cm);
+
+    \node at (0,-0.2) {Erde} ;
+
+\end{tikzpicture}
+
+
+    Gesucht ist die Länge des neongrün hervorgehobenen Kreisbogens x.
+
+    \subsection{Rechenweg}
+    \begin{align}
+        x &= \text{Umfang} \cdot \frac{\phi}{360^\circ} \\
+          &= 2 \cdot r \cdot \pi \cdot \frac{cos^{-1}(\frac{r}{r+h})}{360^\circ} \\
+          &= 2 \cdot 6370 \text{km} \cdot \pi \cdot \frac{cos^{-1}(\frac{6370}{6370,83})}{360^\circ} \\
+          &= 102,8 \text{km}
+    \end{align}
+
+    \subsection{Antwort}
+        Bei optimalen, also unrealistischen, Bedingungen könnte man die Spitze 
+        des Burdsch Chalifa noch in 102,8 km entfernung sehen. Dies entspricht 
+        übrigens auch dem Punkt auf der Erdoberfläche, der vom Burdsch Chalifa 
+        am weitesten entfernt und zu sehen ist.\\
+        Auch wenn nur die Luftlinie gemessen wird, sind es 102,8 km, da der 
+        Erdradius bedeutend größer als der Burdsch Chalifa ist.\\
+        \\
+        Laut Bildzeitung kann man die Spitze des Burdsch Chalifa noch in 95 km 
+        sehen\footnote{http://www.bild.de/lifestyle/bams/burj-chalifa/burj-chalifa-bei-dieser-story-wurde-uns-schwindelig-828-meter-11056462.bild.html vom 10. Juni 2010. Abgerufen am 28. Mai 2011.}
+
+ \section{Erweiterung der Aufgabenstellung}
+    Das Dorf Mileiha liegt direkt östlich vom Burdsch Chalifa 
+    (25$^\circ$ 11' 50'' N, 55$^\circ$ 16' 27'' O). \\
+    Wie weit östlich darf das Dorf maximal liegen, damit man die Spitze des 
+    Burdsch Chalifa bei optimalen Bedingungen noch sehen kann?\\
+    Hinweis: Es gelten noch immer die gleichen Voraussetzungen wie im ersten 
+    Teil der Aufgabe.
+
+    \subsection{Situationsskizze}
+\begin{tikzpicture}[scale=3.5,dot/.style={circle,fill=black,minimum size=4pt,inner sep=0pt,
+            outer sep=-1pt}]
+    \draw[fill=sky!20] (180:1.2cm) arc (180:0:1.2cm);
+    \draw[fill=brown!20] (180:1cm) arc (180:0:1cm);
+    \draw (-1.2cm,0) -- node {} (1.2cm, 0);
+    \draw (0,0) -- node {} (0, 1cm);
+    \node at (0,1.1cm) {N} ;
+
+    \coordinate (DEnd) at (0.867cm,0.5cm) ;
+    \draw[dashed] (-0.86cm,0.5cm) -- node[above] {} (DEnd);
+
+    \node[above] at (-0.4cm, 0.45cm) {25. Breitengrad};
+    \node[above, text width=1cm] at (0.15cm, 0.5cm) {\scriptsize Burdsch\\Chalifa};
+    \node[above, text width=1cm] at (0.7cm, 0.5cm) {\scriptsize Mileiha};
+
+    \path [decorate,
+            decoration={
+                text along path,
+                text={6370 km},
+                text align={align=center}
+            }
+          ] (0,0) -- (DEnd);
+    \draw (0,0) -- node {} (DEnd);
+    \draw[arrows={stealth-stealth}] (-1cm,-0.05cm) -- node[below] {6370 km} (0,-0.05cm);
+
+    \node[dot, lgreen] at (0.2cm,0.5cm) (S) {};
+    \node[dot, lgreen] at (0.5cm,0.5cm) (E) {};
+
+
+
+    \draw[lgreen, thick] (S) -- node {} (E);
+
+    \begin{scope}[shift={(DEnd)}]
+        \draw[fill=gray!20] (0,0) -- (180:0.3cm)  arc (180:210:0.3cm);
+        \draw (195:0.2cm) node {$\scriptstyle 25^\circ$};
+    \end{scope}
+
+
+
+\end{tikzpicture}
+
+        Gesucht ist die grün eingezeichnete Kurve, die sich über die 
+        Erdoberfläche krümmt. Ihre Länge sei x.\\
+        Um diese zu berechnen, müssen wir wissen welchen Radius die Kreisfläche 
+        hat, die entsteht, wenn man die Erde am 25. Breitengrad schneidet. Der 
+        Radius dieser Kreisfläche sei $r_{25}$.
+    \subsection{Berechnung}
+        \begin{align}
+            \text{Breitengrad} &= 25 + \frac{11}{60} + \frac{50}{60 \cdot 60} \\
+            \text{Breitengrad} &= \frac{9071}{360} \approx 25,1972 \\
+            cos(\frac{9071}{360}) &= \frac{r_{25,1972}}{6370\text{km}} \\
+            r_{25,1972} &= cos(\frac{9071}{360}) \cdot 6370\text{km} \\
+            r_{25,1972} &\approx 5764\text{km}
+        \end{align}
+        Der soeben errechnete Radius kann einfach in die im ersten Abschnitt
+        erarbeitete Formel eingesetzt werden:
+    \begin{align}
+        x &= 2 \cdot r \cdot \pi \cdot \frac{cos^{-1}(\frac{r}{r+h})}{360^\circ} \\
+          &= 2 \cdot 5764 \text{km} \cdot \pi \cdot \frac{cos^{-1}(\frac{5764}{5764,83})}{360^\circ} \\
+          &\approx 97,8 \text{km}
+    \end{align}
+        Nun sollte man noch berücksichtigen, dass die Beobachter wohl nicht auf
+        der Erde kriechen, sondern ihre Augen in einer Höhe von ca. 1,6m sind:
+    \begin{align}
+        x &= 2 \cdot 5764 \text{km} \cdot \frac{\pi}{360^\circ} \cdot ( cos^{-1}(\frac{5764}{5764,83}) + cos^{-1}(\frac{5764}{5764,0016}) \\
+          &\approx 102 \text{km}
+    \end{align}
+
+    \subsection{Antwort}
+        Der am weitesten entfernte Punkt, der direkt östlich vom Burdsch Chalifa
+        steht und von dem aus die Spitze des Burdsch Chalifa unter optimalen
+        Bedinungen noch erkannt werden kann, liegt ca. 102 km entfernt. \\
+        \\
+        Anmerkung: Mileiha liegt ca. 60 km vom Burdsch Chalifa entfernt. Er 
+        müsste also von Mileiha zu sehen sein.
+\end{document}

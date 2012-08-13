@@ -1,0 +1,55 @@
+\documentclass[a4paper,10pt]{report}
+
+% Definitions
+\usepackage{lscape}
+\usepackage[height=25cm]{geometry}
+\usepackage{timetable}
+
+\geometry{top=2cm,left=1cm,right=1cm,bottom=3cm}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{landscape}
+\noindent\printheading{Stundenplan von Martin Thoma - 3. Semester}
+
+% Define the layout of your time tables
+\setslotsize{2.8cm}{0.3cm}
+\setslotcount {5} {44}
+\settopheight{3}
+\settextframe{0.8mm}
+
+% Retro
+\setframetype[t]{1}
+\seteventcornerradius{0pt}
+
+% Print timestamps into event blocks
+%\setprinttimestamps{2}
+
+% Define event types
+\defineevent{lecture}{0.0} {0.28}{1.0} {1.0}{1.0}{1.0}
+\defineevent{exercise-course}    {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{tutorial}   {0.6} {0.8} {1.0} {1.0}{1.0}{1.0}
+\defineevent{langcourse} {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{icpc}       {0.21}{0.5} {0.16}{1.0}{1.0}{1.0}
+
+% Start the time table
+\begin{timetable}
+  \hours{8}{15}{1}
+  \germandays{1}
+  \event 1 {0800} {0930} {Analysis III}                           {Schmöger}             {10.21 Benz}      {lecture}
+  \event 1 {0945} {1115} {Betriebssysteme}                        {Beigl}                {10.32 Nusselt}   {lecture}
+  \event 1 {1400} {1530} {Digitaltechnik}                         {Asfour}               {50.35 HS a. F.}  {lecture}
+
+  \event 2 {0945} {1115} {Betriebssysteme}                        {Beigl}                {20.40 HS 37}     {lecture}
+  \event 2 {1545} {1715} {Algorithmen II}                         {Wagner}               {30.46 Neue Chemie} {lecture}
+
+  \event 3 {1400} {1530} {Digitaltechnik}                         {Asfour}               {50.35 HS a. F.}  {lecture}
+
+  \event 4 {1545} {1715} {Algorithmen II}                         {Wagner}               {30.21 Gerthsen}  {lecture}
+
+  \event 5 {1130} {1300} {Analysis III}                           {Schmoeger}            {10.11 Hertz}     {lecture}
+  \event 5 {1545} {1715} {Analysis III}                           {Bolleyer}             {10.21 Daimler}   {exercise-course}
+\end{timetable}
+
+\end{landscape}
+\end{document}          
