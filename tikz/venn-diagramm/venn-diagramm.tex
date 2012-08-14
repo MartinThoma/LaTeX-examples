@@ -29,12 +29,12 @@
       minimum height=3em
     }
   ]
-    \draw[fill=yellow!20,yellow!20] (-1.85, 0.55) rectangle (13.4,-6.85);
-    \draw[fill=black!20,black!20]   ( 7.53,-1.40) rectangle (13.0,-6.45);
-    \draw[fill=lime!20,lime!20]     (-1.75, 0.45) rectangle (7.3,-6.75);
-    \draw[fill=purple!20,purple!20] (-1.65,-1.40) rectangle (7.2,-6.65);
-    \draw[fill=blue!20,blue!20]     (-1.55,-3.55) rectangle (7.1,-6.55);
-    \draw[fill=red!20,red!20]       (-1.45,-4.65) rectangle (7.0,-6.45);
+    \draw[fill=yellow!20,yellow!20, rounded corners] (-1.85, 0.55) rectangle (13.4,-6.85);
+    \draw[fill=black!20,black!20, rounded corners]   ( 7.53,-1.40) rectangle (13.0,-6.45);
+    \draw[fill=lime!20,lime!20, rounded corners]     (-1.75, 0.45) rectangle (7.3,-6.75);
+    \draw[fill=purple!20,purple!20, rounded corners] (-1.65,-1.40) rectangle (7.2,-6.65);
+    \draw[fill=blue!20,blue!20, rounded corners]     (-1.55,-3.55) rectangle (7.1,-6.55);
+    \draw[fill=red!20,red!20, rounded corners]       (-1.45,-4.65) rectangle (7.0,-6.45);
     \draw (0, 0) node[algebraicName] (A) {Gruppe}
           (2, 0) node[explanation]   (B) {
             \begin{minipage}{0.90\textwidth}
@@ -118,17 +118,17 @@
           };
 
     % Körper
-    \draw[red,thick]     ($(J.north west)+(-0.1,0.0)$) rectangle ($(N.south east)+(0.1,-0.1)$);
+    \draw[red,thick, rounded corners]     ($(J.north west)+(-0.1,0.0)$) rectangle ($(N.south east)+(0.1,-0.1)$);
     % Ring
-    \draw[blue, thick]   ($(H.north west)+(-0.2,0.1)$) rectangle ($(N.south east)+(0.2,-0.2)$);
+    \draw[blue, thick, rounded corners]   ($(H.north west)+(-0.2,0.1)$) rectangle ($(N.south east)+(0.2,-0.2)$);
     % abelsche Gruppe
-    \draw[purple, thick] ($(C.north west)+(-0.3,0.1)$) rectangle ($(N.south east)+(0.3,-0.3)$);
+    \draw[purple, thick, rounded corners] ($(C.north west)+(-0.3,0.1)$) rectangle ($(N.south east)+(0.3,-0.3)$);
     % Gruppe
-    \draw[lime, thick]   ($(A.north west)+(-0.4,0.1)$) rectangle ($(N.south east)+(0.4,-0.4)$);
+    \draw[lime, thick, rounded corners]   ($(A.north west)+(-0.4,0.1)$) rectangle ($(N.south east)+(0.4,-0.4)$);
     % Halbgruppe
-    \draw[yellow, thick] ($(A.north west)+(-0.5,0.2)$) rectangle ($(G.south east)+(0.5,-0.5)$);
+    \draw[yellow, thick, rounded corners] ($(A.north west)+(-0.5,0.2)$) rectangle ($(G.south east)+(0.5,-0.5)$);
     % Halbgruppe
-    \draw[black, thick] ($(Q.north west)+(-0.1,0.1)$) rectangle ($(G.south east)+(0.1,-0.1)$);
+    \draw[black, thick, rounded corners] ($(Q.north west)+(-0.1,0.1)$) rectangle ($(G.south east)+(0.1,-0.1)$);
 \end{tikzpicture}
 \end{preview}
 \end{document}
