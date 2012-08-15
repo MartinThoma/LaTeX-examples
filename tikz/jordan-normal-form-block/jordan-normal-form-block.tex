@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{fit,matrix,positioning}
+
+\tikzset{%
+  highlight/.style={
+    rectangle,
+    rounded corners,
+    fill=#1!15,
+    draw,
+    fill opacity=0.5,
+    %thick,
+    inner sep=1pt
+  }
+}
+\newcommand{\tikzmark}[2]{
+    \tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};
+}
+
+\newcommand{\Highlight}[3]{%
+    \tikz[overlay,remember picture]{
+    \node[highlight=#3,fit=(#1.north west) (#2.south east)]  {};}
+}
+
+\begin{document}
+\begin{preview}
+$
+  A_{\lambda_i} = 
+    \left(
+      \begin{array}{*5{c}}
+       \tikzmark{1}{$\lambda_i$}     &     1         &    0      &         &  0        \\
+                                        & \lambda_i     &    1      &         &           \\
+                                        &               & \lambda_i\tikzmark{2}{} &         &           \\
+                                        &               &           &  \ddots &           \\
+                             0          &               &           &         & \tikzmark{3}{$\lambda_i$} \tikzmark{4}{} \\
+      \end{array}
+    \right)
+  \Highlight{1}{2}{blue} 
+  \Highlight{3}{4}{red} 
+$
+\end{preview}
+\end{document}
