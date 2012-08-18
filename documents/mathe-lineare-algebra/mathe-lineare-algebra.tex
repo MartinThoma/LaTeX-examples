@@ -1,0 +1,137 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage{} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}  % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Lineare Algebra}, 
+  pdftitle    = {Lineare Algebra - Definitionen} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom definition style, by                                       %
+% http://mathoverflow.net/questions/46583/what-is-a-satisfactory-way-to-format-definitions-in-latex/58164#58164
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newdimen\errorsize \errorsize=0.2pt
+% Frame with a label at top
+\newcommand\LabFrame[2]{%
+    \fboxrule=\FrameRule
+    \fboxsep=-\errorsize
+    \textcolor{FrameColor}{%
+    \fbox{%
+      \vbox{\nobreak
+      \advance\FrameSep\errorsize
+      \begingroup
+        \advance\baselineskip\FrameSep
+        \hrule height \baselineskip
+        \nobreak
+        \vskip-\baselineskip
+      \endgroup
+      \vskip 0.5\FrameSep
+      \hbox{\hskip\FrameSep \strut
+        \textcolor{TitleColor}{\textbf{#1}}}%
+      \nobreak \nointerlineskip
+      \vskip 1.3\FrameSep
+      \hbox{\hskip\FrameSep
+        {\normalcolor#2}%
+        \hskip\FrameSep}%
+      \vskip\FrameSep
+    }}%
+}}
+\definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
+\definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
+
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+  % Optional continuation label defaults to the first label plus
+  \def\Frame@Lab{#2}%
+  \def\FrameCommand{\LabFrame{#2}}%
+  \def\FirstFrameCommand{\LabFrame{#2}}%
+  \def\MidFrameCommand{\LabFrame{#1}}%
+  \def\LastFrameCommand{\LabFrame{#1}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore} 
+}{\endMakeFramed} 
+\newcounter{definition}
+\newenvironment{definition}[1]{%
+  \par
+  \refstepcounter{definition}%
+  \begin{contlabelframe}{Definition \thedefinition:\quad #1}
+ \noindent\ignorespaces}
+{\end{contlabelframe}} 
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{definition}{injektiv, surjektiv und bijektiv}
+Sei $f: A \rightarrow B$ eine Abbildung.
+  \begin{enumerate}[(a)]
+    \item $f$ heißt \textbf{surjektiv} $:\Leftrightarrow f(A) = B$
+    \item $f$ heißt \textbf{injektiv}  $:\Leftrightarrow \forall x_1, x_2 \in A: x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)$
+    \item $f$ heißt \textbf{bijektiv}  $:\Leftrightarrow f$ ist surjektiv und injektiv
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}{Relation}
+Seien A und B Mengen. $R \subseteq A \times B$ heißt \textbf{Relation}.
+\end{definition}
+
+\begin{definition}{Ordnungsrelation}
+Eine Relation $\leq$ heißt Ordnungsrelation in A und $(A, \leq)$ heißt
+(partiell) geordnete Menge, wenn für alle $a, b, c  \in A$ gilt:
+
+  \begin{description}
+    \item[O1] $a \leq a$ (reflexiv)
+    \item[O2] $a \leq b \land b \leq a \Rightarrow a = b$ (antisymmetrisch)
+    \item[O3] $a \leq b \land b \leq c \Rightarrow a \leq c$ (transitiv)
+  \end{description}
+
+\noindent $(A, \leq)$ heißt total geordnet $:\Leftrightarrow \forall a, b, \in A: a \leq b \lor b \leq a$
+\end{definition}
+
+\begin{definition}{Äquivalenzrelation}
+Sei $R \subseteq A \times A$ eine Relation. 
+R heißt Äquivalenzrelation, wenn für alle $a, b, c \in A$ gilt:
+
+  \begin{description}
+    \item[Ä1] $a R a$ (reflexiv)
+    \item[Ä2] $a R b \Rightarrow b R a$ (symmetrisch)
+    \item[Ä3] $a R b \land b R c \Rightarrow a R c$ (transitiv)
+  \end{description}
+\end{definition}
+
+\begin{definition}{Assoziativität}
+Sei A eine Menge und $*$ eine Verknüpfung auf A.\\
+A heißt \textbf{assoziativ} $:\Leftrightarrow \forall a, b, c \in A: (a * b) * c = a * (b*c)$
+\end{definition}
+
+\begin{definition}{Gruppe}
+Sei G eine Menge und $*$ eine Verknüpfung auf G.\\
+$(G, *)$ heißt \textbf{Gruppe} $: \Leftrightarrow$
+  \begin{description}
+    \item[G1] $\forall a, b, c \in G: (a * b)*c=a*(b*c)$ (assoziativ)
+    \item[G2] $\exists e \in G \forall a \in G: e * a = a = a * e$ (neutrales Element)
+    \item[G3] $\forall a \in G \exists a^{-1} \in G: a^{-1}*a=e=a*a^{-1}$ (inverses Element)
+  \end{description}
+\end{definition}
+
+\begin{definition}{abelsche Gruppe}
+Sei $(G, *)$ eine Gruppe.
+$(G, *)$ heißt \textbf{abelsche Gruppe} $: \Leftrightarrow$
+  \begin{description}
+    \item[G4] $\forall a, b \in G: a * b = b * a$ (kommutativ)
+  \end{description}
+\end{definition}
+
+\end{document}
