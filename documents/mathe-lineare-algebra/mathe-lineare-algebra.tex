@@ -134,4 +134,62 @@ $(G, *)$ heißt \textbf{abelsche Gruppe} $: \Leftrightarrow$
   \end{description}
 \end{definition}
 
+\begin{definition}{Ring}
+Sei R eine Menge und $+$ sowie $cdot$ Verknüpfungen auf R.\\
+$(R, +, \cdot)$ heißt \textbf{Ring} $: \Leftrightarrow$
+  \begin{description}
+    \item[R1] $(R, +)$ ist abelsche Gruppe
+    \item[R2] $\cdot$ ist assoziativ
+    \item[R3] Distributivgesetze: $\forall a, b, c \in R: a \cdot (b+c) = a \cdot b + a \cdot c$ und $(b+c)\cdot a = b \cdot a + c \cdot a$
+  \end{description}
+\end{definition}
+
+\begin{definition}{Nullteiler}
+Sei $(R, +, \cdot)$ ein Ring.\\
+$a \in R$ heißt (linker) \textbf{Nullteiler} $:\Leftrightarrow a \neq 0 \land \exists b: a \cdot b = 0$ 
+\end{definition}
+
+\begin{definition}{Ringhomomorphismus}
+Seien $(R_1, +, \cdot)$ und $(R_2, +, \cdot)$ Ringe und $\Phi:R_1 \rightarrow R_2$ eine Abbildung.\\
+$\Phi$ heißt \textbf{Ringhomomorphismus} $:\Leftrightarrow \forall x,y \in R_1: \Phi(x+y) = \Phi(x) + \Phi(y)$ und $\Phi(x \cdot y) = \Phi(x) \cdot \Phi(y)$ 
+\end{definition}
+
+\begin{definition}{Körper}
+Sei $(\mathbb{K}, +, \cdot)$ ein Ring.\\
+$(\mathbb{K}, +, \cdot)$ heißt \textbf{Körper} $:\Leftrightarrow (\mathbb{K} \setminus \{0\}, \cdot)$ ist eine abelsche Gruppe.
+\end{definition}
+
+\begin{definition}{Charakteristik}
+Sei $(\mathbb{K}, +, \cdot)$ ein Körper.\\
+Falls es ein $m \in N^+$ gibt, sodass
+\[ \underbrace{1+1+ \dots + 1}_{m \text{ mal}} = 0 \]
+gilt, so heißt die kleinste solche Zahl $p$ die Charakteristik ($\text{char } \mathbb{K}$) von $\mathbb{K}$.
+Gibt es kein solches $m$, so habe $\mathbb{K}$ die Charaktersitik 0.
+\end{definition}
+
+\begin{definition}{Vektorraum}
+Sei $(\mathbb{K}, +, \cdot)$ ein Körper und $V$ eine Menge mit einer Addition
+\[ +: V \times V \rightarrow V, (x,y) \mapsto x  + y \]
+und einer skalaren Multiplikation
+\[ \cdot: \mathbb{K} \times V \rightarrow V, (\lambda, x) \mapsto \lambda \times x \]
+
+heißt $\mathbb{K}$-Vektorraum, falls gilt:
+  \begin{description}
+    \item[V1] $(V, +)$ ist abelsche Gruppe
+    \item[V2] für alle $\lambda, \mu \in \mathbb{K}$ und alle $x, y \in V$ gilt:
+    \begin{enumerate}[(a)]
+      \item $1 \cdot x = x$
+      \item $\lambda \cdot (\mu \cdot x) = (\lambda \cdot \mu) \cdot x$
+      \item $(\lambda + \mu) \cdot x = \lambda \cdot x + \mu \cdot x$
+      \item $\lambda \cdot (x+y) = \lambda \cdot x + \lambda \cdot y$
+    \end{enumerate}
+  \end{description}
+\end{definition}
+
+\begin{definition}{Lineare Unabhängigkeit}
+Sei V ein $\mathbb{K}$-Vektorraum. Endlich viele Vektoren $v_1, \dots, v_k \in V$
+heißen \textbf{linear unabhängig}, wenn gilt:
+\[ \displaystyle \sum_{i=1}^{k} \lambda_i v_i = 0 \Rightarrow \lambda_1 = \lambda_2 = \dots = \lambda_k = 0 \]
+\end{definition}
+
 \end{document}
