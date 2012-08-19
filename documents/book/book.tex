@@ -1,0 +1,49 @@
+% thanks to http://www.math.mun.ca/~edgar/thesis.html for 
+% giving me a document to start with
+
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage{amssymb} % needed for math
+\usepackage{amsmath} % needed for math
+\usepackage{makeidx} % for automatically generation of an index
+\usepackage{hyperref}  % links in the text, has to be after makeidx
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{fancyhdr}  % needed for the footer
+\usepackage{lastpage}  % needed for the footer
+\usepackage{color, colortbl}  % farbige Tabellenzellen
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage{tabularx}
+\usepackage{mystyle} % create mystyle.sty where you put all your own \newcommand statements
+\clubpenalty  = 10000 % Schusterjungen verhindern
+\widowpenalty = 10000 % Hurenkinder verhindern
+
+\usepackage{showidx}
+
+\makeindex
+
+\begin{document}
+\author{Martin Thoma} 
+\title{Test Book} 
+
+\maketitle % generate title page
+
+\frontmatter % start roman numbering
+\tableofcontents 
+\include{preface} 
+
+\mainmatter % start the arabic numbering for the real content
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+
+\backmatter % the real content ends here
+\bibliographystyle{amsalpha} %The style you want to use for references. 
+\bibliography{refs} %The files containing all the articles and books you ever referenced. 
+
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex % print the automatically created index
+\end{document}
