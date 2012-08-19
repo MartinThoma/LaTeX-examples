@@ -1,9 +1,11 @@
+SOURCE = book
+
 make:
-	pdflatex book.tex -output-format=pdf
-	pdflatex book.tex -output-format=pdf
-	makeindex book
-	bibtex book
-	pdflatex book.tex -output-format=pdf
+	pdflatex $(SOURCE).tex -output-format=pdf
+	pdflatex $(SOURCE).tex -output-format=pdf
+	makeindex $(SOURCE)
+	bibtex $(SOURCE)
+	pdflatex $(SOURCE).tex -output-format=pdf
 	make clean
 
 clean:
