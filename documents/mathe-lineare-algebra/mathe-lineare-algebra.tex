@@ -1,4 +1,4 @@
-\documentclass[a4paper,9pt]{scrartcl}
+\documentclass[a4paper,10pt]{scrartcl}
 \usepackage{amssymb, amsmath} % needed for math
 \usepackage{} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for umlauts
@@ -69,11 +69,24 @@
  \noindent\ignorespaces}
 {\end{contlabelframe}} 
 \makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom satz style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newcounter{satz}
+\newenvironment{satz}[1]{%
+  \par
+  \refstepcounter{satz}%
+  \begin{contlabelframe}{Satz \thedefinition:\quad #1}
+ \noindent\ignorespaces}
+{\end{contlabelframe}} 
+\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin document                                                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
+\section{Lineare Algebra I}
 \begin{definition}{injektiv, surjektiv und bijektiv}
 Sei $f: A \rightarrow B$ eine Abbildung.
   \begin{enumerate}[(a)]
@@ -190,6 +203,155 @@ heißt $\mathbb{K}$-Vektorraum, falls gilt:
 Sei V ein $\mathbb{K}$-Vektorraum. Endlich viele Vektoren $v_1, \dots, v_k \in V$
 heißen \textbf{linear unabhängig}, wenn gilt:
 \[ \displaystyle \sum_{i=1}^{k} \lambda_i v_i = 0 \Rightarrow \lambda_1 = \lambda_2 = \dots = \lambda_k = 0 \]
+\end{definition}
+
+\clearpage
+\section{Lineare Algebra II}
+
+\begin{definition}{Bilinearform}
+Sei V ein reeler Vektorraum. Eine \textbf{Bilinearform} auf V ist eine
+Abbildung
+\[ F: V \times V \rightarrow V, ~~~ (a,b) \mapsto F(a,b), \]
+die in jedem Argument linear ist, d.h. für alle $a, a_1, a_2, b, b_1, b2 \in V$
+und alle $\lambda_1, \lambda_2, \mu_1, \mu_2 \in \mathbb{R}$ gilt:
+\begin{align*}
+    F(\lambda_1 \cdot a_1 + \lambda_2 \cdot a_2, b) &= \lambda_1 \cdot F(a_1, b) + \lambda_2 \cdot F(a_2, b)\\
+    F(a, \mu_1 \cdot b_1 + \mu_2 \cdot b_2)         &= \mu_1 \cdot F(a, b_1) + \mu_2 \cdot F(a, b_2)
+\end{align*}
+\end{definition}
+
+\begin{definition}{symmetrische Bilinearform}
+Sei F eine Bilinearform.\\
+F heißt \textbf{symmetrisch} $:\Leftrightarrow F(a,b) = F(b,a)$.
+\end{definition}
+
+\begin{definition}{positiv definite Bilinearform}
+Sei F eine Bilinearform.\\
+F heißt \textbf{positiv definit} $:\Leftrightarrow \forall a \in V: F(a,a) \geq 0 \land ( F(a,a) = 0 \Leftrightarrow a = 0)$.
+\end{definition}
+
+\begin{definition}{Skalarprodukt}
+Für reele Vektorräume gilt:\\
+Eine symmetrische, positiv definite Bilinearform heißt \textbf{Skalarprodukt}.
+\end{definition}
+
+\begin{definition}{euklidischer Vektorraum}
+Sei V ein reeler Vektorraum und F ein Skalarprodukt auf V. Dann
+heißt (V, F) ein \textbf{euklidischer Vektorraum}.
+\end{definition}
+
+\begin{definition}{Hermitesche Form}
+Sei V ein komplexer Vektorraum. Eine Abbildung 
+\[ F:V \times V \rightarrow \mathbb{C}, ~~~ (a,b) \mapsto F(a,b) \]
+heißt \textbf{hermitesche Form} auf V, falls für alle $a, a_1, a_2, b$
+und alle $\lambda_1, \lambda_2 \in \mathbb{C}$ gilt:
+\begin{align*}
+    F(\lambda_1 \cdot a_1 + \lambda_2 \cdot a_2, b) &= \lambda_1 \cdot F(a_1, b) + \lambda_2 \cdot F(a_2, b)\\
+    F(b, a) &= \overline{F(a, b)}
+\end{align*}
+\end{definition}
+
+\begin{definition}{Skalarprodukt}
+Für komplexe Vektorräume gilt:\\
+Eine symmetrische, positiv definite Hermitesche Form heißt \textbf{Skalarprodukt}.
+\end{definition}
+
+\begin{definition}{unitärer Vektorraum}
+Sei V ein komplexer Vektorraum und F ein Skalarprodukt auf V. Dann
+heißt (V, F) ein \textbf{unitärer Vektorraum}.
+\end{definition}
+
+\begin{definition}{hermitesche Matrix}
+Sei $A \in \mathbb{C}^{n \times n}$ eine Matrix.\\
+$A$ heiß hermitesch $: \Leftrightarrow \overline{A}^T = A$
+\end{definition}
+
+\begin{definition}{positiv definite Matrix}
+Sei A eine symmetrische (bzw. hermitesche) Matrix. \\
+A heißt \textbf{positiv definit} $: \Leftrightarrow x^T G x > 0 $
+für alle $x \in \mathbb{R}^n, x \neq 0$ bzw. $z^T G \overline z > 0$ für
+alle $x \in \mathbb{C}^n, z \neq 0 $.
+\end{definition}
+
+\begin{satz}{Cauchy-Schwarz Ungleichung}
+In einem euklidischen oder unitären Vektorraum $V, \langle, \rangle$ gilt für alle $a, b \in V$
+    \[ |\langle a, b \rangle |^2 \leq \langle a, a \rangle  \langle b, b \rangle \]
+Gleichheit gilt genau dann, wenn a und b linear abhängig sind.
+\end{satz}
+
+\begin{definition}{Norm}
+Sei V ein reeler oder komplexer Vektorraum. Eine \textbf{Norm} auf V
+ist eine Funktion 
+\[ \| \| : V\to{\mathbb R}, ~~~ x \mapsto \| x \| \]
+mit folgenden Eigenschaften:\\
+Für alle $\lambda \in \mathbb{R}$ (oder $\mathbb{C}$) und alle $a, b \in V $ gilt:\\
+\begin{enumerate}[(i)]
+    \item $\| \lambda a\| = | \lambda | \cdot \|a \|$ (homogen)
+    \item $\| a+b      \| \leq \| a \| + \| b \|$ (Dreiecks-Ungleichung)
+    \item $\| a        \| \geq 0 \land \| a \| = 0 \Leftrightarrow a = 0$ (positiv definit)
+\end{enumerate}
+\end{definition}
+
+\begin{satz}{induzierte Norm}
+Es sei $V, \langle, \rangle$ ein euklidischer oder unitärer Vektorraum. 
+Dann ist die Funktion
+\[ \| \| : V \rightarrow \mathbb{R} \text{ definiert durch } \|a\| := \sqrt{\langle a, a \rangle}\]
+eine Norm.
+\end{satz}
+
+\begin{satz}{Parallelogramm-Identität}
+\begin{enumerate}[(a)]
+  \item Sei $(V, \langle, \rangle)$ ein euklidischer oder unitärer 
+        Vektorraum mit zugehöriger Norm $\|\|$. Dann gilt die 
+        \textbf{Parallelogramm-Identität}, d.h. für alle $a, b \in V$ ist
+        \[ \| a+ b \|^2 + \| a - b \|^2 = 2 \| a \|^2 +  2 \| b \|^2 \]
+  \item Ist umgekehrt $\|\|$ eine Norm auf einem reelen Vektorraum V,
+        die die Parallelogramm-Identität erfüllt, so existiert ein
+        Skalarprodukt $\langle, \rangle$ auf V mit $\|a\| = \sqrt{\langle a, a \rangle}$
+        für alle $a \in V$.
+\end{enumerate}
+\end{satz}
+
+\begin{definition}{Metrik}
+Für eine beliebige Menge M heißt eine Funktion $d:M \times M \rightarrow \mathbb{R}$
+eine \textbf{Metrik}, wenn d die folgenden Eigenschaften erfüllt:
+\begin{enumerate}[(i)]
+  \item $\forall p, q \in M: d(p, q) = d(q, p)$ (symmetrie)
+  \item $\forall p, q, r \in M: d(p, r) \leq d(p, q) + d(q,r)$ (Dreiecks-Ungleichung)
+  \item $\forall p, q \in M: d(p, q) \geq 0$ und 
+                             $d(p,q) = 0 \Leftrightarrow p = q$ (positiv definit)
+\end{enumerate}
+
+Das Paar $(M, d)$ heißt dann \textbf{metrischer Raum}.
+\end{definition}
+
+\begin{definition}{diskrete Metrik}
+Sei M eine Menge. Dann ist die diskrete Metrik definiert durch:
+\[ d(p,q) =
+\left\{
+	\begin{array}{ll}
+		0 & \mbox{falls } p = q \\
+		1 & \mbox{falls } p \neq q
+	\end{array}
+\right.\]
+\end{definition}
+
+\begin{satz}{Norm induziert Metrik}
+Ein normierter Vektorraum ist ein metrischer Vektorraum.
+\end{satz}
+
+\begin{definition}{Cosinus}
+\[ \cos \omega(a,b) = \frac{\langle a, b \rangle}{\|a\| \cdot \|b \|} \]
+\end{definition}
+
+\begin{definition}{orthogonalität von Vektoren}
+Sei V ein euklidischer oder unitärer Vektorraum und $a, b \in V$.\\
+\[ a \perp b :\Leftrightarrow \langle a, b \rangle = 0 \]
+\end{definition}
+
+\begin{definition}{Pythagoras}
+Sei V ein euklidischer oder unitärer Vektorraum. Dann gilt in V:
+\[ a \perp b \Rightarrow \|a\| + \|b\| = \|a+b\|^2\]
 \end{definition}
 
 \end{document}
