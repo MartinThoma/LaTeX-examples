@@ -211,7 +211,7 @@ heißen \textbf{linear unabhängig}, wenn gilt:
 \begin{definition}{Bilinearform}
 Sei V ein reeler Vektorraum. Eine \textbf{Bilinearform} auf V ist eine
 Abbildung
-\[ F: V \times V \rightarrow V, ~~~ (a,b) \mapsto F(a,b), \]
+\[ F: V \times V \rightarrow \mathbb{R}, ~~~ (a,b) \mapsto F(a,b), \]
 die in jedem Argument linear ist, d.h. für alle $a, a_1, a_2, b, b_1, b2 \in V$
 und alle $\lambda_1, \lambda_2, \mu_1, \mu_2 \in \mathbb{R}$ gilt:
 \begin{align*}
@@ -353,5 +353,89 @@ Sei V ein euklidischer oder unitärer Vektorraum und $a, b \in V$.\\
 Sei V ein euklidischer oder unitärer Vektorraum. Dann gilt in V:
 \[ a \perp b \Rightarrow \|a\| + \|b\| = \|a+b\|^2\]
 \end{definition}
+
+\begin{definition}{Orthogonalkomplement}
+Die Menge $U^\perp := \{x \in V | \langle x, u \rangle = 0~~\forall u \in U\}$
+heißt \textbf{Orthogonalkomplement} von U in V.
+\end{definition}
+
+\begin{definition}{Orthogonalprojektion}
+Die \textbf{Orthogonalprojektion} von V auf U (in Richtung $U^\perp$)
+ist die Abbildung
+\[\pi_U : V \rightarrow U \subseteq V, ~~~ v = u + u^\perp \mapsto u.\]
+\end{definition}
+
+\begin{satz}{Eigenschaften der Orthogonalprojektion}
+Für die Orthogonalprojektion $\pi_U$ eines Vektorraumes V auf einen
+Unterraum U gilt:
+\begin{enumerate}
+  \item $\pi_U$ ist linear und $\pi_U^2 = \pi_U \circ \pi_U = \pi_U$.
+  \item Bild $\pi_U = U$, Kern $\pi_U = U^\perp$.
+  \item $\pi_U$ verkürzt Abstände: Für alle $v, w \in V$ gilt:\\
+        $d(\pi_U(v), \pi_U(w)) = \| \pi_U(v) - \pi_U(w) \| \leq \| v- w \| = d(v,w)$
+\end{enumerate}
+\end{satz}
+
+\begin{definition}{Abstand}
+Seien $(M, d)$ ein metrischer Raum und $A, B \subseteq M$ zwei Teilmengen.
+Der \textbf{Abstand} von A und B ist definiert durch
+\[d(A, B) := \inf\{d(a,b) | a \in A, b \in B\}\]
+\end{definition}
+
+\begin{definition}{orthogonale und unitäre Matrizen}
+Eine reele bzw. komplexe $n \times n$-Matrix A heißt
+\textbf{orthogonal} bzw. \textbf{unitär}, falls gilt
+\[A^T A = E_n ~~~ \text{ bzw. }  ~~~ A^T \overline A = E_n\]
+\end{definition}
+
+\begin{satz}{Charakterisierung von orthogonalen Matrizen}
+Sei $A \in \mathbb{R}^{n \times n}$. Folgende Aussagen sind äquivalent:
+\begin{enumerate}[(a)]
+  \item A ist eine orthogonale Matrix.
+  \item A ist regulär und $A^{-1} = A^T$.
+  \item Die Spaltenvektoren (bzw. die Zeilenvektoren) von A bilden eine
+       Orthonormalbasis von $\mathbb{R}^n$ bzgl. des Standardskalarproduktes
+\end{enumerate}
+
+Analog für unitäre Matrizen.
+\end{satz}
+
+\begin{satz}{Folgerungen}
+  \begin{enumerate}[(a)]
+    \item Für eine orthogonale Matrix A gilt: $\det A = \pm 1$.
+    \item Für eine unitäre Matrix gilt: $| \det A | = 1$.
+  \end{enumerate}
+\end{satz} 
+
+\begin{definition}{Adjungierte lineare Abbildung}
+Es seien $(V, \langle, \rangle_V)$ und $(W, \langle, \rangle_W)$
+zwei Vektorräume mit Skalarprodukt und $\Phi: V \rightarrow W$ eine
+lineare Abbildung. Eine lineare Abbildung $\Phi^*: W \rightarrow V$
+heißt zu $\Phi$ \textbf{adjungierte lineare Abbildung}, falls für
+alle $x \in V$ und alle $y \in W$ gilt:
+\[\langle \Phi(x), y \rangle_W = \langle x, \Phi^*(y) \rangle_V\]
+\end{definition}
+
+\begin{satz}{Spektralsatz}
+Es sei V ein n-dimensionaler Vektorraum mit Skalarprodukt und 
+$\Phi: V \rightarrow V$ ein selbstadjungierter Endomorphismus. Dann
+ist $\Phi$ diagonalisierbar. 
+
+Genauer: Es exisitiert eine Orthonormalbasis B von V, die aus 
+Eigenvektoren von $\Phi$ besteht und die Abbildung von $\Phi$ bzgl.
+dieser Orthonormalbasis hat Diagonalform
+\[M_B^B(\Phi) = \begin{pmatrix}
+\lambda_1 &        & 0\\
+          & \ddots &  \\
+  0       &        & \lambda_n
+\end{pmatrix}\]
+wobei $\lambda_1, \dots, \lambda_n$ die $n$ (reelen) Eigenwerte von
+$\Phi$ sind.
+\end{satz} 
+
+\begin{satz}{Kriterium für "positiv definit"}
+Sei A eine reele, symmetrische Matrix.\\
+A ist positiv definit $\Leftrightarrow$ alle Eigenwerte von A sind positiv.
+\end{satz} 
 
 \end{document}
