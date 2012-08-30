@@ -1,10 +1,11 @@
 SOURCE = ellipsoid
 DELAY = 80
 DENSITY = 300
-WIDTH = 500
+HEIGHT = 600
+WIDTH = 800
 
 make:
-	povray $(SOURCE).pov
+	povray $(SOURCE).pov Width=$(WIDTH) HEIGHT=$(HEIGHT) +O$(SOURCE).png +Q9 +A
 	make clean
 
 clean:

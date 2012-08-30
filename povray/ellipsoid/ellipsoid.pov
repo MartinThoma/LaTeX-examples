@@ -1,5 +1,5 @@
 #include "colors.inc"
-#include "stones.inc"
+#include "stones.inc" // needed for texture T_Stone1
 
 camera {
   location <10, 10, 0>
@@ -13,8 +13,8 @@ plane {
 
 sphere {
   <0, 0, 0>, 4  // center and radius
-  pigment { color White }
-  texture {T_Stone1}
+  scale<1,1,1.4> 
+  pigment { color Green transmit 0.5 }
   finish {
     reflection 0.1
     phong 0.3
