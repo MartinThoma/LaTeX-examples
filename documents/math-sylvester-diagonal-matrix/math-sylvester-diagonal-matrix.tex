@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
-\setlength\PreviewBorder{2mm}
+\setlength\PreviewBorder{0mm}
 
 \usepackage{amsmath,array}
 \renewcommand\arraycolsep{4pt} % default value: 6pt
@@ -9,36 +9,31 @@
 \begin{document}
 \begin{preview}
 \begin{equation*}
+S^T \cdot A \cdot S =
 \left( \,
 \begin{array}{r@{}r@{}r r r}  % @{} is used twice to suppress intercolumn whitespace
-  \overbrace{
-    \boxed{
+  \underbrace{
       \begin{array}{rrr}    % First block (1)
         1 &        &   \\
           & \ddots &   \\
           &        & 1 \\
       \end{array}
-    }
-  }^{r_+(s)-mal} \\
+  }_{r_+(s)-mal}\\
   & 
   \underbrace{
-    \boxed{
       \begin{array}{rrr}    % Second block (-1)
         -1 &        &   \\
            & \ddots &   \\
            &        & -1\\
       \end{array}
-    }
   }_{r_{-}(s)-mal} \\
   & & 
   \underbrace{
-    \boxed{
       \begin{array}{rrr}    % Third block
         0  &        &  \\
            & \ddots &  \\
            &        & 0\\
       \end{array}
-    }
   }_{r_0(s)-mal} \\
 \end{array}\,\right)
 \end{equation*}

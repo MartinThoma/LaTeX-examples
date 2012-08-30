@@ -19,3 +19,12 @@ Requirements
 * You should have the latest LaTeX version. Here are
   [LaTeX installation instructions](http://martin-thoma.com/how-to-install-the-latest-latex-version/)
 * If you want to use the Makefiles, you have to have make
+
+POV-Ray
+=======
+Although POV-Ray has nothing to do with LaTeX, I decided to add
+some images here
+
+* [POV-Ray Documentation](http://www.povray.org/documentation/)
+* [Ubuntuusers.de](http://wiki.ubuntuusers.de/POV-Ray) - German installation instructions
+* [Many examples](http://www.f-lohmueller.de/)

@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{pgfplots}
+\usepackage{units}
+\pgfplotsset{compat=1.3}% <-- moves axis labels near ticklabels
+                        % (respects tick label widths)
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc, intersections, decorations.markings}
+
+\usepackage{xcolor}
+\definecolor{horizontalLineColor}{HTML}{008000}
+\definecolor{verticalLineColor}{HTML}{FF0000}
+ 
+\begin{document}
+
+% Define this as a command to ensure that it is same in both cases
+\newcommand*{\ShowIntersection}[2]{
+\fill 
+    [name intersections={of=#1 and #2, name=i, total=\t}] 
+    [red, opacity=1, every node/.style={above left, black, opacity=1}] 
+    \foreach \s in {1,...,\t}{(i-\s) circle (2pt)
+        node [above left] {\s}};
+}
+
+\begin{preview}
+\begin{tikzpicture}
+    \begin{axis}[
+        grid=both,
+        minor tick num=1,
+        xlabel=$x$,
+        ylabel=$y$,
+        zlabel=$z$,
+        %label distance=0mm,
+        %width=8cm, height=7cm,     % size of the image
+        axis lines=left,
+        %tick style={draw=none},
+        %xticklabels={,,},
+        %yticklabels={,,}
+    ]
+      \addplot3[surf] {-(x*x/16+y*y/4-1)};
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}
