@@ -3,39 +3,43 @@
 \setlength\PreviewBorder{0mm}
 
 \usepackage{amsmath,array}
-\renewcommand\arraycolsep{4pt} % default value: 6pt
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
+\setlength\arraycolsep{4pt} % default value: 6pt
+
+\newcommand\tikzmark[1]{%
+  \tikz[overlay,remember picture,baseline] \coordinate [anchor=base] (#1);}
+
+\newcommand\DrawBrace[3]{%
+  \draw [decorate,decoration={brace,amplitude=2pt,mirror,raise=2pt}]
+    (#1) -- (#2) node [black,midway,sloped,yshift=-10pt] {\footnotesize$#3$};
+}
 
 
 \begin{document}
 \begin{preview}
 \begin{equation*}
-S^T \cdot A \cdot S =
-\left( \,
-\begin{array}{r@{}r@{}r r r}  % @{} is used twice to suppress intercolumn whitespace
-  \underbrace{
-      \begin{array}{rrr}    % First block (1)
-        1 &        &   \\
-          & \ddots &   \\
-          &        & 1 \\
-      \end{array}
-  }_{r_+(s)-mal}\\
-  & 
-  \underbrace{
-      \begin{array}{rrr}    % Second block (-1)
-        -1 &        &   \\
-           & \ddots &   \\
-           &        & -1\\
-      \end{array}
-  }_{r_{-}(s)-mal} \\
-  & & 
-  \underbrace{
-      \begin{array}{rrr}    % Third block
-        0  &        &  \\
-           & \ddots &  \\
-           &        & 0\\
-      \end{array}
-  }_{r_0(s)-mal} \\
-\end{array}\,\right)
+S^T \cdot A \cdot S = 
+\left(
+\begin{array}{*{9}{c}}
+\tikzmark{a}1 \\
+& \ddots & \\
+& & \tikzmark{b}1 \\
+& & & \tikzmark{c}-1 \\
+& & & & \ddots & \\
+& & & & & \tikzmark{d}-1\\
+& & & & & & \tikzmark{e}\phantom{-}0 \\
+& & & & & & & \ddots & \\
+& & & & & & & & \tikzmark{f}\phantom{-}0 \\
+\end{array}
+\right)
 \end{equation*}
+
+\begin{tikzpicture}[remember picture,overlay]
+\DrawBrace{a}{b}{r_{+}(s)-mal}
+\DrawBrace{c}{d}{r_{-}(s)-mal}
+\DrawBrace{e}{f}{r_{0}(s)-mal}
+\end{tikzpicture}
 \end{preview}
 \end{document}
