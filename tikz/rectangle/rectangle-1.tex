@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{gensymb}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,decorations.pathreplacing,shapes} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick}
+}
+
+\begin{document}
+\begin{preview}
+  \begin{tikzpicture}
+    \draw[color=orange, very thick, fill=orange!20] (-3.5,-0.5) -- (-2.5,2.5) -- (2.5,1)  -- (1.5,-2) -- cycle;
+    \draw [<->, thick, red] (0,3.0) -- (0,0) -- (3,0);
+    \draw[fill, color=purple] (-2,1) circle [radius=0.04];
+    \node [below right, purple] at (-2,1) {$(x|y)$};
+    \node [below left, orange] at (-3.5,-0.5) {A};
+    \node [above, orange] at (-2.5,2.5) {B};
+    \node [right, orange] at (2.5,1) {C};
+    \node [below, orange] at (1.5,-2) {D};
+    \draw[step=0.5cm,color=gray] (-4.0, -2.5) grid (3.0,3.0);
+  \end{tikzpicture}
+\end{preview}
+\end{document}

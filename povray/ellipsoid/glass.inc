@@ -16,8 +16,8 @@ material {
   }
   interior {
     ior 1.5 // Glass refraction
-    fade_power 1001
+    fade_power 1000
     fade_distance 0.9
-    fade_color <0.5,0.8,0.6>
+    fade_color <0.1,0.1,0.9>
   }
 }
