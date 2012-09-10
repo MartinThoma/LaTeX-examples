@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{amsmath,array}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
+\renewcommand\arraycolsep{4pt} % default value: 6pt
+
+\newcommand\tikzmark[1]{%
+  \tikz[overlay,remember picture,baseline] \coordinate [anchor=base] (#1);}
+
+\newcommand\DrawBrace[3]{%
+  \draw [decorate,decoration={brace,amplitude=3pt,mirror,raise=15pt}]
+    (#1) -- (#2) node [black,midway,sloped,yshift=-10pt] {\footnotesize$#3$};
+}
+
+\begin{document}
+\begin{preview}
+\begin{equation*}
+\left( \,
+\begin{array}{r@{}r@{}r r r}  % @{} is used twice to suppress intercolumn whitespace
+  \underbrace{
+  \boxed{ 
+    \begin{array}{rrr}              % First block
+        1  &        & 0\\
+           & \ddots &  \\
+        0  &        & 1\\
+    \end{array}
+  }}_{p} \\
+  & 
+  \underbrace{
+  \boxed{
+    \begin{array}{rrr}            % Second block
+       -1  &        & 0 \\
+           & \ddots &   \\
+        0  &        & -1\\
+    \end{array}
+  }}_{q} \\
+   & & \boxed{
+          \begin{array}{rr}           % Third block
+            \cos \omega_1 & -\sin \omega_1\\
+            \sin \omega_1 &  \cos \omega_1\\
+          \end{array} 
+        } \\
+  & & & \ddots\\                          % Fourth "block" -- not boxed
+  & \tikzmark{a}& & & \boxed{
+            \begin{array}{rr}       % Fifth block
+                \cos \omega_r & -\sin \omega_r\\
+                \sin \omega_r &  \cos \omega_r\\
+            \end{array}
+          } \tikzmark{b} \\
+\end{array}\,\right)
+\end{equation*}
+
+\begin{tikzpicture}[remember picture,overlay]
+\DrawBrace{a}{b}{r}
+\end{tikzpicture}
+
+\end{preview}
+\end{document}
