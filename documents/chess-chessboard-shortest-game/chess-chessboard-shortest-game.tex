@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{chessboard}
+
+\begin{document}
+\begin{preview}
+% get FEN notation with http://www.chess-poster.com/fen/epd_fen.htm
+% see also http://www.chessgames.com/fenhelp.html
+\chessboard[setfen=rnb1kbnr/pppp1ppp/8/4p3/6Pq/5P2/PPPPP2P/RNBQKBNR b - - 0 0,
+            showmover=false]
+\end{preview}
+\end{document}
