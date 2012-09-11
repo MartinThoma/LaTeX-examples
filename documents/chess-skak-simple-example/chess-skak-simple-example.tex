@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{5mm}
+
+\usepackage{skak}
+
+\begin{document}
+\begin{preview}
+
+% sets the internal board or a new game
+\newgame
+% typesets the moves and updates the board
+\mainline{1.e4 e5 2. Nf3 Nc6 3.Bb5}\\
+% show the current board position
+\showboard
+
+\end{preview}
+\end{document}
