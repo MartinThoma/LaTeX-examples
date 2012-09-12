@@ -1,14 +1,10 @@
-\documentclass{article}
-\usepackage[pdftex,active,tightpage]{preview}
-\setlength\PreviewBorder{2mm}
+\documentclass[varwidth=true, border=0pt]{standalone}
 % Source: http://tex.stackexchange.com/a/15278/5645
 
 \usepackage{chessboard}
 \storechessboardstyle{4x4}{maxfield=d4}
 
 \begin{document}
-\begin{preview}
 % showmover shows which player is to move
-\chessboard[style=4x4,setwhite={Qa1,Qd2},showmover=false]
-\end{preview}
+\chessboard[style=4x4, setwhite={Qa1,Qd2}, showmover=false]
 \end{document}
