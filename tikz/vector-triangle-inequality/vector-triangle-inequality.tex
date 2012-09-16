@@ -3,6 +3,9 @@
 \usetikzlibrary{shapes, calc, shapes, arrows} 
 \usepackage{amsmath,amssymb}
 
+\usepackage{xcolor}
+\definecolor{xvectorcolor}{HTML}{77933C}
+
 \begin{document}
 \begin{tikzpicture}[]
     % Punkte
@@ -12,9 +15,9 @@
 
     % Draw the triangle
     \path[fill=blue!10, fill=blue!10]  (A) -- (B) -- (C) -- (A);
-    \draw[->, very thick,fill=gray!10, green!80, arrows={-latex}]  (A) -- (C) node[sloped,midway,above] {$x$};
-    \draw[->, very thick,fill=gray!10, blue!80, arrows={-latex}]  (C) -- (B) node[sloped,midway,above] {$y$};
-    \draw[->, very thick,fill=gray!10, red!80, arrows={-latex}]  (A) -- (B) node[sloped,midway,above] {$z = x + y$};
+    \draw[->, ultra thick,fill=gray!10, xvectorcolor, arrows={-latex}]  (A) -- (C) node[sloped,midway,above] {$x$};
+    \draw[->, ultra thick,fill=gray!10, blue!80, arrows={-latex}]  (C) -- (B) node[sloped,midway,above] {$y$};
+    \draw[->, ultra thick,fill=gray!10, red!80, arrows={-latex}]  (A) -- (B) node[sloped,midway,above] {$z = x + y$};
     \coordinate  (A) -- (B) node[sloped,midway,below] {$\|z\| = \|x+y\| \leq \|x\| + \|y\|$};
 
 
