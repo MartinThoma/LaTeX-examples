@@ -1,6 +1,7 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage{amssymb}
-\usepackage{amsmath}
+\usepackage{amssymb, amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
 \DeclareMathOperator{\arctanh}{arctanh}
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
@@ -30,12 +31,12 @@
 \begin{minipage}[b]{0.5\linewidth}\centering
 
 \begin{align*}
-\lim_{x \to 0} \frac {\sin x}{x}  &= 1 \\
-\lim_{x \to 0} \frac {e^x - 1}{x} &= 1 \\
-\lim_{h \to 0} \frac {e^{{x_0} + h} - e^{x_0}}{h} &= e^{x_0} \\
-\sum_{n = 0}^{\infty} (-1)^n \frac {(-1)^{n + 1}}{n} &= \log 2 \\
-\cos x    &= \sum_{n = 0}^{\infty} (-1)^n \frac {x^{2n}}{(2n)!}  \\
-\sin x    &= \sum_{n = 0}^{\infty} (-1)^n \frac {x^{2n + 1}}{(2n + 1)!}
+    \lim_{x \to 0} \frac {\sin x}{x}  &= 1 \\
+    \lim_{x \to 0} \frac {e^x - 1}{x} &= 1 \\
+    \lim_{h \to 0} \frac {e^{{x_0} + h} - e^{x_0}}{h} &= e^{x_0} \\
+    \sum_{n = 0}^{\infty} (-1)^n \frac {(-1)^{n + 1}}{n} &= \log 2 \\
+    \cos x    &= \sum_{n = 0}^{\infty} (-1)^n \frac {x^{2n}}{(2n)!}  \\
+    \sin x    &= \sum_{n = 0}^{\infty} (-1)^n \frac {x^{2n + 1}}{(2n + 1)!}
 \end{align*}
 
 \end{minipage}
@@ -55,30 +56,47 @@ e^x &= \sum_{n = 0}^{\infty} \frac {x^n}{n!} \\
 \end{minipage}
 \end{table}
 
-
-
 \section{Zusammenhänge}
 \begin{align*}
-	(\cos x)^2 + (\sin x)^2 &= 1 \\
-	(\cosh x)^2 - (\sinh x)^2 &= 1 \\
-	\tan x  &= \frac {\sin x}{\cos x} \\
-	\tanh x &= \frac {\sinh x}{\cosh x} \\
+    (\cos x)^2 + (\sin x)^2 &= 1 \\
+    (\cosh x)^2 - (\sinh x)^2 &= 1 \\
+    \tan x  &= \frac {\sin x}{\cos x} \\
+    \tanh x &= \frac {\sinh x}{\cosh x} \\
   (x + y)^n &= \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k
 \end{align*}
 
 \section{Ableitungen}
+\begin{table}[ht]
+\begin{minipage}[b]{0.5\linewidth}\centering
 \begin{align*}
-	(\arctan x)' &= \frac {1}{1 + x^2} \\
-	(\sin x)'    &= \cos x \\
-	(\cos x)'    &= -\sin x \\
-	(\arctanh x)' &= \frac {1}{1 - x^2}
+    (\sin x)'    &= \cos x \\
+    (\cos x)'    &= -\sin x \\
+    (\tan x)'    &= \frac{1}{\cos^2 x} \\
+    (\sinh x)'   &= \cosh x \\
+    (\cosh x)'   &= \sinh x \\
 \end{align*}
 
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+
+\begin{align*}
+    (\arcsin x)'  &=   \frac {1}{\sqrt{1-x^2}} \\
+    (\arccos x)'  &= - \frac {1}{\sqrt{1-x^2}} \\
+    (\arctan x)'  &=   \frac {1}{1 + x^2} \\
+    % (\arcsinh x)' &=   \frac {1}{\sqrt{1+x^2}} \\
+    % (\arccosh x)' &=   \frac {1}{\sqrt{(1-x^2) \cdot (1+x^2)}} \\
+    % (\arctanh x)' &=   \frac {1}{1 - x^2}
+\end{align*}
+
+\end{minipage}
+\end{table}
 
 \section{Potenzreihen}
 Zuerst den Potenzradius r berechnen:
 \(
-	r = \frac {1}{\lim \text{sup} \sqrt[n]{|a_n|}}
+    r = \frac {1}{\lim \text{sup} \sqrt[n]{|a_n|}}
 \)
 
 \end{document}
