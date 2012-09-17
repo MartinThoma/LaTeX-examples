@@ -25,6 +25,7 @@ transparentGif:
 	make clean
 
 svg:
+	make
 	#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
 	pdf2svg $(SOURCE).pdf $(SOURCE).svg
 	# Necessary, as pdf2svg does not always create valid svgs:
