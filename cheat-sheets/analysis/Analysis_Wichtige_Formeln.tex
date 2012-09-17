@@ -18,7 +18,7 @@
    /Keywords (Analysis I; Formeln)
 }
 
-\everymath={\displaystyle}
+%\everymath={\displaystyle}
 
 \begin{document}
 
@@ -65,14 +65,11 @@ e^x &= \sum_{n = 0}^{\infty} \frac {x^n}{n!} \\
   (x + y)^n &= \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k
 \end{align*}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Ableitungen}
-
-\begin{align*}
-    (\log x)' &= \frac{1}{x}
-\end{align*}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[ht]
-\begin{minipage}[b]{0.5\linewidth}\centering
+\begin{minipage}[b]{0.3\linewidth}\centering
 \begin{align*}
     (\sin x)'    &= \cos x \\
     (\cos x)'    &= -\sin x \\
@@ -82,8 +79,8 @@ e^x &= \sum_{n = 0}^{\infty} \frac {x^n}{n!} \\
 \end{align*}
 
 \end{minipage}
-\hspace{0.5cm}
-\begin{minipage}[b]{0.5\linewidth}
+\hspace{0.1cm}
+\begin{minipage}[b]{0.3\linewidth}
 \centering
 
 \begin{align*}
@@ -94,14 +91,23 @@ e^x &= \sum_{n = 0}^{\infty} \frac {x^n}{n!} \\
     % (\arccosh x)' &=   \frac {1}{\sqrt{(1-x^2) \cdot (1+x^2)}} \\
     % (\arctanh x)' &=   \frac {1}{1 - x^2}
 \end{align*}
-
+\end{minipage}
+\hspace{0.1cm}
+\begin{minipage}[b]{0.3\linewidth}
+\centering
+\begin{align*}
+    (\log x)' &= \frac{1}{x} \\
+\end{align*}
 \end{minipage}
 \end{table}
 
-\section{Potenzreihen}
-Zuerst den Potenzradius r berechnen:
-\(
-    r = \frac {1}{\lim \text{sup} \sqrt[n]{|a_n|}}
-\)
+\section{Werte}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{llll}
+        \(\arctan(0) = 0\)             & \(\sin(0) = 0\)                & \(\cos(0) = 1\) \\
+        \(\arctan(1) = \frac{\pi}{4}\) & \(\sin(\frac{\pi}{2}) = 1\)    & \(\cos(\frac{\pi}{2}) = 0\)\\
+    \end{tabular}
+\end{table}
 
 \end{document}
