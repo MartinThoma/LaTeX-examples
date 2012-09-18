@@ -1,7 +1,8 @@
 % Original Source: http://mitschriebwiki.nomeata.de/data/Ana1.tex
 \documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
-\usepackage{etex}   % added because of http://tex.stackexchange.com/a/38609/5645
-\usepackage{ana}
+\usepackage{etex} % added because of http://tex.stackexchange.com/a/38609/5645
+\usepackage{mathe}
+\usepackage{saetze-schmoeger}
 \usepackage{tikz}
 \usepackage{wrapfig}
 
@@ -68,8 +69,6 @@ $M$,$N$ Mengen, $M,N \ne \emptyset$; $f:\, M\rightarrow N$
 \item $\forall$ Abkürzung für \glqq für jedes\grqq, \glqq für alle\grqq
 \item $\exists$ Abkürzung für \glqq es gibt\grqq, \glqq es existiert\grqq
 \end{itemize}
-
-
 
 \renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\chaptername}{§}
@@ -1899,11 +1898,11 @@ $B \subseteq \MdR$ heißt \indexlabel{offene Menge}\textbf{offen} $:\equizu \for
 
 \begin{beweis}
 \begin{liste}
-\item übung
+\item Übung
 \item \glqq \folgt \grqq: Sei $(x_n)$ eine konvergente Folge in $\MdR\ \backslash\ B$ und $x_0:=\lim x_n$.Annahme: $x_0 \in B$. B offen $\folgt \exists \delta>0 : U_\delta(x_0) \subseteq B$. $x_n \to x_0 \folgt x_n \in U_\delta(x_0) \subseteq B \ffa n \in\MdN$, Widerspruch! \glqq $\Leftarrow$ \grqq: Sei $x \in B$. Annahme: $U_\delta(x) \nsubseteq B \forall \delta>0$. 
 \folgt $U_{\frac{1}{n}}(x) \nsubseteq B \forall n \in \MdN 
 \folgt \forall n \in \MdN \exists x_n \in U_{\frac{1}{n}}$ mit: $x_n \in \MdR\ \backslash\ B \folgt (x_n)$ ist eine Folge in $\MdR\ \backslash\ B: x_n \to x$. $\MdR\ \backslash\ B$ abgeschlossen \folgt $x \in \MdR\ \backslash\ B$, Widerspruch!
-\item \glqq \folgt \grqq: Sei $(x_n)$ Folge in $D$. $D$ beschränkt \folgt $(x_n)$ beschränkt. 8.2 \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$. $D$ abgeschlossen $\folgt \lim x_{n_k} \in D$. \glqq $\Leftarrow$ \grqq: übung. Sei $D$ beschränkt und abgeschlossen. Sei $s:=\sup D$. z.z.: $s \in D$ (analog zeigt man $\inf D \in D$). $\forall n \in \MdN$ ist $s-\frac{1}{n}$ keine obere Schranke von s. \folgt $\forall n \in\MdN\exists\ x_n \in D$ mit $s - \frac{1}{n} < x_n \le s \folgt x_n \to s$. D abgeschlossen \folgt $s \in D$
+\item \glqq \folgt \grqq: Sei $(x_n)$ Folge in $D$. $D$ beschränkt \folgt $(x_n)$ beschränkt. 8.2 \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$. $D$ abgeschlossen $\folgt \lim x_{n_k} \in D$. \glqq $\Leftarrow$ \grqq: Übung. Sei $D$ beschränkt und abgeschlossen. Sei $s:=\sup D$. z.z.: $s \in D$ (analog zeigt man $\inf D \in D$). $\forall n \in \MdN$ ist $s-\frac{1}{n}$ keine obere Schranke von s. \folgt $\forall n \in\MdN\exists\ x_n \in D$ mit $s - \frac{1}{n} < x_n \le s \folgt x_n \to s$. D abgeschlossen \folgt $s \in D$
 \end{liste}
 \end{beweis}
 
@@ -1919,7 +1918,7 @@ Sei $\emptyset \ne D \subseteq \MdR$, sei $D$ beschränkt, abgeschlossen und $f 
 Annahme: $f$ ist nicht beschränkt. Dann: $\forall n \in \MdN\ \exists\ x_n \in D: |f(x_n)| > n.$ HS(3) \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$ mit $x_0:=\lim x_{n_k} \in D$. f stetig \folgt $f(x_{n_k}) \to f(x_0) \folgt (f(x_{n_k}))$ ist beschränkt, aber: $|f(x_{n_k})| > n_k\ \forall\ k \in \MdN$, Widerspruch! Sei $(y_n)$ eine konvergente Folge in $f(D)$ und $y_0:=\lim y_n$. z.z.: $y_0 \in f(D)$. $\exists$ Folge $(x_n)$ mit $f(x_n)=y_n\ \forall n \in \MdN$. HS(e) \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$ mit $x_0:=\lim x_{n_k} \in D$. f stetig \folgt $\underbrace{f(x_{n_k})}_{=y_{n_k}} \to f(x_0)$ . Aber auch: $y_{n_k} \to y_0 = f(x_0) \in f(D)$
 \end{beweis}
 
-Sei $I \subseteq \MdR$ ein Intervall und $f: I \to \MdR$ streng monoton wachsend \alt{fallend} \folgt $f$ ist auf $I$ injektiv. \folgt $\exists f^{-1}: f(I) \to \MdR$. $f^{-1}$ ist streng monoton wachsend \alt{fallend}. Es gilt: $f^{-1}(f(x)) = x\ \forall x \in I$, $f(f^{-1}(y)) = y\ \forall y \in f(I)$ übung: Sei M $\subseteq \MdR$. M ist ein Intervall $:\equizu$ aus $a, b \in M$ und $a \le b$ folgt stets $[a, b] \subseteq M$.
+Sei $I \subseteq \MdR$ ein Intervall und $f: I \to \MdR$ streng monoton wachsend \alt{fallend} \folgt $f$ ist auf $I$ injektiv. \folgt $\exists f^{-1}: f(I) \to \MdR$. $f^{-1}$ ist streng monoton wachsend \alt{fallend}. Es gilt: $f^{-1}(f(x)) = x\ \forall x \in I$, $f(f^{-1}(y)) = y\ \forall y \in f(I)$ Übung: Sei M $\subseteq \MdR$. M ist ein Intervall $:\equizu$ aus $a, b \in M$ und $a \le b$ folgt stets $[a, b] \subseteq M$.
 
 \begin{satz}[Bildintervalle und Umkehrbarkeit stetiger, montoner Funktionen]
 Sei $I \subseteq \MdR$ ein Intervall und $f \in C(I)$.
@@ -1931,7 +1930,7 @@ Sei $I \subseteq \MdR$ ein Intervall und $f \in C(I)$.
 
 \begin{beweis}
 \begin{liste}
-\item übung (mit obiger übung und 18.1)
+\item Übung (mit obiger Übung und 18.1)
 \item O.B.d.A: $I=[a, b]$. $\alpha:=f(a), \beta:=f(b) \overset{(1)}{\underset{\text{f wachsend}}{\folgt}} f(I)=[a,b]$. Sei $x_0 \in [\alpha, \beta]$. Sei $(y_n)$ eine Folge in $f(I)$ und $y_n \to y_0$. z.z.: $f^{-1}(y_n) \to f^{-1}(y_0)$. $x_n:=f^{-1}(yn), x_0:=f^{-1}(y_0) \folgt x_0 \in I$, $x_n \in I \forall n \in \MdN$. d.h. $(x_n)$ ist beschränkt. z.z: $x_n \to x_0$. 8.2 $\folgt \H(x_n) \ne \emptyset$. Sei $\alpha \in \H(x_n)$. $\exists$ eine Teilfolge $(x_{n_k})$ von $(x_n)$ mit $x_{n_k} \to \alpha$. $I$ ist abgeschlossen $\folgt \alpha \in I$. f stetig $\folgt \underbrace{f(x_{n_k})}_{=y_{n_k}} \to f(\alpha)$. Aber auch: $y_{n_k} \to y_0 = f(x_0) \folgt f(\alpha) = f(x_0) \folgtwegen{f \text{injektiv}} \alpha=x_0$. d.h. $\H(x_n)=\{x_0\}$. Aus 9.3 folgt: $x_n \to x_0$
 \end{liste}
 \end{beweis}
@@ -2392,7 +2391,7 @@ $\sin(x+2\pi)=\sin x, $\>$\cos(x+2\pi)=\cos x$
 \item $\sin^2\frac{\pi}{2}=1-\cos^2\frac{\pi}{2}=1\folgt\sin\frac{\pi}{2}=\pm 1$. (3) $\folgt\sin\frac{\pi}{2}>0\folgt\sin\frac{\pi}{2}=1$.
 \item Die erste Behauptung mit kann mit Potenzreihen, der Rest mit den Additionstheoremen bewiesen werden.
 \item \glqq$\Leftarrow$\grqq: klar, \glqq$\Rightarrow$\grqq: Sei $x\in[0, \pi]$ und $\cos x = 0 \folgtnach{(4)} x\ge\frac{\pi}{2}, y:=\pi-x, y \in [0, \frac{\pi}{2}]$ und $\cos y=\cos(x+\pi)\gleichnach{(6)}-\cos(-x)=-\cos(x)\folgtnach{(4)}y\le\frac{\pi}{2}, x=\frac{\pi}{2}$.
-\item In den gr. übungen
+\item In den großen Übungen
 \end{beweise}
 
 \begin{wichtigedefinition}[Tangens]
@@ -2412,7 +2411,7 @@ Sei $I \subseteq \MdR$ ein Intervall; $f:I\to\MdR$ eine Funktion und $x_0\in I$.
 \fbox{$\log(1+x)=\reihenull{(-1)^n\frac{x^{n+1}}{n+1}}\ (x\in (-1, 1))$}
 \begin{beweis}
 $g(x):=\reihenull{(-1)^n\frac{x^{n+1}}{n+1}}\ (x \in (-1, 1))$ 21.9 $\folgt g$ ist auf $(-1, 1)$ differenzierbar und $g'(x)=\reihenull{(-1)^nx^n}=\frac{1}{1-(-x)}=\frac{1}{1+x}=f'(x)\ \forall x \in (-1, 1)$. 21.7 $\folgt \exists c \in \MdR: f(x)=g(x)+c\ \forall x \in (-1, 1) \folgtwegen{x=0}0=f(0)=g(0)+c=c\folgt f(x)=g(x)\ \forall x \in (-1, 1) \folgt$ Behauptung.
-In den gr. übungen wird gezeigt (Abelscher Grenzwert-Satz): $(*)$ gilt noch für $x=1$. Also: $\log 2=\reihenull{(-1)^n\frac{1^{n+1}}{n}}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$
+In den großen Übungen wird gezeigt (Abelscher Grenzwert-Satz): $(*)$ gilt noch für $x=1$. Also: $\log 2=\reihenull{(-1)^n\frac{1^{n+1}}{n}}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$
 \end{beweis}
 \end{beispiele}
 
@@ -2652,8 +2651,8 @@ Es seien $f,g \in R[a, b]$
 \end{satz}
 
 \begin{beweise}
-\item übung.
-\item übung: $\alpha f \in R[a, b]$ und $\int_a^b(\alpha f)\dx=\alpha\int_a^bf\dx$.\\Zu zeigen: $f+g \in R[a, b]$ und $\int_a^b(f+g)\dx = \int_a^bf\dx + \int_a^bg\dx$.
+\item Übung.
+\item Übung: $\alpha f \in R[a, b]$ und $\int_a^b(\alpha f)\dx=\alpha\int_a^bf\dx$.\\Zu zeigen: $f+g \in R[a, b]$ und $\int_a^b(f+g)\dx = \int_a^bf\dx + \int_a^bg\dx$.
 Sei $z=\{x_0, \cdots, x_n\} \in \Z, m_j, M_j, I_j$ wie immer. $\widetilde{m_j}:=\inf g(I_j),\ \widetilde{\widetilde{m_j}}:=\inf (f+g)(I_j)$. $x\in I_j:\ (f+g)(x)=f(x)+g(x) \ge m_j + \widetilde{m_j} \folgt \widetilde{\widetilde{m_j}}\ge m_j + \widetilde{m_j} \folgt \widetilde{\widetilde{m_j}}|I_j| \ge m_j|I_j| + \widetilde{m_j}|I_j| \folgtnach{Summation} S_{f+g}(Z) \ge S_f(Z) + S_g(Z) \folgt S_f(Z) + S_g(Z) \le \uint_a^b(f+g)dx \ \forall z \in \Z\ (*)$. Sei $\ep>0: \exists\ Z_1, Z_2 \in \Z: S_f(Z_1) > \uint_a^bf\dx - \ep=\int_a^bf\dx - \ep,\ s_g(Z_2)>\int_a^bg\dx - \ep,\ Z:=Z_1 \cup Z_2 \in \Z$. $\underbrace{\int_a^bf\dx + \int_a^bg\dx}_{=:A} - 2\ep < S_f(Z_1) + S_g(Z_2) \overset{23.1}{\le} S_f(Z) + S_g(Z) \overset{(*)}{\le} \int_a^b (f+g)dx$. Also: $A-2\ep \le \int_a^b(f+g)dx\ \forall \ep>0 \folgtwegen{\ep \to 0+} A\le\uint_a^b(f+g)dx$. Analog: $\oint_a^b(f+g)dx\le A \folgt A=\uint_a^b(f+g)dx = \oint_a^b(f+g)dx$
 \end{beweise}
 
@@ -3232,7 +3231,7 @@ $L:=\sup\{|f'(x)|:x\in[a,b]\}$. Sei $x,y\in[a,b]$, etwa $x\le y$. $|f(x)-f(y)|=|
 \item folgt aus (2) und dem Hilfssatz
 \item folgt aus (3)
 \item $f$ sei wachsend auf $[a,b]$. Sei $Z=\{x_0,\ldots,x_n\}\in\Z$. $V_f(Z)=\sum^n_{j=1}|f(x_j)-f(x_{j-1})|=\sum^n_{j=1}f(x_j)-f(x_{j-1})=f(b)-f(a)=|f(b)-f(a)|$
-\item übung.
+\item Übung.
 \item $I:=[a,b],I_1:=[a,c],I_2:=[c,b]$.
 \begin{description}
 \hin Sei $Z_1$ eine Zerlegung von $I_1$ und $Z_2$ eine Zerlegung von $I_2$. $Z:=Z_1 \cup Z_2\folgt Z\in\Z$ und $V_f(Z_1),V_f(Z_2)\le V_f(Z_1)+V_f(Z_2)=V_f(Z)\le V_f[a,b]\folgt f\in\BV(I_1)$ und $f\in\BV(I_2)$ und $V_f(I_1)+V_f(I_2)\le V_f[a,b]$
