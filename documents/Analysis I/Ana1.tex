@@ -1,6 +1,6 @@
 % Original Source: http://mitschriebwiki.nomeata.de/data/Ana1.tex
-\documentclass[a4paper,twoside,DIV15,BCOR12mm]{scrbook}
-\usepackage{etex}
+\documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
+\usepackage{etex}   % added because of http://tex.stackexchange.com/a/38609/5645
 \usepackage{ana}
 \usepackage{tikz}
 \usepackage{wrapfig}
@@ -8,8 +8,6 @@
 \lecturer{Dr. C. Schmoeger}
 \semester{Wintersemester 04/05}
 \scriptstate{complete}
-
-
 
 \pdfinfo{
 	/Author (Die Mitarbeiter von http://mitschriebwiki.nomeata.de/)
@@ -48,6 +46,8 @@ Dort ist ein \emph{Wiki} eingerichtet und von Joachim Breitner um die \LaTeX-Fun
 Das heißt, jeder kann Fehler nachbessern und sich an der Entwicklung
 beteiligen. Auf Wunsch ist auch ein Zugang über \emph{Subversion} möglich.
 
+Inzwischen kann man auch über Git den Quelltext bekommen: \url{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis\%20I}
+
 \chapter{Eingeführte Begriffe}
 
 \section{Mengen}
@@ -83,7 +83,7 @@ Die Grundmenge der Analysis ist $\MdR$, die Menge der reellen Zahlen: Diese Meng
 
 In $\MdR$ sind zwei Verknüpfungen \glqq +\grqq und \glqq $\cdot$\grqq gegeben, die jedem Paar $a,b \in \MdR$ genau ein $ a+b \in \MdR$ und genau ein $ ab := a \cdot b \in \MdR$ zuordnen.
 
-\indexlabel{Körperaxiome}\begin{axiom}[K"orperaxiome]
+\indexlabel{Körperaxiome}\begin{axiom}[Körperaxiome]
 \begin{liste}
 \item[(A1)] $a+(b+c) = (a+b)+c \ \forall a,b,c \in \MdR$
 \item[(A2)] $a(bc) = (ab)c \ \forall a,b,c \in \MdR$
@@ -197,7 +197,7 @@ Ist $\gamma = \sup{M} \in M$ ($\gamma = \inf{M} \in M$), so heißt $\gamma$ das 
 \item aus $M = [3,\infty)$ folgt: $M$ ist nicht nach oben beschränkt, $3 = \inf{M}$
 \end{beispiele}
 
-\indexlabel{Vollständigkeitsaxiom}\begin{axiom}[Vollst"andigkeitsaxiom]
+\indexlabel{Vollständigkeitsaxiom}\begin{axiom}[Vollständigkeitsaxiom]
 \begin{description}
 \item[(A15)] Ist $\emptyset \ne M \subseteq \MdR$ und ist $M$ nach oben beschränkt, so existiert $\sup{M}$.
 \end{description}
@@ -224,7 +224,7 @@ Sei $\emptyset \ne M \subseteq \MdR$, $M$ sei nach oben beschränkt, $\gamma$ se
 Analog gilt: Sei $\emptyset \ne M \subseteq \MdR$, $M$ sei nach unten beschränkt, $\gamma$ sei eine untere Schranke von $M$.
 \[ \gamma = \inf{M} \equizu \ \forall\varepsilon > 0 \ \exists x \in M: x < \gamma + \varepsilon \]
 
-\begin{definition}[Beschr"anktheit von Mengen]
+\begin{definition}[Beschränktheit von Mengen]
 Sei $\emptyset \ne M \subseteq \MdR$. $M$ heißt \begriff{beschränkt}: $\equizu$ $M$ ist nach oben und nach unten beschränkt $\equizu \ \exists c > 0: |x| \le c \ \forall x\in M$. \textit{Beweis als Übung}
 \end{definition}
 
@@ -279,7 +279,7 @@ Induktionsanfang (IA): $1 \ge 1$, also ist $A(1)$ wahr. \\
 Induktionsvorausseztung (IV): Sei $n \in \MdN$ und $A(n)$ wahr (also $n \ge 1$) \\
 Induktionsschritt (IS, $n \curvearrowright n + 1$): $n+1 
 \stackrel{(IV)}{\ge} 1 + 1 \ge 1$, also $A(n+1)$ wahr.
-\item F"ur $n \in \MdN$ sei $A_n:=(\MdN\ \cap\ [1,n])\ \cup\ [n+1, \infty)$. \\
+\item Für $n \in \MdN$ sei $A_n:=(\MdN\ \cap\ [1,n])\ \cup\ [n+1, \infty)$. \\
 Behauptung: $\underbrace{A_n \text{ ist eine Induktionsmenge}}_{A(n)} \ \forall n \in \MdN$
 \item Sei $n \in \MdN, x \in \MdR$ und $n<x<n+1$. Behauptung: $x \notin \MdN$. Beweis: Annahme: $x \in \MdN$. Sei $A_m$ wie im oberen Beispiel (2) \folgt $A_m \in J \folgt \MdN \subseteq A_m \folgt x \in A_m \folgt x \le m$ oder $x\ge m+1$, Widerspruch!
 \item 
@@ -586,8 +586,8 @@ Sind $(a_n)$ und $(b_n)$ Folgen und gilt $a_n = b_n$ \ffa $a\in\MdN$, so gilt $(
 \begin{beispiele}
 \item Sei $c \in \MdR$ und $a_n = c$ \ffa $n\in\MdN$. Dann: $|a_n - c| =0$ \ffa $n\in\MdN$, d.h. $\lim{a_n} = c$.
 \item $a_n = \frac{1}{n}$. Behauptung: $a_n \to 0$ (\begriff{Nullfolge}). Beweis: Sei $\varepsilon > 0$. 2.1(4) $\folgt \exists n_0 \in \MdN: n_0 > \frac{1}\varepsilon \folgt \frac{1}{n_0} < \varepsilon$. Für $n \ge n_0: |a_n - 0| = \frac{1}{n} \le \frac{1}{n_0} < \varepsilon$.
-\item $a_n = n$. 2.1(3) $\folgt \MdN$ ist nicht beschr"ankt. $\folgtnach{6.2(2)} (a_n)$ ist divergent.
-\item $a_n = (-1)^n$, also $(a_n) = (-1, 1, -1, \cdots)$ $|a_n|=1 \ \forall n\in\MdN \folgt a_n$ ist beschr"ankt. Annahme: $(a_n)$ ist konvergent. Sei $a:=\lim a_n$. $\exists n_0\in\MdN : |a_n - a| < \frac{1}{2}\ \forall n \ge n_0$. Dann: $2=|a_{n_0}-a_{n_0+1}|=|a_{n_0}-a+a-a_{n_0+1}|\le|a_{n_0}-a|+|a_{n_0+1}-a|<\frac{1}{2} + \frac{1}{2}=1$ Widerspruch! Also: $(a_n)$ ist divergent.
+\item $a_n = n$. 2.1(3) $\folgt \MdN$ ist nicht beschränkt. $\folgtnach{6.2(2)} (a_n)$ ist divergent.
+\item $a_n = (-1)^n$, also $(a_n) = (-1, 1, -1, \cdots)$ $|a_n|=1 \ \forall n\in\MdN \folgt a_n$ ist beschränkt. Annahme: $(a_n)$ ist konvergent. Sei $a:=\lim a_n$. $\exists n_0\in\MdN : |a_n - a| < \frac{1}{2}\ \forall n \ge n_0$. Dann: $2=|a_{n_0}-a_{n_0+1}|=|a_{n_0}-a+a-a_{n_0+1}|\le|a_{n_0}-a|+|a_{n_0+1}-a|<\frac{1}{2} + \frac{1}{2}=1$ Widerspruch! Also: $(a_n)$ ist divergent.
 \item $a_n = \frac{n^2}{n^2 + 1}$. Behauptung: $a_n \to 1$. $|a_n-1|=|\frac{n^2}{1+n^2}-\frac{n^2+1}{n^2+1}|=\frac{1}{1+n^2}\le\frac{1}{n^2}\le\frac{1}{n}$. Sei $\ep>0$. Bsp(2) $\folgt \exists n_0 \in \MdN: \frac{1}{n}<\ep\ \forall n \ge n_0 \folgt |a_n-1|<\ep\ \forall n\ge n_0$.
 \item $a_n = \sqrt{n+1}-\sqrt{n}$. $a_n = \frac{(\sqrt{n+1}-\sqrt{n})(\sqrt{n+1}+\sqrt{n})}{\sqrt{n+1}+\sqrt{n}}=\frac{1}{\sqrt{n+1}+\sqrt{n}}\le\frac{1}{\sqrt{n}}$. D.h. $|a_n-0|=a_n\le\frac{1}{\sqrt{n}}$. Sei $\ep>0$. 2.1(4) $\folgt \exists n_0\in\MdN: n_0>\frac{1}{{\ep}^2}\folgt\frac{1}{\sqrt{n_0}}<\ep$. Sei $n \ge n_0: |a_n-0| \le \frac{1}{\sqrt{n}} \le \frac{1}{\sqrt{n_0}} \le \ep$. D.h. $a_n \to 0$.
 \end{beispiele}
@@ -727,7 +727,7 @@ $$ \text{§4} \folgt s_n=\begin{cases}n+1 & \text{ falls }x=1 \\ \frac{1-x^{n+1}
 7.2 $\folgt (s_n)$ ist konvergent $\iff |x| < 1$. In diesem Fall: $s_n \to \frac{1}{1-x}\ (n \to \infty)$
 \end{wichtigesbeispiel}
 
-\begin{satz}[Satz "uber {$\sqrt[n]{n}$}]
+\begin{satz}[Satz über {$\sqrt[n]{n}$}]
 Es gilt: $\sqrt[n]{n} \to 1 \ (n \to \infty)$
 \end{satz}
 
@@ -819,7 +819,7 @@ Sei $(a_n)$ eine Folge in $\MdR$ und $(n_1,n_2,\ldots)$ sei eine Folge in $\MdN$
 \item $(a_1, a_3, a_2, a_4, a_5, a_7, \cdots)$ ist \emph{keine} Teilfolge.
 \end{beispiele}
 
-\begin{satz}[S"atze zu Teilfolgen]
+\begin{satz}[Sätze zu Teilfolgen]
 \begin{liste}
 \item Sei $(a_n)$ eine Folge und $\alpha \in\MdR$. Dann: $\alpha \in \H(a_n) \equizu$ Es existiert eine TF $(a_{n_k})$ von $(a_n)$ mit: $a_{n_k} \to \alpha\ (k \to \infty)$
 \item Ist $\alpha \in \MdR$, so existert eine Folge $(r_k)$ in $\MdQ$: $r_k \to \alpha \ (k\to\infty)$
@@ -1032,8 +1032,8 @@ $\folgtnach{7.3} (s_n)\text{ konvergiert} \equizu |x| < 1 \text{. In diesem Fall
 
 \item $\reihe{\frac{1}{n(n+1)}}$, $a_n=\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1} \folgt s_n = (1-\frac{1}{2})+(\frac{1}{2} - \frac{1}{3})+\ldots+(\frac{1}{n-1}-\frac{1}{n}) + (\frac{1}n - \frac{1}{n+1}) = 1- \frac{1}{n+1} \to 1 \ (n\to\infty)$. $\reihe{\frac{1}{n(n+1)}}$ ist konvergent, $\reihe{\frac{1}{n(n+1)}} = 1$
 \item $\MdQ=\{a_1, a_2, \cdots\}$ Sei $\ep>0$.\\ $I_n:=(a_n-\frac{\ep}{2^{n+1}}, a_n+\frac{\ep}{2^{n+1}})$. $a_n \in I_n \ \forall n\in\MdN \folgt \MdQ \subseteq \displaystyle \bigcup_{n=1}^{\infty}I_n$. \\
-L"ange von $I_n:=|I_n|; \reihe{|I_n|}=\reihe{\frac{\ep}{2^n}};\ s_n=\frac{\ep}{2}+\frac{\ep}{2^2}+\cdots+\frac{\ep}{2^n}=\frac{\ep}{2}(1+\frac{1}{2}+\cdots+(\frac{1}{2})^{n-1})=\frac{\ep}{2}(\frac{1-(\frac{1}{2})^n}{1-\frac{1}{2}})\to\ep\ (n\to\infty)$
-(\emph{Unendliche geometrische Reihe}). D.h. $\reihe{|I_n|}$ ist konvergent und $\reihe{|I_n|}=\ep$. Die Rationalen Zahlen k"onnen so mit abz"ahlbaren Intervallen "uberdeckt werden, dass die Summe der Intervalle beliebig klein ist.
+Länge von $I_n:=|I_n|; \reihe{|I_n|}=\reihe{\frac{\ep}{2^n}};\ s_n=\frac{\ep}{2}+\frac{\ep}{2^2}+\cdots+\frac{\ep}{2^n}=\frac{\ep}{2}(1+\frac{1}{2}+\cdots+(\frac{1}{2})^{n-1})=\frac{\ep}{2}(\frac{1-(\frac{1}{2})^n}{1-\frac{1}{2}})\to\ep\ (n\to\infty)$
+(\emph{Unendliche geometrische Reihe}). D.h. $\reihe{|I_n|}$ ist konvergent und $\reihe{|I_n|}=\ep$. Die Rationalen Zahlen können so mit abzählbaren Intervallen überdeckt werden, dass die Summe der Intervalle beliebig klein ist.
 \end{beispiele}
 
 \begin{satz}[Cauchy- und Monotoniekriterium sowie Nullfolgeneigenschaft]
@@ -1504,7 +1504,7 @@ $\displaystyle{a_n := (-1)^n\cdot\frac{x^{2n}}{(2n)!} \folgt \sqrt[n]{|a_n|} = \
 \begin{definition}[Potenzreihe]
 Sei $(a_n)_{n=0}^{\infty}$ eine Folge in \MdR. Eine Reihe der Form $\sum_{n=0}^{\infty}\
 {a_nx^n} = {\nobreak a_0 + a_1x + a_2x^2 + \ldots}$ heißt eine \begriff{Potenzreihe} (PR). Die Menge 
-$\{x \in\MdR : \reihenull{a_nx^n}$ konvergent$\}$ heißt der \begriff{Konvergenzbereich} (KB) der Potenzreihe. Klar: Die Potenzreihe konvergiert f"ur $x=0$.
+$\{x \in\MdR : \reihenull{a_nx^n}$ konvergent$\}$ heißt der \begriff{Konvergenzbereich} (KB) der Potenzreihe. Klar: Die Potenzreihe konvergiert für $x=0$.
 \end{definition}
 
 \begin{erinnerung}
@@ -1518,32 +1518,32 @@ Ist $(x_n)$ eine Folge, die nicht nach oben beschränkt ist und $x_n\ge 0\ \fora
 \begin{satz}[Konvergenz von Potenzreihen]
 $\reihenull{a_nx^n}$ sei eine Potenzreihe, $\rho:=\limsup \sqrt[n]{|a_n|}$ und $r:=\frac{1}{\rho}$ (also $r=0$, falls $\rho=\infty$ und $r=\infty$ falls $\rho=0$).
 \begin{liste}
-\item Ist $r=0$, so konvergiert die Potenzreihe nur f"ur $x=0$
+\item Ist $r=0$, so konvergiert die Potenzreihe nur für $x=0$
 \item Ist $r=\infty$, so konvergiert die Potenzreihe absolut $\forall x\in\MdR$
-\item Ist $0<r<\infty$, so konvergiert die Potenzreihe absolut f"ur $|x|<r$ und sie divergiert f"ur $|x|>r$
-(Im Falle $|x|=r$, also f"ur $x=r$ und $x=-r$ ist keine allgemeine Aussage m"oglich).
+\item Ist $0<r<\infty$, so konvergiert die Potenzreihe absolut für $|x|<r$ und sie divergiert für $|x|>r$
+(Im Falle $|x|=r$, also für $x=r$ und $x=-r$ ist keine allgemeine Aussage möglich).
 \end{liste}
 Die Zahl $r$ heißt der \begriff{Konvergenzradius} der Potenzreihe. Der Konvergenzbereich der Potenzreihe hat also folgende Form: $\{0\}$, falls $r=0$; $\MdR$ falls $r=\infty$ und $(-r, r)$, $(-r, r]$, $[-r, r)$ oder $[-r, r]$ wenn $0<r<\infty$.
 \end{satz}
 
 \begin{beweise}
-\item $r=0$ \folgt\ $\rho=\infty$ \folgt $\sqrt[n]{|a_n|}$ ist nicht nach oben beschr"ankt. Sei $x\in\MdR$, $x\ne0$.
-$(\sqrt[n]{|a_nx^n|})=(\sqrt[n]{|a_n|}|x|) \folgt\ (\sqrt[n]{|a_nx^n|})$ ist nicht nach oben beschr"ankt $\overset{\text{12.3}}{\folgt} \sum{a_nx^n}$ divergent.
+\item $r=0$ \folgt\ $\rho=\infty$ \folgt $\sqrt[n]{|a_n|}$ ist nicht nach oben beschränkt. Sei $x\in\MdR$, $x\ne0$.
+$(\sqrt[n]{|a_nx^n|})=(\sqrt[n]{|a_n|}|x|) \folgt\ (\sqrt[n]{|a_nx^n|})$ ist nicht nach oben beschränkt $\overset{\text{12.3}}{\folgt} \sum{a_nx^n}$ divergent.
 \item Sei $r=\infty$ \folgt $\rho=0$. $x\in\MdR : \limsup \sqrt[n]{|a_nx^n}=\limsup \sqrt[n]{|a_n|}|x|=\rho|x|=0<1 \overset{\text{12.3}}{\folgt} \sum{a_nx^n}$
 \item $0<r<\infty$, $x\in\MdR: \limsup \sqrt[n]{|a_nx^n|} = \rho |x| = \frac{|x|}{r}<1 \equizu |x| < r$. Behauptung folgt aus 12.3.
 \end{beweise}
 
 \begin{beispiele}
 \item $\reihenull{x^n} (a_n=1\forall\ n\in\MdN_0)\folgt r=\rho=1. \sum{x^n}$ konvergent $\equizu |x|<1$
-\item $\reihe{\frac{x^n}{n^2}} (a_0=0, a_n=\frac{1}{n^2} (n\ge1))\ \sqrt[n]{|a_n|}=\frac{1}{(\sqrt[n]{n})^2} \to 1 (\rho=1=r)$. Die Potenzreihe konvergiert absolut f"ur $|x|<1$, sie divergiert f"ur $|x|>1$. $x=1: \sum\frac{1}{n^2}$ konvergent; $x=-1: \reihe{\frac{(-1)^n}{n^2}}$ konvergent (Leibniz!)
-\item $\reihe{\frac{x^n}{n}}$, $\rho=r=1$. Die Potenzreihe konvergiert absolut f"ur $|x|<1$, sie divergiert f"ur $|x|>1$. $x=1: \sum{\frac{1}{n}}$ divergent; $x=-1: \sum{\frac{(-1)^n}{n}}$ konvergent
+\item $\reihe{\frac{x^n}{n^2}} (a_0=0, a_n=\frac{1}{n^2} (n\ge1))\ \sqrt[n]{|a_n|}=\frac{1}{(\sqrt[n]{n})^2} \to 1 (\rho=1=r)$. Die Potenzreihe konvergiert absolut für $|x|<1$, sie divergiert für $|x|>1$. $x=1: \sum\frac{1}{n^2}$ konvergent; $x=-1: \reihe{\frac{(-1)^n}{n^2}}$ konvergent (Leibniz!)
+\item $\reihe{\frac{x^n}{n}}$, $\rho=r=1$. Die Potenzreihe konvergiert absolut für $|x|<1$, sie divergiert für $|x|>1$. $x=1: \sum{\frac{1}{n}}$ divergent; $x=-1: \sum{\frac{(-1)^n}{n}}$ konvergent
 \item $\reihenull{\underbrace{(n^4+2n^2)}_{:=a_n}x^n}$; $1\le a_n \le n^4+2n^4=3n^4 \forall\ n\in\MdN \folgt 1\le \sqrt[n]{|a_n|} \le \underbrace{\sqrt[n]{3}(\sqrt[n]{n})^4}_{\to 1}
-\folgt \sqrt[n]{|a_n|} \to 1 \folgt r=\rho=1$ Die Potenzreihe konvergiert f"ur $|x|<1$ absolut, sie divergiert f"ur $|x|>1$. F"ur $|x|=1$: $|a_nx^n|=|a_n||x^n| \nrightarrow 0 \folgt $ divergent in $x=1, x=-1$.
+\folgt \sqrt[n]{|a_n|} \to 1 \folgt r=\rho=1$ Die Potenzreihe konvergiert für $|x|<1$ absolut, sie divergiert für $|x|>1$. Für $|x|=1$: $|a_nx^n|=|a_n||x^n| \nrightarrow 0 \folgt $ divergent in $x=1, x=-1$.
 \item $\reihenull{n^nx^n}$; $a_n:=n^n$ $\sqrt[n]{|a_n|}=n \folgt \rho=\infty \folgt r=0$
 \item $\reihenull{a_nx^n}$ mit $a_n:=\begin{cases}
 0&\text{n gerade}\\
 n2^n&\text{n ungerade}\end{cases}$. A16 \folgt $\H(\sqrt[n]{|a_n|})=\{0, 2\}
-\folgt \rho=2 \folgt r=\frac{1}{2}$. Die Potenzreihe konvergiert absolut f"ur $|x|<\frac{1}{2}$, sie divergiert f"ur $|x|>\frac{1}{2}$. Sei $|x|=\frac{1}{2}$. $|a_nx^n|=|a_n|\frac{1}{2^n}=n$ falls $n$ ungerade \folgt $a_nx^n \nrightarrow 0 \folgt$ die Potenzreihe divergiert f"ur $|x|=\frac{1}{2}$.
+\folgt \rho=2 \folgt r=\frac{1}{2}$. Die Potenzreihe konvergiert absolut für $|x|<\frac{1}{2}$, sie divergiert für $|x|>\frac{1}{2}$. Sei $|x|=\frac{1}{2}$. $|a_nx^n|=|a_n|\frac{1}{2^n}=n$ falls $n$ ungerade \folgt $a_nx^n \nrightarrow 0 \folgt$ die Potenzreihe divergiert für $|x|=\frac{1}{2}$.
 \end{beispiele}
 Die folgenden Potenzreihen haben jeweils den Konvergenzradius $r=\infty:$\\ 
 $e^x=\reihenull{\frac{x^n}{n!},\ \sin x=\reihenull{(-1)^n\frac{x^{2n+1}}{(2n+1)!}}},\\ \cos x = \reihenull{(-1)^n\frac{x^{2n}}{(2n)!}},\ f'(x)=\reihenull{a_nnx^{n-1}}$, falls $f(x)=\reihenull{a_nx^n}$ KR $r=\infty$ hat.
@@ -1567,7 +1567,7 @@ r_1 & \text{falls}\ r_1<\infty, r_2=\infty
 \end{vereinbarung}
 
 \begin{satz}[Konvergenzradien von Cauchyprodukten]
-$\reihenull{a_nx^n}$ und $\reihenull{b_nx^n}$ seien Potenzreihen mit den Konvergenzradien $r_1$ bzw. $r_2$. Sei $c_n:=\sum_{k=0}^{n}{a_kb_{n-k}}\ (n\in\MdN_0)$ und $r$ sei der Konvergenzradius der Potenzreihe $\reihenull{c_nx^n}$. $R:=\min\{r_1, r_2\}$. Dann: $R\le r$ und f"ur $x \in (-R, R):$ $\reihenull{c_nx^n}=(\reihenull{a_nx^n})(\reihenull{b_nx^n})$
+$\reihenull{a_nx^n}$ und $\reihenull{b_nx^n}$ seien Potenzreihen mit den Konvergenzradien $r_1$ bzw. $r_2$. Sei $c_n:=\sum_{k=0}^{n}{a_kb_{n-k}}\ (n\in\MdN_0)$ und $r$ sei der Konvergenzradius der Potenzreihe $\reihenull{c_nx^n}$. $R:=\min\{r_1, r_2\}$. Dann: $R\le r$ und für $x \in (-R, R):$ $\reihenull{c_nx^n}=(\reihenull{a_nx^n})(\reihenull{b_nx^n})$
 \end{satz}
 
 \begin{beweis}
@@ -1575,7 +1575,7 @@ Sei $x \in (-R, R): (\reihenull{a_nx^n})(\reihenull{b_nx^n})\overset{\text{13.4}
 \end{beweis}
 
 \begin{bemerkung}
-Sei $(a_n)^{\infty}_{n=0}$ eine Folge und $x_0 \in\MdR$. Eine Reihe der Form $(*) \reihenull{a_n(x-x_0)^n}$ heißt ebenfalls eine Potenzreihe ($x_0$ heißt \begriff{Entwicklungspunkt} der Potenzreihe). Substitution $t:=x-x_0$, dann erh"alt man die Potenzreihe $\reihenull{a_nt^n}$. Sei $r$ der Konvergenzradius dieser Potenzreihe. Dann: ist $r=0$, so konvergiert die Potenzreihe in $(*)$ \emph{nur} in $x=x_0$. Ist $r=\infty$, so konvergiert die Potenzreihe absolut $\forall\ x\in\MdR.$ Ist $0<r<\infty$, so konvergiert die Potenzreihe in $(*)$ absolut f"ur $|x-x_0|<r$, sie divergiert f"ur $|x-x_0|>r.$ 
+Sei $(a_n)^{\infty}_{n=0}$ eine Folge und $x_0 \in\MdR$. Eine Reihe der Form $(*) \reihenull{a_n(x-x_0)^n}$ heißt ebenfalls eine Potenzreihe ($x_0$ heißt \begriff{Entwicklungspunkt} der Potenzreihe). Substitution $t:=x-x_0$, dann erhält man die Potenzreihe $\reihenull{a_nt^n}$. Sei $r$ der Konvergenzradius dieser Potenzreihe. Dann: ist $r=0$, so konvergiert die Potenzreihe in $(*)$ \emph{nur} in $x=x_0$. Ist $r=\infty$, so konvergiert die Potenzreihe absolut $\forall\ x\in\MdR.$ Ist $0<r<\infty$, so konvergiert die Potenzreihe in $(*)$ absolut für $|x-x_0|<r$, sie divergiert für $|x-x_0|>r.$ 
 \end{bemerkung}
 
 \chapter{$g$-adische Entwicklungen}
@@ -1656,7 +1656,7 @@ Die Menge der reellen Zahlen ist überabzählbar.
 Es genügt zu zeigen: $[0,1)$ ist überabzählbar.
 
 \textbf{Annahme}: $[0,1)$ ist abzählbar, also $[0,1) = \{a_1,a_2,\ldots\}, a_j \ne a_k$ für $j\ne k$. 
-F\"ur $j \in\MdN$ sei $a_j = 0,z_1^{(j)} z_2^{(j)} z_3^{(j)}\ldots$ die 3-adische Entwicklung von $a_j$. ($z_k^{(j)} \in \{0,1,2\}$).
+Für $j \in\MdN$ sei $a_j = 0,z_1^{(j)} z_2^{(j)} z_3^{(j)}\ldots$ die 3-adische Entwicklung von $a_j$. ($z_k^{(j)} \in \{0,1,2\}$).
 $$ z_k := \begin{cases} 1 & \text{falls } z_k^{(k)} \in \{0,2\} \\0 & \text{falls } z_k^{(k)}= 1 \end{cases}$$
 Dann: $z_k \ne z_k^{(k)} \ \forall k \in\MdN$, $z_k \ne g-1 \ \forall k\in\MdN$. $a := 0,z_1z_2z_3\ldots = \reihe{\frac{z_n}{g^n}}.$ 15.2 $\folgt a \in [0,1) \folgt \exists m\in\MdN: a= a_m \folgt 0,z_1z_2z_3\ldots = 0,z_1^{(m)}z_2^{(m)}z_3^{(m)}\ldots$. 15.2 $\folgt z_j = z_j^{(m)} \ \forall j\in\MdN \folgt z_m = z_m^{(m)}$. Widerspruch!
 \end{beweis}
@@ -1862,7 +1862,7 @@ Sei $a<b$ und $f \in\ C[a, b]:=C([a, b])$, weiter sei $y_0 \in\MdR$ und $f(a) \l
 \end{satz}
 
 \begin{beweis}
-O.B.d.A: $f(a)<y_0<f(b)$, $M:=\{x \in [a,b]: f(x)\le y_0\}$. $M \ne \emptyset $, denn $a \in M$. $M \subseteq [a, b] \folgt$ M ist beschr"ankt. $x_0:=\sup M$. $\forall n \in \MdN$ ist $x_0 - \frac{1}{n}$ keine obere Schranke von M $\folgt \forall n\in\MdN\ \exists\ x_n\in M: x_0 - \frac{1}{n}<x_n\le x_0 \folgt x_n \to x_0$. $x_n \in [a, b] \folgt x_0 \in [a, b]$, f stetig in $x_0 \folgt \underbrace{f(x_n)}_{\le y_0} \to f(x_0) \folgt f(x_0)\le y_0$. Es ist $x_0<b$ (anderenfalls: $f(x_0) \le y_0 < f(b)=f(x_0)$ Widerspruch!) $z_n:=x_0+\frac{1}{n}; z_n \in [a, b] \ffa n\in\MdN; z_n \to x_0;$ f stetig in $x_0 \folgt f(z_n) \to f(x_0)$. $z_n \notin M \folgt f(z_n)>y_0 \forall n \in\MdN \folgt \lim f(z_n) \ge y_0 \folgt f(x_0) \ge y_0$
+O.B.d.A: $f(a)<y_0<f(b)$, $M:=\{x \in [a,b]: f(x)\le y_0\}$. $M \ne \emptyset $, denn $a \in M$. $M \subseteq [a, b] \folgt$ M ist beschränkt. $x_0:=\sup M$. $\forall n \in \MdN$ ist $x_0 - \frac{1}{n}$ keine obere Schranke von M $\folgt \forall n\in\MdN\ \exists\ x_n\in M: x_0 - \frac{1}{n}<x_n\le x_0 \folgt x_n \to x_0$. $x_n \in [a, b] \folgt x_0 \in [a, b]$, f stetig in $x_0 \folgt \underbrace{f(x_n)}_{\le y_0} \to f(x_0) \folgt f(x_0)\le y_0$. Es ist $x_0<b$ (anderenfalls: $f(x_0) \le y_0 < f(b)=f(x_0)$ Widerspruch!) $z_n:=x_0+\frac{1}{n}; z_n \in [a, b] \ffa n\in\MdN; z_n \to x_0;$ f stetig in $x_0 \folgt f(z_n) \to f(x_0)$. $z_n \notin M \folgt f(z_n)>y_0 \forall n \in\MdN \folgt \lim f(z_n) \ge y_0 \folgt f(x_0) \ge y_0$
 \end{beweis}
 
 \begin{satz}[Nullstellensatz von Bolzano]
@@ -1878,7 +1878,7 @@ Sei $E(x):=e^x (x \in\MdR)$. Behauptung: $E(\MdR)=(0, \infty)$
 \end{beweis}
 
 \begin{definition}
-$A \subseteq \MdR$ heißt \indexlabel{abgeschlossene Menge}\textbf{abgeschlossen} $:\equizu$ f"ur jede konvergente Folge $(x_n)$ in $A$ gilt: $\lim x_n \in A$\\
+$A \subseteq \MdR$ heißt \indexlabel{abgeschlossene Menge}\textbf{abgeschlossen} $:\equizu$ für jede konvergente Folge $(x_n)$ in $A$ gilt: $\lim x_n \in A$\\
 $B \subseteq \MdR$ heißt \indexlabel{offene Menge}\textbf{offen} $:\equizu \forall\ x \in B \ \exists \delta=\delta(x)>0 : U_\delta(x) \subseteq B$.
 \end{definition}
 
@@ -1891,35 +1891,35 @@ $B \subseteq \MdR$ heißt \indexlabel{offene Menge}\textbf{offen} $:\equizu \for
 
 \begin{hilfssatz*}
 \begin{liste}
-\item $A \subseteq \MdR$ ist abgeschlossen $\equizu$ jeder H"aufungspunkt von $A$ geh"ort zu $A$
+\item $A \subseteq \MdR$ ist abgeschlossen $\equizu$ jeder Häufungspunkt von $A$ gehört zu $A$
 \item $B \subseteq \MdR$ ist offen $\equizu$ \MdR$ \backslash\ B$ ist abgeschlossen
-\item $D \subseteq \MdR$ ist abgeschlossesn u. beschr"ankt $\equizu$ jede Folge $(x_n)$ in $D$ enth"alt eine konvergente Teilfolge $(x_{n_k})$ mit $\lim x_{n_k} \in D$. In diesem Fall existiert $\max D$ und $\min D$.
+\item $D \subseteq \MdR$ ist abgeschlossesn u. beschränkt $\equizu$ jede Folge $(x_n)$ in $D$ enthält eine konvergente Teilfolge $(x_{n_k})$ mit $\lim x_{n_k} \in D$. In diesem Fall existiert $\max D$ und $\min D$.
 \end{liste}
 \end{hilfssatz*}
 
 \begin{beweis}
 \begin{liste}
-\item "Ubung
+\item übung
 \item \glqq \folgt \grqq: Sei $(x_n)$ eine konvergente Folge in $\MdR\ \backslash\ B$ und $x_0:=\lim x_n$.Annahme: $x_0 \in B$. B offen $\folgt \exists \delta>0 : U_\delta(x_0) \subseteq B$. $x_n \to x_0 \folgt x_n \in U_\delta(x_0) \subseteq B \ffa n \in\MdN$, Widerspruch! \glqq $\Leftarrow$ \grqq: Sei $x \in B$. Annahme: $U_\delta(x) \nsubseteq B \forall \delta>0$. 
 \folgt $U_{\frac{1}{n}}(x) \nsubseteq B \forall n \in \MdN 
 \folgt \forall n \in \MdN \exists x_n \in U_{\frac{1}{n}}$ mit: $x_n \in \MdR\ \backslash\ B \folgt (x_n)$ ist eine Folge in $\MdR\ \backslash\ B: x_n \to x$. $\MdR\ \backslash\ B$ abgeschlossen \folgt $x \in \MdR\ \backslash\ B$, Widerspruch!
-\item \glqq \folgt \grqq: Sei $(x_n)$ Folge in $D$. $D$ beschr"ankt \folgt $(x_n)$ beschr"ankt. 8.2 \folgt $(x_n)$ enth"alt eine konvergente Teilfolge $(x_{n_k})$. $D$ abgeschlossen $\folgt \lim x_{n_k} \in D$. \glqq $\Leftarrow$ \grqq: "Ubung. Sei $D$ beschr"ankt und abgeschlossen. Sei $s:=\sup D$. z.z.: $s \in D$ (analog zeigt man $\inf D \in D$). $\forall n \in \MdN$ ist $s-\frac{1}{n}$ keine obere Schranke von s. \folgt $\forall n \in\MdN\exists\ x_n \in D$ mit $s - \frac{1}{n} < x_n \le s \folgt x_n \to s$. D abgeschlossen \folgt $s \in D$
+\item \glqq \folgt \grqq: Sei $(x_n)$ Folge in $D$. $D$ beschränkt \folgt $(x_n)$ beschränkt. 8.2 \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$. $D$ abgeschlossen $\folgt \lim x_{n_k} \in D$. \glqq $\Leftarrow$ \grqq: übung. Sei $D$ beschränkt und abgeschlossen. Sei $s:=\sup D$. z.z.: $s \in D$ (analog zeigt man $\inf D \in D$). $\forall n \in \MdN$ ist $s-\frac{1}{n}$ keine obere Schranke von s. \folgt $\forall n \in\MdN\exists\ x_n \in D$ mit $s - \frac{1}{n} < x_n \le s \folgt x_n \to s$. D abgeschlossen \folgt $s \in D$
 \end{liste}
 \end{beweis}
 
 \begin{definition*}
-Sei $\emptyset \ne D \subseteq \MdR$. Eine Funktion $f: D\to\MdR$ heißt \textbf{beschr"ankt} $:\equizu f(D)$ ist beschr"ankt ($\equizu \exists\ c \ge 0 : |f(x)| \le c\ \forall x \in D$).
+Sei $\emptyset \ne D \subseteq \MdR$. Eine Funktion $f: D\to\MdR$ heißt \textbf{beschränkt} $:\equizu f(D)$ ist beschränkt ($\equizu \exists\ c \ge 0 : |f(x)| \le c\ \forall x \in D$).
 \end{definition*}
 
 \begin{satz}[Eigenschaften von Bildmengen stetiger Funktionen]
-Sei $\emptyset \ne D \subseteq \MdR$, sei $D$ beschr"ankt, abgeschlossen und $f \in C(D)$. Dann ist $f(D)$ beschr"ankt und abgeschlossen. Insbesondere ist $f$ beschr"ankt und $\exists\ x_1, x_2 \in D : f(x_1) \le f(x) \le f(x_2)\ \forall x \in D$.
+Sei $\emptyset \ne D \subseteq \MdR$, sei $D$ beschränkt, abgeschlossen und $f \in C(D)$. Dann ist $f(D)$ beschränkt und abgeschlossen. Insbesondere ist $f$ beschränkt und $\exists\ x_1, x_2 \in D : f(x_1) \le f(x) \le f(x_2)\ \forall x \in D$.
 \end{satz}
 
 \begin{beweis}
-Annahme: $f$ ist nicht beschr"ankt. Dann: $\forall n \in \MdN\ \exists\ x_n \in D: |f(x_n)| > n.$ HS(3) \folgt $(x_n)$ enth"alt eine konvergente Teilfolge $(x_{n_k})$ mit $x_0:=\lim x_{n_k} \in D$. f stetig \folgt $f(x_{n_k}) \to f(x_0) \folgt (f(x_{n_k}))$ ist beschr"ankt, aber: $|f(x_{n_k})| > n_k\ \forall\ k \in \MdN$, Widerspruch! Sei $(y_n)$ eine konvergente Folge in $f(D)$ und $y_0:=\lim y_n$. z.z.: $y_0 \in f(D)$. $\exists$ Folge $(x_n)$ mit $f(x_n)=y_n\ \forall n \in \MdN$. HS(e) \folgt $(x_n)$ enth"alt eine konvergente Teilfolge $(x_{n_k})$ mit $x_0:=\lim x_{n_k} \in D$. f stetig \folgt $\underbrace{f(x_{n_k})}_{=y_{n_k}} \to f(x_0)$ . Aber auch: $y_{n_k} \to y_0 = f(x_0) \in f(D)$
+Annahme: $f$ ist nicht beschränkt. Dann: $\forall n \in \MdN\ \exists\ x_n \in D: |f(x_n)| > n.$ HS(3) \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$ mit $x_0:=\lim x_{n_k} \in D$. f stetig \folgt $f(x_{n_k}) \to f(x_0) \folgt (f(x_{n_k}))$ ist beschränkt, aber: $|f(x_{n_k})| > n_k\ \forall\ k \in \MdN$, Widerspruch! Sei $(y_n)$ eine konvergente Folge in $f(D)$ und $y_0:=\lim y_n$. z.z.: $y_0 \in f(D)$. $\exists$ Folge $(x_n)$ mit $f(x_n)=y_n\ \forall n \in \MdN$. HS(e) \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$ mit $x_0:=\lim x_{n_k} \in D$. f stetig \folgt $\underbrace{f(x_{n_k})}_{=y_{n_k}} \to f(x_0)$ . Aber auch: $y_{n_k} \to y_0 = f(x_0) \in f(D)$
 \end{beweis}
 
-Sei $I \subseteq \MdR$ ein Intervall und $f: I \to \MdR$ streng monoton wachsend \alt{fallend} \folgt $f$ ist auf $I$ injektiv. \folgt $\exists f^{-1}: f(I) \to \MdR$. $f^{-1}$ ist streng monoton wachsend \alt{fallend}. Es gilt: $f^{-1}(f(x)) = x\ \forall x \in I$, $f(f^{-1}(y)) = y\ \forall y \in f(I)$ "Ubung: Sei M $\subseteq \MdR$. M ist ein Intervall $:\equizu$ aus $a, b \in M$ und $a \le b$ folgt stets $[a, b] \subseteq M$.
+Sei $I \subseteq \MdR$ ein Intervall und $f: I \to \MdR$ streng monoton wachsend \alt{fallend} \folgt $f$ ist auf $I$ injektiv. \folgt $\exists f^{-1}: f(I) \to \MdR$. $f^{-1}$ ist streng monoton wachsend \alt{fallend}. Es gilt: $f^{-1}(f(x)) = x\ \forall x \in I$, $f(f^{-1}(y)) = y\ \forall y \in f(I)$ übung: Sei M $\subseteq \MdR$. M ist ein Intervall $:\equizu$ aus $a, b \in M$ und $a \le b$ folgt stets $[a, b] \subseteq M$.
 
 \begin{satz}[Bildintervalle und Umkehrbarkeit stetiger, montoner Funktionen]
 Sei $I \subseteq \MdR$ ein Intervall und $f \in C(I)$.
@@ -1931,8 +1931,8 @@ Sei $I \subseteq \MdR$ ein Intervall und $f \in C(I)$.
 
 \begin{beweis}
 \begin{liste}
-\item "Ubung (mit obiger "Ubung und 18.1)
-\item O.B.d.A: $I=[a, b]$. $\alpha:=f(a), \beta:=f(b) \overset{(1)}{\underset{\text{f wachsend}}{\folgt}} f(I)=[a,b]$. Sei $x_0 \in [\alpha, \beta]$. Sei $(y_n)$ eine Folge in $f(I)$ und $y_n \to y_0$. z.z.: $f^{-1}(y_n) \to f^{-1}(y_0)$. $x_n:=f^{-1}(yn), x_0:=f^{-1}(y_0) \folgt x_0 \in I$, $x_n \in I \forall n \in \MdN$. d.h. $(x_n)$ ist beschr"ankt. z.z: $x_n \to x_0$. 8.2 $\folgt \H(x_n) \ne \emptyset$. Sei $\alpha \in \H(x_n)$. $\exists$ eine Teilfolge $(x_{n_k})$ von $(x_n)$ mit $x_{n_k} \to \alpha$. $I$ ist abgeschlossen $\folgt \alpha \in I$. f stetig $\folgt \underbrace{f(x_{n_k})}_{=y_{n_k}} \to f(\alpha)$. Aber auch: $y_{n_k} \to y_0 = f(x_0) \folgt f(\alpha) = f(x_0) \folgtwegen{f \text{injektiv}} \alpha=x_0$. d.h. $\H(x_n)=\{x_0\}$. Aus 9.3 folgt: $x_n \to x_0$
+\item übung (mit obiger übung und 18.1)
+\item O.B.d.A: $I=[a, b]$. $\alpha:=f(a), \beta:=f(b) \overset{(1)}{\underset{\text{f wachsend}}{\folgt}} f(I)=[a,b]$. Sei $x_0 \in [\alpha, \beta]$. Sei $(y_n)$ eine Folge in $f(I)$ und $y_n \to y_0$. z.z.: $f^{-1}(y_n) \to f^{-1}(y_0)$. $x_n:=f^{-1}(yn), x_0:=f^{-1}(y_0) \folgt x_0 \in I$, $x_n \in I \forall n \in \MdN$. d.h. $(x_n)$ ist beschränkt. z.z: $x_n \to x_0$. 8.2 $\folgt \H(x_n) \ne \emptyset$. Sei $\alpha \in \H(x_n)$. $\exists$ eine Teilfolge $(x_{n_k})$ von $(x_n)$ mit $x_{n_k} \to \alpha$. $I$ ist abgeschlossen $\folgt \alpha \in I$. f stetig $\folgt \underbrace{f(x_{n_k})}_{=y_{n_k}} \to f(\alpha)$. Aber auch: $y_{n_k} \to y_0 = f(x_0) \folgt f(\alpha) = f(x_0) \folgtwegen{f \text{injektiv}} \alpha=x_0$. d.h. $\H(x_n)=\{x_0\}$. Aus 9.3 folgt: $x_n \to x_0$
 \end{liste}
 \end{beweis}
 
@@ -2063,7 +2063,7 @@ $$ \lim_{x\to x_0} (\lim_{n\to\infty} f_n(x)) = \lim_{x\to x_0}f(x) \gleichnach{
 \begin{beweise}
 \item Sei $\ep>0$. $\exists\ m \in\MdN: |f_m(x)-f(x)|<\frac{\ep}{3}\ \forall\ x\in D$ (i).\\
  17.1$\folgt \exists\ \delta>0: |f_m(x)-f_m(x_0)|<\frac{\ep}{3}\ \forall x \in D \cap U_{\delta}(x_0)$ (ii). \\
- F"ur $x \in D\cap U_{\delta}(x_0): |f(x)-f(x_0)|=|f(x)-f_m(x)+f_m(x)-f_m(x_0)+f_m(x_0)-f(x_0)|\le \underbrace{|f(x)-f_m(x)|}_{\stackrel{(i)}{\le}\frac{\ep}{3}}+\underbrace{|f_m(x)-f_m(x_0)|}_{\stackrel{(ii)}{\le}\frac{\ep}{3}}+\underbrace{|f_m(x_0)-f(x_0)|}_{\stackrel{(i)}{\le}\frac{\ep}{3}}<\ep$. 17.1 $\folgt$ $f$ stetig in $x_0$.
+ Für $x \in D\cap U_{\delta}(x_0): |f(x)-f(x_0)|=|f(x)-f_m(x)+f_m(x)-f_m(x_0)+f_m(x_0)-f(x_0)|\le \underbrace{|f(x)-f_m(x)|}_{\stackrel{(i)}{\le}\frac{\ep}{3}}+\underbrace{|f_m(x)-f_m(x_0)|}_{\stackrel{(ii)}{\le}\frac{\ep}{3}}+\underbrace{|f_m(x_0)-f(x_0)|}_{\stackrel{(i)}{\le}\frac{\ep}{3}}<\ep$. 17.1 $\folgt$ $f$ stetig in $x_0$.
 \item Folgt aus (1)
 \end{beweise}
 
@@ -2071,13 +2071,13 @@ $$ \lim_{x\to x_0} (\lim_{n\to\infty} f_n(x)) = \lim_{x\to x_0}f(x) \gleichnach{
 17.2: $\reihenull{a_nx^n}$ sei eine Potenzreihen mit Konvergenzradius $>0, D:=(-r, r)$. $f(x):=\reihenull{a_nx^n}.$ Behauptung: $f\in C(D)$. Sei $x_0 \in D$. Sei $[a, b]$ so, dass $x_0 \in [a, b] \subseteq D$. 19.1(3) $\folgt \reihenull{a_nx^n}$ konvergiert auf $[a, b]$ gleichmäßig. $\folgt f \in C[a, b] \folgt f$ ist stetig in $x_0$. $x_0 \in D$ beliebig $\folgt$ Behauptung
 \end{beweis}
 
-\begin{satz}[Identit"atssatz f"ur Potenzreihen]
+\begin{satz}[Identitätssatz für Potenzreihen]
 Sei $r>0, D:=(-r, r)$, ($r=\infty$ zugelassen). $\reihenull{a_nx^n}$ und $\reihenull{b_nx^n}$ seien Potenzreihen, die auf $D$ konvergieren. $f(x):=\reihenull{a_nx^n},  g(x):=\reihenull{b_nx^n}\ (x\in D)$ Weiter sei $x_k$ eine Folge in $D\backslash \{0\}$ mit $x_k \to 0\ (k\to \infty)$ und $f(x_k)=g(x_k)\ \forall k \in \MdN$. Dann: $a_n=b_n\ \forall n\in\MdN_{0}$
 \end{satz}
 
 \begin{beweis}
 $h(x):=f(x)-g(x) = \reihenull{\underbrace{(a_n-b_n)}_{:=c_n}x^n} = \reihenull{c_nx^n}$. z.z: $c_n=0\forall n\in\MdN_0$. $\underbrace{h(x_k)}_{=0}\tonach{17.2} h(0)=c_0\folgt c_0=0$.\\
- Annahme: $\exists\ n\in\MdN: c_n\ne0$. $m:=\min\{n\in\MdN: c_n\ne0\}$.  Also: $c_m\ne0,\ c_1, \cdots, c_{m-1}=0 \folgt h(x)=c_mx^m+c_{m+1}x^{m+1}+\cdots$. F"ur $x\in D\backslash \{0\}: \frac{h(x)}{x^m}=\underbrace{c_m+c_{m_1}x+c_{m+2}x^2+\cdots}_{\text{Potenzreihen, die auf D konvergieren}}\tonach{17.2} c_m (x \to \infty) \folgt \underbrace{\frac{h(x_k)}{x^m_k}}_{=0}\to c_m(k\to\infty) \folgt c_m=0$, Widerspruch!
+ Annahme: $\exists\ n\in\MdN: c_n\ne0$. $m:=\min\{n\in\MdN: c_n\ne0\}$.  Also: $c_m\ne0,\ c_1, \cdots, c_{m-1}=0 \folgt h(x)=c_mx^m+c_{m+1}x^{m+1}+\cdots$. Für $x\in D\backslash \{0\}: \frac{h(x)}{x^m}=\underbrace{c_m+c_{m_1}x+c_{m+2}x^2+\cdots}_{\text{Potenzreihen, die auf D konvergieren}}\tonach{17.2} c_m (x \to \infty) \folgt \underbrace{\frac{h(x_k)}{x^m_k}}_{=0}\to c_m(k\to\infty) \folgt c_m=0$, Widerspruch!
 \end{beweis}
 
 \chapter{Gleichmäßige Stetigkeit}
@@ -2086,17 +2086,17 @@ $h(x):=f(x)-g(x) = \reihenull{\underbrace{(a_n-b_n)}_{:=c_n}x^n} = \reihenull{c_
 In diesem Paragraphen seien stets: $\emptyset \ne D \subseteq \MdR, f: D \to \MdR$ eine Funktion.
 \end{vereinbarung}
 \begin{erinnerung}
-Sei $f \in C(D), x_0 \in D$ und $\ep>0$. 17.1 $\folgt \exists \delta=\delta(\ep,x_0)$ mit: $(*)\ |f(x)-f(x_0)|<\ep\ \forall x \in D$ mit $|x-x_0|<\delta$ Im allgemeinen h"angt $\delta$ von $\ep$ und $x_0$ ab.
+Sei $f \in C(D), x_0 \in D$ und $\ep>0$. 17.1 $\folgt \exists \delta=\delta(\ep,x_0)$ mit: $(*)\ |f(x)-f(x_0)|<\ep\ \forall x \in D$ mit $|x-x_0|<\delta$ Im allgemeinen hängt $\delta$ von $\ep$ und $x_0$ ab.
 \end{erinnerung}
 
 \begin{definition}
-$f$ heißt auf $D$ \begriff{gleichm"aßig stetig} $:\equizu\ \forall \ep>0\ \exists \delta=\delta(\ep)>0: (**)\ |f(x)-f(z)| < \ep\ \forall x,z \in D$ mit $|x-z|<\delta.$
+$f$ heißt auf $D$ \begriff{gleichmäßig stetig} $:\equizu\ \forall \ep>0\ \exists \delta=\delta(\ep)>0: (**)\ |f(x)-f(z)| < \ep\ \forall x,z \in D$ mit $|x-z|<\delta.$
 \end{definition}
 
 \textbf{Beachte:} Ist $f$ gleichmäßig stetig auf $D \folgt f \in C(D)$; Die Umkehrung ist im allgemeinen falsch.
 
 \begin{beispiel}
-$D=[0, \infty), f(x):=x^2$. Klar: $f \in C(D)$. Annahme: $f$ ist auf $D$ gleichm"aßig stetig. Dann existiert zu $\ep=1$ ein $\delta>0: |x^2-z^2|<1\ \forall x,z \in D$ mit $|x-z|<\delta$. Sei $x \in D$. $z:=x+\frac{\delta}{2} \folgt |x-z|=\frac{\delta}{2} \folgt |x^2-z^2|=|x+z||x-z|=(2x + \frac{\delta}{2})\frac{\delta}{2}=x\delta + \frac{\delta^2}{4}<1 \folgt x\delta<1 \folgt \delta<\frac{1}{x}$. Also: $\delta<\frac{1}{x}\ \forall x>0 \folgtwegen{x\to\infty} \delta \le 0$, Widerspruch!
+$D=[0, \infty), f(x):=x^2$. Klar: $f \in C(D)$. Annahme: $f$ ist auf $D$ gleichmäßig stetig. Dann existiert zu $\ep=1$ ein $\delta>0: |x^2-z^2|<1\ \forall x,z \in D$ mit $|x-z|<\delta$. Sei $x \in D$. $z:=x+\frac{\delta}{2} \folgt |x-z|=\frac{\delta}{2} \folgt |x^2-z^2|=|x+z||x-z|=(2x + \frac{\delta}{2})\frac{\delta}{2}=x\delta + \frac{\delta^2}{4}<1 \folgt x\delta<1 \folgt \delta<\frac{1}{x}$. Also: $\delta<\frac{1}{x}\ \forall x>0 \folgtwegen{x\to\infty} \delta \le 0$, Widerspruch!
 \end{beispiel}
 
 \begin{definition}
@@ -2105,18 +2105,18 @@ $f$ heißt auf $D$ \begriff{Lipschitz stetig} $:\equizu \exists L\ge 0: \underbr
 
 \begin{satz}[Stetigkeitsstätze]
 \begin{liste}
-\item Ist $f$ auf $D$ Lipschitz stetig $\folgt f$ ist auf $D$ gleichm"aßig stetig
-\item Ist $D$ beschr"ankt und abgeschlossen und $f\in C(D) \folgt f$ ist auf D gleichm"aßig stetig (\textbf{Satz von Heine}\indexlabel{Heine, Satz von}).
+\item Ist $f$ auf $D$ Lipschitz stetig $\folgt f$ ist auf $D$ gleichmäßig stetig
+\item Ist $D$ beschränkt und abgeschlossen und $f\in C(D) \folgt f$ ist auf D gleichmäßig stetig (\textbf{Satz von Heine}\indexlabel{Heine, Satz von}).
 \end{liste}
 \end{satz}
 
 \begin{beweise}
 \item Sei $L\ge 0$ und es gelte $(***)$. O.B.d.A.: $L\> 0$. Sei $\ep>0$. $\delta:=\frac{\ep}{L}$. Seien $x, z \in D$ und $|x-z|<\delta$ \folgt $|f(x)-f(z)| \le L|x-z|<L\delta=\ep$
-\item Annahme: $f$ ist auf $D$ nicht gleichm"aßig stetig $\folgt \ \exists \ep>0: (**)$ ist f"ur kein $\delta>0$ richtig. $\folgt \ \forall\delta>0\ \exists x=x(\delta),z=z(\delta) \in D: |x-z|<\delta$ aber $|f(x)-f(z)|\ge \ep$. $\folgt \forall n \in \MdN\ \exists x_n, z_n: |x_n-z_n|<\frac{1}{n}$, aber $|f(x_n)-f(z_n)| \ge \ep$. D beschr"ankt $\folgt (x_n)$ beschr"ankt $\folgtnach{8.2} (x_n) $ enth"alt eine konvergente Teilfolge $(x_{n_k}), x_0:=\lim x_{n_k}$. D abgeschlossen $\folgt x_0 \in D$. $|x_{n_k}-z_{n_k}| \le \frac{1}{n_k}\ \forall k \in \MdN \folgt z_{n_k} - x_{n_k} \to 0 (k \to \infty) \folgt z_{n_k} = z_{n_k} - x_{n_k} + x_{n_k} \to x_0$. f stetig $\folgt |f(x_{n_k})-f(z_{n_k})| \to |f(x_0)-f(z_0)|=0$. Widerspruch zu $|f(x_{n_k})-f(z_{n_k})|\ge \ep \ \forall k \in \MdN$
+\item Annahme: $f$ ist auf $D$ nicht gleichmäßig stetig $\folgt \ \exists \ep>0: (**)$ ist für kein $\delta>0$ richtig. $\folgt \ \forall\delta>0\ \exists x=x(\delta),z=z(\delta) \in D: |x-z|<\delta$ aber $|f(x)-f(z)|\ge \ep$. $\folgt \forall n \in \MdN\ \exists x_n, z_n: |x_n-z_n|<\frac{1}{n}$, aber $|f(x_n)-f(z_n)| \ge \ep$. D beschränkt $\folgt (x_n)$ beschränkt $\folgtnach{8.2} (x_n) $ enthält eine konvergente Teilfolge $(x_{n_k}), x_0:=\lim x_{n_k}$. D abgeschlossen $\folgt x_0 \in D$. $|x_{n_k}-z_{n_k}| \le \frac{1}{n_k}\ \forall k \in \MdN \folgt z_{n_k} - x_{n_k} \to 0 (k \to \infty) \folgt z_{n_k} = z_{n_k} - x_{n_k} + x_{n_k} \to x_0$. f stetig $\folgt |f(x_{n_k})-f(z_{n_k})| \to |f(x_0)-f(z_0)|=0$. Widerspruch zu $|f(x_{n_k})-f(z_{n_k})|\ge \ep \ \forall k \in \MdN$
 \end{beweise}
 
 \begin{beispiel}
-$D=[0,1], f(x):=\sqrt{x}$. Satz $\folgt f$ ist auf D gleichm"aßig stetig. Annahme: $\ \exists L>0: |\sqrt{x}-\sqrt{z}|\le L|x-z| \ \forall x,z \in [0,1] \folgt \sqrt{x} \le Lx\ \forall x \in [0,1]\ \folgt 1\le L\sqrt{x}\ \forall x \in (0,1] \folgtwegen{x\to0}1\le0$, Widerspruch!
+$D=[0,1], f(x):=\sqrt{x}$. Satz $\folgt f$ ist auf D gleichmäßig stetig. Annahme: $\ \exists L>0: |\sqrt{x}-\sqrt{z}|\le L|x-z| \ \forall x,z \in [0,1] \folgt \sqrt{x} \le Lx\ \forall x \in [0,1]\ \folgt 1\le L\sqrt{x}\ \forall x \in (0,1] \folgtwegen{x\to0}1\le0$, Widerspruch!
 \end{beispiel}
 
 \chapter{Differenzierbarkeit}
@@ -2357,7 +2357,7 @@ Sei $\reihenull{a_n(x-x_0)^n}$ eine Potenzreihe mit Konvergenzradius $r>0, I:=(x
 
 \begin{beweise}
 \item $\limsup \sqrt[n]{|na_n|}=\limsup \sqrt[n]{n}\sqrt[n]{|a_n|}=\limsup \sqrt[n]{|a_n|} \folgt$ Behauptung.
-\item Sp"ater
+\item Später
 \end{beweise}
 
 \begin{beispiele}
@@ -2378,7 +2378,7 @@ $\sin(x+\frac{\pi}{2})=\cos x, $\>$\cos(x+\frac{\pi}{2})=-\sin x$\\
 $\sin(x+\pi)=-\sin x, $\>$\cos(x+\pi)=-\cos x$\\
 $\sin(x+2\pi)=\sin x, $\>$\cos(x+2\pi)=\cos x$
 \end{tabbing}
-\item F"ur $x \in [0, \pi]: \cos x = 0 \equizu x=\frac{\pi}{2}$
+\item Für $x \in [0, \pi]: \cos x = 0 \equizu x=\frac{\pi}{2}$
 \item $\sin x=0 \equizu \exists k \in \MdZ: x = k\pi$. \\
 	$\cos x=0 \equizu \exists k \in \MdZ: x = k\pi+\frac{\pi}{2}$.
 \end{liste}
@@ -2387,16 +2387,16 @@ $\sin(x+2\pi)=\sin x, $\>$\cos(x+2\pi)=\cos x$
 \begin{beweise}
 \item $f(x):=\cos^2 x + \sin^2 x -1$. $f'(x)=2\cos x(-\sin x)+2\sin x\cos x=0$. 21.7 $\folgt f$ ist auf $\MdR$ konstant. $f(0)=0$ $|\cos x|=\sqrt{\cos^2 x} \le \sqrt{\cos^2 x + \sin^2 x}=1$, ObdA $x\ne0$. $\sin x=\sin x-\sin 0 \gleichnach{MWS} \underbrace{|\cos \xi|}_{\le 1}|x| \le |x|$
 \item Sei $y \in \MdR$ und $f(x):=(\sin(x+y)-\sin x \cos y - \cos x \sin y)^2 + (cos(x+y)-\cos x \cos y + \sin x \sin y)^2$. Klar: $f(0)=0$. Nachrechnen: $f'=0$ auf $\MdR$. 21.7 $\folgt f\equiv 0$ auf $\MdR$.
-\item F"ur $x\in(0,2): \sin x = \underbrace{(x-\frac{x^3}{3!})}_{>0}+\underbrace{(\frac{x^5}{5!}-\frac{x^7}{7!})}_{>0}+\cdots \folgt$ Behauptung.
+\item Für $x\in(0,2): \sin x = \underbrace{(x-\frac{x^3}{3!})}_{>0}+\underbrace{(\frac{x^5}{5!}-\frac{x^7}{7!})}_{>0}+\cdots \folgt$ Behauptung.
 \item $cos 0 = 1> 0$. $\cos 2 = \cos(1+1) = \cos^2 1 - \sin^2 1=\cos^2 1 + \sin^2 1 - 2\sin^2 1 = 1-2\sin^2 1 \overset{\text{(3)}}{<} 1-2\frac{25}{36}<0$. 18.2 $\folgt \exists \xi_0 \in (0, 2): \cos \xi_0=0$, In $(0,2)$: $(\cos x)'=-\sin x \overset{\text{(3)}}{<} 0 \folgt \cos x$ ist in $(0,2)$ streng monoton fallend $\folgt \cos x \ne 0 \ \forall x \in [0, \xi_0)$
 \item $\sin^2\frac{\pi}{2}=1-\cos^2\frac{\pi}{2}=1\folgt\sin\frac{\pi}{2}=\pm 1$. (3) $\folgt\sin\frac{\pi}{2}>0\folgt\sin\frac{\pi}{2}=1$.
 \item Die erste Behauptung mit kann mit Potenzreihen, der Rest mit den Additionstheoremen bewiesen werden.
 \item \glqq$\Leftarrow$\grqq: klar, \glqq$\Rightarrow$\grqq: Sei $x\in[0, \pi]$ und $\cos x = 0 \folgtnach{(4)} x\ge\frac{\pi}{2}, y:=\pi-x, y \in [0, \frac{\pi}{2}]$ und $\cos y=\cos(x+\pi)\gleichnach{(6)}-\cos(-x)=-\cos(x)\folgtnach{(4)}y\le\frac{\pi}{2}, x=\frac{\pi}{2}$.
-\item In den gr. "Ubungen
+\item In den gr. übungen
 \end{beweise}
 
 \begin{wichtigedefinition}[Tangens]
-$$\tan x:=\frac{\sin x}{\cos x}\ \text{f"ur}\ x \in \MdR\ \backslash\ \{k\pi+\frac{\pi}{2}\ |\ k \in \MdZ\}.$$ $I:=(-\frac{\pi}{2}, \frac{\pi}{2})$; $f(x):=\tan x\ (x\in I)$. Dann: $f\in C(I)$. $
+$$\tan x:=\frac{\sin x}{\cos x}\ \text{für}\ x \in \MdR\ \backslash\ \{k\pi+\frac{\pi}{2}\ |\ k \in \MdZ\}.$$ $I:=(-\frac{\pi}{2}, \frac{\pi}{2})$; $f(x):=\tan x\ (x\in I)$. Dann: $f\in C(I)$. $
 \displaystyle\lim_{x\to\frac{\pi}{2}}{f(x)}=\infty$, $\displaystyle\lim_{x\to-\frac{\pi}{2}}{f(x)}=-\infty$, $f'(x)=\frac{\cos^2 x + \sin^2 x}{\cos^2 x}=\frac{1}{\cos^2 x}=1+\frac{\sin^2 x}{\cos^2 x}=1+\tan^2 x>0$ auf $I \folgt f$ ist auf $I$ streng monoton wachsend $\folgt \exists f^{-1}: \MdR \to I$, $\arctan x:=f^{-1}(x) (x \in \MdR)$ \begriff{Arcustangens}. Sei $y=\tan x\ (x \in I)$. $(f^{-1})'(y)=\frac{1}{f'(x)}=\frac{1}{1+\tan^2 x}=\frac{1}{1+y^2}$. Also: $(\arctan x)'=\frac{1}{1+x^2}$ auf $\MdR$.
 \end{wichtigedefinition}
 
@@ -2406,13 +2406,13 @@ Sei $I \subseteq \MdR$ ein Intervall; $f:I\to\MdR$ eine Funktion und $x_0\in I$.
 \end{definition}
 
 \begin{beispiele}
-\item $I=(-\infty, 1), f(x)=\frac{1}{1-x}.$ Bekannt: $\reihenull{x^n}=\frac{1}{1-x}$ f"ur $x \in (-1, 1)$. Also: $f(x)=\reihenull{x^n}$ f"ur $x \in (-1, 1)$
+\item $I=(-\infty, 1), f(x)=\frac{1}{1-x}.$ Bekannt: $\reihenull{x^n}=\frac{1}{1-x}$ für $x \in (-1, 1)$. Also: $f(x)=\reihenull{x^n}$ für $x \in (-1, 1)$
 \item $I=\MdR, f(x)=\frac{1}{1+x^2}=\frac{1}{1-(-x^2)}=\reihenull{(-x^2)^n}=\reihenull{(-1)^nx^{2n}}\ (x\in(-1, 1))$
 \item $I=(-1, \infty), f(x)=\log(1+x).$ Behauptung: ($*$) \\
 \fbox{$\log(1+x)=\reihenull{(-1)^n\frac{x^{n+1}}{n+1}}\ (x\in (-1, 1))$}
 \begin{beweis}
 $g(x):=\reihenull{(-1)^n\frac{x^{n+1}}{n+1}}\ (x \in (-1, 1))$ 21.9 $\folgt g$ ist auf $(-1, 1)$ differenzierbar und $g'(x)=\reihenull{(-1)^nx^n}=\frac{1}{1-(-x)}=\frac{1}{1+x}=f'(x)\ \forall x \in (-1, 1)$. 21.7 $\folgt \exists c \in \MdR: f(x)=g(x)+c\ \forall x \in (-1, 1) \folgtwegen{x=0}0=f(0)=g(0)+c=c\folgt f(x)=g(x)\ \forall x \in (-1, 1) \folgt$ Behauptung.
-In den gr. "Ubungen wird gezeigt (Abelscher Grenzwert-Satz): $(*)$ gilt noch f"ur $x=1$. Also: $\log 2=\reihenull{(-1)^n\frac{1^{n+1}}{n}}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$
+In den gr. übungen wird gezeigt (Abelscher Grenzwert-Satz): $(*)$ gilt noch für $x=1$. Also: $\log 2=\reihenull{(-1)^n\frac{1^{n+1}}{n}}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$
 \end{beweis}
 \end{beispiele}
 
@@ -2652,12 +2652,12 @@ Es seien $f,g \in R[a, b]$
 \end{satz}
 
 \begin{beweise}
-\item "Ubung.
-\item "Ubung: $\alpha f \in R[a, b]$ und $\int_a^b(\alpha f)\dx=\alpha\int_a^bf\dx$.\\Zu zeigen: $f+g \in R[a, b]$ und $\int_a^b(f+g)\dx = \int_a^bf\dx + \int_a^bg\dx$.
+\item übung.
+\item übung: $\alpha f \in R[a, b]$ und $\int_a^b(\alpha f)\dx=\alpha\int_a^bf\dx$.\\Zu zeigen: $f+g \in R[a, b]$ und $\int_a^b(f+g)\dx = \int_a^bf\dx + \int_a^bg\dx$.
 Sei $z=\{x_0, \cdots, x_n\} \in \Z, m_j, M_j, I_j$ wie immer. $\widetilde{m_j}:=\inf g(I_j),\ \widetilde{\widetilde{m_j}}:=\inf (f+g)(I_j)$. $x\in I_j:\ (f+g)(x)=f(x)+g(x) \ge m_j + \widetilde{m_j} \folgt \widetilde{\widetilde{m_j}}\ge m_j + \widetilde{m_j} \folgt \widetilde{\widetilde{m_j}}|I_j| \ge m_j|I_j| + \widetilde{m_j}|I_j| \folgtnach{Summation} S_{f+g}(Z) \ge S_f(Z) + S_g(Z) \folgt S_f(Z) + S_g(Z) \le \uint_a^b(f+g)dx \ \forall z \in \Z\ (*)$. Sei $\ep>0: \exists\ Z_1, Z_2 \in \Z: S_f(Z_1) > \uint_a^bf\dx - \ep=\int_a^bf\dx - \ep,\ s_g(Z_2)>\int_a^bg\dx - \ep,\ Z:=Z_1 \cup Z_2 \in \Z$. $\underbrace{\int_a^bf\dx + \int_a^bg\dx}_{=:A} - 2\ep < S_f(Z_1) + S_g(Z_2) \overset{23.1}{\le} S_f(Z) + S_g(Z) \overset{(*)}{\le} \int_a^b (f+g)dx$. Also: $A-2\ep \le \int_a^b(f+g)dx\ \forall \ep>0 \folgtwegen{\ep \to 0+} A\le\uint_a^b(f+g)dx$. Analog: $\oint_a^b(f+g)dx\le A \folgt A=\uint_a^b(f+g)dx = \oint_a^b(f+g)dx$
 \end{beweise}
 
-\begin{satz}[Riemannsches Integrabilit"atskriterium]
+\begin{satz}[Riemannsches Integrabilitätskriterium]
 $f \in R[a,b] \equizu \forall \ep>0\ \exists Z \in \Z: S_f(Z)-s_f(Z) < \ep$.
 \end{satz}
 \begin{beweis}
@@ -2673,8 +2673,8 @@ $f \in R[a,b] \equizu \forall \ep>0\ \exists Z \in \Z: S_f(Z)-s_f(Z) < \ep$.
 \end{satz}
 
 \begin{beweise}
-\item f sei wachsend auf $[a,b]$. Sei $n\in\MdN$ und $Z=\{x_0,\cdots,x_n\}$ sei die \begriff{"aquidistante Zerlegung} von $[a,b]$ mit $n+1$ Teilpunkten. $x_j = a+j\frac{b-a}{n}\ (j=0,\cdots,n)$, dann: $|I_j|=\frac{b-a}{n}$. $m_j, M_j$ wie immer: $S_f(Z)-s_f(z)=\sum^n_{j=1}(\underbrace{M_j}_{=f(x_j)}-\underbrace{m_j}_{f(x_{j-1})})|I_j|=\sum_{j=1}^n(f(x_j)_-f(x_{j-1}))\frac{b-a}{n}=\frac{b-a}{n}(f(x_1)-f(x_0)+f(x_2)-f(x_1)+\cdots+f(x_n)-f(x_{n-1}))=\frac{b-a}{n}(f(x_n)-f(x_0))=\frac{b-a}{n}(f(b)-f(a))=:\alpha_n$. Sei $\ep>0$, dann: $\exists n\in\MdN: \alpha_n <\ep\folgtnach{23.3}$Behauptung.
-\item Sei $f \in C[a, b]$ und $\ep>0$. $\exists \delta>0: (*)\ |f(t)-f(s)|<\frac{\ep}{b-a}\ \forall t,s\in[a,b]$ mit $|t-s|<\delta$. Sei $Z=\{x_0,\cdots,x_n\}\in\Z\ m_j,\ M_j,\ |I_J|$ seien wie immer; $z$ sei so gew"ahlt, da"s $|I_j|<\delta\ (j=1,\cdots,n)$. Betrachte $I_j:$ 18.3$\folgt\ \exists s_j, t_j \in I_j: m_j=f(s_j),\ M_j=f(t_j)$. $|t_j-s_j|<\delta \folgtwegen{(*)}\underbrace{f(t_j)-f(s_j)}_{=M_j-m_j}<\frac{\ep}{b-a}\folgt S_f(Z)-s_f(Z)=\sum^n_{j=1}(\underbrace{M_j-m_j}_{\le\frac{\ep}{b-a}})|I_j|<\frac{\ep}{b-a}\sum^n_{j=1}|I_j|=\ep\folgtnach{23.3}f\in R[a,b]$
+\item f sei wachsend auf $[a,b]$. Sei $n\in\MdN$ und $Z=\{x_0,\cdots,x_n\}$ sei die \begriff{äquidistante Zerlegung} von $[a,b]$ mit $n+1$ Teilpunkten. $x_j = a+j\frac{b-a}{n}\ (j=0,\cdots,n)$, dann: $|I_j|=\frac{b-a}{n}$. $m_j, M_j$ wie immer: $S_f(Z)-s_f(z)=\sum^n_{j=1}(\underbrace{M_j}_{=f(x_j)}-\underbrace{m_j}_{f(x_{j-1})})|I_j|=\sum_{j=1}^n(f(x_j)_-f(x_{j-1}))\frac{b-a}{n}=\frac{b-a}{n}(f(x_1)-f(x_0)+f(x_2)-f(x_1)+\cdots+f(x_n)-f(x_{n-1}))=\frac{b-a}{n}(f(x_n)-f(x_0))=\frac{b-a}{n}(f(b)-f(a))=:\alpha_n$. Sei $\ep>0$, dann: $\exists n\in\MdN: \alpha_n <\ep\folgtnach{23.3}$Behauptung.
+\item Sei $f \in C[a, b]$ und $\ep>0$. $\exists \delta>0: (*)\ |f(t)-f(s)|<\frac{\ep}{b-a}\ \forall t,s\in[a,b]$ mit $|t-s|<\delta$. Sei $Z=\{x_0,\cdots,x_n\}\in\Z\ m_j,\ M_j,\ |I_J|$ seien wie immer; $z$ sei so gewählt, da"s $|I_j|<\delta\ (j=1,\cdots,n)$. Betrachte $I_j:$ 18.3$\folgt\ \exists s_j, t_j \in I_j: m_j=f(s_j),\ M_j=f(t_j)$. $|t_j-s_j|<\delta \folgtwegen{(*)}\underbrace{f(t_j)-f(s_j)}_{=M_j-m_j}<\frac{\ep}{b-a}\folgt S_f(Z)-s_f(Z)=\sum^n_{j=1}(\underbrace{M_j-m_j}_{\le\frac{\ep}{b-a}})|I_j|<\frac{\ep}{b-a}\sum^n_{j=1}|I_j|=\ep\folgtnach{23.3}f\in R[a,b]$
 \end{beweise}
 
 \begin{definition}
@@ -2683,12 +2683,12 @@ Sei $J\subseteq\MdR$ ein Intervall und $G,g: J\to\MdR$ seien Funktionen. $G$ hei
 \textbf{Beachte:}
 \begin{liste}
 \item Sind $G_1$ und $G_2$ Stammfunktionen von $g$ auf $J \folgtnach{21.7}\ \exists c \in\MdR: G_1=G_2+c$ auf $J$.
-\item Sei $I=[a,b]$. Es gibt Funktionen, die auf $[a,b]$ Stammfunktionen besitzen, aber "uber $[a,b]$ nicht integrierbar sind.
+\item Sei $I=[a,b]$. Es gibt Funktionen, die auf $[a,b]$ Stammfunktionen besitzen, aber über $[a,b]$ nicht integrierbar sind.
 \begin{beispiel}
 $$F(x) := \begin{cases}
 x^{\frac{3}{2}} \sin\frac{1}{x},&x\in(0,1]\\
 0,& x=0\end{cases}$$
-Bekannt: (§22): $F$ ist auf $[0,1]$ differenzierbar und $f:=F'$ ist auf [0,1] \emph{nicht} beschr"ankt. Also: $f \notin R[0,1]$, besitzt aber auf $[0,1]$ die Stammfunktion $F$.
+Bekannt: (§22): $F$ ist auf $[0,1]$ differenzierbar und $f:=F'$ ist auf [0,1] \emph{nicht} beschränkt. Also: $f \notin R[0,1]$, besitzt aber auf $[0,1]$ die Stammfunktion $F$.
 \end{beispiel}
 \item Sei $I=[a,b]$. Es gibt Funktionen in $R[a,b]$, die auf $[a,b]$ keine Stammfunktionen besitzen.
 \begin{beispiel}
@@ -2902,7 +2902,7 @@ Sei $f \in R[a,b]$ und $F:[a,b]\to\MdR$ sei definiert durch $F(x):=\int_a^xf(t)\
 
 \begin{beweise}
 \item $L:=\sup\{|f(x)| : x \in [a,b]\}$. Sei $x,y \in [a,b]$, etwa $x\le y$. $F(y)=\int_a^yf(t)\dt\gleichnach{23.9}\int_a^xf(t)\dt + \int_x^yf(t)\dt=F(x)+\int_x^yf(t)\dt\folgt F(y)-F(x)=\int_x^yf(t)\dt\folgt |F(y)-F(x)|=|\int_x^yf(t)\dt|\overset{23.8}{\le}\int_x^y\underbrace{|f(t)|}_{\le L}\dt\le\int_x^yL\dt=L(y-x)=L|y-x|$
-\item Sei $x_0 \in [a,b)$. Wir zeigen: $(*) \displaystyle\lim_{h\to 0+}\frac{F(x_0+h)-F(x_0)}{h}=f(x_0)$ (analog zeigt man f"ur $x_0 \in (a,b]\ :\ \displaystyle\lim_{h\to0-}\frac{F(x_0+h)-F(x_0)}{h}=f(x_0)$) Sei also $x_0 \in [a,b)$, $h>0$ und $x_0+h<b$. $g(h):=|\frac{F(x_0+h)-F(x_0)}{h}-f(x_0)|$. Zu zeigen: $g(h)\to 0\ (h\to0+)$. Es ist $\frac{F(x_0+h)-F(x_0)}{h}\gleichnach{s.o.}\frac{1}{h}\int_{x_0}^{x_0+h}f(t)\dt$, $\ \frac{1}{h}\int_{x_0}^{x_0+h}f(x_0)\dt=\frac{1}{h}f(x_0)h=f(x_0)\folgt g(h)=\frac{1}{h}|\int_{x_0}^{x_0+h}(f(t)-f(x_0))\dt|\overset{23.8}{\le}\frac{1}{h}\int_{x_0}^{x_0+h}|f(t)-f(x_0)|\dt;\ s(h):=\sup\{|f(t)-f(x_0)|\ :\ t \in [x_0,x_0+h]\}\folgt g(h)\le\frac{1}{h}\int_{x_0}^{x_0+h}s(h)\dt=\frac{1}{h}s(h)h=s(h)$. Also: $0\le g(h)\le s(h)$. $f$ stetig in $x_0 \folgt f(t)\to f(x_0)\ (t \to x_0) \folgt s(h)\to 0\ (h\to 0+) \folgt g(h)\to 0\ (h\to 0+)\folgt (*)$
+\item Sei $x_0 \in [a,b)$. Wir zeigen: $(*) \displaystyle\lim_{h\to 0+}\frac{F(x_0+h)-F(x_0)}{h}=f(x_0)$ (analog zeigt man für $x_0 \in (a,b]\ :\ \displaystyle\lim_{h\to0-}\frac{F(x_0+h)-F(x_0)}{h}=f(x_0)$) Sei also $x_0 \in [a,b)$, $h>0$ und $x_0+h<b$. $g(h):=|\frac{F(x_0+h)-F(x_0)}{h}-f(x_0)|$. Zu zeigen: $g(h)\to 0\ (h\to0+)$. Es ist $\frac{F(x_0+h)-F(x_0)}{h}\gleichnach{s.o.}\frac{1}{h}\int_{x_0}^{x_0+h}f(t)\dt$, $\ \frac{1}{h}\int_{x_0}^{x_0+h}f(x_0)\dt=\frac{1}{h}f(x_0)h=f(x_0)\folgt g(h)=\frac{1}{h}|\int_{x_0}^{x_0+h}(f(t)-f(x_0))\dt|\overset{23.8}{\le}\frac{1}{h}\int_{x_0}^{x_0+h}|f(t)-f(x_0)|\dt;\ s(h):=\sup\{|f(t)-f(x_0)|\ :\ t \in [x_0,x_0+h]\}\folgt g(h)\le\frac{1}{h}\int_{x_0}^{x_0+h}s(h)\dt=\frac{1}{h}s(h)h=s(h)$. Also: $0\le g(h)\le s(h)$. $f$ stetig in $x_0 \folgt f(t)\to f(x_0)\ (t \to x_0) \folgt s(h)\to 0\ (h\to 0+) \folgt g(h)\to 0\ (h\to 0+)\folgt (*)$
 \item folgt aus (2)
 \end{beweise}
 
@@ -2912,7 +2912,7 @@ Sei $J \subseteq \MdR$ ein beliebiges Intervall, $f \in C(J)$ und $\xi \in J$ (f
 
 
 \begin{beweis}
-Seien $a,b \in J$, $a<b$ und $I:=[a,b]$. Es gen"ugt zu zeigen: $F$ ist differenzierbar auf $I$ und $F'=f$ auf $I$. $G(x):=\int_a^xf(t)dt\ (x\in I)$. Sei $\xi\le a$ (analoger Beweis f"ur $\xi\ge b$ und $\xi \in (a,b)$. F"ur $x \in [a,b]:\ F(x)=\int_{\xi}^x\cdots = \int_{\xi}^a\cdots + \int_a^x\cdots=F(a)+G(x)\folgtnach{23.13} F$ ist differenzierbar auf $I$ und $F'=G'=f$ auf $I$.
+Seien $a,b \in J$, $a<b$ und $I:=[a,b]$. Es genügt zu zeigen: $F$ ist differenzierbar auf $I$ und $F'=f$ auf $I$. $G(x):=\int_a^xf(t)dt\ (x\in I)$. Sei $\xi\le a$ (analoger Beweis für $\xi\ge b$ und $\xi \in (a,b)$. Für $x \in [a,b]:\ F(x)=\int_{\xi}^x\cdots = \int_{\xi}^a\cdots + \int_a^x\cdots=F(a)+G(x)\folgtnach{23.13} F$ ist differenzierbar auf $I$ und $F'=G'=f$ auf $I$.
 \end{beweis}
 
 \begin{definition}
@@ -2920,7 +2920,7 @@ Im folgenden seien $I,J\subseteq\MdR$ beliebige Intervalle.
 \begin{liste}
 \item Sei $g:I\to\MdR$ und $x_0\in I$. $g(x)|_{x=x_0}:=g(x_0).$
 \item Ist $f \in R[a,b]$, so hei"st $\int_a^bf(x)\dx$ auch ein \begriff{bestimmtes Integral}.
-\item Besitzt $G:I\to\MdR$ auf $I$ eine Stammfunktion, so schreibt man f"ur eine solche auch $\int g(x)\dx$ (\begriff{unbestimmtes Integral}). "Gleichungen" der Form $\int g(x)\dx=h(x)$ gelten bis auf additive Konstanten! \textbf{Beispiel}: $\int e^x\dx=e^x, \int e^x\dx=e^x + 7$. $\int g(x)\dx=h(x)$ auf $I$ bedeutet: h ist eine Stammfunktion von $g$ auf $I$.
+\item Besitzt $G:I\to\MdR$ auf $I$ eine Stammfunktion, so schreibt man für eine solche auch $\int g(x)\dx$ (\begriff{unbestimmtes Integral}). "Gleichungen" der Form $\int g(x)\dx=h(x)$ gelten bis auf additive Konstanten! \textbf{Beispiel}: $\int e^x\dx=e^x, \int e^x\dx=e^x + 7$. $\int g(x)\dx=h(x)$ auf $I$ bedeutet: h ist eine Stammfunktion von $g$ auf $I$.
 \end{liste}
 \end{definition}
 
@@ -2957,7 +2957,7 @@ Sei $f\in C(I)$ und $g \in C^1(J)$ und $g(J)\subseteq I$.
 \end{satz}
 
 \begin{merkregel}
-Ist $y=y(x)$ differenzierbar, so schreibt man f"ur $y'$ auch $\frac{dy}{dx}$. In 23.16 substituiere $x=g(t)$ (fasse also $x$ als Funktion von $t$ auf) $\folgt g'(t)=\frac{dx}{dt}$ \glqq$\folgt dx=g'(t)dt$\grqq.
+Ist $y=y(x)$ differenzierbar, so schreibt man für $y'$ auch $\frac{dy}{dx}$. In 23.16 substituiere $x=g(t)$ (fasse also $x$ als Funktion von $t$ auf) $\folgt g'(t)=\frac{dx}{dt}$ \glqq$\folgt dx=g'(t)dt$\grqq.
 \end{merkregel}
 
 \begin{beweise}
@@ -3195,8 +3195,8 @@ $\folgt \exists c \in (1,\infty): \frac{f(x)}{g(x)} \ge \frac{1}{2}\ \forall x \
 \chapter{Funktionen von beschränkter Variation}
 
 \begin{definition}
-Sei $f:[a,b]\to\MdR$ und $Z=\{x_0,\ldots,x_n\} \in\Z$. $V_f(Z):=\sum_{j=1}^n|f(x_j)-f(x_{j-1})|$ ist die \begriff{Variation} von $f$ bez"uglich Z.\\
-\textbf{Beachte}: Sind $Z_1,Z_2 \in \Z$ und $Z_1 \subseteq Z_2\folgt V_f(Z_1) \le V_f(Z_2)$. $M_f=\{V_f(Z):Z \in \Z\}.\ f$ hei"st von \begriff{beschr"ankter Variation}, in Zeichen: $f\in\BV[a,b]\ :\equizu M_f$ ist nach oben beschr"ankt. In diesem Fall hei"st $V_f[a,b]:=\sup M_f$ die \begriff{Totalvariation} von $f$ (auf $[a,b]$). 
+Sei $f:[a,b]\to\MdR$ und $Z=\{x_0,\ldots,x_n\} \in\Z$. $V_f(Z):=\sum_{j=1}^n|f(x_j)-f(x_{j-1})|$ ist die \begriff{Variation} von $f$ bezüglich Z.\\
+\textbf{Beachte}: Sind $Z_1,Z_2 \in \Z$ und $Z_1 \subseteq Z_2\folgt V_f(Z_1) \le V_f(Z_2)$. $M_f=\{V_f(Z):Z \in \Z\}.\ f$ hei"st von \begriff{beschränkter Variation}, in Zeichen: $f\in\BV[a,b]\ :\equizu M_f$ ist nach oben beschränkt. In diesem Fall hei"st $V_f[a,b]:=\sup M_f$ die \begriff{Totalvariation} von $f$ (auf $[a,b]$). 
 \end{definition}
 
 \begin{beispiel}
@@ -3207,7 +3207,7 @@ $f \in C[0,1]$. Sei $n\in\MdN.\ Z_n:=\{0,\frac{1}{n},\frac{1}{n-1},\frac{1}{n-2}
 \end{beispiel}
 
 \begin{hilfssatz}
-Sei $f:[a,b]\to\MdR$ differenzierbar auf $[a,b]$ und $f'$ sei auf $[a,b]$ beschr"ankt. Dann ist $f$ auf $[a,b]$ Lipschitzstetig.
+Sei $f:[a,b]\to\MdR$ differenzierbar auf $[a,b]$ und $f'$ sei auf $[a,b]$ beschränkt. Dann ist $f$ auf $[a,b]$ Lipschitzstetig.
 \end{hilfssatz}
 
 \begin{beweis}
@@ -3216,9 +3216,9 @@ $L:=\sup\{|f'(x)|:x\in[a,b]\}$. Sei $x,y\in[a,b]$, etwa $x\le y$. $|f(x)-f(y)|=|
 
 \begin{satz}[Varianzeigenschaften]
 \begin{liste}
-\item Ist $f \in\BV[a,b]\folgt f$ ist beschr"ankt auf $[a,b]$.
+\item Ist $f \in\BV[a,b]\folgt f$ ist beschränkt auf $[a,b]$.
 \item Ist $f$ auf $[a,b]$ Lipschitzstetig $\folgt f\in\BV[a,b]$.
-\item Ist $f$ differenzierbar auf $[a,b]$ und $f'$ beschr"ankt auf $[a,b]\folgt f\in\BV[a,b]$
+\item Ist $f$ differenzierbar auf $[a,b]$ und $f'$ beschränkt auf $[a,b]\folgt f\in\BV[a,b]$
 \item $C^1[a,b]\subseteq \BV[a,b]$
 \item Ist $f$ monoton auf $[a,b]\folgt f\in\BV[a,b]$ und $V_f[a,b]=|f(b)-f(a)|$
 \item $\BV[a,b]$ ist ein reeller Vektorraum
@@ -3232,7 +3232,7 @@ $L:=\sup\{|f'(x)|:x\in[a,b]\}$. Sei $x,y\in[a,b]$, etwa $x\le y$. $|f(x)-f(y)|=|
 \item folgt aus (2) und dem Hilfssatz
 \item folgt aus (3)
 \item $f$ sei wachsend auf $[a,b]$. Sei $Z=\{x_0,\ldots,x_n\}\in\Z$. $V_f(Z)=\sum^n_{j=1}|f(x_j)-f(x_{j-1})|=\sum^n_{j=1}f(x_j)-f(x_{j-1})=f(b)-f(a)=|f(b)-f(a)|$
-\item "Ubung.
+\item übung.
 \item $I:=[a,b],I_1:=[a,c],I_2:=[c,b]$.
 \begin{description}
 \hin Sei $Z_1$ eine Zerlegung von $I_1$ und $Z_2$ eine Zerlegung von $I_2$. $Z:=Z_1 \cup Z_2\folgt Z\in\Z$ und $V_f(Z_1),V_f(Z_2)\le V_f(Z_1)+V_f(Z_2)=V_f(Z)\le V_f[a,b]\folgt f\in\BV(I_1)$ und $f\in\BV(I_2)$ und $V_f(I_1)+V_f(I_2)\le V_f[a,b]$
@@ -3249,7 +3249,7 @@ $L:=\sup\{|f'(x)|:x\in[a,b]\}$. Sei $x,y\in[a,b]$, etwa $x\le y$. $|f(x)-f(y)|=|
 \end{satz}
 
 \begin{beweise}
-\item[(3)] sp"ater in allgemeiner Form (Analysis II, §12 od. §13)
+\item[(3)] später in allgemeiner Form (Analysis II, §12 od. §13)
 \item[(2)] folgt aus (1) und 23.4
 \item[(1)]
 \begin{description}
@@ -3348,7 +3348,7 @@ $\folgt \sigma_f(Z_n,\xi^{(n)},g) \to \intab* fg'\dx.$
 $\int_0^1 e^x \text{d}(e^{-x}) = \int_0^1 e^x(-e^{-x})\dx = \int_0^1 (-1)\dx = -1.$
 \end{beispiel}
 
-\begin{satz}[Absch"atzen des RS-Integrals mit Hilfe der Totalvarianz]
+\begin{satz}[Abschätzen des RS-Integrals mit Hilfe der Totalvarianz]
 Sei $g \in \BV[a,b]$ und $f \in R_{g}$. Dann: $${\left|\int_a^b fdg\right|}\le\gamma V_g[a,b]\text{, wobei }\gamma:=\sup\{|f(x)|: x \in [a,b]\}$$ $ $
 \end{satz}
 
@@ -3383,7 +3383,7 @@ Wegen 25.2 und 26.1(2) O.B.d.A: $g$ wachsend. $c:=g(b)-g(a)\ (\ge 0).$ O.B.d.A: 
 1. Sei $(Z, \xi), Z=\{x_0, \ldots, x_n\}, \xi=(\xi_0, \ldots, \xi_n). m_j, M_j, I_j, d_j$ seien wie oben. $S:=\sup\{s(z): z \in \Z\}$, also $S\le S(Z).\ \alpha:=S(Z)-s(Z)$\\
 Es gilt: $m_j\le f(\xi_j) \le M_j \folgtwegen{d_j \ge 0} m_jd_j \le f(\xi_j)d_j\le M_jd_j\folgt (*)\ s(z)\le \sigma_f(Z,\xi,g)\le S(Z)$.\\
 Dann: $-\alpha=s(z)-S(Z)\le S-S(Z)\overset{(*)}{\le}S-\sigma_f(Z,\xi,g)\le S(Z)-\sigma_f(Z,\xi,g)\overset{(*)}{\le}S(Z)-s(z)=\alpha\folgt |s-\sigma_f(Z,\xi,g)|\le \alpha = \sum_{j=1}^n(M_j-m_j)d_j$.\\
-Sei $\ep>0$. $f$ ist auf $[a,b]$ \textbf{gleichm"a"sig} stetig $\folgt \exists\delta>0: |f(t)-f(s)|<\frac{\ep}{c}\ \forall t,s \in [a,b]$ mit $|t-s|<\delta$. Sei $|Z|<\delta\folgt M_j-m_j<\frac{\ep}{c}\folgt|s-\delta_f(Z,\xi, g)|<\frac{\ep}{c}\underbrace{\sum_{j=1}^nd_j}_{=c}=\ep$. \\
+Sei $\ep>0$. $f$ ist auf $[a,b]$ \textbf{gleichmä"sig} stetig $\folgt \exists\delta>0: |f(t)-f(s)|<\frac{\ep}{c}\ \forall t,s \in [a,b]$ mit $|t-s|<\delta$. Sei $|Z|<\delta\folgt M_j-m_j<\frac{\ep}{c}\folgt|s-\delta_f(Z,\xi, g)|<\frac{\ep}{c}\underbrace{\sum_{j=1}^nd_j}_{=c}=\ep$. \\
 2. Sei $((Z_n, \xi^{(n)}))$ eine Nullfolge in $\Z^*$. Sei $\ep>0$. Dann existiert ein $\delta>0$ wie in (1), $|Z_n|\to 0 \folgt \exists n_0 \in \MdN: |Z_n|<\delta\ \forall n\ge n_0 \folgt |s-\sigma_f(Z_n, \xi^{(n)}, g)|<\ep \ \forall n\ge n_0. $ Also: $\sigma_f(Z_n, \xi^{(n)}, g) \to S\ (n\to\infty)$.
 \end{beweis}
 
