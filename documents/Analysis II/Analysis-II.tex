@@ -1,6 +1,7 @@
 % Original Source: http://mitschriebwiki.nomeata.de/data/SS10/Ana2Bachelor.tex
 \documentclass[a4paper,oneside,DIV15,BCOR12mm,chapterprefix=true,headings=twolinechapter]{scrbook}
-\usepackage{ana}
+\usepackage{mathe}
+\usepackage{saetze-schmoeger}
 
 \lecturer{Dr. C. Schmoeger}
 \semester{Sommersemester 2010}
@@ -1183,7 +1184,7 @@ $$ f'=
 \frac{\partial f_p}{\partial x_1} & \cdots & \frac{\partial f_p}{\partial x_n} \\
 \end{array}
 \right.
-}_{=:\frac{\partial f}{\partial x}}
+}_{=:\frac{\partial f}{\partial x}\ (p \times n)\text{-Matrix}}
 \underbrace{
 \left.
 \begin{array}{ccc}
@@ -1196,11 +1197,11 @@ $$ f'=
 \text{; also } f'(x,y)=\left(\frac{\partial f}{\partial x}(x,y),\ \frac{\partial f}{\partial y}(x,y)\right)$$
 
 \begin{satz}[Satz über implizit definierte Funktionen]
-Sei $(x_0, y_0)\in D, f(x_0, y_0)=0$ und $\det\frac{\partial f}{\partial y}(x_0, y_0)\ne 0$. Dann existiert eine offene Umgebung $U\subseteq \MdR^n$ von $x_0$ und genau eine Funktion $g:U\to\MdR^p$ mit:
+Sei $(x_0, y_0)\in D, f(x_0, y_0)=0$ und $\det\frac{\partial f}{\partial y}(x_0, y_0)\ne 0$. Dann existiert eine offene Umgebung $U\subseteq \MdR^n$ von $x_0$ und genau eine Funktion $g:U\to D \subseteq \MdR^p$ mit:
 \begin{liste}
 \item $(x, g(x))\in D\ \forall x\in U$
 \item $g(x_0)=y_0$
-\item $f(x,g(x))=0\ \forall x\in U$
+\item $f(x,g(x))=0\ \forall x\in U$, mit $V = g(U)$ gilt: $V$ ist offen und für $(a, b) \in U \times V$ mit $f(a,b) = 0$ gilt: $b = g(a)$
 \item $g \in C^1(U,\MdR^p)$
 \item $\det\frac{\partial f}{\partial y}(x, g(x))\ne0\ \forall x\in U$
 \item $g'(x)=-\left(\frac{\partial f}{\partial y}(x, g(x))^{-1}\right) \cdot \frac{\partial f}{\partial x}(x, g(x))\ \forall x\in U$
