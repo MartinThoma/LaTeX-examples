@@ -1,5 +1,5 @@
 % Original Source: http://mitschriebwiki.nomeata.de/data/SS10/Ana2Bachelor.tex
-\documentclass[a4paper,twoside,DIV15,BCOR12mm,chapterprefix=true,headings=twolinechapter]{scrbook}
+\documentclass[a4paper,oneside,DIV15,BCOR12mm,chapterprefix=true,headings=twolinechapter]{scrbook}
 \usepackage{ana}
 
 \lecturer{Dr. C. Schmoeger}
@@ -45,7 +45,7 @@ beteiligen. Auf Wunsch ist auch ein Zugang über \emph{Subversion} möglich.
 
 \chapter{Der Raum $\MdR^n$}
 
-Sei $n\in\MdN$. $\MdR^n=\{(x_1, \ldots, x_n) : x_1,\ldots, x_n \in \MdR\}$ ist mit der "ublichen Addition und Skalarmultiplikation ein reeller Vektorraum.\\
+Sei $n\in\MdN$. $\MdR^n=\{(x_1, \ldots, x_n) : x_1,\ldots, x_n \in \MdR\}$ ist mit der üblichen Addition und Skalarmultiplikation ein reeller Vektorraum.\\
 $e_1:=(1,0,\ldots,0),\ e_2:=(0,1,0,\ldots, 0),\ \ldots,\ e_n:=(0,\ldots,0,1) \in \MdR^n$.
 
 \begin{definition}
@@ -84,7 +84,7 @@ Seien $x,y,z \in \MdR^n,\ \alpha, \beta \in \MdR,\ x=(x_1, \ldots, x_n),\ y=(y_1
 
 \begin{beweise}
 \item[(1)], (2), (3)\ nachrechnen.
-\item[(6)] "Ubung.
+\item[(6)] Übung.
 \item[(4)] O.B.d.A: $y\ne0$ also $\|y\|>0$. $a:=x\cdot x=\|x\|^2,\ b:=xy,\ c:=\|y\|^2=y\cdot y,\ \alpha:=\frac{b}{c}.\ 0\le\sum_{j=1}^n(x_j-\alpha y_j)^2=\sum_{j=1}^n(x_j^2-2\alpha x_jy_j+\alpha^2y_j^2)=a-2\alpha b + \alpha^2 c=a-2\frac{b}{c}b+\frac{b^2}{c^2}c=a-\frac{b^2}{c}\folgt0\le ac-b^2\folgt b^2\le ac\folgt(xy)^2\le\|x\|^2\|y\|^2$.
 \item[(5)] $\|x+y\|^2=(x+y)(x+y)\gleichnach{(1)}x\cdot x + 2xy+y \cdot y=\|x\|^2+2xy+\|y\|^2\le\|x\|^2+2|xy|+\|y\|^2\overset{\text{(4)}}{\le}\|x\|^2+2\|x\|\|y\|+\|y\|^2=(\|x\|+\|y\|)^2$.
 \item[(7)] $|x_j|^2=x_j^2\le x_1^2 + \ldots + x_n^2 = \|x\|^2\folgt$ 1. Ungleichung; $x=x_1e_1+\ldots+x_ne_n\folgt\|x\|=\|x_1e_1+\ldots+x_ne_n\|\overset{(5)}{\le}\|x_1e_1\|+\ldots+\|x_ne_n\|=|x_1|+\ldots+|x_n|$
@@ -97,7 +97,7 @@ $$A = \begin{pmatrix}
 \vdots & & \vdots\\
 \alpha_{p1} & \cdots & \alpha_{pq}
 \end{pmatrix}\qquad \|A\|:=\left(\sum_{j=1}^p\sum_{k=1}^q\alpha^2_{jk}\right)^\frac{1}{2} \text{\textbf{Norm} von A}$$
-Sei $B$ eine reelle $q${\tiny x}$l$-Matrix ($\folgt AB$ existiert). \textbf{"Ubung}: $\|AB\|\le\|A\|\|B\|$\\
+Sei $B$ eine reelle $q${\tiny x}$l$-Matrix ($\folgt AB$ existiert). \textbf{Übung}: $\|AB\|\le\|A\|\|B\|$\\
 Sei $x=(x_1,\ldots,x_q) \in \MdR^q$. $Ax:=A\begin{pmatrix}x_1\\ \vdots \\ x_q\end{pmatrix}$ (\begriff{Matrix-Vektorprodukt}). \\
 Es folgt: $$\|Ax\|\le\|A\|\|x\|$$
 
@@ -191,7 +191,7 @@ Sei $(a^{(k)})$ eine Folge in $\MdR^n$.
   \item und
   \item wie in Analysis I.
   \item folgt aus (1)
-  \item Sei $(a^{(k)})$ beschr"ankt. O.B.d.A: $n=2$. Also $a^{(k)}=(a_1^{(k)},a_2^{(k)})$ 1.1(7) $\folgt |a_1^{(k)}|,|a_2^{(k)}|\le\|a^{(k)}\|\ \forall k\in\MdN \folgt (a_1^{(k)},a_2^{(k)})$ sind beschr"ankte Folgen in $\MdR$. Analysis 1 $\folgt (a_1^{(k)})$ enth"alt eine konvergente Teilfolge $(a_1^{(k_j)})$. $(a_2^{(k_j)})$ enth"alt eine konvergente Teilfolge$ (a_2^{(k_{j_l})})$. Analysis 1 $\folgt (a_1^{(k_{j_l})})$ ist konvergent $\overset{(1)}{\folgt} (a^{(k_{j_l})})$ konvergiert.
+  \item Sei $(a^{(k)})$ beschränkt. O.B.d.A: $n=2$. Also $a^{(k)}=(a_1^{(k)},a_2^{(k)})$ 1.1(7) $\folgt |a_1^{(k)}|,|a_2^{(k)}|\le\|a^{(k)}\|\ \forall k\in\MdN \folgt (a_1^{(k)},a_2^{(k)})$ sind beschränkte Folgen in $\MdR$. Analysis 1 $\folgt (a_1^{(k)})$ enthält eine konvergente Teilfolge $(a_1^{(k_j)})$. $(a_2^{(k_j)})$ enthält eine konvergente Teilfolge$ (a_2^{(k_{j_l})})$. Analysis 1 $\folgt (a_1^{(k_{j_l})})$ ist konvergent $\overset{(1)}{\folgt} (a^{(k_{j_l})})$ konvergiert.
   \item \glqq$\folgt$\grqq: wie in Analysis 1. \glqq$\impliedby$\grqq: 1.1(7) $\folgt |a_j^{(k)}-a_j^{(l)}| \le \|a^{(k)}-a^{(l)}\|\ (j=1,\ldots,n)\ \folgt$ jede Folge $(a_j^{(k)})$ ist eine Cauchyfolge in $\MdR$, also konvergent $\overset{(1)}{\folgt} (a^{(k)})$ konvergiert.
 \end{beweise}
 
@@ -200,11 +200,11 @@ Sei $A\subseteq\MdR^n$
 \begin{liste}
 \item $x_0 \in \H(A)\equizu\ \exists$ Folge $(x^{(k)})$ in $A\ \backslash\ \{x_0\}$ mit $x^{(k)}\to x_0$.
 \item $x_0 \in \bar A\equizu\ \exists$ Folge $(x^{(k)})$ in $A$ mit $x^{(k)}\to x_0$.
-\item $A$ ist abgeschlossen $\equizu$ der Grenzwert jeder konvergenten Folge in $A$ geh"ort zu $A$.
+\item $A$ ist abgeschlossen $\equizu$ der Grenzwert jeder konvergenten Folge in $A$ gehört zu $A$.
 \item Die folgenden Aussagen sind äquivalent:
     \begin{liste}
-        \item $A$ ist beschr"ankt und abgeschlossen 
-        \item Jede Folge in $A$ enth"alt eine konvergente Teilfolge, deren Grenzwert zu $A$ geh"ort.
+        \item $A$ ist beschränkt und abgeschlossen 
+        \item Jede Folge in $A$ enthält eine konvergente Teilfolge, deren Grenzwert zu $A$ gehört.
         \item A ist kompakt
     \end{liste}
 \end{liste}
@@ -212,31 +212,31 @@ Sei $A\subseteq\MdR^n$
 
 \begin{beweise}
 \item Wie in Analysis 1
-\item Fast w"ortlich wie bei (1)
-\item[(4)] W"ortlich wie in Analysis 1
+\item Fast wörtlich wie bei (1)
+\item[(4)] Wörtlich wie in Analysis 1
 \item[(3)] \glqq$\folgt$\grqq: Sei $(a^{(k)})$ eine konvergente Folge in $A$ und $x_0:=\lim a^{(k)} \overset{(2)}{\folgt} x_0 \in \bar A \overset{\text{Vor.}}{=}A$. \glqq$\impliedby$\grqq: z.z: $\bar A \subseteq A$. Sei $x_0 \in \bar A \overset{(2)}{\folgt}x_0 \in A$. Also: $A=\bar A$.
 \end{beweise}
 
 \begin{satz}[Überdeckungen]
-$A \subseteq \MdR^n$ sei abgeschlossen und beschr"ankt
+$A \subseteq \MdR^n$ sei abgeschlossen und beschränkt
 \begin{liste}
 \item Ist $\ep>0\folgt\ \exists a^{(1)},\ldots,a^{(m)} \in A: A\subseteq \displaystyle\bigcup_{j=1}^m U_\ep(a^{(j)})$
-\item $\exists$ abz"ahlbare Teilmenge $B$ von $A: \bar B=A$.
+\item $\exists$ abzählbare Teilmenge $B$ von $A: \bar B=A$.
 \item \begriff{Überdeckungssatz von Heine-Borel}: Ist $(G_\lambda)_{\lambda \in M}$ eine Familie offener Mengen mit $A \subseteq \displaystyle\bigcup_{\lambda \in M} G_\lambda$, dann existieren $\lambda_1, \ldots, \lambda_m \in M: A\subseteq \displaystyle\bigcup_{j=1}^m G_{\lambda_j}$.
 \end{liste}
 \end{satz}
 
 \begin{beweise}
-\item Sei $\ep>0$. Annahme: Die Behauptung ist falsch. Sei $a^{(1)}\in A$. Dann: $A\nsubseteq U_{\ep}(a^{(1)})\folgt\exists a^{(2)}\in A: a^{(2)}\notin U_\ep(a^{(1)})\folgt\|a^{(2)}-a^{(1)}\|\ge\ep$. $A\nsubseteq U_\ep(a^{(1)})\cup U_\ep(a^{(2)})\folgt\exists a^{(3)} \in A: \|a^{(3)}-a^{(2)}\|\ge\ep,\ \|a^{(3)}-a^{(1)}\|\ge\ep$ etc.. Wir erhalten so eine Folge $(a^{(k)})$ in A: $\|a^{(k)}-a^{(l)}\|\ge\ep$ f"ur $k\ne l$. 2.2(4) $\folgt (a^{(k)})$ enth"alt eine konvergente Teilfolge $\folgtnach{2.1(6)}\ \exists j_0 \in\MdN:\ \|a^{(k_j)}-a^{(k_l)}\|<\ep\ \forall j,l\ge j_0$, Widerspruch!
-\item Sei $j\in\MdN$. $\ep:=\frac{1}{j}$. (1) $\folgt\exists$ endl. Teilmenge $B_j$ von $A$ mit $(*)\ A\subseteq \displaystyle\bigcup_{x \in B_j}U_{\frac{1}{j}}(x)$. $B:=\displaystyle\bigcup_{j\in\MdN}B_j\folgt B\subseteq A$ und $B$ ist abz"ahlbar. Dann: $\bar B\subseteq\bar A\gleichnach{Vor.}A$. Noch zu zeigen: $A\subseteq\bar B$. Sei $x_0\in A$ und $\delta>0$: zu zeigen: $U_\delta(x_0)\cap B\ne\emptyset$. W"ahle $j\in\MdN$ so, da"s $\frac{1}{j}<\delta\ (*)\folgt\exists x \in B_j\subseteq B:\ x_0\in U_{\frac{1}{j}}(x)\folgt \|x_0-x\|<\frac{1}{j}<\delta\folgt x\in U_\delta(x_0)\folgt x\in U_\delta(x_0)\cap B$.
-\item Teil 1: Behauptung: $\exists \ep>0:\ \forall a \in A\ \exists\lambda\in M: U_\ep(a)\subseteq G_\lambda$. Beweis: Annahme: Die Behauptung ist falsch. $\forall k\in\MdN\ \exists a^{(k)}\in A:\ (**) U_{\frac{1}{k}}(a^{(k)})\nsubseteq G_\lambda\ \forall \lambda\in M$. 2.2(4) $\folgt (a^{(k)})$ enth"alt eine konvergente Teilfolge $(a^{(k_j)})$ und $x_0:=\displaystyle\lim_{j\to\infty}a^{k_j}\in A\folgt\exists \lambda_0\in M: x_0 \in G_{\lambda_0};\ G_{\lambda_0}$ offen $\folgt\exists \delta>0: U_\delta(x_0)\subseteq G_{\lambda_0}.\ a^{(k_j)}\to x_0\ (j\to\infty)\folgt\exists m_0\in\MdN: a^{(m_0)}\in U_{\frac{\delta}{2}}(x_0)$ und $m_0\ge\frac{2}{\delta}$. Sei $x\in U_{\frac{1}{m_0}}(a^{(m_0)})\folgt \|x-x_0\|=\|x-a^{(m_0)}+a^{(m_0)}-x_0\|\le\|x-a^{(m_0)}\|+\|a^{(m_0)}-x_0\|\le\frac{1}{m_0}+\frac{\delta}{2}\le\frac{\delta}{2}+\frac{\delta}{2}=\delta\folgt x\in U_\delta(x_0)\folgt x \in G_{\lambda_0}$. Also: $U_{\frac{1}{m_0}}(a^{(m_0)})\subseteq G_{\lambda_0}$, Widerspruch zu $(**)$!\\
+\item Sei $\ep>0$. Annahme: Die Behauptung ist falsch. Sei $a^{(1)}\in A$. Dann: $A\nsubseteq U_{\ep}(a^{(1)})\folgt\exists a^{(2)}\in A: a^{(2)}\notin U_\ep(a^{(1)})\folgt\|a^{(2)}-a^{(1)}\|\ge\ep$. $A\nsubseteq U_\ep(a^{(1)})\cup U_\ep(a^{(2)})\folgt\exists a^{(3)} \in A: \|a^{(3)}-a^{(2)}\|\ge\ep,\ \|a^{(3)}-a^{(1)}\|\ge\ep$ etc.. Wir erhalten so eine Folge $(a^{(k)})$ in A: $\|a^{(k)}-a^{(l)}\|\ge\ep$ für $k\ne l$. 2.2(4) $\folgt (a^{(k)})$ enthält eine konvergente Teilfolge $\folgtnach{2.1(6)}\ \exists j_0 \in\MdN:\ \|a^{(k_j)}-a^{(k_l)}\|<\ep\ \forall j,l\ge j_0$, Widerspruch!
+\item Sei $j\in\MdN$. $\ep:=\frac{1}{j}$. (1) $\folgt\exists$ endl. Teilmenge $B_j$ von $A$ mit $(*)\ A\subseteq \displaystyle\bigcup_{x \in B_j}U_{\frac{1}{j}}(x)$. $B:=\displaystyle\bigcup_{j\in\MdN}B_j\folgt B\subseteq A$ und $B$ ist abzählbar. Dann: $\bar B\subseteq\bar A\gleichnach{Vor.}A$. Noch zu zeigen: $A\subseteq\bar B$. Sei $x_0\in A$ und $\delta>0$: zu zeigen: $U_\delta(x_0)\cap B\ne\emptyset$. Wähle $j\in\MdN$ so, da"s $\frac{1}{j}<\delta\ (*)\folgt\exists x \in B_j\subseteq B:\ x_0\in U_{\frac{1}{j}}(x)\folgt \|x_0-x\|<\frac{1}{j}<\delta\folgt x\in U_\delta(x_0)\folgt x\in U_\delta(x_0)\cap B$.
+\item Teil 1: Behauptung: $\exists \ep>0:\ \forall a \in A\ \exists\lambda\in M: U_\ep(a)\subseteq G_\lambda$. Beweis: Annahme: Die Behauptung ist falsch. $\forall k\in\MdN\ \exists a^{(k)}\in A:\ (**) U_{\frac{1}{k}}(a^{(k)})\nsubseteq G_\lambda\ \forall \lambda\in M$. 2.2(4) $\folgt (a^{(k)})$ enthält eine konvergente Teilfolge $(a^{(k_j)})$ und $x_0:=\displaystyle\lim_{j\to\infty}a^{k_j}\in A\folgt\exists \lambda_0\in M: x_0 \in G_{\lambda_0};\ G_{\lambda_0}$ offen $\folgt\exists \delta>0: U_\delta(x_0)\subseteq G_{\lambda_0}.\ a^{(k_j)}\to x_0\ (j\to\infty)\folgt\exists m_0\in\MdN: a^{(m_0)}\in U_{\frac{\delta}{2}}(x_0)$ und $m_0\ge\frac{2}{\delta}$. Sei $x\in U_{\frac{1}{m_0}}(a^{(m_0)})\folgt \|x-x_0\|=\|x-a^{(m_0)}+a^{(m_0)}-x_0\|\le\|x-a^{(m_0)}\|+\|a^{(m_0)}-x_0\|\le\frac{1}{m_0}+\frac{\delta}{2}\le\frac{\delta}{2}+\frac{\delta}{2}=\delta\folgt x\in U_\delta(x_0)\folgt x \in G_{\lambda_0}$. Also: $U_{\frac{1}{m_0}}(a^{(m_0)})\subseteq G_{\lambda_0}$, Widerspruch zu $(**)$!\\
 Teil 2: Sei $\ep>0$ wie in Teil 1. (1) $\folgt\exists a^{(1)},\ldots,a^{(m)}\in A: A\subseteq\displaystyle\bigcup_{j=1}^mU_\ep(a^{(j)})$. Teil 1 $\folgt\exists \lambda_j\in M: U_\ep(a^{(j)})\subseteq G_{\lambda_j}\ (j=1,\ldots,m)\folgt A\subseteq \displaystyle\bigcup_{j=1}^m G_{\lambda_j}$ 
 \end{beweise}
 
 \chapter{Grenzwerte bei Funktionen, Stetigkeit}
 
 \begin{vereinbarung}
-\indexlabel{vektorwertige Funktion}Stets in dem Paragraphen: Sei $\emptyset \ne D \subseteq \MdR^n$ und $f: D\to\MdR^m$ eine (\textbf{vektorwertige}) Funktion. F"ur Punkte $(x_1, x_2) \in \MdR^2$ schreiben wir auch $(x,y)$. F"ur Punkte $(x_1, x_2, x_3) \in\MdR^3$ schreiben wir auch $(x, y, z)$. Mit $x=(x_1,\ldots,x_n)\in D$ hat $f$ die Form $f(x)=f(x_1,\ldots,x_n)=(f_1(x_1,\ldots,x_n),\ldots,f_m(x_1,\ldots,x_n))$, wobei $f_j:D\to\MdR\ (j=1,\ldots,m)$. Kurz: $f=(f_1,\ldots,f_m)$.
+\indexlabel{vektorwertige Funktion}Stets in dem Paragraphen: Sei $\emptyset \ne D \subseteq \MdR^n$ und $f: D\to\MdR^m$ eine (\textbf{vektorwertige}) Funktion. Für Punkte $(x_1, x_2) \in \MdR^2$ schreiben wir auch $(x,y)$. Für Punkte $(x_1, x_2, x_3) \in\MdR^3$ schreiben wir auch $(x, y, z)$. Mit $x=(x_1,\ldots,x_n)\in D$ hat $f$ die Form $f(x)=f(x_1,\ldots,x_n)=(f_1(x_1,\ldots,x_n),\ldots,f_m(x_1,\ldots,x_n))$, wobei $f_j:D\to\MdR\ (j=1,\ldots,m)$. Kurz: $f=(f_1,\ldots,f_m)$.
 \end{vereinbarung}
 
 \begin{beispiele}
@@ -248,7 +248,7 @@ Teil 2: Sei $\ep>0$ wie in Teil 1. (1) $\folgt\exists a^{(1)},\ldots,a^{(m)}\in 
 Sei $x_0\in \H(D)$.
 
 \begin{liste}
-\item Sei $y_0 \in \MdR^m$. $\displaystyle\lim_{x\to x_0}f(x)=y_0 :\equizu$ f"ur \textbf{jede} Folge $(x^{(k)})$ in $D\ \backslash\ \{x_0\}$ mit $x^{(k)}\to x_0$ gilt: $f(x^{(k)})\to y_0$. In diesem Fall schreibt man: $f(x)\to y_0(x\to x_0)$.
+\item Sei $y_0 \in \MdR^m$. $\displaystyle\lim_{x\to x_0}f(x)=y_0 :\equizu$ für \textbf{jede} Folge $(x^{(k)})$ in $D\ \backslash\ \{x_0\}$ mit $x^{(k)}\to x_0$ gilt: $f(x^{(k)})\to y_0$. In diesem Fall schreibt man: $f(x)\to y_0(x\to x_0)$.
 \item $\displaystyle\lim_{x\to x_0}f(x)$ existiert $:\equizu\ \exists y_0 \in \MdR^m: \displaystyle\lim_{x\to x_0}f(x)=y_0$.
 \end{liste}
 \end{definition*}
@@ -500,7 +500,7 @@ Ist $f\in C^m(D,\MdR)$, so sind die partiellen Ableitungen von $f$ der Ordnung $
 \end{satz}
 
 \begin{beweis}
-O.B.d.A: $n=2$ und $x_0=(0,0)$. Zu zeigen: $f_{xy}(0,0)=f_{yx}(0,0)$. $D$ offen $\folgt\exists\delta>0: U_\delta(0,0)\subseteq D$. Sei $(x,y) \in U_\delta(0,0)$ und $x\ne 0\ne y$. $$\nabla:=f(x,y)-f(x,0)-(f(0,y)-f(0,0)),\quad\varphi(t):=f(t,y)-f(t,0)$$ f"ur $t$ zwischen $0$ und $x$. $\varphi$ ist differenzierbar und $\varphi'(t)=f_x(t,y)-f_x(t,0)$. $\varphi(x)-\varphi(0)=\nabla$. MWS, Analysis 1 $\folgt\exists\xi=\xi(x,y)$ zwischen $0$ und $x$: $\nabla=x\varphi'(\xi)=x(f_x(\xi,y)-f_x(\xi,0))$. $g(s):=f_x(\xi,s)$ f"ur s zwischen $0$ und $y$; $g$ ist differenzierbar und $g'(s)=f_{xy}(\xi,s)$. Es ist $\nabla=x(g(y)-g(0))\gleichnach{MWS}xyg'(\eta),\ \eta=\eta(x,y)$ zwischen $0$ und $y$. $\folgt \nabla=xyf_{xy}(\xi,\eta).$ (1)\\
+O.B.d.A: $n=2$ und $x_0=(0,0)$. Zu zeigen: $f_{xy}(0,0)=f_{yx}(0,0)$. $D$ offen $\folgt\exists\delta>0: U_\delta(0,0)\subseteq D$. Sei $(x,y) \in U_\delta(0,0)$ und $x\ne 0\ne y$. $$\nabla:=f(x,y)-f(x,0)-(f(0,y)-f(0,0)),\quad\varphi(t):=f(t,y)-f(t,0)$$ für $t$ zwischen $0$ und $x$. $\varphi$ ist differenzierbar und $\varphi'(t)=f_x(t,y)-f_x(t,0)$. $\varphi(x)-\varphi(0)=\nabla$. MWS, Analysis 1 $\folgt\exists\xi=\xi(x,y)$ zwischen $0$ und $x$: $\nabla=x\varphi'(\xi)=x(f_x(\xi,y)-f_x(\xi,0))$. $g(s):=f_x(\xi,s)$ für s zwischen $0$ und $y$; $g$ ist differenzierbar und $g'(s)=f_{xy}(\xi,s)$. Es ist $\nabla=x(g(y)-g(0))\gleichnach{MWS}xyg'(\eta),\ \eta=\eta(x,y)$ zwischen $0$ und $y$. $\folgt \nabla=xyf_{xy}(\xi,\eta).$ (1)\\
 $\psi(t):=f(x,t)-f(0,t)$, $t$ zwischen $0$ und $y$. $\psi'(t)=f_y(x,t)-f_y(0,t)$. $\nabla=\psi(y)-\psi(0)$. Analog: $\exists \bar\eta=\bar\eta(x,y)$ und $\bar\xi=\bar\xi(x,y)$, $\bar\eta$ zwischen $0$ und $y$, $\bar\xi$ zwischen $0$ und $x$. $\nabla=xyf_{yx}(\bar\xi,\bar\eta).$ (2)\\
 Aus (1), (2) und $xy\ne0$ folgt $f_{xy}(\xi,\eta)=f_{yx}(\bar\xi,\bar\eta)$. $(x,y)\to(0,0)\folgt\xi,\bar\xi,\eta,\bar\eta\to 0\folgtwegen{f\in C^2}f_{xy}(0,0)=f_{yx}(0,0)$
 \end{beweis}
@@ -572,7 +572,7 @@ $f$ sei in $x_0\in D$ differenzierbar
 Sei A wie in $(*)$, $A=(a_{jk})$, $\varrho(h):=\frac{f(x_0+h)-f(x_0)-Ah}{\|h\|}$, also: $\varrho(h)\to0\ (h\to 0)$. Sei $\varrho=(\varrho_1,\ldots,\varrho_m)$. 2.1 $\folgt \varrho_j(h)\to 0\ (h\to 0)\ (j=1,\ldots,m)$
 \begin{liste}
 \item $f(x_0+h)=f(x_0)+\underbrace{Ah}_{\overset{\text{3.5}}{\to}0}+\underbrace{\|h\|\varrho(h)}_{\to 0\ (h\to 0)}\to f(x_0)\ (h\to 0)$
-\item Sei $j\in\{1,\ldots,m\}$ und $k\in\{1,\ldots,n\}$. Zu zeigen: $f_j$ ist partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$. $\varrho_j(h)=\frac{1}{\|h\|}(f_j(x_0+h)-f_j(x_0)-(a_{j1},\ldots,a_{jn})\cdot h)\to 0\ (h \to 0)$. F"ur $t\in\MdR$ sei $h=te_k\folgt\varrho(h)=\frac{1}{|t|}(f(x_0+te_k)-a_{jk}t)\to 0\ (t\to 0)\folgt\left|\frac{f(x_0+te_k)-f(x_0)}{t}-a_{jk}\right|\to 0\ (t\to 0)\folgt f_j$ ist in $x_0$ partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$.
+\item Sei $j\in\{1,\ldots,m\}$ und $k\in\{1,\ldots,n\}$. Zu zeigen: $f_j$ ist partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$. $\varrho_j(h)=\frac{1}{\|h\|}(f_j(x_0+h)-f_j(x_0)-(a_{j1},\ldots,a_{jn})\cdot h)\to 0\ (h \to 0)$. Für $t\in\MdR$ sei $h=te_k\folgt\varrho(h)=\frac{1}{|t|}(f(x_0+te_k)-a_{jk}t)\to 0\ (t\to 0)\folgt\left|\frac{f(x_0+te_k)-f(x_0)}{t}-a_{jk}\right|\to 0\ (t\to 0)\folgt f_j$ ist in $x_0$ partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$.
 \end{liste}
 \end{beweis}
 
@@ -586,15 +586,15 @@ Bekannt: $f$ ist in $(0,0)$ \textbf{nicht} stetig, aber partiell differenzierbar
 (x^2+y^2)\sin\frac{1}{\sqrt{x^2+y^2}}&\text{, falls } (x,y)\ne(0,0)\\
 0&\text{, falls }(x,y)=(0,0)
 \end{cases}$$
-F"ur $(x,y)\ne(0,0): \left|f(x,y)\right|=(x^2+y^2)\left|\sin\frac{1}{\sqrt{x^2+y^2}}\right|
+Für $(x,y)\ne(0,0): \left|f(x,y)\right|=(x^2+y^2)\left|\sin\frac{1}{\sqrt{x^2+y^2}}\right|
 \le x^2+y^2\overset{(x,y)\to(0,0)}{\to}0 \folgt f$ ist in $(0,0)$ stetig. 
-$\frac{f(t,0)-f(0,0)}{t}=\frac{1}{t}t^2\sin\frac{1}{|t|}=t\sin\frac{1}{|t|}\to 0\ (t\to 0)\folgt f$ ist in $(0,0)$ partiell differenzierbar nach $x$ und $f_x(0,0)=0$. Analog: $f$ ist in $(0,0)$ partiell differenzierbar nach $y$ und $f_y(0,0)=0$. $\varrho(h)=\frac{1}{\|h\|}f(h)\gleichwegen{h=(h_1,h_2)}\frac{1}{\sqrt{h_1^2+h_2^2}}(h_1^2+h_2^2)\sin\frac{1}{h_1^2+h_2^2}=\sqrt{h_1^2+h_2^2}\underbrace{\sin\frac{1}{\sqrt{h_1^2+h_2^2}}}_{\text{beschr"ankt}}\to 0\ (h\to 0)\folgt f$ ist differenzierbar in $(0,0)$ und $f'(0,0)=\grad f(0,0)=(0,0)$
+$\frac{f(t,0)-f(0,0)}{t}=\frac{1}{t}t^2\sin\frac{1}{|t|}=t\sin\frac{1}{|t|}\to 0\ (t\to 0)\folgt f$ ist in $(0,0)$ partiell differenzierbar nach $x$ und $f_x(0,0)=0$. Analog: $f$ ist in $(0,0)$ partiell differenzierbar nach $y$ und $f_y(0,0)=0$. $\varrho(h)=\frac{1}{\|h\|}f(h)\gleichwegen{h=(h_1,h_2)}\frac{1}{\sqrt{h_1^2+h_2^2}}(h_1^2+h_2^2)\sin\frac{1}{h_1^2+h_2^2}=\sqrt{h_1^2+h_2^2}\underbrace{\sin\frac{1}{\sqrt{h_1^2+h_2^2}}}_{\text{beschränkt}}\to 0\ (h\to 0)\folgt f$ ist differenzierbar in $(0,0)$ und $f'(0,0)=\grad f(0,0)=(0,0)$
 
 \item $$f(x,y) := \begin{cases}
 \frac{x^3}{x^2+y^2}&\text{, falls} (x,y) \ne (0,0)\\
 0&\text{, falls} (x,y) = (0,0)\end{cases}$$
 
-\"Ubung: $f$ ist in $(0,0)$ stetig.
+Übung: $f$ ist in $(0,0)$ stetig.
 
 $\frac{f(t,0) - f(0,0)}{t} = \frac{1}{t} \frac{t^3}{t^2} = 1 \to 1\ (t \to 0).\ \frac{f(0,t) - f(0,0)}{t} = 0 \to 0\ (t \to 0)$.
 
@@ -661,7 +661,7 @@ Also: $f$ ist auf $\MdR^n$ db und $f'(x) = A\ \forall x \in \MdR^n$. Insbesonder
 (x^2+y^2) \sin \frac{1}{\sqrt{x^2+y^2}} & \text{, falls} (x,y) \ne (0,0)\\
 0 & \text{, falls} (x,y) = (0,0)\end{cases}$$
 
-Bekannt: $f$ ist in $(0,0)$ db. \"Ubungsblatt: $f_x,f_y$ sind in $(0,0)$ \emph{nicht} stetig.
+Bekannt: $f$ ist in $(0,0)$ db. Übungsblatt: $f_x,f_y$ sind in $(0,0)$ \emph{nicht} stetig.
 
 \item Sei $I \subseteq \MdR$ ein Intervall und $g = (g_1,\ldots,g_m): I \to \MdR^m;\ g_1,\ldots,g_m: I \to \MdR.$
 
@@ -903,7 +903,7 @@ wobei $\xi \in S[x_0, x_0+h]$
 \end{satz}
 
 \begin{beweis}
-$\Phi(t):=f(x_0+th)$ f"ur $t\in[0,1]$. 5.4$\folgt \Phi \in C^{k+1}[0,1],\ \Phi'(t)=f'(x_0+th) \cdot h=(h \cdot \nabla)f(x_0+th)$\\
+$\Phi(t):=f(x_0+th)$ für $t\in[0,1]$. 5.4$\folgt \Phi \in C^{k+1}[0,1],\ \Phi'(t)=f'(x_0+th) \cdot h=(h \cdot \nabla)f(x_0+th)$\\
 Induktiv: $\Phi^{(j)}(t)=(h\cdot\nabla)^{(j)}f(x_0+th)\ (j=0,\ldots,k+1, t\in[0,1]).\ \Phi(0)=f(x_0), \Phi(1)=f(x_0+h);\ \Phi^{(j)}(0)=(h\cdot\nabla)^{(j)}f(x_0)$. Analysis 1 (22.2) $\folgt \Phi(1)=\ds\sum_{j=0}^k\frac{\Phi^{(j)}(0)f(x_0)}{j!}+\frac{\Phi^{(k+1)}f(\eta)}{(k+1)!}$, wobei $\eta\in[0,1]\folgt f(x_0+h)=\ds\sum_{j=1}^k\frac{(h\cdot\nabla)^{(j)}f(x_0)}{j!}+\frac{(h\cdot\nabla)^{(k+1)}f(x_0+\eta h)}{(k+1)!},\ \xi:=x_0+\eta h$
 \end{beweis}
 
@@ -920,7 +920,7 @@ In diesem Paragraphen sei $A$ stets eine reelle und symmetrische $(n\times n)$-M
 \end{vereinbarung}
 
 \begin{definition*}
-$Q_A:\MdR^n\to\MdR$ durch $Q_A(x):=x(Ax)$. $Q_A$ hei"st die zu $A$ geh"orende \begriff{quadratische Form}. F"ur $x=(x_1,\ldots,x_n):$
+$Q_A:\MdR^n\to\MdR$ durch $Q_A(x):=x(Ax)$. $Q_A$ hei"st die zu $A$ gehörende \begriff{quadratische Form}. Für $x=(x_1,\ldots,x_n):$
 $$Q_A(x)=\ds\sum_{j,k=1}^na_{jk}x_jx_k$$
 \end{definition*}
 
@@ -951,7 +951,7 @@ $A$ hei"st $\textbf{indefinit}$ (id) & $:\equizu \exists u,v\in\MdR^n: Q_A(u)>0,
 \begin{beispiele}
 \item $(n=2),\ A=\left(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\right)$\\
 $Q_A(x,y):=ax^2+2bxy+cy^2\ \left((x,y)\in\MdR^2\right)$. Nachrechnen:\\
-$$aQ_A(x,y)=(ax+by)^2+(\det A)y^2\ \forall (x,y)\in\MdR^2$$ "Ubung:\\
+$$aQ_A(x,y)=(ax+by)^2+(\det A)y^2\ \forall (x,y)\in\MdR^2$$ Übung:\\
 \begin{tabular}{ll}
 A ist positiv definit & $\equizu a>0, \det A>0$\\
 A ist negativ definit & $\equizu a<0, \det A>0$\\
@@ -981,10 +981,10 @@ A ist negativ definit & $\equizu \exists c>0: Q_A(x)\le -c\|x\|^2\ \forall x\in\
 \begin{beweise}
 \item Klar
 \item $Q_A(\alpha x)=(\alpha x)(A(\alpha x))=\alpha^2x(Ax)=\alpha^2Q_A(x)$
-\item \glqq$\impliedby$\grqq: Klar. \glqq$\folgt$\grqq: $K:=\{x\in\MdR^n: \|x\|=1\}=\partial U_1(0)$ ist beschr"ankt und abgeschlossen. $Q_A$ ist stetig auf $K$. 3.3 $\folgt\exists x_0\in K: Q_A(x_0)\le Q_A(x)\ \forall x\in K$. $c:=Q_A(x_0).\ A$ positiv definit, $x_0\ne 0\folgt Q_A(x_0)=c>0$. Sei $x\in\MdR^n\ \backslash\ \{0\};\ z:=\frac{1}{\|x\|}x\folgt z\in K\folgt Q_A(z)\ge c\folgt c \le Q_A\left(\frac{1}{\|x\|}x\right)\gleichnach{(2)}\frac{1}{\|x\|}^2Q_A(x)\folgt Q_A(x)\ge c\|x\|^2$
+\item \glqq$\impliedby$\grqq: Klar. \glqq$\folgt$\grqq: $K:=\{x\in\MdR^n: \|x\|=1\}=\partial U_1(0)$ ist beschränkt und abgeschlossen. $Q_A$ ist stetig auf $K$. 3.3 $\folgt\exists x_0\in K: Q_A(x_0)\le Q_A(x)\ \forall x\in K$. $c:=Q_A(x_0).\ A$ positiv definit, $x_0\ne 0\folgt Q_A(x_0)=c>0$. Sei $x\in\MdR^n\ \backslash\ \{0\};\ z:=\frac{1}{\|x\|}x\folgt z\in K\folgt Q_A(z)\ge c\folgt c \le Q_A\left(\frac{1}{\|x\|}x\right)\gleichnach{(2)}\frac{1}{\|x\|}^2Q_A(x)\folgt Q_A(x)\ge c\|x\|^2$
 \end{beweise}
 
-\begin{satz}[St"orung von definiten Matrizen]
+\begin{satz}[Störung von definiten Matrizen]
 \begin{liste}
 \item $A$ sei positiv definit \alt{negativ definit}. Dann existiert ein $\ep>0$ mit: Ist $B=(b_{jk})$ eine weitere symmetrische $(n\times n)$-Matrix und gilt: $(*)\ |a_{jk}-b_{jk}|\le\ep\ (j,k=1,\ldots, n)$, so ist B positiv definit \alt{negativ definit}.
 \item $A$ sei indefinit. Dann existieren $u,v\in\MdR^n$ und $\ep>0$ mit: ist $B=(b_{jk})$ eine weitere symmetrische $(n\times n)$-Matrix und gilt: $(*)\ |a_{jk}-b_{jk}|\le\ep\ (j,k=1,\ldots,n)$, so ist $Q_B(u)>0, Q_B(v)<0$. Insbesondere: $B$ ist indefinit.
@@ -992,7 +992,7 @@ A ist negativ definit & $\equizu \exists c>0: Q_A(x)\le -c\|x\|^2\ \forall x\in\
 \end{satz}
 
 \begin{beweise}
-\item $A$ sei positiv definit $\folgtnach{7.1}\exists c>0: Q_A(x)\ge c\|x\|^2\ \forall x\in\MdR^n$. $\ep:=\frac{c}{2n^2}$. Sei $B=(b_{jk})$ eine symmetrische Matrix mit $(*)$. F"ur $x=(x_1,\ldots,x_n)\in\MdR^n:\ Q_A(x)-Q_B(x)\le|Q_A(x)-Q_B(x)|=\left|\ds\sum_{j,k=1}^m(a_{jk}-b_{jk})x_jx_k\right|\le\ds\sum_{j,k=1}^n\underbrace{|a_{jk}-b_{jk}|}_{\le\ep}\underbrace{|x_j|}_{\le\|x\|}\underbrace{|x_k|}_{\le\|x\|}\le\ep\|x\|^2n^2=\frac{c}{2n^2}\|x\|^2n^2=\frac{c}{2}\|x\|^2$
+\item $A$ sei positiv definit $\folgtnach{7.1}\exists c>0: Q_A(x)\ge c\|x\|^2\ \forall x\in\MdR^n$. $\ep:=\frac{c}{2n^2}$. Sei $B=(b_{jk})$ eine symmetrische Matrix mit $(*)$. Für $x=(x_1,\ldots,x_n)\in\MdR^n:\ Q_A(x)-Q_B(x)\le|Q_A(x)-Q_B(x)|=\left|\ds\sum_{j,k=1}^m(a_{jk}-b_{jk})x_jx_k\right|\le\ds\sum_{j,k=1}^n\underbrace{|a_{jk}-b_{jk}|}_{\le\ep}\underbrace{|x_j|}_{\le\|x\|}\underbrace{|x_k|}_{\le\|x\|}\le\ep\|x\|^2n^2=\frac{c}{2n^2}\|x\|^2n^2=\frac{c}{2}\|x\|^2$
 \item $A$ sei indefinit. $\exists u,v\in\MdR^n:\ Q_A(u)>0, Q_A(v)<0$. $\alpha:=\min\left\{\frac{Q_A(u)}{\|u\|^2},\ -\frac{Q_A(v)}{\|v\|^2}\right\}\folgt\alpha>0$. $\ep:=\frac{\alpha}{2n^2}$. Sei $B=(b_{jk})$ eine symmetrische Matrix mit $(*)$.\\
 $Q_A(u)-Q_B(u)\overset{\text{Wie bei (1)}}{\le}\ep u^2\|u\|^2=\frac{\alpha}{2n^2}n^2\|u\|^2=\frac{\alpha}{2}\|u\|^2\le\frac{1}{2}\frac{Q_A(u)}{\|u\|^2}\|u\|^2=\frac{1}{2}Q_A(u) \folgt Q_B(u)\ge\frac{1}{2}Q_A(u)>0$. Analog: $Q_B(v)<0$.
 \end{beweise}
@@ -1014,7 +1014,7 @@ In diesem Paragraphen sei $\emptyset\ne D \subseteq\MdR^n, f:D\to\MdR$ und $x_0\
 $f$ hat in $x_0$ ein \textbf{lokales Maximum} $:\equizu \exists \delta>0:\ f(x)\le f(x_0)\ \forall x\in D \cap U_\delta(x_0)$.\\
 $f$ hat in $x_0$ ein \textbf{lokales Minimum} $:\equizu \exists \delta>0:\ f(x)\ge f(x_0)\ \forall x\in D \cap U_\delta(x_0)$.\\
 \textbf{lokales Extremum} = lokales Maximum oder lokales Minimum
-\item Ist $D$ offen, $f$ in $x_0$ partiell differenzierbar und $\grad f(x_0)=0$, so hei"st $x_0$ ein station"arer Punkt.
+\item Ist $D$ offen, $f$ in $x_0$ partiell differenzierbar und $\grad f(x_0)=0$, so hei"st $x_0$ ein stationärer Punkt.
 \end{liste}
 \end{definition*}
 
@@ -1023,7 +1023,7 @@ Ist $D$ offen und hat $f$ in $x_0$ ein lokales Extremum und ist $f$ in $x_0$ par
 \end{satz}
 
 \begin{beweis}
-$f$ habe in $x_0$ ein lokales Maximum. Also $\exists \delta>0: U_\delta(x_0)\subseteq D$ und $f(x)\le f(x_0)\ \forall x\in U_\delta(x_0)$. Sei $j \in \{1,\ldots,n\}$. Dann: $x_0 + te_j \in U_\delta(x_0)$ f"ur $t\in (-\delta, \delta)$. $g(t):=f(x_0 + te_j)\ (t\in (-\delta, \delta))$. $g$ ist differenzierbar in $t=0$ und $g'(0)=f_{x_j}(x_0)$. $g(t)=f(x_0+te_j)\le f(x_0)=g(0)\ \forall t\in(-\delta,\delta)$. Analysis 1, 21.5 $\folgt g'(0)=0\folgt f_{x_j}(x_0)=0$
+$f$ habe in $x_0$ ein lokales Maximum. Also $\exists \delta>0: U_\delta(x_0)\subseteq D$ und $f(x)\le f(x_0)\ \forall x\in U_\delta(x_0)$. Sei $j \in \{1,\ldots,n\}$. Dann: $x_0 + te_j \in U_\delta(x_0)$ für $t\in (-\delta, \delta)$. $g(t):=f(x_0 + te_j)\ (t\in (-\delta, \delta))$. $g$ ist differenzierbar in $t=0$ und $g'(0)=f_{x_j}(x_0)$. $g(t)=f(x_0+te_j)\le f(x_0)=g(0)\ \forall t\in(-\delta,\delta)$. Analysis 1, 21.5 $\folgt g'(0)=0\folgt f_{x_j}(x_0)=0$
 \end{beweis}
 
 \begin{satz}[Definitheit und Extremwerte]
@@ -1042,12 +1042,12 @@ Ist $H_f(x_0)$ indefinit $\folgt f$ hat in $x_0$ \underline{kein} lokales Extrem
 \begin{liste}
 \item[(i),]
 (ii) $A:=H_f(x_0)$ sei positiv definit oder negativ definit oder indefinit. Sei $\ep>0$ wie in 7.2. $f\in C^2(D,\MdR)\folgt \exists \delta>0: U_\delta(x_0)\subseteq D$ und $(*)\ |f_{x_jx_k}(x)-f_{x_jx_k}(x_0)|\le\ep\ \forall x\in U_\delta(x_0)\ (j,k=1,\ldots,n)$. Sei $x\in U_\delta(x_0) \ \backslash\ \{x_0\}, h:=x-x_0\folgt x=x_0+h, h\ne 0$ und $S[x_0,x_0+h] \subseteq U_\delta(x_0)$ 6.7$\folgt\exists \eta\in [0,1]:\ f(x)=f(x_0+h)=f(x_0) + \underbrace{h\cdot \grad f(x_0)}_{=0}+\frac{1}{2}Q_B(h)$, wobei $B=H_f(x_0 + \eta h)$. Also: $(**)\ f(x)=f(x_0)+\frac{1}{2}Q_B(h)$. $A$ sei positiv definit \alt{negativ definit} $\folgtnach{7.2} B$ ist positiv definit \alt{negativ definit}. $\folgtwegen{h\ne 0}Q_B(h)\stackrel{(<)}{>}0 \folgtwegen{(**)}f(x)\stackrel{(<)}{>}f(x_0)\folgt f$ hat in $x_0$ ein lokales Minimum \alt{Maximum}.
-\item[(iii)]$A$ sei indefinit und es seien $u, v\in\MdR^n$ wie in 7.2. Wegen 7.1 OBdA: $\|u\|=\|v\|=1$. Dann: $x_0+tu, x_0+tv \in U_\delta(x_0)$ f"ur $t\in(-\delta, \delta)$. Sei $t\in(-\delta, \delta), t\ne 0$. Mit $h:=t\stackrel{(v)}{u}$ folgt aus 7.2 und $(**):\ f(x_0+t\stackrel{(v)}{u})=f(x_0)+\frac{1}{2}Q_B(t\stackrel{(v)}{u})=f(x_0)+\frac{t^2}{2}\underbrace{Q_B(\stackrel{(v)}{u})}_{>0\text{/}<0\text{ (7.2)}}\stackrel{(>)}{<}f(x_0)\folgt f$ hat in $x_0$ kein lokales Extremum.
+\item[(iii)]$A$ sei indefinit und es seien $u, v\in\MdR^n$ wie in 7.2. Wegen 7.1 OBdA: $\|u\|=\|v\|=1$. Dann: $x_0+tu, x_0+tv \in U_\delta(x_0)$ für $t\in(-\delta, \delta)$. Sei $t\in(-\delta, \delta), t\ne 0$. Mit $h:=t\stackrel{(v)}{u}$ folgt aus 7.2 und $(**):\ f(x_0+t\stackrel{(v)}{u})=f(x_0)+\frac{1}{2}Q_B(t\stackrel{(v)}{u})=f(x_0)+\frac{t^2}{2}\underbrace{Q_B(\stackrel{(v)}{u})}_{>0\text{/}<0\text{ (7.2)}}\stackrel{(>)}{<}f(x_0)\folgt f$ hat in $x_0$ kein lokales Extremum.
 \end{liste}
 \end{beweis}
 
 \begin{beispiele}
-\item $D=\MdR^2, f(x,y)=x^2+y^2-2xy-5$. $f_x=2x-2y, f_y=2y-2x;\ \grad f(x,y)=(0,0)\equizu x=y$. Station"are Punkte: $(x,x)\ (x\in\MdR)$.\\
+\item $D=\MdR^2, f(x,y)=x^2+y^2-2xy-5$. $f_x=2x-2y, f_y=2y-2x;\ \grad f(x,y)=(0,0)\equizu x=y$. Stationäre Punkte: $(x,x)\ (x\in\MdR)$.\\
 $$f_{xx}=2,\ f_{xy}=-2=f_{yx},\ f_{yy}=2\folgt H_f(x,x)=\begin{pmatrix}2&-2\\-2&2\end{pmatrix}$$
 $\det H_f(x,x)=0\folgt H_f(x,x)$ ist weder pd, noch nd, noch id.\\
 Es ist $f(x,y)=(x-y)^2-5\ge -5\ \forall\ (x,y)\in\MdR^2$ und $f(x,x)=-5\ \forall x\in\MdR$.
@@ -1057,7 +1057,7 @@ $$f_{xx}=6x,\ f_{xy}=-12=f_{yx},\ f_{yy}=48y.\ H_f(0,0)=\begin{pmatrix}0&-12&\\-
 $\det H_f(0,0)=-144<0\folgt H_f(0,0)$ ist indefinit $\folgt f$ hat in $(0,0)$ kein lokales Extremum. 
 $$H_f(2,1)=\begin{pmatrix}12&-12\\-12&48\end{pmatrix}$$
 $12>0, \det H_f(2,1)>0\folgt H_f(2,1)$ ist positiv definit $\folgt f$ hat in $(2,1)$ ein lokales Minimum.
-\item $K:=\{(x,y)\in\MdR^2: x,y\ge 0, y\le -x+3\}, f(x,y)=3xy-x^2y-xy^2$. Bestimme $\max f(K), \min f(K)$. $f(x,y)=xy(3-x-y).\ K=\partial K \cup K^\circ$. $K$ ist beschr"ankt und abgeschlossen $\folgtnach{3.3}\exists\ (x_1,y_1), (x_2,y_2)\in K: \max f(K)=f(x_1, y_1), \min f(K)=f(x_2,y_2)$. $f\ge 0$ auf $K$, $f=0$ auf $\partial K$, also $\min f(K)=0$. $f$ ist nicht konstant $\folgt f(x_2,y_2)>0\folgt (x_2,y_2)\in K^\circ\folgtnach{8.1}\grad f(x_1,x_2)=0$. Nachrechnen: $(x_2,y_2)=(1,1); f(1,1)=1=\max f(K)$.
+\item $K:=\{(x,y)\in\MdR^2: x,y\ge 0, y\le -x+3\}, f(x,y)=3xy-x^2y-xy^2$. Bestimme $\max f(K), \min f(K)$. $f(x,y)=xy(3-x-y).\ K=\partial K \cup K^\circ$. $K$ ist beschränkt und abgeschlossen $\folgtnach{3.3}\exists\ (x_1,y_1), (x_2,y_2)\in K: \max f(K)=f(x_1, y_1), \min f(K)=f(x_2,y_2)$. $f\ge 0$ auf $K$, $f=0$ auf $\partial K$, also $\min f(K)=0$. $f$ ist nicht konstant $\folgt f(x_2,y_2)>0\folgt (x_2,y_2)\in K^\circ\folgtnach{8.1}\grad f(x_1,x_2)=0$. Nachrechnen: $(x_2,y_2)=(1,1); f(1,1)=1=\max f(K)$.
 \end{beispiele}
 
 \chapter{Der Umkehrsatz}
@@ -1071,11 +1071,11 @@ Sei $x_0\in\MdR^n$ und $U\subseteq\MdR^n$. $U$ ist eine Umgebung von $x_0\equizu
 Sei $\delta>0, f:U_\delta(0)\subseteq\MdR^n\to\MdR^n$ stetig, $f(0)=0$ und $V$ sei eine offene Umgebung von $f(0)\ (=0)$. $U:=\{x\in U_\delta(0):f(x)\in V\}$. Dann ist $U$ eine offene Umgebung von $0$.
 \end{wichtigerhilfssatz}
 \begin{beweis}
-"Ubung
+Übung
 \end{beweis}
 
 \begin{erinnerung}
-\begriff{Cramersche Regel}: Sei $A$ eine reelle $(n\times n)$-Matrix, $\det A\ne 0$, und $b\in\MdR^n$. Das lineare Gleichungssystem $Ax=b$ hat genau eine L"osung: $x=(x_1,\ldots,x_n)=A^{-1}b$. Ersetze in $A$ die $j$-te Spalte durch $b^\top$. Es entsteht eine Matrix $A_j$. Dann: $x_j=\frac{\det A_j}{\det A}$.
+\begriff{Cramersche Regel}: Sei $A$ eine reelle $(n\times n)$-Matrix, $\det A\ne 0$, und $b\in\MdR^n$. Das lineare Gleichungssystem $Ax=b$ hat genau eine Lösung: $x=(x_1,\ldots,x_n)=A^{-1}b$. Ersetze in $A$ die $j$-te Spalte durch $b^\top$. Es entsteht eine Matrix $A_j$. Dann: $x_j=\frac{\det A_j}{\det A}$.
 \end{erinnerung}
 
 \begin{satz}[Stetigkeit der Umkehrfunktion]
@@ -1095,7 +1095,7 @@ g_n'(y)
 & \ddots &\\
 0 & & 1
 \end{pmatrix}$$
-$\folgt \grad g_j(y)\cdot f'(x)=e_j\folgt f'(x)^\top\cdot \grad g_j(y)^\top=e_j^\top$. Ersetze in $f'(x)^\top$ die $k$-te Spalte durch $e_j^\top$. Es entsteht die Matrix $A_k(x)=A_k(f^{-1}(y))$. Cramersche Regel $\folgt \frac{\partial g_j}{\partial y_k}(y)=\frac{\det A_k(f^{-1}(y))}{\det f'(x)}=\frac{\det A_k(f^{-1}(y))}{\det f'(f^{-1}(y))}$. $f\in C^1(D,\MdR), f^{-1}$ stetig $\folgt$ obige Definitionen h"angen stetig von y ab $\folgt \frac{\partial g_j}{\partial y_k}\in C(f(D),\MdR)$.
+$\folgt \grad g_j(y)\cdot f'(x)=e_j\folgt f'(x)^\top\cdot \grad g_j(y)^\top=e_j^\top$. Ersetze in $f'(x)^\top$ die $k$-te Spalte durch $e_j^\top$. Es entsteht die Matrix $A_k(x)=A_k(f^{-1}(y))$. Cramersche Regel $\folgt \frac{\partial g_j}{\partial y_k}(y)=\frac{\det A_k(f^{-1}(y))}{\det f'(x)}=\frac{\det A_k(f^{-1}(y))}{\det f'(f^{-1}(y))}$. $f\in C^1(D,\MdR), f^{-1}$ stetig $\folgt$ obige Definitionen hängen stetig von y ab $\folgt \frac{\partial g_j}{\partial y_k}\in C(f(D),\MdR)$.
 \end{beweis}
 
 \begin{satz}[Der Umkehrsatz]
@@ -1165,9 +1165,9 @@ $D:=\{(x,y) \in \MdR^2: x\ne 0\}$. Sei $(\xi, \eta)\in D$ 9.3 $\folgt \exists$ U
 
 \begin{beispiele}
 \item $f(x,y)=x^2+y^2-1$. $f(x,y)=0\equizu y^2=1-x^2\equizu y=\pm\sqrt{1-x^2}$. \\
-Sei $(x_0, y_0)\in\MdR^2$ mit $f(x_0, y_0)=0$ und $y_0\overset{(<)}{>}0$. Dann existiert eine Umgebung $U$ von $x_0$ und genau eine Funktion $g:U\to\MdR$ mit $g(x_0)=y_0$ und $f(x,g(x))=0\ \forall x \in U$, n"amlich $g(x)=\overset{(-\sqrt{\cdots})}{\sqrt{1-x^2}}$
+Sei $(x_0, y_0)\in\MdR^2$ mit $f(x_0, y_0)=0$ und $y_0\overset{(<)}{>}0$. Dann existiert eine Umgebung $U$ von $x_0$ und genau eine Funktion $g:U\to\MdR$ mit $g(x_0)=y_0$ und $f(x,g(x))=0\ \forall x \in U$, nämlich $g(x)=\overset{(-\sqrt{\cdots})}{\sqrt{1-x^2}}$
 
-\textbf{Sprechweisen}: \glqq $g$ ist implizit durch die Gleichung $f(x,y)=0$ definiert\grqq\ oder\ \glqq die Gleichung $f(x,y)=0$ kann in der Form $y=g(x)$ aufgel"ost werden\grqq
+\textbf{Sprechweisen}: \glqq $g$ ist implizit durch die Gleichung $f(x,y)=0$ definiert\grqq\ oder\ \glqq die Gleichung $f(x,y)=0$ kann in der Form $y=g(x)$ aufgelöst werden\grqq
 
 \item $f(x,y,z)=y+z+\log(x+z)$. Wir werden sehen: $\exists$ Umgebung $U\subseteq \MdR^2$ von $(0,1)$ und genau eine Funktion $g:U\to\MdR$ mit $g(0,-1)=1$ und $f(x,y,g(x,y))=0\ \forall\ (x,y)\in U$.
 \end{beispiele}
@@ -1195,7 +1195,7 @@ $$ f'=
 }_{=:\frac{\partial f}{\partial y}\ (p\times p)\text{-Matrix}}
 \text{; also } f'(x,y)=\left(\frac{\partial f}{\partial x}(x,y),\ \frac{\partial f}{\partial y}(x,y)\right)$$
 
-\begin{satz}[Satz "uber implizit definierte Funktionen]
+\begin{satz}[Satz über implizit definierte Funktionen]
 Sei $(x_0, y_0)\in D, f(x_0, y_0)=0$ und $\det\frac{\partial f}{\partial y}(x_0, y_0)\ne 0$. Dann existiert eine offene Umgebung $U\subseteq \MdR^n$ von $x_0$ und genau eine Funktion $g:U\to\MdR^p$ mit:
 \begin{liste}
 \item $(x, g(x))\in D\ \forall x\in U$
@@ -1232,11 +1232,11 @@ Dann: \begin{liste}
 \item[(I)] $\det F'(x,y)\gleichnach{LA}\det\frac{\partial f}{\partial y}(x,y)\ ((x, y) \in D)$, insbesondere: $\det F'(x_0, y_0)\ne 0$. Es ist $F(x_0, y_0)=(x_0, 0)$. 9.3$\folgt\exists$ eine offene Umgebung $\MdU$ von $(x_0, y_0)$ mit: $\MdU\subseteq D, f(\MdU)=\vartheta$. $F$ ist auf $\MdU$ injektiv, $F^{-1}:\vartheta\to\MdU$ ist stetig differenzierbar und
 \item[(II)] $\det F'(x,y)\gleichnach{(I)}\det\frac{\partial f}{\partial y}(x,y)\ne 0\ \forall\ (x,y)\in\MdU$
 \end{liste}
-\textbf{Bezeichnungen}: Sei $(s,t)\in\vartheta\ (s\in\MdR^n, t\in\MdR^p)$, $F^{-1}(s,t)=:(u(s,t),v(s,t))$, also $u:\vartheta\to\MdR^n$ stetig differenzierbar, $v:\vartheta\to\MdR^p$ stetig differenzierbar. Dann: $(s,t)=F(F^{-1}(s,t))=(u(s,t),f(u(s,t),v(s,t)))\folgt u(s,t)=s\folgt F^{-1}(s,t)=(s,v(s,t))$. F"ur $(x,y)\in\MdU: f(x,y)=0\equizu F(x,y)=(x,0)\equizu(x,y)=F^{-1}(x,0)=(x,v(x,0))\equizu y=v(x,0)$, insbesondere: $y_0=v(x_0,0)$. $U:=\{x\in\MdR^n: (x,0)\in\vartheta\}$. Es gilt: $x_0\in U$. "Ubung: $U$ ist eine offene Umgebung von $x_0$.
+\textbf{Bezeichnungen}: Sei $(s,t)\in\vartheta\ (s\in\MdR^n, t\in\MdR^p)$, $F^{-1}(s,t)=:(u(s,t),v(s,t))$, also $u:\vartheta\to\MdR^n$ stetig differenzierbar, $v:\vartheta\to\MdR^p$ stetig differenzierbar. Dann: $(s,t)=F(F^{-1}(s,t))=(u(s,t),f(u(s,t),v(s,t)))\folgt u(s,t)=s\folgt F^{-1}(s,t)=(s,v(s,t))$. Für $(x,y)\in\MdU: f(x,y)=0\equizu F(x,y)=(x,0)\equizu(x,y)=F^{-1}(x,0)=(x,v(x,0))\equizu y=v(x,0)$, insbesondere: $y_0=v(x_0,0)$. $U:=\{x\in\MdR^n: (x,0)\in\vartheta\}$. Es gilt: $x_0\in U$. Übung: $U$ ist eine offene Umgebung von $x_0$.
 
-\textbf{Definition}: $g:U\to\MdR^p$ durch $g(x):=v(x,0)$, f"ur $x\in U$ gilt: $(x,0)\in\vartheta\folgt F^{-1}(x,0)=(x,v(x,0))=(x,g(x))\in \MdU$. Dann gelten: (1), (2), (3) und (4). (5) folgt aus (II).
+\textbf{Definition}: $g:U\to\MdR^p$ durch $g(x):=v(x,0)$, für $x\in U$ gilt: $(x,0)\in\vartheta\folgt F^{-1}(x,0)=(x,v(x,0))=(x,g(x))\in \MdU$. Dann gelten: (1), (2), (3) und (4). (5) folgt aus (II).
 
-Zu (6): Definition f"ur $x\in U: \psi(x):=(x,g(x)), \psi\in C^1(U,\MdR^{n+p}),$
+Zu (6): Definition für $x\in U: \psi(x):=(x,g(x)), \psi\in C^1(U,\MdR^{n+p}),$
 $$\psi'(x)=\left(\begin{array}{c}
 \begin{array}{ccc}
 1 & & 0 \\
@@ -1251,7 +1251,7 @@ $$\psi'(x)=\left(\begin{array}{c}
 
 \begin{beispiel}
 $f(x,y,z)=y+z+\log(x+z)$. Zeige: $\exists$ offene Umgebung $U$ von $(0,1)$ und genau eine stetig differenzierbare Funktion $g:U\to\MdR$ mit $g(0,-1)=1$ und $f(x,y,g(x,y))=0\ \forall (x,y)\in U$. Berechne $g'$ an der Stelle $(0,-1)$.\\
-$f(0,-1,1)=0$, $f_z=1+\frac{1}{x+z}$; $f_z(0,-1,1)=2\ne 0$. Die Behauptung folgt aus dem Satz "uber impliziert definierte Funktionen. Also: $0=y+g(x,y)+\log(x+g(x,y))\ \forall (x,y)\in U$.\\
+$f(0,-1,1)=0$, $f_z=1+\frac{1}{x+z}$; $f_z(0,-1,1)=2\ne 0$. Die Behauptung folgt aus dem Satz über impliziert definierte Funktionen. Also: $0=y+g(x,y)+\log(x+g(x,y))\ \forall (x,y)\in U$.\\
 Differentiation nach $x$: $0=g_x(x,y)+\frac{1}{x+g(x,y)}(1+g_x(x,y))\ \forall (x,y)\in U\overset{(x,y)=(0,-1)}{\folgt}0=g_x(0,-1)+\frac{1}{1}(g_x(0,-1)+1)\folgt g_x(0,-1)=-\frac{1}{2}$.\\
 Differentiation nach $y$: $0=1+g_y(x,y)+\frac{1}{x+g(x,y)}g_y(x,y)\ \forall (x,y)\in U \folgtnach{(x,y)=(0,-1)}g_y(0,-1)=-\frac{1}{2}$. Also: $g'(0,-1)=(-\frac{1}{2},-\frac{1}{2})$.
 \end{beispiel}
@@ -1495,7 +1495,7 @@ Dann: \begin{liste}
 $\gamma:[a,b]\to\MdR^n$ sei ein stetig differenzierbarer Weg. Dann:
 \begin{liste}
 \item $\gamma$ ist rektifizierbar
-\item Ist $s$ die zu $\gamma$ geh"orende Wegl"angenfunktion, so ist $s\in C^1[a,b]$ und $s'(t)=\|\gamma'(t)\|\ \forall t\in[a,b]$
+\item Ist $s$ die zu $\gamma$ gehörende Weglängenfunktion, so ist $s\in C^1[a,b]$ und $s'(t)=\|\gamma'(t)\|\ \forall t\in[a,b]$
 \item $L(\gamma)=\int_a^b\|\gamma'(t)\|dt$
 \end{liste}
 \end{satz}
@@ -1535,7 +1535,7 @@ $\gamma:[a,b]\to\MdR^n$ sei ein Weg.
 Aus 12.2 und 12.5 folgt:
 
 \begin{satz}[Rektifizierbarkeit von Wegsummen]
-Ist $\gamma=\gamma_1\oplus\cdots\oplus\gamma_l$ st"uckweise stetig differenzierbar, mit stetig differenzierbaren Wegen $\gamma_1,\ldots,\gamma_l\folgt \gamma$ ist rektifizierbar und $L(\gamma)=L(\gamma_1)+\cdots+L(\gamma_l)$.
+Ist $\gamma=\gamma_1\oplus\cdots\oplus\gamma_l$ stückweise stetig differenzierbar, mit stetig differenzierbaren Wegen $\gamma_1,\ldots,\gamma_l\folgt \gamma$ ist rektifizierbar und $L(\gamma)=L(\gamma_1)+\cdots+L(\gamma_l)$.
 \end{satz}
 
 \begin{definition*}
@@ -1553,8 +1553,8 @@ $\gamma_1:[a,b]\to\MdR^n$ und $\gamma_2:[\alpha,\beta]\to\MdR^n$ seien Wege.
 
 \index{Äquivalenz}
 \index{Parameter-!Transformation}
-$\gamma_1$ und $\gamma_2$ hei"sen \textbf{"aquivalent}, in Zeichen $\gamma_1\sim\gamma_2:\equizu\exists h:[a,b]\to[\alpha, \beta]$ stetig und streng wachsend, $h(a)=\alpha, h(b)=\beta$ und $\gamma_1(t)=\gamma_2(h(t))\ \forall t\in[a,b]$ (also $\gamma_1=\gamma_2\circ h)$. $h$ hei"st eine \textbf{Parametertransformation} (PTF). Analysis 1 $\folgt h([a,b])=[\alpha,\beta]\folgt \Gamma_{\gamma_1}=\Gamma_{\gamma_2}$.
-Es gilt: $\gamma_2=\gamma_1\circ h^{-1}\folgt \gamma_2\sim\gamma_1$. \glqq$\sim$\grqq\ ist eine "Aquivalenzrelation.
+$\gamma_1$ und $\gamma_2$ hei"sen \textbf{äquivalent}, in Zeichen $\gamma_1\sim\gamma_2:\equizu\exists h:[a,b]\to[\alpha, \beta]$ stetig und streng wachsend, $h(a)=\alpha, h(b)=\beta$ und $\gamma_1(t)=\gamma_2(h(t))\ \forall t\in[a,b]$ (also $\gamma_1=\gamma_2\circ h)$. $h$ hei"st eine \textbf{Parametertransformation} (PTF). Analysis 1 $\folgt h([a,b])=[\alpha,\beta]\folgt \Gamma_{\gamma_1}=\Gamma_{\gamma_2}$.
+Es gilt: $\gamma_2=\gamma_1\circ h^{-1}\folgt \gamma_2\sim\gamma_1$. \glqq$\sim$\grqq\ ist eine Äquivalenzrelation.
 \end{definition*}
 
 \begin{beispiele}
@@ -1563,7 +1563,7 @@ Es gilt: $\gamma_2=\gamma_1\circ h^{-1}\folgt \gamma_2\sim\gamma_1$. \glqq$\sim$
 \end{beispiele}
 
 \begin{satz}[Eigenschaften der Parametertransformation]
-$\gamma_1:[a,b]\to\MdR^n$ und $\gamma_2:[\alpha,\beta]\to\MdR^n$ seien "aquivalente Wege und $h:[a,b]\to[\alpha,\beta]$ eine Parametertransformation.
+$\gamma_1:[a,b]\to\MdR^n$ und $\gamma_2:[\alpha,\beta]\to\MdR^n$ seien äquivalente Wege und $h:[a,b]\to[\alpha,\beta]$ eine Parametertransformation.
 \begin{liste}
 \item $\gamma_1$ ist rektifizierbar $\equizu \gamma_2$ ist rektifizierbar. In diesem Falle: $L(\gamma_1)=L(\gamma_2)$
 \item Sind $\gamma_1$ und $\gamma_2$ glatt $\folgt h\in C^1[a,b]$ und $h'>0$.
@@ -1571,22 +1571,22 @@ $\gamma_1:[a,b]\to\MdR^n$ und $\gamma_2:[\alpha,\beta]\to\MdR^n$ seien "aquivale
 \end{satz}
 
 \begin{beweise}
-\item[(2)] \textbf{\color{red}In den gro"sen "Ubungen.}
-\item[(1)] Es gen"ugt zu zeigen: Aus $\gamma_2$ rektifizierbar folgt: $\gamma_1$ ist rektifizierbar und $L(\gamma_1)\le L(\gamma_2)$. Sei $Z=\{t_0,\ldots,t_m\}\in\Z\folgt\tilde{Z}:=\{h(t_0),\ldots, h(t_m)\}$ ist eine Zerlegung von $[\alpha,\beta]$.
+\item[(2)] \textbf{\color{red}In den gro"sen Übungen.}
+\item[(1)] Es genügt zu zeigen: Aus $\gamma_2$ rektifizierbar folgt: $\gamma_1$ ist rektifizierbar und $L(\gamma_1)\le L(\gamma_2)$. Sei $Z=\{t_0,\ldots,t_m\}\in\Z\folgt\tilde{Z}:=\{h(t_0),\ldots, h(t_m)\}$ ist eine Zerlegung von $[\alpha,\beta]$.
 $$L(\gamma_1, Z)=\ds\sum_{j=1}^m\|\gamma_1(t_j)-\gamma_1(t_{j-1})\|=\ds\sum_{j=1}^m\|\gamma_2(h(t_j))-\gamma_2(h(t_{j-1}))\|=L(\gamma_2, \tilde{Z})\le L(\gamma_2)$$
 $\folgt \gamma_1$ ist rektifizierbar und $L(\gamma_1)\le L(\gamma_2)$.
 \end{beweise}
 
-\paragraph{Wegl"ange als Parameter}
-Es sei $\gamma:[a,b]\to\MdR^n$ ein \emph{glatter} Weg. 12.5 $\folgt \gamma$ ist rb. $L:=L(\gamma)$. 12.5 $\folgt s \in C^1[a,b]$ und $s'(t) = \|\gamma'(t)\| > 0\ \forall t\in[a,b].\ s$ ist also \emph{streng wachsend}. Dann gilt: $s([a,b]) = [0,L],\ s^{-1}:[0,L]\to[a,b]$ ist streng wachsend und stetig db. $(s^{-1})'(\sigma) = \frac{1}{s'(t)}$ f"ur $\sigma \in [0,L],\ s(t) = \sigma.$
+\paragraph{Weglänge als Parameter}
+Es sei $\gamma:[a,b]\to\MdR^n$ ein \emph{glatter} Weg. 12.5 $\folgt \gamma$ ist rb. $L:=L(\gamma)$. 12.5 $\folgt s \in C^1[a,b]$ und $s'(t) = \|\gamma'(t)\| > 0\ \forall t\in[a,b].\ s$ ist also \emph{streng wachsend}. Dann gilt: $s([a,b]) = [0,L],\ s^{-1}:[0,L]\to[a,b]$ ist streng wachsend und stetig db. $(s^{-1})'(\sigma) = \frac{1}{s'(t)}$ für $\sigma \in [0,L],\ s(t) = \sigma.$
 
 \begin{definition}
 $\tilde{\gamma}[0,L] \to \MdR^n$ durch $\tilde{\gamma}(\sigma) := \gamma(s^{-1}(\sigma)),$ also $\tilde{\gamma} = \gamma\circ s^{-1};\ \tilde{\gamma}$ ist ein Weg im $\MdR^n$ und $\tilde{\gamma} \sim \gamma;\ \Gamma_\gamma = \Gamma_{\tilde{\gamma}}.$
 
-12.7 $\folgt \tilde{\gamma}$ ist rb, $L(\tilde{\gamma})=L(\gamma)=L,\ \tilde{\gamma}$ ist stetig db. $\tilde{\gamma}$ hei"st Parameterdarstellung von $\Gamma_\gamma$ mit der Wegl"ange als Parameter. Warum?
+12.7 $\folgt \tilde{\gamma}$ ist rb, $L(\tilde{\gamma})=L(\gamma)=L,\ \tilde{\gamma}$ ist stetig db. $\tilde{\gamma}$ hei"st Parameterdarstellung von $\Gamma_\gamma$ mit der Weglänge als Parameter. Warum?
 \end{definition}
 
-Darum: Sei $\tilde{s}$ die zu $\tilde{\gamma}$ geh"orende Wegl"angenfunktion. $\forall \sigma\in[0,L]: \tilde{\gamma}(\sigma) = \gamma(s^{-1}(\sigma)).$ Sei $\sigma\in[0,L],\ t:= s^{-1}(\sigma) \in [a,b],\ s(t) = \sigma.$
+Darum: Sei $\tilde{s}$ die zu $\tilde{\gamma}$ gehörende Weglängenfunktion. $\forall \sigma\in[0,L]: \tilde{\gamma}(\sigma) = \gamma(s^{-1}(\sigma)).$ Sei $\sigma\in[0,L],\ t:= s^{-1}(\sigma) \in [a,b],\ s(t) = \sigma.$
 
 $\tilde{\gamma}(\sigma) = (s^{-1})'(\sigma)\cdot\gamma'(s^{-1}(\sigma)) = \frac{1}{s'(t)}\gamma'(t) \gleichnach{12.5} \frac{1}{\|\gamma'(t)\|}\gamma'(t) \folgt \|\gamma'(\sigma)\|=1$ ($\folgt \tilde{\gamma}$ ist glatt).
 
@@ -1640,21 +1640,21 @@ $\gamma,\Gamma,f$ seien wie oben, $g:\Gamma\to\MdR^n$ sei stetig, $\hat\gamma = 
 \begin{beweise}
 \item klar
 \item Ana I, 26.1(3)
-\item nur f"ur $\gamma$ stetig differenzierbar. $\gamma^-(t) = \gamma(b+a-t),\ t\in[a,b].$
+\item nur für $\gamma$ stetig differenzierbar. $\gamma^-(t) = \gamma(b+a-t),\ t\in[a,b].$
 
 $\int_{\gamma^-} f(x)\cdot dx = \int_a^b f(\gamma(b+a-t))\cdot \gamma'(b+a-t) (-1) dt =$ (subst. $\tau=b+a-t,\ d\tau = dt$) $= \int_b^a f(\gamma(\tau))\cdot\gamma'(\tau) d\tau = -\int_a^b f(\gamma(\tau))\cdot\gamma'(\tau) d\tau = -\int_\gamma f(x)\cdot dx.$
-\item "Ubung
-\item Sei $\hat{\gamma} = \gamma\circ h,\ h:[\alpha,\beta]\to[a,b]$ stetig und streng wachsend. $h(\alpha) = a,\ h(\beta) = b$. Nur f"ur $\gamma$ und $h$ stetig db. Dann ist $\hat{\gamma}$ stetig db.
+\item Übung
+\item Sei $\hat{\gamma} = \gamma\circ h,\ h:[\alpha,\beta]\to[a,b]$ stetig und streng wachsend. $h(\alpha) = a,\ h(\beta) = b$. Nur für $\gamma$ und $h$ stetig db. Dann ist $\hat{\gamma}$ stetig db.
 
 $\int_{\hat{\gamma}} f(x)\cdot dx = \int_\alpha^\beta f(\gamma(h(t)))\cdot \gamma'(h(t))\cdot h'(t) dt =$ (subst. $\tau = h(t),\ d\tau = h'(t)dt$) $= \int_a^b f(\gamma(\tau))\cdot \gamma'(\tau)d\tau = \int_\gamma f(x)\cdot dx.$
 \end{beweise}
 
 \begin{definition}
-$\gamma,\Gamma$ seien wie immer in diesem Paragraphen. $s$ sei die zu $\gamma$ geh"orende Wegl"angenfunktion und $g:\Gamma \to \MdR$ stetig. 12.4 $\folgt s$ ist wachsend $\folgtnach{Ana I} s \in BV[a,b];\ g\circ\gamma$ stetig $\folgtnach{Ana I, 26.6} g\circ\gamma \in R_s[a,b]$.
+$\gamma,\Gamma$ seien wie immer in diesem Paragraphen. $s$ sei die zu $\gamma$ gehörende Weglängenfunktion und $g:\Gamma \to \MdR$ stetig. 12.4 $\folgt s$ ist wachsend $\folgtnach{Ana I} s \in BV[a,b];\ g\circ\gamma$ stetig $\folgtnach{Ana I, 26.6} g\circ\gamma \in R_s[a,b]$.
 
 $$\int_\gamma g(x) ds := \int_a^b g(\gamma(t))ds(t)$$
 
-\textbf{Integral bzgl. der Wegl"ange}.
+\textbf{Integral bzgl. der Weglänge}.
 \end{definition}
 
 \begin{satz}[Rechnen mit Integralen bezgl. der Weglänge]
@@ -1757,13 +1757,13 @@ $\gamma_j(t) := z_{j-1} + t(z_j - z_{j-1})$, $(t\in[0,1])$, ($j=1,\ldots,n$). Da
 
 \begin{definition*}
 \indexlabel{Weg-!unabhängig}
-$\int f(x)\cdot \text{d}x$ hei"st \textbf{in G wegunabh"angig} (wu) $:\equizu$ f"ur je zwei Punkte $x_0, y_0\in G$ gilt: f"ur jeden st"uckweise stetig differenzierbaren Weg $\gamma:[a,b]\to\MdR^n$ mit $\Gamma_\gamma\subseteq G$, $\gamma(a)=x_0$ und $\gamma(b)=y_0$ hat das Integral $\ds\int_\gamma f(x)\cdot\text{d}x$ stets denselben Wert. In diesem Fall: $\ds\int_{x_0}^{y_0}f(x)\cdot\text{d}x:=\ds\int_\gamma f(x)\cdot\text{d}x$.
+$\int f(x)\cdot \text{d}x$ hei"st \textbf{in G wegunabhängig} (wu) $:\equizu$ für je zwei Punkte $x_0, y_0\in G$ gilt: für jeden stückweise stetig differenzierbaren Weg $\gamma:[a,b]\to\MdR^n$ mit $\Gamma_\gamma\subseteq G$, $\gamma(a)=x_0$ und $\gamma(b)=y_0$ hat das Integral $\ds\int_\gamma f(x)\cdot\text{d}x$ stets denselben Wert. In diesem Fall: $\ds\int_{x_0}^{y_0}f(x)\cdot\text{d}x:=\ds\int_\gamma f(x)\cdot\text{d}x$.
 \end{definition*}
 
-\textbf{14.1 lautet dann}: besitzt f auf G die Stammfunktion $\varphi\folgt \ds\int f(x)\cdot\text{d}x$ ist in $G$ wegunabh"angig und $\int_{x_0}^{y_0}=\varphi(y_0)-\varphi(x_0)$ (Verallgemeinerung von Analysis 1, 23.5).
+\textbf{14.1 lautet dann}: besitzt f auf G die Stammfunktion $\varphi\folgt \ds\int f(x)\cdot\text{d}x$ ist in $G$ wegunabhängig und $\int_{x_0}^{y_0}=\varphi(y_0)-\varphi(x_0)$ (Verallgemeinerung von Analysis 1, 23.5).
 
 \begin{satz}[Wegunabhängigkeit, Existenz von Stammfunktionen]
-$f$ besitzt auf $G$ eine Stammfunktion $\equizu\int f(x)\cdot\text{d}x$ ist in G wegunabh"angig. \\
+$f$ besitzt auf $G$ eine Stammfunktion $\equizu\int f(x)\cdot\text{d}x$ ist in G wegunabhängig. \\
 In diesem Fall: ist $x_0\in G$ und $\varphi:G\to\MdR$ definiert durch: 
 \begin{align*}
 \varphi(z)=\ds\int_{x_0}^z f(x)\cdot\text{d}x\ (z\in G)\ \tag{$*$}
@@ -1772,9 +1772,9 @@ Dann ist $\varphi$ eine Stammfunktion von $f$ auf $G$.
 \end{satz}
 
 \begin{beweis}
-\glqq$\folgt$\grqq: 14.1\quad \glqq$\impliedby$\grqq: Sei $x_0\in G$ und $\varphi$ wie in $(*)$. Zu zeigen: $\varphi$ ist auf $G$ differenzierbar und $\varphi'=f$ auf G. Sei $z_0\in G, h\in\MdR^n,h\ne 0$ und $\|h\|$ so klein, dass $z_0+th\in G\ \forall t\in[0,1].\ \gamma(t):=z_0+th\ (t\in[0,1]), \Gamma_\gamma=s[z_0, z_0+h]\subseteq G$. $\rho(h):=\frac{1}{\|h\|}(\varphi(z_0+h)-\varphi(z_0)-f(z_0)\cdot h)$. Zu zeigen: $\rho(h)\to 0\ (h\to 0)$. 14.2 $\folgt$ es existieren st"uckweise stetig differenzierbare Wege $\gamma_1, \gamma_2$ mit: $\Gamma_{\gamma_1},\Gamma_{\gamma_2}\subseteq G$. Anfangspunkt von $\gamma_1=x_0=$Anfangspunkt von $\gamma_2$. Endpunkt von $\gamma_1=z_0$, Endpunkt von $\gamma_2=z_0+h$. Sei $\gamma_3\in \text{AH}(\gamma_1,\gamma)$ st"uckweise stetig differenzierbar (13.4!). Dann: 
+\glqq$\folgt$\grqq: 14.1\quad \glqq$\impliedby$\grqq: Sei $x_0\in G$ und $\varphi$ wie in $(*)$. Zu zeigen: $\varphi$ ist auf $G$ differenzierbar und $\varphi'=f$ auf G. Sei $z_0\in G, h\in\MdR^n,h\ne 0$ und $\|h\|$ so klein, dass $z_0+th\in G\ \forall t\in[0,1].\ \gamma(t):=z_0+th\ (t\in[0,1]), \Gamma_\gamma=s[z_0, z_0+h]\subseteq G$. $\rho(h):=\frac{1}{\|h\|}(\varphi(z_0+h)-\varphi(z_0)-f(z_0)\cdot h)$. Zu zeigen: $\rho(h)\to 0\ (h\to 0)$. 14.2 $\folgt$ es existieren stückweise stetig differenzierbare Wege $\gamma_1, \gamma_2$ mit: $\Gamma_{\gamma_1},\Gamma_{\gamma_2}\subseteq G$. Anfangspunkt von $\gamma_1=x_0=$Anfangspunkt von $\gamma_2$. Endpunkt von $\gamma_1=z_0$, Endpunkt von $\gamma_2=z_0+h$. Sei $\gamma_3\in \text{AH}(\gamma_1,\gamma)$ stückweise stetig differenzierbar (13.4!). Dann: 
 $$\underbrace{\ds\int_{\gamma_3}f(x)\cdot\text{d}x}_{=\varphi(z_0+h)}=\underbrace{\ds\int_{\gamma_1}f(x)\cdot\text{d}x}_{=\varphi(z_0)}+\ds\int_{\gamma}f(x)\cdot\text{d}x$$
-$\ds\int f(x)\cdot\text{d}x$ ist wegunabh"angig in $G\folgt$\\
+$\ds\int f(x)\cdot\text{d}x$ ist wegunabhängig in $G\folgt$\\
 $$\ds\int_{\gamma_3}f(x)\cdot\text{d}x=\ds\int_{\gamma_2}f(x)\cdot\text{d}x=\varphi(z_0+h)\folgt\varphi(z_0+h)-\varphi(z_0)=\ds\int_{\gamma}f(x)\cdot\text{d}x$$
 Es ist:
 \begin{eqnarray*}
@@ -1783,14 +1783,14 @@ Es ist:
 &&\folgt |\rho(h)|=\frac{1}{\|h\|}\left|\ds\int_{\gamma}f(x)-f(z_0)\text{d}x\right|\\
 &&\le\frac{1}{\|h\|}\underbrace{L(\gamma)}_{=\|h\|}\underbrace{\max\{\|f(x)-f(z_0)\|: x\in\Gamma_\gamma\}}_{=\|f(x_n)-f(z_0)\|}
 \end{eqnarray*}
-wobei $x_n\in\Gamma_\gamma=S[z_0,z_0+h]\folgt |\rho(h)|\le\|f(x_n)-f(z_0)\|$. F"ur $h\to 0: x_n\to z_0\folgtnach{f stetig}\|f(x_n)-f(z_0)\|\to 0\folgt\rho(h)\to 0$.
+wobei $x_n\in\Gamma_\gamma=S[z_0,z_0+h]\folgt |\rho(h)|\le\|f(x_n)-f(z_0)\|$. Für $h\to 0: x_n\to z_0\folgtnach{f stetig}\|f(x_n)-f(z_0)\|\to 0\folgt\rho(h)\to 0$.
 \end{beweis}
 
 \begin{satz}[Integrabilitätsbedingungen]
 Sei $f=(f_1,\ldots, f_n)\in C^1(G,\MdR^n)$. Besitzt $f$ auf $G$ die Stammfunktion $\varphi\folgt$
 
 $$\frac{\partial f_j}{\partial x_k}=\frac{\partial f_k}{\partial x_j}\text{ auf }G\ (j,k=1,\ldots,n)$$
-(\begriff{Integrabilitätsbedingungen} (IB)). Warnung: Die Umkehrung von 14.4 gilt im Allgemeinen \textbf{nicht} ($\to$ "Ubungen!).
+(\begriff{Integrabilitätsbedingungen} (IB)). Warnung: Die Umkehrung von 14.4 gilt im Allgemeinen \textbf{nicht} ($\to$ Übungen!).
 \end{satz}
 
 \begin{beweis}
@@ -1822,10 +1822,10 @@ Für $x=(x_1,\ldots,x_n)\in G$ sei $\gamma_x(t)=tx, t\in [0,1]$.
 &=&\ds\int_0^1(f_1(tx)\cdot x_1+f_2(tx)\cdot x_2+\ldots+f_n(tx)\cdot x_n)\text{d}t\\
 \end{eqnarray*}
 Zu zeigen: $\varphi$ ist auf $G$ partiell differenzierbar nach $x_j$ und $\varphi_{x_j}=f_j\ (j=1,\ldots,n)$.
-OBdA: $j=1$. Sp"ater (in 21.3) zeigen wir: $\varphi$ ist partiell differenzierbar nach $x_1$ und:
+OBdA: $j=1$. Später (in 21.3) zeigen wir: $\varphi$ ist partiell differenzierbar nach $x_1$ und:
 $$\varphi_{x_1}(x)=\ds\int_0^1\frac{\partial}{\partial x_1}(f_1(tx)x_1+\ldots+f_n(tx)\cdot x_n)\text{d}t$$
 
-F"ur $k=1,\ldots,n:\ g_k(x)=f_k(tx)\cdot x_k$.\\
+Für $k=1,\ldots,n:\ g_k(x)=f_k(tx)\cdot x_k$.\\
 $k=1:\ g_1(x)=f_1(tx)x_1\folgt\frac{\partial g_1}{\partial x_1}(x)=f_1(tx)+t\frac{\partial f_1}{\partial x_1}(tx)x_1$\\
 $k\ge 2:\ g_k(x)=f_k(tx)x_k\folgt\frac{\partial g_k}{\partial x_1}(x)=t\frac{\partial f_k}{\partial x_1}(tx)x_k\folgt$
 
@@ -2929,7 +2929,7 @@ Es war $a > 0$ beliebig, also ist $y(x) = e^{x^2} -1$ \textbf{die} Lösung des A
 \end{beispiel}
 
 \textbf{Ohne} Beweis:
-\begin{satz}[EuE-Satz von Picard-Lindel"of (Version II)]
+\begin{satz}[EuE-Satz von Picard-Lindelöf (Version II)]
 Sei $I=[a,b] \subseteq \MdR, x_0 \in I, y_0 \in \MdR^n, s > 0$, es sei
 \[D := \{(x,y)\in\MdR^{n+1} : x \in I, \|y-y_0\| \leq s\}\] 
 und $f \in C(D,\MdR^n)$. Weiter sei 
@@ -2948,7 +2948,7 @@ auf J genau eine Lösung.
 \end{satz}
 
 \textbf{Ohne} Beweis:
-\begin{satz}[EuE-Satz von Picard-Lindel"of (Version III)]
+\begin{satz}[EuE-Satz von Picard-Lindelöf (Version III)]
 Es sei $D \subseteq \MdR^{n+1}$ \textbf{offen}, $(x_0, y_0) \in D, f\in C(D, \MdR^n)$ und $f$ genüge auf $D$ einer \textbf{lokalen} LB bezüglich $y$.
 
 Dann hat das AwP
@@ -3109,13 +3109,13 @@ sind $y^{(1)} + y^{(2)} \in \mathbb{L}$ und $\alpha y^{(1)} \in \mathbb
 {L}$. $\mathbb{L}$ ist also ein reeller Vektorraum.
 
 \item Seien $y^{(1)}, ..., y^{(k)} \in \mathbb{L}$. Dann sind  
-"aquivalent:
+äquivalent:
  \begin{enumerate}
-  \item $y^{(1)}, ... , y^{(k)}$ sind in $\mathbb{L}$ linear unabh"angig.
+  \item $y^{(1)}, ... , y^{(k)}$ sind in $\mathbb{L}$ linear unabhängig.
   \item $\forall x \in I$ sind $y^{(1)}(x), ..., y^{(k)}(x)$ linear  
-unabh"angig im $\MdR^n$.
+unabhängig im $\MdR^n$.
   \item $\exists \xi \in I: y^{(1)}(\xi ), ..., y^{(k)}(\xi ) 
-$ sind linear unabh"angig im $\MdR^n$.
+$ sind linear unabhängig im $\MdR^n$.
  \end{enumerate}
 
 \item $\dim \mathbb{L} = n$.
@@ -3134,28 +3134,28 @@ $ sind linear unabh"angig im $\MdR^n$.
 \tilde y :&= \alpha_1 y^{(1)} + \cdots + \alpha_k y^{(k)}
 \end{align*}  
 Aus (1) folgt: $\tilde y \in \mathbb{L}$. Weiter ist $\tilde y$ eine  
-L"osung des AwPs
+Lösung des AwPs
 \begin{align*} \begin{cases}
 y' = A(x) y\\
 y(x_1) = 0
 \end{cases} \end{align*}
 Da $y \equiv 0$ dieses AwP ebenfalls löst und aus 22.1 folgt, dass das AwP  
-eindeutig l"osbar ist, muss gelten:
+eindeutig lösbar ist, muss gelten:
 \[0 = \tilde y = \alpha_1 y^{(1)} + \cdots +  \alpha_k y^{(k)}\]
 Aus der Voraussetzung folgt dann: 
 \[\alpha_1 = \alpha_2 = \cdots = \alpha_k = 0\] 
-Also sind $y^{(1)}(x_1), ..., y^{(k)} (x_1)$ sind linear unabh"angig im $\MdR^n$.
+Also sind $y^{(1)}(x_1), ..., y^{(k)} (x_1)$ sind linear unabhängig im $\MdR^n$.
 \item[(ii) $\implies$ (iii)] Klar \checkmark
 \item[(iii) $\implies$ (i)]Seien $\alpha_1, ..., \alpha_k \in \MdR$  
 und $0 = \alpha_1 y^{(1)} + \cdots + \alpha_k y^{(k)}$, dann folgt:
 \[0 = \alpha_1 y^{(1)}(\xi ) + \cdots + \alpha_k y^{(k)}(\xi )\] 
 Aus der Voraussetzung folgt dann: $\alpha_1 = \alpha_2 = \cdots = \alpha_k = 0$  
-Also sind $y^{(1)}, ..., y^{(k)}$ linear unabh"angig in $\mathbb{L}$. 
+Also sind $y^{(1)}, ..., y^{(k)}$ linear unabhängig in $\mathbb{L}$. 
 \end{enumerate}
 
 \item Aus (2) folgt, dass $\dim \mathbb{L} \le n$ ist.
 
-F"ur $j = 1,..., n$ sei $y^{(j)}$ die eindeutig bestimmte L"osung des  
+Für $j = 1,..., n$ sei $y^{(j)}$ die eindeutig bestimmte Lösung des  
 AwPs
 \begin{align*}
 \begin{cases}
@@ -3164,8 +3164,8 @@ y(x_0) = e_j
 \end{cases}
 (e_j = \text{ j-ter Einheitsvektor im }\MdR^n).
 \end{align*}
-Dann sind $y^{(1)}(x_0), ..., y^{(n)}(x_0)$ linear unabh"angig im $ 
-\MdR^n$. Aus (2) folgt, dass $y^{(1)}, ..., y^{(k)}$ linear unabh"angig  
+Dann sind $y^{(1)}(x_0), ..., y^{(n)}(x_0)$ linear unabhängig im $ 
+\MdR^n$. Aus (2) folgt, dass $y^{(1)}, ..., y^{(k)}$ linear unabhängig  
 in $\mathbb{L}$ sind, also ist $\dim \mathbb{L} \ge n$.
 \end{beweise}
 
@@ -3183,16 +3183,16 @@ In diesem Fall ist
 \index{Fundamental-!Matrix}\index{Fundamental-!System}
 \begin{enumerate}
 \item Seien $y^{(1)}, ..., y^{(n)} \in \mathbb{L}$. $y^{(1)}, ..., y^{(n)}$ 
-hei"st ein \textbf{L"osungssystem} (LS) von (H). 
+hei"st ein \textbf{Lösungssystem} (LS) von (H). 
 \[Y(x) := (y^{(1)}(x), ..., y^{(n)}(x))\]
-(j-te Spalte von $Y$  =  $y^{(j)}$) hei"st \textbf{L"osungsmatrix} (LM) von (H).
+(j-te Spalte von $Y$  =  $y^{(j)}$) hei"st \textbf{Lösungsmatrix} (LM) von (H).
 \[W(x) := \det Y(x)\] 
 hei"st \textbf{Wronskideterminante}.
-\item Sei $y^{(1)}, ..., y^{(n)}$ ein L"osungssystem von (H). Sind 
-$y^{(1)}, ..., y^{(n)}$ linear unabh"angig in $\mathbb{L}$, so hei"st 
+\item Sei $y^{(1)}, ..., y^{(n)}$ ein Lösungssystem von (H). Sind 
+$y^{(1)}, ..., y^{(n)}$ linear unabhängig in $\mathbb{L}$, so hei"st 
 $y^{(1)}, ..., y^{(n)}$ ein \textbf{Fundamentalsystem} (FS) und 
 $Y = (y^{(1)}, ..., y^{(n)})$ eine \textbf{Fundamentalmatrix} (FM).
-\item Ist $y^{(1)}, ..., y^{(n)}$ ein FS von (H), so lautet die allgemeine L"osung von (H): 
+\item Ist $y^{(1)}, ..., y^{(n)}$ ein FS von (H), so lautet die allgemeine Lösung von (H): 
 \[y(x) = c_1 y^{(1)}(x) + \cdots + c_n y^{(n)} (x) \quad (c_1, ..., c_n \in \MdR)\]
 \end{enumerate}
 \end{definition}
@@ -3210,7 +3210,7 @@ $y^{(1)}, ..., y^{(n)}$ sei ein LS von (H). $Y$ und $W$ seien definiert wie oben
 \end{beweise}
 
 
-\textbf{Spezialfall:} $n=2$. $A(x) = \begin{pmatrix} a_1(x) & -a_2(x) \\ a_2(x) & a_1(x) \end{pmatrix}$; $a_1, a_2 : I \to \MdR$ stetig. Sei $y^{(1)} = (y_1, y_2)$ eine L"osung von
+\textbf{Spezialfall:} $n=2$. $A(x) = \begin{pmatrix} a_1(x) & -a_2(x) \\ a_2(x) & a_1(x) \end{pmatrix}$; $a_1, a_2 : I \to \MdR$ stetig. Sei $y^{(1)} = (y_1, y_2)$ eine Lösung von
 \begin{align*}
 \tag{$*$} y' = A(x) y
 \end{align*}
@@ -3226,7 +3226,7 @@ Setze $y^{(2)} := (-y_2, y_1)$. Dann ist:
 \begin{align*}
 A(x) y^{(2)} = \begin{pmatrix} -a_1(x) y_2 - a_2(x) y_1 \\ -a_2(x) y_2 + a_1(x) y_1 \end{pmatrix} = \begin{pmatrix} -y_2' \\ y_1' \end{pmatrix} = \left( y^{(2)} \right)'
 \end{align*}
-Das hei"st: $y^{(2)}$ l"ost ebenfalls ($*$) auf $I$, oder: $y^{(1)}, y^{(2)}$ ist ein L"osungssystem von ($*$).
+Das hei"st: $y^{(2)}$ löst ebenfalls ($*$) auf $I$, oder: $y^{(1)}, y^{(2)}$ ist ein Lösungssystem von ($*$).
 \begin{align*}
 Y(x) = \begin{pmatrix} y_1(x) & -y_2(x) \\ y_2(x) & y_1(x) \end{pmatrix}, W(x) = \det Y(x) = y_1(x)^2 + y_2(x)^2 \neq 0
 \end{align*}
@@ -3238,10 +3238,10 @@ Mit 22.4 folgt: $y^{(1)}, y^{(2)}$ ist ein Fundamentalsystem von ($*$).
 \end{align*}
 und $y = (y_1, y_2)$. Also: $\begin{pmatrix} y_1' \\ y_2' \end{pmatrix} = \begin{pmatrix} -y_2 \\ y_1 \end{pmatrix}$.
 
-$y^{(1)}(x) := \begin{pmatrix} \cos(x) \\ \sin(x) \end{pmatrix}$ ist eine L"osung von ($*$) auf $\MdR$.
-$y^{(2)}(x) := \begin{pmatrix} -\sin(x) \\ \cos(x) \end{pmatrix}$ ist eine weitere L"osung von ($*$) auf $\MdR$.
+$y^{(1)}(x) := \begin{pmatrix} \cos(x) \\ \sin(x) \end{pmatrix}$ ist eine Lösung von ($*$) auf $\MdR$.
+$y^{(2)}(x) := \begin{pmatrix} -\sin(x) \\ \cos(x) \end{pmatrix}$ ist eine weitere Lösung von ($*$) auf $\MdR$.
 $y^{(1)}, y^{(2)}$ ist ein Fundamentalsystem von ($*$).
-Allgemeine L"osung von ($*$): $y(x) = \begin{pmatrix} c_1 \cos(x) - c_2 \sin(x) \\ c_1 \sin(x) + c_2 \cos(x) \end{pmatrix}\quad (c_1, c_2 \in \MdR)$.
+Allgemeine Lösung von ($*$): $y(x) = \begin{pmatrix} c_1 \cos(x) - c_2 \sin(x) \\ c_1 \sin(x) + c_2 \cos(x) \end{pmatrix}\quad (c_1, c_2 \in \MdR)$.
 
 \end{beispiel}
 
@@ -3252,7 +3252,7 @@ Sei $y^{(1)}, ..., y^{(n)}$ ein Fundamentalsystem von (H), $Y(x)$ sei definiert 
 \begin{align*}
 y_s(x) := Y(x) \int Y(x)^{-1} b(x) \text{d}x \quad (x \in I).
 \end{align*}
-Dann ist $y_s$ eine spezielle L"osung von (S) auf $I$.
+Dann ist $y_s$ eine spezielle Lösung von (S) auf $I$.
 \begin{align*}
 W_k(x) := \det \left( y^{(1)}(x), ..., y^{(k-1)}(x), b(x), y^{(k+1)}(x), ..., y^{(n)}(x) \right)\quad (k=1,...,n)
 \end{align*}
@@ -3260,7 +3260,7 @@ Dann gilt: $y_s(x) = \sum_{k=1}^n \left( \int \frac{W_k(x)}{W(x)} \text{d}x\righ
 \end{satz}
 
 \begin{beispiel}
-Bestimme die allgemeine L"osung von
+Bestimme die allgemeine Lösung von
 \begin{align*}
 \tag{+}
 y' = Ay + \begin{pmatrix} -\sin(x) \\ \cos(x) \end{pmatrix},
@@ -3277,14 +3277,14 @@ y^{(1)}(x) = \begin{pmatrix} \cos(x) \\ \sin(x) \end{pmatrix}, y^{(2)}(x) = \beg
 &W(x) = \left| \begin{array}{cc} \cos(x) & -\sin(x) \\ \sin(x) & \cos(x) \end{array} \right| = \cos^2(x) + \sin^2(x) = 1. \\
 &W_1(x) = \left| \begin{array}{cc} -\sin(x) & -\sin(x) \\ \cos(x) & \cos(x) \end{array} \right| = 0. \\
 &W_2(x) = \left| \begin{array}{cc} \cos(x) & -\sin(x) \\ \sin(x) & \cos(x) \end{array} \right| = 1. \\
-&y_s(x) := \left( \int 1 \text{d}x \right) y^{(2)}(x) = xy^{(2)}(x) = \begin{pmatrix} -x \sin(x) \\ x \cos(x) \end{pmatrix} \text{ ist eine spezielle L"osung von (+).}
+&y_s(x) := \left( \int 1 \text{d}x \right) y^{(2)}(x) = xy^{(2)}(x) = \begin{pmatrix} -x \sin(x) \\ x \cos(x) \end{pmatrix} \text{ ist eine spezielle Lösung von (+).}
 \end{align*}
-Allgemeine L"osung von (+):
+Allgemeine Lösung von (+):
 \begin{align*}
 y(x) &= \underbrace{c_1 \begin{pmatrix} \cos(x) \\ \sin(x) \end{pmatrix} + c_2 \begin{pmatrix} -\sin(x) \\ \cos(x) \end{pmatrix}}_{\text{allg. Lsg. der hom. Glg.}} + \underbrace{\begin{pmatrix} -x \sin(x) \\ x \cos(x) \end{pmatrix}}_{\text{spez. Lsg.}} \\
 &= \begin{pmatrix} c_1 \cos(x) - c_2 \sin(x) - x \sin(x) \\ c_1 \sin(x) + c_2 \cos(x)  + x \cos(x) \end{pmatrix}\quad(c_1, c_2 \in \MdR)
 \end{align*}
-L"ose das AwP
+Löse das AwP
 $\begin{cases}
 y' = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}y + \begin{pmatrix} -\sin(x) \\ \cos(x) \end{pmatrix} \\
 y(0) = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
@@ -3293,7 +3293,7 @@ Es gilt:
 \begin{align*}
 \begin{pmatrix}0 \\ 0\end{pmatrix} = y(0) = \begin{pmatrix} c_1 \cos(0) - c_2 \sin(0) - 0\cdot\sin(0) \\ c_1 \sin(0) + c_2 \cos(0)  + 0\cdot\cos(0) \end{pmatrix} = \begin{pmatrix}c_1 \\ c_2\end{pmatrix}.
 \end{align*}
-Also: $c_1 = c_2 = 0$, d.h.: \textbf{die} L"osung des AwP ist: $y(x) = \begin{pmatrix} -x \sin(x) \\ x \cos(x) \end{pmatrix}$.
+Also: $c_1 = c_2 = 0$, d.h.: \textbf{die} Lösung des AwP ist: $y(x) = \begin{pmatrix} -x \sin(x) \\ x \cos(x) \end{pmatrix}$.
 
 \end{beispiel}
 
