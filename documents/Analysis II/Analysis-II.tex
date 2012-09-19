@@ -2504,8 +2504,9 @@ Aus Ana I folgt, dass ein $c\in\MdR$ existiert, sodass für alle $x\in J$ gilt $
 \end{beweis}
 
 \begin{satz}[Eindeutige Lösung eines Anfangswertproblems]
-Sei $x_0\in I,y_0\in\MdR$. Dann hat das AwP
-\[\begin{cases}
+Sei $x_0\in I,y_0\in\MdR$. Dann hat das
+\[\text{AwP}
+\begin{cases}
 y'=a(x)y\\
 y(x_0)=y_0
 \end{cases}\]
@@ -2580,8 +2581,10 @@ L_{IH}&:=\{y:I\to\MdR\mid y\text{ ist eine Lösung von (IH)}\}
 Sei $y_s\in L_{IH}, x_0\in I,y_0\in \MdR$.
 \begin{enumerate}
 \item $y\in L_{IH}\iff \exists y_h\in L_{H}: y=y_h+y_s$
-\item Das AwP:
-\[\begin{cases}
+\item Das
+\[
+\text{AwP}
+\begin{cases}
 y'=a(x)y+s(x)\\
 y(x_0)=y_0
 \end{cases}\]
@@ -2626,8 +2629,9 @@ Die Differentialgleichung:
 y'=f(x)g(y)\tag{i}
 \end{align*}
 heißt \textbf{Dgl. mit getrennten Veränderlichen}.\\
-Wir betrachten auch noch das AwP:
+Wir betrachten auch noch das
 \begin{align*}
+\text{AwP}
 \begin{cases}
 y'=f(x)g(y)\\
 y(x_0)=y_0
@@ -2728,8 +2732,9 @@ Ist z.B. $c=0$, so ist $y(x):=\log(x^2)$ eine Lösung auf $(0,\infty)$, oder
 $y(x)=\log(x^2)$ ist eine auf $(-\infty,0)$.\\
 $c=2: y(x)=\log(x^2+2)$ ist eine Lösung auf $\MdR$.\\
 $c=-1: y(x)=\log(x^2-1)$ ist eine Lösung auf $(1,\infty)$.\\
-Löse das AwP:
+Löse das
 \begin{align*}
+\text{AwP}
 \begin{cases}
 y'=2xe^{-y}\\
 y(1)=1
@@ -2770,8 +2775,9 @@ y_n'=f_n(x, y_1, \ldots, y_n)
 \tag{i}
 \quad\text{oder kurz: } y'=f(x,y)
 \end{align*}
-Wir betrachten auch noch das AwP
+Wir betrachten auch noch das
 \begin{align*}
+\text{AwP}
 \begin{cases}
 y'=f(x,y)\\
 y(x_0) = y_0\\
@@ -2805,14 +2811,21 @@ Klar: $y(x_0) = y_0$. Also löst $y$ das AwP.
 \begin{definition}
 \index{Lipschitz-Bedingung}
 \index{Lipschitz-Bedingung!lokale}\index{lokal!Lipschitz-Bedingung}
-Sei $g: D \to \MdR^n$ eine Funktion.
+Es sei weiterhin $D \subseteq \MdR^{n+1}$. Sei $f: D \to \MdR^n$ eine Funktion.
 \begin{enumerate}
-\item $g$ genügt auf $D$ einer \textbf{Lipschitz-Bedingung (LB) bezüglich $y$},
-genau dann wenn gilt:
-\[\exists L \ge 0:\forall (x,y), (x,\bar y ) \in D: \|g(x,y)-g(x,\bar y)\| \le L \|y-\bar y \|\]
-\item $g$ genügt auf $D$ einer \textbf{lokalen Lipschitz-Bedingung bezüglich $y$},
-genau dann wenn für alle $a \in D$ eine Umgebung $U$ von $a$ existiert, sodass 
-$g_{|_{D \cap U}}$ auf $D \cap U$ einer LB bezüglich $y$ genügt.
+\item $f$ genügt auf $D$ einer \textbf{Lipschitz-Bedingung (LB) bezüglich \boldmath \(y\)}
+\[
+    :\iff 
+    \exists L \ge 0:
+        \forall (x,y), (x,\bar y ) \in D: 
+            \|f(x,y)-f(x,\bar y)\| \le L \|y-\bar y \|
+\]
+\item $f$ genügt auf $D$ einer \textbf{lokalen Lipschitz-Bedingung bezüglich \boldmath \(y\)}
+\[
+    :\iff
+    \forall a \in D \exists \text{Umgebung } U_a:
+    f_{|_{D \cap U}} \text{ genügt einer LB bzgl. } y
+\]
 \end{enumerate}
 \end{definition}
 
@@ -2852,8 +2865,8 @@ wenn $(g_k)$ eine Cauchy-Folge in $(C(I,\MdR^n), \|\cdot \|_\infty)$ ist.
 \textbf{Bezeichnung:} EuE = Existenz und Eindeutigkeit.
 \index{Existenz und Eindeutigkeit}
 \begin{satz}[EuE-Satz von Picard-Lindelöf (Version I)]
-Sei $I = [a,b], x_o \in I, y_0 \in \MdR^n, D:= I \times \MdR^n, f\in C(D, \MdR^n)$ und $f$ genüge auf $D$ einer LB bezüglich $y$. Dann ist das AwP
-\begin{align*}
+Sei $I = [a,b], x_o \in I, y_0 \in \MdR^n, D:= I \times \MdR^n, f\in C(D, \MdR^n)$ und $f$ genüge auf $D$ einer LB bezüglich $y$. Dann ist das
+\begin{align*}\text{AwP}
 \begin{cases}
 y'=f(x,y)\\
 y(x_0) = y_0\\
@@ -2864,7 +2877,8 @@ auf $I$ eindeutig lösbar.
 
 Ist $g_0 \in C(I, \MdR^n)$ und $(g_k)$ definiert durch
 \[ g_{k+1}(x) := y_0 + \int_{x_0}^x f(t, g_k(t)) \text{d}t \quad (x \in I, k \geq 0), \]
-dann konvergiert $(g_k)$ auf $I$ gleichmäßig gegen die Lösung des AwPs (ii).
+dann konvergiert $(g_k)$ auf $I$ gleichmäßig gegen die Lösung des AwPs (ii).\\
+$(g_n)$ heißt Folge der sukzessiven Approximationen.
 \end{satz}
 
 \begin{beweis}
@@ -2872,12 +2886,14 @@ Da $f$ auf $D$ einer Lipschitz-Bedingung genügt, gilt:
 \[\exists L > 0: \|f(x,y) - f(x, \bar y )\| \leq L \|y- \bar y \| \quad \forall(x,y), (x, \bar y ) \in D.\]
 Es sei $\alpha := 2L$; $\varphi_\alpha$ und $\|\cdot\|_\alpha$ seien wie in 21.2, $X := C(I, \MdR^n)$. Definiere $F: X \to X$ durch 
 \[(F(y))(x) := y_0 + \int_{x_0}^x f(t, y(t))\text{d}t\]
+
 Für $y \in X$ gilt dann:
 \begin{align*}
-F(y) = y &\iff y(x) = y_0 + \int_{x_0}^x f(t, y(t))\text{d}t \quad \forall x \in I \\
-&\stackrel{21.1}\iff y \text{ löst das AwP (ii)}
+    y \text{ ist Lösung des AwP} &\iff F(y) = y\\
+    F(y) = y &\iff y(x) = y_0 + \int_{x_0}^x f(t, y(t))\text{d}t \quad \forall x \in I \\
+    &\stackrel{21.1}\iff y \text{ löst das AwP (ii)}
 \end{align*} 
-Wir zeigen: $\|F(y)-F(z)\| \leq \frac12 \|y-z\|_\alpha \quad \forall y,z \in X$. \textbf{Alle} Behauptungen folgen dann aus 17.2.
+Wir zeigen: $\|F(y)-F(z)\|_\alpha \leq \frac12 \|y-z\|_\alpha \quad \forall y,z \in X$. \textbf{Alle} Behauptungen folgen dann aus 17.2.
 
 Seien $y,z \in X, x \in I$. Dann ist
 \begin{align*}
@@ -2913,8 +2929,10 @@ I.A. wird $L(b-a)$ \textbf{nicht} kleiner 1 sein!
 
 
 \begin{beispiel}[zu 21.3]
-Zeige, dass das AwP
-\begin{align*} \begin{cases}
+Zeige, dass das
+\begin{align*}
+\text{AwP}
+\begin{cases}
 y' = 2x(1+y)\\
 y(0) =  0
 \end{cases} \end{align*}
@@ -2939,28 +2957,32 @@ Es war $a > 0$ beliebig, also ist $y(x) = e^{x^2} -1$ \textbf{die} Lösung des A
 \textbf{Ohne} Beweis:
 \begin{satz}[EuE-Satz von Picard-Lindelöf (Version II)]
 Sei $I=[a,b] \subseteq \MdR, x_0 \in I, y_0 \in \MdR^n, s > 0$, es sei
-\[D := \{(x,y)\in\MdR^{n+1} : x \in I, \|y-y_0\| \leq s\}\] 
+\[D := \Set{(x,y)\in\MdR^{n+1} | x \in I, \|y-y_0\| \leq s}\] 
 und $f \in C(D,\MdR^n)$. Weiter sei 
 \[M := \max\{\|f(x,y)\| : (x,y) \in D \} > 0\] 
 und $f$ genüge auf $D$ einer Lipschitz-Bedingung bezüglich $y$. 
 Außerdem sei 
-\[J := I \cap [x_0 - \frac{s}{M}, x_0 + \frac{s}{M}]\]
-Dann hat das AwP
-\begin{align*} \begin{cases}
+\[J := I \cap \left [x_0 - \frac{s}{M}, x_0 + \frac{s}{M} \right ]\]
+Dann hat das
+\begin{align*}
+\text{AwP}
+\begin{cases}
 y' = f(x,y)\\
 y(x_0) = y_0
 \end{cases}
 \label{(ii)}
 \end{align*}
-auf J genau eine Lösung.
+auf \(J\) genau eine Lösung.
 \end{satz}
 
 \textbf{Ohne} Beweis:
 \begin{satz}[EuE-Satz von Picard-Lindelöf (Version III)]
 Es sei $D \subseteq \MdR^{n+1}$ \textbf{offen}, $(x_0, y_0) \in D, f\in C(D, \MdR^n)$ und $f$ genüge auf $D$ einer \textbf{lokalen} LB bezüglich $y$.
 
-Dann hat das AwP
-\begin{align*} \begin{cases}
+Dann hat das
+\begin{align*}
+\text{AwP}
+\begin{cases}
 y' = f(x,y)\\
 y(x_0) = y_0
 \end{cases}
@@ -2977,7 +2999,7 @@ von (ii) gilt: $\hat y = \tilde y$ auf $\hat J \cap \tilde J \quad (\hat J, \til
 \begin{definition}
 \index{Fortsetzbarkeit}
 Sei $y: J \to \MdR^n$ ($J \subseteq \MdR$ ein Intervall) eine Lösung des AwPs (ii).\\
-y heißt \textbf{nicht fortsetzbar}, genau dann wenn aus $\hat y : \hat J \to \MdR^n 
+\(y\) heißt \textbf{nicht fortsetzbar}, genau dann wenn aus $\hat y : \hat J \to \MdR^n 
 (\hat J$ ein Intervall in $\MdR$) ist Lösung von (ii) stets folgt, dass $\hat J \subseteq J$ 
 und auf $\hat J$ $\hat y = y$ ist.
 \end{definition}
@@ -3292,8 +3314,9 @@ Allgemeine Lösung von (+):
 y(x) &= \underbrace{c_1 \begin{pmatrix} \cos(x) \\ \sin(x) \end{pmatrix} + c_2 \begin{pmatrix} -\sin(x) \\ \cos(x) \end{pmatrix}}_{\text{allg. Lsg. der hom. Glg.}} + \underbrace{\begin{pmatrix} -x \sin(x) \\ x \cos(x) \end{pmatrix}}_{\text{spez. Lsg.}} \\
 &= \begin{pmatrix} c_1 \cos(x) - c_2 \sin(x) - x \sin(x) \\ c_1 \sin(x) + c_2 \cos(x)  + x \cos(x) \end{pmatrix}\quad(c_1, c_2 \in \MdR)
 \end{align*}
-Löse das AwP
-$\begin{cases}
+Löse das
+$\text{AwP}
+\begin{cases}
 y' = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}y + \begin{pmatrix} -\sin(x) \\ \cos(x) \end{pmatrix} \\
 y(0) = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
 \end{cases}$. \\
@@ -3416,7 +3439,9 @@ y^{(3)}(x) := e^x\left( \begin{pmatrix} 0\\0\\1\end{pmatrix} + x(A-I) \begin{pma
 \end{align*}
 $y^{(1)}, y^{(2)}, y^{(3)}$ ist ein Fundamentalsystem von ($\ast$).
 
-\item Sei $A$ wie in Beispiel (2). Löse das AWP \[\begin{cases}
+\item Sei $A$ wie in Beispiel (2). Löse das \[
+\text{AwP}
+\begin{cases}
 y'=Ay\\
 y(0) = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
 \end{cases}\]
@@ -3655,8 +3680,9 @@ Daraus ergibt sich nun eine spezielle Lösung von (+):
 \[y_s(x)=y_1(x)\cdot\int(-1-x^2)\text{ d}x+y_2(x)\cdot\int x\text{ d}x=\frac16 x^4-\frac12 x^2\]
 Die allgemeine Lösung von (+) lautet:
 \[y(x)=c_1x+c_2(1+x^2)+\frac16 x^4-\frac12 x^2\quad (c_1,c_2\in\mdr)\]
-\item Löse das AwP:
+\item Löse das
 \begin{align*}
+\text{AwP}
 \begin{cases}
 y''+\frac{2x}{1-x^2}y'-\frac{2}{1-x^2}y=x^2-1\\
 y(0)=0, y'(0)=1
@@ -3749,8 +3775,9 @@ k_1&:=1&k_2&:=1&k_3&:=1
 Dann ist $M:=\{2,i\}$ und ein FS von ($*$) lautet: $e^{2x},\cos(x),\sin(x)$. Das bedeutet für
 die allgemeine Lösung von ($*$):
 \[y(x)=c_1e^{2x}+c_2\cos(x)+c_3\sin(x)\quad (c_1,c_2,c_3\in\mdr)\]
-\item Löse das AwP:
+\item Löse das
 \begin{align*}
+\text{AwP}
 \begin{cases}
 y'''-2y''+y'-2y=0\\
 y(0)=0,y'(0)=1,y''(0)=0
