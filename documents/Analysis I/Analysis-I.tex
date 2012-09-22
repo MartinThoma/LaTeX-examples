@@ -31,7 +31,7 @@
 \chapter{Vorwort}
 
 \section{Über dieses Skriptum}
-Dies ist ein erweiterter Mitschrieb der Vorlesung \glqq Analysis I\grqq\ von Herrn Schmoeger im
+Dies ist ein erweiterter Mitschrieb der Vorlesung "`Analysis I"' von Herrn Schmoeger im
 Wintersemester 04/05 an der Universität Karlsruhe (TH). Die Mitschriebe der Vorlesung werden mit
 ausdrücklicher Genehmigung von Herrn Schmoeger hier veröffentlicht, Herr Schmoeger ist für den
 Inhalt nicht verantwortlich.
@@ -65,8 +65,8 @@ $M$,$N$ Mengen, $M,N \ne \emptyset$; $f:\, M\rightarrow N$
 \item $\Leftrightarrow$ Äquivalenz
 \item $:=$ per Definition gleich
 \item $:\Leftrightarrow$ per Definiton äquivalent
-\item $\forall$ Abkürzung für \glqq für jedes\grqq, \glqq für alle\grqq
-\item $\exists$ Abkürzung für \glqq es gibt\grqq, \glqq es existiert\grqq
+\item $\forall$ Abkürzung für "`für jedes"', "`für alle"'
+\item $\exists$ Abkürzung für "`es gibt"', "`es existiert"'
 \end{itemize}
 
 \renewcommand{\thechapter}{\arabic{chapter}}
@@ -79,7 +79,7 @@ Die \begriff{Reellen Zahlen} sind eine Erfindung des menschlichen Geistes, sie h
 
 Die Grundmenge der Analysis ist $\MdR$, die Menge der reellen Zahlen: Diese Menge führen wir axiomatisch ein, durch die folgenden 15 Axiome.
 
-In $\MdR$ sind zwei Verknüpfungen \glqq +\grqq und \glqq $\cdot$\grqq gegeben, die jedem Paar $a,b \in \MdR$ genau ein $ a+b \in \MdR$ und genau ein $ ab := a \cdot b \in \MdR$ zuordnen.
+In $\MdR$ sind zwei Verknüpfungen "`+"' und "`$\cdot$"' gegeben, die jedem Paar $a,b \in \MdR$ genau ein $ a+b \in \MdR$ und genau ein $ ab := a \cdot b \in \MdR$ zuordnen.
 
 \indexlabel{Körperaxiome}\begin{axiom}[Körperaxiome]
 \begin{liste}
@@ -119,7 +119,7 @@ Für $a,b \in\MdR: a - b := a+ (-b)$; ist $b \neq 0: \frac{a}{b} := ab^{-1}$.
 \end{schreibweisen}
 
 \indexlabel{Anordnungsaxiome}\begin{axiom}[Anordnungsaxiome]
-In \MdR\ ist eine Relation \glqq$\le$\grqq\ gegeben. Es sollen gelten:
+In \MdR\ ist eine Relation "`$\le$"' gegeben. Es sollen gelten:
 \begin{liste}
 \item[(A10)] für $a,b\in\MdR$ gilt $a\le b$ oder $b \le a$.
 \item[(A11)] aus $a \le b$ und $b \le a $ folgt $a = b$.
@@ -146,7 +146,7 @@ Für $a \in \MdR$ heißt $ |a| :=
 -a & \mbox{falls } a < 0
 \end{cases} $. 
 
-$|a|$ wird der \begriff{Betrag} von a genannt und entspricht dem \glqq Abstand\grqq\ von $a$ und $0$. $|a-b|$ entspricht dem \glqq Abstand\grqq\ von $a$ und $b$.
+$|a|$ wird der \begriff{Betrag} von a genannt und entspricht dem "`Abstand"' von $a$ und $0$. $|a-b|$ entspricht dem "`Abstand"' von $a$ und $b$.
 \end{definition}
 
 \indexlabel{Betragssätze}\begin{satz}[Betragssätze]
@@ -215,8 +215,8 @@ Sei $\emptyset \ne M \subseteq \MdR$, $M$ sei nach oben beschränkt, $\gamma$ se
 \[ \gamma = \sup{M} \equizu \ \forall\varepsilon > 0 \ \exists x \in M: x > \gamma - \varepsilon \]
 \end{satz}
 
-\begin{beweis} \glqq$\folgt$\grqq: Sei $\gamma = sup{M}$ und $\varepsilon > 0 \folgt \gamma - \varepsilon$ ist keine obere Schranke von $M \folgt \ \exists x\in M: x > \gamma - \varepsilon$. \\
- \glqq$\Leftarrow$\grqq: \textbf{(A15)} $\folgt \ \exists s = \sup{M}$. Annahme: $\gamma \ne s \folgt s < \gamma \folgt \varepsilon = \gamma - s > 0$. Laut Vorausetzung gilt: $\exists x \in M: x > \gamma - \varepsilon = \gamma - (\gamma - s) = s$, Widerspruch zu $x \le s$.
+\begin{beweis} "`$\folgt$"': Sei $\gamma = sup{M}$ und $\varepsilon > 0 \folgt \gamma - \varepsilon$ ist keine obere Schranke von $M \folgt \ \exists x\in M: x > \gamma - \varepsilon$. \\
+ "`$\Leftarrow$"': \textbf{(A15)} $\folgt \ \exists s = \sup{M}$. Annahme: $\gamma \ne s \folgt s < \gamma \folgt \varepsilon = \gamma - s > 0$. Laut Vorausetzung gilt: $\exists x \in M: x > \gamma - \varepsilon = \gamma - (\gamma - s) = s$, Widerspruch zu $x \le s$.
 \end{beweis}
 
 Analog gilt: Sei $\emptyset \ne M \subseteq \MdR$, $M$ sei nach unten beschränkt, $\gamma$ sei eine untere Schranke von $M$.
@@ -357,7 +357,7 @@ Sei $B$ eine nichtleere Menge.
 \item $B$ heißt \begriff{endlich} $:\equizu \ \exists n \in \MdN$ und eine surjektive Funktion $f:\{1,\ldots,n\} \rightarrow B$, also $B=\{f(1),\ldots,f(n)\}$.
 \item $B$ heißt \begriff{unendlich} $:\equizu$ $B$ ist nicht endlich.
 \item $B$ heißt \begriff{abzählbar} $:\equizu \ \exists  (a_n) \in B: B=\{a_1,a_2,a_3,\ldots\}$ ($\equizu \exists a: \MdN \rightarrow B$  mit $a$ surjektiv).\\
-\glqq Die Elemente von $B$ können mit natürlichen Zahlen durchnummeriert werden.\grqq\\
+"`Die Elemente von $B$ können mit natürlichen Zahlen durchnummeriert werden."'\\
 Beachte: Endliche Mengen sind abzählbar!
 \item $B$ heißt \begriff{überabzählbar} $:\equizu$ $B$ ist nicht abzählbar.
 \end{liste}
@@ -475,11 +475,11 @@ $$(a+b)^2=a^2+2ab+b^2$$
 \end{wichtigerhilfssatz}
 
 \begin{beweise}
-\item \glqq$\Rightarrow$\grqq (induktiv)\\
+\item "`$\Rightarrow$"' (induktiv)\\
 I.A. $n = 1 \surd$\\
 I.V. Sei $n\in\MdN$ und $x^{n}\le y^{n}$\\
 I.S. $x^{n+1}=x^{n}x\le y^{n}x\le y^{n}y=y^{n+1}$\\
-\glqq$\Leftarrow$\grqq: Annahme: $y < x \folgtwegen{\text{wie oben}} y^{k} < x^{k} \ \forall k\in\MdN$, Wid.
+"`$\Leftarrow$"': Annahme: $y < x \folgtwegen{\text{wie oben}} y^{k} < x^{k} \ \forall k\in\MdN$, Wid.
 \item 2.1(4) $\Rightarrow \exists m\in\MdN:m>\frac{1}{\beta}\Rightarrow\frac{1}{m}<\beta$.
 \end{beweise}
 
@@ -533,7 +533,7 @@ $$ x \in U_\varepsilon(a) \equizu -\varepsilon < x - a < \varepsilon \equizu a -
 Also gilt: $U_\varepsilon(a) = (a-\varepsilon, a+\varepsilon)$
 \end{definition}
 
-\begin{definition}[\glqq für fast alle\grqq]
+\begin{definition}["`für fast alle"']
 Für jedes $n \in \MdN$ sei eine Aussage $A(n)$ gemacht. $A(n)$ gilt \begriff{für fast alle} (\ffa) $n \in \MdN \equizu \exists m \in \MdN $ so dass $A(n)$ wahr ist für alle $n \ge m$. Ein Beispiel ist $n^2\ge n + 17$ gilt \ffa $n \in \MdN$.
 \end{definition}
 
@@ -826,11 +826,11 @@ Sei $(a_n)$ eine Folge in $\MdR$ und $(n_1,n_2,\ldots)$ sei eine Folge in $\MdN$
 \end{satz}
 
 \begin{beweise}
-\item \textbf{\glqq$\folgt$\grqq:} Sei $\alpha\in \H(a_n)$. Zu $\varepsilon = 1$ existiert $n_1\in\MdN$: $a_{n_1}\in U_1(\alpha)$. \\
+\item \textbf{"`$\folgt$"':} Sei $\alpha\in \H(a_n)$. Zu $\varepsilon = 1$ existiert $n_1\in\MdN$: $a_{n_1}\in U_1(\alpha)$. \\
 Zu $\varepsilon =\frac{1}{2}$ existiert $n_2\in\MdN$: $a_{n_2} \in U_{\frac{1}{2}}(\alpha)$ und $n_2>n_1$ \\
 Zu $\varepsilon =\frac{1}{3}$ existiert $n_2\in\MdN$: $a_{n_3} \in U_{\frac{1}{3}}(\alpha)$ und $n_3>n_2$. etc \\
 Wir erhalten so eine Teilfolge von $(a_{n_k})$ von $(a_n)$ mit $a_{n_k} \in U_{\frac{1}{k}}(\alpha) \ \forall k\in\MdN$, also: $|a_{n_k} - \alpha| < \frac{1}{k} \ \forall k\in\MdN \folgt a_{n_k} \to \alpha \ (k\to\infty)$. \\
-\textbf{\glqq$\Leftarrow$\grqq:} Sei $(a_{n_k})$ eine Teilfolge von $(a_n)$ und  $a_{n_k} \to \alpha\ (k\to\infty)$. Sei $\varepsilon > 0 \folgt \exists k_0 \in\MdN$: $a_{n_k} \in U_\varepsilon(\alpha) \ \forall k>k_0 \folgt a_n \in U_\varepsilon(\alpha)$ für unendlich viele $n\in\MdN \folgt \alpha \in \H(a_n)$
+\textbf{"`$\Leftarrow$"':} Sei $(a_{n_k})$ eine Teilfolge von $(a_n)$ und  $a_{n_k} \to \alpha\ (k\to\infty)$. Sei $\varepsilon > 0 \folgt \exists k_0 \in\MdN$: $a_{n_k} \in U_\varepsilon(\alpha) \ \forall k>k_0 \folgt a_n \in U_\varepsilon(\alpha)$ für unendlich viele $n\in\MdN \folgt \alpha \in \H(a_n)$
 \item Sei $\MdQ = \{a_1, a_2, \ldots\}$. Bekannt: H$(a_n) = \MdR$. Also: $\alpha \in \H(a_n) \folgtnach{(1)}$ Behauptung.
 \item Klar: $a \in \H(a_n)$\\
 Sei $(a_{n_k})$ eine Teilfolge von $(a_n)$ und $\varepsilon > 0 $. $a = \lim a_n \folgt a_n \in U_\varepsilon(a)$ \ffa $n\in\MdN \folgt a_{n_k} \in U_\varepsilon(a)$ \ffa $k\in\MdN \folgt a_{n_k} \to a\ (k\to\infty)$. Aus (1) folgt noch H$(a_n) = {a}$.
@@ -908,10 +908,10 @@ $ \alpha = \lim\sup a_n \equizu \forall \ep>0$ gilt:
 \begin{beweis}
 \textit{nur für $\lim\inf$}.
 
-\glqq$\folgt$\grqq: Sei $\alpha = \lim\inf a_n$. Sei $\ep > 0 $. $\alpha\in\H(a_n) \folgt a_n \in U_\ep(\alpha)$ für unendlich viele $n\in\MdN \folgt$ (ii). \\
+"`$\folgt$"': Sei $\alpha = \lim\inf a_n$. Sei $\ep > 0 $. $\alpha\in\H(a_n) \folgt a_n \in U_\ep(\alpha)$ für unendlich viele $n\in\MdN \folgt$ (ii). \\
 \textbf{Annahme:} (i) gilt nicht. D.h.: $a_n \le \alpha - \ep$ für unendlich viele $n$, etwa für $n_1, n_2, n_3,\ldots$ mit $n_1 < n_2 < n_3 <\ldots$. Dann ist $a_{n_k}$ eine Teilfolge von $(a_n)$ mit $a_{n_k} \le \alpha-\ep \ \forall k \in\MdN$. $a_{n_k}$ ist beschränkt. $\folgtwegen{8.2} (a_{n_k})$ enthält eine konvergente Teilfolge $(a_{n_{k_j}})$; $\displaystyle\beta := \lim_{j\to\infty} a_{n_{k_j}}$. $(a_{n_{k_j}})$ ist auch eine Teilfolge von $(a_n) \folgtwegen{8.1} \beta \in\H(a_n) \folgt \alpha \le \beta$. $a_{n_{k_j}} \le \alpha -\ep \ \forall j \in\MdN \folgtwegen{j\to\infty} \beta \le \alpha-\ep \folgt \alpha \le \alpha - \ep$, Widerspruch!
 
-\glqq$\Leftarrow$\grqq: für jedes $\ep>0$ gelte (i) und (ii). Sei $\ep>0\folgtnach{(i),(ii)} \alpha -\ep < a_n < \alpha+\ep$ für unendlich viele $n \folgt a_n\in U_\ep(\alpha)$ für unendlich viele $n \folgt \alpha \in \H(a_n)$. Sei $\beta < \alpha$. Zu zeigen: $\beta \ne \H(a_n)$.  $\ep := \frac{\alpha -\beta}{2} \folgt \beta + \ep = \alpha - \ep$. (i) $\folgt a_n > \alpha - \ep = \beta + \ep$ \ffa $n\in\MdN \folgt a_n\in U_\ep(\beta)$ für höchstens endlich viele $n \folgt \beta \ne \H(a_n)$.
+"`$\Leftarrow$"': für jedes $\ep>0$ gelte (i) und (ii). Sei $\ep>0\folgtnach{(i),(ii)} \alpha -\ep < a_n < \alpha+\ep$ für unendlich viele $n \folgt a_n\in U_\ep(\alpha)$ für unendlich viele $n \folgt \alpha \in \H(a_n)$. Sei $\beta < \alpha$. Zu zeigen: $\beta \ne \H(a_n)$.  $\ep := \frac{\alpha -\beta}{2} \folgt \beta + \ep = \alpha - \ep$. (i) $\folgt a_n > \alpha - \ep = \beta + \ep$ \ffa $n\in\MdN \folgt a_n\in U_\ep(\beta)$ für höchstens endlich viele $n \folgt \beta \ne \H(a_n)$.
 \end{beweis}
 
 \begin{satz}[Äquivalenzaussagen zur Konvergenz]
@@ -933,11 +933,11 @@ Sei $\ep>0 \folgtnach{9.2} \alpha - \ep < a_n < \alpha + \ep$ \ffa $n\in\MdN \fo
 \begin{folgerung}
 Sei $(b_n)$ eine Folge in $\MdR$. $(b_n)$ ist konvergent genau dann, wenn $(b_n)$ beschränkt ist und genau einen Häufungswert hat.
 \textbf{Beweis}
-\glqq$\folgt$\grqq: 6.1, 9.3; \glqq$\Leftarrow$\grqq: 9.3
+"`$\folgt$"': 6.1, 9.3; "`$\Leftarrow$"': 9.3
 \end{folgerung}
 
 \begin{beispiel}
-auf die Voraussetzung \glqq$(b_n)$ beschränkt\grqq kann in 9.4 nicht verzichtet werden!\\
+auf die Voraussetzung "`$(b_n)$ beschränkt"' kann in 9.4 nicht verzichtet werden!\\
 \textbf{Beispiel:} $(b_n)=(1,0,3,0,5,0,\ldots)$
 \end{beispiel}
 
@@ -1230,7 +1230,7 @@ Später zeige wir: $E(r) = e^r \ \forall r\in\MdQ$. Dann \textit{definieren} wir
 
 \begin{motivation}
 $b_n := (-1)^n \quad (n\in\MdN)$, $b_n \nrightarrow 0 \folgt \reihe{b_n}=b_1 + b_2 + \ldots$ ist divergent. \\
-$a_1 := b_1 + b_2$, $a_2 := b_3 + b_4$, \ldots also: $a_n = 0 \ \forall\natn \folgt \reihe{a_n} = (b_1+b_2) + (b_3+b_4) + \ldots$ ist konvergent. Also: \glqq Im Allgemeinen darf man Klammern in konvergenten Reihen nicht weglassen.\grqq
+$a_1 := b_1 + b_2$, $a_2 := b_3 + b_4$, \ldots also: $a_n = 0 \ \forall\natn \folgt \reihe{a_n} = (b_1+b_2) + (b_3+b_4) + \ldots$ ist konvergent. Also: "`Im Allgemeinen darf man Klammern in konvergenten Reihen nicht weglassen."'
 \end{motivation}
 
 \begin{satz}[In konvergenten Folgen darf man Klammern setzen]
@@ -1339,7 +1339,7 @@ $\alpha_k := |a_0|+|a_1|+\ldots+|a_k|, (\alpha_k)$ konvergiert und $\alpha_k \to
 
 6.3 $\folgt (\sigma_n)$ konvergiert $\folgt \sum{p_n}$ ist absolut konvergent. Noch z.z.: $\sum{p_n} = s$.
 
-Dazu betrachten wir eine spezielle Produktreihe $\sum{q_n}$ (\glqq Anordnung nach Quadraten \grqq):
+Dazu betrachten wir eine spezielle Produktreihe $\sum{q_n}$ ("`Anordnung nach Quadraten "'):
 
 %\begin{center}
 %\mbox{\xymatrix @=10pt{
@@ -1421,7 +1421,7 @@ Sind $\sum{a_n}$ und $\sum{b_n}$ \emph{absolut} konvergent, so konvergiert ihr C
 \end{satz}
 
 \begin{beweis}
-Sei $\sum{p_n}$ die Produktreihe von $\sum{a_n}$ und $\sum{b_n}$, die durch \glqq Anordnung nach Diagonalen\grqq entsteht. ($p_0 = a_0b_0, p_1=a_0b_1, p_2 = a_1b_0, p_3 = a_0b_2, p_4 = a_1b_1, p_5=a_0b_3, \ldots$). Dann: $c_0  =a_0b_0 = p_0, c_1=p_1+p_2, c_2 = p_3+p_4+p_5$. $\sum{c_n}$ ensteht also aus $\sum{p_n}$ durch Setzen vom Klammern. 13.3 $\folgt \sum{p_n}$ konvergiert absolut und $\sum{p_n} = s \folgtnach{12.6}$ Behauptung.
+Sei $\sum{p_n}$ die Produktreihe von $\sum{a_n}$ und $\sum{b_n}$, die durch "`Anordnung nach Diagonalen"' entsteht. ($p_0 = a_0b_0, p_1=a_0b_1, p_2 = a_1b_0, p_3 = a_0b_2, p_4 = a_1b_1, p_5=a_0b_3, \ldots$). Dann: $c_0  =a_0b_0 = p_0, c_1=p_1+p_2, c_2 = p_3+p_4+p_5$. $\sum{c_n}$ ensteht also aus $\sum{p_n}$ durch Setzen vom Klammern. 13.3 $\folgt \sum{p_n}$ konvergiert absolut und $\sum{p_n} = s \folgtnach{12.6}$ Behauptung.
 \end{beweis}
 
 \begin{beispiel}
@@ -1508,7 +1508,7 @@ Ist $(x_n)$ eine Folge, die nicht nach oben beschränkt ist und $x_n\ge 0\ \fora
 \end{erinnerung}
 
 \begin{vereinbarung}
-\glqq$\frac{1}{0}:=\infty$\grqq, \glqq$\frac{1}{\infty}:=0$\grqq
+"`$\frac{1}{0}:=\infty$"', "`$\frac{1}{\infty}:=0$"'
 \end{vereinbarung}
 
 \begin{satz}[Konvergenz von Potenzreihen]
@@ -1671,7 +1671,7 @@ Sei $D\subseteq\MdR$ und $x_0 \in\MdR$. $x_0$ heißt ein \begriff{Häufungspunkt
 \end{beispiele}
 
 \begin{bemerkung}
-Unterscheide zwischen \glqq $x_0$ ist Häufungswert von $(a_n)$\grqq und \glqq $x_0$ ist Häufungspunkt von $\{a_1,a_2,\ldots\}$\grqq. Beispiel: $a_n=(-1)^n$. $\H(a_n) = \{1,-1\}, \{a_1,a_2,\ldots\} = \{-1,1\}$ hat keine Häufungspunkte.
+Unterscheide zwischen "`$x_0$ ist Häufungswert von $(a_n)$"' und "`$x_0$ ist Häufungspunkt von $\{a_1,a_2,\ldots\}$"'. Beispiel: $a_n=(-1)^n$. $\H(a_n) = \{1,-1\}, \{a_1,a_2,\ldots\} = \{-1,1\}$ hat keine Häufungspunkte.
 \end{bemerkung}
 
 \paragraph{Zur Übung:} Sei $D\subseteq\MdR$, $x_0 \in\MdR$. $x_0$ ist Häufungspunkt von $D \equizu \forall\ep>0$ gilt: $D\cap(U_\ep(x_0) \backslash\{x_0\}) \ne \emptyset$
@@ -1718,10 +1718,10 @@ Für $\delta >0$: $D_\delta(x_n) = D \cap U_\delta(x_0)$. $\dot D_\delta(x_0) = 
 \end{satz}
 
 \begin{beweise}
-\item \glqq $\folgt$ \grqq: aus Definition. \\
-\glqq $\Leftarrow$ \grqq: Seien $(x_n), (z_n)$ Folgen in $D\backslash\{x_0\}$ mit $x_n \to x_0$, $z_n \to x_0$. Voraussetzung $\folgt$ es existiert $a := \lim f(x_n)$ und $b := \lim f(z_n)$. Zu zeigen ist: $a=b$. Sei $t_n$ definiert durch $(t_n) := (x_1,z_1,x_2,z_2,\ldots)$. $(t_n)$ ist Folge in $D \backslash\{x_0\}$ mit $t_n\to x_0$, Voraussetzung $\folgt  \exists c := \lim f(t_n)$. $(f(x_n))$ ist Teilfolge von $(f(t_n)) \folgt a=c$, analog: $b=c \folgt a = b$.
-\item \glqq $\folgt$ \grqq: Sei $\ep > 0$. \textbf{Annahme}: Es gibt kein $\delta > 0$, so dass $(*)$ gilt. Das heißt: $\forall \delta > 0$ exisistert ein $x_j \in \dot D_\delta(x_j)$: $|f(x_j) - a| \ge \ep$, also $\forall n\in\MdN \ \exists x_n \in \dot D_{\frac{1}{n}}(x_0): |f(x_n) - a|\ge\ep$. Das heißt: $(x_n)$ ist eine Folge in $D \backslash\{x_0\}$ mit $x_n \to x_0$ und $f(x_n) \nrightarrow a$, Widerspruch. \\
-\glqq $\Leftarrow$ \grqq: Sei $x_n$ eine Folge in $D \backslash\{x_n\}$ mit $x_n \to x_0$. Zu zeigen ist: $f(x_n) \to a$. Sei $\ep>0$. $\exists \delta > 0$ so dass $(*)$ gilt. Dann: $x_n \in \dot D_\delta(x_0) \ffa n\in\MdN \folgt |f(x_n) - a| < \ep \ffa n\in\MdN$.
+\item "`$\folgt$ "': aus Definition. \\
+"`$\Leftarrow$ "': Seien $(x_n), (z_n)$ Folgen in $D\backslash\{x_0\}$ mit $x_n \to x_0$, $z_n \to x_0$. Voraussetzung $\folgt$ es existiert $a := \lim f(x_n)$ und $b := \lim f(z_n)$. Zu zeigen ist: $a=b$. Sei $t_n$ definiert durch $(t_n) := (x_1,z_1,x_2,z_2,\ldots)$. $(t_n)$ ist Folge in $D \backslash\{x_0\}$ mit $t_n\to x_0$, Voraussetzung $\folgt  \exists c := \lim f(t_n)$. $(f(x_n))$ ist Teilfolge von $(f(t_n)) \folgt a=c$, analog: $b=c \folgt a = b$.
+\item "`$\folgt$ "': Sei $\ep > 0$. \textbf{Annahme}: Es gibt kein $\delta > 0$, so dass $(*)$ gilt. Das heißt: $\forall \delta > 0$ exisistert ein $x_j \in \dot D_\delta(x_j)$: $|f(x_j) - a| \ge \ep$, also $\forall n\in\MdN \ \exists x_n \in \dot D_{\frac{1}{n}}(x_0): |f(x_n) - a|\ge\ep$. Das heißt: $(x_n)$ ist eine Folge in $D \backslash\{x_0\}$ mit $x_n \to x_0$ und $f(x_n) \nrightarrow a$, Widerspruch. \\
+"`$\Leftarrow$ "': Sei $x_n$ eine Folge in $D \backslash\{x_n\}$ mit $x_n \to x_0$. Zu zeigen ist: $f(x_n) \to a$. Sei $\ep>0$. $\exists \delta > 0$ so dass $(*)$ gilt. Dann: $x_n \in \dot D_\delta(x_0) \ffa n\in\MdN \folgt |f(x_n) - a| < \ep \ffa n\in\MdN$.
 \item In Übung.
 \end{beweise}
 
@@ -1896,10 +1896,10 @@ $B \subseteq \MdR$ heißt \indexlabel{offene Menge}\textbf{offen} $:\equizu \for
 \begin{beweis}
 \begin{liste}
 \item Übung
-\item \glqq \folgt \grqq: Sei $(x_n)$ eine konvergente Folge in $\MdR\ \backslash\ B$ und $x_0:=\lim x_n$.Annahme: $x_0 \in B$. B offen $\folgt \exists \delta>0 : U_\delta(x_0) \subseteq B$. $x_n \to x_0 \folgt x_n \in U_\delta(x_0) \subseteq B \ffa n \in\MdN$, Widerspruch! \glqq $\Leftarrow$ \grqq: Sei $x \in B$. Annahme: $U_\delta(x) \nsubseteq B \forall \delta>0$. 
+\item "`\folgt "': Sei $(x_n)$ eine konvergente Folge in $\MdR\ \backslash\ B$ und $x_0:=\lim x_n$.Annahme: $x_0 \in B$. B offen $\folgt \exists \delta>0 : U_\delta(x_0) \subseteq B$. $x_n \to x_0 \folgt x_n \in U_\delta(x_0) \subseteq B \ffa n \in\MdN$, Widerspruch! "`$\Leftarrow$ "': Sei $x \in B$. Annahme: $U_\delta(x) \nsubseteq B \forall \delta>0$. 
 \folgt $U_{\frac{1}{n}}(x) \nsubseteq B \forall n \in \MdN 
 \folgt \forall n \in \MdN \exists x_n \in U_{\frac{1}{n}}$ mit: $x_n \in \MdR\ \backslash\ B \folgt (x_n)$ ist eine Folge in $\MdR\ \backslash\ B: x_n \to x$. $\MdR\ \backslash\ B$ abgeschlossen \folgt $x \in \MdR\ \backslash\ B$, Widerspruch!
-\item \glqq \folgt \grqq: Sei $(x_n)$ Folge in $D$. $D$ beschränkt \folgt $(x_n)$ beschränkt. 8.2 \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$. $D$ abgeschlossen $\folgt \lim x_{n_k} \in D$. \glqq $\Leftarrow$ \grqq: Übung. Sei $D$ beschränkt und abgeschlossen. Sei $s:=\sup D$. z.z.: $s \in D$ (analog zeigt man $\inf D \in D$). $\forall n \in \MdN$ ist $s-\frac{1}{n}$ keine obere Schranke von s. \folgt $\forall n \in\MdN\exists\ x_n \in D$ mit $s - \frac{1}{n} < x_n \le s \folgt x_n \to s$. D abgeschlossen \folgt $s \in D$
+\item "`\folgt "': Sei $(x_n)$ Folge in $D$. $D$ beschränkt \folgt $(x_n)$ beschränkt. 8.2 \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$. $D$ abgeschlossen $\folgt \lim x_{n_k} \in D$. "`$\Leftarrow$ "': Übung. Sei $D$ beschränkt und abgeschlossen. Sei $s:=\sup D$. z.z.: $s \in D$ (analog zeigt man $\inf D \in D$). $\forall n \in \MdN$ ist $s-\frac{1}{n}$ keine obere Schranke von s. \folgt $\forall n \in\MdN\exists\ x_n \in D$ mit $s - \frac{1}{n} < x_n \le s \folgt x_n \to s$. D abgeschlossen \folgt $s \in D$
 \end{liste}
 \end{beweis}
 
@@ -2383,7 +2383,7 @@ $\sin(x+2\pi)=\sin x, $\>$\cos(x+2\pi)=\cos x$
 \item $cos 0 = 1> 0$. $\cos 2 = \cos(1+1) = \cos^2 1 - \sin^2 1=\cos^2 1 + \sin^2 1 - 2\sin^2 1 = 1-2\sin^2 1 \overset{\text{(3)}}{<} 1-2\frac{25}{36}<0$. 18.2 $\folgt \exists \xi_0 \in (0, 2): \cos \xi_0=0$, In $(0,2)$: $(\cos x)'=-\sin x \overset{\text{(3)}}{<} 0 \folgt \cos x$ ist in $(0,2)$ streng monoton fallend $\folgt \cos x \ne 0 \ \forall x \in [0, \xi_0)$
 \item $\sin^2\frac{\pi}{2}=1-\cos^2\frac{\pi}{2}=1\folgt\sin\frac{\pi}{2}=\pm 1$. (3) $\folgt\sin\frac{\pi}{2}>0\folgt\sin\frac{\pi}{2}=1$.
 \item Die erste Behauptung mit kann mit Potenzreihen, der Rest mit den Additionstheoremen bewiesen werden.
-\item \glqq$\Leftarrow$\grqq: klar, \glqq$\Rightarrow$\grqq: Sei $x\in[0, \pi]$ und $\cos x = 0 \folgtnach{(4)} x\ge\frac{\pi}{2}, y:=\pi-x, y \in [0, \frac{\pi}{2}]$ und $\cos y=\cos(x+\pi)\gleichnach{(6)}-\cos(-x)=-\cos(x)\folgtnach{(4)}y\le\frac{\pi}{2}, x=\frac{\pi}{2}$.
+\item "`$\Leftarrow$"': klar, "`$\Rightarrow$"': Sei $x\in[0, \pi]$ und $\cos x = 0 \folgtnach{(4)} x\ge\frac{\pi}{2}, y:=\pi-x, y \in [0, \frac{\pi}{2}]$ und $\cos y=\cos(x+\pi)\gleichnach{(6)}-\cos(-x)=-\cos(x)\folgtnach{(4)}y\le\frac{\pi}{2}, x=\frac{\pi}{2}$.
 \item In den großen Übungen
 \end{beweise}
 
@@ -2667,8 +2667,8 @@ Sei $z=\{x_0, \cdots, x_n\} \in \Z, m_j, M_j, I_j$ wie immer. $\widetilde{m_j}:=
 $f \in R[a,b] \equizu \forall \ep>0\ \exists Z \in \Z: S_f(Z)-s_f(Z) < \ep$.
 \end{satz}
 \begin{beweis}
-\glqq$\Leftarrow$\grqq: Sei $\ep>0.$ Voraussetzung $\folgt \exists Z \in \Z: S_f(Z)<s_f(Z)+\ep \folgt \oint_a^bf\dx \le S_f(Z) < s_f(z) + \ep\le\uint_a^bf\dx + \ep$. Also: $\oint_a^bf\dx < \uint_a^bf\dx\ \forall \ep>0\folgtwegen{\ep\to 0+}\oint_a^bf\dx \le \uint_a^bf\dx (\le \oint_a^bf\dx)\folgt f\in R[a, b]$.\\
-\glqq$\folgt$\grqq: $S:=\int_a^bf\dx$. Sei $\ep>0.\ \exists Z_1, Z_2 \in \Z: s_f(Z_1) > \uint_a^bf\dx - \frac{\ep}{2}=S-\frac{\ep}{2}.\ S_f(Z_2)<S+\frac{\ep}{2}.\ Z:=Z_1 \cup Z_2 \in \Z$. $S_f(Z)-s_f(Z) \overset{23.1}{\le}S_f(Z_2)-s_f(Z_1)<S+\frac{\ep}{2}-(S-\frac{\ep}{2})=\ep$.
+"`$\Leftarrow$"': Sei $\ep>0.$ Voraussetzung $\folgt \exists Z \in \Z: S_f(Z)<s_f(Z)+\ep \folgt \oint_a^bf\dx \le S_f(Z) < s_f(z) + \ep\le\uint_a^bf\dx + \ep$. Also: $\oint_a^bf\dx < \uint_a^bf\dx\ \forall \ep>0\folgtwegen{\ep\to 0+}\oint_a^bf\dx \le \uint_a^bf\dx (\le \oint_a^bf\dx)\folgt f\in R[a, b]$.\\
+"`$\folgt$"': $S:=\int_a^bf\dx$. Sei $\ep>0.\ \exists Z_1, Z_2 \in \Z: s_f(Z_1) > \uint_a^bf\dx - \frac{\ep}{2}=S-\frac{\ep}{2}.\ S_f(Z_2)<S+\frac{\ep}{2}.\ Z:=Z_1 \cup Z_2 \in \Z$. $S_f(Z)-s_f(Z) \overset{23.1}{\le}S_f(Z_2)-s_f(Z_1)<S+\frac{\ep}{2}-(S-\frac{\ep}{2})=\ep$.
 \end{beweis}
 
 \begin{satz}[Integratibilität monotoner und stetiger Funktionen]
@@ -2690,7 +2690,7 @@ $f \in R[a,b] \equizu \forall \ep>0\ \exists Z \in \Z: S_f(Z)-s_f(Z) < \ep$.
 
 \begin{definition}
 Sei $J\subseteq\MdR$ ein Intervall und $G,g: J\to\MdR$ seien Funktionen. 
-$G$ heißt eine \begriff{Stammfunktion} (SF) von $g$ auf $J$ :$\equizu$ G ist auf $J$ differenzierbar und $G'=g$ auf $J$.\\
+$G$ heißt eine \begriff{Stammfunktion} von $g$ auf $J$ :$\equizu$ G ist auf $J$ differenzierbar und $G'=g$ auf $J$.\\
 \end{definition}
 \textbf{Beachte:}
 \begin{liste}
@@ -2973,7 +2973,7 @@ Sei $f\in C(I)$ und $g \in C^1(J)$ und $g(J)\subseteq I$.
 \end{satz}
 
 \begin{merkregel}
-Ist $y=y(x)$ differenzierbar, so schreibt man für $y'$ auch $\frac{dy}{dx}$. In 23.16 substituiere $x=g(t)$ (fasse also $x$ als Funktion von $t$ auf) $\folgt g'(t)=\frac{dx}{dt}$ \glqq$\folgt dx=g'(t)dt$\grqq.
+Ist $y=y(x)$ differenzierbar, so schreibt man für $y'$ auch $\frac{dy}{dx}$. In 23.16 substituiere $x=g(t)$ (fasse also $x$ als Funktion von $t$ auf) $\folgt g'(t)=\frac{dx}{dt}$ "`$\folgt dx=g'(t)dt$"'.
 \end{merkregel}
 
 \begin{beweise}

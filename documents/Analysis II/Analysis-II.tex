@@ -28,7 +28,7 @@
 \chapter*{Vorwort}
 
 \section*{Über dieses Skriptum}
-Dies ist ein erweiterter Mitschrieb der Vorlesung \glqq Analysis II\grqq\ von Herrn Schmoeger im
+Dies ist ein erweiterter Mitschrieb der Vorlesung "`Analysis II"' von Herrn Schmoeger im
 Sommersemester 2005 (bis einschließlich §14) und im Sommersemester 2010 (ab §15) an der Universität 
 Karlsruhe (KIT). Die Mitschriebe der Vorlesung werden mit ausdrücklicher Genehmigung 
 von Herrn Schmoeger hier veröffentlicht, Herr Schmoeger ist für den Inhalt nicht 
@@ -167,8 +167,8 @@ Sei $x_0 \in \MdR^n$, $\delta > 0$, $A, U\subseteq \MdR^n$.
 \end{beispiel}
 
 \begin{beweise}
- \item \glqq\folgt\grqq: Sei $x_0\in\MdR^n\backslash A$. Annahme: $\forall \delta>0: U_\delta(x_0) \nsubseteq \MdR^n\backslash A\folgt\forall\delta>0: U_\delta(x_0)\cap A\ne\emptyset \folgt x_0\in\bar{A} \gleichnach{Vor.} A$, Widerspruch \\
- \glqq$\impliedby$\grqq: Annahme: $\subset\bar{A} \folgt \ \exists x_0\in\bar{A}: x_0\notin A$; also $x_0\in\MdR^n\backslash A$. Voraussetzung $\folgt \ \exists \delta > 0: U_\delta(x_0) \subseteq \MdR^n\backslash A \folgt U_\delta(x_0) \cap A = \emptyset \folgt x_0 \notin \bar{A}$, Widerspruch!
+ \item "`\folgt"': Sei $x_0\in\MdR^n\backslash A$. Annahme: $\forall \delta>0: U_\delta(x_0) \nsubseteq \MdR^n\backslash A\folgt\forall\delta>0: U_\delta(x_0)\cap A\ne\emptyset \folgt x_0\in\bar{A} \gleichnach{Vor.} A$, Widerspruch \\
+ "`$\impliedby$"': Annahme: $\subset\bar{A} \folgt \ \exists x_0\in\bar{A}: x_0\notin A$; also $x_0\in\MdR^n\backslash A$. Voraussetzung $\folgt \ \exists \delta > 0: U_\delta(x_0) \subseteq \MdR^n\backslash A \folgt U_\delta(x_0) \cap A = \emptyset \folgt x_0 \notin \bar{A}$, Widerspruch!
  \item Sei $(A_\lambda)_{\lambda\in M}$ eine Familie offener Mengen und $V := \bigcup_{\lambda\in M} A_\lambda$. Sei $x_0\in V \folgt \exists\lambda_0\in M: x_0 \in A_{\lambda_0}$. $A_{\lambda_0}$ offen $\folgt \ \exists \delta > 0: U_\delta(x_0) \subseteq A_{\lambda_0} \subseteq V$
  \item folgt aus (1) und (2) (Komplemente!)
  \item $D:=\bigcap_{j=1}^mA_j$. Sei $x_0\in D$. $\forall j\in\{1,\ldots,m\}: x_0\in A_j$, also eixistiert $\delta_j>0: U_\delta(x_0)\subseteq A_j$. $\delta := \min\{\delta_j,\ldots,\delta_m\} \folgt U_\delta(x_0) \subseteq D$
@@ -206,7 +206,7 @@ Sei $(a^{(k)})$ eine Folge in $\MdR^n$.
   \item wie in Analysis I.
   \item folgt aus (1)
   \item Sei $(a^{(k)})$ beschränkt. O.B.d.A: $n=2$. Also $a^{(k)}=(a_1^{(k)},a_2^{(k)})$ 1.1(7) $\folgt |a_1^{(k)}|,|a_2^{(k)}|\le\|a^{(k)}\|\ \forall k\in\MdN \folgt (a_1^{(k)},a_2^{(k)})$ sind beschränkte Folgen in $\MdR$. Analysis 1 $\folgt (a_1^{(k)})$ enthält eine konvergente Teilfolge $(a_1^{(k_j)})$. $(a_2^{(k_j)})$ enthält eine konvergente Teilfolge$ (a_2^{(k_{j_l})})$. Analysis 1 $\folgt (a_1^{(k_{j_l})})$ ist konvergent $\overset{(1)}{\folgt} (a^{(k_{j_l})})$ konvergiert.
-  \item \glqq$\folgt$\grqq: wie in Analysis 1. \glqq$\impliedby$\grqq: 1.1(7) $\folgt |a_j^{(k)}-a_j^{(l)}| \le \|a^{(k)}-a^{(l)}\|\ (j=1,\ldots,n)\ \folgt$ jede Folge $(a_j^{(k)})$ ist eine Cauchyfolge in $\MdR$, also konvergent $\overset{(1)}{\folgt} (a^{(k)})$ konvergiert.
+  \item "`$\folgt$"': wie in Analysis 1. "`$\impliedby$"': 1.1(7) $\folgt |a_j^{(k)}-a_j^{(l)}| \le \|a^{(k)}-a^{(l)}\|\ (j=1,\ldots,n)\ \folgt$ jede Folge $(a_j^{(k)})$ ist eine Cauchyfolge in $\MdR$, also konvergent $\overset{(1)}{\folgt} (a^{(k)})$ konvergiert.
 \end{beweise}
 
 \begin{satz}[Häufungswerte und konvergente Folgen]
@@ -228,7 +228,7 @@ Sei $A\subseteq\MdR^n$
 \item Wie in Analysis 1
 \item Fast wörtlich wie bei (1)
 \item[(4)] Wörtlich wie in Analysis 1
-\item[(3)] \glqq$\folgt$\grqq: Sei $(a^{(k)})$ eine konvergente Folge in $A$ und $x_0:=\lim a^{(k)} \overset{(2)}{\folgt} x_0 \in \bar A \overset{\text{Vor.}}{=}A$. \glqq$\impliedby$\grqq: z.z: $\bar A \subseteq A$. Sei $x_0 \in \bar A \overset{(2)}{\folgt}x_0 \in A$. Also: $A=\bar A$.
+\item[(3)] "`$\folgt$"': Sei $(a^{(k)})$ eine konvergente Folge in $A$ und $x_0:=\lim a^{(k)} \overset{(2)}{\folgt} x_0 \in \bar A \overset{\text{Vor.}}{=}A$. "`$\impliedby$"': z.z: $\bar A \subseteq A$. Sei $x_0 \in \bar A \overset{(2)}{\folgt}x_0 \in A$. Also: $A=\bar A$.
 \end{beweise}
 
 \begin{satz}[Überdeckungen]
@@ -995,7 +995,7 @@ A ist negativ definit & $\equizu \exists c>0: Q_A(x)\le -c\|x\|^2\ \forall x\in\
 \begin{beweise}
 \item Klar
 \item $Q_A(\alpha x)=(\alpha x)(A(\alpha x))=\alpha^2x(Ax)=\alpha^2Q_A(x)$
-\item \glqq$\impliedby$\grqq: Klar. \glqq$\folgt$\grqq: $K:=\{x\in\MdR^n: \|x\|=1\}=\partial U_1(0)$ ist beschränkt und abgeschlossen. $Q_A$ ist stetig auf $K$. 3.3 $\folgt\exists x_0\in K: Q_A(x_0)\le Q_A(x)\ \forall x\in K$. $c:=Q_A(x_0).\ A$ positiv definit, $x_0\ne 0\folgt Q_A(x_0)=c>0$. Sei $x\in\MdR^n\ \backslash\ \{0\};\ z:=\frac{1}{\|x\|}x\folgt z\in K\folgt Q_A(z)\ge c\folgt c \le Q_A\left(\frac{1}{\|x\|}x\right)\gleichnach{(2)}\frac{1}{\|x\|}^2Q_A(x)\folgt Q_A(x)\ge c\|x\|^2$
+\item "`$\impliedby$"': Klar. "`$\folgt$"': $K:=\{x\in\MdR^n: \|x\|=1\}=\partial U_1(0)$ ist beschränkt und abgeschlossen. $Q_A$ ist stetig auf $K$. 3.3 $\folgt\exists x_0\in K: Q_A(x_0)\le Q_A(x)\ \forall x\in K$. $c:=Q_A(x_0).\ A$ positiv definit, $x_0\ne 0\folgt Q_A(x_0)=c>0$. Sei $x\in\MdR^n\ \backslash\ \{0\};\ z:=\frac{1}{\|x\|}x\folgt z\in K\folgt Q_A(z)\ge c\folgt c \le Q_A\left(\frac{1}{\|x\|}x\right)\gleichnach{(2)}\frac{1}{\|x\|}^2Q_A(x)\folgt Q_A(x)\ge c\|x\|^2$
 \end{beweise}
 
 \begin{satz}[Störung von definiten Matrizen]
@@ -1181,7 +1181,7 @@ $D:=\{(x,y) \in \MdR^2: x\ne 0\}$. Sei $(\xi, \eta)\in D$ 9.3 $\folgt \exists$ U
 \item $f(x,y)=x^2+y^2-1$. $f(x,y)=0\equizu y^2=1-x^2\equizu y=\pm\sqrt{1-x^2}$. \\
 Sei $(x_0, y_0)\in\MdR^2$ mit $f(x_0, y_0)=0$ und $y_0\overset{(<)}{>}0$. Dann existiert eine Umgebung $U$ von $x_0$ und genau eine Funktion $g:U\to\MdR$ mit $g(x_0)=y_0$ und $f(x,g(x))=0\ \forall x \in U$, nämlich $g(x)=\overset{(-\sqrt{\cdots})}{\sqrt{1-x^2}}$
 
-\textbf{Sprechweisen}: \glqq $g$ ist implizit durch die Gleichung $f(x,y)=0$ definiert\grqq\ oder\ \glqq die Gleichung $f(x,y)=0$ kann in der Form $y=g(x)$ aufgelöst werden\grqq
+\textbf{Sprechweisen}: "`$g$ ist implizit durch die Gleichung $f(x,y)=0$ definiert"' oder "`die Gleichung $f(x,y)=0$ kann in der Form $y=g(x)$ aufgelöst werden"'
 
 \item $f(x,y,z)=y+z+\log(x+z)$. Wir werden sehen: $\exists$ Umgebung $U\subseteq \MdR^2$ von $(0,1)$ und genau eine Funktion $g:U\to\MdR$ mit $g(0,-1)=1$ und $f(x,y,g(x,y))=0\ \forall\ (x,y)\in U$.
 \end{beispiele}
@@ -1568,7 +1568,7 @@ $\gamma_1:[a,b]\to\MdR^n$ und $\gamma_2:[\alpha,\beta]\to\MdR^n$ seien Wege.
 \index{Äquivalenz}
 \index{Parameter-!Transformation}
 $\gamma_1$ und $\gamma_2$ heißen \textbf{äquivalent}, in Zeichen $\gamma_1\sim\gamma_2:\equizu\exists h:[a,b]\to[\alpha, \beta]$ stetig und streng wachsend, $h(a)=\alpha, h(b)=\beta$ und $\gamma_1(t)=\gamma_2(h(t))\ \forall t\in[a,b]$ (also $\gamma_1=\gamma_2\circ h)$. $h$ heißt eine \textbf{Parametertransformation} (PTF). Analysis 1 $\folgt h([a,b])=[\alpha,\beta]\folgt \Gamma_{\gamma_1}=\Gamma_{\gamma_2}$.
-Es gilt: $\gamma_2=\gamma_1\circ h^{-1}\folgt \gamma_2\sim\gamma_1$. \glqq$\sim$\grqq\ ist eine Äquivalenzrelation.
+Es gilt: $\gamma_2=\gamma_1\circ h^{-1}\folgt \gamma_2\sim\gamma_1$. "`$\sim$"' ist eine Äquivalenzrelation.
 \end{definition*}
 
 \begin{beispiele}
@@ -1786,7 +1786,7 @@ Dann ist $\varphi$ eine Stammfunktion von $f$ auf $G$.
 \end{satz}
 
 \begin{beweis}
-\glqq$\folgt$\grqq: 14.1\quad \glqq$\impliedby$\grqq: Sei $x_0\in G$ und $\varphi$ wie in $(*)$. Zu zeigen: $\varphi$ ist auf $G$ differenzierbar und $\varphi'=f$ auf G. Sei $z_0\in G, h\in\MdR^n,h\ne 0$ und $\|h\|$ so klein, dass $z_0+th\in G\ \forall t\in[0,1].\ \gamma(t):=z_0+th\ (t\in[0,1]), \Gamma_\gamma=s[z_0, z_0+h]\subseteq G$. $\rho(h):=\frac{1}{\|h\|}(\varphi(z_0+h)-\varphi(z_0)-f(z_0)\cdot h)$. Zu zeigen: $\rho(h)\to 0\ (h\to 0)$. 14.2 $\folgt$ es existieren stückweise stetig differenzierbare Wege $\gamma_1, \gamma_2$ mit: $\Gamma_{\gamma_1},\Gamma_{\gamma_2}\subseteq G$. Anfangspunkt von $\gamma_1=x_0=$Anfangspunkt von $\gamma_2$. Endpunkt von $\gamma_1=z_0$, Endpunkt von $\gamma_2=z_0+h$. Sei $\gamma_3\in \text{AH}(\gamma_1,\gamma)$ stückweise stetig differenzierbar (13.4!). Dann: 
+"`$\folgt$"': 14.1\quad "`$\impliedby$"': Sei $x_0\in G$ und $\varphi$ wie in $(*)$. Zu zeigen: $\varphi$ ist auf $G$ differenzierbar und $\varphi'=f$ auf G. Sei $z_0\in G, h\in\MdR^n,h\ne 0$ und $\|h\|$ so klein, dass $z_0+th\in G\ \forall t\in[0,1].\ \gamma(t):=z_0+th\ (t\in[0,1]), \Gamma_\gamma=s[z_0, z_0+h]\subseteq G$. $\rho(h):=\frac{1}{\|h\|}(\varphi(z_0+h)-\varphi(z_0)-f(z_0)\cdot h)$. Zu zeigen: $\rho(h)\to 0\ (h\to 0)$. 14.2 $\folgt$ es existieren stückweise stetig differenzierbare Wege $\gamma_1, \gamma_2$ mit: $\Gamma_{\gamma_1},\Gamma_{\gamma_2}\subseteq G$. Anfangspunkt von $\gamma_1=x_0=$Anfangspunkt von $\gamma_2$. Endpunkt von $\gamma_1=z_0$, Endpunkt von $\gamma_2=z_0+h$. Sei $\gamma_3\in \text{AH}(\gamma_1,\gamma)$ stückweise stetig differenzierbar (13.4!). Dann: 
 $$\underbrace{\ds\int_{\gamma_3}f(x)\cdot\text{d}x}_{=\varphi(z_0+h)}=\underbrace{\ds\int_{\gamma_1}f(x)\cdot\text{d}x}_{=\varphi(z_0)}+\ds\int_{\gamma}f(x)\cdot\text{d}x$$
 $\ds\int f(x)\cdot\text{d}x$ ist wegunabhängig in $G\folgt$\\
 $$\ds\int_{\gamma_3}f(x)\cdot\text{d}x=\ds\int_{\gamma_2}f(x)\cdot\text{d}x=\varphi(z_0+h)\folgt\varphi(z_0+h)-\varphi(z_0)=\ds\int_{\gamma}f(x)\cdot\text{d}x$$
@@ -1827,7 +1827,7 @@ Sei $G$ sternförmig und $f\in C^1(G,\MdR^n)$. Dann: $f$ besitzt auf $G$ eine St
 \end{satz}
 
 \begin{beweis}
-\glqq$\folgt$\grqq: 14.1\quad \glqq$\impliedby$\grqq: $G$ sternförmig $\folgt\exists x_0\in G:S[x_0,x]\subseteq G\ \forall x\in G$. OBdA: $x_0=0$. 
+"`$\folgt$"': 14.1\quad "`$\impliedby$"': $G$ sternförmig $\folgt\exists x_0\in G:S[x_0,x]\subseteq G\ \forall x\in G$. OBdA: $x_0=0$. 
 
 Für $x=(x_1,\ldots,x_n)\in G$ sei $\gamma_x(t)=tx, t\in [0,1]$.
 \begin{eqnarray*}
@@ -3341,12 +3341,14 @@ Also: $c_1 = c_2 = 0$, d.h.: \textbf{die} Lösung des AwP ist: $y(x) = \begin{pm
 \chapter{Homogene lineare Systeme mit konstanten Koeffizienten}
 
 
-In diesem Paragraphen sei $A$ eine reelle konstante $n\times n$-Matrix. Wir betrachten das homogene System
+In diesem Paragraphen sei $A \in \mathbb{R}^{n \times n}$ eine 
+konstante Matrix. \\
+Wir betrachten das homogene System
 \begin{align*}
 \tag H y'=Ay
 \end{align*}
 
-\textbf{Ohne} Beweise geben wir ein \glqq Kochrezept\grqq an, wie man zu einem Fundamentalsystem von (H) kommt.
+\textbf{Ohne} Beweise geben wir ein "`Kochrezept"' an, wie man zu einem Fundamentalsystem von (H) kommt.
 
 \textbf{Vorbereitungen}: 
 \index{charakteristisches Polynom}\index{Polynom!charakteristisches}
@@ -3363,7 +3365,7 @@ und damit $\overline{\lambda_0}$ ein Eigenwert von $A$.
 \textbf{Kochrezept}:
 \begin{enumerate}
 \item Bestimme die \textbf{verschiedenen} Eigenwerte $\lambda_1, \ldots, \lambda_r (r \le n)$ 
-von $A$ und deren Vielfachheiten $k_1, \ldots, k_r$, also: 
+von $A$ und deren algebraische Vielfachheiten $k_1, \ldots, k_r$, also: 
 \[p(\lambda) = (-1)^n (\lambda - \lambda_1)^{k_1} (\lambda - \lambda_2)^{k_2} \cdots (\lambda - \lambda_r)^{k_r}\] 
 Ordne diese Eigenwerte wie folgt an: $\lambda_1, \ldots, \lambda_m \in \mdr, \lambda_{m+1}, \ldots, \lambda_r \in \mdc \setminus \mdr$.\\ 
 Aus der Liste $\lambda_{m+1}, \ldots, \lambda_r$ entferne jedes $\lambda_j$ mit 
@@ -3376,6 +3378,8 @@ einer Basis von Kern$((A-\lambda_j I)^2)$, usw.
 
 \item Sei $\lambda_j \in M$ und $v$ ein Basisvektor von $V_j$. \\
 \[y(x) := e^{\lambda_j x} (v+\frac{x}{1!} (A-\lambda_j I)v + \frac{x^2}{2!} (A-\lambda_j I)^2 v + \cdots + \frac{x^{k_j - 1}}{ (k_j - 1)! } (A - \lambda_j I)^{k_j - 1} v )\]
+Schöner:
+\[y(x) := e^{\lambda_j x} \cdot \left ( \sum_{i=0}^{k_j-1} \frac{x^i}{i!} (A - \lambda_j I)^i \cdot v \right )\]
 \textbf{Fall 1}: $\lambda_j \in \mdr$.\\
 Dann ist $y(x) \in \mdr^n \; \forall x \in \mdr$ und y ist eine Lösung von (H). \\
 \textbf{Fall 2}: $\lambda_j \in \mdc \setminus \mdr$.\\
