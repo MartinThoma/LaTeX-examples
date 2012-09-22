@@ -880,7 +880,7 @@ Sei $x_0 \in D,\ a \in \MdR^n$ eine Richtung, $f:D \to \MdR$.
 \item $\frac{(f(x_0+t(-a))-f(x_0))}{t} = -\frac{(f(x_0+(-t)a)-f(x_0))}{-t} \folgt$ Beh.
 \item \begin{enumerate}
 \item[(i)] $g(t) := f(x_0+ta)$ ($|t|$ hinreichend klein). Aus Satz 5.4 folgt: $g$ ist db in $t=0$ und $g'(0) = f'(x_0) \cdot a \folgt \frac{\partial f}{\partial a}(x_0)$ existiert und ist $= g'(0) = \grad f(x_0)\cdot a$
-\item[(ii)] $\left| \frac{\partial f}{\partial a}(x_0) \right| \gleichnach{(i)} |a\cdot \grad f(x_0)| \overset{\text{CSU}}{\le} \|a\|\cdot \|\grad f(x_0)\| = \|\grad f(x_0)\| = \frac{1}{\|\grad f(x_0)\|} \grad f(x_0) \cdot \grad f(x_0) = a_0\cdot \grad f(x_0) \gleichnach{(i)} \frac{\partial f}{\partial a_0}(x_0)$
+\item[(ii)] $\uwave{\left| \frac{\partial f}{\partial a}(x_0) \right|} \gleichnach{(i)} |a\cdot \grad f(x_0)| \overset{\text{CSU}}{\le} \|a\|\cdot \|\grad f(x_0)\| = \|\grad f(x_0)\| = \frac{1}{\|\grad f(x_0)\|} \grad f(x_0) \cdot \grad f(x_0) = a_0\cdot \grad f(x_0) \gleichnach{(i)} \uwave{\frac{\partial f}{\partial a_0}(x_0)}$
 
 $\folgt \frac{\partial f}{\partial (-a_0)}(x_0) \gleichnach{(1)} -\frac{\partial f}{\partial a_0}(x_0) \le \frac{\partial f}{\partial a}(x_0) \le \frac{\partial f}{\partial a_0}(x_0) = \|\grad f(x_0)\|$
 
