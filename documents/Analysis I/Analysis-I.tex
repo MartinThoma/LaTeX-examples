@@ -16,7 +16,7 @@
   pdftitle    = {Analysis I} 
 } 
 
-\author{Die Mitarbeiter von \url{http://mitschriebwiki.nomeata.de/}}
+\author{Die Mitarbeiter von \url{http://mitschriebwiki.nomeata.de/} und GitHub-Beiträge}
 \title{Analysis I}
 \makeindex
 
@@ -2470,7 +2470,8 @@ Dann: $\sum_{k=0}^\infty \frac{f^{(k)}(0)}{k!}x^k = 0 \ne f(x) \ \forall x\in\Md
 \end{beispiele}
 
 \begin{definition}
-Sei $n\in\MdN_0$, $f\in C^n(I)$ und $x_0 \in I$. $T_n(x;x_0) := \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$ 
+Sei $n\in\MdN_0$, $f\in C^n(I)$ und $x_0 \in I$.\\
+$T_n(x;x_0) := \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$ 
 heißt das \begriff{k-te Taylorpolynom} von $f$ vom Grad $\leq k$.
 \end{definition}
 
@@ -2486,8 +2487,10 @@ heißt das \begriff{k-te Taylorpolynom} von $f$ vom Grad $\leq k$.
 \end{eigenschaftenNoCounter}
 
 \begin{satz}[Satz von Taylor]
-Voraussetzungen wie in obiger Definition. Weiter sei $f\ (n+1)$-mal differenzierbar auf $I$ und $x\in I$. Dann existiert ein $\xi$ zwischen $x$ und $x_0$ mit:
-$$ f(x) = T_n(x;x_0) + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$$
+Voraussetzungen wie in obiger Definition. Weiter sei $f\ (n+1)$-mal 
+differenzierbar auf $I$ und $x\in I$. Dann existiert ein $\xi$ 
+zwischen $x$ und $x_0$ mit:
+\[ f(x) = T_n(x;x_0) + \underbrace{\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}}_\text{Restglied nach Langrage} \]
 \end{satz}
 
 \begin{beweis}
@@ -2676,12 +2679,18 @@ $f \in R[a,b] \equizu \forall \ep>0\ \exists Z \in \Z: S_f(Z)-s_f(Z) < \ep$.
 \end{satz}
 
 \begin{beweise}
-\item f sei wachsend auf $[a,b]$. Sei $n\in\MdN$ und $Z=\{x_0,\cdots,x_n\}$ sei die \begriff{äquidistante Zerlegung} von $[a,b]$ mit $n+1$ Teilpunkten. $x_j = a+j\frac{b-a}{n}\ (j=0,\cdots,n)$, dann: $|I_j|=\frac{b-a}{n}$. $m_j, M_j$ wie immer: $S_f(Z)-s_f(z)=\sum^n_{j=1}(\underbrace{M_j}_{=f(x_j)}-\underbrace{m_j}_{f(x_{j-1})})|I_j|=\sum_{j=1}^n(f(x_j)_-f(x_{j-1}))\frac{b-a}{n}=\frac{b-a}{n}(f(x_1)-f(x_0)+f(x_2)-f(x_1)+\cdots+f(x_n)-f(x_{n-1}))=\frac{b-a}{n}(f(x_n)-f(x_0))=\frac{b-a}{n}(f(b)-f(a))=:\alpha_n$. Sei $\ep>0$, dann: $\exists n\in\MdN: \alpha_n <\ep\folgtnach{23.3}$Behauptung.
+\item O.B.d.A: $f$ ist wachsend auf $[a,b]$.\\
+      Sei $n\in\MdN$ und $Z_n=\{x_0,\cdots,x_n\}$ sei die 
+      \begriff{äquidistante Zerlegung} von $[a,b]$ mit $n+1$ 
+      Teilpunkten. $x_j = a+j\frac{b-a}{n}\ (j=0,\cdots,n)$. 
+      Dann: $|I_j|=\frac{b-a}{n}$. $m_j, M_j$ wie immer: 
+      $S_f(Z_n)-s_f(Z_n)=\sum^n_{j=1}(\underbrace{M_j}_{=f(x_j)}-\underbrace{m_j}_{f(x_{j-1})})|I_j|=\sum_{j=1}^n(f(x_j)_-f(x_{j-1}))\frac{b-a}{n}=\frac{b-a}{n}(f(x_1)-f(x_0)+f(x_2)-f(x_1)+\cdots+f(x_n)-f(x_{n-1}))=\frac{b-a}{n}(f(x_n)-f(x_0))=\frac{b-a}{n}(f(b)-f(a))=:\alpha_n$. Sei $\ep>0$, dann: $\exists n\in\MdN: \alpha_n <\ep\folgtnach{23.3}$Behauptung.
 \item Sei $f \in C[a, b]$ und $\ep>0$. $\exists \delta>0: (*)\ |f(t)-f(s)|<\frac{\ep}{b-a}\ \forall t,s\in[a,b]$ mit $|t-s|<\delta$. Sei $Z=\{x_0,\cdots,x_n\}\in\Z\ m_j,\ M_j,\ |I_J|$ seien wie immer; $z$ sei so gewählt, da"s $|I_j|<\delta\ (j=1,\cdots,n)$. Betrachte $I_j:$ 18.3$\folgt\ \exists s_j, t_j \in I_j: m_j=f(s_j),\ M_j=f(t_j)$. $|t_j-s_j|<\delta \folgtwegen{(*)}\underbrace{f(t_j)-f(s_j)}_{=M_j-m_j}<\frac{\ep}{b-a}\folgt S_f(Z)-s_f(Z)=\sum^n_{j=1}(\underbrace{M_j-m_j}_{\le\frac{\ep}{b-a}})|I_j|<\frac{\ep}{b-a}\sum^n_{j=1}|I_j|=\ep\folgtnach{23.3}f\in R[a,b]$
 \end{beweise}
 
 \begin{definition}
-Sei $J\subseteq\MdR$ ein Intervall und $G,g: J\to\MdR$ seien Funktionen. $G$ hei"st eine \begriff{Stammfunktion} (SF) von $g$ auf $J$ :$\equizu$ G ist differenzierbar auf $J$ und $G'=g$ auf $J$.\\
+Sei $J\subseteq\MdR$ ein Intervall und $G,g: J\to\MdR$ seien Funktionen. 
+$G$ heißt eine \begriff{Stammfunktion} (SF) von $g$ auf $J$ :$\equizu$ G ist auf $J$ differenzierbar und $G'=g$ auf $J$.\\
 \end{definition}
 \textbf{Beachte:}
 \begin{liste}
@@ -2925,7 +2934,7 @@ Seien $a,b \in J$, $a<b$ und $I:=[a,b]$. Es genügt zu zeigen: $F$ ist differenz
 Im folgenden seien $I,J\subseteq\MdR$ beliebige Intervalle.
 \begin{liste}
 \item Sei $g:I\to\MdR$ und $x_0\in I$. $g(x)|_{x=x_0}:=g(x_0).$
-\item Ist $f \in R[a,b]$, so hei"st $\int_a^bf(x)\dx$ auch ein \begriff{bestimmtes Integral}.
+\item Ist $f \in R[a,b]$, so heißt $\int_a^bf(x)\dx$ auch ein \begriff{bestimmtes Integral}.
 \item Besitzt $G:I\to\MdR$ auf $I$ eine Stammfunktion, so schreibt man für eine solche auch $\int g(x)\dx$ (\begriff{unbestimmtes Integral}). "Gleichungen" der Form $\int g(x)\dx=h(x)$ gelten bis auf additive Konstanten! \textbf{Beispiel}: $\int e^x\dx=e^x, \int e^x\dx=e^x + 7$. $\int g(x)\dx=h(x)$ auf $I$ bedeutet: h ist eine Stammfunktion von $g$ auf $I$.
 \end{liste}
 \end{definition}
@@ -3202,7 +3211,7 @@ $\folgt \exists c \in (1,\infty): \frac{f(x)}{g(x)} \ge \frac{1}{2}\ \forall x \
 
 \begin{definition}
 Sei $f:[a,b]\to\MdR$ und $Z=\{x_0,\ldots,x_n\} \in\Z$. $V_f(Z):=\sum_{j=1}^n|f(x_j)-f(x_{j-1})|$ ist die \begriff{Variation} von $f$ bezüglich Z.\\
-\textbf{Beachte}: Sind $Z_1,Z_2 \in \Z$ und $Z_1 \subseteq Z_2\folgt V_f(Z_1) \le V_f(Z_2)$. $M_f=\{V_f(Z):Z \in \Z\}.\ f$ hei"st von \begriff{beschränkter Variation}, in Zeichen: $f\in\BV[a,b]\ :\equizu M_f$ ist nach oben beschränkt. In diesem Fall hei"st $V_f[a,b]:=\sup M_f$ die \begriff{Totalvariation} von $f$ (auf $[a,b]$). 
+\textbf{Beachte}: Sind $Z_1,Z_2 \in \Z$ und $Z_1 \subseteq Z_2\folgt V_f(Z_1) \le V_f(Z_2)$. $M_f=\{V_f(Z):Z \in \Z\}.\ f$ heißt von \begriff{beschränkter Variation}, in Zeichen: $f\in\BV[a,b]\ :\equizu M_f$ ist nach oben beschränkt. In diesem Fall heißt $V_f[a,b]:=\sup M_f$ die \begriff{Totalvariation} von $f$ (auf $[a,b]$). 
 \end{definition}
 
 \begin{beispiel}
@@ -3387,7 +3396,7 @@ Wegen 25.2 und 26.1(2) O.B.d.A: $g$ wachsend. $c:=g(b)-g(a)\ (\ge 0).$ O.B.d.A: 
 1. Sei $(Z, \xi), Z=\{x_0, \ldots, x_n\}, \xi=(\xi_0, \ldots, \xi_n). m_j, M_j, I_j, d_j$ seien wie oben. $S:=\sup\{s(z): z \in \Z\}$, also $S\le S(Z).\ \alpha:=S(Z)-s(Z)$\\
 Es gilt: $m_j\le f(\xi_j) \le M_j \folgtwegen{d_j \ge 0} m_jd_j \le f(\xi_j)d_j\le M_jd_j\folgt (*)\ s(z)\le \sigma_f(Z,\xi,g)\le S(Z)$.\\
 Dann: $-\alpha=s(z)-S(Z)\le S-S(Z)\overset{(*)}{\le}S-\sigma_f(Z,\xi,g)\le S(Z)-\sigma_f(Z,\xi,g)\overset{(*)}{\le}S(Z)-s(z)=\alpha\folgt |s-\sigma_f(Z,\xi,g)|\le \alpha = \sum_{j=1}^n(M_j-m_j)d_j$.\\
-Sei $\ep>0$. $f$ ist auf $[a,b]$ \textbf{gleichmä"sig} stetig $\folgt \exists\delta>0: |f(t)-f(s)|<\frac{\ep}{c}\ \forall t,s \in [a,b]$ mit $|t-s|<\delta$. Sei $|Z|<\delta\folgt M_j-m_j<\frac{\ep}{c}\folgt|s-\delta_f(Z,\xi, g)|<\frac{\ep}{c}\underbrace{\sum_{j=1}^nd_j}_{=c}=\ep$. \\
+Sei $\ep>0$. $f$ ist auf $[a,b]$ \textbf{gleichmäßig} stetig $\folgt \exists\delta>0: |f(t)-f(s)|<\frac{\ep}{c}\ \forall t,s \in [a,b]$ mit $|t-s|<\delta$. Sei $|Z|<\delta\folgt M_j-m_j<\frac{\ep}{c}\folgt|s-\delta_f(Z,\xi, g)|<\frac{\ep}{c}\underbrace{\sum_{j=1}^nd_j}_{=c}=\ep$. \\
 2. Sei $((Z_n, \xi^{(n)}))$ eine Nullfolge in $\Z^*$. Sei $\ep>0$. Dann existiert ein $\delta>0$ wie in (1), $|Z_n|\to 0 \folgt \exists n_0 \in \MdN: |Z_n|<\delta\ \forall n\ge n_0 \folgt |s-\sigma_f(Z_n, \xi^{(n)}, g)|<\ep \ \forall n\ge n_0. $ Also: $\sigma_f(Z_n, \xi^{(n)}, g) \to S\ (n\to\infty)$.
 \end{beweis}
 
