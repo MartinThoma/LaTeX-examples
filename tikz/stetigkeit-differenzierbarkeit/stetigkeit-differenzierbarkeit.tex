@@ -1,0 +1,96 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes,calc} 
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{preview}
+
+%\begin{align*}
+%    f: \mathbb{R} \rightarrow \mathbb{R}\\
+%    g: \mathbb{R} \rightarrow \mathbb{R}\\
+%\end{align*}
+
+\begin{tikzpicture}[%
+    auto,
+    example/.style={
+      rectangle,
+      draw=blue,
+      thick,
+      fill=blue!20,
+      text width=4.5em,
+      align=center,
+      rounded corners,
+      minimum height=2em
+    },
+    algebraicName/.style={
+      text width=7em,
+      align=center,
+      minimum height=2em
+    },
+    explanation/.style={
+      text width=10em,
+      align=left,
+      minimum height=3em
+    }
+  ]
+    \draw[fill=yellow!20,yellow!20, rounded corners] (-1.85, 0.70) rectangle (13.4,-6.85);
+    \draw[fill=lime!20,lime!20, rounded corners]     (-1.75, 0.45) rectangle (7.3,-6.75);
+    \draw[fill=purple!20,purple!20, rounded corners] (-1.65,-1.55) rectangle (7.2,-6.65);
+    \draw (0, 0) node[algebraicName] (A) {gleichmäßig stetig}
+          (3, 0) node[explanation]   (B) {
+            \begin{minipage}{0.90\textwidth}
+                \tiny 
+                $\forall \varepsilon >0 \ \exists \delta=\delta(\varepsilon)>0\colon\\ |f(x)-f(z)| < \varepsilon\\ \forall x,z \in D \text{ mit } |x-z|<\delta$
+            \end{minipage}
+          }
+          (6, 0) node[example, draw=lime, fill=lime!15] (X) {\tiny$f(x)=\sin(x)$}
+          (6,-1) node[example, draw=lime, fill=lime!15] (X) {\tiny$g(x)=\cos(x)$}
+          (0,-2) node[algebraicName, purple] (C) {Lipschitz-stetig}
+          (3.5,-2) node[explanation]   (X) {
+            \begin{minipage}{90\textwidth}
+                \tiny 
+$f$ heißt auf $D$ \textbf{Lipschitz-stetig}\\
+$:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
+            \end{minipage}
+          }
+          %(2, -3) node[example, draw=purple, fill=purple!15] (D) {$(\mathbb{Z}, +)$}
+          %(4, -3) node[example, draw=purple, fill=purple!15] (E) {$(\mathbb{Q} \setminus \{0\}, \cdot)$}
+          %(6, -3) node[example, draw=purple, fill=purple!15] (X) {$\mathbb{Z}_1$}
+
+          %(10,-6) node[example, draw=black, fill=black!15] (F) {$(\mathbb{N}_0, +)$}
+          (12,-6) node[example, draw=black, fill=black!15] (G) {$(\mathbb{N}_0, \cdot)$}
+
+
+          (0,-6) node[example, draw=red, fill=red!15] (K) {\tiny$h(x) = |x|$}
+          %(2,-6) node[example, draw=red, fill=red!15] (L) {$(\mathbb{R}, +, \cdot)$}
+          %(4,-6) node[example, draw=red, fill=red!15] (M) {$(\mathbb{C}, +, \cdot)$}
+          (6,-6) node[example, draw=red, fill=red!15] (N) {\tiny$f_1(x) = 42$}
+
+
+          (9, 0) node[algebraicName] (O) {Stetige Funktionen}
+          (12,0) node[explanation]   (X) {
+            \begin{minipage}{0.9\textwidth}
+                \tiny 
+                $f$ heißt stetig in $x_0 :\Leftrightarrow$\\
+                für jede Folge $(x_n)$ in $D$ mit $x_n \rightarrow x_0$ gilt:\\
+                $f(x_n) \rightarrow f(x_0)$
+            \end{minipage}
+          }
+          (12,-1) node[example, draw=yellow, fill=yellow!15] (P) {\tiny$f_2(x) = \frac{1}{x}$};
+
+    % LP-Stetig
+    \draw[purple, thick, rounded corners] ($(C.north west)+(-0.3,0.1)$) rectangle ($(N.south east)+(0.3,-0.3)$);
+    % gleichmäßig stetig
+    \draw[lime, thick, rounded corners]   ($(A.north west)+(-0.4,0.1)$) rectangle ($(N.south east)+(0.4,-0.4)$);
+    % stetige funktionen
+    \draw[yellow, thick, rounded corners] ($(A.north west)+(-0.5,0.2)$) rectangle ($(G.south east)+(0.5,-0.5)$);
+\end{tikzpicture}
+\end{preview}
+\end{document}
