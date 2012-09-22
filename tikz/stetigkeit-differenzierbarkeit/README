@@ -1,0 +1,14 @@
+Interessante Funktionen:
+
+Dirichlet-Funktion
+    * Überall unstetig
+
+Weierstraß-Funktion:
+    * Überall stetig
+    * Nirgends differenzierbar
+
+f:(0,1)->R
+    * Stetig, aber nicht gleichmäßig stetig
+    * Differenzierbar
+
+

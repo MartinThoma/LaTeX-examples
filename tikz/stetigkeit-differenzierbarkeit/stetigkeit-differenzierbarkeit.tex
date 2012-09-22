@@ -7,7 +7,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes,snakes,calc} 
+\usetikzlibrary{shapes,snakes,calc,patterns} 
 \usepackage{amsmath,amssymb}
 \begin{document}
 \begin{preview}
@@ -40,6 +40,18 @@
       minimum height=3em
     }
   ]
+\pgfdeclarepatternformonly{north east lines wide}%
+   {\pgfqpoint{-1pt}{-1pt}}%
+   {\pgfqpoint{10pt}{10pt}}%
+   {\pgfqpoint{9pt}{9pt}}%
+   {
+     \pgfsetlinewidth{3pt}
+     \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+     \pgfpathlineto{\pgfqpoint{9.1pt}{9.1pt}}
+     \pgfusepath{stroke}
+    }
+
+
     \draw[fill=yellow!20,yellow!20, rounded corners] (-1.85, 0.70) rectangle (13.4,-6.85);
     \draw[fill=lime!20,lime!20, rounded corners]     (-1.75, 0.45) rectangle (7.3,-6.75);
     \draw[fill=purple!20,purple!20, rounded corners] (-1.65,-1.55) rectangle (7.2,-6.65);
@@ -60,18 +72,12 @@ $f$ heißt auf $D$ \textbf{Lipschitz-stetig}\\
 $:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
             \end{minipage}
           }
-          %(2, -3) node[example, draw=purple, fill=purple!15] (D) {$(\mathbb{Z}, +)$}
-          %(4, -3) node[example, draw=purple, fill=purple!15] (E) {$(\mathbb{Q} \setminus \{0\}, \cdot)$}
-          %(6, -3) node[example, draw=purple, fill=purple!15] (X) {$\mathbb{Z}_1$}
-
-          %(10,-6) node[example, draw=black, fill=black!15] (F) {$(\mathbb{N}_0, +)$}
-          (12,-6) node[example, draw=black, fill=black!15] (G) {$(\mathbb{N}_0, \cdot)$}
-
+          (12,-6) node[example, draw=black, fill=black!15] (G) {\tiny$f_2(x) = e^x$}
 
           (0,-6) node[example, draw=red, fill=red!15] (K) {\tiny$h(x) = |x|$}
-          %(2,-6) node[example, draw=red, fill=red!15] (L) {$(\mathbb{R}, +, \cdot)$}
-          %(4,-6) node[example, draw=red, fill=red!15] (M) {$(\mathbb{C}, +, \cdot)$}
-          (6,-6) node[example, draw=red, fill=red!15] (N) {\tiny$f_1(x) = 42$}
+          (6,-6) node[example, draw=red, fill=red!15, pattern=north east lines wide, pattern color=black!25] (N) {\tiny$f_1(x) = 42$}
+
+          (12,-2) node[example, draw=yellow, fill=yellow!15] (Q) {\tiny$f_4(x) = |x|$}
 
 
           (9, 0) node[algebraicName] (O) {Stetige Funktionen}
@@ -83,7 +89,8 @@ $:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
                 $f(x_n) \rightarrow f(x_0)$
             \end{minipage}
           }
-          (12,-1) node[example, draw=yellow, fill=yellow!15] (P) {\tiny$f_2(x) = \frac{1}{x}$};
+
+          (12,-4) node[example, draw=black, fill=black!15] (P) {\tiny$f_3(x) = \frac{1}{x}$};
 
     % LP-Stetig
     \draw[purple, thick, rounded corners] ($(C.north west)+(-0.3,0.1)$) rectangle ($(N.south east)+(0.3,-0.3)$);
