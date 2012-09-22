@@ -794,16 +794,16 @@ Sei $\ep > 0: a_{2n} \in U_{\ep}(1)\ \forall n \in \mathbb{N} \Rightarrow a_n \i
 für unendlich viele $n \in \mathbb{N} \Rightarrow 1 \in H (a_n)$. 
 Analog: $a_n \in U_{\ep}(-1)$ für unendlich viele $n \in \mathbb{N} \Rightarrow -1 \in \H(a_n)$. 
 Sei $\alpha \in \mathbb{R}$ und 1 $\neq \alpha \neq -1$. 
-W\"{a}hle $\ep > 0$ so, dass $1, -1 \not\in U_{\ep}(\alpha) \Rightarrow a_n \not\in U_{\ep}(\alpha)\ \forall n \in \mathbb{N} \Rightarrow \alpha \not\in \H(a_{n})$. 
+Wähle $\ep > 0$ so, dass $1, -1 \not\in U_{\ep}(\alpha) \Rightarrow a_n \not\in U_{\ep}(\alpha)\ \forall n \in \mathbb{N} \Rightarrow \alpha \not\in \H(a_{n})$. 
 Fazit: $\H(a_n) = \{1; -1\}$.
-\item $a_n = n$. Sei $\alpha \in \mathbb{R}$ und $\varepsilon > 0$. $\exists n_0 \in \mathbb{N}: n_0 > \alpha + \ep \Rightarrow n > \alpha + \ep\ \forall n \geq n_0 \Rightarrow a_n \not\in U_{\ep}(\alpha)\ \forall n \geq n_0 \Rightarrow a_n \in U_{\ep}(\alpha)$ für h\"{o}chstens endlich viele $n \in \mathbb{N}$. $\Rightarrow \alpha \not\in \H(a_n)$. Fazit: $\H(a_n) = \emptyset$.
-\item $\mathbb{Q}$ ist abz\"{a}hlbar. Also: $\mathbb{Q} = \{a_1, a_2, \ldots\}$.\\
+\item $a_n = n$. Sei $\alpha \in \mathbb{R}$ und $\varepsilon > 0$. $\exists n_0 \in \mathbb{N}: n_0 > \alpha + \ep \Rightarrow n > \alpha + \ep\ \forall n \geq n_0 \Rightarrow a_n \not\in U_{\ep}(\alpha)\ \forall n \geq n_0 \Rightarrow a_n \in U_{\ep}(\alpha)$ für höchstens endlich viele $n \in \mathbb{N}$. $\Rightarrow \alpha \not\in \H(a_n)$. Fazit: $\H(a_n) = \emptyset$.
+\item $\mathbb{Q}$ ist abzählbar. Also: $\mathbb{Q} = \{a_1, a_2, \ldots\}$.\\
 Behauptung: $\H(a_n) = \mathbb{R}$. \\
 Beweis: Sei $\alpha \in \mathbb{R}$ und $\ep > 0$. $\alpha_n := \alpha + \frac{\ep}{n + 1}\  (n \in \mathbb{N}), \alpha_n \in U_{\ep}(\alpha)\ \forall n\in\MdN$. \\
 $2.4 \Rightarrow \exists r \in \mathbb{Q}: \alpha_2 < r < \alpha_1 $ (dann: $r \in U_{\ep}(\alpha)$)$; \exists n_1 \in \mathbb{N}: r = a_{n_1}$. \\
 Also: $a_{n_1} \in U_{\ep}(\alpha)$. $2.4 \Rightarrow \exists n_2 \in \mathbb{N}: \alpha_3 < a_{n_2} < \alpha_2$. Dann: $n_2 \neq n_1$. $2.4 \Rightarrow \exists n_3 \in \mathbb{N}: \alpha_4 < a_{n_r} < \alpha_3$ und $n_3 \neq n_2, n_3 \neq n_1$. Etc. \\
-Wir erhalten so eine Folge von Indices $(n_1, n_2, n_3, \ldots)$ in $\mathbb{N}$ mit $a_{n_k} \in U_{\ep}(\alpha)$ und $n_k \neq n_j$ f\"{u}r $k \neq j$.\\
-$\Rightarrow a_n \in U_{\ep}(\alpha)$ f\"{u}r unendlich viele $n \in \mathbb{N} \Rightarrow \alpha \in \H(a_n)$.
+Wir erhalten so eine Folge von Indices $(n_1, n_2, n_3, \ldots)$ in $\mathbb{N}$ mit $a_{n_k} \in U_{\ep}(\alpha)$ und $n_k \neq n_j$ für $k \neq j$.\\
+$\Rightarrow a_n \in U_{\ep}(\alpha)$ für unendlich viele $n \in \mathbb{N} \Rightarrow \alpha \in \H(a_n)$.
 \end{beispiele}
 
 \begin{definition}[Teilfolge]
@@ -2909,6 +2909,7 @@ Sei $f \in R[a,b]$ und $F:[a,b]\to\MdR$ sei definiert durch $F(x):=\int_a^xf(t)\
 \item $F$ ist auf $[a,b]$ Lipschitzstetig, insbesondere $F \in C[a,b]$
 \item Ist $f$ in $x_0 \in [a,b]$ stetig $\folgt F$ ist in $x_0$ differenzierbar und $F'(x_0)=f(x_0)$
 \item Ist $f \in C[a,b] \folgt F \in C^1[a,b]$ und $F'=f$ auf $[a,b]$
+\item Ist $n \in \mathbb{N}$ und $f \in C^n[a,b] \Rightarrow F \in C^{n+1}[a,b]$
 \end{liste}
 \end{satz}
 
@@ -2918,7 +2919,7 @@ Sei $f \in R[a,b]$ und $F:[a,b]\to\MdR$ sei definiert durch $F(x):=\int_a^xf(t)\
 Sei also $x_0 \in [a,b)$, $h>0$ und $x_0+h<b$. $g(h):=|\frac{F(x_0+h)-F(x_0)}{h}-f(x_0)|$.\\
 Zu zeigen: $g(h)\to 0\ (h\to0+)$.\\
 Es ist $\frac{F(x_0+h)-F(x_0)}{h}\gleichnach{s.o.}\frac{1}{h}\int_{x_0}^{x_0+h}f(t)\dt$, $\ \frac{1}{h}\int_{x_0}^{x_0+h}f(x_0)\dt=\frac{1}{h}f(x_0)h=f(x_0)\folgt g(h)=\frac{1}{h}|\int_{x_0}^{x_0+h}(f(t)-f(x_0))\dt|\overset{23.8}{\le}\frac{1}{h}\int_{x_0}^{x_0+h}|f(t)-f(x_0)|\dt;\ s(h):=\sup\{|f(t)-f(x_0)|\ :\ t \in [x_0,x_0+h]\}\folgt g(h)\le\frac{1}{h}\int_{x_0}^{x_0+h}s(h)\dt=\frac{1}{h}s(h)h=s(h)$. Also: $0\le g(h)\le s(h)$. $f$ stetig in $x_0 \folgt f(t)\to f(x_0)\ (t \to x_0) \folgt s(h)\to 0\ (h\to 0+) \folgt g(h)\to 0\ (h\to 0+)\folgt (*)$
-\item folgt aus (2)
+\item : (2) $\Rightarrow$ (3) $\Rightarrow$ (4)
 \end{beweise}
 
 \begin{satz}[Anwendung des 2. Hauptsatzes auf stetige Funktionen]
@@ -2935,7 +2936,7 @@ Im folgenden seien $I,J\subseteq\MdR$ beliebige Intervalle.
 \begin{liste}
 \item Sei $g:I\to\MdR$ und $x_0\in I$. $g(x)|_{x=x_0}:=g(x_0).$
 \item Ist $f \in R[a,b]$, so heißt $\int_a^bf(x)\dx$ auch ein \begriff{bestimmtes Integral}.
-\item Besitzt $G:I\to\MdR$ auf $I$ eine Stammfunktion, so schreibt man für eine solche auch $\int g(x)\dx$ (\begriff{unbestimmtes Integral}). "Gleichungen" der Form $\int g(x)\dx=h(x)$ gelten bis auf additive Konstanten! \textbf{Beispiel}: $\int e^x\dx=e^x, \int e^x\dx=e^x + 7$. $\int g(x)\dx=h(x)$ auf $I$ bedeutet: h ist eine Stammfunktion von $g$ auf $I$.
+\item Besitzt $G:I\to\MdR$ auf $I$ eine Stammfunktion, so schreibt man für eine solche auch $\int g(x)\dx$ (\begriff{unbestimmtes Integral}). "`Gleichungen"' der Form $\int g(x)\dx=h(x)$ gelten bis auf additive Konstanten! \textbf{Beispiel}: $\int e^x\dx=e^x, \int e^x\dx=e^x + 7$. $\int g(x)\dx=h(x)$ auf $I$ bedeutet: h ist eine Stammfunktion von $g$ auf $I$.
 \end{liste}
 \end{definition}
 
