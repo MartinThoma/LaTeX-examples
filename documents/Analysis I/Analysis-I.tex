@@ -102,7 +102,7 @@ Alle Regeln der Grundrechenarten lassen sich aus \textbf{(A1)} bis \textbf{(A9)}
 \begin{beispiele}
 \item \textbf{Behauptung:} Es gibt genau ein $0 \in \MdR$ mit $a+0 = a \ \forall a\in \MdR$.
 
-\textbf{Beweis:} Die Existenz folgt direkt aus \textbf{(A5)}. Der Beweis der Eindeutigkeit: Es sei $\tilde 0 \in \MdR$ mit $a+\tilde 0 = a \ \forall a \in \MdR$. Daraus folgt $0 + \tilde 0 = 0 \Rightarrow 0 = 0 + \tilde 0 = \tilde 0 + 0 = \tilde 0$, also $0 = \tilde 0$. \textit{(Aufgabe: Beweise die Eindeutigkeit von 1, $-a$, ...)}
+\textbf{Beweis:} Die Existenz folgt direkt aus \textbf{(A5)}. Der Beweis der Eindeutigkeit: Es sei $\tilde 0 \in \MdR$ mit $a+\tilde 0 = a \ \forall a \in \MdR$. Daraus folgt $0 + \tilde 0 = 0 \Rightarrow 0 = 0 + \tilde 0 = \tilde 0 + 0 = \tilde 0$, also $0 = \tilde 0$. \textit{(Aufgabe: Beweise die Eindeutigkeit von 1, $-a$, \dots)}
 
 \item \textbf{Behauptung:} $a \cdot 0 = 0 \ \forall a \in \MdR$
 
@@ -1481,8 +1481,6 @@ $\alpha_n = \frac{1}{\sqrt[n]{n!}}$, $0\le \alpha_n \le 1 \ \forall n\in\MdN$, $
 $\alpha = \limsup \alpha_n$. Wegen 9.3 genügt es zu zeigen: $\alpha = 0$. Annahme: $\alpha > 0$. Setze $x:= \frac{2}{\alpha}$; $a_n = \frac{x^n}{n!} \folgt \sum{a_n}$ ist konvergent. $\sqrt[n]{|a_n|} = \frac{|x|}{\sqrt[n]{n!}} = |x|\cdot\alpha_n \folgt \limsup \sqrt[n]{|a_n|} = |x|\cdot\alpha = 2>1 \folgtnach{12.3} \sum{a_n}$ ist divergent, Widerspruch!
 \end{beweis}
 
-%\newtheorem{zweianderebsp}[satz]{Zwei andere Beispiele}
-
 \begin{wichtigesbeispiel}
 Behauptung: Die Reihen $$\reihenull{(-1)^n\cdot\frac{x^{2n}}{(2n)!}} = 1-\frac{x^2}{2!}+\frac{x^4}{4!}+\ldots$$ und $$\reihenull{(-1)^n\cdot\frac{x^{2n+1}}{(2n+1)!}} = x-\frac{x^3}{3!}+\frac{x^5}{5!}-\ldots$$ konvergieren absolut für alle $x\in\MdR$.
 \begin{definition}[Kosinus und Sinus]
@@ -1803,8 +1801,8 @@ $x_0 = 2$: Sei $(x_n)$ eine Folge in $D$ mit $x_n \to 2 \folgt x_n = 2 \ffa n\in
 
 \begin{satz}[Stetigkeitssätze]
 \begin{liste}
-\item $f$ ist stetig in $x_0$ $\equizu \forall \ep > 0\  \exists \delta = \delta(\ep): |f(x)-f(x_0)|<\ep \ \forall x\in D_\delta(x_0)$.
-%D_\delta ist D geschnitten U_\delta...(siehe 16, 2. vereinbarung)
+\item $f$ ist stetig in $x_0$ $\equizu \forall \ep > 0\  \exists \delta = \delta(\ep)\colon |f(x)-f(x_0)|<\ep \ \forall x\in D_\delta(x_0)$.
+%D_\delta ist D geschnitten U_\delta \dots (siehe 16, 2. vereinbarung)
 \item Ist $x_0$ Häufungspunkt von $D$, so gilt: $f$ ist stetig in $x_0 \equizu \displaystyle\lim_{x\to x_0}f(x)$ existiert und ist gleich $f(x_0)$.
 \item Ist $g: D\to \MdR$ eine weitere Funktion und sind $f$, $g$ stetig in $x_0$, dann sind $f+g$, $fg$ und $|f|$ stetig in $x_0$.
 \item Sei $\tilde D := \{x\in D: f(x)\ne0\}$ und $x_0 \in \tilde D$ und $f$ sei stetig in $x_0$. Dann ist $\frac{1}{f}: \tilde D\to\MdR$ stetig in $x_0$.
@@ -1939,11 +1937,7 @@ Sei $I=\MdR$ und $f(x)=e^x$. Bekannt: $f \in C(\MdR)$, f ist streng monoton wach
 \[ \log x := \ln x := f^{-1}(x)\ (x \in (0, \infty))\ \text{\emph{Logarithmus}} \]
 \end{satz}
 
-\theoremstyle{nonumberbreak}
-\newtheorem{eigenschaften}[satz]{Eigenschaften}
-
 \begin{eigenschaften}
-
 
 \begin{liste}
 \item $\log 1 = 0, \log e = 1$
@@ -2098,7 +2092,7 @@ $D=[0, \infty), f(x):=x^2$. Klar: $f \in C(D)$. Annahme: $f$ ist auf $D$ gleichm
 \end{beispiel}
 
 \begin{definition}
-$f$ heißt auf $D$ \begriff{Lipschitz-stetig} $:\equizu \exists L\ge 0: \underbrace{|f(x)-f(z)|\le L|x-z|}_{(***)}\ \forall x,z \in D$
+$f$ heißt auf $D$ \begriff{Lipschitz-stetig} $:\equizu \exists L\ge 0\colon \underbrace{|f(x)-f(z)|\le L|x-z|}_{(***)}\ \forall x,z \in D$
 \end{definition}
 
 \begin{satz}[Stetigkeitsstätze]
@@ -2476,11 +2470,23 @@ Dann: $\sum_{k=0}^\infty \frac{f^{(k)}(0)}{k!}x^k = 0 \ne f(x) \ \forall x\in\Md
 \end{beispiele}
 
 \begin{definition}
-Sei $n\in\MdN_0$, $f\in C^n(I)$ und $x_0 \in I$. $T_n(x;x_0) := \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$ heißt das \begriff{Taylorpolynom} von $f$.
+Sei $n\in\MdN_0$, $f\in C^n(I)$ und $x_0 \in I$. $T_n(x;x_0) := \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$ 
+heißt das \begriff{k-te Taylorpolynom} von $f$ vom Grad $\leq k$.
 \end{definition}
 
+\begin{eigenschaftenNoCounter}
+\begin{enumerate}
+    \item $p$ ist ein Polynom vom Grad $\leq n$ und es gilt: 
+          $p^{(k)}(x_0) = f^{(k)}(x_0)$ für $k=0, 1, \dots, n$
+    \item Ist $q$ ein Polynom vom Grad $\leq n$ und gilt $q^{(k)} (x_0) = f^{(k)} (x_0)$
+          für $k=0, 1, \dots, n$, so ist $p=q$.
+    \item Ist $f \in C^\infty(1)$, so ist $T_n(x, x_0)$ die n-te 
+          Teilsumme der Taylorreihe $f$ (in $x_0$).
+\end{enumerate}
+\end{eigenschaftenNoCounter}
+
 \begin{satz}[Satz von Taylor]
-Voraussetzungen wie in obiger Definition. Weiter sei $f$ $n+1$-mal differenzierbar auf $I$ und $x\in I$. Dann existiert ein $\xi$ zwischen $x$ und $x_0$ mit:
+Voraussetzungen wie in obiger Definition. Weiter sei $f\ (n+1)$-mal differenzierbar auf $I$ und $x\in I$. Dann existiert ein $\xi$ zwischen $x$ und $x_0$ mit:
 $$ f(x) = T_n(x;x_0) + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$$
 \end{satz}
 
@@ -2558,8 +2564,7 @@ Bekannt: $f \in C^\infty(\MdR),\ f^{(n)}(0) = 0\ \forall n \in \MdN_0.\ f(x) \ge
 \end{beispiel}
 
 
-\theoremstyle{nonumberbreak}
-\newtheorem{merkregel}{Merkregel}
+
 
 \chapter{Das Riemann-Integral}
 
@@ -3261,8 +3266,6 @@ $L:=\sup\{|f'(x)|:x\in[a,b]\}$. Sei $x,y\in[a,b]$, etwa $x\le y$. $|f(x)-f(y)|=|
 
 \def\intab*{\int_a^b}
 \chapter{Das Riemann-Stieltjes-Integral}
-\theoremstyle{nonumberbreak}
-\newtheorem{bezeichnungen}{Bezeichnungen}
 
 Stets in diesem Paragraphen: $f,g:[a,b] \to \MdR$ beschränkt. RS := Riemann-Stieltjes.
 
