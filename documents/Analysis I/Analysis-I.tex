@@ -2088,7 +2088,7 @@ Sei $f \in C(D), x_0 \in D$ und $\ep>0$. 17.1 $\folgt \exists \delta=\delta(\ep,
 \end{erinnerung}
 
 \begin{definition}
-$f$ heißt auf $D$ \begriff{gleichmäßig stetig} $:\equizu\ \forall \ep>0\ \exists \delta=\delta(\ep)>0: (**)\ |f(x)-f(z)| < \ep\ \forall x,z \in D$ mit $|x-z|<\delta.$
+$f$ heißt auf $D$ \begriff{gleichmäßig stetig} \\$:\equizu\ \forall \ep>0\ \exists \delta=\delta(\ep)>0\colon \underbrace{|f(x)-f(z)| < \ep\ \forall x,z \in D \text{ mit } |x-z|<\delta}_{**}$.
 \end{definition}
 
 \textbf{Beachte:} Ist $f$ gleichmäßig stetig auf $D \folgt f \in C(D)$; Die Umkehrung ist im allgemeinen falsch.
@@ -2098,12 +2098,12 @@ $D=[0, \infty), f(x):=x^2$. Klar: $f \in C(D)$. Annahme: $f$ ist auf $D$ gleichm
 \end{beispiel}
 
 \begin{definition}
-$f$ heißt auf $D$ \begriff{Lipschitz stetig} $:\equizu \exists L\ge 0: \underbrace{|f(x)-f(z)|\le L|x-z|}_{(***)}\ \forall x,z \in D$
+$f$ heißt auf $D$ \begriff{Lipschitz-stetig} $:\equizu \exists L\ge 0: \underbrace{|f(x)-f(z)|\le L|x-z|}_{(***)}\ \forall x,z \in D$
 \end{definition}
 
 \begin{satz}[Stetigkeitsstätze]
 \begin{liste}
-\item Ist $f$ auf $D$ Lipschitz stetig $\folgt f$ ist auf $D$ gleichmäßig stetig
+\item Ist $f$ auf $D$ Lipschitz-stetig $\folgt f$ ist auf $D$ gleichmäßig stetig
 \item Ist $D$ beschränkt und abgeschlossen und $f\in C(D) \folgt f$ ist auf D gleichmäßig stetig (\textbf{Satz von Heine}\indexlabel{Heine, Satz von}).
 \end{liste}
 \end{satz}
@@ -2745,7 +2745,7 @@ $$(g\circ f)(x) = \begin{cases}1, &x\in Q\cap[0,1] \\ 0, & x \in [0,1]\backslash
 \end{beispiel}
 
 \begin{satz}[Integration von verketteten Funktionen]
-Es sei $f\in R[a,b]$, $D := f([a,b])$ und $h: D \to R$ sei Lipschitzstetig auf $D$. Dann: $h\circ f \in R[a,b]$
+Es sei $f\in R[a,b]$, $D := f([a,b])$ und $h: D \to R$ sei Lipschitz-stetig auf $D$. Dann: $h\circ f \in R[a,b]$
 \end{satz}
 
 \begin{beweis}
@@ -2900,7 +2900,10 @@ Sei $f \in R[a,b]$ und $F:[a,b]\to\MdR$ sei definiert durch $F(x):=\int_a^xf(t)\
 
 \begin{beweise}
 \item $L:=\sup\{|f(x)| : x \in [a,b]\}$. Sei $x,y \in [a,b]$, etwa $x\le y$. $F(y)=\int_a^yf(t)\dt\gleichnach{23.9}\int_a^xf(t)\dt + \int_x^yf(t)\dt=F(x)+\int_x^yf(t)\dt\folgt F(y)-F(x)=\int_x^yf(t)\dt\folgt |F(y)-F(x)|=|\int_x^yf(t)\dt|\overset{23.8}{\le}\int_x^y\underbrace{|f(t)|}_{\le L}\dt\le\int_x^yL\dt=L(y-x)=L|y-x|$
-\item Sei $x_0 \in [a,b)$. Wir zeigen: $(*) \displaystyle\lim_{h\to 0+}\frac{F(x_0+h)-F(x_0)}{h}=f(x_0)$ (analog zeigt man für $x_0 \in (a,b]\ :\ \displaystyle\lim_{h\to0-}\frac{F(x_0+h)-F(x_0)}{h}=f(x_0)$) Sei also $x_0 \in [a,b)$, $h>0$ und $x_0+h<b$. $g(h):=|\frac{F(x_0+h)-F(x_0)}{h}-f(x_0)|$. Zu zeigen: $g(h)\to 0\ (h\to0+)$. Es ist $\frac{F(x_0+h)-F(x_0)}{h}\gleichnach{s.o.}\frac{1}{h}\int_{x_0}^{x_0+h}f(t)\dt$, $\ \frac{1}{h}\int_{x_0}^{x_0+h}f(x_0)\dt=\frac{1}{h}f(x_0)h=f(x_0)\folgt g(h)=\frac{1}{h}|\int_{x_0}^{x_0+h}(f(t)-f(x_0))\dt|\overset{23.8}{\le}\frac{1}{h}\int_{x_0}^{x_0+h}|f(t)-f(x_0)|\dt;\ s(h):=\sup\{|f(t)-f(x_0)|\ :\ t \in [x_0,x_0+h]\}\folgt g(h)\le\frac{1}{h}\int_{x_0}^{x_0+h}s(h)\dt=\frac{1}{h}s(h)h=s(h)$. Also: $0\le g(h)\le s(h)$. $f$ stetig in $x_0 \folgt f(t)\to f(x_0)\ (t \to x_0) \folgt s(h)\to 0\ (h\to 0+) \folgt g(h)\to 0\ (h\to 0+)\folgt (*)$
+\item Sei $x_0 \in [a,b)$. Wir zeigen: $(*) \displaystyle\lim_{h\to 0+}\frac{F(x_0+h)-F(x_0)}{h}=f(x_0)$ (analog zeigt man für $x_0 \in (a,b]\ \colon \displaystyle\lim_{h\to0-}\frac{F(x_0+h)-F(x_0)}{h}=f(x_0)$).\\
+Sei also $x_0 \in [a,b)$, $h>0$ und $x_0+h<b$. $g(h):=|\frac{F(x_0+h)-F(x_0)}{h}-f(x_0)|$.\\
+Zu zeigen: $g(h)\to 0\ (h\to0+)$.\\
+Es ist $\frac{F(x_0+h)-F(x_0)}{h}\gleichnach{s.o.}\frac{1}{h}\int_{x_0}^{x_0+h}f(t)\dt$, $\ \frac{1}{h}\int_{x_0}^{x_0+h}f(x_0)\dt=\frac{1}{h}f(x_0)h=f(x_0)\folgt g(h)=\frac{1}{h}|\int_{x_0}^{x_0+h}(f(t)-f(x_0))\dt|\overset{23.8}{\le}\frac{1}{h}\int_{x_0}^{x_0+h}|f(t)-f(x_0)|\dt;\ s(h):=\sup\{|f(t)-f(x_0)|\ :\ t \in [x_0,x_0+h]\}\folgt g(h)\le\frac{1}{h}\int_{x_0}^{x_0+h}s(h)\dt=\frac{1}{h}s(h)h=s(h)$. Also: $0\le g(h)\le s(h)$. $f$ stetig in $x_0 \folgt f(t)\to f(x_0)\ (t \to x_0) \folgt s(h)\to 0\ (h\to 0+) \folgt g(h)\to 0\ (h\to 0+)\folgt (*)$
 \item folgt aus (2)
 \end{beweise}
 
@@ -3062,7 +3065,7 @@ $\folgt \sigma_f(Z_n,\xi^{(n)}) \to S\ (n \to \infty)$.
 
 \zurueck Sei $\ep > 0$ und $(Z_n)$ eine Folge in $\Z$ mit $|Z_n| \to 0.$ Wie im Beweis von 23.12: $\forall n \in \MdN\ \exists \xi^{(n)},\eta^{(n)}$ passend zu $Z_n$ mit: $$S_f(Z_n) - \ep < \sigma_f(Z_n,\xi^{(n)});\ \sigma(Z_n,\eta^{(n)}) < s_f(Z_n) + \ep$$
 
-Aus 23.18(3) folgt für $n \to \infty:\ \ointab{f} - \ep \le S \le \uintab{f} + \ep\ \forall \ep > 0 \folgtwegen{\ep \to 0+} \ointab{f} \le S \le \uintab{f} \folgt f \in R[a,b]$ und $\intab{f} = S$.
+Aus 23.18(3) folgt für $n \to \infty \colon \ointab{f} - \ep \le S \le \uintab{f} + \ep\ \forall \ep > 0 \folgtwegen{\ep \to 0+} \ointab{f} \le S \le \uintab{f} \folgt f \in R[a,b]$ und $\intab{f} = S$.
 \end{description}
 \end{beweis}
 
@@ -3205,7 +3208,7 @@ $f \in C[0,1]$. Sei $n\in\MdN.\ Z_n:=\{0,\frac{1}{n},\frac{1}{n-1},\frac{1}{n-2}
 \end{beispiel}
 
 \begin{hilfssatz}
-Sei $f:[a,b]\to\MdR$ differenzierbar auf $[a,b]$ und $f'$ sei auf $[a,b]$ beschränkt. Dann ist $f$ auf $[a,b]$ Lipschitzstetig.
+Sei $f:[a,b]\to\MdR$ differenzierbar auf $[a,b]$ und $f'$ sei auf $[a,b]$ beschränkt. Dann ist $f$ auf $[a,b]$ Lipschitz-stetig.
 \end{hilfssatz}
 
 \begin{beweis}
@@ -3215,7 +3218,7 @@ $L:=\sup\{|f'(x)|:x\in[a,b]\}$. Sei $x,y\in[a,b]$, etwa $x\le y$. $|f(x)-f(y)|=|
 \begin{satz}[Varianzeigenschaften]
 \begin{liste}
 \item Ist $f \in\BV[a,b]\folgt f$ ist beschränkt auf $[a,b]$.
-\item Ist $f$ auf $[a,b]$ Lipschitzstetig $\folgt f\in\BV[a,b]$.
+\item Ist $f$ auf $[a,b]$ Lipschitz-stetig $\folgt f\in\BV[a,b]$.
 \item Ist $f$ differenzierbar auf $[a,b]$ und $f'$ beschränkt auf $[a,b]\folgt f\in\BV[a,b]$
 \item $C^1[a,b]\subseteq \BV[a,b]$
 \item Ist $f$ monoton auf $[a,b]\folgt f\in\BV[a,b]$ und $V_f[a,b]=|f(b)-f(a)|$

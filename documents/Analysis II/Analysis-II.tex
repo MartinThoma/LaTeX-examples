@@ -60,7 +60,7 @@ erstellt einen Fork und kann direkt Änderungen umsetzen.
 \chapter{Der Raum $\MdR^n$}
 
 Sei $n\in\MdN$. $\MdR^n=\{(x_1, \ldots, x_n) : x_1,\ldots, x_n \in \MdR\}$ ist mit der üblichen Addition und Skalarmultiplikation ein reeller Vektorraum.\\
-$e_1:=(1,0,\ldots,0),\ e_2:=(0,1,0,\ldots, 0),\ \ldots,\ e_n:=(0,\ldots,0,1) \in \MdR^n$.
+$e_1 := (1,0,\ldots,0),\ e_2:=(0,1,0,\ldots, 0),\ \ldots,\ e_n:=(0,\ldots,0,1) \in \MdR^n$.
 
 \begin{definition}
 Seien $x=(x_1, \ldots, x_n), y=(y_1, \ldots, y_n) \in \MdR^n$
@@ -1858,8 +1858,8 @@ In Analysis III werden wir für gewisse Mengen $A\subseteq\MdR^n$ und gewisse Fu
 $f:A\to\MdR$ folgendes Integral definieren:
 \[\int_A f(x)\text{d}x=\int_A f(x_1,\ldots,x_n)\text{ d}(x_1,\ldots,x_n)\]
 In diesem Paragraphen geben wir "`Kochrezepte"' an, wie man solche Integrale
-für spezielle Mengen $A\subset\MdR^2$ (bzw. $A\subset\MdR^3$) und stetige Funktionen
-$f:A\to\MdR$ berechnen kann.
+für spezielle Mengen $A \subseteq \MdR^2$ (bzw. $A \subseteq \MdR^3$) 
+und stetige Funktionen $f:A \to \MdR$ berechnen kann.
 
 \renewcommand{\theenumi}{\Roman{enumi}}
 \renewcommand{\labelenumi}{\theenumi}
@@ -1942,7 +1942,7 @@ Normalbereiche bzgl der $x$-$z$- und $y$-$z$-Ebene werden analog definiert.
 \end{definition}
 
 \begin{satz}[Integral über Normalbereiche im $\MdR^3$]
-Sei $B$ wie oben und $f:B\to\MdR$ stetig, dann gilt:
+Sei $B, g_1, g_2$ wie oben und $f:B\to\MdR$ stetig, dann gilt:
 \[\int_B f(x,y,z) \text{ d}(x,y,z) = \int_A\left(\int_{g_1(x,y)}^{g_2(x,y)} f(x,y,z) \text{ d}z\right)\text{ d}(x,y)\]
 \end{satz}
 
@@ -1957,7 +1957,7 @@ heißt \textbf{Volumen} von $B$.
 \end{definition}
 
 \begin{beispiele}
-\item[(1)] Sei $B:=[a,b]\times[c,d]\times[\alpha,\beta]$, dann gilt:
+\item[(1)] Sei $B:=\overbrace{[a,b]\times[c,d]}^{:= A}\times[\alpha,\beta]$, dann gilt:
 \begin{align*}
 \int_B f(x,y,z) \text{ d}(x,y,z) &= \int_A\left(\int_\alpha^\beta f(x,y,z) \text{ d}z\right)\text{ d}(x,y)\\
 &=\int_a^b\left(\int_c^d\left(\int_\alpha^\beta f(x,y,z) \text{ d}z\right)\text{ d}y\right)\text{ d}x
@@ -2082,8 +2082,8 @@ Seien $z,w\in\MdC, z=x+iy$ mit $x,y\in\MdR$. Es gilt:
 \item $e^{iy}=\cos y+i\sin y$, insbesondere ist: $|e^{iy}|=1$
 \item $e^z=e^x e^{iy}=e^x(\cos y+i\sin y)$
 \item $ \cos (z)=\frac{e^{iz}+e^{-iz}}{2}, \sin (z)=\frac{e^{iz}-e^{-iz}}{2i}$\\
-Insbesondere ist für alle $t\in\MdR: \cos(it)=\frac{e^{-t}+e^t}{2}, 
-\sin(it)=\frac{e^{-t}-e^t}{2i}$\\
+Insbesondere ist für alle $t\in\MdR: \cos(it)=\frac{e^{-t}+e^t}{2} \xrightarrow{t \rightarrow \infty} \infty, 
+\sin(it)=\frac{e^{-t}-e^t}{2i} \xrightarrow{t \rightarrow \infty} - \infty$\\
 Also sind Cosinus und Sinus auf $\MdC$ \textbf{nicht} beschränkt.
 \item $\forall k\in\MdZ:e^{z+2\pi i k}=e^z$
 \item $e^z=1 \iff \exists k\in\MdZ:z=2k\pi i$
@@ -2099,9 +2099,10 @@ Also sind Cosinus und Sinus auf $\MdC$ \textbf{nicht} beschränkt.
 \item Es gilt:
 \begin{align*}
 e^{z+2k\pi i} &\stackrel{(1)}{=}e^ze^{2k\pi i}\\
-&\stackrel{(2)}{=}e^z(\cos(2k\pi)+i\sin(2k\pi))\\
+&\stackrel{(2)}{=}e^z(\underbrace{\cos(2k\pi)}_{=1}+i\underbrace{\sin(2k\pi)}_{=0})\\
 &= e^z
 \end{align*}
+$\Rightarrow e^z$ ist auf $\mathbb{C}$ nicht injektiv!
 \item
 Die Äquivalenz folgt aus Implikation in beiden Richtungen:
 \begin{enumerate}
