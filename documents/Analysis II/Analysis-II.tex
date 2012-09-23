@@ -1287,32 +1287,58 @@ Differentiation nach $y$: $0=1+g_y(x,y)+\frac{1}{x+g(x,y)}g_y(x,y)\ \forall (x,y
 
 \begin{definition}
 \indexlabel{Einschränkung einer Funktion}
-Seien $M,N$ Mengen $\ne \emptyset,\ f:M\to N$ eine Funktion und $\emptyset \ne T \subseteq M$. Die Funktion $f_{|_T}: T \to N,\ f_{|_T}(x) := f(x)\ \forall x \in T$ heißt die \textbf{Einschränkung} von $f$ auf $T$.
+Seien $M,N$ Mengen $\ne \emptyset,\ f:M\to N$ eine Funktion und 
+$\emptyset \ne T \subseteq M$. Die Funktion 
+$f_{|_T}: T \to N,\ f_{|_T}(x) := f(x)\ \forall x \in T$ heißt die 
+\textbf{Einschränkung} von $f$ auf $T$.
 \end{definition}
 
 In diesem Paragraphen gelte stets: $\emptyset \ne D \subseteq \MdR^n,\ D$ offen, $f \in C^1(D,\MdR),\ p \in \MdN,\ p<n$ und $\varphi = (\varphi_1,\ldots,\varphi_p) \in C^1(D,\MdR^p)$. Es sei $T:=\{x\in D: \varphi(x) = 0\} \ne \emptyset.$
 
 \begin{definition}
-\indexlabel{lokal!Extremum unter einer Nebenbedingung}
-$f$ hat in $x_0\in D$ ein \textbf{lokales Extremum unter der Nebenbedingung $\varphi = 0$} $:\equizu x_0 \in T$ und $f_{|_T}$ hat in $x_0$ ein lokales Extremum.
+    \indexlabel{lokal!Extremum unter einer Nebenbedingung}
+    $f$ hat in $x_0\in D$ ein \textbf{lokales Extremum unter der Nebenbedingung 
+    $\varphi = 0$} $:\equizu x_0 \in T$ und $f_{|_T}$ hat in $x_0$ ein lokales Extremum.
 \end{definition}
 
-Wir führen folgende Hilfsfunktion ein: Für $x=(x_1,\ldots,x_n) \in D$ und $\lambda = (\lambda_1,\ldots,\lambda_p) \in \MdR^p$ gilt: $$H(x,\lambda) := f(x) + \lambda\cdot\varphi(x) = f(x) + \lambda_1\varphi_1(x) + \cdots + \lambda_p\varphi_p(x)$$
+Wir führen folgende Hilfsfunktion ein: Für $x=(x_1,\ldots,x_n) \in D$ und 
+$\lambda = (\lambda_1,\ldots,\lambda_p) \in \MdR^p$ gilt: 
+\[ H(x,\lambda) := f(x) + \lambda\cdot\varphi(x) = f(x) + \lambda_1\varphi_1(x) + \cdots + \lambda_p\varphi_p(x)\]
 
-Es ist $$H_{x_j} = f_{x_j} + \lambda_1\frac{\partial\varphi_1}{\partial x_j} + \cdots +\lambda_p\frac{\partial\varphi_p}{\partial x_j}\ (j=1,\ldots,n),\ H_{\lambda_j} = \varphi_j$$
+Es ist 
+\[ H_{x_j} = f_{x_j} + \lambda_1\frac{\partial\varphi_1}{\partial x_j} + \cdots +\lambda_p\frac{\partial\varphi_p}{\partial x_j}\ (j=1,\ldots,n),\ H_{\lambda_j} = \varphi_j ~~~ (j = 1, \dots, p)\]
 
 Für $x_0 \in D$ und $\lambda_0 \in \MdR^p$ gilt:
 
-$H'(x_0,\lambda_0) = 0 \equizu f'(x_0) + \lambda_0\varphi'(x_0) = 0$ und $\varphi(x_0) = 0$\\
-$\equizu f'(x_0) + \lambda_0\varphi'(x_0) = 0$ und $x_0 \in T$ (I)
+$H'(x_0,\lambda_0) = 0 \equizu f'(x_0) + \lambda_0\varphi'(x_0) = 0$. Außerdem gilt:\\
+$\varphi(x_0) = 0 \equizu f'(x_0) + \lambda_0\varphi'(x_0) = 0$ und $x_0 \in T$ (I)
 
 \begin{satz}[Multiplikationenregel von Lagrange]
-\indexlabel{Multiplikator}
-$f$ habe in $x_0\in D$ eine lokales Extremum unter der Nebenbedingung $\varphi=0$ und es sei Rang $\varphi'(x_0) = p$. Dann existiert ein $\lambda_0 \in \MdR^p$ mit: $H'(x_0,\lambda_0) = 0$ ($\lambda_0$ heißt \textbf{Multiplikator}).
+    \indexlabel{Multiplikator}
+    $f$ habe in $x_0\in D$ eine lokales Extremum unter der Nebenbedingung 
+    $\varphi=0$ und es sei Rang $\varphi'(x_0) = p$. Dann existiert ein 
+    $\lambda_0 \in \MdR^p$ mit: $H'(x_0,\lambda_0) = 0$ ($\lambda_0$ heißt \textbf{Multiplikator}).
 \end{satz}
 
+\begin{beispiel}
+    \begin{align*}
+        f(x, y)       &:= x^2 + y^2\\
+        \varphi(x, y) &:= x + y -1\\
+    \end{align*}
+    (Also $n=2, p=1$), $\varphi(x,y)' = (1,1)$, $\text{Rang } \varphi(x,y)' = 1$\\
+    $H(\uwave{x,y}, \lambda) = x^2 + y^2 + \lambda (x+y-1)$\\
+    \begin{align*}
+        H_x       &= 2x + \lambda \stackrel{!}{=} 0\\
+        H_y       &= 2y + \lambda \stackrel{!}{=} 0\\
+        H_\lambda &= x+y-1 \stackrel{!}{=} 0\\
+    \end{align*}
+    $\Rightarrow x=y \Rightarrow 2x-1 = 0 \Rightarrow x = y = \frac{1}{2}$.\\
+    Extremwertverdächtig: $(\frac{1}{2}, \frac{1}{2})$
+\end{beispiel}
+
 \begin{folgerung}
-$T$ sei beschränkt und abgeschlossen. Wegen 3.3 gilt: $\exists a,b \in T: f(a) = \max f(T),\ f(b) = \min f(T).$ Ist Rang $\varphi'(\underset{b}{a}) = p \folgt \exists \lambda_0 \in \MdR^p: H'(\underset{b}{a},\lambda_0) = 0$.
+$T$ sei kompakt \folgtwegen{3.3} $\exists a,b \in T: f(a) = \max f(T),\ f(b) = \min f(T).$ 
+Ist Rang $\varphi'(\underset{b}{a}) = p \folgt \exists \lambda_0 \in \MdR^p: H'(\underset{b}{a},\lambda_0) = 0$.
 \end{folgerung}
 
 \begin{beweis}
@@ -1883,7 +1909,7 @@ und stetige Funktionen $f:A \to \MdR$ berechnen kann.
 \indexlabel{Normalbereich}
 Es sei $[a,b]\subset\MdR$, $h_1,h_2\in C[a,b]$ und $h_1\le h_2$ auf $[a,b]$.
 \[A:=\Set{(x,y)\in\MdR^2 | x\in[a,b],h_1(x)\le y\le h_2(x)}\]
-\[\left(A:=\Set{(x,y)\in\MdR^2\mid y\in[a,b],h_1(y)\le x\le h_2(y)}\right)\]
+\[\left(A:=\Set{(x,y)\in\MdR^2 | y\in[a,b],h_1(y)\le x\le h_2(y)}\right)\]
 heißt \textbf{Normalbereich} bezüglich der $x$-Achse ($y$-Achse).\\
 \textbf{Übung:} $A$ ist kompakt.
 \end{definition*}
@@ -1919,7 +1945,7 @@ Ist z.B. $h_1=0$, so folgt:
 \int_A f(x,y)\text{d}(x,y) &= \int_a^b\left(\int_c^d f(x,y)\text{ d}y\right)\text{ d}x\\
 &= \int_c^d\left(\int_a^b f(x,y)\text{ d}x\right)\text{ d}y
 \end{align*}
-\item[(3)] Sei $r>0$ und $A:=\{(x,y)\in\MdR^2\mid x^2+y^2\le r^2\}$. Dann ist
+\item[(3)] Sei $r>0$ und $A:=\Set{(x,y)\in\MdR^2 | x^2+y^2\le r^2}$. Dann ist
 $A$ ein Normalbereich der $x$-Achse mit $h_1(x):=\sqrt{r^2-x^2}$ und $h_2(x):=-\sqrt{r^2-x^2}$
 (mit $x\in[-r,r]$), und es gilt:
 \begin{align*}
@@ -1927,7 +1953,7 @@ $A$ ein Normalbereich der $x$-Achse mit $h_1(x):=\sqrt{r^2-x^2}$ und $h_2(x):=-\
 &=\int_{-r}^r 2\sqrt{r^2-x^2}\text{ d}x\\
 &=\pi r^2
 \end{align*}
-\item[(4)] Sei $A:=\{(x,y)\in\MdR^2\mid x\in[0,1],x\le y\le \sqrt x\}$ und $f(x,y)=xy$.
+\item[(4)] Sei $A:=\Set{(x,y)\in\MdR^2 | x\in[0,1],x\le y\le \sqrt x}$ und $f(x,y)=xy$.
 Dann gilt für $h_1(x)=x$ und $h_2(x)=\sqrt x$:
 \begin{align*}
 \int_A xy\text{ d}(x,y) &= \int_0^1\left(\int_x^{\sqrt x} xy\text{ d}y\right)\text{ d}x\\
@@ -1935,7 +1961,7 @@ Dann gilt für $h_1(x)=x$ und $h_2(x)=\sqrt x$:
 &= \int_0^1 \frac12x^2 -\frac12x^3\text{ d}x\\
 &= \frac12\left[\frac13 x^3-\frac14 x^4\right]_0^1 = \frac1{24}
 \end{align*}
-Da $A=\{(x,y)\in\MdR^2\mid y\in[0,1],y^2\le x\le y\}$ außerdem Normalbereich bzgl. der 
+Da $A=\Set{(x,y)\in\MdR^2 | y\in[0,1],y^2\le x\le y}$ außerdem Normalbereich bzgl. der 
 $y$-Achse ist, gilt:
 \begin{align*}
 \int_A f(x,y)\text{ d}y &= \int_0^1\left(\int_{y^2}^y xy \text{ d}x\right)\text{ d}y\\
@@ -1949,7 +1975,7 @@ $y$-Achse ist, gilt:
 \begin{definition}
 Sei $A\subseteq\MdR^2$ ein Normalbereich bzgl. der $x$- oder der $y$-Achse,
 es seien $g_1,g_2:A\to\MdR$ stetig und $g_1\le g_2$ auf $A$.
-\[B:=\{(x,y,z)\in\MdR^3\mid (x,y)\in A, g_1(x,y)\le z\le g_2(x,y)\}\]
+\[B:=\Set{(x,y,z)\in\MdR^3 | (x,y)\in A, g_1(x,y)\le z\le g_2(x,y)}\]
 heißt ein \textbf{Normalbereich} bezüglich der $x$-$y$-Ebene.
 Normalbereiche bzgl der $x$-$z$- und $y$-$z$-Ebene werden analog definiert.
 \end{definition}
@@ -1976,8 +2002,8 @@ heißt \textbf{Volumen} von $B$.
 &=\int_a^b\left(\int_c^d\left(\int_\alpha^\beta f(x,y,z) \text{ d}z\right)\text{ d}y\right)\text{ d}x
 \end{align*}
 Dabei darf die Integrationsreihenfolge beliebig vertauscht werden.
-\item[(2)] Sei $B:=\{(x,y,z)\in\MdR^3\mid x^2+y^2\le 1, 0\le z\le h\}$ für ein
-$h>0$. Dann setze $A:=\{(x,y)\in\MdR^2\mid x^2+y^2\le 1\}, g_1=0, g_2=h$. Es gilt:
+\item[(2)] Sei $B:=\Set{(x,y,z)\in\MdR^3 | x^2+y^2\le 1, 0\le z\le h}$ für ein
+$h>0$. Dann setze $A:=\Set{(x,y)\in\MdR^2 | x^2+y^2\le 1}, g_1=0, g_2=h$. Es gilt:
 \begin{align*}
 |B|&= \int_A h\text{ d}(x,y)\\
 &= h \int_A 1 \text{ d}(x,y)\\
@@ -2260,7 +2286,7 @@ von $(x_n)$.
 \item $(x_n)$ heißt genau dann eine \textbf{Cauchyfolge} (CF), wenn gilt:
 \[\forall\ep>0 \exists n_0=n_0(\ep)\in\MdN:\|x_n-x_m\|<\ep\quad \forall n,m\ge n_0\]
 \item Sei $x_0\in X$ und $\delta>0$. Definiere:
-\[U_\delta(x):=\{x\in X\mid \|x-x_0\|<\delta\}\]
+\[U_\delta(x):=\Set{x\in X | \|x-x_0\|<\delta}\]
 \item Sei $A\subseteq X$. $A$ heißt \textbf{offen}, genau dann wenn gilt:
 \[\forall x\in A\exists \delta=\delta(x)>0: U_\delta(x)\subseteq A\]
 A heißt \textbf{abgeschlossen}, genau dann wenn $X\setminus A$ offen ist.
@@ -2417,7 +2443,7 @@ $y$ auf $I$ $n$-mal db, für alle $x\in I, (x,y(x),\ldots,y^{(n)}(x))\in D$ ist 
 \end{definition}
 
 \begin{beispiele}
-\item Sei $n=p=1$, $F(x,y,z)=z+\frac yx$ und $D=\{(x,y,z)\in\MdR^3\mid x\ne 0\}$, dann ist die
+\item Sei $n=p=1$, $F(x,y,z)=z+\frac yx$ und $D=\Set{(x,y,z)\in\MdR^3 | x\ne 0}$, dann ist die
 zugehörige Dgl:
 \[y'+\frac yx =0\]
 Z.B. ist $y:(0,\infty)\to\MdR, y(x)=\frac1x$ eine Lösung der Dgl.\\
@@ -2550,7 +2576,7 @@ y'=\sin(x)y\\
 y(0)=1
 \end{cases}\]
 Die allgemeine Lösung der homogenen Gleichung $y'=\sin(x)y$ ist für $c\in\MdR$:
-\[y(x)=c\cdot e^{-\cos(x)}\]
+\[\importantbox{y(x)=c\cdot e^{-\cos(x)}}\]
 Außerdem gilt:
 \[1=y(0)=c\cdot e^{-\cos(0)}=\frac ce\]
 Also folgt $c=e$ und damit ist die Lösung des AwP $y(x)=e^{1-\cos(x)}$.
@@ -2569,11 +2595,12 @@ y_s'(x)&=c'(x)\cdot e^{A(x)}+c(x)\cdot e^{A(x)}\cdot a(x)\\
 &\stackrel{!}{=}a(x)y_s(x)+s(x)\\
 &=a(x)c(x)\cdot e^{A(x)}+s(x)
 \end{align*}
-Dies ist equivalent dazu, dass gilt:
+Dies ist äquivalent dazu, dass gilt:
+
 \begin{align*}
 &c'(x)\cdot e^{A(x)}=s(x)\\
 \iff &c'(x)=s(x)\cdot e^{-A(x)}\\
-\iff &c(x)=\int s(x)\cdot e^{-A(x)}\text{ d}x
+\iff &\importantbox{c(x)=\int s(x)\cdot e^{-A(x)}\text{ d}x}
 \end{align*}
 Ist also $c$ eine Stammfunktion von $s\cdot e^{-A}$, so ist $y_s(x):=c(x)\cdot e^{A(x)}$
 eine Lösung von (IH). Insbesondere besitzt (IH) auf $I$ Lösungen.
@@ -2591,10 +2618,10 @@ Dann ist $y_s(x)=-e^{\cos(x)}\cdot e^{-\cos(x)}=-1$.
 \begin{definition}
 Definiere die Lösungsmengen:
 \begin{align*}
-L_H&:=\{y:I\to\MdR\mid y\text{ ist eine Lösung von (H)}\}\\
-L_{IH}&:=\{y:I\to\MdR\mid y\text{ ist eine Lösung von (IH)}\}
+    L_H   &:=\Set{y:I\to\MdR | y\text{ ist eine Lösung von (H)} }\\
+    L_{IH}&:=\Set{y:I\to\MdR | y\text{ ist eine Lösung von (IH)}}
 \end{align*}
-16.1$\implies$ $L_H=\{c\cdot e^{A}\mid c\in \MdR\}$. Bekannt: $L_{IH}\ne\emptyset$.
+16.1$\implies$ $L_H=\Set{c\cdot e^{A} | c\in \MdR}$. Bekannt: $L_{IH}\ne\emptyset$.
 \end{definition}
 
 \begin{satz}[Lösungen]
@@ -2648,7 +2675,7 @@ Die Differentialgleichung:
 \begin{align*}
 y'=f(x)g(y)\tag{i}
 \end{align*}
-heißt \textbf{Dgl. mit getrennten Veränderlichen}.\\
+heißt \textbf{Differentialgleichung mit getrennten Veränderlichen}.\\
 Wir betrachten auch noch das
 \begin{align*}
 \text{AwP}
@@ -2661,7 +2688,7 @@ y(x_0)=y_0
 \end{definition}
 
 \begin{satz}[Lösungen]
-Sei $y_0\in J^0$ (also ein innerer Punkt von $J$) \textbf{und} $g(y)\ne 0\ \forall y\in J$.
+Sei $y_0\in J^0$ (also ein innerer Punkt von $J$) \textbf{und} $g(y)\ne 0\ \forall y\in J$.\\
 Dann existiert ein Intervall $I_{x_0}$ mit $x_0\in I_{x_0}\subseteq I$ und:
 \begin{enumerate}
 \item Das AwP (ii) hat eine Lösung $y:I_{x_0}\to\MdR$.
@@ -2692,7 +2719,7 @@ y_0\in J^0&\implies 0=G(y_0)\in K^0\\
 Da $F$ stetig in $x_0$ ist, existiert ein $\delta>0$ mit: 
 \[|F(x)|=|F(x)-F(x_0)|<\ep \quad \forall x\in U_\delta(x_0)\cap I=:M_0\]
 $M_0$ ist ein Intervall, $x_0\in M_0\subseteq I$ und $F(M_0)\subseteq K$. Sei
-\[\mathfrak{M}:=\{M\subseteq I\mid M \text{ ist Intervall},x_0\in M,F(M)\subseteq K\}\] 
+\[\mathfrak{M}:=\Set{M\subseteq I | M \text{ ist Intervall},x_0\in M,F(M)\subseteq K}\] 
 Da $M_0\in\mathfrak{M}$ ist, ist $\mathfrak{M}\ne\emptyset$. Sei
 \[I_{x_0}:=\bigcup_{M\in\mathfrak{M}} M\]
 dann ist $I_{x_0}\in\mathfrak{M}$. Definiere nun $y:I_{x_0}\to\MdR$ durch:
@@ -3107,7 +3134,7 @@ Es ist $f(x,y)=A(x)y+b(x)$. Sei $L:=\max\{\|A(x)\|:x\in I\}$. Für alle $(x,y),(
 Die Behauptung folgt aus 21.3.
 
 \textbf{Fall 2:} $I$ beliebig.\\
-Sei $\mathfrak{M}:=\{K\subseteq I\mid K\text{ ist kompaktes Intervall, } x_0\in K\}$.
+Sei $\mathfrak{M}:=\Set{K\subseteq I | K\text{ ist kompaktes Intervall, } x_0\in K}$.
 Dann ist $I=\bigcup_{K\in\mathfrak{M}} K$.\\
 Ist $x\in I$, so existiert ein $K\in\mathfrak{M}$ mit $x\in K$. Nach Fall 1. hat das
 AwP auf $K$ genau eine Lösung $y_K:K\to\mdr^n$. Definiere nun $y:I\to\mdr^n$ wie folgt:
@@ -3756,7 +3783,7 @@ so ist $\det(\lambda I-A)=p(\lambda)$.
 und deren Vielfachheiten $k_1,\ldots,k_r$, also:
 \[p(\lambda)=(\lambda-\lambda_1)^{k_1}\cdots(\lambda-\lambda_r)^{k_r}\]
 Es seien $\lambda_1,\ldots,\lambda_m\in\mdr$ und $\lambda_{m+1},\ldots,\lambda_r\in\mdc\setminus\mdr$.
-\[M:=\{\lambda_1,\ldots,\lambda_m\}\cup\{\lambda_j\mid m+1\le j\le r,\Im(\lambda_j)>0\}\]
+\[M:=\Set{\lambda_1,\ldots,\lambda_m}\cup\Set{\lambda_j | m+1\le j\le r,\Im(\lambda_j)>0}\]
 \item Sei $\lambda_j\in M$.\\
 \textbf{Fall 1:} $\lambda_j\in\mdr$\\
 Dann sind
