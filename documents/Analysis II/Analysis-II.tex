@@ -64,11 +64,11 @@ $e_1 := (1,0,\ldots,0),\ e_2:=(0,1,0,\ldots, 0),\ \ldots,\ e_n:=(0,\ldots,0,1) \
 
 \begin{definition}
 Seien $x=(x_1, \ldots, x_n), y=(y_1, \ldots, y_n) \in \MdR^n$
-\begin{liste}
+\begin{enumerate}
 \item $x\cdot y := xy := x_1y_1+\cdots+x_ny_n$ heißt das \textbf{Skalar}\indexlabel{Skalarprodukt}- oder \begriff{Innenprodukt} von $x$ und $y$.
 \item $\|x\|=(x\cdot x)^\frac{1}{2} = (x_1^2 + \cdots + x_n^2)^\frac{1}{2}$ heißt die \begriff{Norm} oder \begriff{Länge} von $x$.
 \item \indexlabel{Abstand!zwischen zwei Vektoren}$\|x-y\|$ heißt der \textbf{Abstand} von $x$ und $y$.
-\end{liste}
+\end{enumerate}
 \end{definition}
 
 \begin{beispiele}
@@ -77,14 +77,14 @@ Seien $x=(x_1, \ldots, x_n), y=(y_1, \ldots, y_n) \in \MdR^n$
 \end{beispiele}
 
 \textbf{Beachte: }
-\begin{liste}
+\begin{enumerate}
 \item $x \cdot y \in \MdR$
 \item $\|x\|^2=x \cdot x$
-\end{liste}
+\end{enumerate}
 
 \begin{satz}[Rechenregeln zur Norm]
 Seien $x,y,z \in \MdR^n,\ \alpha, \beta \in \MdR,\ x=(x_1, \ldots, x_n),\ y=(y_1, \ldots, y_n)$
-\begin{liste}
+\begin{enumerate}
 \index{Cauchy-!Schwarzsche Ungleichung}
 \item $(\alpha x + \beta y)\cdot z=\alpha(x\cdot z)+\beta(y \cdot z),\ x(\alpha y + \beta z)=\alpha(xy)+\beta(xz)$
 \item $\|x\|\ge 0; \|x\|=0\equizu x=0$
@@ -93,7 +93,7 @@ Seien $x,y,z \in \MdR^n,\ \alpha, \beta \in \MdR,\ x=(x_1, \ldots, x_n),\ y=(y_1
 \item $\|x+y\|\le\|x\|+\|y\|$
 \item ${\left|\|x\|-\|y\|\right|}\le \|x-y\|$
 \item $|x_j|\le\|x\|\le |x_1|+|x_2|+\ldots+|x_n|\ (j=1,\ldots,n)$
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -117,14 +117,14 @@ Es folgt: $$\|Ax\|\le\|A\|\|x\|$$
 
 \begin{definition}
 Sei $x_0 \in \MdR^n$, $\delta > 0$, $A, U\subseteq \MdR^n$.
-\begin{liste}
+\begin{enumerate}
  \item $U_\delta(x_0) := \{ x \in \MdR^n: \|x-x_0\|<\delta\}$ heißt $\delta$-Umgebung von $x_0$ oder \begriff{offene Kugel} um $x_0$ mit Radius $\delta$.
  \item $U$ ist eine \begriff{Umgebung} von $x_0$ $:\equizu$ $\exists \delta > 0 : U_\delta(x_0) \subseteq U$.
  \item \indexlabel{Beschränktheit!einer Menge}$A$ heißt \textbf{beschränkt} $:\equizu$ $\exists c \ge 0: \|a\|\le c \forall a\in A$.
  \item $x_0\in A$ heißt ein \begriff{innerer Punkt} von A $:\equizu$ $\exists \delta>0: U_\delta(x_0) \subseteq A$. \\
    $A^\circ:=\{ x\in A: x \text{ ist innerer Punkt von }A\}$ heißt das \indexlabel{Inneres einer Menge}\textbf{Innere} von A. Klar: $A^\circ\subseteq A.$
  \item $A$ heißt offen $:\equizu$ $A=A^\circ$. Zur Übung: $A^\circ$ ist offen.
-\end{liste}
+\end{enumerate}
 \end{definition}
 
 \begin{beispiele}
@@ -135,13 +135,13 @@ Sei $x_0 \in \MdR^n$, $\delta > 0$, $A, U\subseteq \MdR^n$.
 
 \begin{definition}
  $A\subseteq \MdR^n$
- \begin{liste}
+ \begin{enumerate}
  \item $x_0\in \MdR^n$ heißt ein \begriff{Häufungspunkt} (HP) von $A$ $:\equizu$ $\forall \delta > 0: (U_\delta(x_0) \backslash \{x_0\}) \cap A \ne \emptyset$. $\H(A) := \{ x\in\MdR^n: x \text{ ist Häufungspunkt von } A\}$.
  \item  $x_0\in\MdR^n$ heißt ein \begriff{Berührungspunkt} (BP) von $A$ $:\equizu$ $\forall\delta>0: U_\delta(x_0) \cap A \ne \emptyset$. $\bar{A}:=\{x\in\MdR^n: x \text{ ist ein Berührungspunkt von } A\}$ heißt der \begriff{Abschluss} von $A$.\\
  Klar: $A\subseteq\bar{A}$. Zur Übung: $\bar{A} = A \cup \H(A)$.
  \item \indexlabel{abgeschlossen!Menge}$A$ heißt \textbf{abgeschlossen} $:\equizu$ $A=\bar{A}$. Zur Übung: $\bar{A}$ ist abgeschlossen.
  \item $x_0\in\MdR^n$ heißt ein \begriff{Randpunkt} von $A$ $:\equizu$ $\forall\delta>0: U_\delta(x_0) \cap A \ne \emptyset$ und $U_\delta(x_0) \cap (\MdR^n\backslash A) \ne \emptyset$. $\partial A := \{x\in\MdR^n: x \text{ ist ein Randpunkt von } A \}$ heißt der \begriff{Rand} von $A$. Zur Übung: $\partial A = \bar{A}\backslash A^\circ$.
- \end{liste}
+ \end{enumerate}
 \end{definition}
 
 \begin{beispiele}
@@ -153,13 +153,13 @@ Sei $x_0 \in \MdR^n$, $\delta > 0$, $A, U\subseteq \MdR^n$.
 \end{beispiele}
 
 \begin{satz}[Offene und abgeschlossene Mengen]
- \begin{liste}
+ \begin{enumerate}
  \item Sei $A\subseteq\MdR^n$. $A$ ist abgeschlossen $:\equizu$  $\MdR^n\backslash A$ ist offen.
  \item Die Vereinigung offener Mengen ist offen.
  \item Der Durchschnitt abgeschlossener Mengen ist abgeschlossen.
  \item Sind $A_1,\ldots,A_n\subseteq\MdR^n$ offen $\folgt$ $\bigcap_{j=1}^nA_j$ ist offen
  \item Sind $A_1,\ldots,A_n\subseteq\MdR^n$ abgeschlossen $\folgt$ $\bigcup_{j=1}^nA_j$ ist abgeschlossen
- \end{liste}
+ \end{enumerate}
 \end{satz}
 
 \begin{beispiel}
@@ -189,7 +189,7 @@ $(n=2)$: $a^{(k)} = (\frac{1}{k}, 1+\frac{1}{k^2})$ (Erinnerung: $\frac{1}{n}$ k
 %satz 2.1
 \begin{satz}[Konvergenz]
 Sei $(a^{(k)})$ eine Folge in $\MdR^n$.
-\begin{liste}
+\begin{enumerate}
  \item Sei $a^{(k)} = (a_1^{(k)}, \ldots, a_n^{(k)})$ und $a = (a_1,\ldots,a_n)\in\MdR^n$. Dann:
  $$ a^{(k)} \to a \ (k\to\infty) \equizu a_1^{(k)} \to a_1, \ldots, a_n^{(k)} \to a_n \ (k\to\infty) $$
  \item Der Grenzwert einer konvergenten Folge ist eindeutig bestimmt.
@@ -197,7 +197,7 @@ Sei $(a^{(k)})$ eine Folge in $\MdR^n$.
  \item Sei $(b^{(k)})$ eine weitere Folge, $a,b\in\MdR^n$ und $\alpha\in\MdR$. Es gelte $a^{(k)}\to a$, $b^{(k)} \to b$ Dann: $$\|a^{(k)}\| \to \|a\|$$ $$a^{(k)} + b ^{(k)} \to a+b$$ $$\alpha a^{(k)} \to \alpha a$$ $$a^{(k)}\cdot b^{(k)} \to a\cdot b$$
  \item \begriff{Bolzano-Weierstraß}: Ist $(a^{(k)})$ beschränkt, so enthält $(a^{(k)})$ eine konvergente Teilfolge.
  \item \indexlabel{Cauchy!-Kriterium}\textbf{Cauchy-Kriterium}: $(a^{(k)})$ konvergent $\equizu \ \forall\ep>0\ \exists k_0\in\MdN: \|a^{(k)} - a^{(l)}\| <\ep \ \forall k,l \ge k_0$
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -211,17 +211,17 @@ Sei $(a^{(k)})$ eine Folge in $\MdR^n$.
 
 \begin{satz}[Häufungswerte und konvergente Folgen]
 Sei $A\subseteq\MdR^n$
-\begin{liste}
+\begin{enumerate}
 \item $x_0 \in \H(A)\equizu\ \exists$ Folge $(x^{(k)})$ in $A\ \backslash\ \{x_0\}$ mit $x^{(k)}\to x_0$.
 \item $x_0 \in \bar A\equizu\ \exists$ Folge $(x^{(k)})$ in $A$ mit $x^{(k)}\to x_0$.
 \item $A$ ist abgeschlossen $\equizu$ der Grenzwert jeder konvergenten Folge in $A$ gehört zu $A$.
 \item Die folgenden Aussagen sind äquivalent:
-    \begin{liste}
+    \begin{enumerate}
         \item $A$ ist beschränkt und abgeschlossen 
         \item Jede Folge in $A$ enthält eine konvergente Teilfolge, deren Grenzwert zu $A$ gehört.
         \item A ist kompakt
-    \end{liste}
-\end{liste}
+    \end{enumerate}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -233,11 +233,11 @@ Sei $A\subseteq\MdR^n$
 
 \begin{satz}[Überdeckungen]
 $A \subseteq \MdR^n$ sei abgeschlossen und beschränkt
-\begin{liste}
+\begin{enumerate}
 \item Ist $\ep>0\folgt\ \exists a^{(1)},\ldots,a^{(m)} \in A: A\subseteq \displaystyle\bigcup_{j=1}^m U_\ep(a^{(j)})$
 \item $\exists$ abzählbare Teilmenge $B$ von $A: \bar B=A$.
 \item \begriff{Überdeckungssatz von Heine-Borel}: Ist $(G_\lambda)_{\lambda \in M}$ eine Familie offener Mengen mit $A \subseteq \displaystyle\bigcup_{\lambda \in M} G_\lambda$, dann existieren $\lambda_1, \ldots, \lambda_m \in M: A\subseteq \displaystyle\bigcup_{j=1}^m G_{\lambda_j}$.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -261,10 +261,10 @@ Teil 2: Sei $\ep>0$ wie in Teil 1. (1) $\folgt\exists a^{(1)},\ldots,a^{(m)}\in 
 \begin{definition*}
 Sei $x_0\in \H(D)$.
 
-\begin{liste}
+\begin{enumerate}
 \item Sei $y_0 \in \MdR^m$. $\displaystyle\lim_{x\to x_0}f(x)=y_0 :\equizu$ für \textbf{jede} Folge $(x^{(k)})$ in $D\ \backslash\ \{x_0\}$ mit $x^{(k)}\to x_0$ gilt: $f(x^{(k)})\to y_0$. In diesem Fall schreibt man: $f(x)\to y_0(x\to x_0)$.
 \item $\displaystyle\lim_{x\to x_0}f(x)$ existiert $:\equizu\ \exists y_0 \in \MdR^m: \displaystyle\lim_{x\to x_0}f(x)=y_0$.
-\end{liste}
+\end{enumerate}
 \end{definition*}
 
 \begin{beispiele}
@@ -277,10 +277,10 @@ $f(\frac{1}{k},0)=0\to 0\ (k\to \infty), (\frac{1}{k},0)\to(0,0), f(\frac{1}{k},
 \end{beispiele}
 
 \begin{satz}[Grenzwerte vektorwertiger Funktionen]
-\begin{liste}
+\begin{enumerate}
 \item Ist $f = (f_1,\ldots,f_m)$ und $y_0 = (y_1,\ldots,y_m) \in \MdR^m$, so gilt: $f(x) \to y_0\ (x \to x_0) \equizu f_j(x) \to y_j\ (x \to x_0)\ (j=1,\ldots,m)$
 \item Die Aussagen des Satzes Ana I, 16.1 und die Aussagen (1) und (2) des Satzes Ana I, 16.2 gelten sinngemäß für Funktionen von mehreren Variablen.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -289,23 +289,23 @@ $f(\frac{1}{k},0)=0\to 0\ (k\to \infty), (\frac{1}{k},0)\to(0,0), f(\frac{1}{k},
 \end{beweise}
 
 \begin{definition*}[Stetigkeit vektorwertiger Funktionen]
-\begin{liste}
+\begin{enumerate}
 \item \indexlabel{Stetigkeit}Sei $x_0 \in D$. $f$ heißt \textbf{stetig} in $x_0$ gdw. für jede Folge $(x^{(k)})$ in $D$ mit $(x^{(k)}) \to x_0$ gilt: $f(x^{(k)}) \to f(x_0)$. Wie in Ana I: Ist $x_0 \in D \cap \H(D)$, so gilt: $f$ ist stetig in $x_0 \equizu \displaystyle{\lim_{x \to x_0}} f(x) = f(x_0)$.
 \item \indexlabel{Stetigkeit!auf einem Intervall}$f$ heißt auf $D$ stetig gdw. $f$ in jedem $x \in D$ stetig ist. In diesem Fall schreibt man: $f \in C(D,\MdR^m)\ (C(D) = C(D,\MdR)).$
 \item \indexlabel{Stetigkeit!gleichmäßige}$f$ heißt auf $D$ \textbf{gleichmäßig} (glm) stetig gdw. gilt:\\
 $\forall \ep>0\ \exists \delta>0: \|f(x)-f(y)\| < \ep\ \forall x,y \in D: \|x-y\| < \delta$
 \item \indexlabel{Stetigkeit!Lipschitz-}$f$ heißt auf $D$  \textbf{Lipschitzstetig} gdw. gilt:\\
 $\exists L\ge0: \|f(x)-f(y)\| \le L\|x-y\|\ \forall x,y \in D.$
-\end{liste}
+\end{enumerate}
 \end{definition*}
 
 \begin{satz}[Stetigkeit vektorwertiger Funktionen]
-\begin{liste}
+\begin{enumerate}
 \item Sei $x_0 \in D$ und $f = (f_1,\ldots,f_m).$ Dann ist $f$ stetig in $x_0$ gdw. alle $f_j$ stetig in $x_0$ sind. Entsprechendes gilt für "`stetig auf $D$"', "`glm stetig auf $D$"', "`Lipschitzstetig auf $D$"'.
 \item Die Aussagen des Satzes Ana I, 17.1 gelten sinngemäß für Funktionen von mehreren Variablen.
 \item Sei $x_0 \in D$. $f$ ist stetig in $x_0$ gdw. zu jeder Umgebung $V$ von $f(x_0)$ eine Umgebung $U$ von $x_0$ existiert mit $f(U \cap D) \subseteq V$.
 \item Sei $\emptyset \ne E \subseteq \MdR^m$, $f(D) \subseteq E$, $g: E \to \MdR^p$ eine Funktion, $f$ stetig in $x_0 \in D$ und $g$ stetig in $f(x_0)$. Dann ist $g \circ f: D \to \MdR^p$ stetig in $x_0$.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -361,12 +361,12 @@ $f:D \to \MdR^m$ heißt \textbf{beschränkt} (auf $D$) gdw. $f(D)$ beschränkt i
 
 \begin{satz}[Funktionen auf beschränkten und abgeschlossenen Intervallen]
 $D$ sei beschränkt und abgeschlossen und es sei $f \in C(D,\MdR^m)$.
-\begin{liste}
+\begin{enumerate}
 \item $f(D)$ ist beschränkt und abgeschlossen.
 \item $f$ ist auf $D$ gleichmäßig stetig.
 \item Ist $f$ injektiv auf $D$, so gilt: $f^{-1} \in C(f(D),\MdR^n)$.
 \item Ist $m = 1$, so gilt: $\exists a,b \in D: f(a) \le f(x) \le f(b)\ \forall x \in D$.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweis}
@@ -378,10 +378,10 @@ Sei $D$ abgeschlossen und $f \in C(D,\MdR^m) \folgt \exists F \in C(\MdR^n,\MdR^
 \end{satz}
 
 \begin{satz}[Lineare Funktionen und Untervektorräume von $\MdR^n$]
-\begin{liste}
+\begin{enumerate}
 \item Ist $f:\MdR^n \to \MdR^m$ und \emph{linear}, so gilt: $f$ ist Lipschitzstetig auf $\MdR^n$, insbesondere gilt: $f \in C(\MdR^n,\MdR^m)$.
 \item Ist $U$ ein Untervektorraum von $\MdR^n$, so ist $U$ abgeschlossen.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -404,10 +404,10 @@ Klar: $d(a,A) = 0\ \forall a \in A$.
 \end{definition*}
 
 \begin{satz}[Eigenschaften des Abstands zwischen Vektor und Menge]
-\begin{liste}
+\begin{enumerate}
 \item $|d(x,A) - d(y,A)| \le \|x-y\|\ \forall x,y \in \MdR^n$.
 \item $d(x,A) = 0 \equizu x \in \overline{A}$.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -463,7 +463,7 @@ $\frac{f(t,0) - f(0,0)}{t} = 0 \to 0 \ (t\to0) \folgt f$ ist in $(0,0)$ partiell
 \indexlabel{partiell!Ableitung}
 \indexlabel{Differenzierbarkeit!partielle}
 \indexlabel{Ableitung!partielle}
-\begin{liste}
+\begin{enumerate}
 \item $f$ heißt in $x_0$ \textbf{partiell differenzierbar} $:\equizu$ $f$ ist in $x_0$ 
 partiell differenzierbar nach allen Variablen $x_1,\ldots, x_n$. In diesem Fall heißt 
 $\grad f(x_0) := \nabla f(x_0) := (f_{x_1}(x_0),\ldots, f_{x_n}(x_0))$ der \textbf{Gradient} von 
@@ -471,7 +471,7 @@ $f$ in $x_0$. \indexlabel{Gradient}
 \item $f$ ist auf $D$ \textbf{partiell differenzierbar} nach $x_j$ oder $f_{x_j}$ ist auf $D$ vorhanden :\equizu $f$ ist in jedem $x\in D$ partiell differenzierbar nach $x_j$. In diesem Fall wird durch $x\mapsto f_{x_j}(x)$ eine Funktion $f_{x_j}: D\to \MdR$ definiert die \textbf{partielle Ableitung} von $f$ auf $D$ nach $x_j$.
 \item $f$ heißt \textbf{partiell differenzierbar} auf $D$ :\equizu $f_{x_1},\ldots,f_{x_n}$ sind auf $D$ vorhanden.
 \item $f$ heißt auf $D$ \textbf{stetig partiell differenzierbar} :\equizu $f$ ist auf $D$ partiell differenzierbar und $f_{x_1},\ldots,f_{x_n}$ sind auf $D$ stetig. In diesem Fall schreibt man $f\in C^1(D,\MdR)$.
-\end{liste}
+\end{enumerate}
 \end{definition}
 
 \begin{beispiele}
@@ -527,7 +527,7 @@ Stets in dem Paragraphen: $\emptyset\ne D\subseteq\MdR^n$, $D$ offen und $f:D\to
 \end{vereinbarung}
 
 \begin{definition*}
-\begin{liste}
+\begin{enumerate}
 \item Sei $k\in\MdN$. $f\in C^k(D,\MdR^m) :\equizu f_j\in C^k(D,\MdR)\ (j=1,\ldots,m)$
 \item Sei $x_0\in D$. $f$ heißt \textbf{partiell differenzierbar} in $x_0 :\equizu$ jedes $f_j$ ist in $x_0$ partiell differenzierbar. In diesem Fall heißt
 $$\frac{\partial f}{\partial x}(x_0):=\frac{\partial(f_1,\ldots,f_m)}{\partial(x_1,\ldots,x_n)}:=J_f(x_0):=\begin{pmatrix}
@@ -538,7 +538,7 @@ $$\frac{\partial f}{\partial x}(x_0):=\frac{\partial(f_1,\ldots,f_m)}{\partial(x
 \indexlabel{Jacobi-Matrix}
 \indexlabel{Funktionalmatrix}
 die \textbf{Jacobi-} oder \textbf{Funktionalmatrix} von $f$ in $x_0$.
-\end{liste}
+\end{enumerate}
 \textbf{Beachte:}
 \begin{enumerate}
 \item $J_f(x_0)$ ist eine $(m \times n)$-Matrix.
@@ -554,7 +554,7 @@ $$\equizu\exists a\in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}
 \end{erinnerung}
 
 \begin{definition*}
-\begin{liste}
+\begin{enumerate}
     \index{Differenzierbarkeit}
     \item Sei $x_0\in D$. $f$ heißt \textbf{differenzierbar} (db) in 
           $x_0 :\equizu \exists (m \times n)$-Matrix $A$, sodass gilt:
@@ -563,7 +563,7 @@ $$\equizu\exists a\in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}
           \end{align*}
     \item $f$ heißt differenzierbar auf $D\ :\equizu f$ ist in 
           jedem $x\in D$ differenzierbar.
-\end{liste}
+\end{enumerate}
 \end{definition*}
 
 \begin{bemerkungen}
@@ -580,21 +580,21 @@ $$\equizu\exists a\in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}
 
 \begin{satz}[Differenzierbarkeit und Stetigkeit]
 $f$ sei in $x_0\in D$ differenzierbar
-\begin{liste}
+\begin{enumerate}
 \item $f$ ist in $x_0$ stetig
 \item $f$ ist in $x_0$ partiell differenzierbar und die Matrix A in 
       $(*)$ ist eindeutig bestimmt: \\
       $A=J_f(x_0)$. $f'(x_0):=A=J_f(x_0)$ (\begriff{Ableitung} von $f$ in $x_0$).
 \item Ist $m=1$, so ist $f'(x_0) = a$ (aus $(**)$), also $f'(x_0) = \grad(f(x_0))$
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweis}
 Sei A wie in $(*)$, $A=(a_{jk})$, $\varrho(h):=\frac{f(x_0+h)-f(x_0)-Ah}{\|h\|}$, also: $\varrho(h)\to0\ (h\to 0)$. Sei $\varrho=(\varrho_1,\ldots,\varrho_m)$. 2.1 $\folgt \varrho_j(h)\to 0\ (h\to 0)\ (j=1,\ldots,m)$
-\begin{liste}
+\begin{enumerate}
 \item $f(x_0+h)=f(x_0)+\underbrace{Ah}_{\overset{\text{3.5}}{\to}0}+\underbrace{\|h\|\varrho(h)}_{\to 0\ (h\to 0)}\to f(x_0)\ (h\to 0)$
 \item Sei $j\in\{1,\ldots,m\}$ und $k\in\{1,\ldots,n\}$. Zu zeigen: $f_j$ ist partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$. $\varrho_j(h)=\frac{1}{\|h\|}(f_j(x_0+h)-f_j(x_0)-(a_{j1},\ldots,a_{jn})\cdot h)\to 0\ (h \to 0)$. Für $t\in\MdR$ sei $h=te_k\folgt\varrho(h)=\frac{1}{|t|}(f(x_0+te_k)-a_{jk}t)\to 0\ (t\to 0)\folgt\left|\frac{f(x_0+te_k)-f(x_0)}{t}-a_{jk}\right|\to 0\ (t\to 0)\folgt f_j$ ist in $x_0$ partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$.
-\end{liste}
+\end{enumerate}
 \end{beweis}
 
 \begin{beispiele}
@@ -775,7 +775,7 @@ Es gilt: $g(f(x)) = x \forall x \in D, f(g(z)) = z \forall z \in f(D) \folgtnach
 \def\grad{\mathop{\rm grad}\nolimits}
 
 \begin{definition}
-\begin{liste}
+\begin{enumerate}
 \index{Konvexität}
 \item Seien $a,b \in \MdR^n; S[a,b]:=\{a+t(b-a): t\in [0,1]\}$ heißt
 \begriff{Verbindungsstrecke} von $a$ und $b$
@@ -783,7 +783,7 @@ Es gilt: $g(f(x)) = x \forall x \in D, f(g(z)) = z \forall z \in f(D) \folgtnach
 stets: $S[a,b] \subseteq M$
 \item Sei $k \in \MdN$ und $x^{(0)},\ldots,x^{(k)} \in \MdR^n.\ S[x^{(0)},\ldots,x^{(k)}]:=\bigcup_{j=1}^{k}S[x^{(j-1)}, x^{(j)}]$ heißt \begriff{Streckenzug} durch $x^{(0)},\ldots,x^{(k)}$ (in dieser Reihenfolge!)
 \item Sei $G \subseteq \MdR^n$. $G$ heißt \begriff{Gebiet}$:\equizu\ G$ ist offen und aus $a,b \in G$ folgt: $\exists x^{(0)},\ldots,x^{(k)} \in G: x^{(0)}=a, x^{(k)}=b$ und $S[x^{(0)},\ldots,x^{(k)}] \subseteq G$.
-\end{liste}
+\end{enumerate}
 \end{definition}
 
 \begin{vereinbarung}
@@ -802,10 +802,10 @@ Sei $g(t):=a+t\cdot(b-a)$ für $t\in[0,1]$. $g([0,1])=S[a,b]\subseteq D$. $\Phi(
 
 \begin{folgerungen}
 Sei $D$ ein \textbf{Gebiet} und $f,g:D\to\MdR$ seien differenzierbar auf $D$.
-\begin{liste}
+\begin{enumerate}
 \item Ist $f'(x)=0\ \forall x \in D \folgt f$ ist auf $D$ konstant.
 \item Ist $f'(x)=g'(x) \forall x \in D \folgt \exists c \in \MdR: f=g+c$ auf $D$.
-\end{liste}
+\end{enumerate}
 \end{folgerungen}
 
 \begin{beweis}
@@ -875,18 +875,18 @@ $f(x,\sqrt{x}) = \frac{x^2}{2x^2} = \frac{1}{2}\ \forall x>0 \folgt f$ ist in $(
 
 \begin{satz}[Richtungsableitungen]
 Sei $x_0 \in D,\ a \in \MdR^n$ eine Richtung, $f:D \to \MdR$.
-\begin{liste}
+\begin{enumerate}
 \item $\frac{\partial f}{\partial a}(x_0)$ existiert $\equizu \frac{\partial f}{\partial (-a)}(x_0)$ existiert. In diesem Fall ist: $$\frac{\partial f}{\partial (-a)}(x_0) = -\frac{\partial f}{\partial a}(x_0)$$
 \item $f$ sei in $x_0$ db. Dann:
 \begin{enumerate}
 \item[(i)] $\frac{\partial f}{\partial a}(x_0)$ existiert und $$\frac{\partial f}{\partial a}(x_0) = a\cdot \grad f(x_0).$$
 \item[(ii)] Sei $\grad f(x_0) \ne 0$ und $a_0 := \|\grad f(x_0)\|^{-1}\cdot \grad f(x_0)$. Dann: $$\frac{\partial f}{\partial (-a_0)}(x_0) \le \frac{\partial f}{\partial a}(x_0) \le \frac{\partial f}{\partial a_0}(x_0) = \|\grad f(x_0)\|.$$ Weiter gilt: $\frac{\partial f}{\partial a}(x_0) < \frac{\partial f}{\partial a_0}(x_0)$, falls $a \ne a_0$; $\frac{\partial f}{\partial (-a_0)}(x_0) < \frac{\partial f}{\partial a}(x_0)$, falls $a \ne -a_0$.
 \end{enumerate}
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweis}
-\begin{liste}
+\begin{enumerate}
 \item $\frac{(f(x_0+t(-a))-f(x_0))}{t} = -\frac{(f(x_0+(-t)a)-f(x_0))}{-t} \folgt$ Beh.
 \item \begin{enumerate}
 \item[(i)] $g(t) := f(x_0+ta)$ ($|t|$ hinreichend klein). Aus Satz 5.4 folgt: $g$ ist db in $t=0$ und $g'(0) = f'(x_0) \cdot a \folgt \frac{\partial f}{\partial a}(x_0)$ existiert und ist $= g'(0) = \grad f(x_0)\cdot a$
@@ -896,7 +896,7 @@ $\folgt \frac{\partial f}{\partial (-a_0)}(x_0) \gleichnach{(1)} -\frac{\partial
 
 Sei $\frac{\partial f}{\partial a}(x_0) = \frac{\partial f}{\partial a_0}(x_0) \folgtnach{(i),(ii)} a\cdot\grad f(x_0) = \|\grad f(x_0)\| \folgt a\cdot a_0 = 1 \folgt \|a-a_0\|^2 = (a-a_0)(a-a_0) = a\cdot a - 2a\cdot a_0 + a_0\cdot a_0 = 1-2+1 = 0 \folgt a=a_0.$
 \end{enumerate}
-\end{liste}
+\end{enumerate}
 \end{beweis}
 
 \paragraph{Der Satz von Taylor}
@@ -992,14 +992,14 @@ A ist indefinit& $\equizu \exists$ Eigenwerte $\lambda, \mu$ von $A$ mit $\lambd
 \end{beispiele}
 
 \begin{satz}[Regeln zu definiten Matrizen und quadratischen Formen]
-\begin{liste}
+\begin{enumerate}
 \item $A$ ist positiv definit $\equizu$ $-A$ ist negativ definit
 \item $Q_A(\alpha x)=\alpha^2Q_A(x)\ \forall x\in\MdR^n\ \forall \alpha\in\MdR$
 \item \begin{tabular}{ll}
 A ist positiv definit & $\equizu \exists c>0: Q_A(x)\ge c\|x\|^2\ \forall x\in\MdR^n$\\
 A ist negativ definit & $\equizu \exists c>0: Q_A(x)\le -c\|x\|^2\ \forall x\in\MdR^n$
 \end{tabular}
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -1009,10 +1009,10 @@ A ist negativ definit & $\equizu \exists c>0: Q_A(x)\le -c\|x\|^2\ \forall x\in\
 \end{beweise}
 
 \begin{satz}[Störung von definiten Matrizen]
-\begin{liste}
+\begin{enumerate}
 \item $A$ sei positiv definit \alt{negativ definit}. Dann existiert ein $\ep>0$ mit: Ist $B=(b_{jk})$ eine weitere symmetrische $(n\times n)$-Matrix und gilt: $(*)\ |a_{jk}-b_{jk}|\le\ep\ (j,k=1,\ldots, n)$, so ist B positiv definit \alt{negativ definit}.
 \item $A$ sei indefinit. Dann existieren $u,v\in\MdR^n$ und $\ep>0$ mit: ist $B=(b_{jk})$ eine weitere symmetrische $(n\times n)$-Matrix und gilt: $(*)\ |a_{jk}-b_{jk}|\le\ep\ (j,k=1,\ldots,n)$, so ist $Q_B(u)>0, Q_B(v)<0$. Insbesondere: $B$ ist indefinit.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -1033,13 +1033,13 @@ In diesem Paragraphen sei $\emptyset\ne D \subseteq\MdR^n, f:D\to\MdR$ und $x_0\
 \indexlabel{lokal!Minimum}
 \indexlabel{lokal!Extremum}
 \indexlabel{stationärer Punkt}
-\begin{liste}
+\begin{enumerate}
 \item
 $f$ hat in $x_0$ ein \textbf{lokales Maximum} $:\equizu \exists \delta>0:\ f(x)\le f(x_0)\ \forall x\in D \cap U_\delta(x_0)$.\\
 $f$ hat in $x_0$ ein \textbf{lokales Minimum} $:\equizu \exists \delta>0:\ f(x)\ge f(x_0)\ \forall x\in D \cap U_\delta(x_0)$.\\
 \textbf{lokales Extremum} = lokales Maximum oder lokales Minimum
 \item Ist $D$ offen, $f$ in $x_0$ partiell differenzierbar und $\grad f(x_0)=0$, so heißt $x_0$ ein stationärer Punkt.
-\end{liste}
+\end{enumerate}
 \end{definition*}
 
 \begin{satz}[Nullstelle des Gradienten]
@@ -1052,22 +1052,22 @@ $f$ habe in $x_0$ ein lokales Maximum. Also $\exists \delta>0: U_\delta(x_0)\sub
 
 \begin{satz}[Definitheit und Extremwerte]
 Sei $D$ offen, $f\in C^2(D,\MdR)$ und $\grad f(x_0)=0$.
-\begin{liste}
+\begin{enumerate}
 \item[(i)]
 Ist $H_f(x_0)$ positiv definit $\folgt f$ hat in $x_0$ ein lokales Minimum.
 \item[(ii)]
 Ist $H_f(x_0)$ negativ definit $\folgt f$ hat in $x_0$ ein lokales Maximum.
 \item[(iii)]
 Ist $H_f(x_0)$ indefinit $\folgt f$ hat in $x_0$ \underline{kein} lokales Extremum.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweis}
-\begin{liste}
+\begin{enumerate}
 \item[(i),]
 (ii) $A:=H_f(x_0)$ sei positiv definit oder negativ definit oder indefinit. Sei $\ep>0$ wie in 7.2. $f\in C^2(D,\MdR)\folgt \exists \delta>0: U_\delta(x_0)\subseteq D$ und $(*)\ |f_{x_jx_k}(x)-f_{x_jx_k}(x_0)|\le\ep\ \forall x\in U_\delta(x_0)\ (j,k=1,\ldots,n)$. Sei $x\in U_\delta(x_0) \ \backslash\ \{x_0\}, h:=x-x_0\folgt x=x_0+h, h\ne 0$ und $S[x_0,x_0+h] \subseteq U_\delta(x_0)$ 6.7$\folgt\exists \eta\in [0,1]:\ f(x)=f(x_0+h)=f(x_0) + \underbrace{h\cdot \grad f(x_0)}_{=0}+\frac{1}{2}Q_B(h)$, wobei $B=H_f(x_0 + \eta h)$. Also: $(**)\ f(x)=f(x_0)+\frac{1}{2}Q_B(h)$. $A$ sei positiv definit \alt{negativ definit} $\folgtnach{7.2} B$ ist positiv definit \alt{negativ definit}. $\folgtwegen{h\ne 0}Q_B(h)\stackrel{(<)}{>}0 \folgtwegen{(**)}f(x)\stackrel{(<)}{>}f(x_0)\folgt f$ hat in $x_0$ ein lokales Minimum \alt{Maximum}.
 \item[(iii)]$A$ sei indefinit und es seien $u, v\in\MdR^n$ wie in 7.2. Wegen 7.1 OBdA: $\|u\|=\|v\|=1$. Dann: $x_0+tu, x_0+tv \in U_\delta(x_0)$ für $t\in(-\delta, \delta)$. Sei $t\in(-\delta, \delta), t\ne 0$. Mit $h:=t\stackrel{(v)}{u}$ folgt aus 7.2 und $(**):\ f(x_0+t\stackrel{(v)}{u})=f(x_0)+\frac{1}{2}Q_B(t\stackrel{(v)}{u})=f(x_0)+\frac{t^2}{2}\underbrace{Q_B(\stackrel{(v)}{u})}_{>0\text{/}<0\text{ (7.2)}}\stackrel{(>)}{<}f(x_0)\folgt f$ hat in $x_0$ kein lokales Extremum.
-\end{liste}
+\end{enumerate}
 \end{beweis}
 
 \begin{beispiele}
@@ -1123,12 +1123,17 @@ $\folgt \grad g_j(y)\cdot f'(x)=e_j\folgt f'(x)^\top\cdot \grad g_j(y)^\top=e_j^
 \end{beweis}
 
 \begin{satz}[Der Umkehrsatz]
-Sei $\emptyset \ne D \subseteq \MdR ^n$, $D$ sei offen, $f\in C^1(D, \MdR^n)$, $x_0\in D$ und $\det f'(x_0) \ne 0$. Dann existiert eine offene Umgebung $U$ von $x_0$ und eine offene Umgebung $V$ von $f(x_0)$ mit:
-\begin{liste}
-\item[(a)] $f$ ist auf $U$ injektiv, $f(U)=V$ und $\det f'(x) \ne 0 \ \forall x\in U$
-\item[(b)] Für $f^{-1}: V\to U$ gilt: $f^{-1}$ ist stetig differenzierbar auf $V$ und $$(f^{-1})'(f(x)) = (f'(x))^{-1}\ \forall x\in U$$
-\end{liste}
-
+    Sei $\emptyset \ne D \subseteq \MdR ^n$, $D$ sei offen, 
+    $f\in C^1(D, \MdR^n)$, $x_0\in D$ und $\det f'(x_0) \ne 0$.\\
+    Dann existiert eine offene Umgebung $U$ von $x_0$ und eine offene
+    Umgebung $V$ von $f(x_0)$ mit:
+    \begin{enumerate}[(a)]
+        \item $f$ ist auf $U$ injektiv, $f(U)=V$ und 
+              $\det f'(x) \ne 0 \ \forall x\in U$
+        \item Für $f^{-1}: V\to U$ gilt: $f^{-1}$ ist stetig 
+              differenzierbar auf $V$ und 
+              \[ (f^{-1})'(f(x)) = (f'(x))^{-1}\ \forall x\in U \]
+    \end{enumerate}
 \end{satz}
 
 \begin{folgerung}[Satz von der offenen Abbildung]
@@ -1139,14 +1144,14 @@ $D$ und $f$ seien wie in 9.3 und es gelte: $\det f'(x) \ne 0 \ \forall x\in D$. 
 O.B.d.A: $x_0 = 0$, $f(x_0) = f(0) = 0$ und $f'(0) = I$ (=$(n\times n)$-Einheitsmatrix)
 
 Die Abbildungen $x \mapsto \det f'(x)$ und $x\mapsto \|f'(x) - I\|$ sind auf D stetig, $\det f'(0) \ne 0$, $\| f'(0)- I \| = 0$. Dann existiert ein $\delta > 0$: $K := U_\delta(0) \subseteq D$, $\overline{K} = \overline{U_\delta(0)} \subseteq D$ und 
-\begin{liste}
+\begin{enumerate}
 \item $\det f'(x) \ne 0 \ \forall x\in\overline{K}$ und
 \item $\|f'(x) - I \| \le \frac{1}{2n} \ \forall x\in\overline{K}$
 
 \item \textbf{Behauptung:} $\frac{1}{2} \|u-v\| \le \|f(u) - f(v)\| \ \forall u,v\in\overline{K}$, insbesondere ist $f$ injektiv auf $\overline{K}$
 
 \item $f^{-1}$ ist stetig auf $f(\overline{K})$: Seien $\xi, \eta \in f(\overline{K})$, $u:=f^{-1}(\xi)$, $v:= f^{-1}(\eta) \folgt u,v \in \overline{K}$ und $\|f^{-1}(\xi) - f^{-1}(\eta)\| = \|u-v\| \stackrel{\text{(3)}}{\le} 2\|f(u) - f(v)\| = 2\|\xi - \eta\|$
-\end{liste}
+\end{enumerate}
 
 Beweis zu (3): $h(x) := f(x) - x \ (x\in D) \folgt h\in C^1(D,\MdR^n)$ und $h'(x) = f'(x) - I $. Sei $h=(h1,\ldots,h_n)$. Also: $h' = \begin{pmatrix} h_1' \\ \vdots \\ h_n' \end{pmatrix}$. Seien $u,v\in \overline{K}$ und $j\in \{1,\ldots,n\}$.
 
@@ -1224,7 +1229,7 @@ Sei $f:D \rightarrow \MdR^p,\ f \in C^1(D, \MdR^p),\ (x_0, y_0) \in D,\ f(x_0, y
 $\det\frac{\partial f}{\partial y}(x_0, y_0)\ne 0$. \\ 
 Dann existiert eine offene Umgebung $U\subseteq \MdR^n$ von $x_0$ und
 genau eine Funktion $g:U\to D \subseteq \MdR^p$ mit:
-    \begin{liste}
+    \begin{enumerate}
         \item $(x, g(x))\in D\ \forall x\in U$
         \item $g(x_0)=y_0$
         \item $f(x,g(x))=0\ \forall x\in U$, mit $V = g(U)$ gilt: 
@@ -1233,7 +1238,7 @@ genau eine Funktion $g:U\to D \subseteq \MdR^p$ mit:
         \item $g \in C^1(U,\MdR^p)$
         \item $\det\frac{\partial f}{\partial y}(x, g(x))\ne0\ \forall x\in U$
         \item $g'(x)=-\left(\frac{\partial f}{\partial y}(x, g(x))\right)^{-1} \cdot \frac{\partial f}{\partial x}(x, g(x))\ \forall x\in U$
-    \end{liste}
+    \end{enumerate}
 \end{satz}
 
 \begin{beweis}
@@ -1255,10 +1260,10 @@ F'(x,y)=\left(\begin{array}{c|c}
 \ds\frac{\partial f}{\partial y}(x,y)
 \end{array}
 \right)$$
-Dann: \begin{liste}
+Dann: \begin{enumerate}
 \item[(I)] $\det F'(x,y)\gleichnach{LA}\det\frac{\partial f}{\partial y}(x,y)\ ((x, y) \in D)$, insbesondere: $\det F'(x_0, y_0)\ne 0$. Es ist $F(x_0, y_0)=(x_0, 0)$. 9.3$\folgt\exists$ eine offene Umgebung $\MdU$ von $(x_0, y_0)$ mit: $\MdU\subseteq D, f(\MdU)=\vartheta$. $F$ ist auf $\MdU$ injektiv, $F^{-1}:\vartheta\to\MdU$ ist stetig differenzierbar und
 \item[(II)] $\det F'(x,y)\gleichnach{(I)}\det\frac{\partial f}{\partial y}(x,y)\ne 0\ \forall\ (x,y)\in\MdU$
-\end{liste}
+\end{enumerate}
 \textbf{Bezeichnungen}: Sei $(s,t)\in\vartheta\ (s\in\MdR^n, t\in\MdR^p)$, $F^{-1}(s,t)=:(u(s,t),v(s,t))$, also $u:\vartheta\to\MdR^n$ stetig differenzierbar, $v:\vartheta\to\MdR^p$ stetig differenzierbar. Dann: $(s,t)=F(F^{-1}(s,t))=(u(s,t),f(u(s,t),v(s,t)))\folgt u(s,t)=s\folgt F^{-1}(s,t)=(s,v(s,t))$. Für $(x,y)\in\MdU: f(x,y)=0\equizu F(x,y)=(x,0)\equizu(x,y)=F^{-1}(x,0)=(x,v(x,0))\equizu y=v(x,0)$, insbesondere: $y_0=v(x_0,0)$. $U:=\{x\in\MdR^n: (x,0)\in\vartheta\}$. Es gilt: $x_0\in U$. Übung: $U$ ist eine offene Umgebung von $x_0$.
 
 \textbf{Definition}: $g:U\to\MdR^p$ durch $g(x):=v(x,0)$, für $x\in U$ gilt: $(x,0)\in\vartheta\folgt F^{-1}(x,0)=(x,v(x,0))=(x,g(x))\in \MdU$. Dann gelten: (1), (2), (3) und (4). (5) folgt aus (II).
@@ -1455,13 +1460,13 @@ $\folgt 0 = 2(Ax_0+\lambda_0 x_0) \folgt Ax_0 = (-\lambda_0) x_0,\ x_0 \ne 0 \fo
 \indexlabel{Inverser Weg}
 \indexlabel{Parameter-!Intervall}
 \begin{definition}
-\begin{liste}
+\begin{enumerate}
 \item Sei $[a,b]\subseteq \MdR$ und $\gamma: [a,b] \to \MdR^n$ sei stetig. Dann heißt $\gamma$ ein \textbf{Weg} im $\MdR^n$
 \item Sei $\gamma :[a,b] \to \MdR^n$ ein Weg. $\Gamma_\gamma := \gamma([a,b])$ heißt der zu $\gamma$ gehörende \textbf{Bogen}, $\Gamma_\gamma \subseteq \MdR^n$. 3.3 \folgt{} $\Gamma_\gamma$ ist beschränkt und abgeschlossen.
 $\gamma(a)$ heißt der \textbf{Anfangspunkt} von $\gamma$, $\gamma(b)$ heißt der \textbf{Endpunkt} von $\gamma$. $[a,b]$ heißt \textbf{Parameterintervall} von $\gamma$. \\
 $\gamma$ heißt \textbf{geschlossen} $:\equizu \gamma(a) = \gamma(b)$.
 \item $\gamma^-:[a,b]\to \MdR^n$, definiert durch $\gamma^-(t):=\gamma(b+a-t)$ heißt der zu $\gamma$ \textbf{inverse Weg}. Beachte: $\gamma^- \ne \gamma$, aber $\Gamma_\gamma = \Gamma_{\gamma^-}$.
-\end{liste}
+\end{enumerate}
 \end{definition}
 
 \begin{beispiele}
@@ -1514,43 +1519,43 @@ $$s(t):= \begin{cases}L(\gamma_{|_{[a,t]}}),&\text{falls }t\in(a,b] \\0, &\text{
 
 \begin{satz}[Eigenschaften der Weglängenfunktion]
 Sei $\gamma:[a,b]\to\MdR^n$ ein rektifizierbarer Weg. Dann: 
-\begin{liste}
+\begin{enumerate}
 \item $s\in C[a,b]$
 \item $s$ ist wachsend.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweis}
-\begin{liste}
+\begin{enumerate}
 \item \textbf{\color{red}In der großen Übung}
 \item Sei $t_1, t_2 \in [a,b]$ und $t_1<t_2$. $\gamma_1:=\gamma_{|_{[a,t_1]}}$, $\gamma_2:=\gamma_{|_{[t_1,t_2]}}$, $\gamma_3:=\gamma_{|_{[a,t_2]}}$. Dann $\gamma_3 = \gamma_1 \oplus \gamma_2$. 12.2 $\folgt$ $\gamma_1,\gamma_2,\gamma_3$ sind rektifizierbar und $\underbrace{L(\gamma_3)}_{=s(t_2)} = \underbrace{L(\gamma_1)}_{s(t_1)} + \underbrace{L(\gamma_2)}_{\ge 0} \folgt s(t_2) \ge s(t_1)$.
-\end{liste}
+\end{enumerate}
 \end{beweis}
 
 \begin{satz}[Rechenregeln für Wegintegrale]
 Sei $f=(f_1,\ldots,f_n):[a,b]\to\MdR^n$ und $f_1,\ldots,f_n\in R[a,b]$.
 $$\int_a^bf(t)dt := \left(\int_a^bf_1(t)dt, \int_a^bf_2(t)dt,\ldots, \int_a^bf_n(t)dt\right) \quad (\in\MdR^n)$$
-Dann: \begin{liste}
+Dann: \begin{enumerate}
 \item $$x\cdot \int_a^bf(t)dt = \int_a^b(x\cdot f(t))dt \ \forall x\in\MdR^n$$
 \item $$\left\|\int_a^bf(t)dt\right\| \le \int_a^b\|f(t)\|dt$$
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweis}
-\begin{liste}
+\begin{enumerate}
 \item Sei $x=(x_1,\ldots,x_n) \folgt$\\ $x\cdot\int_a^b f(t)dt = \sum_{j=1}^n x_j\int_a^bf_j(t) dt = \int_a^b\left(\sum_{j=1}^n x_j f_j(t)dt\right) = \int_a^b \left(x\cdot f(t)\right) dt$
 \item $y:=\int_a^bf(t)dt$. O.B.d.A: $y\ne 0$. $x:= \frac{1}{\|y\|} y \folgt \|x\|=1, y=\|y\|x$. $\|y\|^2 = y\cdot y = \|y\|(x\cdot y) = \|y\|\left(x\cdot \int_a^bf(t)dt \right) = \|y\|\int_a^b\left(x\cdot f(t)\right) dt \le \|y\|\int_a^b\underbrace{|x \cdot f(t)|}_{\le\|x\|\|f(t)\| = \|f(t)\|} dt \le \|y\| \int_a^b\|f(t)\|dt$
-\end{liste}
+\end{enumerate}
 \end{beweis}
 
 
 \begin{satz}[Eigenschaften stetig differenzierbarer Wege]
 $\gamma:[a,b]\to\MdR^n$ sei ein stetig differenzierbarer Weg. Dann:
-\begin{liste}
+\begin{enumerate}
 \item $\gamma$ ist rektifizierbar
 \item Ist $s$ die zu $\gamma$ gehörende Weglängenfunktion, so ist $s\in C^1[a,b]$ und $s'(t)=\|\gamma'(t)\|\ \forall t\in[a,b]$
 \item $L(\gamma)=\int_a^b\|\gamma'(t)\|dt$
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -1575,14 +1580,14 @@ $(3)\ L(\gamma)=s(b)=s(b)-s(a)\overset{AI}{=}\ds\int_a^b s'(t)\text{d}t\gleichna
 
 \begin{definition*}
 $\gamma:[a,b]\to\MdR^n$ sei ein Weg.
-\begin{liste}
+\begin{enumerate}
 \index{stückweise!stetige Differenzierbarkeit}\index{Differenzierbarkeit!stückweise stetige}
 \index{Glattheit}
 \index{stückweise!Glattheit}\index{Glattheit!stückweise}
 \item $\gamma$ heißt \textbf{stückweise stetig differenzierbar} $:\equizu\exists z=\{t_0,\ldots,t_m\}\in\Z$ mit: $\gamma_{|_{[t_{k-1},t_k]}}$ sind stetig differenzierbar $(k=1,\ldots,m)\equizu\exists$ stetig differenzierbare Wege $\gamma_1,\ldots,\gamma_l: \gamma=\gamma_1\oplus\cdots\oplus\gamma_l$.
 \item $\gamma$ heißt \textbf{glatt} $:\equizu \gamma$ ist stetig differenzierbar und $\|\gamma'(t)\|>0\ \forall t\in[a,b]$.
 \item $\gamma$ heißt \textbf{stückweise glatt} $:\equizu\exists$ glatte Wege $\gamma=\gamma_1\oplus\cdots\oplus\gamma_l$
-\end{liste}
+\end{enumerate}
 \end{definition*}
 
 Aus 12.2 und 12.5 folgt:
@@ -1617,10 +1622,10 @@ Es gilt: $\gamma_2=\gamma_1\circ h^{-1}\folgt \gamma_2\sim\gamma_1$. "`$\sim$"' 
 
 \begin{satz}[Eigenschaften der Parametertransformation]
 $\gamma_1:[a,b]\to\MdR^n$ und $\gamma_2:[\alpha,\beta]\to\MdR^n$ seien äquivalente Wege und $h:[a,b]\to[\alpha,\beta]$ eine Parametertransformation.
-\begin{liste}
+\begin{enumerate}
 \item $\gamma_1$ ist rektifizierbar $\equizu \gamma_2$ ist rektifizierbar. In diesem Falle: $L(\gamma_1)=L(\gamma_2)$
 \item Sind $\gamma_1$ und $\gamma_2$ glatt $\folgt h\in C^1[a,b]$ und $h'>0$.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -1681,13 +1686,13 @@ $\int_\gamma f(x,y,z)\cdot d(x,y,z) = \int_0^1 (6t+2t^3) dt = \frac{7}{2}.$
 
 \begin{satz}[Rechnen mit Wegintegralen]
 $\gamma,\Gamma,f$ seien wie oben, $g:\Gamma\to\MdR^n$ sei stetig, $\hat\gamma = (\hat{\gamma}_1,\ldots,\hat{\gamma}_n): [\alpha,\beta] \to \MdR^n$ sei rektifizierbar und $\xi,\eta \in \MdR$.
-\begin{liste}
+\begin{enumerate}
 \item $\ds{\int_\gamma(\xi f(x)+\eta g(x))\cdot dx = \xi \int_\gamma f(x)\cdot dx+\eta \int_\gamma g(x)\cdot dx}$
 \item Ist $\gamma = \gamma^{(1)} \oplus \gamma^{(2)} \folgt \ds{\int_\gamma f(x)\cdot dx = \int_{\gamma^{(1)}} f(x)\cdot dx + \int_{\gamma^{(2)}} f(x)\cdot dx}$
 \item $\ds{\int_{\gamma^-} f(x)\cdot dx = -\int_\gamma f(x)\cdot dx}$
 \item $\ds{\left| \int_\gamma f(x)\cdot dx\right| \le L(\gamma)\cdot \max\{\|f(x)\|:x \in \Gamma\}}$
 \item Ist $\ds{\hat{\gamma} \sim \gamma \folgt \int_\gamma f(x)\cdot dx = \int_{\hat{\gamma}} f(x)\cdot dx}$.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beweise}
@@ -1712,11 +1717,11 @@ $$\int_\gamma g(x) ds := \int_a^b g(\gamma(t))ds(t)$$
 
 \begin{satz}[Rechnen mit Integralen bezgl. der Weglänge]
 Seien $\gamma,g$ wie oben.
-\begin{liste}
+\begin{enumerate}
 \item $\ds{\int_{\gamma^-} g(x) ds = \int_\gamma g(x) ds}$
 \item Ist $\ds{\gamma = \gamma^{(1)} \oplus \gamma^{(2)} \folgt \int_\gamma g(x)ds = \int_{\gamma^{(1)}} g(x)ds + \int_{\gamma^{(2)}} g(x)ds}$.
 \item Ist $\gamma$ stetig db $\folgt \ds{\int_\gamma g(x)ds = \int_a^b g(\gamma(t))\|\gamma'(t)\|dt}$.
-\end{liste}
+\end{enumerate}
 \end{satz}
 
 \begin{beispiel}
@@ -1744,7 +1749,7 @@ Def. $h:[b_1,c] \to [a_2,b_2]$ linear wie folgt: $h(x)=px+q$, $h(b_1)=a_2$, $h(c
 
 \begin{beispiel}
 In allen Beispielen sei $f(x,y)=(y,x-y)$ und $t\in[0,1]$.
-\begin{liste}
+\begin{enumerate}
 \item $\gamma_1(t)=(t,0)$, $\gamma_2(t)=(1,t)$.
 
 Sei $\gamma \in \text{AH}(\gamma_1,\gamma_2)$. Anfangspunkt von $\gamma$ ist (0,0), Endpunkt von $\gamma$ ist (1,1). Nachrechnen: $\int_{\gamma_1}f(x,y)\cdot d(x,y) = 0$, $\int_{\gamma_2}f(x,y)\cdot d(x,y) = \frac{1}{2}$. Also: $\int_\gamma f(x,y) \cdot d(x,y) = \frac{1}{2}$
@@ -1754,7 +1759,7 @@ Sei $\gamma \in \text{AH}(\gamma_1,\gamma_2)$. Anfangspunkt von $\gamma$ ist (0,
 Sei $\gamma\in \text{AH}(\gamma_1,\gamma_2)$, Anfangspunkt von $\gamma$ ist (0,0), Endpunkt von $\gamma$ ist (1,1). Nachrechnen: $\int_{\gamma}f(x,y)\cdot d(x,y) = \frac{1}{2}$
 
 \item $\gamma(t)=(t,t^3)$. Anfangspunkt von $\gamma$ ist (0,0), Endpunkt von $\gamma$ ist (1,1). Nachrechnen: $\int_\gamma f(x,y)\cdot d(x,y) = \frac{1}{2}$
-\end{liste}
+\end{enumerate}
 \end{beispiel}
 
 \chapter{Stammfunktionen}
@@ -1768,11 +1773,11 @@ Eine Funktion $\varphi:G\to\MdR$ heißt eine \textbf{Stammfunktion (SF) von $f$ 
 \begin{bemerkung}
 \ 
 \vspace{-1.5em}
-\begin{liste}
+\begin{enumerate}
 \item Ist $\varphi$ eine Stammfunktion von $f$ auf $G$ $\folgt$ $\grad\varphi = f \folgt \varphi \in C^1(G,\MdR) \folgtnach{5.3} \varphi$ ist auf $G$ differenzierbar und $\varphi' = f$ auf $G$.
 \item Sind $\varphi_1$, $\varphi_2$ Stammfunktionen von $f$ auf $G$ $\folgtnach{(1)}$ $\varphi_1'=\varphi_2'$ auf $G$ $\folgtnach{6.2} \exists c\in\MdR: \varphi_1=\varphi_2+c$ auf $G$
 \item Ist $n=1$ $\folgt$ $G$ ist ein offenes Intervall. AI, 23.14 $\folgt$ \emph{jedes} stetige $f:G\to\MdR$ besitzt auf $G$ eine Stammfunktion! Im Falle $n\ge 2$ ist dies \emph{nicht} so.
-\end{liste}
+\end{enumerate}
 \end{bemerkung}
 
 \begin{beispiele}
@@ -1855,10 +1860,10 @@ $$\folgt \frac{\partial f_j}{\partial x_k}=\varphi_{x_jx_k}\gleichnach{4.7}\varp
 \index{Sternförmigkeit}
 Sei $\emptyset\ne M\subseteq\MdR^n$. $M$ heißt \textbf{sternförmig} $:\equizu\exists x_0\in M: S[x_0,x]\subseteq M\ \forall x\in M$.\\
 \textbf{Beachte:}
-\begin{liste}
+\begin{enumerate}
 \item Ist $M$ konvex$\folgt M$ ist sternförmig
 \item Ist $M$ offen und sternförmig$\folgt M$ ist ein Gebiet
-\end{liste}
+\end{enumerate}
 \end{definition*}
 
 \begin{satz}[Kriterium zur Existenz von Stammfunktionen]
@@ -2359,24 +2364,24 @@ dass $(X,\|\cdot\|_\infty)$ ein BR ist.
 \end{beispiele}
 
 \begin{satz}[Banachscher Fixpunktsatz]
-\index{Kontraktion}
-\index{Folge der sukzessiven Approximationen}\index{sukzessive Approximationen!Folge der}
-Sei $(X,\|\cdot\|)$ ein BR, $\emptyset\ne A\subseteq X$ sei abgeschlossen und es sei
-$F:A\to X$ eine Abbildung mit:
-\renewcommand{\labelenumi}{(\roman{enumi})}
-\begin{enumerate}
-\item $F(A)\subseteq A$
-\item $F$ ist eine \textbf{Kontraktion}, d.h.:
-\[\exists L\in[0,1):\forall x,y\in A:\|F(x)-F(y)\|\le L\cdot \|x-y\|\]
-\end{enumerate}
-\renewcommand{\labelenumi}{(\arabic{enumi})}
-Dann existiert genau ein $x^*\in A$ mit $F(x^*)=x^*$.\\
-Ist $x_0\in A$ beliebig und $(x_n)$ definiert durch $x_{n+1}:=F(x_n)\ (n\ge 0)$,
-so ist $x_n\in A$ für alle $n\in\MdN$ und es gilt:
-\[x_n\stackrel{n\to\infty}\to x^*\]
-Weiter gilt für alle $n\in\MdN$:
-\[\|x_n-x^*\|\le\frac{L^n}{1-L}\|x_1-x_0\|\]
-Diese Folge heißt Folge der \textbf{sukzessiven Approximationen}.
+    \index{Kontraktion}
+    \index{Folge der sukzessiven Approximationen}\index{sukzessive Approximationen!Folge der}
+    Sei $(X,\|\cdot\|)$ ein BR, $\emptyset\ne A\subseteq X$ sei abgeschlossen und es sei
+    $F:A\to X$ eine Abbildung mit:
+    \renewcommand{\labelenumi}{(\roman{enumi})}
+    \begin{enumerate}
+    \item $F(A)\subseteq A$
+    \item $F$ ist eine \textbf{Kontraktion}, d.h.:
+    \[\exists L\in[0,1):\forall x,y\in A:\|F(x)-F(y)\|\le L\cdot \|x-y\|\]
+    \end{enumerate}
+    \renewcommand{\labelenumi}{(\arabic{enumi})}
+    Dann existiert genau ein $x^*\in A$ mit $F(x^*)=x^*$.\\
+    Ist $x_0\in A$ beliebig und $(x_n)$ definiert durch $x_{n+1}:=F(x_n)\ (n\ge 0)$,
+    so ist $x_n\in A$ für alle $n\in\MdN$ und es gilt:
+    \[x_n\stackrel{n\to\infty}\to x^*\]
+    Weiter gilt für alle $n\in\MdN$:
+    \[\|x_n-x^*\|\le\frac{L^n}{1-L}\|x_1-x_0\|\]
+    Diese Folge heißt Folge der \textbf{sukzessiven Approximationen}.
 \end{satz}
 
 \begin{beweis}
@@ -3328,7 +3333,7 @@ Allgemeine Lösung von ($*$): $y(x) = \begin{pmatrix} c_1 \cos(x) - c_2 \sin(x) 
 \begin{satz}[Spezielle Lösung]
 Sei $y^{(1)}, ..., y^{(n)}$ ein Fundamentalsystem von (H), $Y(x)$ sei definiert wie oben. Setze
 \begin{align*}
-y_s(x) := Y(x) \int Y(x)^{-1} b(x) \text{d}x \quad (x \in I).
+\importantbox{y_s(x) := Y(x) \int Y(x)^{-1} b(x) \text{d}x \quad (x \in I).}
 \end{align*}
 Dann ist $y_s$ eine spezielle Lösung von (S) auf $I$.
 \begin{align*}
@@ -3418,8 +3423,8 @@ einer Basis von Kern$((A-\lambda_j I)^2)$, usw.
 
 \item Sei $\lambda_j \in M$ und $v$ ein Basisvektor von $V_j$. \\
 \[y(x) := e^{\lambda_j x} (v+\frac{x}{1!} (A-\lambda_j I)v + \frac{x^2}{2!} (A-\lambda_j I)^2 v + \cdots + \frac{x^{k_j - 1}}{ (k_j - 1)! } (A - \lambda_j I)^{k_j - 1} v )\]
-Schöner:
-\[y(x) := e^{\lambda_j x} \cdot \left ( \sum_{i=0}^{k_j-1} \frac{x^i}{i!} (A - \lambda_j I)^i \cdot v \right )\]
+Oder kürzer:
+\[\importantbox{y(x) := e^{\lambda_j x} \cdot \left ( \sum_{i=0}^{k_j-1} \frac{x^i}{i!} (A - \lambda_j I)^i \cdot v \right )}\]
 \textbf{Fall 1}: $\lambda_j \in \mdr$.\\
 Dann ist $y(x) \in \mdr^n \; \forall x \in \mdr$ und y ist eine Lösung von (H). \\
 \textbf{Fall 2}: $\lambda_j \in \mdc \setminus \mdr$.\\

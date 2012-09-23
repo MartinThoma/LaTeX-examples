@@ -41,12 +41,10 @@
 \newtheorem{bemerkungenX}{Bemerkungen}
 \newtheorem{beispieleX}{Beispiele}
 
-\newenvironment{liste}{\begin{enumerate}}{\end{enumerate}}
-
-\newenvironment{beweise}{\begin{beweis}\begin{liste}}{\end{liste}\end{beweis}}
-\newenvironment{beispiele}{\begin{beispieleX}\begin{liste}}{\end{liste}\end{beispieleX}}
-\newenvironment{bemerkungen}{\begin{bemerkungenX}\begin{liste}}{\end{liste}\end{bemerkungenX}}
-\newenvironment{wichtigebeispiele}{\begin{wichtigebeispieleX}\begin{liste}}{\end{liste}\end{wichtigebeispieleX}}
+\newenvironment{beweise}{\begin{beweis}\begin{enumerate}}{\end{enumerate}\end{beweis}}
+\newenvironment{beispiele}{\begin{beispieleX}\begin{enumerate}}{\end{enumerate}\end{beispieleX}}
+\newenvironment{bemerkungen}{\begin{bemerkungenX}\begin{enumerate}}{\end{enumerate}\end{bemerkungenX}}
+\newenvironment{wichtigebeispiele}{\begin{wichtigebeispieleX}\begin{enumerate}}{\end{enumerate}\end{wichtigebeispieleX}}
 
 \theoremstyle{break}
 \theoremseparator{} 
