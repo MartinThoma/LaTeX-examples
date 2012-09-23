@@ -25,3 +25,8 @@
 *.maf
 *.mtc
 *.mtc0
+
+## I want to keep some PDFs
+documents/Analysis I/*.pdf
+documents/Analysis II/*.pdf
+cheat-sheets/analysis/*.pdf
