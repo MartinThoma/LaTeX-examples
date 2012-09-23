@@ -12,6 +12,8 @@
 \begin{tikzpicture}
     \begin{axis}[
         axis x line=middle,
+        axis y line=left,
+        enlarge y limits=true,
         xmode=log, % Logarithmic x axis
         xmin=0.01, xmax=1, % Positive domain...
         xticklabel=\pgfmathparse{exp(\tick)}\pgfmathprintnumber{\pgfmathresult},
