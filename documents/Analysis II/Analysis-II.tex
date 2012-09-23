@@ -65,9 +65,9 @@ $e_1 := (1,0,\ldots,0),\ e_2:=(0,1,0,\ldots, 0),\ \ldots,\ e_n:=(0,\ldots,0,1) \
 \begin{definition}
 Seien $x=(x_1, \ldots, x_n), y=(y_1, \ldots, y_n) \in \MdR^n$
 \begin{liste}
-\item $x\cdot y := xy := x_1y_1+\cdots+x_ny_n$ hei"st das \textbf{Skalar}\indexlabel{Skalarprodukt}- oder \begriff{Innenprodukt} von $x$ und $y$.
-\item $\|x\|=(x\cdot x)^\frac{1}{2} = (x_1^2 + \cdots + x_n^2)^\frac{1}{2}$ hei"st die \begriff{Norm} oder \begriff{Länge} von $x$.
-\item \indexlabel{Abstand!zwischen zwei Vektoren}$\|x-y\|$ hei"st der \textbf{Abstand} von $x$ und $y$.
+\item $x\cdot y := xy := x_1y_1+\cdots+x_ny_n$ heißt das \textbf{Skalar}\indexlabel{Skalarprodukt}- oder \begriff{Innenprodukt} von $x$ und $y$.
+\item $\|x\|=(x\cdot x)^\frac{1}{2} = (x_1^2 + \cdots + x_n^2)^\frac{1}{2}$ heißt die \begriff{Norm} oder \begriff{Länge} von $x$.
+\item \indexlabel{Abstand!zwischen zwei Vektoren}$\|x-y\|$ heißt der \textbf{Abstand} von $x$ und $y$.
 \end{liste}
 \end{definition}
 
@@ -242,7 +242,7 @@ $A \subseteq \MdR^n$ sei abgeschlossen und beschränkt
 
 \begin{beweise}
 \item Sei $\ep>0$. Annahme: Die Behauptung ist falsch. Sei $a^{(1)}\in A$. Dann: $A\nsubseteq U_{\ep}(a^{(1)})\folgt\exists a^{(2)}\in A: a^{(2)}\notin U_\ep(a^{(1)})\folgt\|a^{(2)}-a^{(1)}\|\ge\ep$. $A\nsubseteq U_\ep(a^{(1)})\cup U_\ep(a^{(2)})\folgt\exists a^{(3)} \in A: \|a^{(3)}-a^{(2)}\|\ge\ep,\ \|a^{(3)}-a^{(1)}\|\ge\ep$ etc.. Wir erhalten so eine Folge $(a^{(k)})$ in A: $\|a^{(k)}-a^{(l)}\|\ge\ep$ für $k\ne l$. 2.2(4) $\folgt (a^{(k)})$ enthält eine konvergente Teilfolge $\folgtnach{2.1(6)}\ \exists j_0 \in\MdN:\ \|a^{(k_j)}-a^{(k_l)}\|<\ep\ \forall j,l\ge j_0$, Widerspruch!
-\item Sei $j\in\MdN$. $\ep:=\frac{1}{j}$. (1) $\folgt\exists$ endl. Teilmenge $B_j$ von $A$ mit $(*)\ A\subseteq \displaystyle\bigcup_{x \in B_j}U_{\frac{1}{j}}(x)$. $B:=\displaystyle\bigcup_{j\in\MdN}B_j\folgt B\subseteq A$ und $B$ ist abzählbar. Dann: $\bar B\subseteq\bar A\gleichnach{Vor.}A$. Noch zu zeigen: $A\subseteq\bar B$. Sei $x_0\in A$ und $\delta>0$: zu zeigen: $U_\delta(x_0)\cap B\ne\emptyset$. Wähle $j\in\MdN$ so, da"s $\frac{1}{j}<\delta\ (*)\folgt\exists x \in B_j\subseteq B:\ x_0\in U_{\frac{1}{j}}(x)\folgt \|x_0-x\|<\frac{1}{j}<\delta\folgt x\in U_\delta(x_0)\folgt x\in U_\delta(x_0)\cap B$.
+\item Sei $j\in\MdN$. $\ep:=\frac{1}{j}$. (1) $\folgt\exists$ endl. Teilmenge $B_j$ von $A$ mit $(*)\ A\subseteq \displaystyle\bigcup_{x \in B_j}U_{\frac{1}{j}}(x)$. $B:=\displaystyle\bigcup_{j\in\MdN}B_j\folgt B\subseteq A$ und $B$ ist abzählbar. Dann: $\bar B\subseteq\bar A\gleichnach{Vor.}A$. Noch zu zeigen: $A\subseteq\bar B$. Sei $x_0\in A$ und $\delta>0$: zu zeigen: $U_\delta(x_0)\cap B\ne\emptyset$. Wähle $j\in\MdN$ so, dass $\frac{1}{j}<\delta\ (*)\folgt\exists x \in B_j\subseteq B:\ x_0\in U_{\frac{1}{j}}(x)\folgt \|x_0-x\|<\frac{1}{j}<\delta\folgt x\in U_\delta(x_0)\folgt x\in U_\delta(x_0)\cap B$.
 \item Teil 1: Behauptung: $\exists \ep>0:\ \forall a \in A\ \exists\lambda\in M: U_\ep(a)\subseteq G_\lambda$. Beweis: Annahme: Die Behauptung ist falsch. $\forall k\in\MdN\ \exists a^{(k)}\in A:\ (**) U_{\frac{1}{k}}(a^{(k)})\nsubseteq G_\lambda\ \forall \lambda\in M$. 2.2(4) $\folgt (a^{(k)})$ enthält eine konvergente Teilfolge $(a^{(k_j)})$ und $x_0:=\displaystyle\lim_{j\to\infty}a^{k_j}\in A\folgt\exists \lambda_0\in M: x_0 \in G_{\lambda_0};\ G_{\lambda_0}$ offen $\folgt\exists \delta>0: U_\delta(x_0)\subseteq G_{\lambda_0}.\ a^{(k_j)}\to x_0\ (j\to\infty)\folgt\exists m_0\in\MdN: a^{(m_0)}\in U_{\frac{\delta}{2}}(x_0)$ und $m_0\ge\frac{2}{\delta}$. Sei $x\in U_{\frac{1}{m_0}}(a^{(m_0)})\folgt \|x-x_0\|=\|x-a^{(m_0)}+a^{(m_0)}-x_0\|\le\|x-a^{(m_0)}\|+\|a^{(m_0)}-x_0\|\le\frac{1}{m_0}+\frac{\delta}{2}\le\frac{\delta}{2}+\frac{\delta}{2}=\delta\folgt x\in U_\delta(x_0)\folgt x \in G_{\lambda_0}$. Also: $U_{\frac{1}{m_0}}(a^{(m_0)})\subseteq G_{\lambda_0}$, Widerspruch zu $(**)$!\\
 Teil 2: Sei $\ep>0$ wie in Teil 1. (1) $\folgt\exists a^{(1)},\ldots,a^{(m)}\in A: A\subseteq\displaystyle\bigcup_{j=1}^mU_\ep(a^{(j)})$. Teil 1 $\folgt\exists \lambda_j\in M: U_\ep(a^{(j)})\subseteq G_{\lambda_j}\ (j=1,\ldots,m)\folgt A\subseteq \displaystyle\bigcup_{j=1}^m G_{\lambda_j}$ 
 \end{beweise}
@@ -529,7 +529,7 @@ Stets in dem Paragraphen: $\emptyset\ne D\subseteq\MdR^n$, $D$ offen und $f:D\to
 \begin{definition*}
 \begin{liste}
 \item Sei $k\in\MdN$. $f\in C^k(D,\MdR^m) :\equizu f_j\in C^k(D,\MdR)\ (j=1,\ldots,m)$
-\item Sei $x_0\in D$. $f$ hei"st \textbf{partiell differenzierbar} in $x_0 :\equizu$ jedes $f_j$ ist in $x_0$ partiell differenzierbar. In diesem Fall hei"st
+\item Sei $x_0\in D$. $f$ heißt \textbf{partiell differenzierbar} in $x_0 :\equizu$ jedes $f_j$ ist in $x_0$ partiell differenzierbar. In diesem Fall heißt
 $$\frac{\partial f}{\partial x}(x_0):=\frac{\partial(f_1,\ldots,f_m)}{\partial(x_1,\ldots,x_n)}:=J_f(x_0):=\begin{pmatrix}
 \frac{\partial f_1}{\partial x_1}(x_0) & \cdots & \frac{\partial f_1}{\partial x_n}(x_0) \\
 \vdots & & \vdots \\
@@ -555,30 +555,37 @@ $$\equizu\exists a\in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}
 
 \begin{definition*}
 \begin{liste}
-\index{Differenzierbarkeit}
-\item Sei $x_0\in D$. $f$ hei"st \textbf{differenzierbar} (db) in 
-$x_0 :\equizu \exists (m \times n)$-Matrix $A$, sodass gilt:
-\begin{align*}
-\ds\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)-Ah}{\|h\|}=0\ \tag{$*$}
-\end{align*}
-\item $f$ hei"st differenzierbar auf $D\ :\equizu f$ ist in jedem $x\in D$ differenzierbar.
+    \index{Differenzierbarkeit}
+    \item Sei $x_0\in D$. $f$ heißt \textbf{differenzierbar} (db) in 
+          $x_0 :\equizu \exists (m \times n)$-Matrix $A$, sodass gilt:
+          \begin{align*}
+            \ds\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)-Ah}{\|h\|}=0\ \tag{$*$}
+          \end{align*}
+    \item $f$ heißt differenzierbar auf $D\ :\equizu f$ ist in 
+          jedem $x\in D$ differenzierbar.
 \end{liste}
 \end{definition*}
 
 \begin{bemerkungen}
-\item $f$ ist differenzierbar in $x_0\equizu\exists (m \times n)$-Matrix $A$: $$\ds\lim_{x\to x_0}\frac{f(x)-f(x_0)-A(x-x_0)}{\|x-x_0\|}=0$$
-\item Ist $m=1$, so gilt: $f$ ist differenzierbar in $x_0$ 
-\begin{align*}
-\equizu\exists a \in\MdR^n:\ds\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)-ah}{\|h\|}=0\ \tag{$**$}
-\end{align*}
-\item Aus 2.1 folgt: $f$ ist differenzierbar in $x_0\equizu$ jedes $f_j$ ist differenzierbar in $x_0$.
+    \item $f$ ist differenzierbar in 
+          $x_0\equizu\exists (m \times n)$-Matrix $A$:
+          \[ \ds\lim_{x\to x_0}\frac{f(x)-f(x_0)-A(x-x_0)}{\|x-x_0\|}=0 \]
+    \item Ist $m=1$, so gilt: $f$ ist differenzierbar in $x_0$ 
+        \begin{align*}
+            \equizu \exists a \in\MdR^n:
+            \ds\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)-ah}{\|h\|}=0\ \tag{$**$}
+        \end{align*}
+    \item Aus 2.1 folgt: $f$ ist differenzierbar in $x_0\equizu$ jedes $f_j$ ist differenzierbar in $x_0$.
 \end{bemerkungen}
 
 \begin{satz}[Differenzierbarkeit und Stetigkeit]
 $f$ sei in $x_0\in D$ differenzierbar
 \begin{liste}
 \item $f$ ist in $x_0$ stetig
-\item $f$ ist in $x_0$ partiell differenzierbar und die Matrix A in $(*)$ ist eindeutig bestimmt: \\$A=J_f(x_0)$. $f'(x_0):=A=J_f(x_0)$ (\begriff{Ableitung} von $f$ in $x_0$).
+\item $f$ ist in $x_0$ partiell differenzierbar und die Matrix A in 
+      $(*)$ ist eindeutig bestimmt: \\
+      $A=J_f(x_0)$. $f'(x_0):=A=J_f(x_0)$ (\begriff{Ableitung} von $f$ in $x_0$).
+\item Ist $m=1$, so ist $f'(x_0) = a$ (aus $(**)$), also $f'(x_0) = \grad(f(x_0))$
 \end{liste}
 \end{satz}
 
@@ -596,10 +603,13 @@ Sei A wie in $(*)$, $A=(a_{jk})$, $\varrho(h):=\frac{f(x_0+h)-f(x_0)-Ah}{\|h\|}$
 0&\text{, falls } (x,y)=(0,0)
 \end{cases}$$
 Bekannt: $f$ ist in $(0,0)$ \textbf{nicht} stetig, aber partiell differenzierbar und $\grad f(0,0)=(0,0)$ 5.1 $\folgt f$ ist in $(0,0)$ \textbf{nicht} differenzierbar.
-\item $$f(x,y)=\begin{cases}
-(x^2+y^2)\sin\frac{1}{\sqrt{x^2+y^2}}&\text{, falls } (x,y)\ne(0,0)\\
-0&\text{, falls }(x,y)=(0,0)
-\end{cases}$$
+\item \[
+    f(x,y)=
+    \begin{cases}
+        (x^2+y^2) \underbrace{\sin\frac{1}{\sqrt{x^2+y^2}}}_\text{beschränkt}&\text{, falls } (x,y)\ne(0,0)\\
+        0&\text{, falls }(x,y)=(0,0)
+    \end{cases}
+\]
 Für $(x,y)\ne(0,0): \left|f(x,y)\right|=(x^2+y^2)\left|\sin\frac{1}{\sqrt{x^2+y^2}}\right|
 \le x^2+y^2\overset{(x,y)\to(0,0)}{\to}0 \folgt f$ ist in $(0,0)$ stetig. 
 $\frac{f(t,0)-f(0,0)}{t}=\frac{1}{t}t^2\sin\frac{1}{|t|}=t\sin\frac{1}{|t|}\to 0\ (t\to 0)\folgt f$ ist in $(0,0)$ partiell differenzierbar nach $x$ und $f_x(0,0)=0$. Analog: $f$ ist in $(0,0)$ partiell differenzierbar nach $y$ und $f_y(0,0)=0$. $\varrho(h)=\frac{1}{\|h\|}f(h)\gleichwegen{h=(h_1,h_2)}\frac{1}{\sqrt{h_1^2+h_2^2}}(h_1^2+h_2^2)\sin\frac{1}{h_1^2+h_2^2}=\sqrt{h_1^2+h_2^2}\underbrace{\sin\frac{1}{\sqrt{h_1^2+h_2^2}}}_{\text{beschränkt}}\to 0\ (h\to 0)\folgt f$ ist differenzierbar in $(0,0)$ und $f'(0,0)=\grad f(0,0)=(0,0)$
@@ -633,7 +643,7 @@ $f(h) - f(0) = f(h_1,h_2) - f(0,0) = \underbrace{f(h_1,h_2) - f(0,h_2)}_{=:\Delt
 $\varphi(t) := f(t,h_2),\ t$ zwischen $0$ und $h_1 \folgt \Delta_1 = \varphi(h_1) - \varphi(0),\ \varphi'(t) = f_x(t,h_2)$
 
 Aus dem Mittelwertsatz aus Analysis I folgt:
-$\exists \xi = \xi(h)$ zw. $0$ und $h_1: \Delta_1 = h_1\varphi(\xi) = h_1 f_x(\xi,h_2)\\
+$\exists \xi = \xi(h)$ mit $0 \leq \xi \leq h_1: \Delta_1 = h_1\varphi(\xi) = h_1 f_x(\xi,h_2)\\
 \exists \eta = \eta(h)$ zw. $0$ und $h_2: \Delta_2 = h_2\varphi(\eta) = h_2 f_x(\eta,h_2)$
 
 $\folgt \rho(h) := \frac{1}{\|h\|}(h_1 f_x(\xi,h_2) - h_2 f_y(0,\eta) - (h_1 f_x(0,0) + h_2 f_y(0,0)))\\
@@ -767,7 +777,7 @@ Es gilt: $g(f(x)) = x \forall x \in D, f(g(z)) = z \forall z \in f(D) \folgtnach
 \begin{definition}
 \begin{liste}
 \index{Konvexität}
-\item Seien $a,b \in \MdR^n; S[a,b]:=\{a+t(b-a): t\in [0,1]\}$ hei"st
+\item Seien $a,b \in \MdR^n; S[a,b]:=\{a+t(b-a): t\in [0,1]\}$ heißt
 \begriff{Verbindungsstrecke} von $a$ und $b$
 \item $M\subseteq \MdR^n$ heißt \textbf{konvex} $:\equizu$\ aus $a,b \in M$ folgt
 stets: $S[a,b] \subseteq M$
@@ -1210,18 +1220,21 @@ $$ f'=
 \text{; also } f'(x,y)=\left(\frac{\partial f}{\partial x}(x,y),\ \frac{\partial f}{\partial y}(x,y)\right)$$
 
 \begin{satz}[Satz über implizit definierte Funktionen]
-Sei $(x_0, y_0)\in D, f(x_0, y_0)=0$ und $\det\frac{\partial f}{\partial y}(x_0, y_0)\ne 0$. Dann existiert eine offene Umgebung $U\subseteq \MdR^n$ von $x_0$ und genau eine Funktion $g:U\to D \subseteq \MdR^p$ mit:
-\begin{liste}
-\item $(x, g(x))\in D\ \forall x\in U$
-\item $g(x_0)=y_0$
-\item $f(x,g(x))=0\ \forall x\in U$, mit $V = g(U)$ gilt: $V$ ist offen und für $(a, b) \in U \times V$ mit $f(a,b) = 0$ gilt: $b = g(a)$
-\item $g \in C^1(U,\MdR^p)$
-\item $\det\frac{\partial f}{\partial y}(x, g(x))\ne0\ \forall x\in U$
-\item $g'(x)=-\left(\frac{\partial f}{\partial y}(x, g(x))^{-1}\right) \cdot \frac{\partial f}{\partial x}(x, g(x))\ \forall x\in U$
-\end{liste}
+Sei $f:D \rightarrow \MdR^p,\ f \in C^1(D, \MdR^p),\ (x_0, y_0) \in D,\ f(x_0, y_0)=0$ und 
+$\det\frac{\partial f}{\partial y}(x_0, y_0)\ne 0$. \\ 
+Dann existiert eine offene Umgebung $U\subseteq \MdR^n$ von $x_0$ und
+genau eine Funktion $g:U\to D \subseteq \MdR^p$ mit:
+    \begin{liste}
+        \item $(x, g(x))\in D\ \forall x\in U$
+        \item $g(x_0)=y_0$
+        \item $f(x,g(x))=0\ \forall x\in U$, mit $V = g(U)$ gilt: 
+              $V$ ist offen und für $(a, b) \in U \times V$ mit 
+              $f(a,b) = 0$ gilt: $b = g(a)$
+        \item $g \in C^1(U,\MdR^p)$
+        \item $\det\frac{\partial f}{\partial y}(x, g(x))\ne0\ \forall x\in U$
+        \item $g'(x)=-\left(\frac{\partial f}{\partial y}(x, g(x))\right)^{-1} \cdot \frac{\partial f}{\partial x}(x, g(x))\ \forall x\in U$
+    \end{liste}
 \end{satz}
-%stimmt bei (6) das mit dem ^{-1} tatsächlich?
-
 
 \begin{beweis}
 Definition: $F:D\to\MdR^{n+p}$ durch $F(x,y):=(x,f(x,y))$. Dann: $F\in C^1(D,\MdR^{n+p})$ und
@@ -1554,7 +1567,7 @@ Ist $\gamma=\gamma_1\oplus\cdots\oplus\gamma_l$ stückweise stetig differenzierb
 
 \begin{definition*}
 \index{Parameter-!Darstellung}
-Sei $\gamma:[a,b]\to\MdR^n$ ein Weg. $\gamma$ hei"st eine \textbf{Parameterdarstellung} von $\Gamma_\gamma$.
+Sei $\gamma:[a,b]\to\MdR^n$ ein Weg. $\gamma$ heißt eine \textbf{Parameterdarstellung} von $\Gamma_\gamma$.
 \end{definition*}
 
 \begin{beispiele}
@@ -3252,7 +3265,7 @@ $y^{(1)}, ..., y^{(n)}$ sei ein LS von (H). $Y$ und $W$ seien definiert wie oben
 \begin{align*}
 \tag{$*$} y' = A(x) y
 \end{align*}
-auf $I$ und $y^{(1)} \not\equiv 0$. Das hei"st:
+auf $I$ und $y^{(1)} \not\equiv 0$. Das heißt:
 \begin{align*}
 \begin{cases}
 y_1' = a_1(x) y_1 - a_2(x) y_2 \\
@@ -3264,7 +3277,7 @@ Setze $y^{(2)} := (-y_2, y_1)$. Dann ist:
 \begin{align*}
 A(x) y^{(2)} = \begin{pmatrix} -a_1(x) y_2 - a_2(x) y_1 \\ -a_2(x) y_2 + a_1(x) y_1 \end{pmatrix} = \begin{pmatrix} -y_2' \\ y_1' \end{pmatrix} = \left( y^{(2)} \right)'
 \end{align*}
-Das hei"st: $y^{(2)}$ löst ebenfalls ($*$) auf $I$, oder: $y^{(1)}, y^{(2)}$ ist ein Lösungssystem von ($*$).
+Das heißt: $y^{(2)}$ löst ebenfalls ($*$) auf $I$, oder: $y^{(1)}, y^{(2)}$ ist ein Lösungssystem von ($*$).
 \begin{align*}
 Y(x) = \begin{pmatrix} y_1(x) & -y_2(x) \\ y_2(x) & y_1(x) \end{pmatrix}, W(x) = \det Y(x) = y_1(x)^2 + y_2(x)^2 \neq 0
 \end{align*}
