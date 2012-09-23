@@ -1,18 +1,18 @@
 % Original Source: http://mitschriebwiki.nomeata.de/data/SS10/Ana2Bachelor.tex
-\documentclass[a4paper,oneside,DIV15,BCOR12mm,chapterprefix=true,headings=onelinechapter]{scrbook}
+\documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
 \usepackage{mathe}
 \usepackage{saetze-schmoeger}
 
 \lecturer{Dr. C. Schmoeger}
-\semester{Sommersemester 2010}
+\semester{Sommersemester 2010 und 2012}
 \scriptstate{complete}
 
-\author{Die Mitarbeiter von http://mitschriebwiki.nomeata.de/ und GitHub-Beiträge}
+\author{Die Mitarbeiter von \href{http://mitschriebwiki.nomeata.de/}{mitschriebwiki.nomeata.de} und \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents}{GitHub}}
 \title{Analysis II}
 \makeindex
 
 \hypersetup{ 
-  pdfauthor   = {Die Mitarbeiter von http://mitschriebwiki.nomeata.de/ und GitHub-Beiträge}, 
+  pdfauthor   = {Die Mitarbeiter von mitschriebwiki.nomeata.de und GitHub}, 
   pdfkeywords = {Analysis}, 
   pdftitle    = {Analysis II} 
 } 
@@ -35,7 +35,8 @@ von Herrn Schmoeger hier veröffentlicht, Herr Schmoeger ist für den Inhalt nic
 verantwortlich.
 
 \section*{Wer}
-Gestartet wurde das Projekt von Joachim Breitner. Beteiligt am Mitschrieb (von 2005) sind außer Joachim
+Gestartet wurde das Projekt von Joachim Breitner. Beteiligt am 
+Mitschrieb (von 2005) sind außer Joachim
 noch Pascal Maillard, Wenzel Jakob und andere. 
 Beteiligt am Mitschrieb (von 2010) sind Rebecca Schwerdt, Philipp Ost und Manuel Kaiser.
 
@@ -44,12 +45,15 @@ Im September 2012 wurde das Skript mit der Revisionsnummer 7255 von
 auf \href{https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Analysis%20II}{GitHub} hochgeladen.
 
 \section*{Wo}
-Alle Kapitel inklusive \LaTeX-Quellen können unter \url{http://mitschriebwiki.nomeata.de} abgerufen werden.
-Dort ist ein \emph{Wiki} eingerichtet und von Joachim Breitner um die \LaTeX-Funktionen erweitert.
+Alle Kapitel inklusive \LaTeX-Quellen können unter 
+\href{http://mitschriebwiki.nomeata.de}{mitschriebwiki.nomeata.de} 
+abgerufen werden.
+Dort ist ein \emph{Wiki} eingerichtet und von Joachim Breitner um die 
+\LaTeX-Funktionen erweitert.
 Das heißt, jeder kann Fehler nachbessern und sich an der Entwicklung
 beteiligen. Auf Wunsch ist auch ein Zugang über \emph{Subversion} möglich.
 
-Oder man geht auf \url{https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Analysis%20II/},
+Oder man geht auf \href{https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Analysis%20II/}{github},
 erstellt einen Fork und kann direkt Änderungen umsetzen.
 
 
@@ -180,7 +184,10 @@ Sei $x_0 \in \MdR^n$, $\delta > 0$, $A, U\subseteq \MdR^n$.
 Sei $(a^{(k)})$ eine Folge in $\MdR^n$, also $(a^{(k)}) = ( a^{(1)}, a^{(2)}, \ldots ) $ mit $a^{(k)} = (a_1^{(k)}, \ldots a_n^{(k)}) \in \MdR^n$. Die Begriffe \begriff{Teilfolge} und \begriff{Umordnung} definiert man wie in Analysis I. $(a^{(k)})$ heißt beschränkt $:\equizu$ $\exists c\ge0: \|a^{(k)}\| \le c  \ \forall k\in\MdN$.
 
 \begin{definition*}[Grenzwert und Beschränktheit]
-\indexlabel{Konvergenz}$(a^{(k)})$ heißt \textbf{konvergent} $:\equizu$ $\exists a\in\MdR^n: \|a^{(k)} - a\| \to 0 \ (k\to\infty)$ ($\equizu\ \exists a\in\MdR^n: \forall \ep>0\exists k_0 \in\MdN: \|a^{(k)} - a\|<\ep \ \forall k\ge k_0$). In diesem Fall heißt $a$ der \begriff{Grenzwert} (GW) oder \begriff{Limes} von $(a^{(k)})$ und man schreibt: $a=\lim_{k\to\infty}a^{(k)}$ oder $a^{(k)} \to a \ (k\to\infty)$
+    \indexlabel{Konvergenz}$(a^{(k)})$ heißt \textbf{konvergent} 
+    $:\equizu$ $\exists a\in\MdR^n: \|a^{(k)} - a\| \to 0 \ (k\to\infty)$ ($\equizu\ \exists a\in\MdR^n: \forall \ep>0\exists k_0 \in\MdN: \|a^{(k)} - a\|<\ep \ \forall k\ge k_0$). 
+    In diesem Fall heißt $a$ der \begriff{Grenzwert} (GW) oder \begriff{Limes} von $(a^{(k)})$ und man schreibt: 
+    $a=\lim_{k\to\infty}a^{(k)}$ oder $a^{(k)} \to a \ (k\to\infty)$
 \end{definition*}
 
 \begin{beispiel}
@@ -190,11 +197,14 @@ $(n=2)$: $a^{(k)} = (\frac{1}{k}, 1+\frac{1}{k^2})$ (Erinnerung: $\frac{1}{n}$ k
 \begin{satz}[Konvergenz]
 Sei $(a^{(k)})$ eine Folge in $\MdR^n$.
 \begin{enumerate}
- \item Sei $a^{(k)} = (a_1^{(k)}, \ldots, a_n^{(k)})$ und $a = (a_1,\ldots,a_n)\in\MdR^n$. Dann:
- $$ a^{(k)} \to a \ (k\to\infty) \equizu a_1^{(k)} \to a_1, \ldots, a_n^{(k)} \to a_n \ (k\to\infty) $$
+ \item Sei $a^{(k)} = (a_1^{(k)}, \ldots, a_n^{(k)})$ und 
+       $a = (a_1,\ldots,a_n)\in\MdR^n$. Dann:
+       $$ a^{(k)} \to a \ (k\to\infty) \equizu a_1^{(k)} \to a_1, \ldots, a_n^{(k)} \to a_n \ (k\to\infty) $$
  \item Der Grenzwert einer konvergenten Folge ist eindeutig bestimmt.
- \item Ist $(a^{(k)})$ konvergent $\folgt \ a^{(k)}$ ist beschränkt und jede Teilfolge und jede Umordnung von $(a^{(k)})$ konvergiert gegen $\lim a^{(k)}$.
- \item Sei $(b^{(k)})$ eine weitere Folge, $a,b\in\MdR^n$ und $\alpha\in\MdR$. Es gelte $a^{(k)}\to a$, $b^{(k)} \to b$ Dann: $$\|a^{(k)}\| \to \|a\|$$ $$a^{(k)} + b ^{(k)} \to a+b$$ $$\alpha a^{(k)} \to \alpha a$$ $$a^{(k)}\cdot b^{(k)} \to a\cdot b$$
+ \item Ist $(a^{(k)})$ konvergent $\folgt \ a^{(k)}$ ist beschränkt 
+       und jede Teilfolge und jede Umordnung von $(a^{(k)})$ konvergiert gegen $\lim a^{(k)}$.
+ \item Sei $(b^{(k)})$ eine weitere Folge, $a,b\in\MdR^n$ und $\alpha\in\MdR$. 
+       Es gelte $a^{(k)}\to a$, $b^{(k)} \to b$ Dann: $$\|a^{(k)}\| \to \|a\|$$ $$a^{(k)} + b ^{(k)} \to a+b$$ $$\alpha a^{(k)} \to \alpha a$$ $$a^{(k)}\cdot b^{(k)} \to a\cdot b$$
  \item \begriff{Bolzano-Weierstraß}: Ist $(a^{(k)})$ beschränkt, so enthält $(a^{(k)})$ eine konvergente Teilfolge.
  \item \indexlabel{Cauchy!-Kriterium}\textbf{Cauchy-Kriterium}: $(a^{(k)})$ konvergent $\equizu \ \forall\ep>0\ \exists k_0\in\MdN: \|a^{(k)} - a^{(l)}\| <\ep \ \forall k,l \ge k_0$
 \end{enumerate}
@@ -2917,7 +2927,10 @@ wenn $(g_k)$ eine Cauchy-Folge in $(C(I,\MdR^n), \|\cdot \|_\infty)$ ist.
 \textbf{Bezeichnung:} EuE = Existenz und Eindeutigkeit.
 \index{Existenz und Eindeutigkeit}
 \begin{satz}[EuE-Satz von Picard-Lindelöf (Version I)]
-Sei $I = [a,b], x_o \in I, y_0 \in \MdR^n, D:= I \times \MdR^n, f\in C(D, \MdR^n)$ und $f$ genüge auf $D$ einer Lipschitz-Bedingung bezüglich $y$. Dann ist das
+Sei $I = [a,b], x_o \in I, y_0 \in \MdR^n, D:= I \times \MdR^n, f\in C(D, \MdR^n)$ 
+und $f$ genüge auf $D$ einer Lipschitz-Bedingung bezüglich $y$.\\
+\\
+Dann ist das
 \begin{align*}\text{AwP}
 \begin{cases}
 y'=f(x,y)\\
