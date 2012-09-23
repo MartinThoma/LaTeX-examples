@@ -53,7 +53,7 @@
 
 
     \draw[fill=yellow!20,yellow!20, rounded corners] (-1.85, 0.70) rectangle (13.4,-6.85);
-    \draw[fill=lime!20,lime!20, rounded corners]     (-1.75, 0.45) rectangle (7.3,-6.75);
+    \draw[fill=lime!20,lime!20, rounded corners]     (-1.75, 0.60) rectangle (7.3,-6.75);
     \draw[fill=purple!20,purple!20, rounded corners] (-1.65,-1.55) rectangle (7.2,-6.65);
     \draw[fill=blue!20,blue!20, rounded corners]     ( 4.55,-3.45) rectangle (13.1,-6.55);
     \draw (0, 0) node[algebraicName] (A) {gleichmäßig stetig}
@@ -65,6 +65,7 @@
           }
           (6, 0) node[example, draw=lime, fill=lime!15] (X) {\tiny$f_5(x)=\sin(x)$}
           (6,-1) node[example, draw=lime, fill=lime!15] (X) {\tiny$f_6(x)=\cos(x)$}
+          (4,-1) node[example, draw=lime, fill=lime!15] (X) {\tiny$f_9(x)=\sqrt x$}
           (0,-2) node[algebraicName, purple] (C) {Lipschitz-stetig}
           (3.5,-2) node[explanation]   (X) {
             \begin{minipage}{90\textwidth}
@@ -73,11 +74,11 @@ $f$ heißt auf $D$ \textbf{Lipschitz-stetig}\\
 $:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
             \end{minipage}
           }
-          (12,-6) node[example, draw=black, fill=black!15] (G) {\tiny$f_2(x) = e^x$}
+          (12,-6) node[example, draw=blue, fill=black!15] (G) {\tiny$f_2(x) = e^x$}
 
-          (0,-6) node[example, draw=red, fill=red!15] (K) {\tiny$f_4(x) = |x|$}
-          (6,-6) node[example, draw=red, fill=red!15, pattern=north east lines wide, pattern color=black!25] (N) {\tiny$f_7(x) = 42$}
-          (6,-4) node[example, draw=red, fill=red!15, pattern=north east lines wide, pattern color=black!25] (ANCHORD) {\tiny$f_3(x) = 42$}
+          (0,-6) node[example, draw=purple, fill=red!15] (K) {\tiny$f_4(x) = |x|$}
+          (6,-6) node[example, draw=purple, fill=red!15, pattern=north east lines wide, pattern color=black!25] (N) {\tiny$f_7(x) = 42$}
+          (6,-4) node[example, draw=purple, fill=red!15, pattern=north east lines wide, pattern color=black!25] (ANCHORD) {\tiny$f_3(x) = 42$}
 
           (12,-2) node[example, draw=yellow, fill=yellow!15] (Q) {\tiny$f_1(x) = |x|$}
 
@@ -93,7 +94,8 @@ $:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
             \end{minipage}
           }
 
-          (12,-4) node[example, draw=black, fill=black!15] (P) {\tiny$g_1(x) = \frac{1}{x}$}
+          (12,-4) node[example, draw=blue, fill=black!15] (P) {\tiny$g_1(x) = \frac{1}{x}$}
+          (12,-5) node[example, draw=blue, fill=black!15] (P) {\tiny$f_8(x) = x^2$}
 
 
           (9, -4) node[algebraicName] (random1) {differenzierbar}
@@ -106,14 +108,15 @@ $:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
             \end{minipage}
           };
 
-    % differenzierbar
-    \draw[blue, thick, rounded corners] ($(ANCHORD.north west)+(-0.5,0.2)$) rectangle ($(G.south east)+(0.2,-0.2)$);
+
     % LP-Stetig
     \draw[purple, thick, rounded corners] ($(C.north west)+(-0.3,0.1)$) rectangle ($(N.south east)+(0.3,-0.3)$);
     % gleichmäßig stetig
     \draw[lime, thick, rounded corners]   ($(A.north west)+(-0.4,0.1)$) rectangle ($(N.south east)+(0.4,-0.4)$);
     % stetige funktionen
     \draw[yellow, thick, rounded corners] ($(A.north west)+(-0.5,0.2)$) rectangle ($(G.south east)+(0.5,-0.5)$);
+    % differenzierbar
+    \draw[blue, thick, rounded corners] ($(ANCHORD.north west)+(-0.5,0.2)$) rectangle ($(G.south east)+(0.2,-0.2)$);
 \end{tikzpicture}
 \end{preview}
 \end{document}
