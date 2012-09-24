@@ -20,20 +20,16 @@
     grid=major,
     domain=-2:2,
     y domain=-2:2,
-    samples=55, %60 : TeX capacity exceeded, sorry [main memory size=3000000].
+    samples=40, %60 : TeX capacity exceeded, sorry [main memory size=3000000].
                 % see also http://tex.stackexchange.com/a/7954/5645
     xlabel=$x$,
     ylabel=$y$,
-    zlabel={$z$},
-    colorbar,
-    colorbar style={
-        at={(-0.1,0)},
-        anchor=south west,
-        height=0.25*\pgfkeysvalueof{/pgfplots/parent axis height},
-        title={$f(x,y)$}
-    }
+    zlabel={$z$}
     ]
-      \addplot3[surf] {x*y*y/(x*x+y*y*y*y)};
+        \addplot3+[domain=0:2*pi,samples y=0]
+            ({sin(deg(x))},
+             {cos(deg(x))},
+             {x});
     \end{axis} 
 \end{tikzpicture}
 \end{preview}
