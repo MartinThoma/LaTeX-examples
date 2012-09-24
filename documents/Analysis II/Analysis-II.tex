@@ -110,14 +110,16 @@ Seien $x,y,z \in \MdR^n,\ \alpha, \beta \in \MdR,\ x=(x_1, \ldots, x_n),\ y=(y_1
 
 Seien $p,q,l \in \MdN$. Es sei $A$ eine reelle $p${\tiny x}$q$-Matrix.
 
-$$A = \begin{pmatrix}
-\alpha_{11} & \cdots & \alpha_{1q}\\
-\vdots & & \vdots\\
-\alpha_{p1} & \cdots & \alpha_{pq}
-\end{pmatrix}\qquad \|A\|:=\left(\sum_{j=1}^p\sum_{k=1}^q\alpha^2_{jk}\right)^\frac{1}{2} \text{\textbf{Norm} von A}$$
+\[
+    A = \begin{pmatrix}
+    \alpha_{11} & \cdots & \alpha_{1q}\\
+    \vdots & & \vdots\\
+    \alpha_{p1} & \cdots & \alpha_{pq}
+    \end{pmatrix}\qquad \|A\|:=\left(\sum_{j=1}^p\sum_{k=1}^q\alpha^2_{jk}\right)^\frac{1}{2} \text{\textbf{Norm} von A}
+\]
 Sei $B$ eine reelle $q${\tiny x}$l$-Matrix ($\folgt AB$ existiert). \textbf{Übung}: $\|AB\|\le\|A\|\|B\|$\\
 Sei $x=(x_1,\ldots,x_q) \in \MdR^q$. $Ax:=A\begin{pmatrix}x_1\\ \vdots \\ x_q\end{pmatrix}$ (\begriff{Matrix-Vektorprodukt}). \\
-Es folgt: $$\|Ax\|\le\|A\|\|x\|$$
+Es folgt: \[\|Ax\|\le\|A\|\|x\|\]
 
 \begin{definition}
 Sei $x_0 \in \MdR^n$, $\delta > 0$, $A, U\subseteq \MdR^n$.
@@ -199,14 +201,21 @@ Sei $(a^{(k)})$ eine Folge in $\MdR^n$.
 \begin{enumerate}
  \item Sei $a^{(k)} = (a_1^{(k)}, \ldots, a_n^{(k)})$ und 
        $a = (a_1,\ldots,a_n)\in\MdR^n$. Dann:
-       $$ a^{(k)} \to a \ (k\to\infty) \equizu a_1^{(k)} \to a_1, \ldots, a_n^{(k)} \to a_n \ (k\to\infty) $$
+       \[ a^{(k)} \to a \ (k\to\infty) \equizu a_1^{(k)} \to a_1, \ldots, a_n^{(k)} \to a_n \ (k\to\infty) \]
  \item Der Grenzwert einer konvergenten Folge ist eindeutig bestimmt.
  \item Ist $(a^{(k)})$ konvergent $\folgt \ a^{(k)}$ ist beschränkt 
        und jede Teilfolge und jede Umordnung von $(a^{(k)})$ konvergiert gegen $\lim a^{(k)}$.
  \item Sei $(b^{(k)})$ eine weitere Folge, $a,b\in\MdR^n$ und $\alpha\in\MdR$. 
-       Es gelte $a^{(k)}\to a$, $b^{(k)} \to b$ Dann: $$\|a^{(k)}\| \to \|a\|$$ $$a^{(k)} + b ^{(k)} \to a+b$$ $$\alpha a^{(k)} \to \alpha a$$ $$a^{(k)}\cdot b^{(k)} \to a\cdot b$$
+       Es gelte $a^{(k)}\to a$, $b^{(k)} \to b$ Dann: 
+      \begin{align*}
+          \|a^{(k)}\|         &\to \|a\|\\
+          a^{(k)} + b ^{(k)}  &\to a+b\\
+          \alpha a^{(k)}      &\to \alpha a\\
+          a^{(k)}\cdot b^{(k)}&\to a\cdot b
+      \end{align*}
  \item \begriff{Bolzano-Weierstraß}: Ist $(a^{(k)})$ beschränkt, so enthält $(a^{(k)})$ eine konvergente Teilfolge.
- \item \indexlabel{Cauchy!-Kriterium}\textbf{Cauchy-Kriterium}: $(a^{(k)})$ konvergent $\equizu \ \forall\ep>0\ \exists k_0\in\MdN: \|a^{(k)} - a^{(l)}\| <\ep \ \forall k,l \ge k_0$
+ \item \indexlabel{Cauchy!-Kriterium}\textbf{Cauchy-Kriterium}: 
+    $(a^{(k)})$ konvergent $\equizu \ \forall\ep>0\ \exists k_0\in\MdN: \|a^{(k)} - a^{(l)}\| <\ep \ \forall k,l \ge k_0$
 \end{enumerate}
 \end{satz}
 
@@ -446,10 +455,10 @@ Die Gerade durch $x_0$ mit der Richtung $e_j$ ist gegeben durch folgende Menge: 
 \begin{definition}
 $f$ heißt in $x_0$ \textbf{partiell differenzierbar} nach $x_j$ :\equizu es exisitert 
 der Grenzwert 
-$$\lim_{t\to0}\frac{f(x_0+te_j) - f(x_0)}t$$ 
+\[\lim_{t\to0}\frac{f(x_0+te_j) - f(x_0)}t\]
 und ist $\in\MdR$. In diesem Fall heißt obiger Grenzwert die \textbf{partielle Ableitung 
 von $f$ in $x_0$} nach $x_j$ und man schreibt für diesen Grenzwert: 
-$$f_{x_j}(x_0) \text{ oder }\frac{\partial f}{\partial x_j}(x_0)$$
+\[f_{x_j}(x_0) \text{ oder }\frac{\partial f}{\partial x_j}(x_0)\]
 
 Im Falle $n=2$ oder $n=3$ schreibt man $f_x$, $f_y$, $f_z$ bzw. $\frac{\partial f}{\partial x}$, $\frac{\partial f}{\partial y}$, $\frac{\partial f}{\partial z}$
 \end{definition}
@@ -492,9 +501,11 @@ $f$ in $x_0$. \indexlabel{Gradient}
 \begin{definition}
 Seien $j,k\in\{1,\ldots,n\}$ und $f_{x_j}$ sei auf $D$ vorhanden. Ist $f_{x_j}$ in 
 $x_0\in D$ partiell differenzierbar nach $x_k$, so heißt 
-$$f_{x_jx_k}(x_0) := \frac{\partial^2 f}{\partial x_j\partial x_k}(x_0) := \left(f_{x_j}\right)_{x_k}(x_0)$$ 
-die \textbf{partielle Ableitung zweiter Ordnung} von $f$ in $x_0$ nach $x_j$ und $x_k$. Ist $k=j$, so schreibt man:
-$$\frac{\partial^2 f}{\partial x_j^2}(x_0) = \frac{\partial^2 f}{\partial x_j\partial x_j}(x_0) $$ Entsprechend definiert man partielle Ableitungen höherer Ordnung (soweit vorhanden).
+\[f_{x_jx_k}(x_0) := \frac{\partial^2 f}{\partial x_j\partial x_k}(x_0) := \left(f_{x_j}\right)_{x_k}(x_0)\]
+die \textbf{partielle Ableitung zweiter Ordnung} von $f$ in $x_0$ 
+nach $x_j$ und $x_k$. Ist $k=j$, so schreibt man:
+\[\frac{\partial^2 f}{\partial x_j^2}(x_0) = \frac{\partial^2 f}{\partial x_j\partial x_j}(x_0) \]
+Entsprechend definiert man partielle Ableitungen höherer Ordnung (soweit vorhanden).
 \end{definition}
 
 \begin{schreibweisen}
@@ -512,7 +523,7 @@ $\ds f_{xxyzz} = \frac{\partial^5 f}{\partial x^2\partial y\partial z^2}$, vergl
 \begin{definition}
 Sei $m\in\MdN$. $f$ heißt auf $D$ \textbf{$m$-mal stetig partiell differenzierbar} :\equizu alle partiellen Ableitungen  von $f$ der Ordnung $\le m$ sind auf $D$ vorhanden und auf $D$ stetig. In diesem Fall schreibt man: $f\in C^m(D,\MdR)$
 
-$$C^0(D, \MdR) := C(D,\MdR),\qquad C^\infty(D,\MdR) := \bigcap_{k\in\MdN_0}C^{k}(D,\MdR)$$
+\[C^0(D, \MdR) := C(D,\MdR),\qquad C^\infty(D,\MdR) := \bigcap_{k\in\MdN_0}C^{k}(D,\MdR)\]
 \end{definition}
 
 \begin{satz}[Satz von Schwarz]
@@ -520,13 +531,27 @@ Es sei $f\in C^2(D,\MdR)$, $x_0\in D$ und $j,k\in\{1,\ldots,n\}$. Dann: $f_{x_jx
 \end{satz}
 
 \begin{satz}[Folgerung]
-Ist $f\in C^m(D,\MdR)$, so sind die partiellen Ableitungen von $f$ der Ordnung $\le m$ unabhängig von der Reihenfolge der Differentation.
+Ist $f\in C^m(D,\MdR)$, so sind die partiellen Ableitungen von $f$ 
+der Ordnung $\le m$ unabhängig von der Reihenfolge der Differentation.
 \end{satz}
 
 \begin{beweis}
-O.B.d.A: $n=2$ und $x_0=(0,0)$. Zu zeigen: $f_{xy}(0,0)=f_{yx}(0,0)$. $D$ offen $\folgt\exists\delta>0: U_\delta(0,0)\subseteq D$. Sei $(x,y) \in U_\delta(0,0)$ und $x\ne 0\ne y$. $$\nabla:=f(x,y)-f(x,0)-(f(0,y)-f(0,0)),\quad\varphi(t):=f(t,y)-f(t,0)$$ für $t$ zwischen $0$ und $x$. $\varphi$ ist differenzierbar und $\varphi'(t)=f_x(t,y)-f_x(t,0)$. $\varphi(x)-\varphi(0)=\nabla$. MWS, Analysis 1 $\folgt\exists\xi=\xi(x,y)$ zwischen $0$ und $x$: $\nabla=x\varphi'(\xi)=x(f_x(\xi,y)-f_x(\xi,0))$. $g(s):=f_x(\xi,s)$ für s zwischen $0$ und $y$; $g$ ist differenzierbar und $g'(s)=f_{xy}(\xi,s)$. Es ist $\nabla=x(g(y)-g(0))\gleichnach{MWS}xyg'(\eta),\ \eta=\eta(x,y)$ zwischen $0$ und $y$. $\folgt \nabla=xyf_{xy}(\xi,\eta).$ (1)\\
-$\psi(t):=f(x,t)-f(0,t)$, $t$ zwischen $0$ und $y$. $\psi'(t)=f_y(x,t)-f_y(0,t)$. $\nabla=\psi(y)-\psi(0)$. Analog: $\exists \bar\eta=\bar\eta(x,y)$ und $\bar\xi=\bar\xi(x,y)$, $\bar\eta$ zwischen $0$ und $y$, $\bar\xi$ zwischen $0$ und $x$. $\nabla=xyf_{yx}(\bar\xi,\bar\eta).$ (2)\\
-Aus (1), (2) und $xy\ne0$ folgt $f_{xy}(\xi,\eta)=f_{yx}(\bar\xi,\bar\eta)$. $(x,y)\to(0,0)\folgt\xi,\bar\xi,\eta,\bar\eta\to 0\folgtwegen{f\in C^2}f_{xy}(0,0)=f_{yx}(0,0)$
+O.B.d.A: $n=2$ und $x_0=(0,0)$. Zu zeigen: $f_{xy}(0,0)=f_{yx}(0,0)$. $D$ 
+offen $\folgt\exists\delta>0: U_\delta(0,0)\subseteq D$. Sei $(x,y) \in U_\delta(0,0)$ und $x\ne 0\ne y$. 
+\[\nabla:=f(x,y)-f(x,0)-(f(0,y)-f(0,0)),\quad\varphi(t):=f(t,y)-f(t,0)\] 
+für $t$ zwischen $0$ und $x$. $\varphi$ ist differenzierbar und 
+$\varphi'(t)=f_x(t,y)-f_x(t,0)$. $\varphi(x)-\varphi(0)=\nabla$. 
+MWS, Analysis I $\folgt\exists\xi=\xi(x,y)$ zwischen $0$ und $x$: 
+$\nabla=x\varphi'(\xi)=x(f_x(\xi,y)-f_x(\xi,0))$. $g(s):=f_x(\xi,s)$ 
+für s zwischen $0$ und $y$; $g$ ist differenzierbar und 
+$g'(s)=f_{xy}(\xi,s)$. Es ist $\nabla=x(g(y)-g(0))\gleichnach{MWS}xyg'(\eta),\ \eta=\eta(x,y)$ 
+zwischen $0$ und $y$. $\folgt \nabla=xyf_{xy}(\xi,\eta).$ (1)\\
+$\psi(t):=f(x,t)-f(0,t)$, $t$ zwischen $0$ und $y$. 
+$\psi'(t)=f_y(x,t)-f_y(0,t)$. $\nabla=\psi(y)-\psi(0)$. 
+Analog: $\exists \bar\eta=\bar\eta(x,y)$ und $\bar\xi=\bar\xi(x,y)$, $\bar\eta$ 
+zwischen $0$ und $y$, $\bar\xi$ zwischen $0$ und $x$. $\nabla=xyf_{yx}(\bar\xi,\bar\eta).$ (2)\\
+Aus (1), (2) und $xy\ne0$ folgt $f_{xy}(\xi,\eta)=f_{yx}(\bar\xi,\bar\eta)$. 
+$(x,y)\to(0,0)\folgt\xi,\bar\xi,\eta,\bar\eta\to 0\folgtwegen{f\in C^2}f_{xy}(0,0)=f_{yx}(0,0)$
 \end{beweis}
 
 \chapter{Differentiation}
@@ -539,12 +564,15 @@ Stets in dem Paragraphen: $\emptyset\ne D\subseteq\MdR^n$, $D$ offen und $f:D\to
 \begin{definition*}
 \begin{enumerate}
 \item Sei $k\in\MdN$. $f\in C^k(D,\MdR^m) :\equizu f_j\in C^k(D,\MdR)\ (j=1,\ldots,m)$
-\item Sei $x_0\in D$. $f$ heißt \textbf{partiell differenzierbar} in $x_0 :\equizu$ jedes $f_j$ ist in $x_0$ partiell differenzierbar. In diesem Fall heißt
-$$\frac{\partial f}{\partial x}(x_0):=\frac{\partial(f_1,\ldots,f_m)}{\partial(x_1,\ldots,x_n)}:=J_f(x_0):=\begin{pmatrix}
+\item Sei $x_0\in D$. $f$ heißt \textbf{partiell differenzierbar} in 
+$x_0 :\equizu$ jedes $f_j$ ist in $x_0$ partiell differenzierbar. 
+In diesem Fall heißt
+\[\frac{\partial f}{\partial x}(x_0):=\frac{\partial(f_1,\ldots,f_m)}{\partial(x_1,\ldots,x_n)}:=J_f(x_0):=
+\begin{pmatrix}
 \frac{\partial f_1}{\partial x_1}(x_0) & \cdots & \frac{\partial f_1}{\partial x_n}(x_0) \\
 \vdots & & \vdots \\
 \frac{\partial f_m}{\partial x_1}(x_0) & \cdots & \frac{\partial f_m}{\partial x_n}(x_0)
-\end{pmatrix}$$
+\end{pmatrix}\]
 \indexlabel{Jacobi-Matrix}
 \indexlabel{Funktionalmatrix}
 die \textbf{Jacobi-} oder \textbf{Funktionalmatrix} von $f$ in $x_0$.
@@ -558,9 +586,11 @@ die \textbf{Jacobi-} oder \textbf{Funktionalmatrix} von $f$ in $x_0$.
 
 \begin{erinnerung}
 Sei $I\subseteq\MdR$ ein Intervall, $\varphi:I\to\MdR$ eine Funktion, $x_0\in I$. $\varphi$ ist in $x_0$ differenzierbar
-$$\overset{\text{ANA 1}}{\equizu}\exists a \in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)}{h}=a$$
-$$\equizu\exists a\in\MdR:\ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}{h}=0$$
-$$\equizu\exists a\in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}{|h|}=0$$
+\[ 
+\overset{\text{ANA 1}}{\equizu}\exists a \in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)}{h}=a
+\equizu\exists a\in\MdR:\ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}{h}=0
+\equizu\exists a\in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}{|h|}=0
+\]
 \end{erinnerung}
 
 \begin{definition*}
@@ -585,7 +615,8 @@ $$\equizu\exists a\in\MdR: \ds\lim_{h\to 0}\frac{\varphi(x_0+h)-\varphi(x_0)-ah}
             \equizu \exists a \in\MdR^n:
             \ds\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)-ah}{\|h\|}=0\ \tag{$**$}
         \end{align*}
-    \item Aus 2.1 folgt: $f$ ist differenzierbar in $x_0\equizu$ jedes $f_j$ ist differenzierbar in $x_0$.
+    \item Aus 2.1 folgt: $f$ ist differenzierbar in $x_0\equizu$ jedes 
+          $f_j$ ist differenzierbar in $x_0$.
 \end{bemerkungen}
 
 \begin{satz}[Differenzierbarkeit und Stetigkeit]
@@ -600,10 +631,16 @@ $f$ sei in $x_0\in D$ differenzierbar
 \end{satz}
 
 \begin{beweis}
-Sei A wie in $(*)$, $A=(a_{jk})$, $\varrho(h):=\frac{f(x_0+h)-f(x_0)-Ah}{\|h\|}$, also: $\varrho(h)\to0\ (h\to 0)$. Sei $\varrho=(\varrho_1,\ldots,\varrho_m)$. 2.1 $\folgt \varrho_j(h)\to 0\ (h\to 0)\ (j=1,\ldots,m)$
+Sei A wie in $(*)$, $A=(a_{jk})$, $\varrho(h):=\frac{f(x_0+h)-f(x_0)-Ah}{\|h\|}$, 
+also: $\varrho(h)\to0\ (h\to 0)$. Sei $\varrho=(\varrho_1,\ldots,\varrho_m)$. 
+2.1 $\folgt \varrho_j(h)\to 0\ (h\to 0)\ (j=1,\ldots,m)$
 \begin{enumerate}
 \item $f(x_0+h)=f(x_0)+\underbrace{Ah}_{\overset{\text{3.5}}{\to}0}+\underbrace{\|h\|\varrho(h)}_{\to 0\ (h\to 0)}\to f(x_0)\ (h\to 0)$
-\item Sei $j\in\{1,\ldots,m\}$ und $k\in\{1,\ldots,n\}$. Zu zeigen: $f_j$ ist partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$. $\varrho_j(h)=\frac{1}{\|h\|}(f_j(x_0+h)-f_j(x_0)-(a_{j1},\ldots,a_{jn})\cdot h)\to 0\ (h \to 0)$. Für $t\in\MdR$ sei $h=te_k\folgt\varrho(h)=\frac{1}{|t|}(f(x_0+te_k)-a_{jk}t)\to 0\ (t\to 0)\folgt\left|\frac{f(x_0+te_k)-f(x_0)}{t}-a_{jk}\right|\to 0\ (t\to 0)\folgt f_j$ ist in $x_0$ partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$.
+\item Sei $j\in\{1,\ldots,m\}$ und $k\in\{1,\ldots,n\}$. 
+      Zu zeigen: $f_j$ ist partiell differenzierbar und 
+      $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$. 
+      $\varrho_j(h)=\frac{1}{\|h\|}(f_j(x_0+h)-f_j(x_0)-(a_{j1},\ldots,a_{jn})\cdot h)\to 0\ (h \to 0)$. 
+      Für $t\in\MdR$ sei $h=te_k\folgt\varrho(h)=\frac{1}{|t|}(f(x_0+te_k)-a_{jk}t)\to 0\ (t\to 0)\folgt\left|\frac{f(x_0+te_k)-f(x_0)}{t}-a_{jk}\right|\to 0\ (t\to 0)\folgt f_j$ ist in $x_0$ partiell differenzierbar und $\frac{\partial f_j}{\partial x_k}(x_0)=a_{jk}$.
 \end{enumerate}
 \end{beweis}
 
@@ -612,7 +649,9 @@ Sei A wie in $(*)$, $A=(a_{jk})$, $\varrho(h):=\frac{f(x_0+h)-f(x_0)-Ah}{\|h\|}$
 \frac{xy}{x^2+y^2}&\text{, falls } (x,y)\ne(0,0)\\
 0&\text{, falls } (x,y)=(0,0)
 \end{cases}$$
-Bekannt: $f$ ist in $(0,0)$ \textbf{nicht} stetig, aber partiell differenzierbar und $\grad f(0,0)=(0,0)$ 5.1 $\folgt f$ ist in $(0,0)$ \textbf{nicht} differenzierbar.
+Bekannt: $f$ ist in $(0,0)$ \textbf{nicht} stetig, aber partiell 
+differenzierbar und $\grad f(0,0)=(0,0)$ 5.1 $\folgt f$ ist in 
+$(0,0)$ \textbf{nicht} differenzierbar.
 \item \[
     f(x,y)=
     \begin{cases}
@@ -622,7 +661,11 @@ Bekannt: $f$ ist in $(0,0)$ \textbf{nicht} stetig, aber partiell differenzierbar
 \]
 Für $(x,y)\ne(0,0): \left|f(x,y)\right|=(x^2+y^2)\left|\sin\frac{1}{\sqrt{x^2+y^2}}\right|
 \le x^2+y^2\overset{(x,y)\to(0,0)}{\to}0 \folgt f$ ist in $(0,0)$ stetig. 
-$\frac{f(t,0)-f(0,0)}{t}=\frac{1}{t}t^2\sin\frac{1}{|t|}=t\sin\frac{1}{|t|}\to 0\ (t\to 0)\folgt f$ ist in $(0,0)$ partiell differenzierbar nach $x$ und $f_x(0,0)=0$. Analog: $f$ ist in $(0,0)$ partiell differenzierbar nach $y$ und $f_y(0,0)=0$. $\varrho(h)=\frac{1}{\|h\|}f(h)\gleichwegen{h=(h_1,h_2)}\frac{1}{\sqrt{h_1^2+h_2^2}}(h_1^2+h_2^2)\sin\frac{1}{h_1^2+h_2^2}=\sqrt{h_1^2+h_2^2}\underbrace{\sin\frac{1}{\sqrt{h_1^2+h_2^2}}}_{\text{beschränkt}}\to 0\ (h\to 0)\folgt f$ ist differenzierbar in $(0,0)$ und $f'(0,0)=\grad f(0,0)=(0,0)$
+$\frac{f(t,0)-f(0,0)}{t}=\frac{1}{t}t^2\sin\frac{1}{|t|}=t\sin\frac{1}{|t|}\to 0\ (t\to 0)\folgt f$ 
+ist in $(0,0)$ partiell differenzierbar nach $x$ und $f_x(0,0)=0$. 
+Analog: $f$ ist in $(0,0)$ partiell differenzierbar nach $y$ und 
+$f_y(0,0)=0$. $\varrho(h)=\frac{1}{\|h\|}f(h)\gleichwegen{h=(h_1,h_2)}\frac{1}{\sqrt{h_1^2+h_2^2}}(h_1^2+h_2^2)\sin\frac{1}{h_1^2+h_2^2}=\sqrt{h_1^2+h_2^2}\underbrace{\sin\frac{1}{\sqrt{h_1^2+h_2^2}}}_{\text{beschränkt}}\to 0\ (h\to 0)\folgt f$ 
+ist differenzierbar in $(0,0)$ und $f'(0,0)=\grad f(0,0)=(0,0)$
 
 \item $$f(x,y) := \begin{cases}
 \frac{x^3}{x^2+y^2}&\text{, falls} (x,y) \ne (0,0)\\
@@ -640,7 +683,10 @@ Für $h_2 = h_1 > 0: \rho(h) = \frac{-h_1^3}{(\sqrt{2})^3 h_1^3} = - \frac{1}{(\
 \end{beispiele}
 
 \begin{satz}[Stetigkeit aller partiellen Ableitungen]
-Sei $x_0 \in D$ und \emph{alle} partiellen Ableitungen $\frac{\partial f_j}{\partial x_k}$ seien auf $D$ vorhanden und in $x_0$ stetig $(j=1,\ldots,m,\ k=1,\ldots,n)$. Dann ist $f$ in $x_0$ db.
+Sei $x_0 \in D$ und \emph{alle} partiellen Ableitungen 
+$\frac{\partial f_j}{\partial x_k}$ seien auf $D$ vorhanden und in 
+$x_0$ stetig $(j=1,\ldots,m,\ k=1,\ldots,n)$. Dann ist $f$ in $x_0$ 
+db.
 \end{satz}
 
 \begin{beweis}
@@ -670,7 +716,8 @@ Ist $f \in C^1(D,\MdR^m) \folgt f$ ist auf $D$ db.
 \end{folgerung}
 
 \begin{definition*}
-Sei $k \in \MdN$ und $f \in C^k(D,\MdR^m)$. Dann heißt $f$ \textbf{auf $D$ $k$-mal stetig db}.
+Sei $k \in \MdN$ und $f \in C^k(D,\MdR^m)$. 
+Dann heißt $f$ \textbf{auf $D$ $k$-mal stetig db}.
 \end{definition*}
 
 \begin{beispiele}
@@ -695,9 +742,11 @@ Also: $f$ ist auf $\MdR^n$ db und $f'(x) = A\ \forall x \in \MdR^n$. Insbesonder
 (x^2+y^2) \sin \frac{1}{\sqrt{x^2+y^2}} & \text{, falls} (x,y) \ne (0,0)\\
 0 & \text{, falls} (x,y) = (0,0)\end{cases}$$
 
-Bekannt: $f$ ist in $(0,0)$ db. Übungsblatt: $f_x,f_y$ sind in $(0,0)$ \emph{nicht} stetig.
+Bekannt: $f$ ist in $(0,0)$ db. Übungsblatt: $f_x,f_y$ sind in 
+$(0,0)$ \emph{nicht} stetig.
 
-\item Sei $I \subseteq \MdR$ ein Intervall und $g = (g_1,\ldots,g_m): I \to \MdR^m;\ g_1,\ldots,g_m: I \to \MdR.$
+\item Sei $I \subseteq \MdR$ ein Intervall und 
+$g = (g_1,\ldots,g_m): I \to \MdR^m;\ g_1,\ldots,g_m: I \to \MdR.$
 
 $g$ ist in $t_0 \in I$ db $\equizu g_1,\ldots,g_m$ sind in $t_0 \in I$ db. In diesem Fall gilt: $g'(t_0) = (g_1'(t_0),\ldots,g_m'(t_0)).$
 
@@ -1725,12 +1774,12 @@ $$\int_\gamma g(x) ds := \int_a^b g(\gamma(t))ds(t)$$
 \textbf{Integral bzgl. der Weglänge}.
 \end{definition}
 
-\begin{satz}[Rechnen mit Integralen bezgl. der Weglänge]
+\begin{satz}[Rechnen mit Integralen bzgl. der Weglänge]
 Seien $\gamma,g$ wie oben.
 \begin{enumerate}
 \item $\ds{\int_{\gamma^-} g(x) ds = \int_\gamma g(x) ds}$
 \item Ist $\ds{\gamma = \gamma^{(1)} \oplus \gamma^{(2)} \folgt \int_\gamma g(x)ds = \int_{\gamma^{(1)}} g(x)ds + \int_{\gamma^{(2)}} g(x)ds}$.
-\item Ist $\gamma$ stetig db $\folgt \ds{\int_\gamma g(x)ds = \int_a^b g(\gamma(t))\|\gamma'(t)\|dt}$.
+\item Ist $\gamma$ stetig db $\folgt \importantbox{\ds{\int_\gamma g(x)ds = \int_a^b g(\gamma(t))\|\gamma'(t)\|dt}}$
 \end{enumerate}
 \end{satz}
 
