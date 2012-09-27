@@ -1,0 +1,17 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{chemfig,chemmacros}
+% Source: http://www.latex-community.org/know-how/latex/51-latex-math-science/434-chemistry-molecules
+% See Source for explanations
+
+\begin{document}
+    \begin{center}
+        \small\setatomsep{1.5em}
+        \schemestart
+        \chemfig{*6(=-=(-(=[2]O)-[::-60]O-[0]O-[::30](=[2]O)-[::-60]*6(=-=-=-))-=-)}
+        \arrow{->[$\Delta$]}
+        2 \chemfig{*6(=-=(-(=[2]O)-[::-60]\lewis{0.,O})-=-)}
+        \arrow
+        2 \chemfig{*6(=-=(-[,.15,,,draw=none]\lewis{0.,})-=-)}\+\ch{2 CO2 ^}
+        \schemestop
+    \end{center}
+\end{document}
