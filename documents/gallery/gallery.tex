@@ -1,0 +1,51 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb,amsmath} % needed for math
+\usepackage{standalone} % needed for includestandalone
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage{tikz} % needed for includestandalone
+\usetikzlibrary{arrows,positioning, calc}
+
+\tikzset{
+    pil/.style={->,thick}
+}
+
+\newenvironment{gallery}{}{}
+
+\begin{document}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
+erat, 
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
+sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
+et dolore magna aliquyam erat, sed diam voluptua. At vero eos et 
+accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum 
+dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
+dolor sit amet.   
+
+\begin{gallery}
+    \includestandalone{dot-product-1}
+    \includestandalone{dot-product-2}
+    \includestandalone{dot-product-3-1}
+    \includestandalone{dot-product-6}
+    \includestandalone{equilateral-triangle}
+    \includestandalone{equilateral-triangle-heights}
+\end{gallery}
+ 
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
+vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam 
+nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat 
+volutpat.   
+
+\end{document}
