@@ -30,3 +30,8 @@ some images here
 * [Many examples](http://www.f-lohmueller.de/)
 * [More examples with complete sources](http://www.ms.uky.edu/~lee/visual05/povray/povray.html)
 * [High quality examples](http://hof.povray.org/)
+
+Contact
+=======
+If you have examples or suggestions for improving given examples, 
+you send them to info@martin-thoma.de

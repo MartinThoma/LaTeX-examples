@@ -3,7 +3,7 @@
 \usepackage{standalone} % needed for includestandalone
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
-\usepackage[T1]{fontenc}% this is needed for correct output of umlauts in pdf
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 
 \usepackage{adjustbox}
 \usepackage{xcolor}
@@ -14,10 +14,23 @@
 \usetikzlibrary{arrows,positioning, calc}
 
 \tikzset{
-pil/.style={->,thick}
+    pil/.style={->,thick}
 }
 
-\newenvironment{gallery}{}{}
+\newenvironment{gallery}{%
+    \center
+}{%
+    \par\endcenter
+}
+
+\def\galleryimage#1{%
+    \adjustbox{width=4cm,height=4cm,keepaspectratio, center=4cm,
+    valign=M, set vsize={2cm}{2cm},
+    %or: raise={.5\depth-.5\height}{2cm}{2cm},
+    bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}
+    {\includestandalone{#1}}%
+    \space\ignorespaces
+}%
 
 \begin{document}
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
@@ -36,16 +49,16 @@ voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
 Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
 dolor sit amet.   
 
-\noindent
 \begin{gallery}
-\adjustbox{width=4cm,height=4cm,keepaspectratio,bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}{\includestandalone{dot-product-1}}
-\adjustbox{width=4cm,height=4cm,keepaspectratio,bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}{\includestandalone{dot-product-2}}
-\adjustbox{width=4cm,height=4cm,keepaspectratio,bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}{\includestandalone{dot-product-3-1}}
-\adjustbox{width=4cm,height=4cm,keepaspectratio,bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}{\includestandalone{dot-product-6}}
-\adjustbox{width=4cm,height=4cm,keepaspectratio,bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}{\includestandalone{equilateral-triangle}}
-\adjustbox{width=4cm,height=4cm,keepaspectratio,bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}{\includestandalone{equilateral-triangle-heights}}
+    \galleryimage{dot-product-1}
+    \galleryimage{dot-product-2}
+    \galleryimage{dot-product-3-1}
+    \galleryimage{dot-product-6}
+    \galleryimage{equilateral-triangle}
+    \galleryimage{equilateral-triangle-heights}
 \end{gallery}
- 
+
+
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
 molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
 vero eros et accumsan et iusto odio dignissim qui blandit praesent 
