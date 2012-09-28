@@ -1,6 +1,4 @@
-\documentclass{article}
-\usepackage[pdftex,active,tightpage]{preview}
-\setlength\PreviewBorder{2mm}
+\documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning} 
 \tikzset{
@@ -13,7 +11,6 @@
 }
 
 \begin{document}
-\begin{preview}
 \begin{tikzpicture}
     \draw[fill=gray!30] (27:0.90) -- node[right=-0.28cm, near end] {$\cdot$} (27:1.08)
                         arc (27:117:.18cm);
@@ -26,5 +23,4 @@
 
     \draw(60:0.35cm) node {$\varphi$};
   \end{tikzpicture}
-\end{preview}
 \end{document}

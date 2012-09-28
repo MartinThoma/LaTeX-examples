@@ -1,21 +1,15 @@
-\documentclass{article}
-\usepackage[pdftex,active,tightpage]{preview}
-\setlength\PreviewBorder{2mm}
+\documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning, calc}
 \tikzset{
     %Define standard arrow tip
     >=stealth',
     % Define arrow style
-    pil/.style={
-           ->,
-           thick}
+    pil/.style={->,thick}
 }
 
 \begin{document}
-\begin{preview}
-\begin{tikzpicture}
-
+  \begin{tikzpicture}
     % draw the background
     \draw [line width=1.5pt, fill=gray!2] (0,0) -- (60:4) -- (4,0) -- cycle;
 
@@ -69,5 +63,4 @@
     % The triangle
     \draw [line width=1.5pt] (0,0) -- (60:4) -- (4,0) -- cycle;
   \end{tikzpicture}
-\end{preview}
 \end{document}

@@ -1,4 +1,4 @@
-SOURCE = dot-product-3.3
+SOURCE = dot-product-3.1
 DELAY = 80
 DENSITY = 300
 
