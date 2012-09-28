@@ -1,6 +1,14 @@
 \documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage{tikz}
 \usetikzlibrary{shapes, calc} 
+
+\makeatletter
+\newcommand*\getX[1]{\expandafter\getX@i#1\@nil}
+\newcommand*\getY[1]{\expandafter\getY@i#1\@nil}
+\def\getX@i#1,#2\@nil{#1}
+\def\getY@i#1,#2\@nil{#2}
+\makeatother
+
 \begin{document}
 \begin{tikzpicture}
     % Define display style
@@ -8,8 +16,7 @@
     \tikzstyle{diagonals}=[dashed, blue]
 
     % Define coordinates
-    \newcommand\AX{0}
-    \newcommand\AY{1}
+    \newcommand\A{0,1}
 
     \newcommand\BX{3}
     \newcommand\BY{0}
@@ -21,15 +28,15 @@
     \newcommand\DY{2}
 
     % Create shortcuts for coordinates and draw labels
-    \coordinate[label=left:$A$]  (A) at (\AX, \AY);
+    \coordinate[label=left:$A$]  (A) at (\getX{\A}, \getY{\A});
     \coordinate[label=right:$B$] (B) at (\BX, \BY);
     \coordinate[label=above:$C$] (C) at (\CX, \CY);
     \coordinate[label=above:$D$] (D) at (\DX, \DY);
 
-    \coordinate[label=below:$E$] (E) at ({(\AX+\BX)/2}, {(\AY+\BY)/2});
+    \coordinate[label=below:$E$] (E) at ({(\getX{\A}+\BX)/2}, {(\getY{\A}+\BY)/2});
     \coordinate[label=right:$F$] (F) at ({(\BX+\CX)/2}, {(\BY+\CY)/2});
     \coordinate[label=above:$G$] (G) at ({(\CX+\DX)/2}, {(\CY+\DY)/2});
-    \coordinate[label=left:$H$] (H) at ({(\DX+\AX)/2}, {(\DY+\AY)/2});
+    \coordinate[label=left:$H$] (H) at ({(\DX+\getX{\A})/2}, {(\DY+\getY{\A})/2});
 
     % Draw the rectangle
     \draw[blue, thick]  (A) -- (B) -- (C) -- (D) -- (A);

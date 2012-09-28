@@ -1,4 +1,4 @@
-SOURCE = wiki-example
+SOURCE = commutative-diagramm
 DELAY = 80
 DENSITY = 300
 WIDTH = 500
