@@ -10,7 +10,13 @@
 }
 
 \begin{document}
-\begin{tikzpicture}
+  \begin{tikzpicture}
+    \tikzset{
+        %Define standard arrow tip
+        >=stealth',
+        % Define arrow style
+        pil/.style={->,thick}
+    }
     \draw[pil] (0,0)   -- node[near end, above] {$\vec a$} (3cm, 0cm);
     \draw[pil] (0,0.5cm) -- node[near end, above] {$\vec b$} (2cm,0.5cm);
   \end{tikzpicture}

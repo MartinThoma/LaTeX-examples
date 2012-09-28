@@ -5,12 +5,12 @@
 
 \begin{document}
 \begin{tikzpicture}
-\tikzset{
-    %Define standard arrow tip
-    >=stealth',
-    % Define arrow style
-    pil/.style={->,thick}
-}
+    \tikzset{
+        %Define standard arrow tip
+        >=stealth',
+        % Define arrow style
+        pil/.style={->,thick}
+    }
 
     \draw[fill=green!30] (0,0) -- (90:.75cm) arc (90:27:.75cm);
     \draw[pil,color=black] (0,0) -- node[right=2pt] {$\vec a$} (27:2.2cm);

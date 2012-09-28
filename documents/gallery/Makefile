@@ -1,4 +1,4 @@
-SOURCE = gallery
+SOURCE = gallery2
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf

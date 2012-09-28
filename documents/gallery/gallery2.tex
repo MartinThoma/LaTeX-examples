@@ -1,0 +1,188 @@
+% Author: Tom Bombadil
+% Source: http://tex.stackexchange.com/a/74495/5645
+% View edits made by Martin Thoma
+\documentclass{scrartcl}
+\usepackage[margin=10mm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\usepackage{filecontents}
+\usepackage{xifthen}
+
+\usepackage{xcolor}
+\definecolor{myLightGray}{HTML}{F9F9F9}
+\definecolor{borderColor}{HTML}{CCCCCC}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\newcommand{\getsizes}%
+{   \path (current bounding box.south west);
+    \pgfgetlastxy{\xsw}{\ysw}
+    \path (current bounding box.north east);
+    \pgfgetlastxy{\xne}{\yne}
+    \pgfmathsetlengthmacro{\picwidth}{\xne-\xsw}
+    \pgfmathsetlengthmacro{\picheight}{\yne-\ysw}
+    %\pgfmathsetmacro{\picscale}{\picwidth>\picheight ? (0.3*\textwidth)/\picwidth : (0.3*\textwidth)/\picheight}
+    \pgfmathsetmacro{\picscale}{\picwidth>\picheight ? (1.05-\picturesperrow*0.05)/\picturesperrow*\textwidth/\picwidth : (1.05-\picturesperrow*0.05)/\picturesperrow*\textwidth/\picheight}
+    \pgfmathsetlengthmacro{\biggervalue}{\picwidth>\picheight ? \picwidth : \picheight}
+    \xdef\scalefactor{\picscale}
+    \xdef\picdimension{\biggervalue}
+}
+
+\newcommand{\grayback}%
+{   \begin{pgfonlayer}{background}
+        \filldraw[color=myLightGray,draw=borderColor] (current bounding box.center) ++(-\picdimension/2,-\picdimension/2) rectangle ++(\picdimension,\picdimension);
+    \end{pgfonlayer}
+}
+
+\newcommand{\adjustedtikzsize}[2]% draw commands, caption
+{ \stepcounter{galleryitem}
+    \smash{\vphantom{
+    \begin{tikzpicture}
+        #1
+        \getsizes
+    \end{tikzpicture}
+    }}
+    \begin{tikzpicture}[scale=\scalefactor,baseline=(captionnode.north)]
+        #1
+        \grayback
+        \node[below right] (captionnode) at (current bounding box.south west) {#2};
+    \end{tikzpicture}
+    \pgfmathtruncatemacro{\breaktest}{mod(\thegalleryitem,\picturesperrow)}
+    \ifthenelse{\breaktest=0}{\par}{\hfill}%{\hspace{0.02\textwidth}}
+}
+
+\newcounter{galleryitem}
+\setcounter{galleryitem}{0}
+
+\newenvironment{tikzgallery}[2]% gallery title, pics per row
+{{\Huge\textbf{#1}}\par\xdef\picturesperrow{#2}}%
+{\par\vspace{1cm}}
+
+\begin{filecontents}{picone.tex}
+    \tikzset{
+        %Define standard arrow tip
+        >=stealth',
+        % Define arrow style
+        pil/.style={->,thick}
+    }
+
+    \draw[fill=green!30] (0,0) -- (90:.75cm) arc (90:27:.75cm);
+    \draw[pil,color=black] (0,0) -- node[right=2pt] {$\vec a$} (27:2.2cm);
+    \draw[pil,color=black] (0,0) -- node[near end, right=-3pt] {$\vec b$} (90:2cm);
+    \draw(60:0.5cm) node {$\varphi$};
+\end{filecontents}
+
+\begin{filecontents}{pictwo.tex}
+    \tikzset{
+        %Define standard arrow tip
+        >=stealth',
+        % Define arrow style
+        pil/.style={->,thick}
+    }
+    \draw[fill=gray!30] (27:0.90) -- node[right=-0.28cm, near end] {$\cdot$} (27:1.08)
+                        arc (27:117:.18cm);
+    \draw[fill=green!30] (0,0) -- (90:.55cm) arc (90:27:.55cm);
+    \draw[pil,color=red] (0,0) -- node[right=2pt] {$\vec a$} (27:3cm);
+    \draw[pil,color=blue] (0,0) -- node[near end, right=-3pt] {$\vec b$} (90:2cm);
+
+    \draw[pil,color=violet] (0,0) -- node[near start, right=7pt] {$\vec b_{\vec a}$} (27:0.90cm);
+    \draw[color=gray, dashed] (27:0.90) -- node[near end, right] {} (90:2cm);
+
+    \draw(60:0.35cm) node {$\varphi$};
+\end{filecontents}
+
+\begin{filecontents}{picthree.tex}
+    \tikzset{
+        %Define standard arrow tip
+        >=stealth',
+        % Define arrow style
+        pil/.style={->,thick}
+    }
+    \draw[pil] (0,0)   -- node[near end, above] {$\vec a$} (3cm, 0cm);
+    \draw[pil] (0,0.5cm) -- node[near end, above] {$\vec b$} (2cm,0.5cm);
+\end{filecontents}
+
+\begin{filecontents}{picfour.tex}
+    \tikzset{
+        %Define standard arrow tip
+        >=stealth',
+        % Define arrow style
+        pil/.style={->,thick}
+    }
+    \draw[fill=gray!30, label=$a$] (0,0) -- node[above, near start] {$\cdot$} (0.5,0)
+                        arc (0:90:0.5cm);
+    \draw[pil] (0,0) -- node[near end, above] {$\vec e_1$} (2cm, 0);
+    \draw[pil]  (0,0) -- node[near end, right] {$\vec e_2$} (0, 2cm);
+\end{filecontents}
+
+\begin{document}
+
+\parindent0mm
+\parskip0mm
+
+\begin{tikzgallery}{Geometrie}{6}
+    \adjustedtikzsize{\input{picone}}{one}
+    \adjustedtikzsize{\input{pictwo}}{two}
+    \adjustedtikzsize{\input{picthree}}{three}
+    \adjustedtikzsize{\input{picfour}}{four}
+    \adjustedtikzsize{\input{picfour}}{zero}    
+    \adjustedtikzsize{\input{pictwo}}{un}
+    \adjustedtikzsize{\input{picthree}}{deux}
+    \adjustedtikzsize{\input{picone}}{trois}
+    \adjustedtikzsize{\input{picone}}{one}
+    \adjustedtikzsize{\input{pictwo}}{two}
+    \adjustedtikzsize{\input{picthree}}{three}
+    \adjustedtikzsize{\input{picfour}}{four}
+    \adjustedtikzsize{\input{picfour}}{zero}    
+    \adjustedtikzsize{\input{pictwo}}{un}
+    \adjustedtikzsize{\input{picthree}}{deux}
+    \adjustedtikzsize{\input{picone}}{trois}
+    \adjustedtikzsize{\input{picone}}{one}
+    \adjustedtikzsize{\input{pictwo}}{two}
+    \adjustedtikzsize{\input{picthree}}{three}
+    \adjustedtikzsize{\input{picfour}}{four}
+    \adjustedtikzsize{\input{picfour}}{zero}    
+    \adjustedtikzsize{\input{pictwo}}{un}
+    \adjustedtikzsize{\input{picthree}}{deux}
+    \adjustedtikzsize{\input{picone}}{trois}    
+\end{tikzgallery}
+\begin{tikzgallery}{Ti\textit{k}Z-Spielerei}{4}
+    \adjustedtikzsize{\input{picone}}{one}
+    \adjustedtikzsize{\input{pictwo}}{two}
+    \adjustedtikzsize{\input{picthree}}{three}
+    \adjustedtikzsize{\input{picfour}}{four}
+    \adjustedtikzsize{\input{picfour}}{zero}    
+    \adjustedtikzsize{\input{pictwo}}{un}
+    \adjustedtikzsize{\input{picthree}}{deux}
+    \adjustedtikzsize{\input{picone}}{trois}
+    \adjustedtikzsize{\input{picone}}{one}
+    \adjustedtikzsize{\input{pictwo}}{two}
+    \adjustedtikzsize{\input{picthree}}{three}
+    \adjustedtikzsize{\input{picfour}}{four}
+    \adjustedtikzsize{\input{picfour}}{zero}    
+    \adjustedtikzsize{\input{pictwo}}{un}
+    \adjustedtikzsize{\input{picthree}}{deux}
+    \adjustedtikzsize{\input{picone}}{trois}
+    \adjustedtikzsize{\input{picone}}{one}
+    \adjustedtikzsize{\input{pictwo}}{two}
+    \adjustedtikzsize{\input{picthree}}{three}
+    \adjustedtikzsize{\input{picfour}}{four}
+    \adjustedtikzsize{\input{picfour}}{zero}    
+    \adjustedtikzsize{\input{pictwo}}{un}
+    \adjustedtikzsize{\input{picthree}}{deux}
+    \adjustedtikzsize{\input{picone}}{trois}    
+\end{tikzgallery}
+\clearpage
+\begin{tikzgallery}{Riesige Bilder}{2}
+    \adjustedtikzsize{\input{picone}}{one}
+    \adjustedtikzsize{\input{pictwo}}{two}
+    \adjustedtikzsize{\input{picthree}}{three}
+    \adjustedtikzsize{\input{picfour}}{four}
+    \adjustedtikzsize{\input{picfour}}{zero}    
+    \adjustedtikzsize{\input{pictwo}}{un}
+    \adjustedtikzsize{\input{picthree}}{deux}
+    \adjustedtikzsize{\input{picone}}{trois}
+\end{tikzgallery}
+
+\end{document}
