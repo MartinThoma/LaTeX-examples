@@ -1,4 +1,4 @@
-\documentclass[a5paper,12pt,oneside]{book}
+\documentclass[a5paper]{book}
 \usepackage{makeidx}  % for automatically generation of an index
 \usepackage{hyperref} % has to be after makeidx
 \usepackage[margin=2.5cm]{geometry} % layout
@@ -6,7 +6,6 @@
 \makeindex
 
 \begin{document}
-\mainmatter
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
 erat, 
@@ -71,7 +70,7 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
 dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
 voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
+Stet clita \index{kasd} kasd gubergren, no sea takimata sanctus est Lorem ipsum 
 dolor sit amet.   
  
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
@@ -82,7 +81,6 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
 nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat 
 volutpat.   
 
-\backmatter
 \printindex % print the automatically created index
 
 \end{document}
