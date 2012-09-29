@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{amssymb,amsmath}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc, intersections, decorations.pathreplacing}
+
+\newcommand\tikzmark[1]{%
+  \tikz[overlay,remember picture,baseline] \coordinate [anchor=base] (#1);}
+
+\newcommand\DrawBrace[3]{%
+  \draw [ultra thick, decorate,decoration={brace,amplitude=5pt,mirror,raise=2pt}]
+    (#1) -- (#2) node [midway,xshift=23pt] {\Huge $\displaystyle #3$};
+}
+
+\begin{document}
+
+\begin{preview}
+\begin{tikzpicture}
+    \pgfplotsset{
+        right segments/.code={\pgfmathsetmacro\rightsegments{#1}},
+        right segments=3,
+        right/.style args={#1:#2}{
+            ybar interval,
+            domain=#1+((#2-#1)/\rightsegments):#2+((#2-#1)/\rightsegments),
+            samples=\rightsegments+1,
+            x filter/.code=\pgfmathparse{\pgfmathresult-((#2-#1)/\rightsegments)}
+        }
+    }
+
+    \pgfplotsset{
+        left segments/.code={\pgfmathsetmacro\leftsegments{#1}},
+        left segments=3,
+        left/.style args={#1:#2}{
+            ybar interval,
+            domain=#1:#2,
+            samples=\leftsegments+1,
+            x filter/.code=\pgfmathparse{\pgfmathresult}
+        }
+    }
+
+    \begin{axis}[
+        axis lines=middle,
+        width=15cm, height=15cm,     % size of the image
+        grid = major,
+        grid style={dashed, gray!30},
+        xmin= 0, % start the diagram at this x-coordinate
+        xmax= 3, % end   the diagram at this x-coordinate
+        ymin= 0, % start the diagram at this y-coordinate
+        ymax= 9, % end   the diagram at this y-coordinate
+        axis background/.style={fill=white},
+        ylabel=y,
+        xlabel=x,
+        tick align=outside,
+        tension=0.08,
+        legend style={at={(0.25,0.91)}, anchor=north}]
+      \addplot[domain=0:3,ultra thin, red, samples=500] {x};
+      \addplot[domain=0:3,very thin, red, samples=500] {x^2};
+      \addplot[domain=0:3,thin, red, samples=500] {x^3};
+      \addplot[domain=0:3,semithick, red, samples=500] {x^4};
+      \addplot[domain=0:3,thick, red, samples=500] {x^5};
+      \addplot[domain=0:3,very thick, red, samples=500] {e^x};
+      \addplot[domain=0:3,ultra thick, red, samples=500] {sqrt(x)};
+
+      \legend{ultra thin, very thin, thin, semithick, thick, very thick, ultra thick};
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}

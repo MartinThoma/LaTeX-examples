@@ -11,8 +11,8 @@
   \tikz[overlay,remember picture,baseline] \coordinate [anchor=base] (#1);}
 
 \newcommand\DrawBrace[3]{%
-  \draw [decorate,decoration={brace,amplitude=5pt,mirror,raise=2pt}]
-    (#1) -- (#2) node [midway,xshift=15pt] {$\displaystyle #3$};
+  \draw [ultra thick, decorate,decoration={brace,amplitude=5pt,mirror,raise=2pt}]
+    (#1) -- (#2) node [midway,xshift=23pt] {\Huge $\displaystyle #3$};
 }
 
 \begin{document}
