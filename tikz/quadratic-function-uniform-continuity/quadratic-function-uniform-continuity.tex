@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{amssymb,amsmath}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc, intersections, decorations.pathreplacing}
+
+\newcommand\tikzmark[1]{%
+  \tikz[overlay,remember picture,baseline] \coordinate [anchor=base] (#1);}
+
+\newcommand\DrawBrace[3]{%
+  \draw [decorate,decoration={brace,amplitude=5pt,mirror,raise=2pt}]
+    (#1) -- (#2) node [midway,xshift=15pt] {$\displaystyle #3$};
+}
+
+\begin{document}
+
+\begin{preview}
+\begin{tikzpicture}[/pgf/declare function={f=x^2;}]
+    \pgfplotsset{
+        right segments/.code={\pgfmathsetmacro\rightsegments{#1}},
+        right segments=3,
+        right/.style args={#1:#2}{
+            ybar interval,
+            domain=#1+((#2-#1)/\rightsegments):#2+((#2-#1)/\rightsegments),
+            samples=\rightsegments+1,
+            x filter/.code=\pgfmathparse{\pgfmathresult-((#2-#1)/\rightsegments)}
+        }
+    }
+
+    \pgfplotsset{
+        left segments/.code={\pgfmathsetmacro\leftsegments{#1}},
+        left segments=3,
+        left/.style args={#1:#2}{
+            ybar interval,
+            domain=#1:#2,
+            samples=\leftsegments+1,
+            x filter/.code=\pgfmathparse{\pgfmathresult}
+        }
+    }
+
+    \begin{axis}[
+        axis lines=middle,
+        width=15cm, height=15cm,     % size of the image
+        grid = major,
+        grid style={dashed, gray!30},
+        xmin= 0,   % start the diagram at this x-coordinate
+        xmax= 4.3,   % end   the diagram at this x-coordinate
+        ymin= 0,     % start the diagram at this y-coordinate
+        ymax=17,     % end   the diagram at this y-coordinate
+        axis background/.style={fill=white},
+        ylabel=y,
+        xlabel=x,
+        tick align=outside,
+        tension=0.08,
+        legend style={at={(0.25,0.91)}, anchor=north}]
+      \addplot[ultra thick, red, samples=1000] {f};
+      \addplot [
+        black!80,
+        fill=green,
+        opacity=.3,
+        left segments=4,
+        left=0:4
+      ] {f};
+      \legend{$f: \mathbb{R^+} \rightarrow \mathbb{R^+} ~~~ f(x) = x^2$};
+      %\node[coordinate,label=$\delta$] at (axis cs:0.5,0) {};
+      \node[coordinate,label=$\delta$] at (axis cs:1.5,0) {};
+      \node[coordinate,label=$\delta$] at (axis cs:2.5,0) {};
+      \node[coordinate,label=$\delta$] at (axis cs:3.5,0) {};
+      \coordinate (a) at (axis cs:1,1);
+      \coordinate (b) at (axis cs:2,4);
+      \coordinate (c) at (axis cs:3,9);
+      \coordinate (d) at (axis cs:4,16);
+      \draw[ultra thick, blue,dashed](a -| current plot begin) -- (a);
+      \draw[ultra thick, blue,dashed](a |- current plot begin) -- (a);
+      \draw[ultra thick, blue,dashed](b -| current plot begin) -- (b);
+      \draw[ultra thick, blue,dashed](b |- current plot begin) -- (b);
+      \draw[ultra thick, blue,dashed](c -| current plot begin) -- (c);
+      \draw[ultra thick, blue,dashed](c |- current plot begin) -- (c);
+      \draw[ultra thick, blue,dashed](d -| current plot begin) -- (d);
+      \draw[ultra thick, blue,dashed](d |- current plot begin) -- (d);
+
+      \coordinate (x1) at (axis cs: 0, 1);
+      \coordinate (x2) at (axis cs: 0, 4);
+      \coordinate (x3) at (axis cs: 0, 9);
+      \coordinate (x4) at (axis cs: 0,16);
+      \DrawBrace{x1}{x2}{\varepsilon_1};
+      \DrawBrace{x2}{x3}{\varepsilon_2};
+      \DrawBrace{x3}{x4}{\varepsilon_3};
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}
