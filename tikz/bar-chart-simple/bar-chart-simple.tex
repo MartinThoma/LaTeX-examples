@@ -1,0 +1,19 @@
+% Source: http://tex.stackexchange.com/a/8584/5645
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{pgfplots}
+
+\begin{document}
+    \begin{tikzpicture}
+        \begin{axis}[
+            symbolic x coords={a small bar, a medium bar, a large bar},
+            xtick=data
+          ]
+            \addplot[ybar,fill=blue] coordinates {
+                (a small bar,   42)
+                (a medium bar,  50)
+                (a large bar,   80)
+            };
+        \end{axis}
+    \end{tikzpicture}
+\end{document}
