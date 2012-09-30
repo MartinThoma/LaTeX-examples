@@ -2,28 +2,67 @@
 \documentclass[varwidth=true, border=2pt]{standalone}
 
 \usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc}
 
 \begin{document}
-    \begin{tikzpicture}
+    \newcommand\shift{1.5}
+
+    \begin{tikzpicture}[scale=1]
         \begin{axis}[
             ybar,
-            ylabel={vaule/weight},
+            ylabel={vaule},
+            ylabel style={at={(0.02,0.5)}, color=red},
             xlabel={items},
             legend style={at={(0.5,-0.15)},
             anchor=north,legend columns=-1},
             width=0.8*\textwidth,
             height=9cm,
             bar width=7pt,
-            symbolic x coords={$x_1$,$x_2$,$x_3$,$x_4$,$x_5$},
+            symbolic x coords={
+                $x_1$,$x_2$,$x_3$,$x_4$,$x_5$,$x_6$, $x_7$, $x_8$, 
+                $x_9$, $x_{10}$, $x_{11}$, $x_{12}$, $x_{13}$, 
+                $x_{14}$, $x_{15}$
+            },
             xtick=data,
+            scaled y ticks=base 10:-3,
+            axis y line*=left,
             %nodes near coords,
             %nodes near coords align={vertical},
         ]
-            \addplot
-            coordinates {($x_1$,96000) ($x_2$,126000) ($x_3$,115000) ($x_4$,125000) ($x_5$,123000)};
-            \addplot
-            coordinates {($x_1$,27) ($x_2$,21) ($x_3$,27)  ($x_4$,15) ($x_5$,19)};
-            \legend{value, weight}
+            \addplot[red, fill=red!15, shift={(-\shift,0)}] coordinates {
+                ($x_1$,96000) ($x_2$,126000) ($x_3$,115000) 
+                ($x_4$,125000) ($x_5$,123000) ($x_6$, 123000)
+                ($x_7$, 112000) ($x_8$, 111000) ($x_9$, 110000)
+                ($x_{10}$, 110000) ($x_{11}$, 120000) 
+                ($x_{12}$, 98000) ($x_{13}$, 130000)
+                ($x_{14}$, 87000) ($x_{15}$, 97000)};
+        \end{axis}
+        \begin{axis}[
+            ybar,
+            ylabel={weight},
+            ylabel style={at={(1.25,0.5)}, color=blue},
+            legend style={at={(0.7,-0.15)},
+            anchor=north,legend columns=-1},
+            width=0.8*\textwidth,
+            height=9cm,
+            bar width=7pt,
+            symbolic x coords={
+                $x_1$,$x_2$,$x_3$,$x_4$,$x_5$,$x_6$, $x_7$, $x_8$, 
+                $x_9$, $x_{10}$, $x_{11}$, $x_{12}$, $x_{13}$, 
+                $x_{14}$, $x_{15}$
+            },
+            xtick=data,
+            %nodes near coords,
+            %nodes near coords align={vertical},
+            axis y line*=right,
+            axis x line=none,
+        ]
+            \addplot +[shift={(\shift,0)}] coordinates {($x_1$,27) 
+                ($x_2$,21) ($x_3$,27)  ($x_4$,15) ($x_5$,19)
+                ($x_6$, 46) ($x_7$, 47) ($x_8$, 32) ($x_9$, 14)
+                ($x_{10}$, 20) ($x_{11}$, 50) ($x_{12}$, 19)
+                ($x_{13}$, 22) ($x_{14}$, 50) ($x_{15}$, 46)};
         \end{axis}
     \end{tikzpicture}
 \end{document}
