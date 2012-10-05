@@ -1,0 +1,38 @@
+% Source: http://tex.stackexchange.com/a/65518/5645
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{preview}
+    \begin{tikzpicture}
+        \begin{axis}[/tikz/ybar, % -------- CF
+            ybar legend, %-------- CF
+            xtick align=outside,% -------- CF
+            ymin=0,
+            bar width=0.2cm,
+            axis x line*=left,
+            nodes near coords=\rotatebox{90}{\scriptsize\pgfmathprintnumber\pgfplotspointmeta},
+            enlarge x limits=false,
+            grid=major,
+            height=7cm,
+            title={All Results},
+            xlabel={bias from reference in \%},
+            ylabel={Number of Results},
+            symbolic x coords={$<-20$,$-20$,$-19$,$-18$,$-17$,$-16$,$-15$,$-14$,$-13$,$-12$,$-11$,$-10$,$-9$,$-8$,$-7$,$-6$,$-5$,$-4$,$-3$,$-2$,$-1$,$0$,$1$,$2$,$3$,$4$,$5$,$6$,$7$,$8$,$9$,$10$,$11$,$12$,$13$,$14$,$15$,$16$,$17$,$18$,$19$,$20$,$>20$},
+            xtick={$-20$,$-15$,$-10$,$-5$,$0$,$5$,$10$,$15$,$20$},
+            minor x tick num=4, % ----------- CF
+            extra x ticks={$<-20$,$>20$},% ----------- CF
+            extra x tick style={xticklabel style={yshift=-15pt}},% ----------- CF
+            %xticklabel style={inner sep=0pt, anchor=north east, rotate=45},% ----------- CF
+            width=\textwidth]
+        \addplot[red,fill=red!40!white] coordinates {($<-20$,3) ($-20$,2) ($20$,0) ($>20$,0)};
+        \addplot[yellow,fill=yellow!40!white] coordinates {($-19$,1) ($-18$,2) ($-17$,0) ($-16$,1) ($-15$,0) ($15$,0) ($16$,0) ($17$,0) ($18$,0) ($19$,0)};
+        \addplot[blue,fill=blue!40!white] coordinates {($-14$,0) ($-13$,1) ($-12$,1) ($-11$,0) ($-10$,1) ($10$,0) ($11$,1) ($12$,0) ($13$,0) ($14$,1)};
+        \addplot[green,fill=green!40!white] coordinates {($-9$,1) ($-8$,5) ($-7$,14) ($-6$,46) ($-5$,105) ($-4$,185) ($-3$,126) ($-2$,297) ($-1$,276) ($0$,301) ($1$,250) ($2$,153) ($3$,67) ($4$,85) ($5$,37) ($6$,29) ($7$,9) ($8$,2) ($9$,10)};
+        \legend{Bad,Fair,Good,Excellent}
+        \end{axis}
+    \end{tikzpicture}
+\end{preview}
+\end{document}
