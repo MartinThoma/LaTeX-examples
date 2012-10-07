@@ -1,0 +1,24 @@
+% Source: http://tex.stackexchange.com/a/65518/5645
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{preview}
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar interval,
+            xticklabel=
+            \pgfmathprintnumber\tick--\pgfmathprintnumber\nexttick
+        ]
+            \addplot+[hist={bins=3}]
+            table[row sep=\\,y index=0] {
+            data\\
+            1\\ 2\\ 1\\ 5\\ 4\\ 10\\
+            7\\ 10\\ 9\\ 8\\ 9\\ 9\\
+            };
+        \end{axis}
+    \end{tikzpicture}
+\end{preview}
+\end{document}
