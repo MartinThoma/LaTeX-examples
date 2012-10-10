@@ -1,9 +1,12 @@
+% Thanks to Claudio Fiandrino for his help
+% Source: http://tex.stackexchange.com/a/75695/5645
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 
 \usepackage{amssymb,amsmath}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.6}
 
 \begin{document}
 \begin{preview}
@@ -22,11 +25,18 @@
         /pgfplots/ytick={0,0.1,...,1},   % make steps of length 0.1
         axis background/.style={fill=white},
         ylabel=y,
-        xlabel=x,
-        legend style={at={(0.8,0.8)}, anchor=north}]
-      \addplot[domain=-1:1, ultra thick,samples=100,red]  {1}; 
-      \addplot[domain=-1:1, ultra thick,samples=100,blue] {0}; 
-      \legend{$1 \text{, if } x \in \mathbb{Q}$, $0 \text{, if } x \in \mathbb{R} \setminus \mathbb{Q}$}
+        xlabel=x,]
+      \addplot[domain=-1:1, ultra thick,samples=100,blue]  {1};
+      \label{plot one}
+      \addplot[domain=-1:1, ultra thick,samples=100,red] {0};
+      \label{plot two} 
+      \node [draw,fill=white] at (rel axis cs: 0.8,0.8) {\shortstack[l]{
+      $f(x) = 
+    \left\lbrace\begin{array}{@{}l@{}l@{}l@{}}
+       \tikz[baseline=-0.5ex]\node{\ref{plot one}}; \phantom{1cm}& 1 &  \text{ if } x \in \mathbb{Q}\\
+       \tikz[baseline=-0.5ex]\node{\ref{plot two}}; & 0 & \text{ if } x \in \mathbb{R} \setminus \mathbb{Q}
+    \end{array}\right.
+$}};
     \end{axis} 
 \end{tikzpicture}
 \end{preview}
