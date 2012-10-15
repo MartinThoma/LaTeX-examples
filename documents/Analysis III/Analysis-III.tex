@@ -1,14 +1,22 @@
 % Original Source: http://mitschriebwiki.nomeata.de/data/WS10/Ana3Bachelor.tex
-\documentclass[a4paper,twoside,DIV15,BCOR12mm,chapterprefix=true,headings=onelinechapter]{scrbook}
-\usepackage{ana}
+\documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
+\usepackage{mathe}
+\usepackage{saetze-schmoeger}
 
 \lecturer{Dr. C. Schmoeger}
-\semester{Wintersemeseter 10/11}
+\semester{Wintersemeseter 10/11 und 12/13}
 \scriptstate{complete}
 
-\author{Die Mitarbeiter von \url{http://mitschriebwiki.nomeata.de/}}
+\author{Die Mitarbeiter von \href{http://mitschriebwiki.nomeata.de/}{mitschriebwiki.nomeata.de} 
+und \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents}{GitHub}}
 \title{Analysis III - Bachelorversion}
 \makeindex
+
+\hypersetup{ 
+  pdfauthor   = {Die Mitarbeiter von mitschriebwiki.nomeata.de und GitHub}, 
+  pdfkeywords = {Analysis}, 
+  pdftitle    = {Analysis III} 
+} 
 
 \begin{document}
 \maketitle
@@ -18,22 +26,35 @@
 \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 \tableofcontents
 
-\chapter{Vorwort}
+\chapter*{Vorwort}
 
-\section{Über dieses Skriptum}
-Dies ist ein Mitschrieb der Vorlesung \glqq Analysis III\grqq\ von Herrn Schmoeger im
-Wintersemester 2010 an der Universität Karlsruhe (KIT). Die Mitschriebe der Vorlesung werden mit ausdrücklicher Genehmigung 
-von Herrn Schmoeger hier veröffentlicht, Herr Schmoeger ist für den Inhalt nicht 
-verantwortlich.
+\section*{Über dieses Skriptum}
+Dies ist ein Mitschrieb der Vorlesung \glqq Analysis III\grqq\ von 
+Herrn Schmoeger im Wintersemester 2010 an der Universität Karlsruhe 
+(KIT). Die Mitschriebe der Vorlesung werden mit ausdrücklicher 
+Genehmigung von Herrn Schmoeger hier veröffentlicht, Herr Schmoeger 
+ist für den Inhalt nicht verantwortlich.
 
-\section{Wer}
-Gestartet wurde das Projekt von Joachim Breitner. Beteiligt an diesem Mitschrieb sind Rebecca Schwerdt, Philipp Ost, Jan Ihrens, Peter Pan und Benjamin Unger.
+\section*{Wer}
+Gestartet wurde das Projekt von Joachim Breitner. Beteiligt an diesem
+Mitschrieb sind Rebecca Schwerdt, Philipp Ost, Jan Ihrens, Peter Pan
+und Benjamin Unger.
 
-\section{Wo}
-Alle Kapitel inklusive \LaTeX-Quellen können unter \url{http://mitschriebwiki.nomeata.de} abgerufen werden.
-Dort ist ein \emph{Wiki} eingerichtet und von Joachim Breitner um die \LaTeX-Funktionen erweitert.
+Im September 2012 wurde das Skript mit der Revisionsnummer 7132 von
+mitschriebwiki auf \href{https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Analysis%20III}{GitHub} hochgeladen.
+
+\section*{Wo}
+Alle Kapitel inklusive \LaTeX-Quellen können unter 
+\href{http://mitschriebwiki.nomeata.de}{mitschriebwiki.nomeata.de} 
+abgerufen werden.
+Dort ist ein \emph{Wiki} eingerichtet und von Joachim Breitner um die 
+\LaTeX-Funktionen erweitert.
 Das heißt, jeder kann Fehler nachbessern und sich an der Entwicklung
-beteiligen. Auf Wunsch ist auch ein Zugang über \emph{Subversion} möglich.
+beteiligen. Auf Wunsch ist auch ein Zugang über \emph{Subversion} 
+möglich.
+
+Oder man geht auf \href{https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Analysis%20III/}{github},
+erstellt einen Fork und kann direkt Änderungen umsetzen.
 
 
 \renewcommand{\thechapter}{\arabic{chapter}}
@@ -44,38 +65,49 @@ beteiligen. Auf Wunsch ist auch ein Zugang über \emph{Subversion} möglich.
 \chapter{Vorbereitungen}
 \label{Kapitel 0}
 
-In diesem Paragraphen seien $X,Y,Z$ Mengen ($\ne\varnothing$) und $f:X\to Y, g:Y\to Z$ Abbildungen.
+In diesem Paragraphen seien $X,Y,Z$ Mengen ($\ne\emptyset$) und 
+$f: X\to Y,\; g:Y\to Z$ Abbildungen.
+
 \begin{enumerate}
-\index{Potenzmenge}
-\index{Disjunktheit}
-\item 
-\begin{enumerate}
-\item $\mathcal{P}(X):=\{A:A\subseteq X\}$ heißt \textbf{Potenzmenge} von $X$.
-\item Sei $\fm\subseteq\mathcal{P}(X)$, so heißt $\fm$ \textbf{disjunkt}, genau dann wenn $A\cap B=\varnothing$ für $A,B\in\fm$ mit $A\ne B$.
-\item Sei $(A_j)$ eine Folge in $\mathcal{P}(X)$ (also $A_j\subseteq X$), so heißt $(A_j)$ \textbf{disjunkt}, genau dann wenn $\{A_1,A_2,\ldots\}$ disjunkt ist. In diesem Fall schreibe: $\dot{\bigcup}_{j=1}^\infty:=\bigcup_{j=1}^\infty A_j$\\
-Allgemein sei $\bigcup_{j=1}^\infty A_j:=\bigcup A_j$ und $\bigcap_{j=1}^\infty A_j:=\bigcap A_j$.
-\end{enumerate}
-\item Sei $A\subseteq X$, für $x\in X$ definiere
-\[\mathds{1}_A(x):=\begin{cases}1, x\in A\\ 0, x\in A^c\end{cases}\]
-wobei $A^c:=X\setminus A$.
-\item Sei $B\subseteq Y$ dann ist $f^{-1}(B):=\{x\in X: f(x)\in B\}$ und es gelten folgende Eigenschaften:
-\begin{enumerate}
-\item $f^{-1}(B^c)=f^{-1}(B)^c$
-\item Ist $B_j$ eine Folge in $\mathcal{P}(Y)$, so gilt:
-\begin{align*}
-f^{-1}(\bigcup B_j)=\bigcup f^{-1}(B_j)\\
-f^{-1}(\bigcap B_j)=\bigcap f^{-1}(B_j)\\
-\end{align*}
-\item Ist $C\subseteq Z$, so gilt:
-\[(g\circ f)^{-1}(C)=f^{-1}(g^{-1}(C))\]
-\end{enumerate}
-\item $\sum_{j=1}^\infty a_j =: \sum a_j$
+    \index{Potenzmenge}
+    \index{Disjunktheit}
+    \item 
+    \begin{enumerate}
+        \item $\mathcal{P}(X):=\{A:A\subseteq X\}$ heißt 
+              \textbf{Potenzmenge} von $X$.
+        \item Sei $\fm\subseteq\mathcal{P}(X)$, so heißt $\fm$ 
+              \textbf{disjunkt}, genau dann wenn $A\cap B=\emptyset$ 
+              für $A,B\in\fm$ mit $A\ne B$.
+        \item Sei $(A_j)$ eine Folge in $\mathcal{P}(X)$ (also 
+              $A_j\subseteq X$), so heißt $(A_j)$ \textbf{disjunkt}, 
+              genau dann wenn $\{A_1,A_2,\ldots\}$ disjunkt ist. In 
+              diesem Fall schreibe: 
+              $\dot{\bigcup}_{j=1}^\infty:=\bigcup_{j=1}^\infty A_j$\\
+              Allgemein sei $\bigcup_{j=1}^\infty A_j:=\bigcup A_j$ 
+              und $\bigcap_{j=1}^\infty A_j:=\bigcap A_j$.
+    \end{enumerate}
+    \item Sei $A\subseteq X$, für $x\in X$ definiere
+          \[\mathds{1}_A(x):=\begin{cases}1, x\in A\\ 0, x\in A^c\end{cases}\]
+          wobei $A^c:=X\setminus A$.
+    \item Sei $B\subseteq Y$ dann ist $f^{-1}(B):=\{x\in X: f(x)\in B\}$ 
+          und es gelten folgende Eigenschaften:
+          \begin{enumerate}
+            \item $f^{-1}(B^c)=f^{-1}(B)^c$
+            \item Ist $B_j$ eine Folge in $\mathcal{P}(Y)$, so gilt:
+                  \begin{align*}
+                  f^{-1}(\bigcup B_j)=\bigcup f^{-1}(B_j)\\
+                  f^{-1}(\bigcap B_j)=\bigcap f^{-1}(B_j)\\
+                  \end{align*}
+            \item Ist $C\subseteq Z$, so gilt:
+                  \[(g\circ f)^{-1}(C)=f^{-1}(g^{-1}(C))\]
+          \end{enumerate}
+    \item $\sum_{j=1}^\infty a_j =: \sum a_j$
 \end{enumerate}
 
 \chapter{$\sigma$-Algebren und Maße}
 \label{Kapitel 1}
 
-In diesem Paragraphen sei $\varnothing\ne X$ eine Menge.
+In diesem Paragraphen sei $\emptyset\ne X$ eine Menge.
 
 \begin{definition}
 \index{$\sigma$-!Algebra}
@@ -89,8 +121,8 @@ Sei $\fa\subseteq\mathcal{P}(X)$, $\fa$ heißt eine \textbf{$\sigma$-Algebra} au
 
 \begin{beispiel}
 \begin{enumerate}
-\item $\{X,\varnothing\}$ und $\mathcal{P}(X)$ sind $\sigma$-Algebren auf $X$.
-\item Sei $A\subseteq X$, dann ist $\{X,\varnothing, A, A^c\}$ eine $\sigma$-Algebra auf $X$.
+\item $\{X,\emptyset\}$ und $\mathcal{P}(X)$ sind $\sigma$-Algebren auf $X$.
+\item Sei $A\subseteq X$, dann ist $\{X,\emptyset, A, A^c\}$ eine $\sigma$-Algebra auf $X$.
 \item $\fa:=\{A\subseteq X: A$ abzählbar oder $A^c$ abzählbar$\}$ ist eine $\sigma$-Algebra auf $X$.
 \end{enumerate}
 \end{beispiel}
@@ -99,7 +131,7 @@ Sei $\fa\subseteq\mathcal{P}(X)$, $\fa$ heißt eine \textbf{$\sigma$-Algebra} au
 \label{Lemma 1.1}
 Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 \begin{enumerate}
-\item $\varnothing\in\fa$
+\item $\emptyset\in\fa$
 \item Ist $(A_j)$ eine Folge in $\fa$, so ist $\bigcap A_j\in\fa$.
 \item Sind $A_1,\ldots,A_n\in\fa$, so gilt:
 \begin{enumerate}
@@ -112,10 +144,10 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{beweis}
 \begin{enumerate}
-\item $\varnothing=X^c\in\fa$ (nach ($\sigma_2$)).
+\item $\emptyset=X^c\in\fa$ (nach ($\sigma_2$)).
 \item $D:=\bigcap A_j$. $D^c=\bigcup A_j^c\in\fa$ (nach ($\sigma_2$) und ($\sigma_3$)), also gilt auch $D=(D^c)^c\in\fa$.
 \item \begin{enumerate}
-\item $A_1\cup\cdots\cup A_n\in\fa$ folgt aus ($\sigma_3$) mit $A_{n+j}:=\varnothing$ ($j\ge 1$).
+\item $A_1\cup\cdots\cup A_n\in\fa$ folgt aus ($\sigma_3$) mit $A_{n+j}:=\emptyset$ ($j\ge 1$).
 \item $A_1\cap\cdots\cap A_n\in\fa$ folgt aus (2) mit $A_{n+j}:=X$ ($j\ge 1$).
 \item $A_1\setminus A_2=A_1\cap A_2^c\in\fa$
 \end{enumerate}
@@ -124,7 +156,7 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{lemma}
 \label{Lemma 1.2}
-Sei $\varnothing\ne\cf$ eine Menge von $\sigma$-Algebren auf $X$. Dann ist 
+Sei $\emptyset\ne\cf$ eine Menge von $\sigma$-Algebren auf $X$. Dann ist 
 \[\fa_0:=\bigcap_{\fa\in\cf}\fa\]
 eine $\sigma$-Algebra auf $X$.
 \end{lemma}
@@ -146,14 +178,14 @@ eine $\sigma$-Algebra auf $X$.
 
 \begin{definition}
 \index{Erzeuger}
-Sei $\varnothing\ne\mathcal{E}\subseteq\mathcal{P}(X)$ und $\cf:=\{\fa:\fa$ ist $\sigma$-Algebra auf $X$ mit $\mathcal{E}\subseteq\fa\}$. Definiere
+Sei $\emptyset\ne\mathcal{E}\subseteq\mathcal{P}(X)$ und $\cf:=\{\fa:\fa$ ist $\sigma$-Algebra auf $X$ mit $\mathcal{E}\subseteq\fa\}$. Definiere
 \[\sigma(\mathcal{E}):=\bigcap_{\fa\in\cf}\fa\]
 Dann ist wegen 1.2 $\sigma(\mathcal{E})$ eine $\sigma$-Algebra auf $X$. $\sigma(\mathcal{E})$ heißt die \textbf{von $\mathcal{E}$ erzeugte $\sigma$-Algebra}. $\mathcal{E}$ heißt ein \textbf{Erzeuger} von $\sigma(\mathcal{E})$.
 \end{definition}
 
 \begin{lemma}
 \label{Lemma 1.3}
-Sei $\varnothing\ne\mathcal{E}\subseteq\mathcal{P}(X)$.
+Sei $\emptyset\ne\mathcal{E}\subseteq\mathcal{P}(X)$.
 \begin{enumerate}
 \item $\mathcal{E}\subseteq\sigma(\mathcal{E})$. $\sigma(\mathcal{E})$ ist die "kleinste" $\sigma$-Algebra auf $X$, die $\mathcal{E}$ enthält.
 \item Ist $\mathcal{E}$ eine $\sigma$-Algebra, so ist $\sigma(\mathcal{E})=\mathcal{E}$.
@@ -171,9 +203,9 @@ Sei $\varnothing\ne\mathcal{E}\subseteq\mathcal{P}(X)$.
 
 \begin{beispiel}
 \begin{enumerate}
-\item Sei $A\subseteq X$ und $\mathcal{E}:=\{A\}$. Dann ist $\sigma(\mathcal{E})=\{X,\varnothing,A,A^c\}$.
+\item Sei $A\subseteq X$ und $\mathcal{E}:=\{A\}$. Dann ist $\sigma(\mathcal{E})=\{X,\emptyset,A,A^c\}$.
 \item $X:=\{1,2,3,4,5\}, \mathcal{E}:=\{\{1\},\{1,2\}\}$. Dann gilt:
-\[\sigma(\mathcal{E}):=\{X,\varnothing, \{1\},\{2\},\{1,2\},\{3,4,5\},\{1,3,4,5\},\{2,3,4,5\}\}\]
+\[\sigma(\mathcal{E}):=\{X,\emptyset, \{1\},\{2\},\{1,2\},\{3,4,5\},\{1,3,4,5\},\{2,3,4,5\}\}\]
 \end{enumerate}
 \end{beispiel}
 
@@ -217,7 +249,7 @@ Allgemeiner lässt sich zeigen: $\mdq^d:=\{(x_1,\ldots,x_n):x_j\in\mdq (j=1,\ldo
 [a,b)&:=[a_1,b_1)\times\cdots\times[a_d,b_d)\\
 [a,b]&:=[a_1,b_1]\times\cdots\times[a_d,b_d]
 \end{align*}
-mit der Festlegung $(a,b):=(a,b]:=[a,b):=\varnothing$, falls $a_j=b_j$ für ein $j\in\{1,\ldots,d\}$.
+mit der Festlegung $(a,b):=(a,b]:=[a,b):=\emptyset$, falls $a_j=b_j$ für ein $j\in\{1,\ldots,d\}$.
 \item Für $k\in\{1,\ldots,d\}$ und $\alpha\in\mdr$ definiere die folgenden \textbf{Halbräume}:
 \begin{align*}
 H_k^-(\alpha):=\{(x_1,\ldots,x_d)\in\mdr^d:x_k\le\alpha\}\\
@@ -244,8 +276,8 @@ Entsprechendes gilt für die anderen Typen von Intervallen und Halbräumen.
 \item Sei $G\in\co(\mdr^d), \fm:=\{(a,b):a,b\in\mdq^d,a\le b, (a,b)\subseteq G\}$. Dann ist $\fm$ abzählbar und $G=\bigcup_{I\in\fm}I$. also gilt:
 \[G\in\sigma(\ce_1)\implies \fb_d=\sigma(\co(\mdr^d))\subseteq\sigma(\ce_1)\]
 \item Sei $(a,b)\in\ce_1$.\\
-\textbf{Fall 1:} $(a,b)=\varnothing\in\ce_2\subseteq\sigma(\ce_2)$\\
-\textbf{Fall 2:} $(a,b)\ne\varnothing, a=(a_1\ldots,a_d), b=(b_1\ldots,b_d)$. Dann gilt für alle $j\in\{1,\ldots,d\}:a_j<b_j$, also gilt auch:
+\textbf{Fall 1:} $(a,b)=\emptyset\in\ce_2\subseteq\sigma(\ce_2)$\\
+\textbf{Fall 2:} $(a,b)\ne\emptyset, a=(a_1\ldots,a_d), b=(b_1\ldots,b_d)$. Dann gilt für alle $j\in\{1,\ldots,d\}:a_j<b_j$, also gilt auch:
 \[\exists N\in\mdn:\forall n\ge N: \forall j\in\{1,\ldots,d\}:a_j<b_j-\frac1n\]
 Definiere $c_n:=(\frac1n,\ldots,\frac1n)\in\mdq^d$. Dann gilt:
 \[(a,b)=\bigcup_{n\ge N}(a,b-c_n]\in\sigma(\ce_2)\]
@@ -259,18 +291,18 @@ Das heißt $\ce_2 \subseteq \sigma(\ce_3)$ und damit auch $\sigma(\ce_2) \subset
 
 \begin{definition}
 \index{Spur}
-Sei $\varnothing \neq \fm \subseteq \mathcal{P}(X)$ und $\varnothing \neq Y \subseteq X$. 
+Sei $\emptyset \neq \fm \subseteq \mathcal{P}(X)$ und $\emptyset \neq Y \subseteq X$. 
 \[\fm_Y := \{A \cap Y : A \in \fm\}\] 
 heißt die \textbf{Spur von $\fm$ in $Y$}.
 \end{definition}
 
 \begin{satz}[Spuren und $\sigma$-Algebren]
 \label{Satz 1.5}
-Sei $\varnothing \neq Y \subseteq X$ und $\fa$ eine $\sigma$-Algebra auf $X$.
+Sei $\emptyset \neq Y \subseteq X$ und $\fa$ eine $\sigma$-Algebra auf $X$.
 \begin{enumerate}
 \item $\fa_Y$ ist eine $\sigma$-Algebra auf $Y$.
 \item $\fa_Y \subseteq \fa \iff Y \in \fa$
-\item Ist $\varnothing \neq \ce \subseteq \mathcal{P}(X)$, so ist $\sigma(\ce_Y) = \sigma(\ce)_Y$.
+\item Ist $\emptyset \neq \ce \subseteq \mathcal{P}(X)$, so ist $\sigma(\ce_Y) = \sigma(\ce)_Y$.
 \end{enumerate}
 \end{satz}
 
@@ -337,7 +369,7 @@ Wegen 13.1 Ana I können Reihen der obigen Form beliebig umgeordnet werden, ohne
 \index{Wahrscheinlichkeitsmaß}\index{Maß!Wahrscheinlichkeits-}
 Sei $\fa$ eine $\sigma$-Algebra auf $X$ und $\mu:\fa\to[0,+\infty]$ eine Abbildung. $\mu$ heißt ein \textbf{Maß} auf $\fa$, genau dann wenn gilt:
 \begin{enumerate}
-\item[$(M_1)$] $\mu(\varnothing)=0$
+\item[$(M_1)$] $\mu(\emptyset)=0$
 \item[$(M_2)$] Ist $(A_j)$ eine disjunkte Folge in $\fa$, so ist $\mu(\bigcup A_j)=\sum\mu(A_j)$. Diese Eigenschaft heißt \textbf{$\sigma$-Additivität}.
 \end{enumerate}
 Ist $\mu$ ein Maß auf $\fa$, so heißt $(X,\fa,\mu)$ ein \textbf{Maßraum}.\\
@@ -355,7 +387,7 @@ Ein Maß $\mu$ heißt \textbf{endlich}, genau dann wenn $\mu(X)<\infty$. Ein Ma�
 1,\ x_0\in A\\
 0,\ x_0\not\in A
 \end{cases}\]
-Klar ist, dass $\delta_{x_0}(\varnothing)=0$ ist.\\
+Klar ist, dass $\delta_{x_0}(\emptyset)=0$ ist.\\
 Sei $(A_j)$ eine disjunkte Folge in $\fa$.
 \[\delta_{x_0}(\bigcup A_j)=
 \left.\begin{cases}
@@ -367,12 +399,12 @@ $\delta_{x_0}$ ist ein Maß auf $\cp(X)$ und heißt \textbf{Punktmaß} oder \tex
 \begin{align*}
 \mu(A):=
 \begin{cases}
-0&,A=\varnothing\\
-\sum_{j\in A}p_j&,A\ne\varnothing
+0&,A=\emptyset\\
+\sum_{j\in A}p_j&,A\ne\emptyset
 \end{cases}
 \end{align*}
 Übung: $\mu$ ist ein Maß auf $\fa=\cp(\mdn)$ und heißt ein \textbf{Zählmaß}. Sind alle $p_j=1$, so ist $\mu(A)$ gerade die Anzahl der Elemente von $A$.
-\item Sei $(X,\fa,\mu)$ ein Maßraum, $\varnothing\ne Y\subseteq X$ und $\fa_0\subseteq\fa$ eine $\sigma$-Algebra auf $Y$. Definiere $\mu_0:\fa_0\to[0,+\infty]$ durch $\mu_0(A):=\mu(A)$ ($A\in\fa_0$). Dann ist $(Y,\fa_0,\mu_0)$ ein Maßraum.\\
+\item Sei $(X,\fa,\mu)$ ein Maßraum, $\emptyset\ne Y\subseteq X$ und $\fa_0\subseteq\fa$ eine $\sigma$-Algebra auf $Y$. Definiere $\mu_0:\fa_0\to[0,+\infty]$ durch $\mu_0(A):=\mu(A)$ ($A\in\fa_0$). Dann ist $(Y,\fa_0,\mu_0)$ ein Maßraum.\\
 Ist spezieller $Y\in\fa$, so ist $\fa_0:=\fa_Y\subseteq\fa$ und man definiert $\mu_{|Y}:\fa_Y\to[0,+\infty]$ durch $\mu_{|Y}(A):=\mu(A)$.
 \end{enumerate}
 \end{beispiel}
@@ -416,13 +448,13 @@ Dann: \(\mu(\bigcup A_{j})=\mu(\bigcup B_{j})=\sum{\mu(B_{j})}=\lim_{n\to\infty}
 \label{Kapitel 2}
 \index{Lebesguemaß}
 
-In diesem Kapitel sei \(X\) eine Menge, \(X\neq\varnothing\).
+In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
 \begin{definition}
 \index{Ring}
-Sei \(\varnothing\neq\mathfrak{R}\subseteq\mathcal{P}(X)\). \(\mathfrak{R}\)
+Sei \(\emptyset\neq\mathfrak{R}\subseteq\mathcal{P}(X)\). \(\mathfrak{R}\)
 hei\ss t ein \textbf{Ring} (auf \(X\)), genau dann wenn gilt:
 \begin{enumerate}
-\item \(\varnothing\in\mathfrak{R}\)
+\item \(\emptyset\in\mathfrak{R}\)
 \item \(A,B\in\mathfrak{R}\,\implies\,A\cup B,\,B\setminus A\in\mathfrak{R}\)
 \end{enumerate}
 \end{definition}
@@ -434,7 +466,7 @@ Sei \(d\in\MdN\).
 \item \(\ci_{d}:=\{(a,b]\mid a,b\in\MdR^{d},\,a\leq b\}\).
 Seien \(a=(a_{1},\ldots,a_{d}),\,b=(b_{1},\ldots,b_{d})\in\MdR^d\) und \(I:=(a,b]\in \ci_{d}\)
 \[
-\lambda_{d}(I)=\begin{cases}0&\text{falls }I=\varnothing\\(b_{1}-a_{1})(b_{2}-a_{2})\cdots(b_{d}-a_{d})&\text{falls }I\neq\varnothing\end{cases}\quad\text{(\textbf{Elementarvolumen})}
+\lambda_{d}(I)=\begin{cases}0&\text{falls }I=\emptyset\\(b_{1}-a_{1})(b_{2}-a_{2})\cdots(b_{d}-a_{d})&\text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
 \]
 \item \(\cf_d:=\left\{\bigcup_{j=1}^{n}I_{j}\mid n\in\MdN,\,I_{1},\ldots,I_{n}\in I_{d}\right\}\) (\textbf{Menge der Figuren})
 \end{enumerate}
@@ -457,7 +489,7 @@ Seien \(I,I'\in\ci_{d}\) und \(A\in\cf_{d}\). Dann:
 \begin{enumerate}
 \item Sei \(I=\prod_{k=1}^{d}{(a_{k},b_{k}]},\,I'=\prod_{k=1}^{d}{(\alpha_{k},\beta_{k}]};\,\alpha_{k}':=\max\{\alpha_{k},a_{k}\},\,\beta_{k}':=\min\{\beta_{k},b_{k}\}\)
 
-Ist \(\alpha_{k}'\geq\beta_{k}'\) für ein \(k\in\{1,\ldots,d\}\), so ist \(I\cap I'=\varnothing\in\ci_{d}\).
+Ist \(\alpha_{k}'\geq\beta_{k}'\) für ein \(k\in\{1,\ldots,d\}\), so ist \(I\cap I'=\emptyset\in\ci_{d}\).
 Sei \(\alpha_{k}'<\beta_{k}'\forall k\in\{1,\ldots,d\}\), so ist \(I\cap I'=\prod_{k=1}^{d}{(\alpha_{k}',\beta_{k}']\in\ci_{d}}\)
 \item Induktion nach \(d\):
 \begin{itemize}
@@ -497,7 +529,7 @@ A=I_{n+1}\cup\bigcup_{j=1}^{l}{\left(\bigcup_{j=1}^{l_{j}}{I_{j}''}\right)}
 \]
 Daraus folgt die Behauptung für \(n+1\).
 \end{itemize}
-\item \((a,a]=\varnothing\implies\varnothing\in\cf_{d}\)
+\item \((a,a]=\emptyset\implies\emptyset\in\cf_{d}\)
 
 Seien \(A,B\in\cf_{d}\). Klar: \(A\cup B\in\cf_{d}\)
 
@@ -536,12 +568,12 @@ wohldefiniert.
 \label{Satz 2.3}
 Seien \(A,B\in\cf_{d}\) und \((B_{n})\) sei eine Folge in \(\cf_{d}\).
 \begin{enumerate}
-\item \(A\cap B=\varnothing\implies\lambda_{d}(A\cup B)=\lambda_{d}(A)+\lambda_{d}(B)\)
+\item \(A\cap B=\emptyset\implies\lambda_{d}(A\cup B)=\lambda_{d}(A)+\lambda_{d}(B)\)
 \item \(A\subseteq B\implies\lambda_{d}(A)\leq\lambda_{d}(B)\)
 \item \(\lambda_{d}(A\cup B)\leq\lambda_{d}(A)+\lambda_{d}(B)\)
 \item Sei \(\delta>0\). Es existiert \(C\in\cf_{d}:\overline{C}\subseteq B\) und
 \(\lambda_{d}(B\setminus C)\leq\delta\).
-\item Ist \(B_{n+1}\subseteq B_{n}\forall n\in\mdn\) und \(\bigcap B_{n}=\varnothing\), so gilt: \(\lambda_{d}(B_{n})\to 0\,(n\to \infty)\)
+\item Ist \(B_{n+1}\subseteq B_{n}\forall n\in\mdn\) und \(\bigcap B_{n}=\emptyset\), so gilt: \(\lambda_{d}(B_{n})\to 0\,(n\to \infty)\)
 \end{enumerate}
 \end{satz}
 
@@ -553,7 +585,7 @@ disjunkt und es existiert \(\{I_{1}',\ldots,I_{m}'\}\subseteq\ci_{d}\) disjunkt:
 \(A=\bigcup_{j=1}^{n}{I_{j}},\,B=\bigcup_{j=1}^{m}{I_{j}'}\).
 
 \(J:=\{I_{1},\ldots,I_{n},I_{1}',\ldots,I_{m}'\}\subseteq\ci_{d}\). Aus 
-\(A\cap B=\varnothing\) folgt: \(J\) ist disjunkt. Dann: 
+\(A\cap B=\emptyset\) folgt: \(J\) ist disjunkt. Dann: 
 \(A\cup B=\bigcup_{I\in J}{I}\)	% Hier auch wieder: \bigcupdot
 
 Also:
@@ -572,17 +604,17 @@ Also:
 \lambda_{d}(B_{n}\setminus C_{n})\leq\frac{\varepsilon}{2^{n}}
 \end{equation}
 Dann:
-\(\bigcap{\overline{C}_{n}}\subseteq\bigcap{B_{n}}=\varnothing\implies\bigcup{\overline{C}_{n}^{c}}=\mdr^{d}\implies\underbrace{\overline{B}_{1}}_{\text{kompakt}}\subseteq\bigcup{\underbrace{\overline{C}_{n}^{c}}_{\text{offen}}}\)
+\(\bigcap{\overline{C}_{n}}\subseteq\bigcap{B_{n}}=\emptyset\implies\bigcup{\overline{C}_{n}^{c}}=\mdr^{d}\implies\underbrace{\overline{B}_{1}}_{\text{kompakt}}\subseteq\bigcup{\underbrace{\overline{C}_{n}^{c}}_{\text{offen}}}\)
 
 Aus der Definition von Kompaktheit (Analysis II, \S 2) folgt:
 \(\exists m\in\mdn:\,\bigcup_{j=1}^{m}{\overline{C}_{j}^{c}}\supseteq\overline{B}_{1}\)
 Dann: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\overline{B}_{1}^{c}\).
 Andererseits: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\bigcap_{j=1}^{m}{B_{j}}\subseteq B_{1}\subseteq\overline{B}_{1}\). 
 
-Also: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}=\varnothing\). Das hei\ss t:
-\(\bigcap_{j=1}^{n}{\overline{C}_{j}}=\varnothing\,\forall n\geq m\)
+Also: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}=\emptyset\). Das hei\ss t:
+\(\bigcap_{j=1}^{n}{\overline{C}_{j}}=\emptyset\,\forall n\geq m\)
 
-\(D_{n}:=\bigcap_{j=1}^{n}{C_{j}}\). Dann: \(D_{n}=\varnothing\,\forall n\geq m\)
+\(D_{n}:=\bigcap_{j=1}^{n}{C_{j}}\). Dann: \(D_{n}=\emptyset\,\forall n\geq m\)
 
 \textbf{Behauptung:} \(\lambda_{d}(B_{n}\setminus D_{n})\leq\left(1-\frac{1}{2^{n}}\right)\ep\,\forall n\in\mdn\)
 \begin{beweis}
@@ -599,7 +631,7 @@ Also: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}=\varnothing\). Das hei\ss t:
 \end{itemize}
 \end{beweis}
 
-Für \(n\geq m:\,D_{n}=\varnothing\,\implies\,\lambda_{d}(B_{n})=\lambda_{d}(B_{n}\setminus D_{n})\leq\left(1-\frac{1}{2^{n}}\right)\varepsilon\leq\varepsilon\)
+Für \(n\geq m:\,D_{n}=\emptyset\,\implies\,\lambda_{d}(B_{n})=\lambda_{d}(B_{n}\setminus D_{n})\leq\left(1-\frac{1}{2^{n}}\right)\varepsilon\leq\varepsilon\)
 \end{enumerate}
 \end{beweis}
 
@@ -608,7 +640,7 @@ Für \(n\geq m:\,D_{n}=\varnothing\,\implies\,\lambda_{d}(B_{n})=\lambda_{d}(B_{
 Es sei \(\fr\) ein Ring auf \(X\). Eine Abbildung \(\mu:\fr\to[0,\infty]\) 
 hei\ss t ein \textbf{Prämaß} \ auf \(\fr\), wenn gilt:
 \begin{enumerate}
-\item \(\mu(\varnothing)=0\)
+\item \(\mu(\emptyset)=0\)
 \item Ist \(A_{j}\) eine disjunkte Folge in \(\fr\) und \(\bigcup{A_{j}}\in\fr\), so ist \(\mu\left(\bigcup{A_{j}}\right)=\sum{\mu(A_{j})}\).
 \end{enumerate}
 \end{definition}
@@ -619,7 +651,7 @@ hei\ss t ein \textbf{Prämaß} \ auf \(\fr\), wenn gilt:
 \end{satz}
 \begin{beweis}
 \begin{enumerate}
-\item Klar: \(\lambda_{d}(\varnothing)=0\)
+\item Klar: \(\lambda_{d}(\emptyset)=0\)
 \item Sei \(A_{j}\) eine disjunkte Folge in \(\cf_{d}\) und \(A:=\bigcup{A_{j}}\in\cf_{d}\).
 
 \(B_{n}:=\bigcup_{j=n}^{\infty}{A_{j}}\,(n\in\mdn)\); \((B_{n})\) hat die
@@ -650,7 +682,7 @@ Insbesondere: \(\overline{\mu}\) ist ein Ma\ss \ auf \(\sigma(\fr)\).
 
 \begin{satz}[Eindeutigkeitssatz]
 \label{Satz 2.6}
-Sei \(\varnothing\neq\ce\subseteq\cp(X)\), es seien \(\nu,\,\mu\) Ma\ss e auf
+Sei \(\emptyset\neq\ce\subseteq\cp(X)\), es seien \(\nu,\,\mu\) Ma\ss e auf
 \(\sigma(\ce)\) und es gelte: \(\mu(E)=\nu(E)\,\forall E\in\ce\).
 
 Weiter gelten:
@@ -806,7 +838,7 @@ Also auch:
 \end{beweis}
 
 \textbf{Auswahlaxiom:}\\
-Sei $\varnothing\ne\Omega$ Indexmenge, es sei $\{X_\omega\mid \omega\in\Omega\}$ ein disjunktes System von nichtleeren Mengen $X_\omega$. Dann existiert ein $C\subseteq\bigcup_{\omega\in\Omega}X_\omega$, sodass $C$ mit jedem $X_j$ genau ein Element gemeinsam hat.
+Sei $\emptyset\ne\Omega$ Indexmenge, es sei $\{X_\omega\mid \omega\in\Omega\}$ ein disjunktes System von nichtleeren Mengen $X_\omega$. Dann existiert ein $C\subseteq\bigcup_{\omega\in\Omega}X_\omega$, sodass $C$ mit jedem $X_j$ genau ein Element gemeinsam hat.
 
 \begin{satz}[Satz von Vitali]
 \label{Satz 2.11}
@@ -857,7 +889,7 @@ Also ist $\lambda_d(C)=0$. Damit folgt aus (2):
 \chapter{Messbare Funktionen}
 \label{Kapitel 3}
 
-In diesem Paragraphen seien $\varnothing\ne X,Y,Z$ Mengen.
+In diesem Paragraphen seien $\emptyset\ne X,Y,Z$ Mengen.
 
 \begin{definition}
 \index{messbar!Raum}\index{Raum!messbarer}
@@ -885,7 +917,7 @@ Dann ist $f$ $\fa'$-$\fb'$-messbar.
 \item Sei $\fa$ eine $\sigma$-Algebra auf $X$ und $A\subseteq X$. $\mathds{1}_A:X\to\mdr$ ist genau dann $\fa$-$\fb_1$-messbar, wenn $A\in\fa$ ist.
 \item Sei $X=\mdr^d$. Ist $A\in\fb_d$, so ist $\mathds{1}_A$ $\fb_d$-$\fb_1$-messbar.
 \item Ist $C$ wie in \ref{Satz 2.11}, so ist $\mathds{1}_C$ nicht $\fb_d$-$\fb_1$-messbar.
-\item Es sei $f:X\to Y$ eine Funktion und $\fb$ ($\fa$) eine $\sigma$-Algebra auf $Y$ ($X$), dann ist $f$ $\cp(X)$-$\fb$-messbar ($\fa$-$\{Y,\varnothing\}$-messbar).
+\item Es sei $f:X\to Y$ eine Funktion und $\fb$ ($\fa$) eine $\sigma$-Algebra auf $Y$ ($X$), dann ist $f$ $\cp(X)$-$\fb$-messbar ($\fa$-$\{Y,\emptyset\}$-messbar).
 \end{enumerate}
 \end{beispiel}
 
@@ -895,7 +927,7 @@ Seien \(\fa,\,\fb,\,\fc\) \(\sigma\)-Algebren auf \(X,\,Y\) bzw. \(Z\). Weiter s
 Funktionen.
 \begin{enumerate}
 \item Ist \(f\) \(\fa-\fb-\)messbar und ist \(g\) \(\fb-\fc-\)messbar, so ist \(g\circ f:\,X\to Z\) \(\fa-\fc-\)messbar.
-\item Sei \(\varnothing\neq\ce\subseteq\cp(Y)\) und \(\sigma(\ce)=\fb\). Dann:
+\item Sei \(\emptyset\neq\ce\subseteq\cp(Y)\) und \(\sigma(\ce)=\fb\). Dann:
 \begin{center}
 \(f\) ist \(\fa-\fb-\)messbar, genau dann, wenn gilt: \(\forall E\in\ce:\,f^{-1}(E)\in\fa\)
 \end{center}
@@ -979,7 +1011,7 @@ Es ist \(fg=\vp\circ h\). Mit \ref{Satz 3.1}.(1) folgt: \(fg\) ist messbar.
 \begin{folgerungen}
 \label{Folgerung 3.3}
 \begin{enumerate}
-\item Seien \(A,\,B\in\fb(X),\,A\cap B=\varnothing\) und \(X=A\cup B\). Weiter seien \(f:A\to\mdr^{k}\) und
+\item Seien \(A,\,B\in\fb(X),\,A\cap B=\emptyset\) und \(X=A\cup B\). Weiter seien \(f:A\to\mdr^{k}\) und
 \(g:B\to\mdr^{k}\) messbar. Dann ist \(h:X\to\mdr^{k}\), definiert durch 
 \[
 h(x):=\begin{cases}f(x)&x\in A\\g(x)&x\in B\end{cases},
@@ -1007,7 +1039,7 @@ Es ist \(g=\vp\circ f\). Mit \ref{Satz 3.1} folgt: \(g\) ist messbar.
 
 für \(x\neq 0:\,f(x,x)=\frac{\sin(X)}{x}\overset{x\to 0}{\to}1\neq 0=f(0,0)\), daraus folgt: \(f\) ist nicht stetig.
 
-\(A:=\{(x,y)\in\mdr^{2}\mid x=0\},\,B:=\{(x,y)\in\mdr^{2}\mid x\neq 0\},\,X=A\cup B,\,A\cap B=\varnothing\). \(A\) ist
+\(A:=\{(x,y)\in\mdr^{2}\mid x=0\},\,B:=\{(x,y)\in\mdr^{2}\mid x\neq 0\},\,X=A\cup B,\,A\cap B=\emptyset\). \(A\) ist
 abgeschlossen, das hei\ss t: \(A\in\fb_{2},\,B=A^{C}\in\fb_{2}\)
 
 \begin{align*}
@@ -1069,7 +1101,7 @@ Sei \(f:\,X\to\imdr\). \(f\) hei\ss t \textbf{(Borel-)messbar} (mb) \(:\Leftrigh
 
 Sei \(B\in\overline{\fb}_{1},\,A:=f^{-1}(B)=\{x\in X\mid f(x)\in B\}\)
 \begin{itemize}
-\item[Fall 1:] \(+\infty\not\in B\), dann: \(A=\varnothing\in\fb(X)\)
+\item[Fall 1:] \(+\infty\not\in B\), dann: \(A=\emptyset\in\fb(X)\)
 \item[Fall 2:] \(+\infty\in B\), dann: \(A=X\in\fb(X)\)
 \end{itemize}
 \(f\) ist messbar.
@@ -1113,9 +1145,9 @@ Die Äquivalenz folgt dann aus (1) und \ref{Satz 3.1}.
 \begin{definition}
 Sei $M\subseteq\imdr$.
 \begin{enumerate}
-\item Ist $M=\varnothing$ oder $M=\{-\infty\}$, so sei 
+\item Ist $M=\emptyset$ oder $M=\{-\infty\}$, so sei 
 \[\sup M:=-\infty\]
-\item Ist $M\setminus\{-\infty\}\ne\varnothing$ und nach oben beschränkt (also insbesondere $\infty\not\in M$), so sei 
+\item Ist $M\setminus\{-\infty\}\ne\emptyset$ und nach oben beschränkt (also insbesondere $\infty\not\in M$), so sei 
 \[\sup M:= \sup (M\setminus\{-\infty\})\]
 \item Ist $M\setminus\{-\infty\}$ nicht nach oben beschränkt oder $\infty\in M$, so sei 
 \[\sup M:=\infty\]
@@ -1278,7 +1310,7 @@ Weiter gilt:
 \chapter{Konstruktion des Lebesgueintegrals}
 \label{Kapitel 4}
 
-In diesem Paragraphen sei $\varnothing\ne X\in\fb_d$. Wir schreiben außerdem $\lambda$ statt $\lambda_d$.
+In diesem Paragraphen sei $\emptyset\ne X\in\fb_d$. Wir schreiben außerdem $\lambda$ statt $\lambda_d$.
 
 \begin{definition}
 \index{Lebesgueintegral}
@@ -1462,7 +1494,7 @@ Dann erfüllt \((s_n)\) die Voraussetzungen von \ref{Satz 4.6}. Aus 4.6 und \ref
 
 \begin{satz}
 \label{Satz 4.8}
-Sei $f:X\to[0,\infty]$ messbar und es sei $\varnothing\ne Y\in\fb(X)$ (also $Y\subseteq X$ und $Y\in\fb_d$). Dann sind die Funktionen $f_{|Y}:Y\to[0,\infty]$ und $\mathds{1}_Y\cdot f:X\to[0,\infty]$ messbar und es gilt:
+Sei $f:X\to[0,\infty]$ messbar und es sei $\emptyset\ne Y\in\fb(X)$ (also $Y\subseteq X$ und $Y\in\fb_d$). Dann sind die Funktionen $f_{|Y}:Y\to[0,\infty]$ und $\mathds{1}_Y\cdot f:X\to[0,\infty]$ messbar und es gilt:
 \[\int_Y f(x) \text{ d}x:=\int_Y f_{|Y}(x) \text{ d}x=\int_X (\mathds{1}_Y\cdot f)(x) \text{ d}x\]
 \end{satz}
 
@@ -1555,7 +1587,7 @@ $f, g: X \to \imdr$ seien integrierbar und es sei $\alpha \in \mdr$.
  \item $\max\{f,g\}$ und $\min\{f,g\}$ sind integrierbar.
  \item Ist $f\leq g$ auf $X$, so ist $\int_X f \text{ d}x \leq \int_X g \text{ d}x$.
  \item $\lvert \int_X f \text{ d}x \rvert \leq \int_X \lvert f \rvert \text{ d}x$. (Dreiecksungleichung für Integrale)
- \item Sei $\varnothing\ne Y \in \fb(X)$. Dann sind die Funktionen $f_{|Y}: Y \to \imdr$ und $\mathds{1}_Y\cdot f: X \to \imdr$ integrierbar und
+ \item Sei $\emptyset\ne Y \in \fb(X)$. Dann sind die Funktionen $f_{|Y}: Y \to \imdr$ und $\mathds{1}_Y\cdot f: X \to \imdr$ integrierbar und
 \[\int_Y f(x) \text{ d}x := \int_Y f_{|Y} (x) \text{ d}x = \int_X(\mathds{1}_Y \cdot f)(x) \text{ d}x\]
  \item Sei $\lambda(X) < \infty$ und $h: X \to \mdr$ sei messbar und beschränkt. Dann: $h \in \fl^1(X)$ und $\lvert \int_X h \text{ d}x\rvert \leq \|h\|_\infty \lambda(X) \quad$ (mit $\|h\|_\infty := \sup\{|h(x)| : x\in X\}$) 
 \end{enumerate}
@@ -1616,9 +1648,9 @@ Damit: \(\lvert h\rvert\) ist integrierbar und mit \ref{Satz 4.9} auch \(h\). Da
 \begin{satz}
 \label{Satz 4.12}
 \begin{enumerate}
- \item Sind $\varnothing\ne A,B \in \fb(X)$ disjunkt, $X = A \cup B$ und ist $f: X \to \imdr$ integrierbar (über $X$), so ist $f$ integrierbar über $A$ und integrierbar über $B$ und es gilt:
+ \item Sind $\emptyset\ne A,B \in \fb(X)$ disjunkt, $X = A \cup B$ und ist $f: X \to \imdr$ integrierbar (über $X$), so ist $f$ integrierbar über $A$ und integrierbar über $B$ und es gilt:
  \[\int_X f \text{ d}x = \int_A f \text{ d}x + \int_B f \text{ d}x\]
- \item Ist $\varnothing \neq K \subseteq \mdr^d $ kompakt und $f:K\to\mdr$ stetig, so ist $f \in \fl^1(K)$.
+ \item Ist $\emptyset \neq K \subseteq \mdr^d $ kompakt und $f:K\to\mdr$ stetig, so ist $f \in \fl^1(K)$.
 \end{enumerate}
 
 \end{satz}
@@ -1682,7 +1714,7 @@ Außerdem wissen wir aus Analysis I, dass R-$\int_0^1\frac{1}{x}$ divergent ist.
 \chapter{Nullmengen}
 \label{Kapitel 5}
 
-In diesem Paragraphen sei stets $\varnothing\ne X\in\fb_d$. Wir schreiben wieder $\lambda$ statt $\lambda_d$.
+In diesem Paragraphen sei stets $\emptyset\ne X\in\fb_d$. Wir schreiben wieder $\lambda$ statt $\lambda_d$.
 
 \begin{definition}
 \index{Nullmenge}\index{Borel!Nullmenge}
@@ -1729,7 +1761,7 @@ $\ $
 \begin{enumerate}
 \item Sei $(E)$ eine Eigenschaft für Elemente in $X$.\\
 $(E)$ gilt \textbf{für fast alle} (ffa) $x\in X$, genau dann wenn $(E)$ \textbf{fast überall} (fü) (auf $X$) gilt, genau dann wenn eine Nullmenge $N\subseteq X$ existiert, sodass $(E)$ für alle $x\in X\setminus N$ gilt.
-\item $\int_\varnothing f(x) \text{ d}x:=0$
+\item $\int_\emptyset f(x) \text{ d}x:=0$
 \end{enumerate}
 \end{definition}
 
@@ -1868,7 +1900,7 @@ messbar, \(\hat{f}_{n}\leq\hat{f}_{n+1}\) auf \(X\) für alle \(n\in\mdn\).
 \chapter{Der Konvergenzsatz von Lebesgue}
 \label{Kapitel 6}
 
-Stets in diesem Paragraphen: \(\varnothing\neq X\in\fb_{d}\)
+Stets in diesem Paragraphen: \(\emptyset\neq X\in\fb_{d}\)
 
 \begin{lemma}[Lemma von Fatou]
 \label{Lemma 6.1}
@@ -2079,7 +2111,7 @@ Weiter folgen aus \ref{Satz 6.2}:
 \chapter{Parameterintegrale}
 \label{Kapitel 7}
 
-In diesem Paragraphen sei stets \(\varnothing\neq X\in \fb_d\).
+In diesem Paragraphen sei stets \(\emptyset\neq X\in \fb_d\).
 
 \begin{satz}
 \label{Satz 7.1}
@@ -2193,12 +2225,12 @@ folgt aus \ref{Lemma 8.1}.
 \textbf{Beachte: } Sei \(A\in\mdr^k\) und \(B\in\mdr^l\), sowie \(C:=A\times B \subseteq\mdr^d\). Dann:
 \begin{align*}
 C_y=	\begin{cases}
-		{\varnothing, 	\text{falls } y\notin B}\\
+		{\emptyset, 	\text{falls } y\notin B}\\
 		{A,		\text{falls } y\in B}
 	 \end{cases}
 &
 &C^x=\begin{cases}
-		{\varnothing, 	\text{falls } x\notin A}\\
+		{\emptyset, 	\text{falls } x\notin A}\\
 		{B,		\text{falls } x\in A}
 	 \end{cases}
 \end{align*}	
@@ -2268,7 +2300,7 @@ Das heißt:
 \begin{enumerate}
 	\item	Sei \(k=l=1\), also \(d=2\). Sei \(r>0\) und \[C:=\{(x,y)\in\mdr^2: x^2+y^2\leq r^2\}\]
 		 Da $C$ abgeschlossen ist, gilt \(C\in\fb_2\).\\
-		Ist \(\lvert y\rvert>r\), so ist \(C_y=\varnothing\), also \(\lambda_1(C_y)=0\).\\
+		Ist \(\lvert y\rvert>r\), so ist \(C_y=\emptyset\), also \(\lambda_1(C_y)=0\).\\
 		Sei also \(\lvert y\rvert\leq r\). Sei \(x\in\mdr\) so, dass \((x,y)\in\partial C\). Dann ist \(x^2+y^2=r^2\), also \(x=\pm\sqrt{r^2-y^2}\).
 		Das heißt, es ist  \[C_y=\left[-\sqrt{r^2-y^2},+\sqrt{r^2-y^2}\right]\text{ und } \lambda_1(C_y)=2\sqrt{r^2-y^2}\]
 		Aus \ref{Satz 9.1} folgt:
@@ -2280,10 +2312,10 @@ Das heißt:
 			&\overset{\ref{Satz 4.13}}= \text{R-}\int^r_{-r}2\sqrt{r^2-y^2}\,dy\\
 			&\overset{Ana I}= \pi r^2
 		\end{align*}
-	\item 	Sei \(\varnothing\neq X\subseteq\mdr^d\). $X$ sei kompakt, also \(X\in\fb_d\). Weiter sei \(f\colon X\to[0,\infty)\) stetig, woraus mit \ref{Satz 4.11} \(f\in\mathfrak{L}^1(X)\) folgt.
+	\item 	Sei \(\emptyset\neq X\subseteq\mdr^d\). $X$ sei kompakt, also \(X\in\fb_d\). Weiter sei \(f\colon X\to[0,\infty)\) stetig, woraus mit \ref{Satz 4.11} \(f\in\mathfrak{L}^1(X)\) folgt.
 		Setze \[C:=\{(x,y):x\in X, 0\leq y\leq f(x)\}\] 
 		$C$ ist kompakt und somit gilt: \(C\in\fb_{d+1}\).\\
-		Ist \(x\notin X\), so ist \(C^x=\varnothing\), also \(\lambda_1(C^x)=0\).\\
+		Ist \(x\notin X\), so ist \(C^x=\emptyset\), also \(\lambda_1(C^x)=0\).\\
 		Ist \(x\in X\), so ist \(C^x=[0,f(x)]\), also \(\lambda_1(C^x)=f(x)\). Damit gilt
 		\[\lambda_{d+1}(C) \overset{\ref{Satz 9.1}}= \int_{\mdr^d}\lambda_1(C^x)\,dx = \int_X\lambda_1(C^x)\,dx + \int_{\mdr^d\setminus X}\lambda_1(C^x) \text{ d}x = \int_Xf(x)\,dx \]
 	\item 	Sei \(I=[a,b]\subseteq\mdr\) mit \(a<b\) und \(f\colon I\to[0,\infty]\) stetig. Setze
@@ -2291,7 +2323,7 @@ Das heißt:
 		Aus Beispiel (2) und \ref{Satz 4.13} folgt \[\lambda_2(C)=\text{R-}\int_a^bf(x)\,dx \]
 	\item 	$X$ und $f$ seien wie in Beispiel (2). Setze \[G:=\{(x,f(x)):x\in X\}\]
 		$G$ ist kompakt, also ist \(G\in\fb_2\). 
-		Ist \(x\notin X\), so ist \(G^x=\varnothing\), also \(\lambda_1(G^x)=0\).
+		Ist \(x\notin X\), so ist \(G^x=\emptyset\), also \(\lambda_1(G^x)=0\).
 		Ist \(x\in X\), so ist \(G^x=\{f(x)\}\), also \(\lambda_1(G^x)=0\).
 		Aus \ref{Satz 9.1} folgt \[\lambda_2(G)=\int_\mdr\lambda_1(G^x)\,dx=0\]
 \end{enumerate}
@@ -2302,7 +2334,7 @@ Wir definieren $\mu,\nu:\fb_d\to[0,\infty]$ durch:
 \begin{align*}
 \mu(A):=\int_{\mdr^k} \lambda_l(A^x)\text{ d}x && \nu(A):=\int_{\mdr^l} \lambda_k(A_y)\text{ d}y
 \end{align*}
-Dann ist klar, dass $\mu(\varnothing)=\nu(\varnothing)=\lambda_d(\varnothing)=0$ ist.\\
+Dann ist klar, dass $\mu(\emptyset)=\nu(\emptyset)=\lambda_d(\emptyset)=0$ ist.\\
 Sei $(A_j)$ eine disjunkte Folge in $\fb_d$. Dann ist $(A_j^x)$ ebenfalls disjunkt und $(\bigcup A_j)^x=\bigcup A_j^x$. Somit gilt:
 \begin{align*}
 \mu(\bigcup A_j)&=\int_{\mdr^k} \lambda_l(\bigcup A_j^x)\text{ d}x\\
@@ -2314,7 +2346,7 @@ D.h. $\mu$ ist ein Maß auf $\fb_d$. Analog lässt sich zeigen, dass $\nu$ ein M
 Sei nun $I\in\ci_d$, dann existieren $I'\in\ci_k, I''\in\ci_l$ mit $I=I'\times I''$. Aus §\ref{Kapitel 8} folgt:
 \begin{align*}
 I^x=\begin{cases} I''&,x\in I'\\ 
-\varnothing &,x\not\in I'\end{cases}
+\emptyset &,x\not\in I'\end{cases}
 \end{align*}
 Also ist $\lambda_l(I^x)=\lambda_l(I'')\cdot\mathds{1}_{I'}(x)$ und damit:
 \begin{align*}
@@ -2349,7 +2381,7 @@ Damit folgt die Behauptung aus (1).
 
 \begin{lemma}
 \label{Lemma 9.3}
-Sei $\varnothing\ne D\in\fb_d$ und $f:D\to\imdr$ messbar. Definiere
+Sei $\emptyset\ne D\in\fb_d$ und $f:D\to\imdr$ messbar. Definiere
 \[\tilde f(z):=\begin{cases} f(z) &,z\in D\\ 0&,z\not\in D\end{cases}\]
 Dann ist $\tilde f:\mdr^d\to\imdr$ messbar.
 \end{lemma}
@@ -2378,7 +2410,7 @@ Sei nun $A\in\fb_2$ mit $K\subseteq A\subseteq\overline K$, dann ist $\lambda_2(
 \item Sei $r>0$ und 
 \[K:=\{(x,y,z)\in\mdr^3\mid x^2+y^2+z^2\le r^2\}\]
 Dann ist $K$ abgeschlossen, also $K\in\fb_3$.\\
-\textbf{Fall $|z|>r$:} Es ist $K_z=\varnothing$, also $\lambda_2(K_z)=0$.\\
+\textbf{Fall $|z|>r$:} Es ist $K_z=\emptyset$, also $\lambda_2(K_z)=0$.\\
 \textbf{Fall $|z|\ge r$:} Es ist
 \[K_z=\{(x,y)\in\mdr^2\mid x^2+y^2\le r^2-z^2\}\]
 und damit $\lambda_2(K_z)=\pi(r^2-z^2)$.\\
@@ -2394,7 +2426,7 @@ Aus \ref{Satz 9.1} folgt dann:
 \item Wir wollen nun \textbf{Rotationskörper} betrachten. Sei dazu $I=[a,b]\subseteq\mdr$ mit $a<b$ und $f:I\to[0,\infty)$ messbar. Definiere nun
 \[V:=\{(x,y,z,)\in\mdr^3\mid x^2+y^2\le f(z)^2, z\in I\}\]
 Setze $D:=\mdr^2\times I$ und $g(x,y,z):= x^2+y^2-f(z)^2$. Dann ist $g$ nach §\ref{Kapitel 3} messbar und $V=\{g\le 0\}\in\fb_3$.\\
-\textbf{Fall $z\not\in I$:} Es so ist $V_z=\varnothing$, also $\lambda_2(V_z)=0$.\\
+\textbf{Fall $z\not\in I$:} Es so ist $V_z=\emptyset$, also $\lambda_2(V_z)=0$.\\
 \textbf{Fall $z\in I$:} Es ist
 \[V_z=\{(x,y)\in\mdr^2\mid x^2+y^2\le f(z)^2\}\]
 und damit $\lambda_2(V_z)=\pi f(z)^2$.\\
@@ -2537,7 +2569,7 @@ und dann sind auch \(F^+\) und \(F^-\) integrierbar (zur Übung). Es folgt
 
 \begin{satz}[Satz von Fubini (Version II)]
 \label{Satz 10.3}
-Sei \(\varnothing\neq X\in\fb_k\), \(\varnothing\neq Y\in\fb_l\) und \(D:=X\times Y\) (nach \S 8 ist \(D\in\fb_d\)).
+Sei \(\emptyset\neq X\in\fb_k\), \(\emptyset\neq Y\in\fb_l\) und \(D:=X\times Y\) (nach \S 8 ist \(D\in\fb_d\)).
 Es sei \(f\colon D\to\imdr\) messbar.
 Ist \(f\geq 0\) auf $D$ oder ist $f$ integrierbar, so gilt
 \[ \int_D f(x,y)\,d(x,y) = \int_X\left(\int_Yf(x,y)\,dy\right)dx = \int_Y\left(\int_Xf(x,y)\,dx\right)dy \]
@@ -2552,7 +2584,7 @@ Definiere \(\tilde f\) wie in \ref{Lemma 9.3} und wende \ref{Satz 10.1} beziehun
 \end{bemerkung}
 
 \textbf{"'Gebrauchsanweisung"' für Fubini:}\\
-Gegeben: \(\varnothing\neq D\subseteq\fb_d\) und messbares \(f\colon D\to\imdr\).
+Gegeben: \(\emptyset\neq D\subseteq\fb_d\) und messbares \(f\colon D\to\imdr\).
 Setze $f$ auf \(\mdr^d\) zu einer messbaren Funktion \(\tilde f\) fort (zum Beispiel wie in \ref{Lemma 9.3}).
 Aus \ref{Satz 3.8} folgt dann, dass \(\mathds{1}_{D}\tilde f\) messbar ist und \ref{Satz 10.1} liefert
 	\begin{align*}
@@ -2765,7 +2797,7 @@ Sei \(A\subseteq\mdr^d\) und \(A^\circ:=\{x\in A :\text{ es existiert ein } r=r(
 \end{erinnerung}
 
 \begin{beispiel}
-Sei \(A=\mdr\setminus\mdq\). Es ist \(A^\circ=\varnothing\) und 
+Sei \(A=\mdr\setminus\mdq\). Es ist \(A^\circ=\emptyset\) und 
 \(A\setminus A^\circ=A\). Aus \(\mdr=A\dot\cup\mdq\) folgt
 \[\infty=\lambda_1(\mdr)=\lambda_1(A)+\lambda_1(\mdq)=\lambda_1(A)\]
 Das heißt \(A\setminus A^\circ\) ist keine Nullmenge.
@@ -2774,7 +2806,7 @@ Das heißt \(A\setminus A^\circ\) ist keine Nullmenge.
 
 \begin{satz}[Transformationssatz (Version II)]
 \label{Satz 11.2}
-Es sei $\varnothing \neq U \subseteq \MdR^d$ offen, $\Phi \in C^1(U, \MdR^d)$, $A \subseteq U$, $A \in \fb_d$,
+Es sei $\emptyset \neq U \subseteq \MdR^d$ offen, $\Phi \in C^1(U, \MdR^d)$, $A \subseteq U$, $A \in \fb_d$,
 $X := A^{\circ}$ und $A \setminus A^{\circ}$ eine Nullmenge.
 Weiter sei $\Phi$ injektiv auf $X$, $\det\Phi' \neq 0$ für alle $x \in X$, $B:=\Phi(A) \in \fb_d$ und
 $g(x) = f(\Phi(x)) \cdot \lvert\det\Phi'(x)\rvert$ für $x \in A$.
@@ -3002,14 +3034,14 @@ Sei $a=(1,1,2), b=(1,1,0)$, dann gilt:
 
 \begin{definition}
 \index{Divergenz}
-Sei $\varnothing\ne D\subseteq\mdr^n$, $D$ offen und $f=(f_1,\ldots,f_n)\in C^1(D,\mdr^n)$. Dann heißt
+Sei $\emptyset\ne D\subseteq\mdr^n$, $D$ offen und $f=(f_1,\ldots,f_n)\in C^1(D,\mdr^n)$. Dann heißt
 \[\divv f:=\frac{\partial f_1}{\partial x_1}+\cdots+\frac{\partial f_n}{\partial x_n}\in C(D,\mdr)\]
 die \textbf{Divergenz} von $f$.
 \end{definition}
 
 \begin{definition}
 \index{Rotation}
-Sei $\varnothing\ne D\subseteq\mdr^3$, $D$ offen und $F=(P,Q,R)\in C^1(D,\mdr^3)$. Dann heißt:
+Sei $\emptyset\ne D\subseteq\mdr^3$, $D$ offen und $F=(P,Q,R)\in C^1(D,\mdr^3)$. Dann heißt:
 \[\rot F:=(R_y-Q_z,P_z-R_x,Q_x-P_y)\in C(D,\mdr^3)\]
 die \textbf{Rotation} von $F$.
 Dabei gilt formal:
@@ -3099,7 +3131,7 @@ Mit Polarkoordinaten, Transformations-Satz und Fubini:
 \index{Parameterbereich}
 \index{Normalenvektor}
 \index{Flächeninhalt}
-	Es sei $\varnothing \ne B\subseteq \MdR^2$ kompakt, $D\subseteq\MdR^2$ offen und $B\subseteq D$. Weiter sei $\varphi = (\varphi_1,\varphi_2,\varphi_3) \in C^1(D,\MdR^3)$ und $\varphi = \varphi(u,v)$. Dann heißt $\varphi_{|B}$ eine \textbf{Fläche} (im $\MdR^3$), $S:= \varphi(B)$ heißt \textbf{Flächenstück} und $B$ heißt \textbf{Parameterbereich} der Fläche. Es ist 
+	Es sei $\emptyset \ne B\subseteq \MdR^2$ kompakt, $D\subseteq\MdR^2$ offen und $B\subseteq D$. Weiter sei $\varphi = (\varphi_1,\varphi_2,\varphi_3) \in C^1(D,\MdR^3)$ und $\varphi = \varphi(u,v)$. Dann heißt $\varphi_{|B}$ eine \textbf{Fläche} (im $\MdR^3$), $S:= \varphi(B)$ heißt \textbf{Flächenstück} und $B$ heißt \textbf{Parameterbereich} der Fläche. Es ist 
 	\begin{displaymath}
 		\varphi' = \begin{pmatrix}\frac{\partial \varphi_1}{\partial u} & \frac{\partial\varphi_1}{\partial v}\\
 			\frac{\partial \varphi_2}{\partial u} & \frac{\partial\varphi_2}{\partial v}\\
@@ -3153,7 +3185,7 @@ Dann ist \(\varphi(u,v)=(u,v,u^{2}+v^{2})\), \(f_{u}=2u\) und \(f_{v}=2v\). Also
 \chapter{Integralsatz von Stokes}
 \label{Kapitel 15}
 
-In diesem Paragraphen sei \(\varnothing\neq B\subseteq\mdr^{2}\), \(B\) kompakt, \(D\subseteq\mdr^{2}\) offen, \(B\subseteq D\)
+In diesem Paragraphen sei \(\emptyset\neq B\subseteq\mdr^{2}\), \(B\) kompakt, \(D\subseteq\mdr^{2}\) offen, \(B\subseteq D\)
 und \(\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\in C^{1}(D,\mdr^{3})\). Das hei\ss t: \(\varphi_{|B}\) ist eine Fläche mit 
 Parameterbereich \(B\), \(S:=\varphi(B)\)
 
@@ -3250,7 +3282,7 @@ Damit:
 \chapter{$\fl^{p}$-Räume und $\mathrm{L}^{p}$-Räume}
 \label{Kapitel 16}
 
-Stets in diesem Paragraphen: \(\varnothing\neq X\in\fb_{d}\)
+Stets in diesem Paragraphen: \(\emptyset\neq X\in\fb_{d}\)
 
 \begin{definition}
 Sei \(p\in[1,+\infty]\).
@@ -3303,7 +3335,7 @@ Für \(f\in\fl^{\infty}(X)\): \(\lVert f\rVert_{\infty}:=\esssup_{x\in X}\lVert 
 Es sei \(f\in\fl^{\infty}(X)\) und stetig. Außerdem habe jede in \(X\) offene, nichtleere Teilmenge positives Ma\ss. Dann ist \(f\) auf \(X\) beschränkt und \(\sup_{x\in X}\lvert f(x)\rvert=\esssup_{x\in X}\lvert f(x)\rvert\). 
 \end{bemerkung}
 \begin{beweis}
-Übung (ist \(N\subseteq X\) eine Nullmenge, so ist \(N^{\circ}=\varnothing\) und \(\overline{X\setminus N}=X\))
+Übung (ist \(N\subseteq X\) eine Nullmenge, so ist \(N^{\circ}=\emptyset\) und \(\overline{X\setminus N}=X\))
 \end{beweis}
 
 \begin{beispiel}
@@ -3848,7 +3880,7 @@ Also ist $f\in L^p(X)$.
 \chapter{Das Integral im Komplexen}
 \label{Kapitel 17}
 
-In diesem Paragraphen sei $\varnothing \ne X \in \fb_d, f: X \to \MdC$ eine Funktion, $ u:= \Re(f), v:= \Im(f)$, also: $u,v: X \to \MdR, f= u+iv$.
+In diesem Paragraphen sei $\emptyset \ne X \in \fb_d, f: X \to \MdC$ eine Funktion, $ u:= \Re(f), v:= \Im(f)$, also: $u,v: X \to \MdR, f= u+iv$.
 
 Wir versehen $\MdC$ mit der $\sigma$-Algebra $\fb_2$ (wir identifizieren $\MdC$ mit $\mdr^2$).
 
