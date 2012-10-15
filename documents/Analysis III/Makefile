@@ -1,4 +1,4 @@
-DOKUMENT = Ana3Bachelor
+DOKUMENT = Analysis-III
 
 make:
 	pdflatex $(DOKUMENT).tex -output-format=pdf
