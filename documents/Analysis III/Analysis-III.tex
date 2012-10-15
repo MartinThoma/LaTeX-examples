@@ -110,21 +110,26 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
 In diesem Paragraphen sei $\emptyset\ne X$ eine Menge.
 
 \begin{definition}
-\index{$\sigma$-!Algebra}
-Sei $\fa\subseteq\mathcal{P}(X)$, $\fa$ heißt eine \textbf{$\sigma$-Algebra} auf $X$, wenn gilt:
-\begin{enumerate}
-\item[($\sigma_1$)] $X\in\fa$
-\item[($\sigma_2$)] Ist $A\in\fa$, so ist auch $A^c\in\fa$.
-\item[($\sigma_3$)] Ist $(A_j)$ eine Folge in $\fa$, so ist $\bigcup A_j\in\fa$.
-\end{enumerate}
+    \index{$\sigma$-!Algebra}
+    Sei $\fa\subseteq\mathcal{P}(X)$, $\fa$ heißt eine 
+    \textbf{$\sigma$-Algebra} auf $X$, wenn gilt:
+    \begin{enumerate}
+        \item[($\sigma_1$)] $X\in\fa$
+        \item[($\sigma_2$)] Ist $A\in\fa$, so ist auch $A^c\in\fa$.
+        \item[($\sigma_3$)] Ist $(A_j)$ eine Folge in $\fa$, so ist 
+                            $\bigcup A_j\in\fa$.
+    \end{enumerate}
 \end{definition}
 
 \begin{beispiel}
-\begin{enumerate}
-\item $\{X,\emptyset\}$ und $\mathcal{P}(X)$ sind $\sigma$-Algebren auf $X$.
-\item Sei $A\subseteq X$, dann ist $\{X,\emptyset, A, A^c\}$ eine $\sigma$-Algebra auf $X$.
-\item $\fa:=\{A\subseteq X: A$ abzählbar oder $A^c$ abzählbar$\}$ ist eine $\sigma$-Algebra auf $X$.
-\end{enumerate}
+    \begin{enumerate}
+        \item $\{X,\emptyset\}$ und $\mathcal{P}(X)$ sind 
+              $\sigma$-Algebren auf $X$.
+        \item Sei $A\subseteq X$, dann ist $\{X,\emptyset, A, A^c\}$ 
+              eine $\sigma$-Algebra auf $X$.
+        \item $\fa:=\{A\subseteq X: A$ abzählbar oder $A^c$ abzählbar$\}$ 
+              ist eine $\sigma$-Algebra auf $X$.
+    \end{enumerate}
 \end{beispiel}
 
 \begin{lemma}
@@ -143,119 +148,157 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 \end{lemma}
 
 \begin{beweis}
-\begin{enumerate}
-\item $\emptyset=X^c\in\fa$ (nach ($\sigma_2$)).
-\item $D:=\bigcap A_j$. $D^c=\bigcup A_j^c\in\fa$ (nach ($\sigma_2$) und ($\sigma_3$)), also gilt auch $D=(D^c)^c\in\fa$.
-\item \begin{enumerate}
-\item $A_1\cup\cdots\cup A_n\in\fa$ folgt aus ($\sigma_3$) mit $A_{n+j}:=\emptyset$ ($j\ge 1$).
-\item $A_1\cap\cdots\cap A_n\in\fa$ folgt aus (2) mit $A_{n+j}:=X$ ($j\ge 1$).
-\item $A_1\setminus A_2=A_1\cap A_2^c\in\fa$
-\end{enumerate}
-\end{enumerate}
+    \begin{enumerate}
+    \item $\emptyset=X^c\in\fa$ (nach ($\sigma_2$)).
+    \item $D:=\bigcap A_j$. $D^c=\bigcup A_j^c\in\fa$ (nach 
+          ($\sigma_2$) und ($\sigma_3$)), also gilt auch 
+          $D=(D^c)^c\in\fa$.
+    \item \begin{enumerate}
+            \item $A_1\cup\cdots\cup A_n\in\fa$ folgt aus 
+                  ($\sigma_3$) mit $A_{n+j}:=\emptyset$ ($j\ge 1$).
+            \item $A_1\cap\cdots\cap A_n\in\fa$ folgt aus (2) mit 
+                  $A_{n+j}:=X$ ($j\ge 1$).
+            \item $A_1\setminus A_2=A_1\cap A_2^c\in\fa$
+          \end{enumerate}
+    \end{enumerate}
 \end{beweis}
 
 \begin{lemma}
-\label{Lemma 1.2}
-Sei $\emptyset\ne\cf$ eine Menge von $\sigma$-Algebren auf $X$. Dann ist 
-\[\fa_0:=\bigcap_{\fa\in\cf}\fa\]
-eine $\sigma$-Algebra auf $X$.
+    \label{Lemma 1.2}
+    Sei $\emptyset\ne\cf$ eine Menge von $\sigma$-Algebren auf $X$. 
+    Dann ist 
+    \[\fa_0:=\bigcap_{\fa\in\cf}\fa\]
+    eine $\sigma$-Algebra auf $X$.
 \end{lemma}
 
 \begin{beweis}
-\begin{enumerate}
-\item[($\sigma_1$)] $\forall\fa\in\cf:X\in\fa\implies X\in\fa_0$.
-\item[($\sigma_2$)] Sei $A\in\fa_0$, dann gilt:
-\begin{align*}
-\forall\fa\in\cf:A\in\fa &\implies \forall\fa\in\cf:A^c\in\fa\\
-&\implies A^c\in\fa_0
-\end{align*}
-\item[($\sigma_3$)] Sei $(A_j)$ eine Folge in $\fa_0$, dann ist $(A_j)$ Folge in $\fa$ für alle $\fa\in\cf$, dann gilt:
-\begin{align*}
-\forall\fa\in\cf:\bigcap A_j\in\fa \implies \bigcap A_j\in\fa_0
-\end{align*}
-\end{enumerate}
+    \begin{enumerate}
+        \item[($\sigma_1$)] $\forall\fa\in\cf:X\in\fa\implies X\in\fa_0$.
+        \item[($\sigma_2$)] Sei $A\in\fa_0$, dann gilt:
+          \begin{align*}
+            \forall\fa\in\cf:A\in\fa &\implies \forall\fa\in\cf:A^c\in\fa\\
+                                     &\implies A^c\in\fa_0
+          \end{align*}
+        \item[($\sigma_3$)] Sei $(A_j)$ eine Folge in $\fa_0$, dann 
+            ist $(A_j)$ Folge in $\fa$ für alle $\fa\in\cf$, dann gilt:
+          \begin{align*}
+            \forall\fa\in\cf:\bigcap A_j\in\fa \implies \bigcap A_j\in\fa_0
+          \end{align*}
+    \end{enumerate}
 \end{beweis}
 
 \begin{definition}
-\index{Erzeuger}
-Sei $\emptyset\ne\mathcal{E}\subseteq\mathcal{P}(X)$ und $\cf:=\{\fa:\fa$ ist $\sigma$-Algebra auf $X$ mit $\mathcal{E}\subseteq\fa\}$. Definiere
-\[\sigma(\mathcal{E}):=\bigcap_{\fa\in\cf}\fa\]
-Dann ist wegen 1.2 $\sigma(\mathcal{E})$ eine $\sigma$-Algebra auf $X$. $\sigma(\mathcal{E})$ heißt die \textbf{von $\mathcal{E}$ erzeugte $\sigma$-Algebra}. $\mathcal{E}$ heißt ein \textbf{Erzeuger} von $\sigma(\mathcal{E})$.
+    \index{Erzeuger}
+    Sei $\emptyset\ne\mathcal{E}\subseteq\mathcal{P}(X)$ und 
+    $\cf:=\{\fa:\fa$ ist $\sigma$-Algebra auf $X$ mit 
+    $\mathcal{E}\subseteq\fa\}$. Definiere
+    \[\sigma(\mathcal{E}):=\bigcap_{\fa\in\cf}\fa\]
+    Dann ist wegen 1.2 $\sigma(\mathcal{E})$ eine $\sigma$-Algebra 
+    auf $X$. $\sigma(\mathcal{E})$ heißt die 
+    \textbf{von $\mathcal{E}$ erzeugte $\sigma$-Algebra}. 
+    $\mathcal{E}$ heißt ein \textbf{Erzeuger} von 
+    $\sigma(\mathcal{E})$.
 \end{definition}
 
 \begin{lemma}
-\label{Lemma 1.3}
-Sei $\emptyset\ne\mathcal{E}\subseteq\mathcal{P}(X)$.
-\begin{enumerate}
-\item $\mathcal{E}\subseteq\sigma(\mathcal{E})$. $\sigma(\mathcal{E})$ ist die "kleinste" $\sigma$-Algebra auf $X$, die $\mathcal{E}$ enthält.
-\item Ist $\mathcal{E}$ eine $\sigma$-Algebra, so ist $\sigma(\mathcal{E})=\mathcal{E}$.
-\item Ist $\mathcal{E}\subseteq\mathcal{E}'$, so ist $\sigma(\mathcal{E})\subseteq\sigma(\mathcal{E}')$.
-\end{enumerate}
+    \label{Lemma 1.3}
+    Sei $\emptyset\ne\mathcal{E}\subseteq\mathcal{P}(X)$.
+    \begin{enumerate}
+        \item $\mathcal{E}\subseteq\sigma(\mathcal{E})$. 
+              $\sigma(\mathcal{E})$ ist die "`kleinste"' 
+              $\sigma$-Algebra auf $X$, die $\mathcal{E}$ enthält.
+        \item Ist $\mathcal{E}$ eine $\sigma$-Algebra, so ist 
+              $\sigma(\mathcal{E})=\mathcal{E}$.
+        \item Ist $\mathcal{E}\subseteq\mathcal{E}'$, so ist 
+              $\sigma(\mathcal{E})\subseteq\sigma(\mathcal{E}')$.
+    \end{enumerate}
 \end{lemma}
 
 \begin{beweis}
-\begin{enumerate}
-\item Klar nach Definition.
-\item $\fa:=\mathcal{E}$, dann gilt $\fa\subseteq\sigma(\mathcal{E})\subseteq\fa$.
-\item $\mathcal{E}\subseteq\mathcal{E}'\subseteq\sigma(\mathcal{E}')$, also folgt nach Definition $\sigma(\mathcal{E})\subseteq\sigma(\mathcal{E}')$.
-\end{enumerate}
+    \begin{enumerate}
+        \item Klar nach Definition.
+        \item $\fa:=\mathcal{E}$, dann gilt 
+              $\fa\subseteq\sigma(\mathcal{E})\subseteq\fa$.
+        \item $\mathcal{E}\subseteq\mathcal{E}'\subseteq\sigma(\mathcal{E}')$, 
+              also folgt nach Definition 
+              $\sigma(\mathcal{E})\subseteq\sigma(\mathcal{E}')$.
+    \end{enumerate}
 \end{beweis}
 
 \begin{beispiel}
-\begin{enumerate}
-\item Sei $A\subseteq X$ und $\mathcal{E}:=\{A\}$. Dann ist $\sigma(\mathcal{E})=\{X,\emptyset,A,A^c\}$.
-\item $X:=\{1,2,3,4,5\}, \mathcal{E}:=\{\{1\},\{1,2\}\}$. Dann gilt:
-\[\sigma(\mathcal{E}):=\{X,\emptyset, \{1\},\{2\},\{1,2\},\{3,4,5\},\{1,3,4,5\},\{2,3,4,5\}\}\]
-\end{enumerate}
+    \begin{enumerate}
+        \item Sei $A\subseteq X$ und $\mathcal{E}:=\{A\}$. Dann ist 
+              $\sigma(\mathcal{E})=\{X,\emptyset,A,A^c\}$.
+        \item $X:=\{1,2,3,4,5\}, \mathcal{E}:=\{\{1\},\{1,2\}\}$. 
+              Dann gilt:
+              \[\sigma(\mathcal{E}):=\{X,\emptyset, \{1\},\{2\},\{1,2\},\{3,4,5\},\{1,3,4,5\},\{2,3,4,5\}\}\]
+    \end{enumerate}
 \end{beispiel}
 
 \begin{erinnerung}
-\index{Offenheit}\index{Abgeschlossenheit}
-Sei $d\in\mdn, X\subseteq\mdr^d$. $A\subseteq X$ heißt \textbf{offen} (\textbf{abgeschlossen}) in $X$, genau dann wenn ein offenes (abgeschlossenes) $G\subseteq\mdr^d$ existiert mit $A=X\cap G$.\\
-Beachte: $A$ abgeschlossen in $X$ $\iff$ $X\setminus A$ offen in $X$.
+    \index{Offenheit}\index{Abgeschlossenheit}
+    Sei $d\in\mdn, X\subseteq\mdr^d$. $A\subseteq X$ heißt 
+    \textbf{offen} (\textbf{abgeschlossen}) in $X$, genau dann wenn 
+    ein offenes (abgeschlossenes) $G\subseteq\mdr^d$ existiert mit 
+    $A=X\cap G$.\\
+    Beachte: $A$ abgeschlossen in $X$ $\iff$ $X\setminus A$ offen in 
+    $X$.
 \end{erinnerung}
 
 \begin{definition}
-\index{Borel!$\sigma$-Algebra}\index{$\sigma$-!Algebra, Borelsche}
-\index{Borel!Mengen}
-Sei $X\subseteq\mdr^d$.
-\begin{enumerate}
-\item $\mathcal{O}(X):=\{A\subseteq X:A$ ist offen in $X\}$
-\item $\fb(X):=\sigma(\mathcal{O}(X))$ heißt \textbf{Borelsche $\sigma$-Algebra} auf $X$.
-\item $\fb_d:=\fb(\mdr^d)$. Die Elemente von $\fb_d$ heißen \textbf{Borelsche Mengen} oder \textbf{Borel-Mengen}.
-\end{enumerate}
+    \index{Borel!$\sigma$-Algebra}\index{$\sigma$-!Algebra, Borelsche}
+    \index{Borel!Mengen}
+    Sei $X\subseteq\mdr^d$.
+    \begin{enumerate}
+        \item $\mathcal{O}(X):=\{A\subseteq X:A$ ist offen in $X\}$
+        \item $\fb(X):=\sigma(\mathcal{O}(X))$ heißt 
+              \textbf{Borelsche $\sigma$-Algebra} auf $X$.
+        \item $\fb_d:=\fb(\mdr^d)$. Die Elemente von $\fb_d$ heißen 
+              \textbf{Borelsche Mengen} oder \textbf{Borel-Mengen}.
+    \end{enumerate}
 \end{definition}
 
 \begin{beispiel}
-\begin{enumerate}
-\item Sei $X\subseteq\mdr^d$. Ist $A\subseteq$ offen (abgeschlossen) in $X$, so ist $A\in\fb(X)$.
-\item Ist $A\subseteq\mdr^d$ offen (abgeschlossen) so ist $A\in\fb_d$.
-\item Sei $d=1, A=\mdq$. $\mdq$ ist abzählbar, also $\mdq=\{r_1,r_2,\ldots\}$ (mit $r_i\ne r_j$ für $i\ne j$). Also ist $\mdq=\bigcup \{r_j\}$. Sei nun $r\in\mdq$, dann ist $B:=(-\infty,r)\cup(r,\infty)\in\fb_1$. Daraus folgt $\{r_j\}\in\fb_1$, also auch $\mdq\in\fb_1$.\\
-Allgemeiner lässt sich zeigen: $\mdq^d:=\{(x_1,\ldots,x_n):x_j\in\mdq (j=1,\ldots,n)\}\in\fb_d$.
-\end{enumerate}
+    \begin{enumerate}
+        \item Sei $X\subseteq\mdr^d$. Ist $A\subseteq$ offen 
+              (abgeschlossen) in $X$, so ist $A\in\fb(X)$.
+        \item Ist $A\subseteq\mdr^d$ offen (abgeschlossen) so ist 
+              $A\in\fb_d$.
+        \item Sei $d=1, A=\mdq$. $\mdq$ ist abzählbar, also 
+              $\mdq=\{r_1,r_2,\ldots\}$ (mit $r_i\ne r_j$ für $i\ne j$). 
+              Also ist $\mdq=\bigcup \{r_j\}$. Sei nun $r\in\mdq$, 
+              dann ist $B:=(-\infty,r)\cup(r,\infty)\in\fb_1$. Daraus 
+              folgt $\{r_j\}\in\fb_1$, also auch $\mdq\in\fb_1$.\\
+              Allgemeiner lässt sich zeigen: 
+              $\mdq^d:=\{(x_1,\ldots,x_n):x_j\in\mdq (j=1,\ldots,n)\}\in\fb_d$.
+    \end{enumerate}
 \end{beispiel}
 
 \begin{definition}
-\index{Intervall}
-\index{Halbraum}
-\begin{enumerate}
-\item Seien $I_1,\ldots,I_d$ Intervalle in $\mdr$. $I_1\times\cdots\times I_d$ heißt ein \textbf{Intervall} in $\mdr^d$.
-\item Seien $a=(a_1,\ldots,a_d), b=(b_1,\ldots,b_d)\in\mdr^d$.
-\[a\le b:\iff a_j\le b_j\quad (j=1,\ldots,d)\]
-\item Seien $a,b\in\mdr^d$ und $a\le b$.
-\begin{align*}
-(a,b)&:=(a_1,b_1)\times\cdots\times(a_d,b_d)\\
-(a,b]&:=(a_1,b_1]\times\cdots\times(a_d,b_d]\\
-[a,b)&:=[a_1,b_1)\times\cdots\times[a_d,b_d)\\
-[a,b]&:=[a_1,b_1]\times\cdots\times[a_d,b_d]
-\end{align*}
-mit der Festlegung $(a,b):=(a,b]:=[a,b):=\emptyset$, falls $a_j=b_j$ für ein $j\in\{1,\ldots,d\}$.
-\item Für $k\in\{1,\ldots,d\}$ und $\alpha\in\mdr$ definiere die folgenden \textbf{Halbräume}:
-\begin{align*}
-H_k^-(\alpha):=\{(x_1,\ldots,x_d)\in\mdr^d:x_k\le\alpha\}\\
-H_k^+(\alpha):=\{(x_1,\ldots,x_d)\in\mdr^d:x_k\ge\alpha\}
-\end{align*}
-\end{enumerate}
+    \index{Intervall}
+    \index{Halbraum}
+    \begin{enumerate}
+    \item Seien $I_1,\ldots,I_d$ Intervalle in $\mdr$. 
+          $I_1\times\cdots\times I_d$ heißt ein \textbf{Intervall} 
+          in $\mdr^d$.
+    \item Seien $a=(a_1,\ldots,a_d), b=(b_1,\ldots,b_d)\in\mdr^d$.
+          \[a\le b:\iff a_j\le b_j\quad (j=1,\ldots,d)\]
+    \item Seien $a,b\in\mdr^d$ und $a\le b$.
+          \begin{align*}
+            (a,b) &:= (a_1,b_1)\times\cdots\times(a_d,b_d)\\
+            (a,b] &:= (a_1,b_1]\times\cdots\times(a_d,b_d]\\
+            [a,b) &:= [a_1,b_1)\times\cdots\times[a_d,b_d)\\
+            [a,b] &:= [a_1,b_1]\times\cdots\times[a_d,b_d]
+        \end{align*}
+        mit der Festlegung $(a,b):=(a,b]:=[a,b):=\emptyset$, falls 
+        $a_j=b_j$ für ein $j\in\{1,\ldots,d\}$.
+    \item Für $k\in\{1,\ldots,d\}$ und $\alpha\in\mdr$ definiere die 
+          folgenden \textbf{Halbräume}:
+          \begin{align*}
+            H_k^-(\alpha) &:= \Set{(x_1,\ldots,x_d)\in\mdr^d:x_k\le\alpha}\\
+            H_k^+(\alpha) &:= \Set{(x_1,\ldots,x_d)\in\mdr^d:x_k\ge\alpha}
+          \end{align*}
+    \end{enumerate}
 \end{definition}
 
 \begin{satz}[Erzeuger der Borelschen $\sigma$-Algebra auf $\mdr^d$]
@@ -273,11 +316,14 @@ Entsprechendes gilt für die anderen Typen von Intervallen und Halbräumen.
 
 \begin{beweis}
 \begin{enumerate}
-\item Sei $G\in\co(\mdr^d), \fm:=\{(a,b):a,b\in\mdq^d,a\le b, (a,b)\subseteq G\}$. Dann ist $\fm$ abzählbar und $G=\bigcup_{I\in\fm}I$. also gilt:
-\[G\in\sigma(\ce_1)\implies \fb_d=\sigma(\co(\mdr^d))\subseteq\sigma(\ce_1)\]
-\item Sei $(a,b)\in\ce_1$.\\
-\textbf{Fall 1:} $(a,b)=\emptyset\in\ce_2\subseteq\sigma(\ce_2)$\\
-\textbf{Fall 2:} $(a,b)\ne\emptyset, a=(a_1\ldots,a_d), b=(b_1\ldots,b_d)$. Dann gilt für alle $j\in\{1,\ldots,d\}:a_j<b_j$, also gilt auch:
+    \item Sei $G\in\co(\mdr^d), \fm:=\{(a,b):a,b\in\mdq^d,a\le b, (a,b)\subseteq G\}$. 
+          Dann ist $\fm$ abzählbar und $G=\bigcup_{I\in\fm}I$. Also 
+          gilt:
+          \[G\in\sigma(\ce_1)\implies \fb_d=\sigma(\co(\mdr^d))\subseteq\sigma(\ce_1)\]
+    \item Sei $(a,b)\in\ce_1$.\\
+          \textbf{Fall 1:} $(a,b)=\emptyset\in\ce_2\subseteq\sigma(\ce_2)$\\
+          \textbf{Fall 2:} $(a,b)\ne\emptyset, a=(a_1\ldots,a_d), b=(b_1\ldots,b_d)$.\\
+          Dann gilt für alle $j\in\{1,\ldots,d\}:a_j<b_j$. Also gilt auch:
 \[\exists N\in\mdn:\forall n\ge N: \forall j\in\{1,\ldots,d\}:a_j<b_j-\frac1n\]
 Definiere $c_n:=(\frac1n,\ldots,\frac1n)\in\mdq^d$. Dann gilt:
 \[(a,b)=\bigcup_{n\ge N}(a,b-c_n]\in\sigma(\ce_2)\]

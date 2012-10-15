@@ -1,3 +1,4 @@
+% Original Source: http://mitschriebwiki.nomeata.de/data/saetze-schmoeger.sty
 % Strukturierung
 \theoremstyle{break}
 % Kursiv find ich nicht schön:
@@ -52,3 +53,9 @@
 \newtheorem{folgerung}[satz]{Folgerung}
 \newtheorem{folgerungen}[satz]{Folgerungen}
 
+% Use this \importantbox{mathmode stuff} to highlight very important stuff
+\newcommand*{\boxedcolorImportant}{red}
+\makeatletter
+\newcommand{\importantbox}[1]{\textcolor{\boxedcolorImportant}{%
+  \fbox{\normalcolor\m@th$\displaystyle#1$}}}
+\makeatother
