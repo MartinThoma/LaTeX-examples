@@ -79,16 +79,25 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
               \textbf{disjunkt}, genau dann wenn $A\cap B=\emptyset$ 
               für $A,B\in\fm$ mit $A\ne B$.
         \item Sei $(A_j)$ eine Folge in $\mathcal{P}(X)$ (also 
-              $A_j\subseteq X$), so heißt $(A_j)$ \textbf{disjunkt}, 
-              genau dann wenn $\{A_1,A_2,\ldots\}$ disjunkt ist. In 
-              diesem Fall schreibe: 
-              $\dot{\bigcup}_{j=1}^\infty:=\bigcup_{j=1}^\infty A_j$\\
-              Allgemein sei $\bigcup_{j=1}^\infty A_j:=\bigcup A_j$ 
-              und $\bigcap_{j=1}^\infty A_j:=\bigcap A_j$.
+              $A_j\subseteq X$), so heißt $(A_j)$ \textbf{disjunkt},
+              genau dann wenn $\{A_1,A_2,\ldots\}$ disjunkt ist.\\
+              \textbf{Schreibweise}:\\
+              \begin{align*}
+                \dot{\bigcup}_{j=1}^\infty &:=\bigcup_{j=1}^\infty A_j\\
+                \bigcup_{j=1}^\infty A_j   &:=\bigcup A_j\\
+                \bigcap_{j=1}^\infty A_j   &:=\bigcap A_j\\
+                \sum_{j=1}^\infty a_j      &=: \sum a_j
+              \end{align*}
     \end{enumerate}
-    \item Sei $A\subseteq X$, für $x\in X$ definiere
-          \[\mathds{1}_A(x):=\begin{cases}1, x\in A\\ 0, x\in A^c\end{cases}\]
-          wobei $A^c:=X\setminus A$.
+    \item Sei $A\subseteq X$, $\mathds{1}_A : X \rightarrow R$ 
+          definiert durch:
+          \[\mathds{1}_A(x):= \begin{cases}
+                1 &\text{falls } x\in A\\
+                0 &\text{falls } x\in A^c
+            \end{cases}\]
+          wobei $A^c:=X\setminus A$. $\mathds{1}_A$ heißt die
+          \textbf{charakteristische Funktion} oder 
+          \textbf{Indikatorfunktion von A}.
     \item Sei $B\subseteq Y$ dann ist $f^{-1}(B):=\{x\in X: f(x)\in B\}$ 
           und es gelten folgende Eigenschaften:
           \begin{enumerate}
@@ -101,13 +110,12 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
             \item Ist $C\subseteq Z$, so gilt:
                   \[(g\circ f)^{-1}(C)=f^{-1}(g^{-1}(C))\]
           \end{enumerate}
-    \item $\sum_{j=1}^\infty a_j =: \sum a_j$
 \end{enumerate}
 
 \chapter{$\sigma$-Algebren und Maße}
 \label{Kapitel 1}
 
-In diesem Paragraphen sei $\emptyset\ne X$ eine Menge.
+In diesem Paragraphen sei $X \neq \emptyset$ eine Menge.
 
 \begin{definition}
     \index{$\sigma$-!Algebra}
@@ -121,16 +129,16 @@ In diesem Paragraphen sei $\emptyset\ne X$ eine Menge.
     \end{enumerate}
 \end{definition}
 
-\begin{beispiel}
+\begin{beispieleX}
     \begin{enumerate}
-        \item $\{X,\emptyset\}$ und $\mathcal{P}(X)$ sind 
+        \item $\Set{X,\emptyset}$ und $\mathcal{P}(X)$ sind 
               $\sigma$-Algebren auf $X$.
-        \item Sei $A\subseteq X$, dann ist $\{X,\emptyset, A, A^c\}$ 
+        \item Sei $A\subseteq X$, dann ist $\Set{X,\emptyset, A, A^c}$ 
               eine $\sigma$-Algebra auf $X$.
-        \item $\fa:=\{A\subseteq X: A$ abzählbar oder $A^c$ abzählbar$\}$ 
+        \item $\fa:=\Set{A\subseteq X | A \text{ abzählbar oder } A^c \text{ abzählbar}}$ 
               ist eine $\sigma$-Algebra auf $X$.
     \end{enumerate}
-\end{beispiel}
+\end{beispieleX}
 
 \begin{lemma}
 \label{Lemma 1.1}
@@ -149,15 +157,15 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{beweis}
     \begin{enumerate}
-    \item $\emptyset=X^c\in\fa$ (nach ($\sigma_2$)).
+    \item \folgtnach{$\sigma_2$} $\emptyset=X^c\in\fa$.
     \item $D:=\bigcap A_j$. $D^c=\bigcup A_j^c\in\fa$ (nach 
           ($\sigma_2$) und ($\sigma_3$)), also gilt auch 
           $D=(D^c)^c\in\fa$.
     \item \begin{enumerate}
-            \item $A_1\cup\cdots\cup A_n\in\fa$ folgt aus 
-                  ($\sigma_3$) mit $A_{n+j}:=\emptyset$ ($j\ge 1$).
-            \item $A_1\cap\cdots\cap A_n\in\fa$ folgt aus (2) mit 
-                  $A_{n+j}:=X$ ($j\ge 1$).
+            \item \folgtnach{($\sigma_3$) mit $A_{n+j}:=\emptyset$ ($j\ge 1$)} 
+                  $A_1\cup\cdots\cup A_n\in\fa$.
+            \item \folgtnach{(2) mit $A_{n+j}:=X$ ($j\ge 1)$} 
+                  $A_1\cap\cdots\cap A_n\in\fa$.
             \item $A_1\setminus A_2=A_1\cap A_2^c\in\fa$
           \end{enumerate}
     \end{enumerate}
@@ -165,7 +173,7 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{lemma}
     \label{Lemma 1.2}
-    Sei $\emptyset\ne\cf$ eine Menge von $\sigma$-Algebren auf $X$. 
+    Sei $\cf \neq \emptyset$ eine Menge von $\sigma$-Algebren auf $X$. 
     Dann ist 
     \[\fa_0:=\bigcap_{\fa\in\cf}\fa\]
     eine $\sigma$-Algebra auf $X$.
@@ -189,11 +197,11 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{definition}
     \index{Erzeuger}
-    Sei $\emptyset\ne\mathcal{E}\subseteq\mathcal{P}(X)$ und 
+    Sei $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(X)$ und 
     $\cf:=\{\fa:\fa$ ist $\sigma$-Algebra auf $X$ mit 
     $\mathcal{E}\subseteq\fa\}$. Definiere
     \[\sigma(\mathcal{E}):=\bigcap_{\fa\in\cf}\fa\]
-    Dann ist wegen 1.2 $\sigma(\mathcal{E})$ eine $\sigma$-Algebra 
+    \folgtnach{1.2} $\sigma(\mathcal{E})$ ist eine $\sigma$-Algebra 
     auf $X$. $\sigma(\mathcal{E})$ heißt die 
     \textbf{von $\mathcal{E}$ erzeugte $\sigma$-Algebra}. 
     $\mathcal{E}$ heißt ein \textbf{Erzeuger} von 
@@ -250,7 +258,7 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
     \index{Borel!Mengen}
     Sei $X\subseteq\mdr^d$.
     \begin{enumerate}
-        \item $\mathcal{O}(X):=\{A\subseteq X:A$ ist offen in $X\}$
+        \item $\mathcal{O}(X):=\Set{A\subseteq X | A \text{ ist offen in } X}$
         \item $\fb(X):=\sigma(\mathcal{O}(X))$ heißt 
               \textbf{Borelsche $\sigma$-Algebra} auf $X$.
         \item $\fb_d:=\fb(\mdr^d)$. Die Elemente von $\fb_d$ heißen 
@@ -260,10 +268,12 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{beispiel}
     \begin{enumerate}
-        \item Sei $X\subseteq\mdr^d$. Ist $A\subseteq$ offen 
-              (abgeschlossen) in $X$, so ist $A\in\fb(X)$.
-        \item Ist $A\subseteq\mdr^d$ offen (abgeschlossen) so ist 
-              $A\in\fb_d$.
+        \item Sei $\emptyset \neq X\subseteq\mdr^d$. Ist $A\subseteq$ 
+              $\stackrel{\hbox{offen}}{\hbox{abgeschlossen}}$
+              in $X$, so ist $A\in\fb(X)$.
+        \item Ist $A\subseteq\mdr^d$ 
+              $\stackrel{\hbox{offen}}{\hbox{abgeschlossen}}$,
+              so ist $A\in\fb_d$.
         \item Sei $d=1, A=\mdq$. $\mdq$ ist abzählbar, also 
               $\mdq=\{r_1,r_2,\ldots\}$ (mit $r_i\ne r_j$ für $i\ne j$). 
               Also ist $\mdq=\bigcup \{r_j\}$. Sei nun $r\in\mdq$, 
@@ -271,6 +281,8 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
               folgt $\{r_j\}\in\fb_1$, also auch $\mdq\in\fb_1$.\\
               Allgemeiner lässt sich zeigen: 
               $\mdq^d:=\{(x_1,\ldots,x_n):x_j\in\mdq (j=1,\ldots,n)\}\in\fb_d$.
+        \item Sei $x_0 \in \mdr^d, \Set{x_0}$ ist abgeschlossen
+              $\Rightarrow \Set{x_0} \in \fb$
     \end{enumerate}
 \end{beispiel}
 
@@ -1707,7 +1719,7 @@ Damit: \(\lvert h\rvert\) ist integrierbar und mit \ref{Satz 4.9} auch \(h\). Da
 \[ \int_X f(x) \text{ d}x = \int_X \left( \mathds{1}_{A\cup B} \cdot f \right)(x) \text{ d}x = \int_X \left( \left( \mathds{1}_A + \mathds{1}_B \right) f\right)(x) \text{ d}x \]
 \[= \int_X \left(\mathds{1}_A f + \mathds{1}_B f \right)(x) \text{ d}x \stackrel{4.11(2)}{=} \int_X \mathds{1}_A f \text{ d}x + \int_X \mathds{1}_B f \text{ d}x \stackrel{4.11(7)}{=} \int_A f \text{ d}x + \int_B f \text{ d}x.\]
 
- \item $K$ ist kompakt, also gilt: $\lambda(K) < \infty$. Aus \ref{Satz 3.2}(1) folgt, dass $f$ messbar ist. Analysis II (\glqq stetige Funktionen auf kompakten Mengen nehmen Minimum und Maximum an\grqq ) liefert: $f$ ist beschränkt. Insgesamt folgt mit \ref{Satz 4.11}(8) schlie"slich: $f \in \fl^1(K)$.
+ \item $K$ ist kompakt, also gilt: $\lambda(K) < \infty$. Aus \ref{Satz 3.2}(1) folgt, dass $f$ messbar ist. Analysis II (\glqq stetige Funktionen auf kompakten Mengen nehmen Minimum und Maximum an\grqq ) liefert: $f$ ist beschränkt. Insgesamt folgt mit \ref{Satz 4.11}(8) schließlich: $f \in \fl^1(K)$.
 \end{enumerate}
 \end{beweis}
 
@@ -3932,14 +3944,14 @@ Wir versehen $\MdC$ mit der $\sigma$-Algebra $\fb_2$ (wir identifizieren $\MdC$ 
 
 \begin{definition}
 \index{messbar}
-$f$ hei"st (Borel-)\textbf{messbar}, genau dann wenn gilt: $f$ ist $\fb_d$-$\fb_2$-messbar.
+$f$ heißt (Borel-)\textbf{messbar}, genau dann wenn gilt: $f$ ist $\fb_d$-$\fb_2$-messbar.
 \end{definition}
 
 Aus 3.2 folgt: $f$ ist messbar genau dann, wenn $u$ und $v$ messbar sind.
 
 \begin{definition}
 \index{integrierbar}\index{Integral}
-Sei $f$ messbar. $f$ hei"st \textbf{integrierbar} (ib.) genau dann, wenn $u$ und $v$ integrierbar sind.
+Sei $f$ messbar. $f$ heißt \textbf{integrierbar} (ib.) genau dann, wenn $u$ und $v$ integrierbar sind.
 In diesem Fall setze 
 \[ \int_X f \text{ d}x := \int_X u \text{ d}x + i\int_X v \text{ d}x \quad ( \in \MdC) \]
 \end{definition}
