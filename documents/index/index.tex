@@ -5,8 +5,8 @@
 \usepackage[hyperindex=false]{hyperref} % has to be after makeidx
 \usepackage[margin=2.5cm]{geometry} % layout
 
+% Make the anchor jump to the correct part of the page
 \newcounter{indexanchor}
-
 \newcommand*{\xindex}[1]{%
   \stepcounter{indexanchor}% make anchor unique
   \def\theindexterm{#1}%
