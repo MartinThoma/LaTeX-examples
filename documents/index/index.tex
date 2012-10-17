@@ -1,7 +1,22 @@
+% Thanks to Nicola Talbot for his help: http://tex.stackexchange.com/a/77656/5645
 \documentclass[a5paper]{book}
+\usepackage{etoolbox}
 \usepackage{makeidx}  % for automatically generation of an index
-\usepackage{hyperref} % has to be after makeidx
+\usepackage[hyperindex=false]{hyperref} % has to be after makeidx
 \usepackage[margin=2.5cm]{geometry} % layout
+
+\newcounter{indexanchor}
+
+\newcommand*{\xindex}[1]{%
+  \stepcounter{indexanchor}% make anchor unique
+  \def\theindexterm{#1}%
+  \edef\doindexentry{\noexpand\index
+    {\expandonce\theindexterm|indexanchor{index-\theindexanchor}}}%
+  \raisebox{\baselineskip}{\hypertarget{index-\theindexanchor}%
+    {\doindexentry}}%
+}
+
+\newcommand*{\indexanchor}[2]{\hyperlink{#1}{#2}}
 
 \makeindex
 
@@ -10,7 +25,8 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
 erat, 
 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
-rebum. Stet \index{clita} clita kasd gubergren, no sea takimata sanctus 
+rebum. Stet \xindex{clita} clita kasd gubergren, no sea takimata
+sanctus 
 est Lorem 
 ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
 sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
@@ -22,7 +38,7 @@ tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
 voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
 Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
 dolor sit amet.   
- 
+
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
 molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
 vero eros et accumsan et iusto odio dignissim qui blandit praesent 
@@ -47,9 +63,10 @@ tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
 voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
 Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
 dolor sit amet.   
- 
+
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
-molestie consequat, vel illum \index{dolore} dolore eu feugiat nulla facilisis at 
+molestie consequat, vel illum \xindex{dolore} dolore eu feugiat nulla
+facilisis at 
 vero eros et accumsan et iusto odio dignissim qui blandit praesent 
 luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam 
@@ -60,7 +77,8 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
 erat, 
 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
-rebum. Stet \index{clita} clita kasd gubergren, no sea takimata sanctus 
+rebum. Stet \xindex{clita} clita kasd gubergren, no sea takimata
+sanctus 
 est Lorem 
 ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
 sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
@@ -70,10 +88,11 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
 dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
 voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-Stet clita \index{kasd} kasd gubergren, no sea takimata sanctus est Lorem ipsum 
+Stet clita \xindex{kasd} kasd gubergren, no sea takimata sanctus est
+Lorem ipsum 
 dolor sit amet.   
- 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+
+\xindex{Duis}Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
 molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
 vero eros et accumsan et iusto odio dignissim qui blandit praesent 
 luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
