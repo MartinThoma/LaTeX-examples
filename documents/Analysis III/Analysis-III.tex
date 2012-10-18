@@ -512,8 +512,8 @@ In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
     Sei \(\emptyset\neq \fr \subseteq \cp(X)\). 
     $\fr$ heißt ein \textbf{Ring} (auf \(X\)), genau dann wenn gilt:
     \begin{enumerate}
-    \item \(\emptyset\in\fr\)
-    \item \(A,B\in\fr\,\implies\,A\cup B,\;B\setminus A \in \fr\)
+        \item \(\emptyset \in \fr\)
+        \item \(A,B \in \fr \, \implies \; A\cup B, \, B \setminus A \in \fr\)
     \end{enumerate}
 \end{definition}
 
@@ -522,118 +522,131 @@ In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
     \index{Figuren}
     Sei \(d\in\MdN\).
     \begin{enumerate}
-        \item \(\ci_{d}:=\{(a,b]\mid a,b\in\MdR^{d},\,a\leq b\}\).
-              Seien \(a=(a_{1},\dots,a_{d}),\,b=(b_{1},\dots,b_{d})\in\MdR^d\) und \(I:=(a,b]\in \ci_{d}\)
-    \[
-    \lambda_{d}(I)=\begin{cases}0&\text{falls }I=\emptyset\\(b_{1}-a_{1})(b_{2}-a_{2})\cdots(b_{d}-a_{d})&\text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
-    \]
-    \item \(\cf_d:=\left\{\bigcup_{j=1}^{n}I_{j}\mid n\in\MdN,\,I_{1},\dots,I_{n}\in I_{d}\right\}\) (\textbf{Menge der Figuren})
+        \item \(\ci_{d}:=\Set{(a,b] | a,b \in \MdR^{d}, \, a \leq b}\).
+              Seien \(a=(a_{1},\dots,a_{d}),\,b=(b_{1},\dots,b_{d})\in\MdR^d\) 
+              und \(I:=(a,b] \in \ci_{d}\)
+              \[
+              \lambda_{d}(I)= \begin{cases}
+                0                                             & \text{falls }I=\emptyset\\
+                (b_{1}-a_{1})(b_{2}-a_{2})\cdots(b_{d}-a_{d}) & \text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
+              \]
+        \item \(\cf_d:=\left\{\bigcup_{j=1}^{n}I_{j}\mid n\in\MdN,\,I_{1},\dots,I_{n}\in I_{d}\right\}\) (\textbf{Menge der Figuren})
     \end{enumerate}
 \end{definition}
-Ziel dieses Kapitels: Fortsetzung von \(\lambda_{d}\) auf \(\cf_{d}\) und dann auf \(\fb_d\) (\(\leadsto\) Lebesguemaß)
+Ziel dieses Kapitels: Fortsetzung von \(\lambda_{d}\) auf \(\cf_{d}\) 
+und dann auf \(\fb_d\) (\(\leadsto\) Lebesguemaß)
 
 Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}=\sigma(\ci_{d})=\sigma(\cf_{d})\)
 \begin{lemma}
-\label{Lemma 2.1}
-Seien \(I,I'\in\ci_{d}\) und \(A\in\cf_{d}\). Dann:
-\begin{enumerate}
-\item \(I\cap I'\in\ci_{d}\)
-\item \(I\setminus I'\in\cf_{d}.\) Genauer: \(\exists\left\{I_{1}',\dots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt:
-\(I\setminus I'=\bigcup_{j=1}^{l}{I_{j}'}\) % \bigcupdot
-\item \(\exists\left\{I_{1}',\dots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt: \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
-\item \(\cf_d\) ist ein Ring.
-\end{enumerate}
+    \label{Lemma 2.1}
+    Seien \(I,I'\in\ci_{d}\) und \(A\in\cf_{d}\). Dann:
+    \begin{enumerate}
+        \item \(I\cap I'\in\ci_{d}\)
+        \item \(I\setminus I'\in\cf_{d}.\) 
+              Genauer: \(\exists\left\{I_{1}',\dots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt:
+              \(I\setminus I'=\bigcup_{j=1}^{l}{I_{j}'}\) % \bigcupdot
+        \item \(\exists\left\{I_{1}',\dots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt: \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
+        \item \(\cf_d\) ist ein Ring.
+    \end{enumerate}
 \end{lemma}
+
 \begin{beweis}
 \begin{enumerate}
-\item Sei \(I=\prod_{k=1}^{d}{(a_{k},b_{k}]},\,I'=\prod_{k=1}^{d}{(\alpha_{k},\beta_{k}]};\,\alpha_{k}':=\max\{\alpha_{k},a_{k}\},\,\beta_{k}':=\min\{\beta_{k},b_{k}\}\)
+    \item Sei \(I=\prod_{k=1}^{d}{(a_{k},b_{k}]},\,I'=\prod_{k=1}^{d}{(\alpha_{k},\beta_{k}]};\,\alpha_{k}':=\max\{\alpha_{k},a_{k}\},\,\beta_{k}':=\min\{\beta_{k},b_{k}\}\)
 
-Ist \(\alpha_{k}'\geq\beta_{k}'\) für ein \(k\in\{1,\dots,d\}\), so ist \(I\cap I'=\emptyset\in\ci_{d}\).
-Sei \(\alpha_{k}'<\beta_{k}'\forall k\in\{1,\dots,d\}\), so ist \(I\cap I'=\prod_{k=1}^{d}{(\alpha_{k}',\beta_{k}']\in\ci_{d}}\)
-\item Induktion nach \(d\):
-\begin{itemize}
-\item[I.A.] Klar \checkmark % hier fehlt noch eine Graphik
-\item[I.V.] Die Behauptung gelte für ein \(d\geq 1\)
-\item[I.S.] Seien \(I,I'\in\ci_{d+1}\). Es existieren \(I_{1},I_{1}'\in\ci_{1}\) und \(I_{2},I_{2}'\in\ci_{d}\) mit:
-\(I=I_{1}\times I_{2},\,I'=I_{1}'\times I_{2}'\)
-% Graphik einfuegen!
+          Ist \(\alpha_{k}'\geq\beta_{k}'\) für ein \(k\in\{1,\dots,d\}\), 
+          so ist \(I\cap I'=\emptyset\in\ci_{d}\).
+          Sei \(\alpha_{k}'<\beta_{k}'\forall k\in\{1,\dots,d\}\), so
+          ist \(I\cap I'=\prod_{k=1}^{d}{(\alpha_{k}',\beta_{k}']\in\ci_{d}}\)
+    \item Induktion nach \(d\):
+          \begin{itemize}
+            \item[I.A.] Klar \checkmark % hier fehlt noch eine Graphik
+            \item[I.V.] Die Behauptung gelte für ein \(d\geq 1\)
+            \item[I.S.] Seien \(I,I'\in\ci_{d+1}\). Es existieren \(I_{1},I_{1}'\in\ci_{1}\) und \(I_{2},I_{2}'\in\ci_{d}\) mit:
+                        \(I=I_{1}\times I_{2},\,I'=I_{1}'\times I_{2}'\)
+                        % Graphik einfuegen!
 
-Nachrechnen: 
-\[
-I\setminus I'=(I_{1}\setminus I_{1}')\times I_{2}\dot \cup(I_{1}\cap I_{1}')\times(I_{2}\setminus I_{2}')
-\]
-I.A.\(\implies\,I_{1}\setminus I_{1}'=\) endliche disjunkte Vereinigung von Elementen aus \(\ci_{1}\)\\
-I.V.\(\implies\,I_{2}\setminus I_{2}'=\) endliche disjunkte Vereinigung von Elementen aus \(\ci_{d}\)\\
-Daraus folgt die Behauptung für \(d+1\)
-\end{itemize}
-\item Wir zeigen mit Induktion nach \(n\): ist \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit \(I_{1},\dots,I_{d}\in\ci_{d}\), so
-existiert \(\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt: 
-\(A=\bigcup_{j=1}^{l}{I_{j}'}\)
-\begin{itemize}
-\item[I.A.] \(n=1:\,A=I_{1}\)\checkmark
-\item[I.V.] Die Behauptung gelte für ein \(n\geq 1\)
-\item[I.S.] Sei \(A=\bigcup_{j=1}^{n+1}{I_{j}}\quad(I_{1},\dots,I_{n+1}\in\ci_{d})\)
+                        Nachrechnen: 
+                        \[
+                        I\setminus I'=(I_{1}\setminus I_{1}')\times I_{2}\dot \cup(I_{1}\cap I_{1}')\times(I_{2}\setminus I_{2}')
+                        \]
+                        I.A.\(\implies\,I_{1}\setminus I_{1}'=\) endliche disjunkte Vereinigung von Elementen aus \(\ci_{1}\)\\
+                        I.V.\(\implies\,I_{2}\setminus I_{2}'=\) endliche disjunkte Vereinigung von Elementen aus \(\ci_{d}\)\\
+                        Daraus folgt die Behauptung für \(d+1\)
+          \end{itemize}
+    \item Wir zeigen mit Induktion nach \(n\): ist 
+          \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit 
+          \(I_{1},\dots,I_{d}\in\ci_{d}\), so existiert 
+          \(\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt: 
+          \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
+          \begin{itemize}
+            \item[I.A.] \(n=1:\,A=I_{1}\)\checkmark
+            \item[I.V.] Die Behauptung gelte für ein \(n\geq 1\)
+            \item[I.S.] Sei \(A=\bigcup_{j=1}^{n+1}{I_{j}}\quad(I_{1},\dots,I_{n+1}\in\ci_{d})\)
 
-IV\(\,\implies\,\exists\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt:
-\(\bigcup_{j=1}^{n}{I_{j}}=\bigcup_{j=1}^{l}{I_{j}'}\)	% \bigcupdot...
+                        IV\(\,\implies\,\exists\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt:
+                        \(\bigcup_{j=1}^{n}{I_{j}}=\bigcup_{j=1}^{l}{I_{j}'}\)	% \bigcupdot...
 
-Dann: \(A=I_{n+1}\cup\bigcup_{j=1}^{l}{I_{j}'}=I_{n+1}\cup\bigcup_{j=1}^{l}{(I_{j}'\setminus I_{n+1})}\) % \cupdot...
+                        Dann: \(A=I_{n+1}\cup\bigcup_{j=1}^{l}{I_{j}'}=I_{n+1}\cup\bigcup_{j=1}^{l}{(I_{j}'\setminus I_{n+1})}\) % \cupdot...
 
-Wende (2) auf jedes \(I_{j}'\setminus I_{n+1}\) an \((j=1,\dots,l)\): 
-\(I_{j}'\setminus I_{n+1}=\bigcup_{j=1}^{l_{j}}{I_{j}''}\quad(I_{j}''\in\ci_{d})\)
+                        Wende (2) auf jedes \(I_{j}'\setminus I_{n+1}\) an \((j=1,\dots,l)\): 
+                        \(I_{j}'\setminus I_{n+1}=\bigcup_{j=1}^{l_{j}}{I_{j}''}\quad(I_{j}''\in\ci_{d})\)
 
-Damit folgt:
-\[
-A=I_{n+1}\cup\bigcup_{j=1}^{l}{\left(\bigcup_{j=1}^{l_{j}}{I_{j}''}\right)}
-\]
-Daraus folgt die Behauptung für \(n+1\).
-\end{itemize}
-\item \((a,a]=\emptyset\implies\emptyset\in\cf_{d}\)
+                        Damit folgt:
+                        \[
+                        A=I_{n+1}\cup\bigcup_{j=1}^{l}{\left(\bigcup_{j=1}^{l_{j}}{I_{j}''}\right)}
+                        \]
+                        Daraus folgt die Behauptung für \(n+1\).
+        \end{itemize}
+    \item \((a,a]=\emptyset\implies\emptyset\in\cf_{d}\)
 
-Seien \(A,B\in\cf_{d}\). Klar: \(A\cup B\in\cf_{d}\)
+          Seien \(A,B\in\cf_{d}\). Klar: \(A\cup B\in\cf_{d}\)
 
-Sei \(A=\bigcup_{j=1}^{n}{I_{j}},\,B=\bigcup_{j=1}^{n}{I_{j}'}\quad(I_{j},I_{j}'\in\ci_{d})\). Zu zeigen: \(B\setminus A\in\cf_{d}\)
-\begin{itemize}
-\item[I.A.] \(n=1:\,A=I_{1}\implies B\setminus A=\bigcup_{j=1}^{n}(\underbrace{I_{j}'\setminus I_{j}}_{\in\cf_{d}})\). Wende
-(2) auf jedes \(I_{j}'\setminus I_{1}\) an. Aus (2) folgt dann \(B\setminus A\in\cf_{d}\).
-\item[I.V.] Die Behauptung gelte für ein \(n\in\MdN\)
-\item[I.S.] Sei \(A'=A\cup I_{n+1}\quad(I_{n+1}\in\ci_{d})\). Dann:
-\[
-B\setminus A'=\underbrace{(B\setminus A)}_{\in\cf_{d}}\setminus\underbrace{I_{n+1}}_{\in\cf_{d}}\in\cf_{d}
-\]
-\end{itemize}
-\end{enumerate}
+          Sei \(A=\bigcup_{j=1}^{n}{I_{j}},\,B=\bigcup_{j=1}^{n}{I_{j}'}\quad(I_{j},I_{j}'\in\ci_{d})\). Zu zeigen: \(B\setminus A\in\cf_{d}\)
+          \begin{itemize}
+            \item[I.A.] \(n=1:\,A=I_{1}\implies B\setminus A=\bigcup_{j=1}^{n}(\underbrace{I_{j}'\setminus I_{j}}_{\in\cf_{d}})\). Wende
+                        (2) auf jedes \(I_{j}'\setminus I_{1}\) an. Aus (2) folgt dann \(B\setminus A\in\cf_{d}\).
+            \item[I.V.] Die Behauptung gelte für ein \(n\in\MdN\)
+            \item[I.S.] Sei \(A'=A\cup I_{n+1}\quad(I_{n+1}\in\ci_{d})\). Dann:
+                        \[
+                        B\setminus A'=\underbrace{(B\setminus A)}_{\in\cf_{d}}\setminus\underbrace{I_{n+1}}_{\in\cf_{d}}\in\cf_{d}
+                        \]
+          \end{itemize}
+  \end{enumerate}
 \end{beweis}
 
 \begin{lemma}
-\label{Lemma 2.2}
-Sei \(A\in\cf_{d}\) und \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\) disjunkt und
-\(\{I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\) disjunkt mit 
-\(\bigcup_{j=1}^{n}{I_{j}}=A=\bigcup_{j=1}^{m}{I_{j}'}\). Dann:
-\[
-\sum_{j=1}^{n}{\lambda_{d}(I_{j})}=\sum_{j=1}^{m}{\lambda_{d}(I_{j}')}
-\]
+    \label{Lemma 2.2}
+    Sei \(A\in\cf_{d}\) und \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\) disjunkt und
+    \(\{I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\) disjunkt mit 
+    \(\bigcup_{j=1}^{n}{I_{j}}=A=\bigcup_{j=1}^{m}{I_{j}'}\). Dann:
+    \[
+    \sum_{j=1}^{n}{\lambda_{d}(I_{j})}=\sum_{j=1}^{m}{\lambda_{d}(I_{j}')}
+    \]
 \end{lemma}
 \begin{definition}
-Sei \(A\in\cf_{d}\) und \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\)
-disjunkt (beachte Lemma \ref{Lemma 2.1}, Punkt 3).
-\[
-\lambda_{d}(A):=\sum_{j=1}^{n}{\lambda_{d}(I_{j})}
-\]
-Wegen Lemma \ref{Lemma 2.2} ist \(\lambda_{d}:\cf_{d}\to[0,\infty)\)
-wohldefiniert.
+    Sei \(A\in\cf_{d}\) und \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit 
+    \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\)
+    disjunkt (beachte Lemma \ref{Lemma 2.1}, Punkt 3).
+    \[
+    \lambda_{d}(A):=\sum_{j=1}^{n}{\lambda_{d}(I_{j})}
+    \]
+    Wegen Lemma \ref{Lemma 2.2} ist \(\lambda_{d}:\cf_{d}\to[0,\infty)\)
+    wohldefiniert.
 \end{definition}
 \begin{satz}
-\label{Satz 2.3}
-Seien \(A,B\in\cf_{d}\) und \((B_{n})\) sei eine Folge in \(\cf_{d}\).
-\begin{enumerate}
-\item \(A\cap B=\emptyset\implies\lambda_{d}(A\cup B)=\lambda_{d}(A)+\lambda_{d}(B)\)
-\item \(A\subseteq B\implies\lambda_{d}(A)\leq\lambda_{d}(B)\)
-\item \(\lambda_{d}(A\cup B)\leq\lambda_{d}(A)+\lambda_{d}(B)\)
-\item Sei \(\delta>0\). Es existiert \(C\in\cf_{d}:\overline{C}\subseteq B\) und
-\(\lambda_{d}(B\setminus C)\leq\delta\).
-\item Ist \(B_{n+1}\subseteq B_{n}\forall n\in\mdn\) und \(\bigcap B_{n}=\emptyset\), so gilt: \(\lambda_{d}(B_{n})\to 0\,(n\to \infty)\)
-\end{enumerate}
+    \label{Satz 2.3}
+    Seien \(A,B\in\cf_{d}\) und \((B_{n})\) sei eine Folge in \(\cf_{d}\).
+    \begin{enumerate}
+        \item \(A\cap B=\emptyset\implies\lambda_{d}(A\cup B)=\lambda_{d}(A)+\lambda_{d}(B)\)
+        \item \(A\subseteq B\implies\lambda_{d}(A)\leq\lambda_{d}(B)\)
+        \item \(\lambda_{d}(A\cup B)\leq\lambda_{d}(A)+\lambda_{d}(B)\)
+        \item Sei \(\delta>0\). Es existiert \(C\in\cf_{d}:\overline{C}\subseteq B\) 
+              und \(\lambda_{d}(B\setminus C)\leq\delta\).
+        \item Ist \(B_{n+1}\subseteq B_{n}\forall n\in\mdn\) und 
+              \(\bigcap B_{n}=\emptyset\), so gilt: 
+              \(\lambda_{d}(B_{n})\to 0\,(n\to \infty)\)
+    \end{enumerate}
 \end{satz}
 
 \begin{beweis}
