@@ -469,7 +469,7 @@ Ist spezieller $Y\in\fa$, so ist $\fa_0:=\fa_Y\subseteq\fa$ und man definiert $\
 
 \begin{satz}
 \label{Satz 1.7}
-\((X,\fa,\mu)\) sei ein Ma\ss raum, es seien \(A,B\in\fa\) und \((A_{j})\) sei eine Folge in \(\fa\). Dann:
+\((X,\fa,\mu)\) sei ein Maßraum, es seien \(A,B\in\fa\) und \((A_{j})\) sei eine Folge in \(\fa\). Dann:
 \begin{enumerate}
 \item \(A\subseteq B\,\implies\,\mu(A)\leq\mu(B)\)
 \item Ist \(\mu(A)<\infty\) und \(A\subseteq B,\implies\,\mu(B\setminus A)=\mu(B)-\mu(A)\)
@@ -508,13 +508,13 @@ Dann: \(\mu(\bigcup A_{j})=\mu(\bigcup B_{j})=\sum{\mu(B_{j})}=\lim_{n\to\infty}
 
 In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
 \begin{definition}
-\index{Ring}
-Sei \(\emptyset\neq\mathfrak{R}\subseteq\mathcal{P}(X)\). \(\mathfrak{R}\)
-hei\ss t ein \textbf{Ring} (auf \(X\)), genau dann wenn gilt:
-\begin{enumerate}
-\item \(\emptyset\in\mathfrak{R}\)
-\item \(A,B\in\mathfrak{R}\,\implies\,A\cup B,\,B\setminus A\in\mathfrak{R}\)
-\end{enumerate}
+    \index{Ring}
+    Sei \(\emptyset\neq\mathfrak{R}\subseteq\mathcal{P}(X)\). \(\mathfrak{R}\)
+    heißt ein \textbf{Ring} (auf \(X\)), genau dann wenn gilt:
+    \begin{enumerate}
+    \item \(\emptyset\in\mathfrak{R}\)
+    \item \(A,B\in\mathfrak{R}\,\implies\,A\cup B,\,B\setminus A\in\mathfrak{R}\)
+    \end{enumerate}
 \end{definition}
 \begin{definition}
 \index{Elementarvolumen}
@@ -669,7 +669,7 @@ Aus der Definition von Kompaktheit (Analysis II, \S 2) folgt:
 Dann: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\overline{B}_{1}^{c}\).
 Andererseits: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\bigcap_{j=1}^{m}{B_{j}}\subseteq B_{1}\subseteq\overline{B}_{1}\). 
 
-Also: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}=\emptyset\). Das hei\ss t:
+Also: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}=\emptyset\). Das heißt:
 \(\bigcap_{j=1}^{n}{\overline{C}_{j}}=\emptyset\,\forall n\geq m\)
 
 \(D_{n}:=\bigcap_{j=1}^{n}{C_{j}}\). Dann: \(D_{n}=\emptyset\,\forall n\geq m\)
@@ -696,7 +696,7 @@ Für \(n\geq m:\,D_{n}=\emptyset\,\implies\,\lambda_{d}(B_{n})=\lambda_{d}(B_{n}
 \begin{definition}
 \index{Prämaß}
 Es sei \(\fr\) ein Ring auf \(X\). Eine Abbildung \(\mu:\fr\to[0,\infty]\) 
-hei\ss t ein \textbf{Prämaß} \ auf \(\fr\), wenn gilt:
+heißt ein \textbf{Prämaß} \ auf \(\fr\), wenn gilt:
 \begin{enumerate}
 \item \(\mu(\emptyset)=0\)
 \item Ist \(A_{j}\) eine disjunkte Folge in \(\fr\) und \(\bigcup{A_{j}}\in\fr\), so ist \(\mu\left(\bigcup{A_{j}}\right)=\sum{\mu(A_{j})}\).
@@ -705,7 +705,7 @@ hei\ss t ein \textbf{Prämaß} \ auf \(\fr\), wenn gilt:
 
 \begin{satz}
 \label{Satz 2.4}
-\(\lambda_{d}:\cf_{d}\to[0,\infty]\) ist ein Präma\ss .
+\(\lambda_{d}:\cf_{d}\to[0,\infty]\) ist ein Prämaß.
 \end{satz}
 \begin{beweis}
 \begin{enumerate}
@@ -730,17 +730,17 @@ Mit \(n\to\infty\) folgt die Behauptung.
 \begin{satz}[Fortsetzungssatz von Carath\'eodory]
 \label{Satz 2.5}
 Sei \(\fr\) ein Ring auf \(X\) und \(\mu:\fr\to[0,\infty]\) ein Präma\ss. Dann
-existiert ein Ma\ss raum \((X,\fa(\mu),\overline{\mu})\) mit
+existiert ein Maßraum \((X,\fa(\mu),\overline{\mu})\) mit
 \begin{enumerate}
 \item \(\sigma(\fr)\subseteq\fa(\mu)\)
 \item \(\overline{\mu}(A)=\mu(A)\,\forall A\in\fr\)
 \end{enumerate}
-Insbesondere: \(\overline{\mu}\) ist ein Ma\ss \ auf \(\sigma(\fr)\).
+Insbesondere: \(\overline{\mu}\) ist ein Maß\ auf \(\sigma(\fr)\).
 \end{satz}
 
 \begin{satz}[Eindeutigkeitssatz]
 \label{Satz 2.6}
-Sei \(\emptyset\neq\ce\subseteq\cp(X)\), es seien \(\nu,\,\mu\) Ma\ss e auf
+Sei \(\emptyset\neq\ce\subseteq\cp(X)\), es seien \(\nu,\,\mu\) Maße auf
 \(\sigma(\ce)\) und es gelte: \(\mu(E)=\nu(E)\,\forall E\in\ce\).
 
 Weiter gelten:
@@ -756,17 +756,17 @@ Dann: \(\mu=\nu\) auf \(\sigma(\ce)\).
 \label{Satz 2.7}
 \index{Lebesguemaß}
 Es gibt genau eine Fortsetzung von \(\lambda_{d}:\cf_{d}\to[0,\infty]\) auf
-\(\fb_{d}\) zu einem Ma\ss. Diese Fortsetzung hei\ss t \textbf{Lebesguemaß} \ (L-Ma\ss)
+\(\fb_{d}\) zu einem Ma\ss. Diese Fortsetzung heißt \textbf{Lebesguemaß} \ (L-Ma\ss)
 und wird ebenfalls mit \(\lambda_{d}\) bezeichnet.
 \end{satz}
 \begin{beweis}
 Aus Lemma \ref{Lemma 2.1} und Satz \ref{Satz 2.4} folgt: \(\lambda_{d}\) ist ein
-Präma\ss \ auf \(\fr:=\cf_{d}\); es ist \(\sigma(\fr)=\fb_{d}\).
+Prämaß\ auf \(\fr:=\cf_{d}\); es ist \(\sigma(\fr)=\fb_{d}\).
 
-Aus Satz \ref{Satz 2.5} folgt: \(\lambda_{d}\) kann zu einem Ma\ss \ auf 
+Aus Satz \ref{Satz 2.5} folgt: \(\lambda_{d}\) kann zu einem Maß\ auf 
 \(\fb_{d}\) fortgesetzt werden.
 
-Sei \(\nu\) ein weiteres Ma\ss \ auf \(\fb_{d}\) mit: 
+Sei \(\nu\) ein weiteres Maß\ auf \(\fb_{d}\) mit: 
 \(\nu(A)=\lambda_{d}(A)\,\forall A\in\cf_{d}\). \(\ce:=\ci_{d}\). Dann:
 \(\sigma(\ce)\overset{\ref{Satz 1.4}}{=}\fb_{d}\).
 \begin{enumerate}
@@ -785,8 +785,8 @@ dann: \(\nu=\lambda_{d}\) auf \(\fb_{d}\).
 
 \begin{bemerkung}
 Sei \(X\in\fb_{d}\). Aus 1.6 folgt: \(\fb(X)=\{A\in\fb_{d}\mid A\subseteq X\}\).
-Die Einschränkung von \(\lambda_{d}\) auf \(\fb(X)\) hei\ss t ebenfalls
-L-Ma\ss \ und wird mit \(\lambda_{d}\) bezeichnet.
+Die Einschränkung von \(\lambda_{d}\) auf \(\fb(X)\) heißt ebenfalls
+L-Maß\ und wird mit \(\lambda_{d}\) bezeichnet.
 \end{bemerkung}
 
 \begin{beispieleX}
@@ -1010,7 +1010,7 @@ Dann: \(\fb=\sigma(\ce)\subseteq\fd\). Ist \(B\in\fb\), so ist \(B\in\fd\), also
 
 \begin{definition}
 \index{messbar!Borel}\index{messbar}
-Sei \(X\in\fb_{d}\). Ist \(f:\,X\to\mdr^{k}\) \(\fb(X)-\fb_{k}-\)messbar, so hei\ss t \(f\) \textbf{(Borel-)messbar}.
+Sei \(X\in\fb_{d}\). Ist \(f:\,X\to\mdr^{k}\) \(\fb(X)-\fb_{k}-\)messbar, so heißt \(f\) \textbf{(Borel-)messbar}.
 \end{definition}
 Ab jetzt sei stets \(X\in\fb_{d}\). (Erinnerung: \(\fb(X)=\{A\in\fb_{d}\mid A\subseteq X\}\))
 
@@ -1098,7 +1098,7 @@ Es ist \(g=\vp\circ f\). Mit \ref{Satz 3.1} folgt: \(g\) ist messbar.
 für \(x\neq 0:\,f(x,x)=\frac{\sin(X)}{x}\overset{x\to 0}{\to}1\neq 0=f(0,0)\), daraus folgt: \(f\) ist nicht stetig.
 
 \(A:=\{(x,y)\in\mdr^{2}\mid x=0\},\,B:=\{(x,y)\in\mdr^{2}\mid x\neq 0\},\,X=A\cup B,\,A\cap B=\emptyset\). \(A\) ist
-abgeschlossen, das hei\ss t: \(A\in\fb_{2},\,B=A^{C}\in\fb_{2}\)
+abgeschlossen, das heißt: \(A\in\fb_{2},\,B=A^{C}\in\fb_{2}\)
 
 \begin{align*}
 f_{1}(x,y)&:=0\quad((x,y)\in A)\\
@@ -1150,8 +1150,8 @@ Analog für \(-\infty\).
 \index{Borel!$\sigma$-Algebra}\index{messbar}
 \(\ifb_{1}:=\{B\cup E\mid B\in\fb_{1},\,E\subseteq\{-\infty,+\infty\}\}\). Dann: \(\fb_{1}\subseteq\ifb_{1}\)\\
 Übung: \(\ifb_{1}\) ist eine \(\sigma\)-Algebra auf \(\imdr\).\\
-\(\ifb_{1}\) hei\ss t \textbf{Borelsche \(\sigma\)-Algebra} auf \(\imdr\).
-Sei \(f:\,X\to\imdr\). \(f\) hei\ss t \textbf{(Borel-)messbar} (mb) \(:\Leftrightarrow\,f\) ist \(\fb(X)-\ifb_{1}-\) messbar.
+\(\ifb_{1}\) heißt \textbf{Borelsche \(\sigma\)-Algebra} auf \(\imdr\).
+Sei \(f:\,X\to\imdr\). \(f\) heißt \textbf{(Borel-)messbar} (mb) \(:\Leftrightarrow\,f\) ist \(\fb(X)-\ifb_{1}-\) messbar.
 \end{definition}
 
 \begin{beispiel}
@@ -1684,7 +1684,7 @@ Es folgt:
 Es ist \(\int_{X}{f\mathrm{d}x}=\lvert\int_{X}{f\mathrm{d}x}\rvert\) oder \(-\int_{X}{f\mathrm{d}x}=\lvert\int_{X}{f\mathrm{d}x}\rvert\)
 \item Mit Bemerkung (2) vor \ref{Satz 3.1} und Satz \ref{Satz 3.6}.(2) folgt: \(f_{|Y}\) und \(\mathds{1}_{Y}\cdot f\) sind
 messbar. Es gilt: \((f_{|Y})_{\pm}=(f_{\pm})_{|Y}\) und \((\mathds{1}_{Y}\cdot f)_{\pm}=\mathds{1}\cdot f_{\pm}\). Weiterhin 
-gilt \(0\leq\mathds{1}_{Y}f_{\pm}\leq f_{\pm}\). Mit \ref{Satz 4.9} folgt dann, da\ss \ \(\mathds{1}_{Y}f_{\pm}\) integrierbar
+gilt \(0\leq\mathds{1}_{Y}f_{\pm}\leq f_{\pm}\). Mit \ref{Satz 4.9} folgt dann, daß\ \(\mathds{1}_{Y}f_{\pm}\) integrierbar
 ist. Dann:
 \begin{align*}
 \int_{X}{(\mathds{1}_{Y}f)\mathrm{d}x}&=\int_{X}{\mathds{1}f_{+}\mathrm{d}x}-\int_{X}{\mathds{1}_{Y}f\mathrm{d}x}\\
@@ -1696,7 +1696,7 @@ Es folgt: \(f_{|Y}\) ist integrierbar und \(\int_{Y}{f_{|Y}\mathrm{d}x}=\int_{Y}
 \int_{X}{\lvert h\rvert\mathrm{d}x}\leq\int_{X}{\lVert h\rVert_{\infty}\mathds{1}_{X}\mathrm{d}x}=\lVert h\rVert_{\infty}\lambda(X)<\infty
 \]
 Damit: \(\lvert h\rvert\) ist integrierbar und mit \ref{Satz 4.9} auch \(h\). Da \(h\) beschränkt ist, folgt: 
-\(h\in\fl^{1}(X)\). Schlie\ss lich:
+\(h\in\fl^{1}(X)\). Schließlich:
 \[
 \left\lvert\int_{X}{h\mathrm{d}x}\right\rvert\leq\int_{X}{\lvert h\rvert\mathrm{d}x}\leq\lVert h\lVert_{\infty}\lambda(X)
 \]
@@ -3244,7 +3244,7 @@ Dann ist \(\varphi(u,v)=(u,v,u^{2}+v^{2})\), \(f_{u}=2u\) und \(f_{v}=2v\). Also
 \label{Kapitel 15}
 
 In diesem Paragraphen sei \(\emptyset\neq B\subseteq\mdr^{2}\), \(B\) kompakt, \(D\subseteq\mdr^{2}\) offen, \(B\subseteq D\)
-und \(\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\in C^{1}(D,\mdr^{3})\). Das hei\ss t: \(\varphi_{|B}\) ist eine Fläche mit 
+und \(\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\in C^{1}(D,\mdr^{3})\). Das heißt: \(\varphi_{|B}\) ist eine Fläche mit 
 Parameterbereich \(B\), \(S:=\varphi(B)\)
 
 \begin{definition}
@@ -3419,7 +3419,7 @@ Dann ist \(fg\in\fl^{1}(X)\) und es gilt die \textbf{Höldersche Ungleichung}:
 \]
 
 \index{Ungleichung!Cauchy-Schwarz}
-Ist \(p=2\,(\implies p'=2)\), so hei\ss t obige Ungleichung auch \textbf{Cauchy-Schwarzsche Ungleichung}.
+Ist \(p=2\,(\implies p'=2)\), so heißt obige Ungleichung auch \textbf{Cauchy-Schwarzsche Ungleichung}.
 \item \(\fl^{p}(X)\) ist ein reeller Vektorraum und für \(f,g\in\fl^{p}(X)\) gilt die \textbf{Minkowskische Ungleichung}:
 \index{Ungleichung!Minkowski}
 \[
@@ -3628,7 +3628,7 @@ Sei $(B, \| \cdot \|)$ ein normierter Raum. Gilt mit einem Skalarprodukt $( \cdo
 \begin{align*}
 \tag{$*$} \| v \| = \sqrt{(v | v)} \quad \forall v \in B
 \end{align*}
-so hei\ss t $B$ ein \textbf{Prähilbertraum}. Ist $B$ ein Banachraum mit $(*)$, so hei\ss t $B$ ein \textbf{Hilbertraum}.
+so heißt $B$ ein \textbf{Prähilbertraum}. Ist $B$ ein Banachraum mit $(*)$, so heißt $B$ ein \textbf{Hilbertraum}.
 \end{definition}
 
 \textbf{Vereinbarung:} ab jetzt sei stets in diesem Paragraphen $1 \leq p < \infty$.
@@ -4187,14 +4187,14 @@ Seien \(f_1,\ldots,f_n,f\in L^2\).
 Es sei \(\mdk\in\{\mdr,\mdc\},\,a,b\in\mdr,\,I:=[a,b]\,(a<b)\) und \(f_{n},\,f,\,g\in C(I,\mdk)\); es war 
 \(\lVert f\rVert_{\infty}:=\max_{t\in I}\lvert f(t)\rvert\).
 \begin{enumerate}
-\item \((f_{n})\) konvergiert auf \(I\) gleichmä\ss ig gegen \(f\) genau dann, wenn 
+\item \((f_{n})\) konvergiert auf \(I\) gleichmäßig gegen \(f\) genau dann, wenn 
     \(\lVert f_{n}-f\rVert_{\infty}\to 0\,(n\to\infty)\) (vgl. Analysis I/II).
 \item \(f\in\mathrm{L}^{p}(I,\mdk)\) und \(\lVert f\rVert_{p}\leq(b-a)^{\frac{1}{p}}\lVert f\rVert_{\infty}\) (siehe \ref{Satz 16.2}).
 \item Gilt \(f=g\) fast überall, so ist \(f=g\) auf \(I\).
 \begin{beweis}
 Es existiert eine Nullmenge \(N\subseteq I:\,f(x)=g(x)\,\forall x\in I\setminus N\).\\
 Sei \(x_{0}\in\mdn\). Für \(\ep>0\) gilt: \(U_{\ep}(x_{0})\cap I\not\subseteq N\) (andernfalls: 
-    \(\lambda_{1}(N)\geq\lambda_{1}(U_{\ep}(x_{0})\cap I)>0\)). Das hei\ss t, es existiert ein 
+    \(\lambda_{1}(N)\geq\lambda_{1}(U_{\ep}(x_{0})\cap I)>0\)). Das heißt, es existiert ein 
     \(x_{\ep}\in U_{\ep}(x_{0})\cap I:\,x_{\ep}\not\in N\). Also:
     \(\forall n\in\mdn\,\exists x_{n}\in U_{\frac{1}{n}}(x_{0})\cap I:\, x_{n}\not\in N\). Also: \(x_{n}\to x_{0}\).\\
 Dann: \(f(x_{0})=\lim_{n\to\infty}f(x_{n})=\lim_{n\to\infty}g(x_{n})=g(x_{0})\)
@@ -4258,8 +4258,8 @@ Für \(k\in\mdn:\,\beta_{k}:=\frac{1}{\pi}\int_{0}^{2\pi}{f(t)\sin(kt)\mathrm{d}
 \begin{definition}
 \index{gerade Funktion}
 \index{ungerade Funktion}
-\(f\) hei\ss t \textbf{gerade} (bezüglich \(\pi\)) genau dann, wenn gilt: \(f(t)=f(2\pi-t)\) für fast alle \(t\in[0,2\pi]\).\\
-\(f\) hei\ss t \textbf{ungerade} (bezüglich \(\pi\)) genau dann, wenn gilt: \(f(t)=-f(2\pi-t)\) für fast alle \(t\in[0,2\pi]\).\\
+\(f\) heißt \textbf{gerade} (bezüglich \(\pi\)) genau dann, wenn gilt: \(f(t)=f(2\pi-t)\) für fast alle \(t\in[0,2\pi]\).\\
+\(f\) heißt \textbf{ungerade} (bezüglich \(\pi\)) genau dann, wenn gilt: \(f(t)=-f(2\pi-t)\) für fast alle \(t\in[0,2\pi]\).\\
 % Bild nicht vergessen...
 \end{definition}
 
@@ -4292,7 +4292,7 @@ f\overset{\lVert\cdot\rVert_{2}}{=}\frac{4}{\pi}\sum_{j=0}^{\infty}{\frac{\sin((
 \]
 Beachte: \((S_{n}f)(0)=0\to 0\neq1=f(0)\) und \((S_{n}f)(2\pi)=0\to 0\neq -1=f(2\pi)\).
 \item \(f(t):=\begin{cases}t,&0\leq t\leq\pi\\2\pi-t,&\pi\leq t\leq 2\pi\end{cases}\)\\
-\(f\) ist gerade, das hei\ss t \(\beta_{k}=0\,\forall k\in\mdn\) und \(\alpha_{k}=\frac{2}{\pi}\int_{0}^{\pi}{t\cos(kt)\mathrm{d}t},\,\alpha_{0}=\pi\).\\
+\(f\) ist gerade, das heißt \(\beta_{k}=0\,\forall k\in\mdn\) und \(\alpha_{k}=\frac{2}{\pi}\int_{0}^{\pi}{t\cos(kt)\mathrm{d}t},\,\alpha_{0}=\pi\).\\
 Für \(k\geq 1:\quad\alpha_{k}=\begin{cases}0,&k\text{ gerade}\\-\frac{4}{\pi k^{2}},&k\text{ ungerade}\end{cases}\).\\
 Damit:
 \[
@@ -4417,7 +4417,7 @@ und damit
 \textbf{§ 10: Der Satz von Fubini}: Jan Ihrens\\
 \textbf{§ 11: Der Transformationssatz}: Jan Ihrens, Rebecca Schwerdt\\
 \textbf{§ 12: Vorbereitungen für die Integralsätze}: Rebecca Schwerdt\\
-\textbf{§ 13: Der Integralsatz von Gau\ss \ im \(\mdr^{2}\)}: Benjamin Unger\\ 
+\textbf{§ 13: Der Integralsatz von Gauß\ im \(\mdr^{2}\)}: Benjamin Unger\\ 
 \textbf{§ 14: Flächen im \(\mdr^{3}\)}: Benjamin Unger\\
 \textbf{§ 15: Der Integralsatz von Stokes}: Philipp Ost\\
 \textbf{§ 16: \(\fl^{p}\)-Räume und \(\mathrm{L}^{p}\)-Räume}: Philipp Ost, Rebecca Schwerdt, Peter Pan, Jan Ihrens \\
