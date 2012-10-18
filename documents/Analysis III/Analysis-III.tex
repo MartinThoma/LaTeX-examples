@@ -80,7 +80,7 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
               für $A,B\in\fm$ mit $A\ne B$.
         \item Sei $(A_j)$ eine Folge in $\mathcal{P}(X)$ (also 
               $A_j\subseteq X$), so heißt $(A_j)$ \textbf{disjunkt},
-              genau dann wenn $\{A_1,A_2,\ldots\}$ disjunkt ist.\\
+              genau dann wenn $\{A_1,A_2,\dots\}$ disjunkt ist.\\
               \textbf{Schreibweise}:\\
               \begin{align*}
                 \dot{\bigcup}_{j=1}^\infty &:=\bigcup_{j=1}^\infty A_j\\
@@ -146,7 +146,7 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 \begin{enumerate}
 \item $\emptyset\in\fa$
 \item Ist $(A_j)$ eine Folge in $\fa$, so ist $\bigcap A_j\in\fa$.
-\item Sind $A_1,\ldots,A_n\in\fa$, so gilt:
+\item Sind $A_1,\dots,A_n\in\fa$, so gilt:
 \begin{enumerate}
 \item $A_1\cup\cdots\cup A_n\in\fa$
 \item $A_1\cap\cdots\cap A_n\in\fa$
@@ -275,12 +275,12 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
               $\stackrel{\hbox{offen}}{\hbox{abgeschlossen}}$,
               so ist $A\in\fb_d$.
         \item Sei $d=1, A=\mdq$. $\mdq$ ist abzählbar, also 
-              $\mdq=\{r_1,r_2,\ldots\}$ (mit $r_i\ne r_j$ für $i\ne j$). 
+              $\mdq=\{r_1,r_2,\dots\}$ (mit $r_i\ne r_j$ für $i\ne j$). 
               Also ist $\mdq=\bigcup \{r_j\}$. Sei nun $r\in\mdq$, 
               dann ist $B:=(-\infty,r)\cup(r,\infty)\in\fb_1$. Daraus 
               folgt $\{r_j\}\in\fb_1$, also auch $\mdq\in\fb_1$.\\
               Allgemeiner lässt sich zeigen: 
-              $\mdq^d:=\{(x_1,\ldots,x_n):x_j\in\mdq (j=1,\ldots,n)\}\in\fb_d$.
+              $\mdq^d:=\{(x_1,\dots,x_n):x_j\in\mdq (j=1,\dots,n)\}\in\fb_d$.
         \item Sei $x_0 \in \mdr^d, \Set{x_0}$ ist abgeschlossen
               $\Rightarrow \Set{x_0} \in \fb$
     \end{enumerate}
@@ -290,11 +290,11 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
     \index{Intervall}
     \index{Halbraum}
     \begin{enumerate}
-    \item Seien $I_1,\ldots,I_d$ Intervalle in $\mdr$. 
+    \item Seien $I_1,\dots,I_d$ Intervalle in $\mdr$. 
           $I_1\times\cdots\times I_d$ heißt ein \textbf{Intervall} 
           in $\mdr^d$.
-    \item Seien $a=(a_1,\ldots,a_d), b=(b_1,\ldots,b_d)\in\mdr^d$.
-          \[a\le b:\iff a_j\le b_j\quad (j=1,\ldots,d)\]
+    \item Seien $a=(a_1,\dots,a_d), b=(b_1,\dots,b_d)\in\mdr^d$.
+          \[a\le b:\iff a_j\le b_j\quad (j=1,\dots,d)\]
     \item Seien $a,b\in\mdr^d$ und $a\le b$.
           \begin{align*}
             (a,b) &:= (a_1,b_1)\times\cdots\times(a_d,b_d)\\
@@ -303,12 +303,12 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
             [a,b] &:= [a_1,b_1]\times\cdots\times[a_d,b_d]
         \end{align*}
         mit der Festlegung $(a,b):=(a,b]:=[a,b):=\emptyset$, falls 
-        $a_j=b_j$ für ein $j\in\{1,\ldots,d\}$.
-    \item Für $k\in\{1,\ldots,d\}$ und $\alpha\in\mdr$ definiere die 
+        $a_j=b_j$ für ein $j\in\{1,\dots,d\}$.
+    \item Für $k\in\{1,\dots,d\}$ und $\alpha\in\mdr$ definiere die 
           folgenden \textbf{Halbräume}:
           \begin{align*}
-            H_k^-(\alpha) &:= \Set{(x_1,\ldots,x_d)\in\mdr^d:x_k\le\alpha}\\
-            H_k^+(\alpha) &:= \Set{(x_1,\ldots,x_d)\in\mdr^d:x_k\ge\alpha}
+            H_k^-(\alpha) &:= \Set{(x_1,\dots,x_d)\in\mdr^d:x_k\le\alpha}\\
+            H_k^+(\alpha) &:= \Set{(x_1,\dots,x_d)\in\mdr^d:x_k\ge\alpha}
           \end{align*}
     \end{enumerate}
 \end{definition}
@@ -319,7 +319,7 @@ Es seien $\ce_1,\ce_2,\ce_3$ wie folgt definiert:
 \begin{align*}
 \ce_1&:=\{(a,b):a,b\in\mdq^d,a\le b\}\\
 \ce_2&:=\{(a,b]:a,b\in\mdq^d, a\le b\}\\
-\ce_3&:=\{H^-_k(\alpha):\alpha\in\mdq, k=1,\ldots,d\}
+\ce_3&:=\{H^-_k(\alpha):\alpha\in\mdq, k=1,\dots,d\}
 \end{align*}
 Dann gilt:
 \[\fb_d=\sigma(\ce_1)=\sigma(\ce_2)=\sigma(\ce_3)\]
@@ -334,13 +334,13 @@ Entsprechendes gilt für die anderen Typen von Intervallen und Halbräumen.
           \[G\in\sigma(\ce_1)\implies \fb_d=\sigma(\co(\mdr^d))\subseteq\sigma(\ce_1)\]
     \item Sei $(a,b)\in\ce_1$.\\
           \textbf{Fall 1:} $(a,b)=\emptyset\in\ce_2\subseteq\sigma(\ce_2)$\\
-          \textbf{Fall 2:} $(a,b)\ne\emptyset, a=(a_1\ldots,a_d), b=(b_1\ldots,b_d)$.\\
-          Dann gilt für alle $j\in\{1,\ldots,d\}:a_j<b_j$. Also gilt auch:
-\[\exists N\in\mdn:\forall n\ge N: \forall j\in\{1,\ldots,d\}:a_j<b_j-\frac1n\]
-Definiere $c_n:=(\frac1n,\ldots,\frac1n)\in\mdq^d$. Dann gilt:
+          \textbf{Fall 2:} $(a,b)\ne\emptyset, a=(a_1\dots,a_d), b=(b_1\dots,b_d)$.\\
+          Dann gilt für alle $j\in\{1,\dots,d\}:a_j<b_j$. Also gilt auch:
+\[\exists N\in\mdn:\forall n\ge N: \forall j\in\{1,\dots,d\}:a_j<b_j-\frac1n\]
+Definiere $c_n:=(\frac1n,\dots,\frac1n)\in\mdq^d$. Dann gilt:
 \[(a,b)=\bigcup_{n\ge N}(a,b-c_n]\in\sigma(\ce_2)\]
 Also auch $\ce_1\subseteq\sigma(\ce_2)$ und damit $\sigma(\ce_1)\subseteq\sigma(\ce_2)$.
-\item Seien $a = (a_1,\ldots,a_d), b=(b_1,\ldots,b_d) \in \mdq^d$ mit $a \leq b$. Nachrechnen:
+\item Seien $a = (a_1,\dots,a_d), b=(b_1,\dots,b_d) \in \mdq^d$ mit $a \leq b$. Nachrechnen:
 \[(a,b] = \bigcap_{k=1}^d (H^-_k(b_k) \cap H^-_k(a_k)^c) \in \sigma(\ce_3). \]
 Das heißt $\ce_2 \subseteq \sigma(\ce_3)$ und damit auch $\sigma(\ce_2) \subseteq \sigma(\ce_3)$. 
 \item $H^-_k(\alpha)$ ist abgeschlossen, somit ist $H^-_k(\alpha)^c$ offen und damit $H^-_k(\alpha)^c \in \fb_d$, also auch $H^-_k(\alpha) \in \fb_d$. Damit ist $\ce_3 \subseteq \fb_d \implies \sigma(\ce_3) \subseteq \fb_d$. 
@@ -509,25 +509,26 @@ Dann: \(\mu(\bigcup A_{j})=\mu(\bigcup B_{j})=\sum{\mu(B_{j})}=\lim_{n\to\infty}
 In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
 \begin{definition}
     \index{Ring}
-    Sei \(\emptyset\neq\mathfrak{R}\subseteq\mathcal{P}(X)\). \(\mathfrak{R}\)
-    heißt ein \textbf{Ring} (auf \(X\)), genau dann wenn gilt:
+    Sei \(\emptyset\neq \fr \subseteq \cp(X)\). 
+    $\fr$ heißt ein \textbf{Ring} (auf \(X\)), genau dann wenn gilt:
     \begin{enumerate}
-    \item \(\emptyset\in\mathfrak{R}\)
-    \item \(A,B\in\mathfrak{R}\,\implies\,A\cup B,\,B\setminus A\in\mathfrak{R}\)
+    \item \(\emptyset\in\fr\)
+    \item \(A,B\in\fr\,\implies\,A\cup B,\;B\setminus A \in \fr\)
     \end{enumerate}
 \end{definition}
+
 \begin{definition}
-\index{Elementarvolumen}
-\index{Figuren}
-Sei \(d\in\MdN\).
-\begin{enumerate}
-\item \(\ci_{d}:=\{(a,b]\mid a,b\in\MdR^{d},\,a\leq b\}\).
-Seien \(a=(a_{1},\ldots,a_{d}),\,b=(b_{1},\ldots,b_{d})\in\MdR^d\) und \(I:=(a,b]\in \ci_{d}\)
-\[
-\lambda_{d}(I)=\begin{cases}0&\text{falls }I=\emptyset\\(b_{1}-a_{1})(b_{2}-a_{2})\cdots(b_{d}-a_{d})&\text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
-\]
-\item \(\cf_d:=\left\{\bigcup_{j=1}^{n}I_{j}\mid n\in\MdN,\,I_{1},\ldots,I_{n}\in I_{d}\right\}\) (\textbf{Menge der Figuren})
-\end{enumerate}
+    \index{Elementarvolumen}
+    \index{Figuren}
+    Sei \(d\in\MdN\).
+    \begin{enumerate}
+        \item \(\ci_{d}:=\{(a,b]\mid a,b\in\MdR^{d},\,a\leq b\}\).
+              Seien \(a=(a_{1},\dots,a_{d}),\,b=(b_{1},\dots,b_{d})\in\MdR^d\) und \(I:=(a,b]\in \ci_{d}\)
+    \[
+    \lambda_{d}(I)=\begin{cases}0&\text{falls }I=\emptyset\\(b_{1}-a_{1})(b_{2}-a_{2})\cdots(b_{d}-a_{d})&\text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
+    \]
+    \item \(\cf_d:=\left\{\bigcup_{j=1}^{n}I_{j}\mid n\in\MdN,\,I_{1},\dots,I_{n}\in I_{d}\right\}\) (\textbf{Menge der Figuren})
+    \end{enumerate}
 \end{definition}
 Ziel dieses Kapitels: Fortsetzung von \(\lambda_{d}\) auf \(\cf_{d}\) und dann auf \(\fb_d\) (\(\leadsto\) Lebesguemaß)
 
@@ -537,9 +538,9 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
 Seien \(I,I'\in\ci_{d}\) und \(A\in\cf_{d}\). Dann:
 \begin{enumerate}
 \item \(I\cap I'\in\ci_{d}\)
-\item \(I\setminus I'\in\cf_{d}.\) Genauer: \(\exists\left\{I_{1}',\ldots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt:
+\item \(I\setminus I'\in\cf_{d}.\) Genauer: \(\exists\left\{I_{1}',\dots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt:
 \(I\setminus I'=\bigcup_{j=1}^{l}{I_{j}'}\) % \bigcupdot
-\item \(\exists\left\{I_{1}',\ldots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt: \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
+\item \(\exists\left\{I_{1}',\dots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt: \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
 \item \(\cf_d\) ist ein Ring.
 \end{enumerate}
 \end{lemma}
@@ -547,8 +548,8 @@ Seien \(I,I'\in\ci_{d}\) und \(A\in\cf_{d}\). Dann:
 \begin{enumerate}
 \item Sei \(I=\prod_{k=1}^{d}{(a_{k},b_{k}]},\,I'=\prod_{k=1}^{d}{(\alpha_{k},\beta_{k}]};\,\alpha_{k}':=\max\{\alpha_{k},a_{k}\},\,\beta_{k}':=\min\{\beta_{k},b_{k}\}\)
 
-Ist \(\alpha_{k}'\geq\beta_{k}'\) für ein \(k\in\{1,\ldots,d\}\), so ist \(I\cap I'=\emptyset\in\ci_{d}\).
-Sei \(\alpha_{k}'<\beta_{k}'\forall k\in\{1,\ldots,d\}\), so ist \(I\cap I'=\prod_{k=1}^{d}{(\alpha_{k}',\beta_{k}']\in\ci_{d}}\)
+Ist \(\alpha_{k}'\geq\beta_{k}'\) für ein \(k\in\{1,\dots,d\}\), so ist \(I\cap I'=\emptyset\in\ci_{d}\).
+Sei \(\alpha_{k}'<\beta_{k}'\forall k\in\{1,\dots,d\}\), so ist \(I\cap I'=\prod_{k=1}^{d}{(\alpha_{k}',\beta_{k}']\in\ci_{d}}\)
 \item Induktion nach \(d\):
 \begin{itemize}
 \item[I.A.] Klar \checkmark % hier fehlt noch eine Graphik
@@ -565,20 +566,20 @@ I.A.\(\implies\,I_{1}\setminus I_{1}'=\) endliche disjunkte Vereinigung von Elem
 I.V.\(\implies\,I_{2}\setminus I_{2}'=\) endliche disjunkte Vereinigung von Elementen aus \(\ci_{d}\)\\
 Daraus folgt die Behauptung für \(d+1\)
 \end{itemize}
-\item Wir zeigen mit Induktion nach \(n\): ist \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit \(I_{1},\ldots,I_{d}\in\ci_{d}\), so
-existiert \(\{I_{1}',\ldots,I_{l}'\}\subseteq\ci_{d}\) disjunkt: 
+\item Wir zeigen mit Induktion nach \(n\): ist \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit \(I_{1},\dots,I_{d}\in\ci_{d}\), so
+existiert \(\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt: 
 \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
 \begin{itemize}
 \item[I.A.] \(n=1:\,A=I_{1}\)\checkmark
 \item[I.V.] Die Behauptung gelte für ein \(n\geq 1\)
-\item[I.S.] Sei \(A=\bigcup_{j=1}^{n+1}{I_{j}}\quad(I_{1},\ldots,I_{n+1}\in\ci_{d})\)
+\item[I.S.] Sei \(A=\bigcup_{j=1}^{n+1}{I_{j}}\quad(I_{1},\dots,I_{n+1}\in\ci_{d})\)
 
-IV\(\,\implies\,\exists\{I_{1}',\ldots,I_{l}'\}\subseteq\ci_{d}\) disjunkt:
+IV\(\,\implies\,\exists\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt:
 \(\bigcup_{j=1}^{n}{I_{j}}=\bigcup_{j=1}^{l}{I_{j}'}\)	% \bigcupdot...
 
 Dann: \(A=I_{n+1}\cup\bigcup_{j=1}^{l}{I_{j}'}=I_{n+1}\cup\bigcup_{j=1}^{l}{(I_{j}'\setminus I_{n+1})}\) % \cupdot...
 
-Wende (2) auf jedes \(I_{j}'\setminus I_{n+1}\) an \((j=1,\ldots,l)\): 
+Wende (2) auf jedes \(I_{j}'\setminus I_{n+1}\) an \((j=1,\dots,l)\): 
 \(I_{j}'\setminus I_{n+1}=\bigcup_{j=1}^{l_{j}}{I_{j}''}\quad(I_{j}''\in\ci_{d})\)
 
 Damit folgt:
@@ -606,15 +607,15 @@ B\setminus A'=\underbrace{(B\setminus A)}_{\in\cf_{d}}\setminus\underbrace{I_{n+
 
 \begin{lemma}
 \label{Lemma 2.2}
-Sei \(A\in\cf_{d}\) und \(\{I_{1},\ldots,I_{n}\}\subseteq\ci_{d}\) disjunkt und
-\(\{I_{1}',\ldots,I_{m}'\}\subseteq\ci_{d}\) disjunkt mit 
+Sei \(A\in\cf_{d}\) und \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\) disjunkt und
+\(\{I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\) disjunkt mit 
 \(\bigcup_{j=1}^{n}{I_{j}}=A=\bigcup_{j=1}^{m}{I_{j}'}\). Dann:
 \[
 \sum_{j=1}^{n}{\lambda_{d}(I_{j})}=\sum_{j=1}^{m}{\lambda_{d}(I_{j}')}
 \]
 \end{lemma}
 \begin{definition}
-Sei \(A\in\cf_{d}\) und \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit \(\{I_{1},\ldots,I_{n}\}\subseteq\ci_{d}\)
+Sei \(A\in\cf_{d}\) und \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\)
 disjunkt (beachte Lemma \ref{Lemma 2.1}, Punkt 3).
 \[
 \lambda_{d}(A):=\sum_{j=1}^{n}{\lambda_{d}(I_{j})}
@@ -638,11 +639,11 @@ Seien \(A,B\in\cf_{d}\) und \((B_{n})\) sei eine Folge in \(\cf_{d}\).
 \begin{beweis}
 \begin{enumerate}
 \item Aus Lemma \ref{Lemma 2.1} folgt: Es existiert 
-\(\{I_{1},\ldots,I_{n}\}\subseteq\ci_{d}\)
-disjunkt und es existiert \(\{I_{1}',\ldots,I_{m}'\}\subseteq\ci_{d}\) disjunkt:
+\(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\)
+disjunkt und es existiert \(\{I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\) disjunkt:
 \(A=\bigcup_{j=1}^{n}{I_{j}},\,B=\bigcup_{j=1}^{m}{I_{j}'}\).
 
-\(J:=\{I_{1},\ldots,I_{n},I_{1}',\ldots,I_{m}'\}\subseteq\ci_{d}\). Aus 
+\(J:=\{I_{1},\dots,I_{n},I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\). Aus 
 \(A\cap B=\emptyset\) folgt: \(J\) ist disjunkt. Dann: 
 \(A\cup B=\bigcup_{I\in J}{I}\)	% Hier auch wieder: \bigcupdot
 
@@ -791,7 +792,7 @@ L-Maß\ und wird mit \(\lambda_{d}\) bezeichnet.
 
 \begin{beispieleX}
 \begin{enumerate}
-\item Seien \(a=(a_{1},\ldots,a_{d}),\,b=(b_{1},\ldots,b_{d})\in\mdr^{d},\,a\leq b\) und \(I=[a,b]\).\\
+\item Seien \(a=(a_{1},\dots,a_{d}),\,b=(b_{1},\dots,b_{d})\in\mdr^{d},\,a\leq b\) und \(I=[a,b]\).\\
 \textbf{Behauptung}\\\(\lambda_{d}([a,b])=(b_{1}-a_{1})\cdots(b_{d}-a_{d})\) (Entsprechendes gilt für \((a,b)\) und \([a,b)\))
 \begin{beweis}
 \(I_{n}:=(a_{1}-\frac{1}{n},b_{1}]\times\cdots\times(a_{d}-\frac{1}{n},b_{d}];\,I_{1}\supset I_{2}\supset\cdots;\,\bigcap I_{n}=I,\,\lambda_{d}(I_{1})<\infty\)
@@ -805,13 +806,13 @@ Aus Satz \ref{Satz 1.7}, Punkt 5, folgt:
 \end{beweis}
 \item Sei \(a\in\mdr^{d},\,\{a\}=[a,a]\in\fb_{d}\). Aus obigem Beispiel (1)
 folgt: \(\lambda_{d}(\{a\})=0\).
-\item \(\mdq^{d}\) ist abzählbar, also: \(\mdq^{d}=\{a_{1},a_{2},\ldots\}\)
+\item \(\mdq^{d}\) ist abzählbar, also: \(\mdq^{d}=\{a_{1},a_{2},\dots\}\)
 mit \(a_{j}\neq a_{i}\,(i\neq j)\). Dann: \(\mdq^{d}=\bigcup\{a_{j}\}\) %\bigcupdot...
 
 Dann gilt: \(\mdq^{d}\in\fb_{d}\) und \(\lambda_{d}(\mdq^{d})=\sum{\lambda_{d}(\{a_{j}\})}=0\).
 \item Wie in Beispiel (3): Ist \(A\subseteq\mdr^{d}\) abzählbar, so ist
 \(A\in\fb_{d}\) und \(\lambda_{d}(A)=0\).
-\item Sei \(j\in\{1,\ldots,d\}\) und \(H_{j}:=\{(x_{1},\ldots,x_{d})\in\mdr^{d}\mid x_{j}=0\}\). \(H_{j}\) ist abgeschlossen, damit folgt: \(H_{j}\in\fb_{d}\).
+\item Sei \(j\in\{1,\dots,d\}\) und \(H_{j}:=\{(x_{1},\dots,x_{d})\in\mdr^{d}\mid x_{j}=0\}\). \(H_{j}\) ist abgeschlossen, damit folgt: \(H_{j}\in\fb_{d}\).
 
 Ohne Beschränkung der Allgemeinheit sei \(j=d\). Dann:
 \(I_{n}:=\underbrace{[-n,n]\times\cdots\times[-n,n]}_{(d-1)-\text{mal}}\times\{0\}\).
@@ -910,7 +911,7 @@ Wir definieren auf $[0,1]^d$ eine Äquivalenzrelation $\sim$, durch:
 \forall x\in[0,1]^d:[x]:=\{y\in[0,1]^d\mid x\sim y\}
 \end{align*}
 Nach dem Auswahlaxiom existiert ein $C\subseteq[0,1]^d$, sodass $C$ mit jedem $[x]$ genau ein Element gemeinsam hat.
-Es ist $\mdq^d\cap[-1,1]^d=\{q_1,q_2,\ldots\}$ mit $q_i\ne q_j$ für $(i\ne j)$. Dann gilt:
+Es ist $\mdq^d\cap[-1,1]^d=\{q_1,q_2,\dots\}$ mit $q_i\ne q_j$ für $(i\ne j)$. Dann gilt:
 \begin{align*}
 \tag{1} \bigcup_{n=1}^\infty(q_n+C)\subseteq[-1,2]^d\\
 \tag{2} [0,1]^d\subseteq\bigcup_{n=1}^\infty(q_n+C)
@@ -1019,7 +1020,7 @@ Ab jetzt sei stets \(X\in\fb_{d}\). (Erinnerung: \(\fb(X)=\{A\in\fb_{d}\mid A\su
 Seien \(f,\,g:\,X\to\mdr^{k}\) und \(\alpha,\beta\in\mdr\).
 \begin{enumerate}
 \item Ist \(f\) auf \(X\) stetig, so ist \(f\) messbar.
-\item Ist \(f=(f_{1},\ldots,f_{k})\), so gilt: \(f\) ist messbar \(\Leftrightarrow\) alle \(f_{j}\) sind messbar.
+\item Ist \(f=(f_{1},\dots,f_{k})\), so gilt: \(f\) ist messbar \(\Leftrightarrow\) alle \(f_{j}\) sind messbar.
 \item Sind \(f\) und \(g\) messbar, so ist \(\alpha f+\beta g\) messbar.
 \item Sei \(k=1\) und \(f\) und \(g\) seien messbar. Dann:
 \begin{enumerate}
@@ -1036,13 +1037,13 @@ Seien \(f,\,g:\,X\to\mdr^{k}\) und \(\alpha,\beta\in\mdr\).
 
 \(\sigma(\co(\mdr^{k}))=\fb_{k}\). Die Behauptung folgt aus \ref{Satz 3.1}.(2).
 \item \begin{itemize}
-\item[\(\Leftarrow:\)] Sei \(I=(a,b]=\prod_{j=1}^{k}{(a_{j},b_{j}]}\in I_{k}\quad (a=(a_{1},\ldots,a_{k}),\,b=(b_{1},\ldots,b_{k}),\,a\leq b)\)
+\item[\(\Leftarrow:\)] Sei \(I=(a,b]=\prod_{j=1}^{k}{(a_{j},b_{j}]}\in I_{k}\quad (a=(a_{1},\dots,a_{k}),\,b=(b_{1},\dots,b_{k}),\,a\leq b)\)
 
 Dann: \(f^{-1}(I)=\bigcap_{j=1}^{k}{\underbrace{f_{j}^{-1}(\underbrace{(a_{j},b_{j}]}_{\in\fb_{1}}}_{\in\fb(X)}}\in\fb(X)\)
 
 Aus \(\sigma(I_{k})=\fb_{k}\) folgt mit \ref{Satz 3.1}.(2): \(f\) ist messbar.
 \item[\(\Rightarrow:\)] Für \(j=1,...,k\) sei \(p_{j}:\mdr^{k}\to\mdr\) definiert durch 
-\(p_{j}(x_{1},\ldots,x_{k}):=x_{j}\)
+\(p_{j}(x_{1},\dots,x_{k}):=x_{j}\)
 
 \(p_{j}\) ist stetig, also messbar (nach (1)). Es ist \(f_{j}=p_{j}\circ f\). Mit \ref{Satz 3.1}.(1) folgt: \(f_{j}\) ist
 messbar.
@@ -1226,7 +1227,7 @@ Sei $(f_n)$ eine Folge von Funktionen $f_n:X\to\imdr$.
 \end{align*}
 \textbf{Erinnerung:} Für eine beschränkte Folge $(a_n)$ in $\mdr$ war
 \[\limsup_{n\to\infty} a_n:=\inf\{\sup\{a_n\mid n\ge j\}\mid j\in\mdn\}\]
-\item Sei $N\in\mdn$ und $g_j:=f_j$ (für $j=1,\ldots,N$), $g_j:=f_N$ (für $j>N$). Definiere:
+\item Sei $N\in\mdn$ und $g_j:=f_j$ (für $j=1,\dots,N$), $g_j:=f_N$ (für $j>N$). Definiere:
 \begin{align*}
 \max_{1\le n\le N} f_n &:=\sup_{j\in\mdn} g_n\\
 \min_{1\le n\le N} f_n &:=\inf_{j\in\mdn} g_n
@@ -1315,7 +1316,7 @@ Dann ist $\{f\ge 1\}=C$, also $f$ \textbf{nicht} messbar. Aber für alle $x\in\m
 $f:X\to\mdr$ sei messbar.
 \begin{enumerate}
 \item $f$ heißt \textbf{einfach} oder \textbf{Treppenfunktion}, genau dann wenn $f(X)$ endlich ist.
-\item $f$ sei einfach und $f(X)=\{y_1,\ldots,y_m\}$ mit $y_i\ne y_j$ für $i\ne j$. Sei weiter $A_j:=f^{-1}(\{y_j\})$ für $j=1,\ldots,m$. Dann sind $A_1,\ldots,A_m\in\fb(X)$ und $X=\bigcup_{j=1}^m A_j$ disjunkte Vereinigung.
+\item $f$ sei einfach und $f(X)=\{y_1,\dots,y_m\}$ mit $y_i\ne y_j$ für $i\ne j$. Sei weiter $A_j:=f^{-1}(\{y_j\})$ für $j=1,\dots,m$. Dann sind $A_1,\dots,A_m\in\fb(X)$ und $X=\bigcup_{j=1}^m A_j$ disjunkte Vereinigung.
 \[f=\sum_{j=1}^m y_j \mathds{1}_{A_j}\]
 heißt \textbf{Normalform} von $f$.
 \end{enumerate}
@@ -1379,7 +1380,7 @@ Das \textbf{Lebesgueintegral} von $f$ ist definiert durch:
 
 \begin{satz}
 \label{Satz 4.1}
-Sei $f:X\to[0,\infty)$ einfach, $z_1,\ldots,z_k\in[0,\infty)$ und $B_1,\ldots,B_k\in\fb(X)$ mit $\bigcup B_j=X$ und $f=\sum_{j=1}^k z_j\mathds{1}_{B_j}$. Dann gilt:
+Sei $f:X\to[0,\infty)$ einfach, $z_1,\dots,z_k\in[0,\infty)$ und $B_1,\dots,B_k\in\fb(X)$ mit $\bigcup B_j=X$ und $f=\sum_{j=1}^k z_j\mathds{1}_{B_j}$. Dann gilt:
 \[\int_X f(x)\text{ d}x=\sum_{j=1}^k z_j\lambda(B_j)\]
 \end{satz}
 
@@ -1408,7 +1409,7 @@ Dann gilt:
 &= \alpha \sum_{j=1}^m y_j \lambda(A_j) + \beta \sum_{j=1}^k z_j \lambda(B_j)\\
 &= \alpha \int_X f(x)\text{ d}x + \beta \int_X g(x)\text{ d}x
 \end{align*}
-\item Definiere $h:=g-f$. Dann ist $h\ge 0$ und einfach. Sei $h=\sum_{j=1}^m x_j\mathds{1}_{C_j}$ die Normalform von $h$, d.h. $x_1,\ldots,x_m\ge 0$. Dann gilt:
+\item Definiere $h:=g-f$. Dann ist $h\ge 0$ und einfach. Sei $h=\sum_{j=1}^m x_j\mathds{1}_{C_j}$ die Normalform von $h$, d.h. $x_1,\dots,x_m\ge 0$. Dann gilt:
 \[\int_X h(x)\text{ d}x = \sum_{j=1}^m x_j\lambda(C_j)\ge 0\]
 Also folgt aus $g=f+h$ und (2):
 \[\int_X g(x)\text{ d}x=\int_X f(x)\text{ d}x +\int_X h(x)\text{ d}x\ge \int_X f(x)\text{ d}x\]
@@ -1527,7 +1528,7 @@ ist messbar.
 \begin{enumerate}
 \item Für alle $x\in X$ ist \(\left(f_n(x)\right)\) wachsend, also konvergent in \([0,+\infty]\).
 \item folgt aus \ref{Satz 3.5}.
-\item Sei \( \left(u_j^{(n)}\right)_{j\in\mdn} \) zulässig für $f_n$ und \(v_j:=\max\left\{u_j^{(1)}, u_j^{(2)}, \ldots , u_j^{(j)} \right\} \).
+\item Sei \( \left(u_j^{(n)}\right)_{j\in\mdn} \) zulässig für $f_n$ und \(v_j:=\max\left\{u_j^{(1)}, u_j^{(2)}, \dots , u_j^{(j)} \right\} \).
 Aus \ref{Satz 3.7} folgt, dass $v_j$ einfach ist und aus der Konstruktion lässt sich nachrechnen, dass gilt:
  \[0\leq v_j\leq v_{j+1} \text{ und } v_j\leq f_n\leq f \text{ und } f_n=\sup\limits_{j\in\mdn}u_j^{(n)} \leq \sup\limits_{j\in\mdn}v_j \text{ (auf $X$)}\]
 Damit ist $(v_j)$ zulässig für $f$ und es gilt:
@@ -1788,11 +1789,11 @@ Sei $N\in\fb_d$. $N$ heißt eine \textbf{(Borel-)Nullmenge}, genau dann wenn $\l
 
 \begin{lemma}
 \label{Lemma 5.1}
-Seien $M,N,N_1,N_2,\ldots\in\fb_d$.
+Seien $M,N,N_1,N_2,\dots\in\fb_d$.
 \begin{enumerate}
 \item Ist $M\subseteq N$ und $N$ Nullmenge, dann ist $M$ Nullmenge.
 \item Sind alle $N_j$ Nullmengen, so ist auch $\bigcup N_j$ eine Nullmenge.
-\item $N$ ist genau dann eine Nullmenge, wenn für alle $\ep>0$ offene Intervalle $I_1,I_2,\ldots\subseteq\mdr^d$ existieren mit $N\subseteq\bigcup I_j$ und $\sum_{j=1}^\infty \lambda(I_j)\le\ep$.
+\item $N$ ist genau dann eine Nullmenge, wenn für alle $\ep>0$ offene Intervalle $I_1,I_2,\dots\subseteq\mdr^d$ existieren mit $N\subseteq\bigcup I_j$ und $\sum_{j=1}^\infty \lambda(I_j)\le\ep$.
 \end{enumerate}
 \end{lemma}
 
@@ -2131,7 +2132,7 @@ Weiter folgen aus \ref{Satz 6.2}:
 \label{Folgerung 6.4}
 \begin{enumerate}
 	\item 	\((f_n)\) sei eine Folge integrierbarer Funktionen \(f_n\colon X\to\imdr\), \(g\colon X\to[0,+\infty]\) sei ebenfalls integrierbar und 
-		\[g_n:=f_1+f_2+\ldots+f_n \ (\natn)\]
+		\[g_n:=f_1+f_2+\dots+f_n \ (\natn)\]
 		Weiter sei $N$ eine Nullmenge in $X$ so, dass \((g_n(x))\) für jedes \(x\in X\setminus N\) in $\imdr$  konvergiert und 
 		\[\lvert g_n(x)\rvert \leq g(x) \text{ für jedes } \natn \text{ und } x\in X\setminus N\]
 		Setzt man
@@ -2158,8 +2159,8 @@ Weiter folgen aus \ref{Satz 6.2}:
 			&=\lim\sum^n_{j=1}\int_Xf_j(x)\,dx 			\\
 			&=\sum^\infty_{j=1}\int_Xf_j\,dx 			\\
 		\end{align*}
-	\item 	Setze \(f_j:=\mathds{1}_{A_j}f\), \(g:=\lvert f\rvert\), \(g_n:=f_1+\ldots+f_n\). Dann ist
-		\[\lvert g_n\rvert = \lvert \mathds{1}_{A_1\cup\ldots\cup A_n}\cdot f\rvert \leq \lvert f\rvert =g \]
+	\item 	Setze \(f_j:=\mathds{1}_{A_j}f\), \(g:=\lvert f\rvert\), \(g_n:=f_1+\dots+f_n\). Dann ist
+		\[\lvert g_n\rvert = \lvert \mathds{1}_{A_1\cup\dots\cup A_n}\cdot f\rvert \leq \lvert f\rvert =g \]
 		Es gilt: \(g_n\to f\) auf $X$. Aus (1) folgt
 		\[ \int_Xf\,dx = \sum^\infty_{j=1}\int_Xf_j\,dx = \sum^\infty_{j=1}\int_{A_j}f\,dx \]
 \end{enumerate}
@@ -2225,9 +2226,9 @@ Weiter gelte:
 \begin{enumerate}
 	\item 	für jedes \(t\in U\) sei \(x\mapsto f(t,x)\) integrierbar.
 	\item 	für jedes \(x\in X\setminus N\) sei \(t\mapsto f(t,x)\) partiell differenzierbar auf $U$.
-	\item 	\(\left\lvert \frac{ \partial f}{\partial t_j} \right\rvert \leq g(x) \) für jedes \(x\in X\setminus N\), jedes \(t\in U\) und jedes \(j\in\{1,\ldots,k\}\)
+	\item 	\(\left\lvert \frac{ \partial f}{\partial t_j} \right\rvert \leq g(x) \) für jedes \(x\in X\setminus N\), jedes \(t\in U\) und jedes \(j\in\{1,\dots,k\}\)
 \end{enumerate}
-Ist dann \(F\colon U\to\mdr\) definiert durch \[F(t):=\int_X f(t,x)dx\] so ist $F$ auf $U$ partiell differenzierbar und für jedes \( t\in U\) sowie jedes \( j\in\{1,\ldots,k\}\) gilt:
+Ist dann \(F\colon U\to\mdr\) definiert durch \[F(t):=\int_X f(t,x)dx\] so ist $F$ auf $U$ partiell differenzierbar und für jedes \( t\in U\) sowie jedes \( j\in\{1,\dots,k\}\) gilt:
 \[ \frac{\partial F}{\partial t_j}(t) = \int_X\frac{\partial f}{\partial t_j}(t,x)\,dx \]
 \end{satz}
 \textbf{Also: } \( \frac{\partial}{\partial t_j}\int_X f(t,x)\,dx = \int_X \frac{\partial f}{\partial t_j}(t,x)\,dx \).
@@ -2662,12 +2663,12 @@ Dann ist $f$ integrierbar und es folgt
 
 \begin{beispiel}
 \begin{enumerate}
-\item Sei \(D=[a_1,b_1]\times[a_2,b_2]\times\cdots\times[a_d,b_d]\) mit \(a_i\leq b_i \ (i=1,\ldots,d)\). 
+\item Sei \(D=[a_1,b_1]\times[a_2,b_2]\times\cdots\times[a_d,b_d]\) mit \(a_i\leq b_i \ (i=1,\dots,d)\). 
 Es sei \(f\colon D\to\mdr\) stetig. $D$ ist kompakt, also gilt \(D\in\fb_d\).
 Nach \ref{Satz 4.12}(2) ist \(f\in\mathfrak{L}^1(D)\) und aus obiger Bemerkung folgt
 	\begin{align*}
-	\int_Df(x_1,\ldots,x_d)\,d(x_1,\ldots,x_d) 
-	= \int_{a_d}^{b^d} \left(\cdots \left( \int_{a_2}^{b^2} \left(\int_{a_1}^{b^1}f(x_1,\ldots,x_d)\,dx_1\right)dx_2\right)\cdots\right)dx_d
+	\int_Df(x_1,\dots,x_d)\,d(x_1,\dots,x_d) 
+	= \int_{a_d}^{b^d} \left(\cdots \left( \int_{a_2}^{b^2} \left(\int_{a_1}^{b^1}f(x_1,\dots,x_d)\,dx_1\right)dx_2\right)\cdots\right)dx_d
 	\end{align*}
 Die Reihenfolge der Integrationen darf beliebig vertauscht werden. Aus \ref{Satz 4.13} folgt
 \[\int_{a_i}^{b_i}\cdots \text{ d}x_i= \text{R-}\int_{a_i}^{b_i}\cdots\text{ d}x_i\]
@@ -3092,7 +3093,7 @@ Sei $a=(1,1,2), b=(1,1,0)$, dann gilt:
 
 \begin{definition}
 \index{Divergenz}
-Sei $\emptyset\ne D\subseteq\mdr^n$, $D$ offen und $f=(f_1,\ldots,f_n)\in C^1(D,\mdr^n)$. Dann heißt
+Sei $\emptyset\ne D\subseteq\mdr^n$, $D$ offen und $f=(f_1,\dots,f_n)\in C^1(D,\mdr^n)$. Dann heißt
 \[\divv f:=\frac{\partial f_1}{\partial x_1}+\cdots+\frac{\partial f_n}{\partial x_n}\in C(D,\mdr)\]
 die \textbf{Divergenz} von $f$.
 \end{definition}
@@ -3671,7 +3672,7 @@ gelten, dass fast überall \(f_n\to f\) ist.
 \begin{beispiel}
 Sei \(X=[0,1]\) und \((I_n)\) sei die folgende Folge von Intervallen:
 \[I_1=\left[0,1\right], I_2=\left[0,\frac12\right], I_3=\left[\frac12,1\right], I_4=\left[0,\frac14\right],
-I_5=\left[\frac14,\frac12\right], I_6=\left[\frac12, \frac34\right], I_7=\left[\frac34,1\right], \ldots\]
+I_5=\left[\frac14,\frac12\right], I_6=\left[\frac12, \frac34\right], I_7=\left[\frac34,1\right], \dots\]
 Es sei \(f_n:=\mathds{1}_{I_n}\), sodass \(\int_X f_n\,dx=\int_{I_n}1\,dx=\lambda_1(I_n)\to 0\).
 Also \(\hat f_n\in L^1(X)\) und \(\| \hat f_n-\hat 0\|_1\to 0\). 
 Ist \(x\in X\), so gilt: \(x\in I_n\) für unendlich viele \natn. Daraus folgt, dass eine Teilfolge 
@@ -4104,7 +4105,7 @@ Sei \(f\in L^2\), \(n\in\mdn_0\) und \(k\in\MdZ\).
 \item	\((f\mid b_k)\) heißt \textbf{k-ter Fourierkoeffizient von f}.
 \item	\(\sum_{k\in\MdZ}(f\mid b_k)b_k\) heißt \textbf{Fourierreihe von f}.
 \item	Für \(n_0\in\mdn_0\) setze 
-	\(E_n:=[b_{-n},b_{-(n-1)},\ldots,b_0,b_1,\ldots,b_n]\) 
+	\(E_n:=[b_{-n},b_{-(n-1)},\dots,b_0,b_1,\dots,b_n]\) 
 	(lineare Hülle). Es ist dann \[\dim E_n=2n+1\]
 	\textbf{Beachte: } Für \(v\in E_n\) gilt \(v(0)=v(2\pi)\).
 \end{enumerate} 
@@ -4114,9 +4115,9 @@ Sei \(f\in L^2\), \(n\in\mdn_0\) und \(k\in\MdZ\).
 \label{Satz 18.2}
 \index{Besselsche Ungleichung}
 \index{Ungleichung ! Besselsche}
-Seien \(f_1,\ldots,f_n,f\in L^2\).
+Seien \(f_1,\dots,f_n,f\in L^2\).
 \begin{enumerate}
-\item	Gilt \(f_\mu\perp f_\nu\) für \(\mu\neq\nu\) (\(\mu,\nu=1,\ldots,n\)),
+\item	Gilt \(f_\mu\perp f_\nu\) für \(\mu\neq\nu\) (\(\mu,\nu=1,\dots,n\)),
 	so gilt der Satz des Pythagoras 
 	\[\| f_1+\cdots+f_n\|^2_2=
 	\| f_1\|^2_2+\cdots+
@@ -4375,7 +4376,7 @@ Aus \ref{Satz 18.7} bzw. \ref{Satz 18.8} folgt:
 Setzt man nun $t=0$, folgt
 \[ 0 = \frac{\pi}{2} - \frac{4}{\pi} \sum_{j=0}^\infty \frac{1}{(2j+1)^2} \]
 und man erhält durch Umstellen eine Auswertung für diese eigentlich kompliziert wirkende Reihe:
-\[ \sum_{j=0}^\infty \frac{1}{(2j+1)^2} = \frac{1}{1^2} + \frac{1}{3^2} + \frac{1}{5^2} + \ldots = \frac{\pi^2}{8} \]
+\[ \sum_{j=0}^\infty \frac{1}{(2j+1)^2} = \frac{1}{1^2} + \frac{1}{3^2} + \frac{1}{5^2} + \dots = \frac{\pi^2}{8} \]
 (dass diese Reihe konvergiert, ist eine einfache Übung aus Ana I; ihren Wert aber haben wir bislang noch nicht berechnet)
 
 \item $f(t) = (t - \pi)^2 \quad (t \in [0,2\pi])$. $f$ ist gerade bzgl. $\pi$, also ist $\beta_k = 0$. Es ist
@@ -4389,7 +4390,7 @@ Setzt man nun $t=0$, erhält man
 Damit erhält man z.B. auch
 \[ \sum_{j=1}^\infty \frac{1}{(2j)^2} = \frac{1}{4} \sum_{j=1}^\infty \frac{1}{j^2} = \frac{\pi^2}{24} \]
 und damit
-\[ \sum_{j=1}^\infty \frac{(-1)^{j+1}}{j^2} = \frac{1}{1^2} - \frac{1}{2^2} + \frac{1}{3^2} - \frac{1}{4^2} \pm \ldots = \frac{\pi^2}{8} - \frac{\pi^2}{24} = \frac{\pi^2}{12} \]
+\[ \sum_{j=1}^\infty \frac{(-1)^{j+1}}{j^2} = \frac{1}{1^2} - \frac{1}{2^2} + \frac{1}{3^2} - \frac{1}{4^2} \pm \dots = \frac{\pi^2}{8} - \frac{\pi^2}{24} = \frac{\pi^2}{12} \]
 
 \end{enumerate}
 
