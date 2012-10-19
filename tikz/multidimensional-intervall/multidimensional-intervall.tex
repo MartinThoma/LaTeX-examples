@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    % Draw axes
+    \draw [<->,thick] (0,2.5) node (yaxis) [above] {$x_2$}
+        |- (2.5,0) node (xaxis) [right] {$x_1$};
+
+    % Draw two intersecting lines
+    \draw[thick, dashed] (1,1) coordinate (a) -- (2,1) coordinate (b);
+    \draw[thick, dashed] (a) -- (1,2) coordinate (d);
+    \draw[thick]         (d) -- (2,2) coordinate (c);
+    \draw[thick]         (b) -- (2,2);
+
+    \fill[green!15] (a) -- (b) -- (c) -- (d) -- (a);
+
+    % Draw lines indicating intersection with y and x axis. Here we 
+    % use the perpendicular coordinate system
+    \draw[dotted] (yaxis |- a) node[left] {$a_2$}
+        -| (xaxis -| a) node[below] {$a_1$};
+
+    \draw[dotted] (yaxis |- c) node[left] {$b_2$}
+        -| (xaxis -| c) node[below] {$b_1$};
+\end{tikzpicture}
+\end{preview}
+\end{document}

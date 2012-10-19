@@ -1,0 +1,35 @@
+% Thanks to http://tex.stackexchange.com/a/30782/5645 for this 
+% example!
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{pgfplots}
+\pgfplotsset{
+    integral segments/.code={\pgfmathsetmacro\integralsegments{#1}},
+    integral segments=3,
+    integral/.style args={#1:#2}{
+        ybar interval,
+        domain=#1+((#2-#1)/\integralsegments)/2:#2+((#2-#1)/\integralsegments)/2,
+        samples=\integralsegments+1,
+        x filter/.code=\pgfmathparse{\pgfmathresult-((#2-#1)/\integralsegments)/2}
+    }
+}
+
+\begin{document}
+\begin{preview}
+  \begin{tikzpicture}[/pgf/declare function={f=-15*(x-5)+(x-5)^3+50;}]
+    \begin{axis}[
+        domain=0:10,
+        samples=100,
+        axis lines=middle
+    ]
+    \addplot [
+        red,
+        fill=red!50,
+        integral=2:6
+    ] {f};
+    \addplot [thick] {f};
+    \end{axis}
+  \end{tikzpicture}
+\end{preview}
+\end{document}
