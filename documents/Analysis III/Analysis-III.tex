@@ -112,6 +112,39 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
           \end{enumerate}
 \end{enumerate}
 
+\begin{definition}
+    \index{offen}
+    Sei $n \in \mdn$ und $\emptyset \neq X \subseteq \mdr^n$ und 
+    $A \subseteq X$.
+
+    $A$ heißt $\stackrel{\text{offen}}{\text{abgeschlossen}}$ in 
+    $X :\Leftrightarrow \exists B \subseteq \mdr^n$. 
+    $B$ ist $\stackrel{\text{offen}}{\text{abgeschlossen}}$ und 
+    $A = B \cap X$
+\end{definition}
+
+\begin{satz}
+    Sei $\emptyset \neq X \subseteq \mdr^n \; A \subseteq X$ und
+    $f: X \rightarrow \mdr^n$.
+
+    \begin{enumerate}
+        \item $A$ ist offen in $X \Leftrightarrow \forall x \in A$ 
+              ex. eine Umgebung $U$ von $x$ mit $U \cap X \subseteq A$
+        \item $A$ ist abgeschlossen in $X$\\
+              $\Leftrightarrow X \setminus A$ ist offen in $X$\\
+              $\Leftrightarrow$ für jede konvergente Folge $(a_k)$ 
+              in $A$ mit $\lim a_k \in X$ ist $\lim a_k \in A$
+        \item Die folgenden Aussagen sind äquivalent:
+              \begin{enumerate}
+                \item $f \in C(X, \mdr^m)$
+                \item für jede offene Menge $B \subseteq \mdr^m$ ist 
+                      $f^{-1}(B)$ offen in $X$
+                \item für jede abgeschlossene Menge $B \subseteq \mdr^m$ ist 
+                      $f^{-1}(B)$ abgeschlossen in $X$
+              \end{enumerate}
+    \end{enumerate}
+\end{satz}
+
 \chapter{$\sigma$-Algebren und Maße}
 \label{Kapitel 1}
 
@@ -312,6 +345,29 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
           \end{align*}
     \end{enumerate}
 \end{definition}
+
+Beispiel für ein Intervall $(a_1, b_1) \times [a_2, b_2]$:\\
+\begin{tikzpicture}
+    % Draw axes
+    \draw [<->,thick] (0,2.5) node (yaxis) [above] {$x_2$}
+        |- (2.5,0) node (xaxis) [right] {$x_1$};
+
+    % Draw two intersecting lines
+    \draw[thick, dashed] (1,1) coordinate (a) -- (2,1) coordinate (b);
+    \draw[thick, dashed] (a) -- (1,2) coordinate (d);
+    \draw[thick]         (d) -- (2,2) coordinate (c);
+    \draw[thick]         (b) -- (2,2);
+
+    \fill[green!15] (a) -- (b) -- (c) -- (d) -- (a);
+
+    % Draw lines indicating intersection with y and x axis. Here we 
+    % use the perpendicular coordinate system
+    \draw[dotted] (yaxis |- a) node[left] {$a_2$}
+        -| (xaxis -| a) node[below] {$a_1$};
+
+    \draw[dotted] (yaxis |- c) node[left] {$b_2$}
+        -| (xaxis -| c) node[below] {$b_1$};
+\end{tikzpicture}
 
 \begin{satz}[Erzeuger der Borelschen $\sigma$-Algebra auf $\mdr^d$]
 \label{Satz 1.4}
