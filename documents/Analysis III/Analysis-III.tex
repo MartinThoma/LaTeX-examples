@@ -181,8 +181,8 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 \item Ist $(A_j)$ eine Folge in $\fa$, so ist $\bigcap A_j\in\fa$.
 \item Sind $A_1,\dots,A_n\in\fa$, so gilt:
 \begin{enumerate}
-\item $A_1\cup\cdots\cup A_n\in\fa$
-\item $A_1\cap\cdots\cap A_n\in\fa$
+\item $A_1\cup\dots\cup A_n\in\fa$
+\item $A_1\cap\dots\cap A_n\in\fa$
 \item $A_1\setminus A_2\in\fa$
 \end{enumerate}
 \end{enumerate}
@@ -196,9 +196,9 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
           $D=(D^c)^c\in\fa$.
     \item \begin{enumerate}
             \item \folgtnach{($\sigma_3$) mit $A_{n+j}:=\emptyset$ ($j\ge 1$)} 
-                  $A_1\cup\cdots\cup A_n\in\fa$.
+                  $A_1\cup\dots\cup A_n\in\fa$.
             \item \folgtnach{(2) mit $A_{n+j}:=X$ ($j\ge 1)$} 
-                  $A_1\cap\cdots\cap A_n\in\fa$.
+                  $A_1\cap\dots\cap A_n\in\fa$.
             \item $A_1\setminus A_2=A_1\cap A_2^c\in\fa$
           \end{enumerate}
     \end{enumerate}
@@ -324,16 +324,16 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
     \index{Halbraum}
     \begin{enumerate}
     \item Seien $I_1,\dots,I_d$ Intervalle in $\mdr$. 
-          $I_1\times\cdots\times I_d$ heißt ein \textbf{Intervall} 
+          Dann heißt $I_1\times\dots\times I_d$ ein \textbf{Intervall} 
           in $\mdr^d$.
     \item Seien $a=(a_1,\dots,a_d), b=(b_1,\dots,b_d)\in\mdr^d$.
-          \[a\le b:\iff a_j\le b_j\quad (j=1,\dots,d)\]
+          \[a\le b:\iff a_j\le b_j \quad \forall j \in \Set{1, \dots, d}\]
     \item Seien $a,b\in\mdr^d$ und $a\le b$.
           \begin{align*}
-            (a,b) &:= (a_1,b_1)\times\cdots\times(a_d,b_d)\\
-            (a,b] &:= (a_1,b_1]\times\cdots\times(a_d,b_d]\\
-            [a,b) &:= [a_1,b_1)\times\cdots\times[a_d,b_d)\\
-            [a,b] &:= [a_1,b_1]\times\cdots\times[a_d,b_d]
+            (a,b) &:= (a_1,b_1)\times(a_2,b_2)\times\dots\times(a_d,b_d)\\
+            (a,b] &:= (a_1,b_1]\times(a_2,b_2]\times\dots\times(a_d,b_d]\\
+            [a,b) &:= [a_1,b_1)\times[a_2,b_2)\times\dots\times[a_d,b_d)\\
+            [a,b] &:= [a_1,b_1]\times[a_2,b_2]\times\dots\times[a_d,b_d]
         \end{align*}
         mit der Festlegung $(a,b):=(a,b]:=[a,b):=\emptyset$, falls 
         $a_j=b_j$ für ein $j\in\{1,\dots,d\}$.
@@ -531,24 +531,24 @@ Ist spezieller $Y\in\fa$, so ist $\fa_0:=\fa_Y\subseteq\fa$ und man definiert $\
 \item Ist \(\mu(A)<\infty\) und \(A\subseteq B,\implies\,\mu(B\setminus A)=\mu(B)-\mu(A)\)
 \item Ist \(\mu\) endlich, dann ist \(\mu(A)<\infty\) und \(\mu(A^{c})=\mu(X)-\mu(A)\)
 \item \(\mu\left(\bigcup A_{j}\right)\leq\sum{\mu(A_{j})}\) (\(\sigma\)-Subadditivität)
-\item Ist \(A_{1}\subseteq A_{2}\subseteq A_{3}\subseteq\cdots\), so ist \(\mu(\bigcup A_{j})=\lim_{n\to\infty}{\mu(A_{n})}\)
-\item Ist \(A_{1}\supseteq A_{2}\supseteq A_{3}\supseteq\cdots\) und \(\mu(A)<\infty\), so ist
+\item Ist \(A_{1}\subseteq A_{2}\subseteq A_{3}\subseteq\dots\), so ist \(\mu(\bigcup A_{j})=\lim_{n\to\infty}{\mu(A_{n})}\)
+\item Ist \(A_{1}\supseteq A_{2}\supseteq A_{3}\supseteq\dots\) und \(\mu(A)<\infty\), so ist
 	\(\mu(\bigcap A_{j})=\lim_{n\to\infty}{\mu(A_{n})}\)
 \end{enumerate}
 \end{satz}
 \begin{beweis}
 \begin{enumerate}
 % Eigentlich muesste es in folgender Zeile statt B=(B\setminus A)\cup A korrekt 
-% heissen: B=(B\setminus A)\cupdot A -- Spaeter...
+% heissen: B=(B\setminus A)\cupdot A -- Spaeter
 \item[(1)-(3)] \(B=(B\setminus A)\cup A\). Dann: \(\mu(B)=\underbrace{\mu(B\setminus A)}_{\geq0}+\mu(A)\geq\mu(A)\)
-\item[(4)] % Das muesste jetzt eigentlich Punkt 4 sein...
+\item[(4)] % Das muesste jetzt eigentlich Punkt 4 sein
 \(B_{1}=A_{1},\,B_{k}:=A_{k}\setminus\bigcup_{j=1}^{k-1}{A_{j}}\quad(k\geq 2)\)
 
 Dann: \(B_{j}\in\fa,\,B_{j}\subseteq A_{j}\,(j\in\MdN);\,(B_{j})\) disjunkt und \(\bigcup A_{j}=\bigcup B_{j}\). Dann:
 \[
 \mu\left(\bigcup A_{j}\right)=\mu\left(\bigcup B_{j}\right)=\sum{\underbrace{\mu(B_{j})}_{\leq\mu(A_{j})}}\leq\sum{\mu(A_{j})}
 \]
-\item[(5)] % Das muesste jetzt eigentlich Punkt 5 sein...
+\item[(5)] % Das muesste jetzt eigentlich Punkt 5 sein
 \(B_{1}=A_{1},\,B_{k}=A_{k}\setminus A_{k-1}\,(k\geq 2)\)
 
 Dann: \(B_{j}\subseteq\fa;\,B_{j}\subseteq A_{j}\,(j\in\MdN);\,\bigcup A_{j}=\bigcup B_{j}\) und \(A_{n}=\bigcup_{j=1}^{n}{B_{j}}\)%\bigcupdot_{j=1}^{n}{B_{j}}\)
@@ -584,7 +584,7 @@ In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
               \[
               \lambda_{d}(I)= \begin{cases}
                 0                                             & \text{falls }I=\emptyset\\
-                (b_{1}-a_{1})(b_{2}-a_{2})\cdots(b_{d}-a_{d}) & \text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
+                (b_{1}-a_{1})(b_{2}-a_{2})\dots(b_{d}-a_{d}) & \text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
               \]
         \item \(\cf_d:=\left\{\bigcup_{j=1}^{n}I_{j}\mid n\in\MdN,\,I_{1},\dots,I_{n}\in I_{d}\right\}\) (\textbf{Menge der Figuren})
     \end{enumerate}
@@ -641,9 +641,9 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
             \item[I.S.] Sei \(A=\bigcup_{j=1}^{n+1}{I_{j}}\quad(I_{1},\dots,I_{n+1}\in\ci_{d})\)
 
                         IV\(\,\implies\,\exists\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt:
-                        \(\bigcup_{j=1}^{n}{I_{j}}=\bigcup_{j=1}^{l}{I_{j}'}\)	% \bigcupdot...
+                        \(\bigcup_{j=1}^{n}{I_{j}}=\bigcup_{j=1}^{l}{I_{j}'}\)	% \bigcupdot
 
-                        Dann: \(A=I_{n+1}\cup\bigcup_{j=1}^{l}{I_{j}'}=I_{n+1}\cup\bigcup_{j=1}^{l}{(I_{j}'\setminus I_{n+1})}\) % \cupdot...
+                        Dann: \(A=I_{n+1}\cup\bigcup_{j=1}^{l}{I_{j}'}=I_{n+1}\cup\bigcup_{j=1}^{l}{(I_{j}'\setminus I_{n+1})}\) % \cupdot
 
                         Wende (2) auf jedes \(I_{j}'\setminus I_{n+1}\) an \((j=1,\dots,l)\): 
                         \(I_{j}'\setminus I_{n+1}=\bigcup_{j=1}^{l_{j}}{I_{j}''}\quad(I_{j}''\in\ci_{d})\)
@@ -723,7 +723,7 @@ Also:
     &=\lambda_{d}(A)+\lambda_{d}(B)
 \end{align*}
 \item wie bei Satz \ref{Satz 1.7}
-\item \(\lambda_{d}(A\cup B)=\lambda(A\cup(B\setminus A))\overset{(1)}{=}\lambda_{d}(A)+\lambda_{d}(B\setminus A)\overset{(2)}{\leq}\lambda_{d}(A)+\lambda_{d}(B)\) % \cupdot...
+\item \(\lambda_{d}(A\cup B)=\lambda(A\cup(B\setminus A))\overset{(1)}{=}\lambda_{d}(A)+\lambda_{d}(B\setminus A)\overset{(2)}{\leq}\lambda_{d}(A)+\lambda_{d}(B)\) % \cupdot
 \item Übung; es genügt zu betrachten: \(B\in\ci_{d}\) % Graphik einfuegen
 \item Sei \(\varepsilon>0\). Aus (4) folgt: Zu jedem \(B_{n}\) existiert ein
 \(C_{n}\in\cf_{d}:\overline{C}_{n}\subseteq B_{n}\) und
@@ -787,7 +787,7 @@ Eigenschaften aus \ref{Satz 2.3}, Punkt 5. Also: \(\lambda_{d}(B_{n})\to 0\).
 
 Für \(n\geq 2\):
 \[
-\lambda_{d}(A)=\lambda_{d}(A_{1}\cup\cdots\cup A_{n-1}\cup B_{n})\overset{\ref{Satz 2.3}.(1)}{=}\sum_{j=1}^{n-1}{\lambda_{d}(A_{j})}+\lambda_{d}(B_{n})
+\lambda_{d}(A)=\lambda_{d}(A_{1}\cup\dots\cup A_{n-1}\cup B_{n})\overset{\ref{Satz 2.3}.(1)}{=}\sum_{j=1}^{n-1}{\lambda_{d}(A_{j})}+\lambda_{d}(B_{n})
 \]
 Daraus folgt: 
 \[
@@ -862,21 +862,21 @@ L-Maß\ und wird mit \(\lambda_{d}\) bezeichnet.
 \begin{beispieleX}
 \begin{enumerate}
 \item Seien \(a=(a_{1},\dots,a_{d}),\,b=(b_{1},\dots,b_{d})\in\mdr^{d},\,a\leq b\) und \(I=[a,b]\).\\
-\textbf{Behauptung}\\\(\lambda_{d}([a,b])=(b_{1}-a_{1})\cdots(b_{d}-a_{d})\) (Entsprechendes gilt für \((a,b)\) und \([a,b)\))
+\textbf{Behauptung}\\\(\lambda_{d}([a,b])=(b_{1}-a_{1})\dots(b_{d}-a_{d})\) (Entsprechendes gilt für \((a,b)\) und \([a,b)\))
 \begin{beweis}
-\(I_{n}:=(a_{1}-\frac{1}{n},b_{1}]\times\cdots\times(a_{d}-\frac{1}{n},b_{d}];\,I_{1}\supset I_{2}\supset\cdots;\,\bigcap I_{n}=I,\,\lambda_{d}(I_{1})<\infty\)
+\(I_{n}:=(a_{1}-\frac{1}{n},b_{1}]\times\dots\times(a_{d}-\frac{1}{n},b_{d}];\,I_{1}\supset I_{2}\supset\dots;\,\bigcap I_{n}=I,\,\lambda_{d}(I_{1})<\infty\)
 
 Aus Satz \ref{Satz 1.7}, Punkt 5, folgt:
 \begin{align*}
 \lambda_{d}(I)&=\lim_{n\to\infty}{\lambda_{d}(I_{n})}\\
-&=\lim_{n\to\infty}{(b_{1}-a_{1}+\frac{1}{n})\cdots(b_{d}-a_{d}+\frac{1}{n})}\\
-&=(b_{1}-a_{1})\cdots(b_{d}-a_{d})
+&=\lim_{n\to\infty}{(b_{1}-a_{1}+\frac{1}{n})\dots(b_{d}-a_{d}+\frac{1}{n})}\\
+&=(b_{1}-a_{1})\dots(b_{d}-a_{d})
 \end{align*}
 \end{beweis}
 \item Sei \(a\in\mdr^{d},\,\{a\}=[a,a]\in\fb_{d}\). Aus obigem Beispiel (1)
 folgt: \(\lambda_{d}(\{a\})=0\).
 \item \(\mdq^{d}\) ist abzählbar, also: \(\mdq^{d}=\{a_{1},a_{2},\dots\}\)
-mit \(a_{j}\neq a_{i}\,(i\neq j)\). Dann: \(\mdq^{d}=\bigcup\{a_{j}\}\) %\bigcupdot...
+mit \(a_{j}\neq a_{i}\,(i\neq j)\). Dann: \(\mdq^{d}=\bigcup\{a_{j}\}\) %\bigcupdot
 
 Dann gilt: \(\mdq^{d}\in\fb_{d}\) und \(\lambda_{d}(\mdq^{d})=\sum{\lambda_{d}(\{a_{j}\})}=0\).
 \item Wie in Beispiel (3): Ist \(A\subseteq\mdr^{d}\) abzählbar, so ist
@@ -884,7 +884,7 @@ Dann gilt: \(\mdq^{d}\in\fb_{d}\) und \(\lambda_{d}(\mdq^{d})=\sum{\lambda_{d}(\
 \item Sei \(j\in\{1,\dots,d\}\) und \(H_{j}:=\{(x_{1},\dots,x_{d})\in\mdr^{d}\mid x_{j}=0\}\). \(H_{j}\) ist abgeschlossen, damit folgt: \(H_{j}\in\fb_{d}\).
 
 Ohne Beschränkung der Allgemeinheit sei \(j=d\). Dann:
-\(I_{n}:=\underbrace{[-n,n]\times\cdots\times[-n,n]}_{(d-1)-\text{mal}}\times\{0\}\).
+\(I_{n}:=\underbrace{[-n,n]\times\dots\times[-n,n]}_{(d-1)-\text{mal}}\times\{0\}\).
 % Hier fehlt noch eine Graphik
 Aus Beispiel (1) folgt: \(\lambda_{d}(I_{n})=0\).
 
@@ -1111,7 +1111,7 @@ Seien \(f,\,g:\,X\to\mdr^{k}\) und \(\alpha,\beta\in\mdr\).
 Dann: \(f^{-1}(I)=\bigcap_{j=1}^{k}{\underbrace{f_{j}^{-1}(\underbrace{(a_{j},b_{j}]}_{\in\fb_{1}}}_{\in\fb(X)}}\in\fb(X)\)
 
 Aus \(\sigma(I_{k})=\fb_{k}\) folgt mit \ref{Satz 3.1}.(2): \(f\) ist messbar.
-\item[\(\Rightarrow:\)] Für \(j=1,...,k\) sei \(p_{j}:\mdr^{k}\to\mdr\) definiert durch 
+\item[\(\Rightarrow:\)] Für \(j=1, \dots,k\) sei \(p_{j}:\mdr^{k}\to\mdr\) definiert durch 
 \(p_{j}(x_{1},\dots,x_{k}):=x_{j}\)
 
 \(p_{j}\) ist stetig, also messbar (nach (1)). Es ist \(f_{j}=p_{j}\circ f\). Mit \ref{Satz 3.1}.(1) folgt: \(f_{j}\) ist
@@ -1423,7 +1423,7 @@ Sei $f:X\to\imdr$ eine Funktion, dann ist $f$ genau dann messbar, wenn eine Folg
 \[\varphi_n(t):=\begin{cases}\frac{[2^nt]}{2^n} &,0\le t<n\\ n &,n\le t\le\infty\end{cases}\]
 Dann ist $\varphi_n$ $(\fb_1)_{[0,\infty]}$-$\fb_1$-messbar, außerdem gilt:
 \begin{align*}
-\forall t\in[0,\infty]\forall n\in\mdn&: 0\le\varphi_1\le\cdots\le t\\
+\forall t\in[0,\infty]\forall n\in\mdn&: 0\le\varphi_1\le\dots\le t\\
 \forall t\in[0,n]\forall n\in\mdn&: t-\frac1{2^n}\le\varphi_n(t)\le t 
 \end{align*}
 und es ist $\varphi_n(t)\stackrel{n\to\infty}\to t$ für alle $t\in[0\infty]$. Setze $f_n:=\varphi_n\circ f$. Dann leistet $(f_n)$ das gewünschte.
@@ -1941,7 +1941,7 @@ Dann gilt:
  &= \int_X\mathds{1}_N \lvert g\rvert\,dx + \int _X\mathds{1}_{X\setminus N} \lvert g\rvert\,dx\\
  &= \int_X \mathds{1}_{X\setminus N} \lvert g \rvert\,dx\\
 & \leq\int_X \lvert f\rvert\,dx \overset{\ref{Satz 4.9}}< \infty
-%hier soll eigentlich das kleinergleich unter das erste gleichzeichen...
+%hier soll eigentlich das kleinergleich unter das erste gleichzeichen
 \end{align*}
 \ref{Satz 4.9} liefert nun, dass $\lvert g\rvert$ und damit auch $g$ integrierbar ist. Weiter gilt:
 \begin{align*}
@@ -2091,7 +2091,7 @@ alle \(f_{n}\) integrierbar und es existiert ein \(f\in\fl^{1}(X)\) mit:
 \end{satz}
 
 \begin{beispiel}
-% Hier fehlt eventuell eine Graphik...
+% Hier fehlt eventuell eine Grafik
 Sei \(X=\mdr,\,f_{n}:=n\mathds{1}_{(0,\frac{1}{n})}\). Dann:
 \[
 \int_{X}{f_{n}\mathrm{d}x}=n\cdot\lambda_{1}\left(\left(0,\frac{1}{n}\right)\right)=n\cdot\frac{1}{n}=1\forall n\in\mdn
@@ -2390,7 +2390,7 @@ Ist \(f\colon\mdr^d\to\imdr\) messbar, so sind \(f_y\) und \(f^x\) messbar.
 folgt aus \ref{Lemma 8.1} und \ref{Lemma 8.3}.
 \end{beweis}
 
-%vielleicht funktioniert die nummerierung jetzt ...
+%vielleicht funktioniert die nummerierung jetzt
 \begin{defusatz}[ohne Beweis] 
 \label{Satz 8.5}
 Sei \(C\in\fb_d\). Die Funktionen \(\varphi_C\) und \(\psi_C\) seien unter Beachtung von \ref{Lemma 8.2} definiert durch:
@@ -2732,15 +2732,15 @@ Dann ist $f$ integrierbar und es folgt
 
 \begin{beispiel}
 \begin{enumerate}
-\item Sei \(D=[a_1,b_1]\times[a_2,b_2]\times\cdots\times[a_d,b_d]\) mit \(a_i\leq b_i \ (i=1,\dots,d)\). 
+\item Sei \(D=[a_1,b_1]\times[a_2,b_2]\times\dots\times[a_d,b_d]\) mit \(a_i\leq b_i \ (i=1,\dots,d)\). 
 Es sei \(f\colon D\to\mdr\) stetig. $D$ ist kompakt, also gilt \(D\in\fb_d\).
 Nach \ref{Satz 4.12}(2) ist \(f\in\mathfrak{L}^1(D)\) und aus obiger Bemerkung folgt
 	\begin{align*}
 	\int_Df(x_1,\dots,x_d)\,d(x_1,\dots,x_d) 
-	= \int_{a_d}^{b^d} \left(\cdots \left( \int_{a_2}^{b^2} \left(\int_{a_1}^{b^1}f(x_1,\dots,x_d)\,dx_1\right)dx_2\right)\cdots\right)dx_d
+	= \int_{a_d}^{b^d} \left(\dots \left( \int_{a_2}^{b^2} \left(\int_{a_1}^{b^1}f(x_1,\dots,x_d)\,dx_1\right)dx_2\right)\dots\right)dx_d
 	\end{align*}
 Die Reihenfolge der Integrationen darf beliebig vertauscht werden. Aus \ref{Satz 4.13} folgt
-\[\int_{a_i}^{b_i}\cdots \text{ d}x_i= \text{R-}\int_{a_i}^{b_i}\cdots\text{ d}x_i\]
+\[\int_{a_i}^{b_i}\dots \text{ d}x_i= \text{R-}\int_{a_i}^{b_i}\dots\text{ d}x_i\]
 
 \textbf{Konkretes Beispiel}\\
 Sei  \(D:=[a,b]\times[c,d]\subseteq\mdr^2\), \(f\in C([a,b])\) und \(g\in C([c,d])\).
@@ -3163,7 +3163,7 @@ Sei $a=(1,1,2), b=(1,1,0)$, dann gilt:
 \begin{definition}
 \index{Divergenz}
 Sei $\emptyset\ne D\subseteq\mdr^n$, $D$ offen und $f=(f_1,\dots,f_n)\in C^1(D,\mdr^n)$. Dann heißt
-\[\divv f:=\frac{\partial f_1}{\partial x_1}+\cdots+\frac{\partial f_n}{\partial x_n}\in C(D,\mdr)\]
+\[\divv f:=\frac{\partial f_1}{\partial x_1}+\dots+\frac{\partial f_n}{\partial x_n}\in C(D,\mdr)\]
 die \textbf{Divergenz} von $f$.
 \end{definition}
 
@@ -3360,7 +3360,7 @@ Es sei \(B\) zulässig, \(\partial B=\Gamma_{\gamma}\), wobei \(\gamma=(\gamma_{
 
 \begin{beispiel}
 \(D,\,B,\,f,\,F\) und \(\varphi\) seien wie in obigem Beispiel.
-% Bild einfuegen...
+% Bild einfuegen
 Hier: \(\gamma(t)=(\cos t,\sin t)\quad(t\in [0,2\pi])\). 
 Dann: \((\varphi\circ\gamma)(t)=\varphi(\cos t, \sin t)=(\cos t, \sin t, 1)\quad(t\in [0,2\pi])\).
 
@@ -3886,7 +3886,7 @@ Damit gilt fast überall \(f_n\to0\), aber
 	\index{stetig}
 Seien \((E,\|\cdot\|_1), (F,\|\cdot\|_2)\) normierte Räume.
 \begin{enumerate}
-\item 	Sei \((x_n)\) eine Folge in $E$ und \(s_n:=x_1+x_2+\cdots+x_n\) (\natn).
+\item 	Sei \((x_n)\) eine Folge in $E$ und \(s_n:=x_1+x_2+\dots+x_n\) (\natn).
  		Dann heißt \((s_n)\) eine \textbf{unendliche Reihe} und wird mit
 		\[\sum^\infty_{n=1}x_n\] bezeichnet. \(\sum^\infty_{n=1}x_n\) heißt
 		\textbf{konvergent} genau dann, wenn \((s_n)\) konvergiert. In diesem Fall ist
@@ -4110,7 +4110,7 @@ Sei \((\alpha_k)_{k\in\MdZ}\) eine Folge in \(\mdc\) und \((f_k)_{k\in\MdZ}\) ei
 \begin{enumerate}
 	\item 	Für \(n\in\mdn_0\) setze 
 			\[s_n:=\sum^n_{k=-n}\alpha_k = \sum_{\lvert k\rvert\leq n}\alpha_k
-			=\alpha_{-n}+\alpha_{-(n-1)}+\cdots+\alpha_0+\alpha_1+\cdots+\alpha_n\]
+			=\alpha_{-n}+\alpha_{-(n-1)}+\dots+\alpha_0+\alpha_1+\dots+\alpha_n\]
 			Existiert \(\lim_{n\to\infty}s_n\) in \(\mdc\), so schreiben wir
 			\(\sum_{k\in\MdZ}\alpha_k:=\lim_{n\to\infty}s_n\)
 	\item 	Für \(n\in\mdn_0\) setze 
@@ -4188,8 +4188,8 @@ Seien \(f_1,\dots,f_n,f\in L^2\).
 \begin{enumerate}
 \item	Gilt \(f_\mu\perp f_\nu\) für \(\mu\neq\nu\) (\(\mu,\nu=1,\dots,n\)),
 	so gilt der Satz des Pythagoras 
-	\[\| f_1+\cdots+f_n\|^2_2=
-	\| f_1\|^2_2+\cdots+
+	\[\| f_1+\dots+f_n\|^2_2=
+	\| f_1\|^2_2+\dots+
 	\| f_n\|^2_2\]
 \item	Die Abbildung \[S_n\colon
 	\begin{cases}
@@ -4330,7 +4330,7 @@ Für \(k\in\mdn:\,\beta_{k}:=\frac{1}{\pi}\int_{0}^{2\pi}{f(t)\sin(kt)\mathrm{d}
 \index{ungerade Funktion}
 \(f\) heißt \textbf{gerade} (bezüglich \(\pi\)) genau dann, wenn gilt: \(f(t)=f(2\pi-t)\) für fast alle \(t\in[0,2\pi]\).\\
 \(f\) heißt \textbf{ungerade} (bezüglich \(\pi\)) genau dann, wenn gilt: \(f(t)=-f(2\pi-t)\) für fast alle \(t\in[0,2\pi]\).\\
-% Bild nicht vergessen...
+% Bild nicht vergessen
 \end{definition}
 
 \begin{satz}
