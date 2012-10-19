@@ -12,32 +12,79 @@
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Lineare Algebra; LA; Mathematik; Universität}, 
-  pdftitle    = {Lineare Algebra} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Change the following lines:                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\yourName{Martin Thoma}
+\newcommand\yourTitle{Some Random Title}
+\newcommand\yourKeywords{Lineare Algebra; LA; Mathematik; Universität}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup { 
+  pdfauthor   = {\yourName}, 
+  pdfkeywords = {\yourKeywords}, 
+  pdftitle    = {\yourTitle} 
 }
 
 \begin{document}
- \title{Blutabnahme}
- \author{Martin Thoma}
+ \author{\yourName}
+ \title{\yourTitle}
 
-\maketitle
-\tableofcontents
+ \maketitle
+ \tableofcontents
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Start editing your content here                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{My first chapter}
 \section{A first section}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam elit, vestibulum nec facilisis at, condimentum id enim. Sed iaculis lacinia quam, vel accumsan eros tempor in. Integer ipsum metus, accumsan sit amet commodo a, egestas vitae sem. Mauris ut orci ut dolor viverra convallis nec a erat. Aenean consequat elit vel eros fermentum vestibulum id at ipsum. In vitae orci mauris, et rhoncus odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam 
+elit, vestibulum nec facilisis at, condimentum id enim. Sed iaculis 
+lacinia quam, vel accumsan eros tempor in. Integer ipsum metus, 
+accumsan sit amet commodo a, egestas vitae sem. Mauris ut orci ut 
+dolor viverra convallis nec a erat. Aenean consequat elit vel eros 
+fermentum vestibulum id at ipsum. In vitae orci mauris, et rhoncus 
+odio. Pellentesque habitant morbi tristique senectus et netus et 
+malesuada fames ac turpis egestas.
 
 \subsection{A subsection!}
-Fusce libero nulla, euismod vel suscipit nec, elementum vel massa. Mauris ut sapien sed neque dignissim sodales. Proin accumsan, lectus non gravida dapibus, lorem leo tincidunt odio, in semper ligula libero bibendum lorem. Pellentesque venenatis massa a neque porttitor congue. Maecenas ornare lacus ac orci mattis a placerat sapien euismod. In sed eros enim, non interdum nisi. Curabitur quis magna et tortor interdum pharetra. Donec sit amet turpis neque, quis congue leo. Proin sit amet placerat dolor.
+Fusce libero nulla, euismod vel suscipit nec, elementum vel massa. 
+Mauris ut sapien sed neque dignissim sodales. Proin accumsan, lectus 
+non gravida dapibus, lorem leo tincidunt odio, in semper ligula 
+libero bibendum lorem. Pellentesque venenatis massa a neque porttitor
+congue. Maecenas ornare lacus ac orci mattis a placerat sapien 
+euismod. In sed eros enim, non interdum nisi. Curabitur quis magna 
+et tortor interdum pharetra. Donec sit amet turpis neque, quis congue
+leo. Proin sit amet placerat dolor.
+
+\subsection{A subsubsection}
+You can go quite deep into details. You should use chapter, section, 
+subsection and subsubsection in this order. No need for fancy bold or
+underlined text.
 
 One equation:
 \begin{equation}
     \sin^2(x) + \cos^2(x) = 1
 \end{equation}
 
-Vivamus ante est, dictum at placerat id, semper auctor tellus. Donec sed ipsum enim, eget lacinia mi. Duis vulputate auctor ligula, sit amet suscipit lectus malesuada ut. Donec adipiscing rutrum dolor sit amet euismod. Aenean condimentum nibh vitae neque rhoncus ultrices. Vestibulum ultrices commodo mattis. Morbi aliquam elementum est, a pulvinar arcu viverra quis. Vivamus sed fermentum nisl. Cras bibendum, justo tincidunt dictum venenatis, sem turpis vestibulum nibh, ut dapibus nunc enim ut justo. Nullam iaculis vulputate aliquam. Sed nulla metus, facilisis eu porta sed, aliquet id mi. Duis congue blandit quam, a auctor turpis rhoncus non. Nam id dictum nibh. Integer vitae lacus sit amet ipsum semper interdum nec eget nisl. Vivamus aliquet, augue ut ultrices auctor, neque lacus vestibulum leo, vel dapibus ligula nisi ac nibh. Etiam accumsan, felis ut dapibus sagittis, velit turpis pellentesque nibh, nec cursus libero erat at odio.
+Vivamus ante est, dictum at placerat id, semper auctor tellus. Donec 
+sed ipsum enim, eget lacinia mi. Duis vulputate auctor ligula, sit 
+amet suscipit lectus malesuada ut. Donec adipiscing rutrum dolor sit 
+amet euismod. Aenean condimentum nibh vitae neque rhoncus ultrices. 
+Vestibulum ultrices commodo mattis. Morbi aliquam elementum est, a 
+pulvinar arcu viverra quis. Vivamus sed fermentum nisl. Cras 
+bibendum, justo tincidunt dictum venenatis, sem turpis vestibulum 
+nibh, ut dapibus nunc enim ut justo. 
+
+\chapter{A new start}
+Nullam iaculis vulputate 
+aliquam. Sed nulla metus, facilisis eu porta sed, aliquet id mi. 
+Duis congue blandit quam, a auctor turpis rhoncus non. Nam id dictum 
+nibh. Integer vitae lacus sit amet ipsum semper interdum nec eget 
+nisl. Vivamus aliquet, augue ut ultrices auctor, neque lacus 
+vestibulum leo, vel dapibus ligula nisi ac nibh. Etiam accumsan, 
+felis ut dapibus sagittis, velit turpis pellentesque nibh, nec cursus
+libero erat at odio.
 
 A Quadratic Equation is an equation in the form:
 \begin{equation}
@@ -45,7 +92,15 @@ A Quadratic Equation is an equation in the form:
 \end{equation}
 where \(a,b,c\in\mathbb{R}\).
 
-Fusce commodo erat et eros tincidunt quis elementum dui tincidunt. Sed blandit elementum eros nec pulvinar. Aenean vitae dignissim est. Sed auctor porttitor tempor. Donec id euismod diam. Aenean vulputate hendrerit metus sit amet aliquet. Curabitur ac pretium lacus. Ut tempus, augue vitae tristique laoreet, lacus lorem ultrices libero, et pretium sapien leo facilisis massa. Nunc pretium lorem eget libero hendrerit in pretium sapien convallis. Ut molestie, mi eget accumsan laoreet, lacus urna scelerisque metus, et luctus erat arcu non ante. Donec sit amet nisi felis, a interdum nibh.
+Fusce commodo erat et eros tincidunt quis elementum dui tincidunt. 
+Sed blandit elementum eros nec pulvinar. Aenean vitae dignissim est. 
+Sed auctor porttitor tempor. Donec id euismod diam. Aenean vulputate 
+hendrerit metus sit amet aliquet. Curabitur ac pretium lacus. Ut 
+tempus, augue vitae tristique laoreet, lacus lorem ultrices libero, 
+et pretium sapien leo facilisis massa. Nunc pretium lorem eget libero
+hendrerit in pretium sapien convallis. Ut molestie, mi eget accumsan 
+laoreet, lacus urna scelerisque metus, et luctus erat arcu non ante. 
+Donec sit amet nisi felis, a interdum nibh.
 
 Now: Aligned Equations:
 \begin{align}
@@ -54,7 +109,8 @@ Now: Aligned Equations:
     \Rightarrow x_{1,2} &= \frac{1}{2a} \cdot (-b \pm \sqrt{b^2 - 4ac})
 \end{align}
 
-Important is the ampersand \&.
+Important is the ampersand \&. Spacing is irrelevant for rendering.
+Spacing is only for the joy of reading through your \LaTeX{} code.
 
 You can also make this equations without numberings. Add a asterisk (*):
 
