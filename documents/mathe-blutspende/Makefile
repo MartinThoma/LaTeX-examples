@@ -1,5 +1,7 @@
+SOURCE = mathe-blutspende
+
 make:
-	pdflatex Aufgabe-Blutspende.tex -output-format=pdf
+	pdflatex $(SOURCE).tex -output-format=pdf
 	make clean
 
 clean:

@@ -1,5 +1,7 @@
+SOURCE = Burdsch-Chalifa
+
 make:
-	pdflatex Burdsch-Chalifa.tex -output-format=pdf
+	pdflatex $(SOURCE).tex -output-format=pdf
 	make clean
 
 clean:
