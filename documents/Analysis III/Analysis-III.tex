@@ -346,7 +346,8 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
     \end{enumerate}
 \end{definition}
 
-Beispiel für ein Intervall $(a_1, b_1) \times [a_2, b_2]$:\\
+Beispiel für ein Intervall $(a_1, b_1) \times [a_2, b_2]$ und
+die beiden Halbräume:\\
 \begin{tikzpicture}
     % Draw axes
     \draw [<->,thick] (0,2.5) node (yaxis) [above] {$x_2$}
@@ -368,14 +369,54 @@ Beispiel für ein Intervall $(a_1, b_1) \times [a_2, b_2]$:\\
     \draw[dotted] (yaxis |- c) node[left] {$b_2$}
         -| (xaxis -| c) node[below] {$b_1$};
 \end{tikzpicture}
+\begin{tikzpicture}
+    \pgfdeclarepatternformonly{north east lines wide}%
+    {\pgfqpoint{-1pt}{-1pt}}%
+    {\pgfqpoint{10pt}{10pt}}%
+    {\pgfqpoint{9pt}{9pt}}%
+    {
+    \pgfsetlinewidth{0.7pt}
+    \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+    \pgfpathlineto{\pgfqpoint{9.1pt}{9.1pt}}
+    \pgfusepath{stroke}
+    }
+
+    \pgfdeclarepatternformonly{north west lines wide}
+    {\pgfqpoint{-1pt}{-1pt}}%
+    {\pgfqpoint{7pt}{7pt}}%
+    {\pgfqpoint{6pt}{6pt}}%
+    {
+    \pgfsetlinewidth{0.7pt}
+    \pgfpathmoveto{\pgfqpoint{0pt}{6pt}}
+    \pgfpathlineto{\pgfqpoint{6.1pt}{-0.1pt}}
+    \pgfusepath{stroke}
+    }
+
+    % Draw two intersecting lines
+    \draw[thick, red]   (-1,-1) coordinate (a) -- (2,-1) coordinate (b);
+    \draw[thick, green] ( 1,-1) coordinate (c) -- (1, 2) coordinate (d);
+
+    \fill[pattern=north east lines wide, pattern color=red!50]   (a) -- (b) -- (2,2) -- (-1,2) -- (a);
+    \fill[pattern=north west lines wide, pattern color=green!50] (a) -- (1,-1) -- (1,2) -- (-1,2) -- (a);
+
+    \draw[thick, green] (c) -- (d);
+    \draw[thick, red]   (a) -- (b);
+
+
+    % Draw axes
+    \draw [<->,thick] (0,2.5) node (yaxis) [above] {$x_2$}
+        |- (2.5,0) node (xaxis) [right] {$x_1$};
+    \node[red]   at (1.5,2.8) {$H_2^+(-1)$};
+    \node[green] at (1.5,2.3) {$H_1^-(1)$};
+\end{tikzpicture}
 
 \begin{satz}[Erzeuger der Borelschen $\sigma$-Algebra auf $\mdr^d$]
 \label{Satz 1.4}
 Es seien $\ce_1,\ce_2,\ce_3$ wie folgt definiert:
 \begin{align*}
-\ce_1&:=\{(a,b):a,b\in\mdq^d,a\le b\}\\
-\ce_2&:=\{(a,b]:a,b\in\mdq^d, a\le b\}\\
-\ce_3&:=\{H^-_k(\alpha):\alpha\in\mdq, k=1,\dots,d\}
+\ce_1&:=\Set{(a,b) | a,b\in\mdq^d,a\le b}\\
+\ce_2&:=\Set{(a,b] | a,b\in\mdq^d, a\le b}\\
+\ce_3&:=\Set{H^-_k(\alpha) | \alpha\in\mdq, k \in \Set{1,\dots,d}}
 \end{align*}
 Dann gilt:
 \[\fb_d=\sigma(\ce_1)=\sigma(\ce_2)=\sigma(\ce_3)\]
@@ -383,96 +424,129 @@ Entsprechendes gilt für die anderen Typen von Intervallen und Halbräumen.
 \end{satz}
 
 \begin{beweis}
+\[\fb_d 
+    \stackrel{(1)}{\subseteq} \sigma(\ce_1) 
+    \stackrel{(2)}{\subseteq} \sigma(\ce_2) 
+    \stackrel{(3)}{\subseteq} \sigma(\ce_3) 
+    \stackrel{(4)}{\subseteq} \fb_d
+\]
 \begin{enumerate}
-    \item Sei $G\in\co(\mdr^d), \fm:=\{(a,b):a,b\in\mdq^d,a\le b, (a,b)\subseteq G\}$. 
-          Dann ist $\fm$ abzählbar und $G=\bigcup_{I\in\fm}I$. Also 
-          gilt:
-          \[G\in\sigma(\ce_1)\implies \fb_d=\sigma(\co(\mdr^d))\subseteq\sigma(\ce_1)\]
-    \item Sei $(a,b)\in\ce_1$.\\
+    \item Sei $G\in\co(\mdr^d), \fm:=\Set{(a,b) | a,b \in \mdq^d, \; a\le b, \; (a,b)\subseteq G}$.\\
+          Dann ist $\fm$ abzählbar und $G=\bigcup_{I\in\fm}I$.\\
+          Also gilt:
+          \[\co(\mdr^d) \subseteq \sigma(\ce_1)\]
+          \[G\in\sigma(\ce_1)\implies \fb_d=\sigma(\co(\mdr^d))\stackrel{1.3}{\subseteq}\sigma(\ce_1)\]
+    \item Sei $a=(a_1, \dots,a_d), b=(b_1,\dots,b_d) \in \mdq^d$ und $a \leq b$ sowie $(a, b)\in\ce_1$.\\
           \textbf{Fall 1:} $(a,b)=\emptyset\in\ce_2\subseteq\sigma(\ce_2)$\\
-          \textbf{Fall 2:} $(a,b)\ne\emptyset, a=(a_1\dots,a_d), b=(b_1\dots,b_d)$.\\
+          \textbf{Fall 2:} $(a,b)\ne\emptyset$.\\
           Dann gilt für alle $j\in\{1,\dots,d\}:a_j<b_j$. Also gilt auch:
-\[\exists N\in\mdn:\forall n\ge N: \forall j\in\{1,\dots,d\}:a_j<b_j-\frac1n\]
-Definiere $c_n:=(\frac1n,\dots,\frac1n)\in\mdq^d$. Dann gilt:
-\[(a,b)=\bigcup_{n\ge N}(a,b-c_n]\in\sigma(\ce_2)\]
-Also auch $\ce_1\subseteq\sigma(\ce_2)$ und damit $\sigma(\ce_1)\subseteq\sigma(\ce_2)$.
-\item Seien $a = (a_1,\dots,a_d), b=(b_1,\dots,b_d) \in \mdq^d$ mit $a \leq b$. Nachrechnen:
-\[(a,b] = \bigcap_{k=1}^d (H^-_k(b_k) \cap H^-_k(a_k)^c) \in \sigma(\ce_3). \]
-Das heißt $\ce_2 \subseteq \sigma(\ce_3)$ und damit auch $\sigma(\ce_2) \subseteq \sigma(\ce_3)$. 
-\item $H^-_k(\alpha)$ ist abgeschlossen, somit ist $H^-_k(\alpha)^c$ offen und damit $H^-_k(\alpha)^c \in \fb_d$, also auch $H^-_k(\alpha) \in \fb_d$. Damit ist $\ce_3 \subseteq \fb_d \implies \sigma(\ce_3) \subseteq \fb_d$. 
+          \[\exists N\in\mdn:\forall n\ge N: \forall j\in\{1,\dots,d\}:a_j<b_j-\frac1n\]
+          Definiere $c_n:=(\frac1n,\dots,\frac1n)\in\mdq^d$. Dann gilt:
+          \[(a,b)=\bigcup_{n\ge N}(a,b-c_n]\in\sigma(\ce_2)\]
+          Also auch $\ce_1\subseteq\sigma(\ce_2)$ und damit 
+          $\sigma(\ce_1)\subseteq\sigma(\ce_2)$.
+    \item Seien $a = (a_1,\dots,a_d), b=(b_1,\dots,b_d) \in \mdq^d$ 
+          mit $a \leq b$. 
+          Nachrechnen:
+          \[(a,b] = \bigcap_{k=1}^d (H^-_k(b_k) \cap H^-_k(a_k)^c) \in \sigma(\ce_3). \]
+          Das heißt $\ce_2 \subseteq \sigma(\ce_3)$ und damit auch 
+          $\sigma(\ce_2) \subseteq \sigma(\ce_3)$. 
+    \item $H^-_k(\alpha)$ ist abgeschlossen, somit ist 
+          $H^-_k(\alpha)^c$ offen und damit $H^-_k(\alpha)^c \in \fb_d$, 
+          also auch $H^-_k(\alpha) \in \fb_d$. Damit ist 
+          $\ce_3 \subseteq \fb_d \implies \sigma(\ce_3) \subseteq \fb_d$. 
 \end{enumerate}
 \end{beweis}
 
 \begin{definition}
-\index{Spur}
-Sei $\emptyset \neq \fm \subseteq \mathcal{P}(X)$ und $\emptyset \neq Y \subseteq X$. 
-\[\fm_Y := \{A \cap Y : A \in \fm\}\] 
-heißt die \textbf{Spur von $\fm$ in $Y$}.
+    \index{Spur}
+    Sei $\emptyset \neq \fm \subseteq \mathcal{P}(X)$ und 
+    $\emptyset \neq Y \subseteq X$. 
+    \[\fm_Y := \{A \cap Y : A \in \fm\}\] 
+    heißt die \textbf{Spur von $\fm$ in $Y$}.
 \end{definition}
 
+\begin{beispiel}
+    $X = \mdr^d, \fm \subseteq \sigma(\mdr^d), \; Y \subseteq X$. 
+    Dann: $(\co(\mdr^d))_Y = \sigma(Y)$
+\end{beispiel}
+
 \begin{satz}[Spuren und $\sigma$-Algebren]
-\label{Satz 1.5}
-Sei $\emptyset \neq Y \subseteq X$ und $\fa$ eine $\sigma$-Algebra auf $X$.
-\begin{enumerate}
-\item $\fa_Y$ ist eine $\sigma$-Algebra auf $Y$.
-\item $\fa_Y \subseteq \fa \iff Y \in \fa$
-\item Ist $\emptyset \neq \ce \subseteq \mathcal{P}(X)$, so ist $\sigma(\ce_Y) = \sigma(\ce)_Y$.
-\end{enumerate}
+    \label{Satz 1.5}
+    Sei $\emptyset \neq Y \subseteq X$ und $\fa$ eine 
+    $\sigma$-Algebra auf $X$.
+    \begin{enumerate}
+        \item $\fa_Y$ ist eine $\sigma$-Algebra auf $Y$.
+        \item $\fa_Y \subseteq \fa \iff Y \in \fa$
+        \item Ist $\emptyset \neq \ce \subseteq \mathcal{P}(X)$, so 
+              ist $\sigma(\ce_Y) = \sigma(\ce)_Y$.
+    \end{enumerate}
 \end{satz}
 
 \begin{beweis}
-\begin{enumerate}
-\item \begin{enumerate}
-\item[($\sigma_1$)] Es ist $Y=Y\cap X\in\fa_Y$, da $X\in\fa$.
-\item[($\sigma_2$)] Sei $B\in\fa_Y$, dann existiert ein $A\in\fa$ mit $B=A\cap Y$. Also ist $Y\setminus B=(X\setminus A)\cap Y\in\fa_Y$, da $X\setminus A\in\fa$ ist.
-\item[($\sigma_3$)] Sei $(B_j)$ eine Folge in $\fa_Y$, dann existiert eine Folge $(A_j)\in\fa^\mdn$ mit $B_j=A_j\cap Y$. Es gilt:
-\[\bigcup B_j=\bigcup(A_j\cap Y)=(\bigcup A_j)\cap Y\in\fa_Y\]
-\end{enumerate}
-\item Der Beweis erfolgt durch Implikation in beiden Richtungen:
-\begin{enumerate}
-\item["`$\implies$"'] Es gilt $Y\in\fa_Y\subseteq\fa$.
-\item["`$\impliedby$"'] Sei $B\in\fa_Y$, dann existiert ein $A\in\fa$ mit $B=A\cap Y\in\fa$.
-\end{enumerate}
-\item Es gilt:
-\begin{align*}
-\ce\subseteq\sigma(\ce)&\implies\ce_Y\subseteq\sigma(\ce)_Y\\
-&\implies\sigma(\ce_Y)\subseteq\sigma(\ce)_Y
-\end{align*}
-Sei nun:
-\[\cd:=\{A\subseteq X:A\cap Y\in\sigma(\ce_Y)\}\]
-Übung: $\cd$ ist eine $\sigma$-Algebra auf $X$.\\
-Sei $E\in\ce$ dann ist $E\cap Y\in\ce_Y\subseteq\sigma(\ce_Y)$ also $E\in\cd$ und damit $\ce\subseteq\cd$. Daraus folgt:
-\begin{align*}
-\sigma(\ce)_Y&\subseteq\sigma(\cd)_Y=\cd_Y=\{A\cap Y:A\in\cd\}\\
-&\subseteq\sigma(\ce_Y)
-\end{align*}
-\end{enumerate}
+    \begin{enumerate}
+        \item 
+          \begin{enumerate}
+            \item[($\sigma_1$)] Es ist $Y=Y\cap X\in\fa_Y$, da $X\in\fa$.
+            \item[($\sigma_2$)] Sei $B\in\fa_Y$, dann existiert ein 
+                            $A\in\fa$ mit $B=A\cap Y$.\\
+                            Also ist 
+                            $Y\setminus B=\overbrace{(X\setminus A)}^{\in\fa} \cap Y\in\fa_Y$.
+            \item[($\sigma_3$)] Sei $(B_j)$ eine Folge in $\fa_Y$, dann 
+                            existiert eine Folge $(A_j)\in\fa^\mdn$ 
+                            mit $B_j=A_j\cap Y$. Es gilt:
+                            \[\bigcup B_j=\bigcup(A_j\cap Y)=(\bigcup A_j)\cap Y\in\fa_Y\]
+            \end{enumerate}
+        \item Der Beweis erfolgt durch Implikation in beiden Richtungen:
+              \begin{enumerate}
+                \item["`$\implies$"'] Es gilt $Y\in\fa_Y\subseteq\fa$.
+                \item["`$\impliedby$"'] Sei $B\in\fa_Y$, dann existiert ein $A\in\fa$ mit $B=A\cap Y\in\fa$.
+              \end{enumerate}
+        \item Es gilt:
+        \begin{align*}
+        \ce\subseteq\sigma(\ce)&\implies\ce_Y\subseteq\sigma(\ce)_Y\\
+        &\implies\sigma(\ce_Y)\subseteq\sigma(\ce)_Y
+        \end{align*}
+        Sei nun:
+        \[\cd:=\{A\subseteq X:A\cap Y\in\sigma(\ce_Y)\}\]
+        Übung: $\cd$ ist eine $\sigma$-Algebra auf $X$.\\
+        Sei $E\in\ce$ dann ist $E\cap Y\in\ce_Y\subseteq\sigma(\ce_Y)$ also $E\in\cd$ und damit $\ce\subseteq\cd$. Daraus folgt:
+        \begin{align*}
+        \sigma(\ce)_Y&\subseteq\sigma(\cd)_Y=\cd_Y=\{A\cap Y:A\in\cd\}\\
+        &\subseteq\sigma(\ce_Y)
+        \end{align*}
+    \end{enumerate}
 \end{beweis}
 
 \begin{folgerungen}
-Sei $X\subseteq\mdr^d$. Dann gilt:
-\begin{enumerate}
-\item $\fb(X)=(\fb_d)_X$
-\item Ist $X\in\fb_d$, so ist $\fb(X)=\{A\in\fb_d:A\subseteq X\}\subseteq\fb_d$.
-\end{enumerate}
+    Sei $X\subseteq\mdr^d$. Dann gilt:
+    \begin{enumerate}
+        \item $\fb(X)=(\fb_d)_X$
+        \item \importantbox{\text{Ist } X\in\fb_d \text{, so ist } \fb(X)=\Set{A\in\fb_d:A\subseteq X}\subseteq\fb_d}
+    \end{enumerate}
 \end{folgerungen}
 
 \begin{definition}
-Wir fügen $\mdr$ das Symbol $+\infty$ hinzu. Es soll gelten:
+Wir fügen $\mdr$ ein zusätzliches Symbol $+\infty$ hinzu. Es soll gelten:
 \begin{enumerate}
-\item $\forall a\in\mdr:a<+\infty$
-\item $\pm a+(+\infty):=+\infty=:(+\infty)\pm a$
-\item $(+\infty)+(+\infty):=+\infty$
+    \item $(+\infty)+(+\infty):=+\infty$
+    \item $\forall a\in\mdr:a<+\infty$
+    \item $\pm a+(+\infty):=+\infty=:(+\infty)\pm a$
 \end{enumerate}
-Sei etwa $[0,+\infty]:=[0,\infty)\cup\{+\infty\}$.
+Außerdem sei $[0,+\infty]:=[0,\infty)\cup\{+\infty\}$.
 \begin{enumerate}
-\item Sei $(x_n)$ eine Folge in $[0,+\infty]$. Es gilt:
-\[x_n\stackrel{n\to\infty}{\to}\infty:\iff \forall c>0\exists n_c\in\mdn:\forall n\ge n_c: x_n> c\]
-\item Sei $(a_n)$ eine Folge in $[0,+\infty]$. Es gilt
-\[\sum_{n=1}^\infty a_n=\sum a_n = +\infty\]
-genau dann wenn $a_j=+\infty$ für ein $j\in\mdn$ oder, falls alle $a_j<+\infty$, wenn $\sum a_n$ divergiert.
+    \item Sei $(x_n)$ eine Folge in $[0,+\infty]$. Es gilt:
+          \[x_n\stackrel{n\to\infty}{\to}\infty:\iff \forall c>0\;\exists n_c\in\mdn:\forall n\ge n_c: x_n> c\]
+    \item Sei $(a_n)$ eine Folge in $[0,+\infty]$. Es gilt
+          \[\sum_{n=1}^\infty a_n=\sum a_n = +\infty :\Leftrightarrow
+            \begin{cases}
+                \exists n \in \mdn \text{ mit } a_n = +\infty \text{ oder }\\
+                \sum a_n \text{ divergiert}
+            \end{cases} 
+          \]
 \end{enumerate} 
-Wegen 13.1 Ana I können Reihen der obigen Form beliebig umgeordnet werden, ohne dass sich ihr Wert verändert.
+Wegen Ana I, 13.1 können Reihen der obigen Form beliebig umgeordnet 
+werden, ohne dass sich ihr Wert verändert.
 \end{definition}
 
 \begin{definition}
@@ -481,13 +555,18 @@ Wegen 13.1 Ana I können Reihen der obigen Form beliebig umgeordnet werden, ohne
 \index{Maßraum}
 \index{Maß!endliches}
 \index{Wahrscheinlichkeitsmaß}\index{Maß!Wahrscheinlichkeits-}
-Sei $\fa$ eine $\sigma$-Algebra auf $X$ und $\mu:\fa\to[0,+\infty]$ eine Abbildung. $\mu$ heißt ein \textbf{Maß} auf $\fa$, genau dann wenn gilt:
+Sei $\fa$ eine $\sigma$-Algebra auf $X$ und $\mu:\fa\to[0,+\infty]$ 
+eine Abbildung. $\mu$ heißt ein \textbf{Maß} auf $\fa$, genau dann 
+wenn gilt:
 \begin{enumerate}
 \item[$(M_1)$] $\mu(\emptyset)=0$
-\item[$(M_2)$] Ist $(A_j)$ eine disjunkte Folge in $\fa$, so ist $\mu(\bigcup A_j)=\sum\mu(A_j)$. Diese Eigenschaft heißt \textbf{$\sigma$-Additivität}.
+\item[$(M_2)$] Ist $(A_j)$ eine disjunkte Folge in $\fa$, so ist 
+$\mu(\bigcup A_j)=\sum\mu(A_j)$. Diese Eigenschaft heißt 
+\textbf{$\sigma$-Additivität}.
 \end{enumerate}
-Ist $\mu$ ein Maß auf $\fa$, so heißt $(X,\fa,\mu)$ ein \textbf{Maßraum}.\\
-Ein Maß $\mu$ heißt \textbf{endlich}, genau dann wenn $\mu(X)<\infty$. Ein Maß $\mu$ heißt ein \textbf{Wahrscheinlichkeitsmaß}, genau dann wenn $\mu(X)=1$ ist.
+In diesem Fall heißt $(X,\fa,\mu)$ ein \textbf{Maßraum}.\\
+Ein Maß $\mu$ heißt \textbf{endlich} $:\Leftrightarrow \mu(X)<\infty$.\\
+Ein Maß $\mu$ heißt ein \textbf{Wahrscheinlichkeitsmaß} $:\Leftrightarrow\mu(X)=1$ ist.
 \end{definition}
 
 \begin{beispiel}
@@ -495,37 +574,51 @@ Ein Maß $\mu$ heißt \textbf{endlich}, genau dann wenn $\mu(X)<\infty$. Ein Ma�
 \index{Dirac-Maß}\index{Maß!Dirac-}
 \index{Zählmaß}\index{Maß!Zähl-}
 \begin{enumerate}
-\item Sei $\fa=\cp(X)$ und $x_0\in X$. $\delta_{x_0}:\fa\to[0,+\infty]$ sei definiert durch:
-\[\delta_{x_0}(A):=
-\begin{cases}
-1,\ x_0\in A\\
-0,\ x_0\not\in A
-\end{cases}\]
-Klar ist, dass $\delta_{x_0}(\emptyset)=0$ ist.\\
-Sei $(A_j)$ eine disjunkte Folge in $\fa$.
-\[\delta_{x_0}(\bigcup A_j)=
-\left.\begin{cases}
-1,\ x_0\in\bigcup A_j\\
-0,\ x_0\not\in\bigcup A_j
-\end{cases}\right\}=\sum\delta_{x_0}(A_j)\]
-$\delta_{x_0}$ ist ein Maß auf $\cp(X)$ und heißt \textbf{Punktmaß} oder \textbf{Dirac-Maß}.
-\item Sei $X:=\mdn$, $\fa:=\cp(X)$ und $(p_j)$ eine Folge in $[0,+\infty]$. Definiere $\mu:\fa\to[0,+\infty]$ durch:
-\begin{align*}
-\mu(A):=
-\begin{cases}
-0&,A=\emptyset\\
-\sum_{j\in A}p_j&,A\ne\emptyset
-\end{cases}
-\end{align*}
-Übung: $\mu$ ist ein Maß auf $\fa=\cp(\mdn)$ und heißt ein \textbf{Zählmaß}. Sind alle $p_j=1$, so ist $\mu(A)$ gerade die Anzahl der Elemente von $A$.
-\item Sei $(X,\fa,\mu)$ ein Maßraum, $\emptyset\ne Y\subseteq X$ und $\fa_0\subseteq\fa$ eine $\sigma$-Algebra auf $Y$. Definiere $\mu_0:\fa_0\to[0,+\infty]$ durch $\mu_0(A):=\mu(A)$ ($A\in\fa_0$). Dann ist $(Y,\fa_0,\mu_0)$ ein Maßraum.\\
-Ist spezieller $Y\in\fa$, so ist $\fa_0:=\fa_Y\subseteq\fa$ und man definiert $\mu_{|Y}:\fa_Y\to[0,+\infty]$ durch $\mu_{|Y}(A):=\mu(A)$.
+    \item Sei $\fa:=\cp(X)$ und $x_0\in X$. 
+          $\delta_{x_0}:\fa\to[0,+\infty]$ sei definiert durch:
+          \[\delta_{x_0}(A):=
+          \begin{cases}
+          1,\ x_0\in A\\
+          0,\ x_0\not\in A
+          \end{cases}\]
+          Klar ist, dass $\delta_{x_0}(\emptyset)=0$ ist.\\
+          Sei $(A_j)$ eine disjunkte Folge in $\fa$.
+          \[\delta_{x_0}(\bigcup A_j)=
+          \left.\begin{cases}
+          1,\ x_0\in\bigcup A_j\\
+          0,\ x_0\not\in\bigcup A_j
+          \end{cases}\right\}=\sum\delta_{x_0}(A_j)\]
+          $\delta_{x_0}$ ist ein Maß auf $\fa$ und heißt 
+          \textbf{Punktmaß} oder \textbf{Dirac-Maß}.
+    \item Sei $X:=\mdn$, $\fa:=\cp(X)$ und $(p_j)$ eine Folge in 
+          $[0,+\infty]$. Definiere $\mu:\fa\to[0,+\infty]$ durch:
+          \begin{align*}
+          \text{Für } A \in \fa: \quad 
+          \mu(A):=
+          \begin{cases}
+              0                &\text{, falls } A=\emptyset\\
+              \sum_{j\in A}p_j &\text{, falls } A\ne\emptyset
+          \end{cases}
+          \end{align*}
+          Übung: $\mu$ ist ein Maß auf $\fa=\cp(\mdn)$ und heißt ein \textbf{Zählmaß}. 
+          Sind alle $p_j=1$, so ist $\mu(A)$ gerade die Anzahl der 
+          Elemente von $A$.
+    \item Sei $(X,\fa,\mu)$ ein Maßraum, $\emptyset\ne Y\subseteq X$ 
+          und $\fa_0\subseteq\fa$ eine $\sigma$-Algebra auf $Y$. 
+          Definiere $\mu_0:\fa_0\to[0,+\infty]$ durch 
+          $\mu_0(A):=\mu(A)$ ($A\in\fa_0$).\\
+          Dann ist 
+          $(Y,\fa_0,\mu_0)$ ein Maßraum.\\
+          Ist spezieller $Y\in\fa$, so ist $\fa_0:=\fa_Y\subseteq\fa$ 
+          und man definiert $\mu_{|Y}:\fa_Y\to[0,+\infty]$ durch 
+          $\mu_{|Y}(A):=\mu(A)$ ist ein Maß auf $\fa_Y$.
 \end{enumerate}
 \end{beispiel}
 
 \begin{satz}
 \label{Satz 1.7}
-\((X,\fa,\mu)\) sei ein Maßraum, es seien \(A,B\in\fa\) und \((A_{j})\) sei eine Folge in \(\fa\). Dann:
+\((X,\fa,\mu)\) sei ein Maßraum, es seien \(A,B\in\fa\) und 
+\((A_{j})\) sei eine Folge in \(\fa\). Dann:
 \begin{enumerate}
 \item \(A\subseteq B\,\implies\,\mu(A)\leq\mu(B)\)
 \item Ist \(\mu(A)<\infty\) und \(A\subseteq B,\implies\,\mu(B\setminus A)=\mu(B)-\mu(A)\)
