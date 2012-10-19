@@ -6,18 +6,18 @@
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage[margin=2.5cm]{geometry} %layout
 \usepackage{hyperref}   % links im text
-\usepackage{color}
-\usepackage{framed}
 \usepackage{enumerate}  % for advanced numbering of lists
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
+\usepackage{fancyheadings}  % Kopfzeile
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Change the following lines:                                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\yourName{Martin Thoma}
-\newcommand\yourTitle{Some Random Title}
-\newcommand\yourKeywords{Lineare Algebra; LA; Mathematik; Universität}
+\newcommand\yourTitle{Lichtgeschwindigkeitsmessung}
+\newcommand\yourKeywords{Physik;Praktikum;P1}
+\newcommand\yourNumber{Praktikumsnummer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \hypersetup { 
@@ -25,6 +25,15 @@
   pdfkeywords = {\yourKeywords}, 
   pdftitle    = {\yourTitle} 
 }
+
+\pagestyle{fancy}% eigenen Seitestil aktivieren}
+
+\lhead[\thepage]{}      %\thesection Note the different brackets!
+%\rhead[\thesection]{\thechapter}
+
+\lfoot{\yourNumber}
+\cfoot{\thepage}
+\rfoot{\yourName}
 
 \begin{document}
  \author{\yourName}
@@ -36,7 +45,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Start editing your content here                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{My first chapter}
+\chapter{Drehspiegelmethode}
 \section{A first section}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam 
 elit, vestibulum nec facilisis at, condimentum id enim. Sed iaculis 
@@ -57,7 +66,16 @@ euismod. In sed eros enim, non interdum nisi. Curabitur quis magna
 et tortor interdum pharetra. Donec sit amet turpis neque, quis congue
 leo. Proin sit amet placerat dolor.
 
-\subsection{A subsubsection}
+Fusce libero nulla, euismod vel suscipit nec, elementum vel massa. 
+Mauris ut sapien sed neque dignissim sodales. Proin accumsan, lectus 
+non gravida dapibus, lorem leo tincidunt odio, in semper ligula 
+libero bibendum lorem. Pellentesque venenatis massa a neque porttitor
+congue. Maecenas ornare lacus ac orci mattis a placerat sapien 
+euismod. In sed eros enim, non interdum nisi. Curabitur quis magna 
+et tortor interdum pharetra. Donec sit amet turpis neque, quis congue
+leo. Proin sit amet placerat dolor.
+
+\subsubsection{A subsubsection}
 You can go quite deep into details. You should use chapter, section, 
 subsection and subsubsection in this order. No need for fancy bold or
 underlined text.
@@ -75,6 +93,10 @@ Vestibulum ultrices commodo mattis. Morbi aliquam elementum est, a
 pulvinar arcu viverra quis. Vivamus sed fermentum nisl. Cras 
 bibendum, justo tincidunt dictum venenatis, sem turpis vestibulum 
 nibh, ut dapibus nunc enim ut justo. 
+
+\paragraph{not really?!?}
+I have never seen somebody using paragraph ... but it exists. It's
+the next logical step after subsubsection
 
 \chapter{A new start}
 Nullam iaculis vulputate 
