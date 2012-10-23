@@ -659,12 +659,16 @@ In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
 \begin{definition}
     \index{Ring}
     Sei \(\emptyset\neq \fr \subseteq \cp(X)\). 
-    $\fr$ heißt ein \textbf{Ring} (auf \(X\)), genau dann wenn gilt:
+    $\fr$ heißt ein \textbf{Ring} auf \(X\), genau dann wenn gilt:
     \begin{enumerate}
-        \item \(\emptyset \in \fr\)
-        \item \(A,B \in \fr \, \implies \; A\cup B, \, B \setminus A \in \fr\)
+        \item[(R1)] \(\emptyset \in \fr\)
+        \item[(R2)] \(A,B \in \fr \, \implies \; A\cup B, \, B \setminus A \in \fr\)
     \end{enumerate}
 \end{definition}
+
+\textbf{Hinweis}: $(\fr, \cup, \setminus)$ ist kein Ring im Sinne
+der linearen Algebra, $(\fr, \cup)$ kein Inverses Element hat und 
+$(\fr, \cup)$ nicht kommutativ ist.
 
 \begin{definition}
     \index{Elementarvolumen}
@@ -679,7 +683,7 @@ In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
                 0                                             & \text{falls }I=\emptyset\\
                 (b_{1}-a_{1})(b_{2}-a_{2})\dots(b_{d}-a_{d}) & \text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
               \]
-        \item \(\cf_d:=\left\{\bigcup_{j=1}^{n}I_{j}\mid n\in\MdN,\,I_{1},\dots,I_{n}\in I_{d}\right\}\) (\textbf{Menge der Figuren})
+        \item \(\cf_d:=\Set{\bigcup_{j=1}^{n}I_{j} | n\in\MdN,\,I_{1},\dots,I_{n}\in I_{d}}\) (\textbf{Menge der Figuren})
     \end{enumerate}
 \end{definition}
 Ziel dieses Kapitels: Fortsetzung von \(\lambda_{d}\) auf \(\cf_{d}\) 
@@ -947,7 +951,7 @@ dann: \(\nu=\lambda_{d}\) auf \(\fb_{d}\).
 \end{beweis}
 
 \begin{bemerkung}
-Sei \(X\in\fb_{d}\). Aus 1.6 folgt: \(\fb(X)=\{A\in\fb_{d}\mid A\subseteq X\}\).
+Sei \(X\in\fb_{d}\). Aus 1.6 folgt: \(\fb(X)=\Set{A\in\fb_{d} | A\subseteq X}\).
 Die Einschränkung von \(\lambda_{d}\) auf \(\fb(X)\) heißt ebenfalls
 L-Maß\ und wird mit \(\lambda_{d}\) bezeichnet.
 \end{bemerkung}
@@ -974,7 +978,7 @@ mit \(a_{j}\neq a_{i}\,(i\neq j)\). Dann: \(\mdq^{d}=\bigcup\{a_{j}\}\) %\bigcup
 Dann gilt: \(\mdq^{d}\in\fb_{d}\) und \(\lambda_{d}(\mdq^{d})=\sum{\lambda_{d}(\{a_{j}\})}=0\).
 \item Wie in Beispiel (3): Ist \(A\subseteq\mdr^{d}\) abzählbar, so ist
 \(A\in\fb_{d}\) und \(\lambda_{d}(A)=0\).
-\item Sei \(j\in\{1,\dots,d\}\) und \(H_{j}:=\{(x_{1},\dots,x_{d})\in\mdr^{d}\mid x_{j}=0\}\). \(H_{j}\) ist abgeschlossen, damit folgt: \(H_{j}\in\fb_{d}\).
+\item Sei \(j\in\{1,\dots,d\}\) und \(H_{j}:=\Set{(x_{1},\dots,x_{d})\in\mdr^{d} | x_{j}=0}\). \(H_{j}\) ist abgeschlossen, damit folgt: \(H_{j}\in\fb_{d}\).
 
 Ohne Beschränkung der Allgemeinheit sei \(j=d\). Dann:
 \(I_{n}:=\underbrace{[-n,n]\times\dots\times[-n,n]}_{(d-1)-\text{mal}}\times\{0\}\).
@@ -987,7 +991,7 @@ Aus \(H_{d}=\bigcup{I_{n}}\) folgt: \(\lambda_{d}(H_{d})\leq\sum{\lambda_{d}(I_{
 
 \begin{definition}
 Sei $x\in\mdr^d, B\subseteq\mdr^d$. Definiere:
-\[x+B:=\{x+b\mid b\in B\}\]
+\[x+B:=\Set{x+b | b\in B}\]
 \end{definition}
 
 \begin{beispiel}
@@ -1027,16 +1031,18 @@ Weiter sei $c:=\mu((0,1]^d)<\infty$. Dann gilt:
 Sei $A \in\fb_d$, dann gilt:
 \begin{enumerate}
 \item
-$\lambda_d(A)=\inf\left\{\lambda_d(G)\mid G\subseteq\mdr^d\text{ offen und }A \subseteq G\right\}\\
- =\inf\left\{\lambda_d(V)\mid V=\bigcup_{j=1}^\infty I_j, I_j\subseteq\mdr^d\text{ offenes Intervall }, A\subseteq V\right\}$
-\item $\lambda_d(A)=\sup\{\lambda_d(K)\mid K\subseteq\mdr^d\text{ kompakt }, K\subseteq A\}$
+$\lambda_d(A)
+ =\inf\Set{\lambda_d(G) | G\subseteq\mdr^d\text{ offen und }A \subseteq G}\\
+ =\inf\Set{\lambda_d(V) | V=\bigcup_{j=1}^\infty I_j, I_j\subseteq\mdr^d\text{ offenes Intervall }, A\subseteq V}$
+\item $\lambda_d(A)=\sup\Set{\lambda_d(K) | K\subseteq\mdr^d\text{ kompakt }, K\subseteq A}$
 \end{enumerate}
 \end{satz}
 
 \begin{beweis}
 \begin{enumerate}
 \item Ohne Beweis.
-\item Setze $\beta:=\sup\{\lambda_d(K)\mid K\subseteq\mdr^d\text{ kompakt }, K\subseteq A\}$. Sei $K$ kompakt und $K\subseteq A$, dann gilt $\lambda_d(K)\le\lambda_d(A)$, also ist auch $\beta\le\lambda_d(A)$.
+\item Setze $\beta:=\sup\Set{\lambda_d(K) | K\subseteq\mdr^d\text{ kompakt }, K\subseteq A}$.
+      Sei $K$ kompakt und $K\subseteq A$, dann gilt $\lambda_d(K)\le\lambda_d(A)$, also ist auch $\beta\le\lambda_d(A)$.
 
 \textbf{Fall 1:} Sei $A$ zusätzlich beschränkt.\\
 Sei $\ep>0$. Es existiert ein $r>0$, sodass $A\subseteq B:=\overline{U_r(0)}\subseteq[-r,r]^d$ ist, dann gilt:
@@ -1059,7 +1065,10 @@ Also auch:
 \end{beweis}
 
 \textbf{Auswahlaxiom:}\\
-Sei $\emptyset\ne\Omega$ Indexmenge, es sei $\{X_\omega\mid \omega\in\Omega\}$ ein disjunktes System von nichtleeren Mengen $X_\omega$. Dann existiert ein $C\subseteq\bigcup_{\omega\in\Omega}X_\omega$, sodass $C$ mit jedem $X_j$ genau ein Element gemeinsam hat.
+Sei $\emptyset\ne\Omega$ Indexmenge, es sei $\Set{X_\omega | \omega\in\Omega}$ 
+ein disjunktes System von nichtleeren Mengen $X_\omega$. Dann 
+existiert ein $C\subseteq\bigcup_{\omega\in\Omega}X_\omega$, sodass 
+$C$ mit jedem $X_j$ genau ein Element gemeinsam hat.
 
 \begin{satz}[Satz von Vitali]
 \label{Satz 2.11}
@@ -1070,7 +1079,7 @@ Es existiert ein $C\subseteq\mdr^d$ sodass $C\not\in\fb_d$.
 Wir definieren auf $[0,1]^d$ eine Äquivalenzrelation $\sim$, durch:
 \begin{align*}
 \forall x,y\in[0,1]^d: x \sim y\iff x-y\in\mdq^d\\
-\forall x\in[0,1]^d:[x]:=\{y\in[0,1]^d\mid x\sim y\}
+\forall x\in[0,1]^d:[x]:=\Set{y\in[0,1]^d | x\sim y}
 \end{align*}
 Nach dem Auswahlaxiom existiert ein $C\subseteq[0,1]^d$, sodass $C$ mit jedem $[x]$ genau ein Element gemeinsam hat.
 Es ist $\mdq^d\cap[-1,1]^d=\{q_1,q_2,\dots\}$ mit $q_i\ne q_j$ für $(i\ne j)$. Dann gilt:
@@ -1082,7 +1091,7 @@ Es ist $\mdq^d\cap[-1,1]^d=\{q_1,q_2,\dots\}$ mit $q_i\ne q_j$ für $(i\ne j)$. 
 Sei $x\in[0,1]^d$. Wähle $y\in C$ mit $y\in[x]$, dann ist $x\sim y$, also $x-y\in\mdq^d\cap[-1,1]^d$. D.h.:
 \[\exists n\in\mdn: x-y=q_n\implies x=q_n+y\in q_n+C\] 
 \end{beweis}
-Außerdem ist $\{q_n+C\mid n\in\mdn\}$ disjunkt.
+Außerdem ist $\Set{q_n+C | n\in\mdn}$ disjunkt.
 \begin{beweis}
 Sei $z\in(q_n+C)\cap(q_m+C)$, dann existieren $a,b\in\mdq^d$, sodass gilt:
 \begin{align*}
@@ -1129,7 +1138,9 @@ Seien die Bezeichnungen wie in obiger Definition, dann gilt:
 \begin{enumerate}
 \item $f$ sei $\fa$-$\fb$-messbar, $\fa'$ eine weitere $\sigma$-Algebra auf $X$ mit $\fa\subseteq\fa'$ und $\fb'$ sei eine $\sigma$-Algebra auf $Y$ mit $\fb'\subseteq\fb$.\\
 Dann ist $f$ $\fa'$-$\fb'$-messbar.
-\item Sei $X_0\in\fa$, dann gilt $\fa_{X_0}\subseteq\fa$ nach \ref{Satz 1.5}. Nun sei $f:X\to Y$ $\fa$-$\fb$-messbar, dann ist $f_{\mid X_0}:X_0\to Y$ $\fa_{X_0}$-$\fb$-messbar.
+\item Sei $X_0\in\fa$, dann gilt $\fa_{X_0}\subseteq\fa$ nach 
+\ref{Satz 1.5}. Nun sei $f:X\to Y$ $\fa$-$\fb$-messbar, dann ist 
+$f_{\mid X_0}:X_0\to Y$ $\fa_{X_0}$-$\fb$-messbar.
 \end{enumerate}
 \end{bemerkung}
 
@@ -1161,7 +1172,7 @@ Funktionen.
 \(f\) ist messbar, daraus folgt \(f^{-1}(g^{-1}(C))=(g\circ f)^{-1}(C)\in\fa\)
 \item \begin{itemize}
 \item[\(\Rightarrow\)] \checkmark
-\item[\(\Leftarrow\)] \(\fd:=\{B\subseteq Y\mid f^{-1}(B)\in\fa\}\)
+\item[\(\Leftarrow\)] \(\fd:=\Set{B\subseteq Y | f^{-1}(B)\in\fa}\)
 Übung: \(\fd\) ist eine \(\sigma\)-Algebra auf \(Y\).
 
 Aus der Voraussetzung folgt: \(\ce\subseteq\fd\).
@@ -1175,7 +1186,8 @@ Dann: \(\fb=\sigma(\ce)\subseteq\fd\). Ist \(B\in\fb\), so ist \(B\in\fd\), also
 \index{messbar!Borel}\index{messbar}
 Sei \(X\in\fb_{d}\). Ist \(f:\,X\to\mdr^{k}\) \(\fb(X)-\fb_{k}-\)messbar, so heißt \(f\) \textbf{(Borel-)messbar}.
 \end{definition}
-Ab jetzt sei stets \(X\in\fb_{d}\). (Erinnerung: \(\fb(X)=\{A\in\fb_{d}\mid A\subseteq X\}\))
+Ab jetzt sei stets \(X\in\fb_{d}\). 
+(Erinnerung: \(\fb(X)=\Set{A\in\fb_{d} | A\subseteq X}\))
 
 \begin{satz}
 \label{Satz 3.2}
@@ -1188,7 +1200,7 @@ Seien \(f,\,g:\,X\to\mdr^{k}\) und \(\alpha,\beta\in\mdr\).
 \begin{enumerate}
 \item \(fg\) ist messbar
 \item Ist \(f(x)\neq0\forall x\in X\), so ist \(\frac{1}{f}\) messbar
-\item \(\{x\in X\mid f(x)\geq g(x)\}\in\fb(X)\)
+\item \(\Set{x\in X | f(x)\geq g(x)} \in \fb(X)\)
 \end{enumerate}
 \end{enumerate}
 \end{satz}
@@ -1224,7 +1236,8 @@ Es ist \(fg=\vp\circ h\). Mit \ref{Satz 3.1}.(1) folgt: \(fg\) ist messbar.
 \item \(\vp(x):=\frac{1}{x}\), \(\vp\) ist stetig auf \(\mdr\setminus\{0\}\), also messbar.
 
 \(\frac{1}{f}=\vp\circ f\). Mit \ref{Satz 3.1}.(1) folgt: \(\frac{1}{f}\) ist messbar.
-\item \(A:=\{x\in X\mid f(x)\geq g(x)\}=\{x\in X\mid f(x)-g(x)\in[0,\infty)\}=\underbrace{(f-g)}_{\text{messbar nach (3)}}^{-1}(\overbrace{[0,\infty)}^{\in\fb_{1}})\in\fb(X)\)
+\item \(A:=\Set{x\in X | f(x)\geq g(x)} = \Set{x\in X | f(x)-g(x)\in[0,\infty)}
+          =\underbrace{(f-g)}_{\text{messbar nach (3)}}^{-1}(\overbrace{[0,\infty)}^{\in\fb_{1}})\in\fb(X)\)
 \end{enumerate}
 \end{enumerate}
 \end{beweis}
@@ -1260,7 +1273,8 @@ Es ist \(g=\vp\circ f\). Mit \ref{Satz 3.1} folgt: \(g\) ist messbar.
 
 für \(x\neq 0:\,f(x,x)=\frac{\sin(X)}{x}\overset{x\to 0}{\to}1\neq 0=f(0,0)\), daraus folgt: \(f\) ist nicht stetig.
 
-\(A:=\{(x,y)\in\mdr^{2}\mid x=0\},\,B:=\{(x,y)\in\mdr^{2}\mid x\neq 0\},\,X=A\cup B,\,A\cap B=\emptyset\). \(A\) ist
+\(A:=\Set{(x,y)\in\mdr^{2} | x=0},\,B
+   :=\Set{(x,y)\in\mdr^{2} | x\neq 0},\,X=A\cup B,\,A\cap B=\emptyset\). \(A\) ist
 abgeschlossen, das heißt: \(A\in\fb_{2},\,B=A^{C}\in\fb_{2}\)
 
 \begin{align*}
@@ -1292,26 +1306,27 @@ In \(\imdr\) gelten folgende Regeln, wobei \(a\in\mdr\):
 Analog für \(-\infty\).
 \item Seien \(f,g: X\to\imdr\). Dann:
 \begin{align*}
-    \{f\leq g\}&:=\{x\in X\mid f(x)\leq g(x)\}\\
-    \{f\geq g\}&:=\{x\in X\mid f(x)\geq g(x)\}\\
-    \{f\neq g\}&:=\{x\in X\mid f(x)\neq g(x)\}\\
-    \{f<g\}&:=\{x\in X\mid f(x)<g(x)\}\\
-    \{f>g\}&:=\{x\in X\mid f(x)>g(x)\}
+    \{f\leq g\}&:=\Set{x\in X | f(x)\leq g(x)}\\
+    \{f\geq g\}&:=\Set{x\in X | f(x)\geq g(x)}\\
+    \{f\neq g\}&:=\Set{x\in X | f(x)\neq g(x)}\\
+    \{f<g\}&:=\Set{x\in X | f(x)<g(x)}\\
+    \{f>g\}&:=\Set{x\in X | f(x)>g(x)}
 \end{align*}
 \item Sei \(a\in\imdr\) und \(f:\,X\to\imdr\). Dann:
 \begin{align*}
-    \{f\leq a\}&:=\{x\in X\mid f(x)\leq a\}\\
-    \{f\geq a\}&:=\{x\in X\mid f(x)\geq a\}\\
-    \{f\neq a\}&:=\{x\in X\mid f(x)\neq a\}\\
-    \{f<a\}&:=\{x\in X\mid f(x)<a\}\\
-    \{f>a\}&:=\{x\in X\mid f(x)>a\}
+    \{f\leq a\}&:=\Set{x\in X | f(x)\leq a}\\
+    \{f\geq a\}&:=\Set{x\in X | f(x)\geq a}\\
+    \{f\neq a\}&:=\Set{x\in X | f(x)\neq a}\\
+    \{f<a\}    &:=\Set{x\in X | f(x)<a}\\
+    \{f>a\}    &:=\Set{x\in X | f(x)>a}
 \end{align*}
 \end{enumerate}
 \end{definition}
 
 \begin{definition}
 \index{Borel!$\sigma$-Algebra}\index{messbar}
-\(\ifb_{1}:=\{B\cup E\mid B\in\fb_{1},\,E\subseteq\{-\infty,+\infty\}\}\). Dann: \(\fb_{1}\subseteq\ifb_{1}\)\\
+\(\ifb_{1}:=\Set{B\cup E | B\in\fb_{1},\,E\subseteq\Set{-\infty,+\infty}}\). 
+Dann: \(\fb_{1}\subseteq\ifb_{1}\)\\
 Übung: \(\ifb_{1}\) ist eine \(\sigma\)-Algebra auf \(\imdr\).\\
 \(\ifb_{1}\) heißt \textbf{Borelsche \(\sigma\)-Algebra} auf \(\imdr\).
 Sei \(f:\,X\to\imdr\). \(f\) heißt \textbf{(Borel-)messbar} (mb) \(:\Leftrightarrow\,f\) ist \(\fb(X)-\ifb_{1}-\) messbar.
@@ -1320,7 +1335,7 @@ Sei \(f:\,X\to\imdr\). \(f\) heißt \textbf{(Borel-)messbar} (mb) \(:\Leftrighta
 \begin{beispiel}
 \(f(x):=+\infty\quad(x\in X)\), also: \(f:\,X\to\imdr\)
 
-Sei \(B\in\overline{\fb}_{1},\,A:=f^{-1}(B)=\{x\in X\mid f(x)\in B\}\)
+Sei \(B\in\overline{\fb}_{1},\,A:=f^{-1}(B)=\Set{x\in X | f(x)\in B}\)
 \begin{itemize}
 \item[Fall 1:] \(+\infty\not\in B\), dann: \(A=\emptyset\in\fb(X)\)
 \item[Fall 2:] \(+\infty\in B\), dann: \(A=X\in\fb(X)\)
@@ -1333,8 +1348,8 @@ Sei \(B\in\overline{\fb}_{1},\,A:=f^{-1}(B)=\{x\in X\mid f(x)\in B\}\)
 \begin{enumerate}
 \item Definiere die Mengen:
 \begin{align*}
-\ce_1&:=\{[-\infty,a]\mid a\in\mdq\} & \ce_2&:=\{[-\infty,a)\mid a\in\mdq\}\\
-\ce_3&:=\{(a,\infty]\mid a\in\mdq\} & \ce_4&:=\{[a,\infty]\mid a\in\mdq\}
+\ce_1&:=\Set{[-\infty,a] | a\in\mdq} & \ce_2&:=\Set{[-\infty,a) | a\in\mdq}\\
+\ce_3&:=\Set{(a,\infty] | a\in\mdq} & \ce_4 &:=\Set{[a,\infty] | a\in\mdq}
 \end{align*}
 Dann gilt:
 \[\overline{\fb_1}=\sigma(\ce_j)\quad \text{ für }j\in\{1,2,3,4\}\]
@@ -1357,7 +1372,7 @@ Die folgenden Beweise erfolgen exemplarisch für einen der Unterpunkte und funkt
 \[[-\infty,a]^c=(a,\infty]\in\sigma(\ce_1)\]
 D.h. es gilt $\ce_3\subseteq\sigma(\ce_1)$ und damit auch $\sigma(\ce_3)\subseteq\sigma(\ce_1)$.
 \item Es gilt:
-\[\{f\le a\}=\{x\in X\mid f(x)\le a\}=f^{-1}([-\infty,a])\]
+\[\{f\le a\}=\Set{x\in X | f(x)\le a}=f^{-1}([-\infty,a])\]
 Die Äquivalenz folgt dann aus (1) und \ref{Satz 3.1}.
 \item Die Funktion $f:X\to\imdr$ kann aufgefasst werden als Funktion $\overline{f}:X\to\imdr$. Es ist $f$ genau dann $\fb(X)$-$\fb_1$-messbar wenn $\overline{f}$ $\fb(X)$-$\overline{\fb_1}$-messbar ist. 
 \end{enumerate}
@@ -1372,7 +1387,7 @@ Sei $M\subseteq\imdr$.
 \[\sup M:= \sup (M\setminus\{-\infty\})\]
 \item Ist $M\setminus\{-\infty\}$ nicht nach oben beschränkt oder $\infty\in M$, so sei 
 \[\sup M:=\infty\]
-\item Es sei $\inf M:=-\sup(-M)$, wobei $-M:=\{-m\mid m\in M\}$.
+\item Es sei $\inf M:=-\sup(-M)$, wobei $-M:=\Set{-m | m\in M}$.
 \end{enumerate}
 \end{definition}
 
@@ -1380,15 +1395,15 @@ Sei $M\subseteq\imdr$.
 Sei $(f_n)$ eine Folge von Funktionen $f_n:X\to\imdr$.
 \begin{enumerate}
 \item Die Funktion $\sup_{n\in\mdn}(f_n):X\to\imdr$  $\left(\inf_{n\in\mdn}(f_n):X\to\imdr\right)$ ist definiert durch:
-\[(\sup_{n\in\mdn} f_n)(x):=\sup\{f_n(x)\mid n\in\mdn\}\quad x\in X\]
-\[\left((\inf_{n\in\mdn} f_n)(x):=\inf\{f_n(x)\mid n\in\mdn\}\quad x\in X\right)\]
+\[(\sup_{n\in\mdn} f_n)(x):=\sup\Set{f_n(x) | n\in\mdn}\quad x\in X\]
+\[\left((\inf_{n\in\mdn} f_n)(x):=\inf\Set{f_n(x) | n\in\mdn}\quad x\in X\right)\]
 \item Die Funktion $\limsup_{n\to\infty} f_n:X\to\imdr$ $\left(\liminf_{n\to\infty} f_n:X\to\imdr\right)$ ist definiert durch:
 \begin{align*}
 \tag{$*$} \limsup_{n\to\infty} f_n &:= \inf_{j\in\mdn}(\sup_{n\ge j} f_n)\\
 \liminf_{n\to\infty} f_n &:= \sup_{j\in\mdn}(\inf_{n\ge j} f_n)
 \end{align*}
 \textbf{Erinnerung:} Für eine beschränkte Folge $(a_n)$ in $\mdr$ war
-\[\limsup_{n\to\infty} a_n:=\inf\{\sup\{a_n\mid n\ge j\}\mid j\in\mdn\}\]
+\[\limsup_{n\to\infty} a_n:=\inf\{\sup\Set{a_n | n\ge j}\mid j\in\mdn\}\]
 \item Sei $N\in\mdn$ und $g_j:=f_j$ (für $j=1,\dots,N$), $g_j:=f_N$ (für $j>N$). Definiere:
 \begin{align*}
 \max_{1\le n\le N} f_n &:=\sup_{j\in\mdn} g_n\\
@@ -1592,7 +1607,7 @@ Sei $f:X\to[0,\infty]$ messbar. $(f_n)$ sei eine für $f$ zulässige Folge. Das 
 \item $(f_n(x))$ ist wachsend für alle $x\in X$, d.h.:
 \[f(x)=\lim_{n\to\infty} f_n(x)=(\sup_{n\in\mdn} f_n)(x)\]
 \item Aus \ref{Satz 4.2}(3) folgt dass $(\int_X f_n(x)\text{ d}x)$ wachsend ist, d.h.:
-\[\lim_{n\to\infty} \int_X f_n(x)\text{ d}x = \sup\{\int_X f_n(x)\text{ d}x\mid n\in\mdn\}=\int_X f_(x)\text{ d}x\]
+\[\lim_{n\to\infty} \int_X f_n(x)\text{ d}x = \sup\Set{\int_X f_n(x)\text{ d}x | n\in\mdn}=\int_X f_(x)\text{ d}x\]
 \end{enumerate}
 \end{bemerkung}
 
