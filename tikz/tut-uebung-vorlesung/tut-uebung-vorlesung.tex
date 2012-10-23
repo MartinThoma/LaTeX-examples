@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes,calc,patterns} 
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[%
+    auto,
+    example/.style={
+      rectangle,
+      draw=blue,
+      thick,
+      fill=blue!20,
+      text width=4.5em,
+      align=center,
+      rounded corners,
+      minimum height=2em
+    },
+    algebraicName/.style={
+      text width=7em,
+      align=center,
+      minimum height=2em
+    },
+    explanation/.style={
+      text width=10em,
+      align=left,
+      minimum height=3em
+    }
+  ]
+\pgfdeclarepatternformonly{north east lines wide}%
+   {\pgfqpoint{-1pt}{-1pt}}%
+   {\pgfqpoint{10pt}{10pt}}%
+   {\pgfqpoint{9pt}{9pt}}%
+   {
+     \pgfsetlinewidth{3pt}
+     \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+     \pgfpathlineto{\pgfqpoint{9.1pt}{9.1pt}}
+     \pgfusepath{stroke}
+    }
+
+
+    % Big background
+    \draw[fill=lime!20,lime!20, rounded corners]     (-1.8, 0.60) rectangle (10,-5);
+    \draw[fill=purple!20,purple!20, rounded corners] (0.65, -3.15) rectangle (3.35,-3.85);
+    \draw[fill=purple!20,purple!20, rounded corners] (4.65, -3.15) rectangle (7.35,-3.85);
+
+    \draw[fill=blue!20,blue!20, rounded corners] (-1.35,-1.35) rectangle (1.35,-0.65);
+    \draw[fill=blue!20,blue!20, rounded corners] (2.65,-1.35) rectangle (5.35,-0.65);
+    \draw[fill=blue!20,blue!20, rounded corners] (6.65,-1.35) rectangle (9.35,-0.65);
+
+    \draw (2, 0) node[algebraicName] (A) {Modul: Programmieren}
+          (6, 0) node[explanation]   (X) {
+            \begin{minipage}{0.9\textwidth}
+                \tiny 
+                \begin{itemize}
+                    \item 5 ECTS
+                \end{itemize}
+            \end{minipage}
+          }
+          (0,-1) node[algebraicName] (B) {Tutorium}
+          (4,-1) node[algebraicName] (C) {Übung}
+          (8,-1) node[algebraicName] (D) {Vorlesung}
+          (0,-2) node[algebraicName] (E) {Student}
+          (4,-2) node[algebraicName] (F) {Mitarbeiter}
+          (8,-2) node[algebraicName] (G) {Dozent}
+          (2,-3.5) node[algebraicName, purple] (H) {Übungsschein}
+          (1.8,-4.35) node[explanation]   (X) {
+            \begin{minipage}{\textwidth}
+                \tiny 
+                \begin{itemize} \itemsep-0.4em
+                    \item Muss bestanden werden
+                    \item Keine Note
+                    \item keine Bonuspunkte
+                \end{itemize}
+            \end{minipage}
+          }
+          (6,-3.5) node[algebraicName, purple] (I) {Klausur}
+          (5.8,-4.3) node[explanation]   (X) {
+            \begin{minipage}{\textwidth}
+                \tiny 
+                \begin{itemize} \itemsep-0.4em
+                    \item Muss bestanden werden
+                    \item Abschlussnote ergibt Modulnote
+                \end{itemize}
+            \end{minipage}
+          };
+
+    \draw[blue, thick, rounded corners] ($(B.north west)$) rectangle ($(B.south east)$);
+    \draw[blue, thick, rounded corners] ($(C.north west)$) rectangle ($(C.south east)$);
+    \draw[blue, thick, rounded corners] ($(D.north west)$) rectangle ($(D.south east)$);
+
+    \draw[purple, thick, rounded corners] ($(H.north west)$) rectangle ($(H.south east)$);
+    \draw[purple, thick, rounded corners] ($(I.north west)$) rectangle ($(I.south east)$);
+
+    \draw[lime, thick, rounded corners]   ($(B.north west)+(-0.1,0.1)$) rectangle ($(E.south east)+(0.1,-0.1)$);
+    \draw[lime, thick, rounded corners]   ($(C.north west)+(-0.1,0.1)$) rectangle ($(F.south east)+(0.1,-0.1)$);
+    \draw[lime, thick, rounded corners]   ($(D.north west)+(-0.1,0.1)$) rectangle ($(G.south east)+(0.1,-0.1)$);
+\end{tikzpicture}
+\end{preview}
+\end{document}

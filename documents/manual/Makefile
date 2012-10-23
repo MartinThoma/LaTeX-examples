@@ -1,4 +1,4 @@
-SOURCE = fractions
+SOURCE = manual
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf
