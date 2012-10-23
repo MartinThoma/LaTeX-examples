@@ -35,6 +35,8 @@ Herrn Schmoeger im Wintersemester 2010 an der Universität Karlsruhe
 Genehmigung von Herrn Schmoeger hier veröffentlicht, Herr Schmoeger 
 ist für den Inhalt nicht verantwortlich.
 
+Kapitel werden in Beweisen durch "`§"' abgekürzt.
+
 \section*{Wer}
 Gestartet wurde das Projekt von Joachim Breitner. Beteiligt an diesem
 Mitschrieb sind Rebecca Schwerdt, Philipp Ost, Jan Ihrens, Peter Pan
@@ -65,7 +67,7 @@ erstellt einen Fork und kann direkt Änderungen umsetzen.
 \chapter{Vorbereitungen}
 \label{Kapitel 0}
 
-In diesem Paragraphen seien $X,Y,Z$ Mengen ($\ne\emptyset$) und 
+In diesem Kapitel seien $X,Y,Z$ Mengen ($\ne\emptyset$) und 
 $f: X\to Y,\; g:Y\to Z$ Abbildungen.
 
 \begin{enumerate}
@@ -148,7 +150,7 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
 \chapter{$\sigma$-Algebren und Maße}
 \label{Kapitel 1}
 
-In diesem Paragraphen sei $X \neq \emptyset$ eine Menge.
+In diesem Kapitel sei $X \neq \emptyset$ eine Menge.
 
 \begin{definition}
     \index{$\sigma$-!Algebra}
@@ -675,7 +677,7 @@ $(\fr, \cup)$ nicht kommutativ ist.
     \index{Figuren}
     Sei \(d\in\MdN\).
     \begin{enumerate}
-        \item \(\ci_{d}:=\Set{(a,b] | a,b \in \MdR^{d}, \, a \leq b}\).
+        \item \(\ci_d :=\Set{(a,b] | a,b \in \MdR^{d}, \, a \leq b} (\emptyset \in \ci_d)\).
               Seien \(a=(a_{1},\dots,a_{d}),\,b=(b_{1},\dots,b_{d})\in\MdR^d\) 
               und \(I:=(a,b] \in \ci_{d}\)
               \[
@@ -705,10 +707,13 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
 
 \begin{beweis}
 \begin{enumerate}
-    \item Sei \(I=\prod_{k=1}^{d}{(a_{k},b_{k}]},\,I'=\prod_{k=1}^{d}{(\alpha_{k},\beta_{k}]};\,\alpha_{k}':=\max\{\alpha_{k},a_{k}\},\,\beta_{k}':=\min\{\beta_{k},b_{k}\}\)
+    \item Sei \(I=\prod_{k=1}^{d}{(a_{k},b_{k}]},
+             \,I'=\prod_{k=1}^{d}{(\alpha_{k},\beta_{k}]};
+   \,\alpha_{k}':=\max\{\alpha_{k},a_{k}\},
+    \,\beta_{k}':=\min\{\beta_{k},b_{k}\}\)
 
-          Ist \(\alpha_{k}'\geq\beta_{k}'\) für ein \(k\in\{1,\dots,d\}\), 
-          so ist \(I\cap I'=\emptyset\in\ci_{d}\).
+          \(\exists k\in\Set{1,\dots,d} : \alpha_{k}'\geq\beta_{k}'
+            \implies I\cap I'=\emptyset\in\ci_{d}\).\\
           Sei \(\alpha_{k}'<\beta_{k}'\forall k\in\{1,\dots,d\}\), so
           ist \(I\cap I'=\prod_{k=1}^{d}{(\alpha_{k}',\beta_{k}']\in\ci_{d}}\)
     \item Induktion nach \(d\):
@@ -727,11 +732,14 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
                         I.V.\(\implies\,I_{2}\setminus I_{2}'=\) endliche disjunkte Vereinigung von Elementen aus \(\ci_{d}\)\\
                         Daraus folgt die Behauptung für \(d+1\)
           \end{itemize}
-    \item Wir zeigen mit Induktion nach \(n\): ist 
-          \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit 
-          \(I_{1},\dots,I_{d}\in\ci_{d}\), so existiert 
-          \(\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt: 
-          \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
+    \item \begin{itemize}
+            \item[\underline{Vor.:}] Sei $n \in \mdn$ und 
+                \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit 
+                \(I_{1},\dots,I_{d}\in\ci_{d}\) 
+            \item[\underline{Beh.:}] Es existiert
+                \(\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt: 
+                \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
+          \item[\underline{Bew.:}] mit Induktion nach $n$:
           \begin{itemize}
             \item[I.A.] \(n=1:\,A=I_{1}\)\checkmark
             \item[I.V.] Die Behauptung gelte für ein \(n\geq 1\)
@@ -750,6 +758,7 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
                         A=I_{n+1}\cup\bigcup_{j=1}^{l}{\left(\bigcup_{j=1}^{l_{j}}{I_{j}''}\right)}
                         \]
                         Daraus folgt die Behauptung für \(n+1\).
+            \end{itemize}
         \end{itemize}
     \item \((a,a]=\emptyset\implies\emptyset\in\cf_{d}\)
 
@@ -763,12 +772,13 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
             \item[I.S.] Sei \(A'=A\cup I_{n+1}\quad(I_{n+1}\in\ci_{d})\). Dann:
                         \[
                         B\setminus A'=\underbrace{(B\setminus A)}_{\in\cf_{d}}\setminus\underbrace{I_{n+1}}_{\in\cf_{d}}\in\cf_{d}
+                        \text{ (siehe I.A.)}
                         \]
           \end{itemize}
   \end{enumerate}
 \end{beweis}
-
-\begin{lemma}
+ohne Beweis:
+\begin{lemma}[Unabhängigkeit von der Darstellung]
     \label{Lemma 2.2}
     Sei \(A\in\cf_{d}\) und \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\) disjunkt und
     \(\{I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\) disjunkt mit 
@@ -784,8 +794,8 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
     \[
     \lambda_{d}(A):=\sum_{j=1}^{n}{\lambda_{d}(I_{j})}
     \]
-    Wegen Lemma \ref{Lemma 2.2} ist \(\lambda_{d}:\cf_{d}\to[0,\infty)\)
-    wohldefiniert.
+    \folgtnach{\ref{Lemma 2.2}} \(\lambda_{d}:\cf_{d}\to[0,\infty)\)
+    ist wohldefiniert.
 \end{definition}
 \begin{satz}
     \label{Satz 2.3}
@@ -1119,7 +1129,7 @@ Also ist $\lambda_d(C)=0$. Damit folgt aus (2):
 \chapter{Messbare Funktionen}
 \label{Kapitel 3}
 
-In diesem Paragraphen seien $\emptyset\ne X,Y,Z$ Mengen.
+In diesem Kapitel seien $\emptyset\ne X,Y,Z$ Mengen.
 
 \begin{definition}
 \index{messbar!Raum}\index{Raum!messbarer}
@@ -1546,7 +1556,7 @@ Weiter gilt:
 \chapter{Konstruktion des Lebesgueintegrals}
 \label{Kapitel 4}
 
-In diesem Paragraphen sei $\emptyset\ne X\in\fb_d$. Wir schreiben außerdem $\lambda$ statt $\lambda_d$.
+In diesem Kapitel sei $\emptyset\ne X\in\fb_d$. Wir schreiben außerdem $\lambda$ statt $\lambda_d$.
 
 \begin{definition}
 \index{Lebesgueintegral}
@@ -1950,7 +1960,7 @@ Außerdem wissen wir aus Analysis I, dass R-$\int_0^1\frac{1}{x}$ divergent ist.
 \chapter{Nullmengen}
 \label{Kapitel 5}
 
-In diesem Paragraphen sei stets $\emptyset\ne X\in\fb_d$. Wir schreiben wieder $\lambda$ statt $\lambda_d$.
+In diesem Kapitel sei stets $\emptyset\ne X\in\fb_d$. Wir schreiben wieder $\lambda$ statt $\lambda_d$.
 
 \begin{definition}
 \index{Nullmenge}\index{Borel!Nullmenge}
@@ -2136,7 +2146,7 @@ messbar, \(\hat{f}_{n}\leq\hat{f}_{n+1}\) auf \(X\) für alle \(n\in\mdn\).
 \chapter{Der Konvergenzsatz von Lebesgue}
 \label{Kapitel 6}
 
-Stets in diesem Paragraphen: \(\emptyset\neq X\in\fb_{d}\)
+Stets in diesem Kapitel: \(\emptyset\neq X\in\fb_{d}\)
 
 \begin{lemma}[Lemma von Fatou]
 \label{Lemma 6.1}
@@ -2347,7 +2357,7 @@ Weiter folgen aus \ref{Satz 6.2}:
 \chapter{Parameterintegrale}
 \label{Kapitel 7}
 
-In diesem Paragraphen sei stets \(\emptyset\neq X\in \fb_d\).
+In diesem Kapitel sei stets \(\emptyset\neq X\in \fb_d\).
 
 \begin{satz}
 \label{Satz 7.1}
@@ -2423,7 +2433,7 @@ Es ist nach Konstruktion  gerade \(\int_X g_n\,dx =\frac{F(t_0+h_n)-F(t_0)}{h_n}
 \chapter{Vorbereitungen auf das, was kommen mag}
 \label{Kapitel 8}
 
-In diesem Paragraphen seien \(k,l,d\in\mdn\) und \(k+l=d\). \(\mdr^d\cong\mdr^k\times\mdr^l\). Für Punkte \(z\in\mdr^d\) schreiben wir \(z=(x,y)\), wobei \(x\in\mdr^k\) und \(y\in\mdr^l\).
+In diesem Kapitel seien \(k,l,d\in\mdn\) und \(k+l=d\). \(\mdr^d\cong\mdr^k\times\mdr^l\). Für Punkte \(z\in\mdr^d\) schreiben wir \(z=(x,y)\), wobei \(x\in\mdr^k\) und \(y\in\mdr^l\).
 
 \begin{definition}
 \begin{enumerate}
@@ -2521,7 +2531,7 @@ Für \(C\in\fb_d\) gilt:
 \chapter{Das Prinzip von Cavalieri}
 \label{Kapitel 9}
 
-Die Bezeichnungen seien wie im Paragraphen 8.
+Die Bezeichnungen seien wie im Kapitel 8.
 
 \begin{satz}[Prinzip von Cavalieri]
 \label{Satz 9.1}
@@ -2684,7 +2694,7 @@ Dann ist
 \chapter{Der Satz von Fubini}
 \label{Kapitel 10}
 
-Die Bezeichnungen seien wie in den Paragraphen 8 und 9.
+Die Bezeichnungen seien wie in den Kapitel 8 und 9.
 
 \begin{satz}[Satz von Tonelli]
 \label{Satz 10.1}
@@ -2997,7 +3007,7 @@ und daraus folgt \(\int_0^\infty e^{-xy}\,dy=\frac1x\)
 \chapter{Der Transformationssatz (Substitutionsregel)}
 \label{Kapitel 11}
 
-Die Sätze in diesem Paragraphen geben wir \textbf{ohne} Beweis an. Es seien
+Die Sätze in diesem Kapitel geben wir \textbf{ohne} Beweis an. Es seien
 \(X,Y\subseteq\mdr^d\) nichtleer und offen. 
 
 \begin{definition}
@@ -3292,7 +3302,9 @@ Sei $\gamma:[a,b]\to\mdr^n$ ein Weg. Ist $\gamma$ in $t_0\in[a,b]$ differenzierb
 \chapter{Der Integralsatz von Gauß im $\MdR^2$}
 \label{Kapitel 13}
 
-In diesem Paragraphen sei $(x_0,y_0)\in\MdR^2$ (fest), es sei $R:[0,2\pi]\to[0,\infty)$ stetig und stückweise stetig differenzierbar und $R(0) = R(2\pi)$. Weiter sei 
+In diesem Kapitel sei $(x_0,y_0)\in\MdR^2$ (fest), es sei 
+$R:[0,2\pi]\to[0,\infty)$ stetig und stückweise stetig 
+differenzierbar und $R(0) = R(2\pi)$. Weiter sei 
 \begin{displaymath}
 \gamma(t) := (x_0 + R(t)\cos t,y_0 + R(t)\sin t) \text{   } (t\in[0,2\pi])
 \end{displaymath}
@@ -3421,7 +3433,8 @@ Dann ist \(\varphi(u,v)=(u,v,u^{2}+v^{2})\), \(f_{u}=2u\) und \(f_{v}=2v\). Also
 \chapter{Integralsatz von Stokes}
 \label{Kapitel 15}
 
-In diesem Paragraphen sei \(\emptyset\neq B\subseteq\mdr^{2}\), \(B\) kompakt, \(D\subseteq\mdr^{2}\) offen, \(B\subseteq D\)
+In diesem Kapitel sei \(\emptyset\neq B\subseteq\mdr^{2}\), \(B\) 
+kompakt, \(D\subseteq\mdr^{2}\) offen, \(B\subseteq D\)
 und \(\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\in C^{1}(D,\mdr^{3})\). Das heißt: \(\varphi_{|B}\) ist eine Fläche mit 
 Parameterbereich \(B\), \(S:=\varphi(B)\)
 
@@ -3441,7 +3454,7 @@ Definiere die folgenden \textbf{Oberflächenintegrale}:
 \end{definition}
 
 \begin{beispiel}
-Seien \(D,\,B,\,f,\,\varphi\) wie im letzten Beispiel in Kapitel 14.	% Paragraphenzeichen!?
+Seien \(D,\,B,\,f,\,\varphi\) wie im letzten Beispiel in Kapitel 14.
 
 Sei \(F(x,y,z):=(x,y,z)\); bekannt: \(N(u,v)=(-2u,-2v,1)\). Dann:
 \begin{align*}
@@ -3458,7 +3471,7 @@ Also:
 
 \begin{satz}[Integralsatz von Stokes]
 \label{Satz 15.1}
-Es sei \(B\) zulässig, \(\partial B=\Gamma_{\gamma}\), wobei \(\gamma=(\gamma_{1},\gamma_{2})\) wie zu Beginn des Paragraphen
+Es sei \(B\) zulässig, \(\partial B=\Gamma_{\gamma}\), wobei \(\gamma=(\gamma_{1},\gamma_{2})\) wie zu Beginn des Kapitels
 13 ist. Es sei \(\varphi\in C^{2}(D,\mdr^{3})\). Weiter sei \(G\subseteq\mdr^{3}\) offen, \(S\subseteq G\) und \(F=(F_{1},F_{2},F_{3})\in C^{1}(G,\mdr^{3})\). Dann:
 \[
 \underbrace{\int_{\varphi}{\rot F\cdot n\mathrm{d}\sigma}}_{\text{Oberflächenint.}}=
@@ -3518,7 +3531,7 @@ Damit:
 \chapter{$\fl^{p}$-Räume und $\mathrm{L}^{p}$-Räume}
 \label{Kapitel 16}
 
-Stets in diesem Paragraphen: \(\emptyset\neq X\in\fb_{d}\)
+Stets in diesem Kapitel: \(\emptyset\neq X\in\fb_{d}\)
 
 \begin{definition}
 Sei \(p\in[1,+\infty]\).
@@ -3747,7 +3760,7 @@ Dann ist $f\in\fl^p(X)$ und es gilt
 
 \begin{beweis}
 Aus (i) und (ii) folgt: $|f|^p \leq g$ f.ü.
-Im Paragraphen 5 haben wir gesehen, dass dann gilt:
+Im Kapitel 5 haben wir gesehen, dass dann gilt:
 \[ \int_X |f|^p \text{ d}x \leq \int_X g \text{ d}x < \infty \]
 (denn $g$ ist nach Voraussetzung integrierbar). 
 Daraus folgt: $f \in \fl^p(X)$.
@@ -3809,7 +3822,7 @@ Sei $(B, \| \cdot \|)$ ein normierter Raum. Gilt mit einem Skalarprodukt $( \cdo
 so heißt $B$ ein \textbf{Prähilbertraum}. Ist $B$ ein Banachraum mit $(*)$, so heißt $B$ ein \textbf{Hilbertraum}.
 \end{definition}
 
-\textbf{Vereinbarung:} ab jetzt sei stets in diesem Paragraphen $1 \leq p < \infty$.
+\textbf{Vereinbarung:} ab jetzt sei stets in diesem Kapitel $1 \leq p < \infty$.
 
 \begin{bemerkung}
 \index{Chauchyfolge}
@@ -4116,7 +4129,7 @@ Also ist $f\in L^p(X)$.
 \chapter{Das Integral im Komplexen}
 \label{Kapitel 17}
 
-In diesem Paragraphen sei $\emptyset \ne X \in \fb_d, f: X \to \MdC$ eine Funktion, $ u:= \Re(f), v:= \Im(f)$, also: $u,v: X \to \MdR, f= u+iv$.
+In diesem Kapitel sei $\emptyset \ne X \in \fb_d, f: X \to \MdC$ eine Funktion, $ u:= \Re(f), v:= \Im(f)$, also: $u,v: X \to \MdR, f= u+iv$.
 
 Wir versehen $\MdC$ mit der $\sigma$-Algebra $\fb_2$ (wir identifizieren $\MdC$ mit $\mdr^2$).
 
@@ -4244,7 +4257,7 @@ Sei \(\{b_k\mid k\in\MdZ\}\) wie in \ref{Beispiel 17.2}. \(\{b_k\mid k\in\MdZ\}\
 \chapter{Fourierreihen}
 \label{Kapitel 18}
 
-In diesem Paragraphen sei stets \(X=[0,2\pi]\), \(L^2:=L^2([0,2\pi],\mdc)\) und 
+In diesem Kapitel sei stets \(X=[0,2\pi]\), \(L^2:=L^2([0,2\pi],\mdc)\) und 
 \(L^2_\mdr:=L^2([0,2\pi],\mdr)\).  Weiter sei \(\{b_k\mid k\in\MdZ\}\) wie in \ref{Beispiel 17.2}.
 
 \begin{satz}
@@ -4582,7 +4595,7 @@ und damit
 \addcontentsline{toc}{chapter}{Stichwortverzeichnis}
 \printindex
 
-\chapter{Credits für Analysis III} Abgetippt haben die folgenden Paragraphen:\\% no data in Ana2Vorwort.tex
+\chapter{Credits für Analysis III} Abgetippt haben die folgenden Kapitel:\\% no data in Ana2Vorwort.tex
 \textbf{§ 1: $\sigma$-Algebren und Maße}: Rebecca Schwerdt, Peter Pan, Philipp Ost\\
 \textbf{§ 2: Das Lebesgue-Maß}: Rebecca Schwerdt, Philipp Ost\\
 \textbf{§ 3: Messbare Funktionen}: Rebecca Schwerdt, Philipp Ost\\
