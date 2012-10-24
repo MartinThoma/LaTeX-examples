@@ -1,0 +1,116 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage{enumerate}  % for advanced numbering of lists
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+\usepackage{fancyheadings}  % Kopfzeile
+\usepackage{array}      % needed for m{1cm} in tabular
+\usepackage{enumitem}
+\usepackage{pdfpages}   % Signatureinbingung
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Change the following lines:                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\yourTitle{UpToDatE: Protokoll}
+\newcommand\yourKeywords{Informatik;PSE}
+\newcommand\protokollNr{1}
+\newcommand\Schriftfuehrer{Martin Thoma}
+\newcommand\Ort{Karlsruhe}
+\newcommand\Datum{\today}   %change \today to DD. Month YYYY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup { 
+  pdfauthor   = {\Schriftfuehrer}, 
+  pdfkeywords = {\yourKeywords}, 
+  pdftitle    = {\yourTitle} 
+}
+
+\pagestyle{fancy}% eigenen Seitestil aktivieren}
+
+\lhead[\thepage]{Protokoll-Nr. \protokollNr}
+\rhead[\thesection]{UpToDatE}
+
+\cfoot{\thepage}
+
+\newcommand*{\tabbox}[2][t]{%
+    \vspace{-15pt}\parbox[#1][3.7\baselineskip]{1cm}{\strut#2\strut}}
+
+\begin{document}
+ \author{\Schriftfuehrer}
+ \title{\yourTitle}
+
+% \maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Start editing your content here                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    % See http://en.wikibooks.org/wiki/LaTeX/Tables
+    \begin{tabular}{p{4.0cm} p{11.2cm}}
+        \textbf{Protokoll-Nr.}      & \protokollNr\\
+        \textbf{Datum}              & Dienstag, der 23. Oktober 2012\\
+        \textbf{Beginn}             & 15:45 Uhr\\
+        \textbf{Ende}               & 17:15 Uhr\\
+        \textbf{Anwesende}          & Martin Thoma\\
+        \textbf{Abwesende}          & -\\
+        \textbf{Tagesordnung}       & \vspace{-7mm}%
+                \begin{enumerate}[leftmargin=1.3em]%
+                    \setlength{\itemsep}{-2pt}% 
+                    \item TOP 1
+                    \item TOP 2
+                    \item TOP 3
+                    \item TOP 4
+                \end{enumerate}
+    \end{tabular}
+\end{center}
+
+\section{TOP 1}
+Ist das \href{http://www.digitale-schule-bayern.de/dsdaten/8/825.pdf}{hier}
+ein gutes Beispiel?
+
+Fusce libero nulla, euismod vel suscipit nec, elementum vel massa. 
+Mauris ut sapien sed neque dignissim sodales. Proin accumsan, lectus 
+non gravida dapibus, lorem leo tincidunt odio, in semper ligula 
+libero bibendum lorem. Pellentesque venenatis massa a neque porttitor
+congue. Maecenas ornare lacus ac orci mattis a placerat sapien 
+euismod. In sed eros enim, non interdum nisi. Curabitur quis magna 
+et tortor interdum pharetra. Donec sit amet turpis neque, quis congue
+leo. Proin sit amet placerat dolor.
+
+\section{TOP 2}
+You can go quite deep into details. You should use chapter, section, 
+subsection and subsubsection in this order. No need for fancy bold or
+underlined text.
+
+One equation:
+\begin{equation}
+    \sin^2(x) + \cos^2(x) = 1
+\end{equation}
+
+Vivamus ante est, dictum at placerat id, semper auctor tellus. Donec 
+sed ipsum enim, eget lacinia mi. Duis vulputate auctor ligula, sit 
+amet suscipit lectus malesuada ut. Donec adipiscing rutrum dolor sit 
+amet euismod. Aenean condimentum nibh vitae neque rhoncus ultrices. 
+Vestibulum ultrices commodo mattis. Morbi aliquam elementum est, a 
+pulvinar arcu viverra quis. Vivamus sed fermentum nisl. Cras 
+bibendum, justo tincidunt dictum venenatis, sem turpis vestibulum 
+nibh, ut dapibus nunc enim ut justo. 
+
+\section{TOP 3}
+Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adipiscing cursus purus dolor venenatis velit. Vivamus enim augue, lacinia in ultrices a, varius sit amet sapien. Aliquam enim velit, molestie vitae bibendum eget, laoreet at ante. Suspendisse pulvinar leo at nisi accumsan nec malesuada neque ullamcorper. Aenean quis mi lectus, quis porttitor nisi. Curabitur interdum luctus lectus et egestas. Aenean sapien ligula, aliquam sed fermentum id, blandit at orci. Integer a turpis ac tellus commodo suscipit. Vivamus massa orci, pharetra eu consequat eu, vulputate eget lacus. Suspendisse non justo arcu. Nullam lacus augue, dapibus vitae convallis a, consectetur at elit.
+
+Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adipiscing cursus purus dolor venenatis velit. Vivamus enim augue, lacinia in ultrices a, varius sit amet sapien. Aliquam enim velit, molestie vitae bibendum eget, laoreet at ante. Suspendisse pulvinar leo at nisi accumsan nec malesuada neque ullamcorper. Aenean quis mi lectus, quis porttitor nisi. Curabitur interdum luctus lectus et egestas. Aenean sapien ligula, aliquam sed fermentum id, blandit at orci. Integer a turpis ac tellus commodo suscipit. Vivamus massa orci, pharetra eu consequat eu, vulputate eget lacus. Suspendisse non justo arcu. Nullam lacus augue, dapibus vitae convallis a, consectetur at elit.
+\\\nopagebreak
+\\\nopagebreak
+\noindent \Ort, den \Datum\\\nopagebreak
+\\\nopagebreak
+\includegraphics[height=10mm]{signature.pdf}\\\nopagebreak
+\Schriftfuehrer,\\\nopagebreak
+Schriftführer
+
+\end{document}
