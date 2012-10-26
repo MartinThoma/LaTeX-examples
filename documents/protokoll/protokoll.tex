@@ -12,6 +12,7 @@
 \usepackage{array}      % needed for m{1cm} in tabular
 \usepackage{enumitem}
 \usepackage{pdfpages}   % Signatureinbingung
+\usepackage{myStyle}    % some shortcuts
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Change the following lines:                                       %
@@ -32,7 +33,7 @@
 
 \pagestyle{fancy}% eigenen Seitestil aktivieren}
 
-\lhead[\thepage]{Protokoll-Nr. \protokollNr}
+\lhead[\thepage]{Protokoll-Nr. \protokollNr{} vom Teamtreffen}
 \rhead[\thesection]{UpToDatE}
 
 \cfoot{\thepage}
@@ -56,7 +57,7 @@
         \textbf{Datum}              & Dienstag, der 23. Oktober 2012\\
         \textbf{Beginn}             & 15:45 Uhr\\
         \textbf{Ende}               & 17:15 Uhr\\
-        \textbf{Anwesende}          & Martin Thoma\\
+        \textbf{Anwesende}          & Martin Thoma, Max Mustermann\\
         \textbf{Abwesende}          & -\\
         \textbf{Tagesordnung}       & \vspace{-7mm}%
                 \begin{enumerate}[leftmargin=1.3em]%
@@ -69,7 +70,7 @@
     \end{tabular}
 \end{center}
 
-\section{TOP 1}
+\section*{TOP 1}
 Ist das \href{http://www.digitale-schule-bayern.de/dsdaten/8/825.pdf}{hier}
 ein gutes Beispiel?
 
@@ -82,7 +83,7 @@ euismod. In sed eros enim, non interdum nisi. Curabitur quis magna
 et tortor interdum pharetra. Donec sit amet turpis neque, quis congue
 leo. Proin sit amet placerat dolor.
 
-\section{TOP 2}
+\section*{TOP 2}
 You can go quite deep into details. You should use chapter, section, 
 subsection and subsubsection in this order. No need for fancy bold or
 underlined text.
@@ -93,7 +94,7 @@ One equation:
 \end{equation}
 
 Vivamus ante est, dictum at placerat id, semper auctor tellus. Donec 
-sed ipsum enim, eget lacinia mi. Duis vulputate auctor ligula, sit 
+\arrow sed ipsum enim, eget lacinia mi. Duis vulputate auctor ligula, sit 
 amet suscipit lectus malesuada ut. Donec adipiscing rutrum dolor sit 
 amet euismod. Aenean condimentum nibh vitae neque rhoncus ultrices. 
 Vestibulum ultrices commodo mattis. Morbi aliquam elementum est, a 
@@ -101,7 +102,7 @@ pulvinar arcu viverra quis. Vivamus sed fermentum nisl. Cras
 bibendum, justo tincidunt dictum venenatis, sem turpis vestibulum 
 nibh, ut dapibus nunc enim ut justo. 
 
-\section{TOP 3}
+\section*{TOP 3}
 Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adipiscing cursus purus dolor venenatis velit. Vivamus enim augue, lacinia in ultrices a, varius sit amet sapien. Aliquam enim velit, molestie vitae bibendum eget, laoreet at ante. Suspendisse pulvinar leo at nisi accumsan nec malesuada neque ullamcorper. Aenean quis mi lectus, quis porttitor nisi. Curabitur interdum luctus lectus et egestas. Aenean sapien ligula, aliquam sed fermentum id, blandit at orci. Integer a turpis ac tellus commodo suscipit. Vivamus massa orci, pharetra eu consequat eu, vulputate eget lacus. Suspendisse non justo arcu. Nullam lacus augue, dapibus vitae convallis a, consectetur at elit.
 
 Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adipiscing cursus purus dolor venenatis velit. Vivamus enim augue, lacinia in ultrices a, varius sit amet sapien. Aliquam enim velit, molestie vitae bibendum eget, laoreet at ante. Suspendisse pulvinar leo at nisi accumsan nec malesuada neque ullamcorper. Aenean quis mi lectus, quis porttitor nisi. Curabitur interdum luctus lectus et egestas. Aenean sapien ligula, aliquam sed fermentum id, blandit at orci. Integer a turpis ac tellus commodo suscipit. Vivamus massa orci, pharetra eu consequat eu, vulputate eget lacus. Suspendisse non justo arcu. Nullam lacus augue, dapibus vitae convallis a, consectetur at elit.
@@ -109,8 +110,13 @@ Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adi
 \\\nopagebreak
 \noindent \Ort, den \Datum\\\nopagebreak
 \\\nopagebreak
-\includegraphics[height=10mm]{signature.pdf}\\\nopagebreak
-\Schriftfuehrer,\\\nopagebreak
+\IfFileExists{signature.pdf}{ % if you have your signature as a digital version, save it as "signature.pdf" in this folder
+    \includegraphics[height=10mm]{signature.pdf}\\\nopagebreak
+}{
+    \\\nopagebreak
+}
+
+\noindent \Schriftfuehrer,\\\nopagebreak
 Schriftführer
 
 \end{document}
