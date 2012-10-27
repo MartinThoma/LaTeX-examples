@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begriffslexikon zur Beschreibung des Produkts						 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newglossaryentry{sortierschluessel}
+%{
+%  name=Sortierschlüssel,
+%  description={ein Schlüssel, anhand dessen diese Einträge sortiert werden}
+%}
+\newglossaryentry{uptodate}
+{
+  name=UpToDaTe,
+  description={Upload Automation and Data Entry}
+}
+\newglossaryentry{nir}
+{
+  name=NIR,
+  description={Nahes Infrarot}
+}
+%\newacronym{abc}{Blub}{Bananarama}
+
+% Setze den richtigen Namen für das Glossar
+\renewcommand*{\glossaryname}{\section{\glossarName}}
+
+% Drucke das gesamte Glossar
+\glsaddall
+\printglossaries
+
+% Trage das Glossar in das Inhaltsverzeichnis ein
+\stepcounter{section}
+\addcontentsline{toc}{section}{\numberline {\thesection} \glossarName}
