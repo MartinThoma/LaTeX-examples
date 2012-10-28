@@ -2,12 +2,16 @@ Use gnuplot within latex
 ========================
 First make sure that you can use gnuplot:
 * Execute "gnuplot" in your command line
-** Doesn't work: Look up where the binary is located (e.g. `C:\Programs\gnuplot\bin\gnuplot.exe`) and add it to your path (Windows + Pause -> System variables -> Path). Then try executing "gnuplot" in terminal again
-** remember: You have to use `-shell-escape`
+ * Doesn't work: Look up where the binary is located (e.g. `C:\Programs\gnuplot\bin\gnuplot.exe`) and add it to your path (Windows + Pause -> System variables -> Path). Then try executing "gnuplot" in terminal again
+
+It is a good idea to separate gnuplot-code from LaTeX-code! (see plot.gnuplot)
+
+`-shell-escape` or `enable-write18` is NOT needed for this solution!
 
 GnuPlot Terminal types
 ----------------------
 Available terminal types:
+
            aed512  AED 512 Terminal
            aed767  AED 767 Terminal
              aifm  Adobe Illustrator 3.0 Format
@@ -29,7 +33,6 @@ Available terminal types:
           hp2623A  HP2623A and maybe others
            hp2648  HP2648 and HP2647
            hp500c  HP DeskJet 500c, [75 100 150 300] [rle tiff]
-
              hpdj  HP DeskJet 500, [75 100 150 300]
              hpgl  HP7475 and relatives [number of pens] [eject]
            hpljii  HP Laserjet series II, [75 100 150 300]
@@ -71,6 +74,7 @@ Available terminal types:
             xterm  Xterm Tektronix 4014 Mode
 
 The following sound good:
+
             eepic  EEPIC -- extended LaTeX picture environment
             emtex  LaTeX picture environment with emTeX specials
          epslatex  LaTeX picture environment using graphicx package

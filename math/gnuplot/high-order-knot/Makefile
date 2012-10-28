@@ -5,7 +5,7 @@ WIDTH = 500
 
 make:
 	gnuplot plot.gnuplot
-	pdflatex -shell-escape $(SOURCE).tex -output-format=pdf
+	pdflatex $(SOURCE).tex -output-format=pdf
 	make clean
 
 clean:
