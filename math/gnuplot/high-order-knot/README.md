@@ -1,8 +1,8 @@
 Use gnuplot within latex
 ========================
-*First make sure that you can use gnuplot:
- * Execute `gnuplot` in your command line
-  * Doesn't work: Look up where the binary is located (e.g. `C:\Programs\gnuplot\bin\gnuplot.exe`) and add it to your path (Windows + Pause -> System variables -> Path). Then try executing `gnuplot` in terminal again
+* First make sure that you can use gnuplot:
+  * Execute `gnuplot` in your command line
+    * Doesn't work: Look up where the binary is located (e.g. `C:\Programs\gnuplot\bin\gnuplot.exe`) and add it to your path (Windows + Pause -> System variables -> Path). Then try executing `gnuplot` in terminal again
 * It is a good idea to separate gnuplot-code from LaTeX-code! (see plot.gnuplot)
 * `-shell-escape` or `enable-write18` is NOT needed for this solution!
 * You have to create the plot-tmp.tex file first. Use `gnuplot plot.gnuplot` to do so.
