@@ -685,7 +685,7 @@ $(\fr, \cup)$ nicht kommutativ ist.
                 0                                             & \text{falls }I=\emptyset\\
                 (b_{1}-a_{1})(b_{2}-a_{2})\dots(b_{d}-a_{d}) & \text{falls }I\neq\emptyset\end{cases}\quad\text{(\textbf{Elementarvolumen})}
               \]
-        \item \(\cf_d:=\Set{\bigcup_{j=1}^{n}I_{j} | n\in\MdN,\,I_{1},\dots,I_{n}\in I_{d}}\) (\textbf{Menge der Figuren})
+        \item \(\cf_d:=\Set{\bigcup_{j=1}^{n}I_{j} | n\in\MdN,\,I_{1},\dots,I_{n}\in \ci_d}\) (\textbf{Menge der Figuren})
     \end{enumerate}
 \end{definition}
 Ziel dieses Kapitels: Fortsetzung von \(\lambda_{d}\) auf \(\cf_{d}\) 
@@ -830,8 +830,8 @@ Also:
     &=\lambda_{d}(A)+\lambda_{d}(B)
 \end{align*}
 \item wie bei Satz \ref{Satz 1.7}
-\item \(\lambda_{d}(A\cup B)=\lambda(A\cup(B\setminus A))\overset{(1)}{=}\lambda_{d}(A)+\lambda_{d}(B\setminus A)\overset{(2)}{\leq}\lambda_{d}(A)+\lambda_{d}(B)\) % \cupdot
-\item Übung; es genügt zu betrachten: \(B\in\ci_{d}\) % Graphik einfuegen
+\item \(\lambda_{d}(A\cup B)=\lambda(A \dot{\cup} (B\setminus A))\overset{(1)}{=}\lambda_{d}(A)+\lambda_{d}(B\setminus A)\overset{(2)}{\leq}\lambda_{d}(A)+\lambda_{d}(B)\) % \cupdot
+\item Übung (es genügt \(B\in\ci_{d}\) zu betrachten).
 \item Sei \(\varepsilon>0\). Aus (4) folgt: Zu jedem \(B_{n}\) existiert ein
 \(C_{n}\in\cf_{d}:\overline{C}_{n}\subseteq B_{n}\) und
 \begin{equation}
@@ -847,15 +847,16 @@ Dann: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\overline{B}_{1}^{c}\).
 Andererseits: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\bigcap_{j=1}^{m}{B_{j}}\subseteq B_{1}\subseteq\overline{B}_{1}\). 
 
 Also: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}=\emptyset\). Das heißt:
-\(\bigcap_{j=1}^{n}{\overline{C}_{j}}=\emptyset\,\forall n\geq m\)
+\(\bigcap_{j=1}^{n}{\overline{C}_{j}}=\emptyset \quad \forall n\geq m\)
 
-\(D_{n}:=\bigcap_{j=1}^{n}{C_{j}}\). Dann: \(D_{n}=\emptyset\,\forall n\geq m\)
+\(D_{n}:=\bigcap_{j=1}^{n}{C_{j}}\). Dann: \(D_{n}=\emptyset \quad \forall n\geq m\)
 
-\textbf{Behauptung:} \(\lambda_{d}(B_{n}\setminus D_{n})\leq\left(1-\frac{1}{2^{n}}\right)\ep\,\forall n\in\mdn\)
-\begin{beweis}
+\textbf{Behauptung:} \(\lambda_{d}(B_{n}\setminus D_{n})\leq\left(1-\frac{1}{2^{n}}\right)\ep \quad \forall n\in\mdn\)
+\begin{beweis} (induktiv)
 \begin{itemize}
 \item[I.A.] \(\lambda_{d}(B_{1}\setminus D_{1})=\lambda_{d}(B_{1}\setminus C_{1})\overset{\eqref{eq: Abschaetzung Mass -- Beweis Satz 2.3.(5)}}{\leq}\frac{\ep}{2}=\left(1-\frac{1}{2}\right)\ep\) \checkmark
-\item[I.V.] Die Behauptung gelte für ein \(n\in\mdn\).
+\item[I.V.] Sei \(n\in\mdn\) und es gelte 
+            $\lambda_{d}(B_{n}\setminus D_{n})\leq\left(1-\frac{1}{2^{n}}\right)\ep$
 \item[I.S.] \begin{align*}
     \lambda_{d}(B_{n+1}\setminus D_{n+1})&=\lambda_{d}\left((B_{n+1}\setminus D_{n})\cup(B_{n+1}\setminus C_{n+1})\right)\\
     &\overset{(3)}{\leq}\lambda_{d}(\underbrace{B_{n+1}\setminus D_n}_{\subseteq B_{n}\setminus D_{n}})+\underbrace{\lambda_{d}(B_{n+1}\setminus C_{n+1})}_{\overset{\eqref{eq: Abschaetzung Mass -- Beweis Satz 2.3.(5)}}{\leq}\frac{\ep}{2^{n+1}}}\\
@@ -882,7 +883,7 @@ heißt ein \textbf{Prämaß} \ auf \(\fr\), wenn gilt:
 
 \begin{satz}
 \label{Satz 2.4}
-\(\lambda_{d}:\cf_{d}\to[0,\infty]\) ist ein Prämaß.
+\(\lambda_{d}:\cf_{d}\to[0,\infty]\) ist ein Prämaß auf $\cf_{d}$.
 \end{satz}
 \begin{beweis}
 \begin{enumerate}
@@ -904,13 +905,14 @@ Mit \(n\to\infty\) folgt die Behauptung.
 \end{enumerate}
 \end{beweis}
 
+Ohne Beweis:
 \begin{satz}[Fortsetzungssatz von Carath\'eodory]
 \label{Satz 2.5}
 Sei \(\fr\) ein Ring auf \(X\) und \(\mu:\fr\to[0,\infty]\) ein Prämaß. Dann
 existiert ein Maßraum \((X,\fa(\mu),\overline{\mu})\) mit
 \begin{enumerate}
 \item \(\sigma(\fr)\subseteq\fa(\mu)\)
-\item \(\overline{\mu}(A)=\mu(A)\,\forall A\in\fr\)
+\item \(\overline{\mu}(A)=\mu(A) \quad \forall A\in\fr\)
 \end{enumerate}
 Insbesondere: \(\overline{\mu}\) ist ein Maß\ auf \(\sigma(\fr)\).
 \end{satz}
@@ -918,18 +920,19 @@ Insbesondere: \(\overline{\mu}\) ist ein Maß\ auf \(\sigma(\fr)\).
 \begin{satz}[Eindeutigkeitssatz]
 \label{Satz 2.6}
 Sei \(\emptyset\neq\ce\subseteq\cp(X)\), es seien \(\nu,\,\mu\) Maße auf
-\(\sigma(\ce)\) und es gelte: \(\mu(E)=\nu(E)\,\forall E\in\ce\).
+\(\sigma(\ce)\).
 
-Weiter gelten:
+Es gelte:
 \begin{enumerate}
-\item \(E,F\in\ce\implies E\cap F\in\ce\quad\text{(durchschnittstabil)}\)
-\item Es existiert eine Folge \((E_{n})\) in \(\ce\): \(\bigcup{E_{n}}=X\) und
-\(\mu(E_{n})<\infty\forall n\in\mdn\).
+    \item \(E,F\in\ce\implies E\cap F\in\ce\quad\text{(durchschnittstabil)}\)
+    \item $\exists$ eine Folge \((E_{n})\) in \(\ce\): \(\bigcup{E_{n}}=X\) 
+          und \(\mu(E_{n})<\infty \quad \forall n\in\mdn\).
+    \item \(\mu(E)=\nu(E) \quad \forall E\in\ce\)
 \end{enumerate}
 Dann: \(\mu=\nu\) auf \(\sigma(\ce)\).
 \end{satz}
 
-\begin{satz}%[Lebesgue-Maß]
+\begin{satz}
 \label{Satz 2.7}
 \index{Lebesgue-Maß}
 Es gibt genau eine Fortsetzung von \(\lambda_{d}:\cf_{d}\to[0,\infty]\) auf
@@ -937,24 +940,25 @@ Es gibt genau eine Fortsetzung von \(\lambda_{d}:\cf_{d}\to[0,\infty]\) auf
 und wird ebenfalls mit \(\lambda_{d}\) bezeichnet.
 \end{satz}
 \begin{beweis}
-Aus Lemma \ref{Lemma 2.1} und Satz \ref{Satz 2.4} folgt: \(\lambda_{d}\) ist ein
+\folgtnach{(\ref{Lemma 2.1}) und (\ref{Satz 2.4})}: \(\lambda_{d}\) ist ein
 Prämaß\ auf \(\fr:=\cf_{d}\); es ist \(\sigma(\fr)=\fb_{d}\).
 
-Aus Satz \ref{Satz 2.5} folgt: \(\lambda_{d}\) kann zu einem Maß\ auf 
-\(\fb_{d}\) fortgesetzt werden.
+\folgtnach{\ref{Satz 2.5}}: \(\lambda_{d}\) kann zu einem Maß auf 
+\(\sigma(\cf_{d}) = \fb_{d}\) fortgesetzt werden. Für diese 
+Fortsetzung schreiben wir wieder $\lambda_d$, also
+$\lambda_d: \fb_{d} \rightarrow [0, +\infty]$
 
 Sei \(\nu\) ein weiteres Maß\ auf \(\fb_{d}\) mit: 
 \(\nu(A)=\lambda_{d}(A)\,\forall A\in\cf_{d}\). \(\ce:=\ci_{d}\). Dann:
 \(\sigma(\ce)\overset{\ref{Satz 1.4}}{=}\fb_{d}\).
 \begin{enumerate}
-\item \(E,F\in\ce\overset{\ref{Lemma 2.1}}{\implies}E\cap F\in\ce\)
-\item \(E_{n}:=(-n,n]^{d}\)
-
-Klar: 
-\begin{align*}
-\bigcup E_{n}&=\mdr^{d}\\
-\lambda_{d}(E_{n})&=(2n)^{d}<\infty
-\end{align*}
+    \item \(E,F\in\ce\overset{\ref{Lemma 2.1}}{\implies}E\cap F\in\ce\)
+    \item \(E_{n}:=(-n,n]^{d}\)
+          Klar: 
+          \begin{align*}
+            \bigcup E_{n}&=\mdr^{d}\\
+            \lambda_{d}(E_{n})&=(2n)^{d}<\infty
+          \end{align*}
 \end{enumerate}
 Klar: \(\nu(E)=\lambda_{d}(E)\,\forall E\in\ce\). Mit Satz \ref{Satz 2.6} folgt
 dann: \(\nu=\lambda_{d}\) auf \(\fb_{d}\).
@@ -980,8 +984,7 @@ Aus Satz \ref{Satz 1.7}, Punkt 5, folgt:
 &=(b_{1}-a_{1})\dots(b_{d}-a_{d})
 \end{align*}
 \end{beweis}
-\item Sei \(a\in\mdr^{d},\,\{a\}=[a,a]\in\fb_{d}\). Aus obigem Beispiel (1)
-folgt: \(\lambda_{d}(\{a\})=0\).
+\item Sei \(a\in\mdr^{d},\,\{a\}=[a,a]\in\fb_{d}\). \folgtnach{Bsp (1)} \(\lambda_{d}(\{a\})=0\).
 \item \(\mdq^{d}\) ist abzählbar, also: \(\mdq^{d}=\{a_{1},a_{2},\dots\}\)
 mit \(a_{j}\neq a_{i}\,(i\neq j)\). Dann: \(\mdq^{d}=\bigcup\{a_{j}\}\) %\bigcupdot
 
@@ -1000,8 +1003,11 @@ Aus \(H_{d}=\bigcup{I_{n}}\) folgt: \(\lambda_{d}(H_{d})\leq\sum{\lambda_{d}(I_{
 \end{beispieleX}
 
 \begin{definition}
-Sei $x\in\mdr^d, B\subseteq\mdr^d$. Definiere:
-\[x+B:=\Set{x+b | b\in B}\]
+    Sei $x\in\mdr^d, \emptyset \neq A\subseteq\mdr^d$. Definiere:
+    \begin{align*}
+        x+A          &:= \Set{x+a | a \in A}\\
+        x+ \emptyset &:= \emptyset
+    \end{align*}
 \end{definition}
 
 \begin{beispiel}
@@ -1028,12 +1034,14 @@ $\ce$ hat die Eigenschaften (1) und (2) aus Satz \ref{Satz 2.6}, daraus folgt da
 \end{enumerate}
 \end{beweis}
 
+Ohne Beweis:
 \begin{satz}
-\label{Satz 2.9}
-Sei $\mu$ ein Maß auf $\fb_d$ mit der Eigenschaft:
-\[\forall x\in\mdr^d, A\in\fb_d:\mu(A)=\mu(x+A)\]
-Weiter sei $c:=\mu((0,1]^d)<\infty$. Dann gilt:
-\[\mu=c\cdot\lambda_d\]
+    \label{Satz 2.9}
+    Sei $\mu$ ein Maß auf $\fb_d$ mit der Eigenschaft:
+    \[\forall x\in\mdr^d, A\in\fb_d:\mu(A)=\mu(x+A)\]
+    Weiter sei $c:=\mu((0,1]^d)<\infty$. Dann gilt:
+    \[\mu=c\cdot\lambda_d\]
+    Falls $c=1$, so ist $\mu$ das Lebesgue-Maß.
 \end{satz}
 
 \begin{satz}[Regularität des Lebesgue-Maßes]
