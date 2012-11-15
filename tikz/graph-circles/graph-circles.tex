@@ -7,8 +7,10 @@
 \definecolor{purple}{HTML}{800080}
 
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing} 
-\tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
+\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing,intersections} 
+\tikzstyle{vertex}=[draw,
+fill=black,
+circle,minimum size=10pt,inner sep=0pt]
 \tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
 \tikzstyle{markedCircle}=[line width=1pt,rotate=90,decorate,decoration={snake, segment length=2mm, amplitude=0.4mm}]
 
@@ -30,6 +32,14 @@
   \node (j)[vertex] at (1.5,8.5) {j};
   \node (k)[vertex] at (4,9) {k};
 
+  \node[text=black!80]  (o1) at (barycentric cs:a=1,b=1,c=1,d=1,f=1,g=1) {\Large 1}; 
+  \node[text=red]       (o2) at (barycentric cs:b=1,d=1,e=1,g=1,h=1) {\Large 2}; 
+  \node[text=yellow]    (o3) at (barycentric cs:g=1,h=1,j=1,k=1) {\Large 3}; 
+  \node[text=pink]      (o4) at (barycentric cs:f=1,g=1,j=1) {\Large 4}; 
+  \node[text=orange]    (o5) at (barycentric cs:h=1,i=1,k=1) {\Large 5}; 
+  \node[text=blue]      (o6) at (barycentric cs:h=1,i=1,e=1) {\Large 6}; 
+  \node[text=purple]    (o7) at (barycentric cs:f=1,d=1,g=1) {\Large 7}; 
+
   \foreach \from/\to in {a/b,a/b,b/d,b/e,c/f,d/f,d/g,f/g,g/h,h/e,h/i,e/i,f/j,g/j,j/k,k/h,k/i}
     \draw[line width=2pt] (\from) -- (\to);
 
@@ -46,14 +56,14 @@
     \draw (h.center) edge[selected edge] (e.center);
   \end{pgfonlayer}
 
-  \draw[color=black!80, markedCircle] (a) -- (c) -- (f) -- (g) -- (d) -- (b) -- (a);
-  \draw[color=purple,   markedCircle, fill=purple!10] (f) -- (g) -- (d) -- (f);
-  \draw[color=red,      markedCircle] (b) -- (d) -- (g) -- (h) -- (e) -- (b);
-  \draw[color=yellow,   markedCircle] (g) -- (h) -- (k) -- (j) -- (g);
-  \draw[color=pink,     markedCircle] (f) -- (g) -- (j) -- (f);
-  \draw[color=pink,     markedCircle] (f) -- (g) -- (j) -- (f);
-  \draw[color=orange,   markedCircle] (h) -- (k) -- (i) -- (h);
-  \draw[color=blue,     markedCircle] (h) -- (i) -- (e) -- (h);
+  \draw[color=black!80, markedCircle] (a) -- (c) -- (f) -- (g) -- (d) -- (b) -- (a) -- cycle;
+  \draw[color=purple,   markedCircle, fill=purple!10] (f) -- (g) -- (d) -- cycle;
+  \draw[color=red,      markedCircle] (b) -- (d) -- (g) -- (h) -- (e) -- (b) -- cycle;
+  \draw[color=yellow,   markedCircle] (g) -- (h) -- (k) -- (j) -- cycle;
+  \draw[color=pink,     markedCircle] (f) -- (g) -- (j) -- (f) -- cycle;
+  \draw[color=purple,     markedCircle] (f) -- (g) -- (d) -- (f) -- cycle;
+  \draw[color=orange,   markedCircle] (h) -- (k) -- (i) -- cycle;
+  \draw[color=blue,     markedCircle] (h) -- (i) -- (e) -- cycle;
 \end{tikzpicture}
 \end{preview}
 \end{document}
