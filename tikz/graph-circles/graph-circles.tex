@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{xcolor}
+\definecolor{pink}{HTML}{FF00FF}
+\definecolor{purple}{HTML}{800080}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing} 
+\tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+\tikzstyle{markedCircle}=[line width=1pt,rotate=90,decorate,decoration={snake, segment length=2mm, amplitude=0.4mm}]
+
+\begin{document}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\begin{preview}
+\begin{tikzpicture}  [scale=1.2]
+  \node (a)[vertex] at (3,1) {a};
+  \node (b)[vertex] at (5.5,2.5) {b};
+  \node (c)[vertex] at (0.5,3) {c};
+  \node (d)[vertex] at (3.5,4.5) {d};
+  \node (e)[vertex] at (6,5.5) {e};
+  \node (f)[vertex] at (0,6.5) {f};
+  \node (g)[vertex] at (3,7) {g};
+  \node (h)[vertex] at (4.5,7.5) {h};
+  \node (i)[vertex] at (6,7.5) {i};
+  \node (j)[vertex] at (1.5,8.5) {j};
+  \node (k)[vertex] at (4,9) {k};
+
+  \foreach \from/\to in {a/b,a/b,b/d,b/e,c/f,d/f,d/g,f/g,g/h,h/e,h/i,e/i,f/j,g/j,j/k,k/h,k/i}
+    \draw[line width=2pt] (\from) -- (\to);
+
+  \begin{pgfonlayer}{background}
+    \draw (a.center) edge[selected edge] (c.center);
+    \draw (c.center) edge[selected edge] (f.center);
+    \draw (f.center) edge[selected edge] (g.center);
+    \draw (g.center) edge[selected edge] (j.center);
+    \draw (g.center) edge[selected edge] (h.center);
+    \draw (h.center) edge[selected edge] (k.center);
+    \draw (g.center) edge[selected edge] (d.center);
+    \draw (d.center) edge[selected edge] (b.center);
+    \draw (h.center) edge[selected edge] (i.center);
+    \draw (h.center) edge[selected edge] (e.center);
+  \end{pgfonlayer}
+
+  \draw[color=black!80, markedCircle] (a) -- (c) -- (f) -- (g) -- (d) -- (b) -- (a);
+  \draw[color=purple,   markedCircle, fill=purple!10] (f) -- (g) -- (d) -- (f);
+  \draw[color=red,      markedCircle] (b) -- (d) -- (g) -- (h) -- (e) -- (b);
+  \draw[color=yellow,   markedCircle] (g) -- (h) -- (k) -- (j) -- (g);
+  \draw[color=pink,     markedCircle] (f) -- (g) -- (j) -- (f);
+  \draw[color=pink,     markedCircle] (f) -- (g) -- (j) -- (f);
+  \draw[color=orange,   markedCircle] (h) -- (k) -- (i) -- (h);
+  \draw[color=blue,     markedCircle] (h) -- (i) -- (e) -- (h);
+\end{tikzpicture}
+\end{preview}
+\end{document}
