@@ -4,6 +4,15 @@
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage{minted}         % needed for the inclusion of source code
 
+% from http://tex.stackexchange.com/questions/57151/how-do-i-prevent-conflicts-between-accsupp-and-hyperref
+\usepackage{accsupp}
+\newcommand\emptyaccsupp[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+
+%default definition is: \def\theFancyVerbLine{\rmfamily\tiny\arabic{FancyVerbLine}}
+\let\theHFancyVerbLine\theFancyVerbLine% don't apply our patch to hyperref's version
+\def\theFancyVerbLine{\rmfamily\tiny\emptyaccsupp{\arabic{FancyVerbLine}}}
+
 \begin{document}
     \section{Section}
     \subsection{MySubSection}
