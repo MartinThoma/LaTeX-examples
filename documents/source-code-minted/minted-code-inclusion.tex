@@ -1,0 +1,13 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{minted}         % needed for the inclusion of source code
+
+\begin{document}
+    \section{Section}
+    \subsection{MySubSection}
+    \begin{frame}{Blubtitle}
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{IataCode.java}
+    \end{frame}
+\end{document}

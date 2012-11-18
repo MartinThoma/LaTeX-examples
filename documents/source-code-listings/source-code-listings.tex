@@ -1,0 +1,43 @@
+\documentclass{beamer}
+\usepackage{accsupp}
+\usepackage{listings}   % needed for the inclusion of source code
+\usepackage{color}      % needed for syntax highlighting
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% this style makes included Java code copyable
+\lstdefinestyle{demostyle}{
+    language=Java,
+    basicstyle=\small\ttfamily, % needed for "
+    numbers=left,
+    stepnumber=1,
+    %frame=single,
+    columns=flexible,              % needed because of spaces
+    keepspaces=true,               % needed because of spaces
+    numberstyle=\tiny\noncopynumber,    % line numbers shouldn't be copied
+    keywordstyle=\color{blue},     % keyword style
+    commentstyle=\color{dkgreen},  % comment style
+    stringstyle=\color{mauve},     % string literal style
+    escapeinside={\%*}{*)},        % if you want to add a comment within your code
+    morekeywords={*,...}           % if you want to add more keywords to the set
+}
+
+\newcommand{\noncopynumber}[1]{%
+    \BeginAccSupp{method=escape,ActualText={}}%
+    #1%
+    \EndAccSupp{}%
+}
+
+\makeatletter
+\def\lst@outputspace{{\ifx\lst@bkgcolor\empty\color{white}\else\lst@bkgcolor\fi\lst@visiblespace}}
+\makeatother
+
+\begin{document}
+    \section{Section}
+    \subsection{MySubSection}
+    \begin{frame}{Blubtitle}
+        \lstinputlisting[style=demostyle]{IataCode.java}
+    \end{frame}
+\end{document}
