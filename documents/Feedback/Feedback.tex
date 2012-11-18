@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}       % links im text
+\usepackage{enumerate}      % for advanced numbering of lists
+\usepackage{fancyheadings}  % Kopfzeile
+\usepackage{array}          % needed for m{1cm} in tabular
+\usepackage{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Change the following lines:                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\yourName{Martin Thoma}
+\newcommand\yourTutorial{10}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup { 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Feedback}, 
+  pdftitle    = {Feedback} 
+}
+
+\pagestyle{fancy}% eigenen Seitestil aktivieren}
+\lhead{Tutor: \yourName}
+\rhead{Tutorium Nr. \yourTutorial}
+
+\begin{document}
+\section{Zum Tutorium}
+\subsection{Quiz}
+    \begin{itemize}
+        \item lehrreich
+        \item informativ
+        \item nervig
+    \end{itemize}
+
+Anzahl
+    \begin{itemize}
+        \item viel zu selten
+        \item zu selten
+        \item genau richtig
+        \item bitte häufiger
+        \item bitte viel häufiger
+    \end{itemize}
+
+\subsection{Praxisaufgaben}
+    \begin{itemize}
+        \item viel zu selten
+        \item zu selten
+        \item genau richtig
+        \item bitte häufiger
+        \item bitte viel häufiger
+    \end{itemize}
+
+\subsection{Wiederholung des Vorlesungsstoffs}
+    \begin{itemize}
+        \item viel zu selten
+        \item zu selten
+        \item genau richtig
+        \item bitte häufiger
+        \item bitte viel häufiger
+    \end{itemize}
+
+\section{Zu mir}
+\subsection{Sprechen}
+Lautstärke
+    \begin{itemize}
+        \item viel zu leise
+        \item zu leise
+        \item genau richtig
+        \item zu laut
+        \item viel zu laut
+    \end{itemize}
+
+Geschwindigkeit
+    \begin{itemize}
+        \item viel zu langsam
+        \item zu langsam
+        \item genau richtig
+        \item zu schnell
+        \item viel zu schnell
+    \end{itemize}
+\end{document}
