@@ -9,6 +9,8 @@
 \usepackage{fancyheadings}  % Kopfzeile
 \usepackage{array}          % needed for m{1cm} in tabular
 \usepackage{enumitem}
+\usepackage{wasysym}
+\usepackage{framed}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Change the following lines:                                       %
@@ -28,58 +30,53 @@
 \rhead{Tutorium Nr. \yourTutorial}
 
 \begin{document}
-\section{Zum Tutorium}
-\subsection{Quiz}
-    \begin{itemize}
-        \item lehrreich
-        \item informativ
-        \item nervig
-    \end{itemize}
+\section*{Über mich}
+Ich bin \dots\\
+\begin{tabular}{lllll}
+{\huge \Square} Info      & {\huge \Square} InWi & {\huge \Square} Schüler        & {\huge \Square} Sonstiges: \_\_\_\_\_\_\_\_\_\_\_\_ \\
+\end{tabular}
 
-Anzahl
-    \begin{itemize}
-        \item viel zu selten
-        \item zu selten
-        \item genau richtig
-        \item bitte häufiger
-        \item bitte viel häufiger
-    \end{itemize}
+\section*{Über das Tutorium}
+Das \textbf{Quiz} ist \dots\\
+\begin{tabular}{lllll}
+{\huge \Square} lehrreich      & {\huge \Square} informativ & {\huge \Square} nervig        & {\huge \Square} lustig    & \_\_\_\_\_\_\_\_\_\_\_\_\\
+{\huge \Square} viel zu selten & {\huge \Square} zu selten  & {\huge \Square} genau richtig & {\huge \Square} zu häufig & {\huge \Square} viel zu häufig\\
+{\huge \Square} viel zu leicht & {\huge \Square} zu leicht  & {\huge \Square} genau richtig & {\huge \Square} zu schwer & {\huge \Square} viel zu schwer\\
+\end{tabular}\\
 
-\subsection{Praxisaufgaben}
-    \begin{itemize}
-        \item viel zu selten
-        \item zu selten
-        \item genau richtig
-        \item bitte häufiger
-        \item bitte viel häufiger
-    \end{itemize}
+\noindent Die \textbf{Praxisaufgaben} sind \dots\\
+\begin{tabular}{lllll}
+{\huge \Square} lehrreich      & {\huge \Square} informativ & {\huge \Square} nervig        & {\huge \Square} lustig    & \_\_\_\_\_\_\_\_\_\_\_\_\\
+{\huge \Square} viel zu selten & {\huge \Square} zu selten  & {\huge \Square} genau richtig & {\huge \Square} zu häufig & {\huge \Square} viel zu häufig\\
+{\huge \Square} viel zu leicht & {\huge \Square} zu leicht  & {\huge \Square} genau richtig & {\huge \Square} zu schwer & {\huge \Square} viel zu schwer\\
+\end{tabular}\\
 
-\subsection{Wiederholung des Vorlesungsstoffs}
-    \begin{itemize}
-        \item viel zu selten
-        \item zu selten
-        \item genau richtig
-        \item bitte häufiger
-        \item bitte viel häufiger
-    \end{itemize}
+\noindent Die \textbf{Folien} sind \dots\\
+\begin{tabular}{lllll}
+{\huge \Square} übersichtlich   & {\huge \Square} verwirrend & {\huge \Square} informativ   & {\huge \Square} gut    & \_\_\_\_\_\_\_\_\_\_\_\_\\
+\end{tabular}\\
 
-\section{Zu mir}
-\subsection{Sprechen}
-Lautstärke
-    \begin{itemize}
-        \item viel zu leise
-        \item zu leise
-        \item genau richtig
-        \item zu laut
-        \item viel zu laut
-    \end{itemize}
+\noindent Die \textbf{Wiederholung des Vorlesungsstoffs} war\dots\\
+\begin{tabular}{lllll}
+{\huge \Square} viel zu selten & {\huge \Square} zu selten  & {\huge \Square} genau richtig & {\huge \Square} zu häufig & {\huge \Square} viel zu häufig\\
+\end{tabular}
 
-Geschwindigkeit
-    \begin{itemize}
-        \item viel zu langsam
-        \item zu langsam
-        \item genau richtig
-        \item zu schnell
-        \item viel zu schnell
-    \end{itemize}
+\section*{Über den Tutor}
+Der Tutor \textbf{spricht} \dots\\
+\begin{tabular}{lllll}
+{\huge \Square} viel zu leise & {\huge \Square} zu leise  & {\huge \Square} genau richtig & {\huge \Square} zu laut & {\huge \Square} viel zu laut\\
+{\huge \Square} viel zu langsam & {\huge \Square} zu langsam  & {\huge \Square} genau richtig & {\huge \Square} zu schnell & {\huge \Square} viel zu schnell\\
+\end{tabular}
+
+\section*{Freitext}
+Diese Themen sollten wiederholt werden:
+\begin{framed}
+  \hfill\vspace{3cm}
+\end{framed}
+
+\noindent \textbf{Andere Kommentare}: z.B. Was ist unklar? 
+Was war heute gut / schlecht?
+\begin{framed}
+  \hfill\vspace{3cm}
+\end{framed}
 \end{document}
