@@ -22,9 +22,7 @@
 \usepackage{xcolor}
 \usepackage{../templates/myStyle}
 
-\newcommand\tutor{Martin Thoma}
-\newcommand\tutNR{10}
-\newcommand\titleText{Programmieren-Tutorium Nr. \tutNR{} bei \tutor}
+\newcommand\titleText{Präsentationstechniken - Aufbau und Gliederung}
 \institute{Fakultät für Informatik}
 
 \hypersetup{pdftitle={\titleText}}
@@ -38,8 +36,8 @@
 
 \begin{document}
 \title{\titleText}
-\subtitle{TODO: Subtitle setzen!}
-\author{\tutor}
+\subtitle{Tutorenprogramm - Start in die Lehre}
+\author{Martin Thoma}
 \date{\today}
 \subject{Programmieren}
 
@@ -52,17 +50,19 @@
     \setcounter{tocdepth}{2}
 }
 
-%\AtBeginSection[]{
-%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
-%}
+\section{Aufbau und Gliederung}
+\input{Aufbau}
+
+\section{Einleitung}
+\input{Einleitung}
+
+\section{Hauptteil}
+\input{Hauptteil}
+
+\section{Abschluss}
+\input{Abschluss}
 
 \section{Abspann}
-\subsection{Name of subsection}
-\begin{frame}{your title}
-Your content
-% \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, label=Baby.java, frame=lines, firstline=5, lastline=6]{java}{singleLines.java}
-\end{frame}
-
 \framedgraphic{Vielen Dank für eure Aufmerksamkeit!}{../images/Teach-yourself-C++-in-21-days.png}
 
 \end{document}

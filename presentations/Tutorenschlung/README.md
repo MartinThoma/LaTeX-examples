@@ -5,8 +5,9 @@ Lehre".
 
 KIT-Style
 ---------
-If you want the KIT-Style, you have to add those files to the 
-"templates" folder:
+I am not allowed to add the KIT-Style files to this public repository.
+So if you want the KIT-Style, you have to add those files by
+yourself to the "templates" folder:
  * beamercolorthemekit.sty
  * beamerthemekit.sty
  * example.bib
