@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{datapie}
+
+\begin{document}
+\begin{preview}
+    \DTLloaddb{myDB}{tax-revenue-de-2012-09.csv}
+    \DTLdisplaydb{myDB}
+    \DTLpiechart{variable=\TaxValue,outerlabel=\Tax}{myDB}{\Tax=Tax,\TaxValue=TaxValue}
+\end{preview}
+\end{document}

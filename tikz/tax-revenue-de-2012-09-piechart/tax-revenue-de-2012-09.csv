@@ -1,0 +1,27 @@
+Group,Tax,TaxValue
+Gemeinschaftliche Steuern,Lohnsteuer,11187
+Gemeinschaftliche Steuern,veranlagte Einkommensteuer,9665
+Gemeinschaftliche Steuern,nicht veranlagte Steuern vom Ertrag,1009
+Gemeinschaftliche Steuern,Abgeltungsteuer auf Zins- und Veräußerungserträge (einschl. ehem. Zinsabschlag),391
+Gemeinschaftliche Steuern,Körperschaftsteuer,2026
+Gemeinschaftliche Steuern,Steuern vom Umsatz,16694
+Gemeinschaftliche Steuern,Gewerbesteuerumlage,0
+Gemeinschaftliche Steuern,erhöhte Gewerbesteuerumlage,0
+Bundessteuern,Energiesteuer,3431
+Bundessteuern,Tabaksteuer,1097
+Bundessteuern,Branntweinsteuer inkl. Alkopopsteuer,168
+Bundessteuern,Versicherungsteuer,459
+Bundessteuern,Stromsteuer,574
+Bundessteuern,Kraftfahrzeugsteuer,588
+Bundessteuern,Luftverkehrsteuer,71
+Bundessteuern,Kernbrennstoffsteuer,304
+Bundessteuern,Solidaritätszuschlag,1439
+Bundessteuern,übrige Bundessteuern,122
+Ländersteuern,Erbschaftsteuer,301
+Ländersteuern,Grunderwerbsteuer,616
+Ländersteuern,Rennwett- und Lotteriesteuer,111
+Ländersteuern,Biersteuer,70
+Ländersteuern,Sonstige Ländersteuern,27
+EU-Eigenmittel,Zölle,431
+EU-Eigenmittel,Mehrwertsteuer-Eigenmittel,161
+EU-Eigenmittel,BSP-Eigenmittel,1597
