@@ -1,0 +1,93 @@
+In diesem Kapitel seien \(k,l,d\in\mdn\) und \(k+l=d\). \(\mdr^d\cong\mdr^k\times\mdr^l\). Für Punkte \(z\in\mdr^d\) schreiben wir \(z=(x,y)\), wobei \(x\in\mdr^k\) und \(y\in\mdr^l\).
+
+\begin{definition}
+\begin{enumerate}
+	\item 	\(p_1\colon\mdr^d\to\mdr^k\) sei definiert durch \(p_1(x,y):=x\)
+	\item 	\(p_2\colon\mdr^d\to\mdr^l\) sei definiert durch \(p_2(x,y):=y\)
+	\item 	Für \(y\in\mdr^l\) sei \(j_y\colon\mdr^k\to\mdr^d\) definiert durch \(j_y(x):=(x,y)\)
+	\item 	Für \(x\in\mdr^k\) sei \(j^x\colon\mdr^l\to\mdr^d\) definiert durch \(j^x(y):=(x,y)\)
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+\label{Lemma 8.1}
+\(p_1,p_2,j_y,\) und \(j^x\) sind messbar.
+\end{lemma}
+
+\begin{beweis}
+\(p_1,p_2,j_y\) und \(j^x\) sind stetig, also nach \ref{Satz 3.2} messbar.
+\end{beweis}
+
+\begin{definition}
+Sei \(C\subseteq\mdr^d\).\\
+Sei \(y\in\mdr^l\), dann heißt \(C_y:=\{x\in\mdr^k:(x,y)\in C\}=(j_y)^{-1}(C)\) der \textbf{y-Schnitt} von C.\\
+Sei \(x\in\mdr^k\), dann heißt \(C^x:=\{y\in\mdr^l:(x,y)\in C\}=(j^x)^{-1}(C)\) der \textbf{x-Schnitt} von C.
+\end{definition}
+
+\begin{lemma}
+\label{Lemma 8.2}
+Sei \(C\in\fb_d\). Dann ist \(C_y\in\fb_k\) und \(C^x\in\fb_l\).
+\end{lemma}
+
+\begin{beweis}
+folgt aus \ref{Lemma 8.1}.
+\end{beweis}
+
+\textbf{Beachte: } Sei \(A\in\mdr^k\) und \(B\in\mdr^l\), sowie \(C:=A\times B \subseteq\mdr^d\). Dann:
+\begin{align*}
+C_y=	\begin{cases}
+		{\emptyset, 	\text{falls } y\notin B}\\
+		{A,		\text{falls } y\in B}
+	 \end{cases}
+&
+&C^x=\begin{cases}
+		{\emptyset, 	\text{falls } x\notin A}\\
+		{B,		\text{falls } x\in A}
+	 \end{cases}
+\end{align*}	
+
+\begin{lemma}
+\label{Lemma 8.3}
+Sei \(A\in\fb_k\) und \(B\in\fb_l\). Dann ist \(C:=A\times B\in\fb_d\).
+\end{lemma}
+
+\begin{beweis}
+Es ist
+\[C=(A\times\mdr^l)\cap(\mdr^k\times B) = p_1^{-1}(A)\cap p_2^{-1}(B)\]
+Nach \ref{Lemma 8.1} sind \(p_1^{-1}(A), p_2^{-1}(B) \in\fb_d\) und somit ist auch \(p_1^{-1}(A)\cap p_2^{-1}(B) \in\fb_d\)
+\end{beweis}
+
+\begin{definition}
+Sei \(f\colon\mdr^d\to\imdr\). \\
+Für \(y\in\mdr^l\): \[f_y(x):=f(x,y) \ \ (x\in\mdr^k)\]
+Für \(x\in\mdr^k\): \[f^x(y):=f(x,y) \ \ (y\in\mdr^l)\]
+Es ist \(f_y=f\circ j_y\) und \(f^x=f\circ j^x\).
+\end{definition}
+
+\begin{lemma}
+\label{Lemma 8.4}
+Ist \(f\colon\mdr^d\to\imdr\) messbar, so sind \(f_y\) und \(f^x\) messbar.
+\end{lemma}
+
+\begin{beweis}
+folgt aus \ref{Lemma 8.1} und \ref{Lemma 8.3}.
+\end{beweis}
+
+%vielleicht funktioniert die nummerierung jetzt
+\begin{defusatz}[ohne Beweis] 
+\label{Satz 8.5}
+Sei \(C\in\fb_d\). Die Funktionen \(\varphi_C\) und \(\psi_C\) seien unter Beachtung von \ref{Lemma 8.2} definiert durch:
+\begin{align*}
+\varphi_C(x):=\lambda_l(C^x) \ \ (x\in\mdr^k) & & \psi_C(x):=\lambda_k(C_y) \ \ (y\in\mdr^l) 
+\end{align*}
+Dann sind \(\varphi_C\) und \(\psi_C\) messbar.
+\end{defusatz}
+
+
+\begin{bemerkung}
+Für \(C\in\fb_d\) gilt:
+\begin{align*}
+\varphi_C(x)=\lambda_l(C^x)=\int_{\mdr^l}\mathds{1}_{C^x}(y)\,dy=\int_{\mdr^l}\mathds{1}_{C}(x,y)\,dy \\
+\psi_C(y)=\lambda_k(C_y)=\int_{\mdr^k}\mathds{1}_{C_y}(x)\,dx=\int_{\mdr^k}\mathds{1}_{C}(x,y)\,dx
+\end{align*}
+\end{bemerkung}

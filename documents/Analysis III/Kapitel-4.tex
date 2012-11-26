@@ -1,0 +1,400 @@
+In diesem Kapitel sei $\emptyset\ne X\in\fb_d$. Wir schreiben außerdem $\lambda$ statt $\lambda_d$.
+
+\begin{definition}
+\index{Lebesgueintegral}
+Sei $f:X\to [0,\infty)$ eine einfache Funktion mit der Normalform $f=\sum_{j=1}^m y_j\mathds{1}_{A_j}$.\\
+Das \textbf{Lebesgueintegral} von $f$ ist definiert durch:
+\[\int_X f(x)\text{ d}x:=\sum_{j=1}^m y_j\lambda(A_j)\]
+\end{definition}
+
+\begin{satz}
+\label{Satz 4.1}
+Sei $f:X\to[0,\infty)$ einfach, $z_1,\dots,z_k\in[0,\infty)$ und $B_1,\dots,B_k\in\fb(X)$ mit $\bigcup B_j=X$ und $f=\sum_{j=1}^k z_j\mathds{1}_{B_j}$. Dann gilt:
+\[\int_X f(x)\text{ d}x=\sum_{j=1}^k z_j\lambda(B_j)\]
+\end{satz}
+
+\begin{beweis}
+In der großen Übung.
+\end{beweis}
+
+\begin{satz}
+\label{Satz 4.2}
+Seien $f,g:X\to[0,\infty)$ einfach, $\alpha, \beta\in[0,\infty)$ und $A\in\fb(X)$.
+\begin{enumerate}
+\item $\int_X \mathds{1}_A(x)\text{ d}x=\lambda(A)$
+\item $\int_X (\alpha f+\beta g)(x)\text{ d}x = \alpha\int_X f(x)\text{ d}x + \beta\int_X g(x)\text{ d}x$
+\item Ist $f\le g$ auf $X$, so ist $\int_X f(x)\text{ d}x\le \int_X g(x)\text{ d}x$.
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item Folgt aus der Definition und \ref{Satz 4.1}.
+\item Es seien $f=\sum_{j=1}^m y_j \mathds{1}_{A_j}$ und $g=\sum_{j=1}^k z_j \mathds{1}_{B_j}$ die Normalformen von $f$ und $g$. Dann gilt:
+\[\alpha f+ \beta g=\sum_{j=1}^m \alpha y_j\mathds{1}_{A_j}+\sum_{j=1}^k \beta z_j\mathds{1}_{B_j}\]
+Dann gilt:
+\begin{align*}
+\int_X (\alpha f+\beta g) &\stackrel{\ref{Satz 4.1}}= \sum_{j=1}^m \alpha y_j \lambda(A_j) + \sum_{j=1}^k \beta z_j \lambda(B_j)\\
+&= \alpha \sum_{j=1}^m y_j \lambda(A_j) + \beta \sum_{j=1}^k z_j \lambda(B_j)\\
+&= \alpha \int_X f(x)\text{ d}x + \beta \int_X g(x)\text{ d}x
+\end{align*}
+\item Definiere $h:=g-f$. Dann ist $h\ge 0$ und einfach. Sei $h=\sum_{j=1}^m x_j\mathds{1}_{C_j}$ die Normalform von $h$, d.h. $x_1,\dots,x_m\ge 0$. Dann gilt:
+\[\int_X h(x)\text{ d}x = \sum_{j=1}^m x_j\lambda(C_j)\ge 0\]
+Also folgt aus $g=f+h$ und (2):
+\[\int_X g(x)\text{ d}x=\int_X f(x)\text{ d}x +\int_X h(x)\text{ d}x\ge \int_X f(x)\text{ d}x\]
+\end{enumerate}
+\end{beweis}
+
+\begin{definition}
+\index{Lebesgueintegral}
+Sei $f:X\to[0,\infty]$ messbar. $(f_n)$ sei eine für $f$ zulässige Folge. Das \textbf{Lebesgueintegral} von $f$ ist definiert als:
+\begin{align*}
+\tag{$*$}\int_X f(x)\text{ d}x:=\lim_{n\to\infty}\int_X f_n(x)\text{ d}x
+\end{align*}
+\end{definition}
+
+\begin{bemerkung}\ 
+\begin{enumerate}
+\item In \ref{Satz 4.3} werden wir sehen, dass $(*)$ unabhängig ist von der Wahl der für $f$ zulässigen Folge $(f_n)$.
+\item $(f_n(x))$ ist wachsend für alle $x\in X$, d.h.:
+\[f(x)=\lim_{n\to\infty} f_n(x)=(\sup_{n\in\mdn} f_n)(x)\]
+\item Aus \ref{Satz 4.2}(3) folgt dass $(\int_X f_n(x)\text{ d}x)$ wachsend ist, d.h.:
+\[\lim_{n\to\infty} \int_X f_n(x)\text{ d}x = \sup\Set{\int_X f_n(x)\text{ d}x | n\in\mdn}=\int_X f_(x)\text{ d}x\]
+\end{enumerate}
+\end{bemerkung}
+
+\textbf{Bezeichnung:}\\
+Für messbare Funktionen $f:X\to[0,\infty]$ definiere
+\[M(f):=\Set{\int_X g\text{ d}x\mid g:X\to[0,\infty) \text{ einfach und }g\le f\text{ auf }X}\]
+
+\begin{satz}
+\label{Satz 4.3}
+Ist $f:X\to[0,\infty]$ messbar und $(f_n)$ zulässig für $f$, so gilt:
+\[L:=\lim_{n\to\infty}\int_X f_n\text{ d}x=\sup M(f)\]
+Insbesondere ist $\int_X f(x) \text{ d}x$ wohldefiniert.
+\end{satz}
+
+\begin{folgerungen}
+\label{Folgerung 4.4}
+Ist $f:X\to[0,\infty]$ messbar, so ist $\int_X f(x) \text{ d}x=\sup M(f)$.
+\end{folgerungen}
+
+\begin{beweis}
+Sei \(\int_Xf_n\,dx\in M(f) \,\forall\natn \). Dann ist \[L = \sup\left\{\int_Xf_n\,dx\mid\natn\right\} \leq \sup M(f)\]\\
+Sei nun $g$ einfach und \(0\leq g\leq f\). Sei weiter \[g=\sum^m_{j=1}y_j\mathds{1}_{A_j}\] die Normalform von $g$.\\
+Sei \(\alpha>1\) und \(B_n:=\{\alpha f_n\geq g\}\). Dann ist \[B_n\in\fb(X) \text{ und }(B_n\subseteq B_{n+1}\text{, sowie } \mathds{1}_{B_n}g\leq\alpha f_n.\]
+Sei \(x\in X\).\\
+\textbf{Fall 1:} Ist \(f(x)=0\), so ist wegen \(0\leq g\leq f\) auch \(g(x)=0\). Somit ist \(x\in B_n\) für jedes \(\natn\).\\
+\textbf{Fall 2:} Ist  \(f(x)>0\), so ist \[\frac{1}{\alpha}g(x)<f(x)\] (Dies ist klar für \(g(x)=0\) und falls gilt: \(g(x)>0\), so ist \(\frac{1}{\alpha}g(x)<g(x)\leq f(x) \) )\\
+Da $f_n$ zulässig für $f$ ist, gilt: \(f_n(x)\to f(x)\  (n\to\infty)\), weshalb ein \(n(x)\in\mdn\) existiert mit:
+\[\frac{1}{\alpha}g(x)<f(x)\text{für jedes } n\geq n(x)\]
+Es folgt \(x\in B_n\) für jedes \(n\geq n(x)\).\\
+\textbf{Fazit:} \(X=\bigcup B_n\). \[A_j=A_j\cap X=A_j\cap\left(\bigcup B_n\right) = \bigcup(A_j\cap B_n) \text{ und } A_j\cap B_n\subseteq A_j\cap B_{n+1} \]
+Aus \ref{Satz 1.7} folgt \(\lambda(A_j)=\lim\limits_{n\to\infty}\lambda(A_j\cap B_n)\). Das liefert:
+\begin{align*}
+   \int\limits_Xg\,dx &= \sum\limits_{j=1}^m y_j\lambda(A_j) 
+   = \sum\limits_{j=1}^m y_j\lim\limits_{n\to\infty}\lambda(A_j\cap B_n)\\ 
+   &=\lim\limits_{n\to\infty}\sum\limits_{j=1}^m y_j\lambda(A_j\cap B_n)
+   \overset{\ref{Satz 4.1}}= \lim\limits_{n\to\infty} \int\limits_X \mathds{1}_{B_n}g\,dx\\
+   &\leq  \lim\limits_{n\to\infty} \int\limits_X \alpha f_n\,dx
+   =\alpha L
+\end{align*}
+g war einfach und \(0\leq g\leq f\) beliebig, sodass \[\sup M(f)\leq\alpha L \overset{\alpha\to 1}\implies \sup M(f)\leq L \]
+\end{beweis}
+
+\begin{satz}
+\label{Satz 4.5}
+Seien $f,g:X\to[0,\infty]$ messbar und $\alpha,\beta\ge0$.
+\begin{enumerate}
+\item $\int_X (\alpha f+\beta g)(x) \text{ d}x=\alpha\int_X f(x) \text{ d}x+\beta\int_X g(x) \text{ d}x$
+\item Ist $f\le g$ auf $X$, so gilt $\int_X f(x) \text{ d}x\le \int_X g(x) \text{ d}x$
+\item $\int_X f(x) \text{ d}x=0 \iff \lambda(\{f>0\})=0$
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item \((f_n)\) und \((g_n)\) seien zulässig für $f$ bzw. $g$. Weiter sei \((h_n):=\alpha (f_n)+\beta (g_n) \).
+Dann ist wegen \ref{Satz 3.7} und \(\alpha , \beta \geq 0\), dass \((h_n)\) zulässig für \(\alpha f+\beta g\) ist. Dann:
+\begin{align*}
+\int_X(\alpha f + \beta g)\,dx
+&= \lim\limits_{n\to\infty}\int_X \left( \alpha (f_n)+\beta (g_n) \right)\,dx\\
+&\overset{\ref{Satz 4.2}}= \alpha\lim\limits_{n\to\infty}\int_X(f_n)\,dx + \beta\lim\limits_{n\to\infty}\int_X(g_n)\,dx\\
+&=\alpha\int_Xf\,dx + \beta\int_Xg\,dx
+\end{align*}
+\item Wegen \(f\leq g\) auf $X$ ist \(M(f)\subseteq M(g)\) und somit auch \(\sup M(f)\leq\sup M(g)\). Aus \ref{Folgerung 4.4} folgt nun die Behauptung.
+\item Setze \(A:=\{f>0\}=\{x\in X:f(x)>0\}\).
+\begin{enumerate}
+\item["'$\implies$"'] Sei \(\int_Xf\,dx=0\) und \(A_n:=\{f>\frac{1}{n}\}\). Dann ist \(A=\bigcup A_n\) und \(f\geq\frac{1}{n}\mathds{1}_{A_n}\). Damit folgt:
+\begin{align*}
+0 = \int_Xf\,dx 
+\overset{\text{(2)}}\geq \int_X\frac1{n}\mathds{1}_{A_n}\,dx
+=\frac1{n}\lambda(A_n)
+\intertext{Es ist also \(\lambda(A_n)=0\) und damit gilt weiter}
+\lambda(A)=\lambda(\bigcup A_n) \overset{\ref{Satz 1.7}}\leq \sum\lambda(A_n)=0
+\end{align*}
+Also ist auch \(\lambda(A)=0\).
+\item["'$\impliedby$"'] Sei \(\lambda(A)=0\), \((f_n)\) zulässig für $f$ und \(c_n:=\max\{f_n(x):x\in X\}\). Dann ist \(f_n\leq c_n\mathds{1}_A\) und es gilt:
+\[0 \leq \int_Xf_n\,dx\overset{\text{(2)}} \leq \int_Xc_n\mathds{1}_A\,dx = c_n\lambda(A) \overset{\text{Vor.}} = 0 \]
+Es ist also  \(\int_Xf_n\,dx=0\) für jedes $\natn$ und somit auch \(\int_Xf\,dx=0\)
+\end{enumerate}
+\end{enumerate}
+\end{beweis}
+
+\begin{satz}[Satz von Beppo Levi (Version I)]
+\label{Satz 4.6}
+Sei $(f_n)$ eine Folge messbarer Funktionen $f_n:X\to[0,\infty]$ und es gelte $f_n\le f_{n+1}$ auf $X$ für jedes $n\in\mdn$.
+\begin{enumerate}
+\item Für alle $x\in X$ existiert $\lim_{n\to\infty} f_n(x)$.
+\item Die Funktion $f:X\to[0,\infty]$ definiert durch:
+\[f(x):=\lim_{n\to\infty} f_n(x)\]
+ist messbar.
+\item $\int_X \lim\limits_{n\to\infty}f_n(x) \text{ d}x=\int_X f(x) \text{ d}x=\lim\limits_{n\to\infty}\int_X f_n(x) \text{ d}x$
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item Für alle $x\in X$ ist \(\left(f_n(x)\right)\) wachsend, also konvergent in \([0,+\infty]\).
+\item folgt aus \ref{Satz 3.5}.
+\item Sei \( \left(u_j^{(n)}\right)_{j\in\mdn} \) zulässig für $f_n$ und \(v_j:=\max\left\{u_j^{(1)}, u_j^{(2)}, \dots , u_j^{(j)} \right\} \).
+Aus \ref{Satz 3.7} folgt, dass $v_j$ einfach ist und aus der Konstruktion lässt sich nachrechnen, dass gilt:
+ \[0\leq v_j\leq v_{j+1} \text{ und } v_j\leq f_n\leq f \text{ und } f_n=\sup\limits_{j\in\mdn}u_j^{(n)} \leq \sup\limits_{j\in\mdn}v_j \text{ (auf $X$)}\]
+Damit ist $(v_j)$ zulässig für $f$ und es gilt:
+\[ \int_Xf\,dx=\lim\limits_{j\to\infty}\int_Xv_j\,dx\leq\lim\limits_{j\to\infty}\int_Xf_j\,dx\leq\int_Xf\,dx \]
+\end{enumerate}
+\end{beweis}
+
+\begin{satz}[Satz von Beppo Levi (Version II)]
+\label{Satz 4.7}
+Sei $(f_n)$ eine Folge messbarer Funktionen $f_n:X\to[0,\infty]$.
+\begin{enumerate}
+\item Für alle $x\in X$ existiert $s(x):=\sum_{j=1}^\infty f_j(x)$.
+\item $s:X\to[0,\infty]$ ist messbar.
+\item $\int_X \sum_{j=1}^\infty f_j(x) \text{ d}x= \sum_{j=1}^\infty \int_X f_j(x) \text{ d}x$
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+Setze \[s_n:=\sum\limits_{j=1}^nf_j\]
+Dann erfüllt \((s_n)\) die Voraussetzungen von \ref{Satz 4.6}. Aus 4.6 und \ref{Satz 4.5}(1) folgt die Behauptung.
+\end{beweis}
+
+\begin{satz}
+\label{Satz 4.8}
+Sei $f:X\to[0,\infty]$ messbar und es sei $\emptyset\ne Y\in\fb(X)$ (also $Y\subseteq X$ und $Y\in\fb_d$). Dann sind die Funktionen $f_{|Y}:Y\to[0,\infty]$ und $\mathds{1}_Y\cdot f:X\to[0,\infty]$ messbar und es gilt:
+\[\int_Y f(x) \text{ d}x:=\int_Y f_{|Y}(x) \text{ d}x=\int_X (\mathds{1}_Y\cdot f)(x) \text{ d}x\]
+\end{satz}
+
+\begin{beweis}
+\textbf{Fall 1:} Die Behauptung ist klar, falls $f$ einfach ist. (Übung!)\\
+\textbf{Fall 2:} Sei \((f_n)\) zulässig für $f$ und \(g_n:=f_{n|Y} , h_n:=\mathds{1}_Y f_n\)
+Dann ist \((g_n)\) zulässig für \(f_{|Y}\) und \((h_n)\) ist zulässig für \(\mathds{1}_Y f_n\).
+Insbesondere sind  \(f_{n|Y}\) und \(\mathds{1}_Y f_n\) nach \ref{Satz 3.5} messbar.
+Weiter gilt:
+\[ \int_Y f_{|Y}\,dx \overset{n\to\infty}\longleftarrow \int_Yg_n\,dx \overset{Fall 1}=\int_Xh_n\,dx\overset{n\to\infty}\longrightarrow \int_X\mathds{1}_Yf\,dx   \]
+\end{beweis}
+
+\begin{definition}
+\index{integrierbar}\index{Integral}\index{Lebesgueintegral}
+Sei $f:X\to\imdr$ messbar. $f$ heißt (Lebesgue-)\textbf{integrierbar} (über $X$), genau dann wenn $\int_X f_+(x) \text{ d}x<\infty$ \textbf{und} $\int_X f_-(x) \text{ d}x<\infty$.\\
+In diesem Fall heißt:
+\[\int_X f(x) \text{ d}x:=\int_X f_+(x) \text{ d}x-\int_X f_-(x) \text{ d}x\]
+das (Lebesgue-)\textbf{Integral} von $f$ (über $X$).
+\end{definition}
+
+\textbf{Beachte:}\\
+Ist $f:X\to[0,\infty]$ messbar, so ist $f$ genau dann integrierbar, wenn gilt:
+\[\int_X f(x) \text{ d}x<\infty\]
+
+\begin{beispiel}
+Sei $X \in \fb_1$, $f(x) := \begin{cases} 1&,x\in X\cap\MdQ\\ 0&,x\in X\setminus\MdQ\end{cases} = \mathds{1}_{X\cap\MdQ}$.
+$X, \MdQ \in \fb_1 \implies X \cap \MdQ \in \fb_1 \implies f$ ist messbar.
+\[0 \leq \int_X f(x) \text{ d}x = \int_X \mathds{1}_{X\cap\MdQ} \text{ d}x = \lambda(X\cap\MdQ) \leq \lambda(\MdQ) = 0\]
+\textbf{Das heißt:} $f \in \fl^1(X)$, $\int_X f \text{ d}x = 0$.
+Ist speziell $X = [a,b]\quad (a<b)$, so gilt: $f \in \fl^1([a,b])$, aber $f \not\in R([a,b])$. 
+\end{beispiel}
+
+\begin{satz}[Charakterisierung der Integrierbarkeit]
+\label{Satz 4.9}
+Sei $f: X \to \imdr$ messbar. Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+ \item $f$ ist integrierbar.
+ \item Es existieren integrierbare Funktionen $u, v: X \to [0,+\infty]$ mit $u(x)=v(x)=\infty$ für \textbf{kein} $x \in X$ und $f=u-v$ auf $X$.
+ \item Es existiert eine integrierbare Funktion $g: X \to [0,+\infty]$ mit $\lvert f \rvert \leq g$ auf $X$.
+ \item $\lvert f \rvert$ ist integrierbar.
+\end{enumerate}
+\end{satz}
+
+\textbf{Zusatz:}
+\begin{enumerate}
+ \item $\fl^1(X) = \{f: X \to \mdr \mid f$ ist messbar und $\int_X \lvert f \rvert \text{ d}x < \infty\}$ (folgt aus (1)-(4)).
+ \item Sind $u,v$ wie in (2), so gilt: $ \int_X f \text{ d}x = \int_X u \text{ d}x - \int_X v \text{ d}x$.
+\end{enumerate}
+
+
+\begin{beweis}[des Satzes]
+\begin{enumerate}
+ \item[(1) $\Rightarrow$ (2)] $u:= f_+$, $v := f_-$.
+ \item[(2) $\Rightarrow$ (3)] $g := u+v$, dann ist $u,v \geq 0$, $g \geq 0$, $\int_X g \text{ d}x \stackrel{4.5}{=} \int_X u \text{ d}x + \int_X v \text{ d}x < \infty$. $\implies g$ ist integrierbar und: $|f| = |u-v| \leq |u| + |v| = u+v = g$ auf $X$.
+ \item[(3) $\Rightarrow$ (4)] \ref{Satz 4.5} $\implies \int_X |f| \text{ d}x \leq \int_X g \text{ d}x < \infty \implies f$ ist integrierbar.
+ \item[(4) $\Rightarrow$ (1)] $f_+, f_- \leq |f|$ auf $X$. $\implies 0 \leq \int_X f_\pm \text{ d}x \leq \int_X |f| \text{ d}x < \infty \stackrel{Def.}{\implies} f$ ist integrierbar.
+\end{enumerate}
+\end{beweis}
+
+\begin{beweis}[des Zusatzes]
+\begin{enumerate}
+ \item \checkmark
+ \item Es ist $f = u-v = f_+ - f_- \implies u+f_- = f_+ + v$.
+\[\implies \int_X u \text{ d}x + \int_X f_- \text{ d}x \stackrel{4.5}{=} \int_X (u+ f_-) \text{ d}x = \int_X (f_+ + v) \text{ d}x \stackrel{4.5}{=} \int_X f_+ \text{ d}x + \int_X v \text{ d}x\]
+\[\implies \int_X u \text{ d}x - \int_X v \text{ d}x = \int_X f_+ \text{ d}x - \int_X f_- \text{ d}x \stackrel{Def.}{=} \int_X f \text{ d}x. \]
+\end{enumerate}
+\end{beweis}
+
+\begin{folgerungen}
+\label{Folgerung 4.10}
+\label{Satz 4.10}
+Sei $f:X\to\imdr$ integrierbar und $N := \{\lvert f \rvert = +\infty\} = \{x\in X : \lvert f(x) \rvert = + \infty\}$. Dann ist $N\in \fb(X)$ und $\lambda(N) = 0$.
+\end{folgerungen}
+
+\begin{beweis}
+ $\ref{Satz 3.4} \implies N \in \fb(X).$ $n\mathds{1}_N \leq \lvert f \rvert$ für alle $n\in \MdN$. Dann: 
+\[n \cdot \lambda(N) = \int_X n\mathds{1}_N \text{ d}x \stackrel{4.5}{\leq} \int_X \lvert f \rvert \text{ d}x \stackrel{4.9}{<} \infty \text{  für alle } n \in \mdn\]
+Also: $0 \leq n\lambda(N) \leq \int_X \lvert f \rvert \text{ d}x \quad \forall n \in \mdn \implies \lambda(N) = 0$ 
+\end{beweis}
+
+\begin{satz}
+\label{Satz 4.11}
+$f, g: X \to \imdr$ seien integrierbar und es sei $\alpha \in \mdr$.
+\begin{enumerate}
+ \item $\alpha f$ ist integrierbar und $\int_X (\alpha f) \text{ d}x = \alpha \int_X f \text{ d}x$.
+ \item Ist $f+g:X\to\imdr$ auf $X$ definiert, so ist $f+g$ integrierbar und es gilt:
+ \[\int_X (f+g)\text{ d}x = \int_X f \text{ d}x + \int_X g \text{ d}x\]
+(Für $f=+\infty$ und $g=-\infty$ ist $f+g$ beispielsweise nicht definiert.)
+ \item $\fl^1(X)$ ist ein reeller Vektorraum und die Abbildung $f \mapsto \int_X f \text{ d}x$ ist linear auf $\fl^1(X)$.
+ \item $\max\{f,g\}$ und $\min\{f,g\}$ sind integrierbar.
+ \item Ist $f\leq g$ auf $X$, so ist $\int_X f \text{ d}x \leq \int_X g \text{ d}x$.
+ \item $\lvert \int_X f \text{ d}x \rvert \leq \int_X \lvert f \rvert \text{ d}x$. (Dreiecksungleichung für Integrale)
+ \item Sei $\emptyset\ne Y \in \fb(X)$. Dann sind die Funktionen $f_{|Y}: Y \to \imdr$ und $\mathds{1}_Y\cdot f: X \to \imdr$ integrierbar und
+\[\int_Y f(x) \text{ d}x := \int_Y f_{|Y} (x) \text{ d}x = \int_X(\mathds{1}_Y \cdot f)(x) \text{ d}x\]
+ \item Sei $\lambda(X) < \infty$ und $h: X \to \mdr$ sei messbar und beschränkt. Dann: $h \in \fl^1(X)$ und $\lvert \int_X h \text{ d}x\rvert \leq \|h\|_\infty \lambda(X) \quad$ (mit $\|h\|_\infty := \sup\{|h(x)| : x\in X\}$) 
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate} 
+\item folgt aus \(\alpha f)_{\pm}=\alpha f_{\pm}\), falls \(\alpha\geq0\) und \(\alpha f)_{\pm}=-\alpha f_{\mp}\), falls 
+    \(\alpha<0\).
+\item Es gilt \(f+g=\underbrace{f_{+}+g_{+}}_{=:u}-\underbrace{(f_{-}+g_{-})}_{=:v}=u-v\). Dann:
+\[
+\int_{X}{u\mathrm{d}x}=\int_{X}{f_{+}+g_{+}\mathrm{d}x}\overset{\ref{Satz 4.5}}{=}\int_{X}{f_{+}\mathrm{d}x}+\int_{X}{g_{+}\mathrm{d}x}<\infty
+\]
+Genauso: \(\int_{X}{v\mathrm{d}x}<\infty\)\\
+Mit Satz \ref{Satz 4.9} folgt: \(f+g\) ist integrierbar. Weiter:
+\begin{align*}
+\int_{X}{(f+g)\mathrm{d}x}&\overset{\ref{Satz 4.9}}{=}\int_{X}{u\mathrm{d}x}-\int_{X}{v\mathrm{d}x}\\
+    &=\int_{X}{f_{+}\mathrm{d}x}+\int_{X}{g_{+}\mathrm{d}x}-\left(\int_{X}{f_{-}\mathrm{d}x}+\int_{X}{g_{-}\mathrm{d}x}\right)\\
+    &=\int_{X}{f\mathrm{d}x}+\int_{X}{g\mathrm{d}x}
+\end{align*}
+\item folgt aus (1) und (2).
+\item Mit Satz \ref{Satz 3.5} folgt: \(\max\{f,g\}\) ist messbar. Es gilt:
+\[
+0\leq\lvert\max\{f,g\}\rvert\leq\lvert f\rvert+\lvert g\rvert
+\]
+Mit \ref{Satz 4.9} und Aussage (2) folgt \(\lvert f\rvert+\lvert g\rvert\) ist integrierbar. Dann folgt mit Satz \ref{Satz 4.9}:
+\(\max\{f,g\}\) ist integrierbar.\\
+Analog zeigt man: \(\min\{f,g\}\) ist integrierbar.
+\item Nach Voraussetzung ist \(f\leq g\) auf \(X\). Dann gilt: \(f_{+}\leq g_{+}\) auf \(X\) und \(f_{-}\geq g_{-}\) auf \(X\).
+Es folgt:
+\[
+\int_{X}{f\mathrm{d}x}=\int_{X}{f_{+}\mathrm{d}x}-\int_{X}{f_{-}\mathrm{d}x}\overset{\ref{Satz 4.5}}{\leq}\int_{X}{g_{+}\mathrm{d}x}-\int_{X}{g_{-}\mathrm{d}x}=\int_{X}{g\mathrm{d}x}
+\]
+\item Es ist \(\pm f\leq\lvert f\rvert\). Mit Aussage (1) und (5) folgt: 
+    \(\pm\int_{X}{f\mathrm{d}x}=\int_{X}{(\pm f)\mathrm{d}x}\leq\int_{X}{\lvert f\rvert\mathrm{d}x}\).\\
+Es ist \(\int_{X}{f\mathrm{d}x}=\lvert\int_{X}{f\mathrm{d}x}\rvert\) oder \(-\int_{X}{f\mathrm{d}x}=\lvert\int_{X}{f\mathrm{d}x}\rvert\)
+\item Mit Bemerkung (2) vor \ref{Satz 3.1} und Satz \ref{Satz 3.6}.(2) folgt: \(f_{|Y}\) und \(\mathds{1}_{Y}\cdot f\) sind
+messbar. Es gilt: \((f_{|Y})_{\pm}=(f_{\pm})_{|Y}\) und \((\mathds{1}_{Y}\cdot f)_{\pm}=\mathds{1}\cdot f_{\pm}\). Weiterhin 
+gilt \(0\leq\mathds{1}_{Y}f_{\pm}\leq f_{\pm}\). Mit \ref{Satz 4.9} folgt dann, daß\ \(\mathds{1}_{Y}f_{\pm}\) integrierbar
+ist. Dann:
+\begin{align*}
+\int_{X}{(\mathds{1}_{Y}f)\mathrm{d}x}&=\int_{X}{\mathds{1}f_{+}\mathrm{d}x}-\int_{X}{\mathds{1}_{Y}f\mathrm{d}x}\\
+    &=\underbrace{\int_{Y}{(f_{+})_{|Y}\mathrm{d}x}}_{<\infty}-\underbrace{\int_{Y}{(f_{-})_{|Y}\mathrm{d}x}}_{<\infty}
+\end{align*}
+Es folgt: \(f_{|Y}\) ist integrierbar und \(\int_{Y}{f_{|Y}\mathrm{d}x}=\int_{Y}{(f_{+})_{|Y}\mathrm{d}x}-\int_{Y}{(f_{-})_{|Y}\mathrm{d}x}=\int_{X}{(\mathds{1}_{Y}f)\mathrm{d}x}\).
+\item Es ist \(\lvert h\rvert\leq\lVert h\rVert_{\infty}\cdot\mathds{1}_{X}\). Dann folgt:
+\[
+\int_{X}{\lvert h\rvert\mathrm{d}x}\leq\int_{X}{\lVert h\rVert_{\infty}\mathds{1}_{X}\mathrm{d}x}=\lVert h\rVert_{\infty}\lambda(X)<\infty
+\]
+Damit: \(\lvert h\rvert\) ist integrierbar und mit \ref{Satz 4.9} auch \(h\). Da \(h\) beschränkt ist, folgt: 
+\(h\in\fl^{1}(X)\). Schließlich:
+\[
+\left\lvert\int_{X}{h\mathrm{d}x}\right\rvert\leq\int_{X}{\lvert h\rvert\mathrm{d}x}\leq\lVert h\lVert_{\infty}\lambda(X)
+\]
+\end{enumerate}
+\end{beweis}
+
+\begin{satz}
+\label{Satz 4.12}
+\begin{enumerate}
+ \item Sind $\emptyset\ne A,B \in \fb(X)$ disjunkt, $X = A \cup B$ und ist $f: X \to \imdr$ integrierbar (über $X$), so ist $f$ integrierbar über $A$ und integrierbar über $B$ und es gilt:
+ \[\int_X f \text{ d}x = \int_A f \text{ d}x + \int_B f \text{ d}x\]
+ \item Ist $\emptyset \neq K \subseteq \mdr^d $ kompakt und $f:K\to\mdr$ stetig, so ist $f \in \fl^1(K)$.
+\end{enumerate}
+
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+ \item Aus \ref{Satz 4.11}(7) folgt: $f$ ist integrierbar über $A$ und integrierbar über $B$. Es ist 
+\[ \int_X f(x) \text{ d}x = \int_X \left( \mathds{1}_{A\cup B} \cdot f \right)(x) \text{ d}x = \int_X \left( \left( \mathds{1}_A + \mathds{1}_B \right) f\right)(x) \text{ d}x \]
+\[= \int_X \left(\mathds{1}_A f + \mathds{1}_B f \right)(x) \text{ d}x \stackrel{4.11(2)}{=} \int_X \mathds{1}_A f \text{ d}x + \int_X \mathds{1}_B f \text{ d}x \stackrel{4.11(7)}{=} \int_A f \text{ d}x + \int_B f \text{ d}x.\]
+
+ \item $K$ ist kompakt, also gilt: $\lambda(K) < \infty$. Aus \ref{Satz 3.2}(1) folgt, dass $f$ messbar ist. Analysis II (\glqq stetige Funktionen auf kompakten Mengen nehmen Minimum und Maximum an\grqq ) liefert: $f$ ist beschränkt. Insgesamt folgt mit \ref{Satz 4.11}(8) schließlich: $f \in \fl^1(K)$.
+\end{enumerate}
+\end{beweis}
+
+\begin{satz}
+\label{Satz 4.13}
+Seien $a,b\in\mdr$, $a<b$, $X:=[a,b]$ und $f\in C(X)$. Dann ist $f\in\fl^1(X)$ und es gilt:
+\[L-\int_X f(x) \text{ d}x=R-\int_a^b f(x) \text{ d}x\]
+\end{satz}
+
+\begin{beweis}
+Sei $\natn$, $t_j^{(n)}:=a+j\frac{b-a}{n}$ ($j=0,\dots,n$) und $I_j^{(n)}:=\left[t_{j-1}^{(n)},t_j^{(n)}\right]$ ($j=1,\dots,n$).
+\begin{align*}
+S_n:=\sum^n_{j=1} f \left(t_j^{(n)}\right) \underbrace{ \frac{b-a}{n}}_{= \lambda_1 \left(I_j^{(n)}\right)} \text{ ist Riemannsche Zwischensumme für R-} \int_a^bf(x)\,dx.
+\end{align*}
+Aus Analysis I folgt $S_n\to\text{R-}\int_a^bf(x)\,dx$ ($n\to\infty$). 
+Definiere $f_n:=\sum^n_{j=1}f \left(t_j^{(n)} \right) \mathds{1}_{I_j^{(n)}} $. Dann ist $f_n$ einfach und 
+\[\int_X f_n(x)\,dx=\sum_{j=1}^n f \left(t_j^{(n)} \right) \lambda_1 \left(I_j^{(n)}\right)=S_n\]
+$f$ ist auf $X$ gleichmäßig stetig also konvergiert $f_n$ auf $X$ gleichmäßig gegen $f$ (Übung!), also gilt:
+\[\lVert f_n-f \rVert_{\infty}=\text{sup} \left \{ \lvert f_n(x)-f(x) \rvert : x\in X \right\} \to 0 \  (n\to \infty)\]
+Aus \ref{Satz 4.12}(2) folgt $f\in \mathfrak{L}^1(X)$
+\begin{align*}
+\left\lvert \text{L-} \int \limits_X f(x)\,dx -S_n \right\rvert = \left\lvert \text{L-} \int \limits_X (f-f_n)\,dx \right\rvert \stackrel{\text{4.11}}\leq \int \limits_X(f-f_n)\,dx \stackrel{\text{4.11}}\leq \lVert f-f_n \rVert_{\infty} \underbrace{\lambda(X)}_{=b-a} \to 0
+\end{align*}
+Daraus folgt $S_n \to$ L- $\int_X f\,dx$
+\end{beweis}
+
+\begin{satz}
+\label{Satz 4.14}
+Sei $a\in\mdr, X:=[a,\infty)$ und $f\in C(X)$. Dann gilt:
+\begin{enumerate}
+\item $f$ ist messbar.
+\item $f\in\fl^1(X)$ genau dann wenn das uneigentliche Riemann-Integral $\int_a^\infty f(x) \text{ d}x$ \textbf{absolut} konvergent ist. In diesem Fall gilt:
+\[L-\int_X f(x) \text{ d}x=R-\int_a^\infty f(x) \text{ d}x\]
+Entsprechendes gilt für die anderen Typen uneigentlicher Riemann-Integrale.
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+Eine Hälfte des Beweises folgt in Kapitel \ref{Kapitel 6}.
+\end{beweis}
+
+\begin{beispiel}
+\begin{enumerate}
+\item Sei $X=(0,1]$, $f(x)=\frac{1}{\sqrt{x}}$. Aus Analysis I wissen wir, dass R-$\int^1_0\frac{1}{\sqrt{x}}\,dx$ (absolut) konvergent ist. Also ist $f\in\mathfrak{L}^1(X)$.\\
+Außerdem wissen wir aus Analysis I, dass R-$\int_0^1\frac{1}{x}$ divergent ist. Also ist $f^2\notin\mathfrak{L}^1(X)$.
+\item Sei $X=[0,\infty)$, $f(x)=\frac{\sin(x)}{x}$. Aus Analysis I wissen wir, dass R-$\int^{\infty}_1f(x)\,dx$ konvergent, aber nicht absolut konvergent ist. Also ist $f\notin\mathfrak{L}^1(X)$.
+\end{enumerate}
+\end{beispiel}

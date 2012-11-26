@@ -1,0 +1,447 @@
+
+In diesem Kapitel seien $\emptyset\ne X,Y,Z$ Mengen.
+
+\begin{definition}
+\index{messbar!Raum}\index{Raum!messbarer}
+Ist $\fa$ eine $\sigma$-Algebra auf $X$, so heißt $(X,\fa)$ ein \textbf{messbarer Raum}.
+\end{definition}
+
+\begin{definition}
+\index{$\fa$-$\fb$-messbar}
+\index{messbar!Funktion}
+Sei $\fa$ eine $\sigma$-Algebra auf $X$, $\fb$ eine $\sigma$-Algebra auf $Y$ und $f:X\to Y$ eine Funktion. $f$ heißt genau dann \textbf{$\fa$-$\fb$-messbar}, wenn gilt:
+\[\forall B\in\fb: f^{-1}(B)\in\fa\]
+\end{definition}
+
+\begin{bemerkung}
+Seien die Bezeichnungen wie in obiger Definition, dann gilt:
+\begin{enumerate}
+\item $f$ sei $\fa$-$\fb$-messbar, $\fa'$ eine weitere $\sigma$-Algebra auf $X$ mit $\fa\subseteq\fa'$ und $\fb'$ sei eine $\sigma$-Algebra auf $Y$ mit $\fb'\subseteq\fb$.\\
+Dann ist $f$ $\fa'$-$\fb'$-messbar.
+\item Sei $X_0\in\fa$, dann gilt $\fa_{X_0}\subseteq\fa$ nach 
+\ref{Satz 1.5}. Nun sei $f:X\to Y$ $\fa$-$\fb$-messbar, dann ist 
+$f_{\mid X_0}:X_0\to Y$ $\fa_{X_0}$-$\fb$-messbar.
+\end{enumerate}
+\end{bemerkung}
+
+\begin{beispiel}
+\begin{enumerate}
+\item Sei $\fa$ eine $\sigma$-Algebra auf $X$ und $A\subseteq X$. $\mathds{1}_A:X\to\mdr$ ist genau dann $\fa$-$\fb_1$-messbar, wenn $A\in\fa$ ist.
+\item Sei $X=\mdr^d$. Ist $A\in\fb_d$, so ist $\mathds{1}_A$ $\fb_d$-$\fb_1$-messbar.
+\item Ist $C$ wie in \ref{Satz 2.11}, so ist $\mathds{1}_C$ nicht $\fb_d$-$\fb_1$-messbar.
+\item Es sei $f:X\to Y$ eine Funktion und $\fb$ ($\fa$) eine $\sigma$-Algebra auf $Y$ ($X$), dann ist $f$ $\cp(X)$-$\fb$-messbar ($\fa$-$\{Y,\emptyset\}$-messbar).
+\end{enumerate}
+\end{beispiel}
+
+\begin{satz}
+\label{Satz 3.1}
+Seien \(\fa,\,\fb,\,\fc\) \(\sigma\)-Algebren auf \(X,\,Y\) bzw. \(Z\). Weiter seien \(f:\,X\to Y\) und \(g:\,Y\to Z\)
+Funktionen.
+\begin{enumerate}
+\item Ist \(f\) \(\fa-\fb-\)messbar und ist \(g\) \(\fb-\fc-\)messbar, so ist \(g\circ f:\,X\to Z\) \(\fa-\fc-\)messbar.
+\item Sei \(\emptyset\neq\ce\subseteq\cp(Y)\) und \(\sigma(\ce)=\fb\). Dann:
+\begin{center}
+\(f\) ist \(\fa-\fb-\)messbar, genau dann, wenn gilt: \(\forall E\in\ce:\,f^{-1}(E)\in\fa\)
+\end{center}
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item Sei \(C\in\fc\); \(g\) ist messbar, daraus folgt \(g^{-1}(C)\in\fb\);
+\(f\) ist messbar, daraus folgt \(f^{-1}(g^{-1}(C))=(g\circ f)^{-1}(C)\in\fa\)
+\item \begin{itemize}
+\item[\(\Rightarrow\)] \checkmark
+\item[\(\Leftarrow\)] \(\fd:=\Set{B\subseteq Y | f^{-1}(B)\in\fa}\)
+Übung: \(\fd\) ist eine \(\sigma\)-Algebra auf \(Y\).
+
+Aus der Voraussetzung folgt: \(\ce\subseteq\fd\).
+Dann: \(\fb=\sigma(\ce)\subseteq\fd\). Ist \(B\in\fb\), so ist \(B\in\fd\), also
+\(f^{-1}(B)\in\fa\).
+\end{itemize}
+\end{enumerate}
+\end{beweis}
+
+\begin{definition}
+\index{messbar!Borel}\index{messbar}
+Sei \(X\in\fb_{d}\). Ist \(f:\,X\to\mdr^{k}\) \(\fb(X)-\fb_{k}-\)messbar, so heißt \(f\) \textbf{(Borel-)messbar}.
+\end{definition}
+Ab jetzt sei stets \(\emptyset \neq X\in\fb_{d}\). 
+(Erinnerung: \(\fb(X)=\Set{A\in\fb_{d} | A\subseteq X}\))
+
+\begin{satz}
+\label{Satz 3.2}
+Seien \(f,\,g:\,X\to\mdr^{k}\) Abbildungen und \(\alpha,\beta\in\mdr\).
+\begin{enumerate}
+    \item Ist \(f\) auf \(X\) stetig, so ist \(f\) messbar.
+    \item Ist \(f\) messbar und \(g(x):=\lVert f(x)\rVert\,(x\in X)\), so ist \(g\) messbar.
+    \item Ist \(f=(f_{1},\dots,f_{k})\), so gilt: \(f\) ist messbar \(\Leftrightarrow\) alle \(f_{j}\) sind messbar.
+    \item Sind \(f\) und \(g\) messbar, so ist \(\alpha f+\beta g\) messbar.
+    \item Sei \(k=1\) und \(f\) und \(g\) seien messbar. Dann:
+    \begin{enumerate}
+        \item \(f \cdot g\) ist messbar
+        \item Ist \(f(x)\neq 0 \quad \forall x\in X\), so ist 
+              \(\frac{1}{f}\) messbar
+        \item \(\Set{x\in X | f(x)\stackrel{>}{\geq} g(x)} \in \fb(X)\)
+    \end{enumerate}
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item Sei \(G\in\co(\mdr^{k})\). \(f\) ist stetig \folgtnach{§0}: \(f^{-1}(G)\in\co(X)\in\fb(X)\)
+
+\(\sigma(\co(\mdr^{k}))=\fb_{k}\). \folgtnach{\ref{Satz 3.1}.(2)} Behauptung.
+\item \(\vp(z) := \lVert z\rVert\quad(z\in\mdr^{k})\); \(\vp\) ist
+stetig, also messbar.
+
+Es ist \(g=\vp\circ f\). \folgtnach{\ref{Satz 3.1}.(1)} \(g\) ist messbar.
+\item 
+    \begin{itemize}
+        \item["`\(\Rightarrow:\)"'] Für \(j=1, \dots,k\) sei 
+            \(p_{j}:\mdr^{k}\to\mdr\) definiert durch 
+            \(p_{j}(x_{1},\dots,x_{k}):=x_{j}\)
+            \(p_{j}\) ist stetig, also messbar. Es ist 
+            \(f_{j}=p_{j}\circ f\) \folgtnach{\ref{Satz 3.1}.(1)} 
+            \(f_{j}\) ist messbar.
+        \item["`\(\Leftarrow:\)"'] Sei \(I=(a,b]=\prod_{j=1}^{k}{(a_{j},b_{j}]}\in I_{k}\quad (a=(a_{1},\dots,a_{k}),\,b=(b_{1},\dots,b_{k}),\,a\leq b)\)\\
+            Dann: \(f^{-1}(I)=\bigcap_{j=1}^{k}{\underbrace{f_{j}^{-1}(\underbrace{(a_{j},b_{j}]}_{\in\fb_{1}}}_{\in\fb(X)}}\in\fb(X)\)
+        \(\sigma(I_{k})=\fb_{k}\) \folgtnach{\ref{Satz 3.1}.(2)} \(f\) ist messbar.
+    \end{itemize}
+\item \(h:=(f,g):\,X\to\mdr^{2k}\); aus (2): \(h\) ist messbar.
+
+\(\vp(x,y):=\alpha x+\beta y\,(x,y\in\mdr^{k})\)
+
+\(\vp\) ist stetig, also messbar. Es ist \(\alpha f+\beta g=\vp\circ h\)
+\folgtnach{\ref{Satz 3.1}.(1)} \(\alpha f+\beta g\) ist messbar.
+\item 
+\begin{enumerate}
+\item \(h:=(f,g):\,X\to\mdr^{2k}\) ist messbar (nach (2)); \(\vp(x,y):=xy\), \(\vp\) ist stetig, also messbar.
+
+Es ist \(fg=\vp\circ h\) \folgtnach{\ref{Satz 3.1}.(1)}  \(fg\) ist messbar.
+\item \(\vp(x):=\frac{1}{x}\), \(\vp\) ist stetig auf \(\mdr\setminus\{0\}\), also messbar.
+
+\(\frac{1}{f}=\vp\circ f\) \folgtnach{\ref{Satz 3.1}.(1)}  \(\frac{1}{f}\) ist messbar.
+\item \(A:=\Set{x\in X | f(x)\geq g(x)} = \Set{x\in X | f(x)-g(x)\in[0,\infty)}
+          =\underbrace{(f-g)}_{\text{messbar nach (3)}}^{-1}(\overbrace{[0,\infty)}^{\in\fb_{1}})\in\fb(X)\)
+\end{enumerate}
+\end{enumerate}
+\end{beweis}
+
+\begin{folgerungen}
+\label{Lemma 3.3}
+    Seien \(A,\,B\in\fb(X),\,A\cap B=\emptyset\) und \(X=A\cup B\). 
+    Weiter seien \(f:A\to\mdr^{k}\) und
+    \(g:B\to\mdr^{k}\) messbar.\\
+    Dann ist \(h:X\to\mdr^{k}\), definiert durch 
+    \[
+    h(x):=\begin{cases}f(x)&x\in A\\g(x)&x\in B\end{cases},
+    \]
+    messbar.
+\end{folgerungen}
+
+\begin{beweis}
+    Sei \(C\in\fb_{k}\). Dann:
+    \[
+    h^{-1}(C)=\underbrace{f^{-1}(C)}_{\in\fb(A)\subseteq\fb(X)}\cup\underbrace{g^{-1}(C)}_{\in\fb(B)\subseteq\fb(X)}\in\fb(X)
+    \]
+\end{beweis}
+
+\begin{beispiel}
+\(X=\mdr^{2},\,f(x,y):=\begin{cases}\frac{\sin(y)}{x}&x\neq 0\\0&x=0\end{cases}\)
+
+für \(x\neq 0:\,f(x,x)=\frac{\sin(X)}{x}\overset{x\to 0}{\to}1\neq 0=f(0,0)\), daraus folgt: \(f\) ist nicht stetig.
+
+\(A:=\Set{(x,y)\in\mdr^{2} | x=0},\,B
+   :=\Set{(x,y)\in\mdr^{2} | x\neq 0},\,X=A\cup B,\,A\cap B=\emptyset\). \(A\) ist
+abgeschlossen, das heißt: \(A\in\fb_{2},\,B=A^{C}\in\fb_{2}\)
+
+\begin{align*}
+f_{1}(x,y)&:=0\quad((x,y)\in A)\\
+f_{2}(x,y)&:=\frac{\sin(y)}{x}\quad((x,y)\in B)
+\end{align*}
+
+\(f_{1}\) ist stetig auf \(A\), \(f_{2}\) ist stetig auf \(B\). Also: \(f_{1},\,f_{2}\) ist messbar; mit \ref{Lemma 3.3} folgt: \(f\) ist messbar.
+\end{beispiel}
+
+\textbf{Ein neues Symbol kommt hinzu:} \(-\infty\){
+
+\(\imdr:=[-\infty,+\infty]:=\mdr\cup\{-\infty,+\infty\}\)
+
+In \(\imdr\) gelten folgende Regeln, wobei \(a\in\mdr\):
+\begin{enumerate}
+    \item \(-\infty<a<+\infty\)
+    \item \(\pm\infty+(\pm\infty)=\pm\infty\)
+    \item \(\pm\infty+a:=a+(\pm\infty):=\pm\infty\)
+    \item \(a\cdot(\pm\infty):=(\pm\infty)\cdot a=
+            \begin{cases}
+                \pm\infty &a > 0\\
+                0         &a = 0\\\mp\infty&a<0
+            \end{cases}\)
+    \item \(\frac{a}{\pm\infty}:=0\)
+\end{enumerate}
+}
+
+\begin{definition}
+\begin{enumerate}
+\item Sei \((x_{n})\) eine Folge in 
+\(\imdr\). \(x_{n}\rightarrow+\infty:\Leftrightarrow\forall c\in\mdr\,\exists n_{c}\in\mdn:x_{n}\geq c\quad\forall n\geq n_{c}\)\\
+Analog für \(-\infty\).
+\item Seien \(f,g: X\to\imdr\) Funktionen. Dann:
+\begin{align*}
+    \{f\leq g\}&:=\Set{x\in X | f(x)\leq g(x)}\\
+    \{f\geq g\}&:=\Set{x\in X | f(x)\geq g(x)}\\
+    \{f\neq g\}&:=\Set{x\in X | f(x)\neq g(x)}\\
+    \{f<g\}&:=\Set{x\in X | f(x)<g(x)}\\
+    \{f>g\}&:=\Set{x\in X | f(x)>g(x)}
+\end{align*}
+\item Sei \(a\in\imdr\) und \(f:\,X\to\imdr\). Dann:
+\begin{align*}
+    \{f\leq a\}&:=\Set{x\in X | f(x)\leq a}\\
+    \{f\geq a\}&:=\Set{x\in X | f(x)\geq a}\\
+    \{f\neq a\}&:=\Set{x\in X | f(x)\neq a}\\
+    \{f<a\}    &:=\Set{x\in X | f(x)<a}\\
+    \{f>a\}    &:=\Set{x\in X | f(x)>a}
+\end{align*}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+\index{Borel!$\sigma$-Algebra}\index{messbar}
+\(\ifb_{1}:=\Set{B\cup E | B\in\fb_{1},\,E\subseteq\Set{-\infty,+\infty}}\). 
+Dann: \(\fb_{1}\subseteq\ifb_{1}\)\\
+Übung: \(\ifb_{1}\) ist eine \(\sigma\)-Algebra auf \(\imdr\).\\
+Klar: \(\fb_{1} \subseteq \ifb_{1}\)
+\(\ifb_{1}\) heißt \textbf{Borelsche \(\sigma\)-Algebra} auf \(\imdr\).\\
+Sei \(f:\,X\to\imdr\). \(f\) heißt \textbf{(Borel-)messbar} (mb) \(:\Leftrightarrow\,f\) ist \(\fb(X)-\ifb_{1}-\) messbar.
+\end{definition}
+
+\begin{beispiel}
+\(f: X \rightarrow \bar \mdr\) definiert durch \(f(x):=+\infty\quad(x\in X)\), also: \(f:\,X\to\imdr\)
+
+Sei \(B\in\overline{\fb}_{1},\,A:=f^{-1}(B)=\Set{x\in X | f(x)\in B}\)
+\begin{itemize}
+\item[Fall 1:] \(+\infty\not\in B\), dann: \(A=\emptyset\in\fb(X)\)
+\item[Fall 2:] \(+\infty\in B\), dann: \(A=X\in\fb(X)\)
+\end{itemize}
+\(f\) ist messbar.
+\end{beispiel}
+
+\begin{satz}
+\label{Satz 3.4}
+\begin{enumerate}
+\item Definiere die Mengen:
+\begin{align*}
+\ce_1&:=\Set{[-\infty,a] | a\in\mdq} & \ce_2&:=\Set{[-\infty,a) | a\in\mdq}\\
+\ce_3&:=\Set{(a,\infty] | a\in\mdq} & \ce_4 &:=\Set{[a,\infty] | a\in\mdq}
+\end{align*}
+Dann gilt:
+\[\overline{\fb_1}=\sigma(\ce_j)\quad \text{ für }j\in\{1,2,3,4\}\]
+\item Für $f:X\to\imdr$ sind die folgenden Aussagen äquivalent:
+\begin{enumerate}
+\item $f$ ist messbar.
+\item $\forall a\in\mdq: \{f\le a\}\in\fb(X)$.
+\item $\forall a\in\mdq: \{f\ge a\}\in\fb(X)$.
+\item $\forall a\in\mdq: \{f< a\}\in\fb(X)$.
+\item $\forall a\in\mdq: \{f> a\}\in\fb(X)$.
+\end{enumerate}
+\item Die Äquivalenzen in (2) gelten auch für Funktionen $f:X\to\mdr$.
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+Die folgenden Beweise erfolgen exemplarisch für einen der Unterpunkte und funktionieren fast analog für die anderen.
+\begin{enumerate}
+    \item Für $a\in\mdq$ gilt:
+    \[[-\infty,a]^c=(a,\infty]\in\sigma(\ce_1)\]
+    D.h. es gilt $\ce_3\subseteq\sigma(\ce_1)$ und damit auch $\sigma(\ce_3)\subseteq\sigma(\ce_1)$.
+    \item Es gilt:
+    \[\forall a \in \mdq\colon \{f\le a\}=\Set{x\in X | f(x)\le a}=f^{-1}(\underbrace{[-\infty,a]}_{\ce_1}) (*)\]
+    Die Äquivalenz folgt dann aus (1) und \ref{Satz 3.1}.
+    \item Die Funktion $f:X\to\imdr$ kann aufgefasst werden als Funktion $\overline{f}:X\to\imdr$. Es ist $f$ genau dann $\fb(X)$-$\fb_1$-messbar wenn $\overline{f}$ $\fb(X)$-$\overline{\fb_1}$-messbar ist. 
+\end{enumerate}
+\end{beweis}
+
+\begin{bemerkung}\ 
+\begin{enumerate}
+\item Ist $X \subseteq \mdr$ ein Intervall und $f: \bar X \rightarrow \mdr$ monoton, so ist
+      $f$ messbar (vgl. 3. ÜB)
+\item Wir wissen: $f: X \rightarrow \mdr$ mb $\Rightarrow |f|$ ist mb.
+      Die Umkehrung ist im allgemeinen falsch!
+\end{enumerate}
+\end{bemerkung}
+
+\begin{beispiel}
+Sei $C \subseteq \mdr^d$ wie in 2.11, also $C \notin \fb_1$.
+\[f(x) = \begin{cases}
+1 & x \in C\\
+0 & x \notin C
+\end{cases}\\
+\Set{f \geq 1} = \Set{x \in \mdr^d | f(x) \geq 1} = C \notin \fb \folgtnach{\ref{Satz 3.4}.(2)} f \text{ ist nicht mb.}\]
+Es ist $|f(x)|=1 \quad \forall x \in \mdr^d$, also $|f| = \mathds{1}_{\mdr^d}$. D.h. $|f|$ ist mb.
+\end{beispiel}
+
+\begin{definition}
+Sei $M\subseteq\imdr$.
+\begin{enumerate}
+\item Ist $M=\emptyset$ oder $M=\{-\infty\}$, so sei 
+\[\sup M:=-\infty\]
+\item Ist $M\setminus\{-\infty\}\ne\emptyset$ und nach oben beschränkt (also insbesondere $\infty\not\in M$), so sei 
+\[\sup M:= \sup (M\setminus\{-\infty\})\]
+\item Ist $M\setminus\{-\infty\}$ nicht nach oben beschränkt oder $\infty\in M$, so sei 
+\[\sup M:=\infty\]
+\item Es sei $\inf M:=-\sup(-M)$, wobei $-M:=\Set{-m | m\in M}$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Sei $(f_n)$ eine Folge von Funktionen $f_n:X\to\imdr$.
+\begin{enumerate}
+\item Die Funktion $\sup_{n\in\mdn}(f_n):X\to\imdr$  $\left(\inf_{n\in\mdn}(f_n):X\to\imdr\right)$ ist definiert durch:
+\[(\sup_{n\in\mdn} f_n)(x):=\sup\Set{f_n(x) | n\in\mdn}\quad x\in X\]
+\[\left((\inf_{n\in\mdn} f_n)(x):=\inf\Set{f_n(x) | n\in\mdn}\quad x\in X\right)\]
+\item Die Funktion $\limsup_{n\to\infty} f_n:X\to\imdr$ $\left(\liminf_{n\to\infty} f_n:X\to\imdr\right)$ ist definiert durch:
+\begin{align*}
+\tag{$*$} \limsup_{n\to\infty} f_n &:= \inf_{j\in\mdn}(\sup_{n\ge j} f_n)\\
+\liminf_{n\to\infty} f_n &:= \sup_{j\in\mdn}(\inf_{n\ge j} f_n)
+\end{align*}
+\textbf{Erinnerung:} Für eine beschränkte Folge $(a_n)$ in $\mdr$ war
+\[\limsup_{n\to\infty} a_n:=\inf\{\sup\Set{a_n | n\ge j}\mid j\in\mdn\}\]
+\item Sei $N\in\mdn$ und $g_j:=f_j$ (für $j=1,\dots,N$), $g_j:=f_N$ (für $j>N$). Definiere:
+\begin{align*}
+\max_{1\le n\le N} f_n &:=\sup_{j\in\mdn} g_n\\
+\min_{1\le n\le N} f_n &:=\inf_{j\in\mdn} g_n
+\end{align*}
+\item Ist $f_n(x)$ für jedes $x\in\imdr$ konvergent, so ist $\lim_{n\to\infty} f_n:X\to\imdr$ definiert durch:
+\[(\lim_{n\to\infty} f_n)(x):=\lim_{n\to\infty} f_n(x)\]
+(In diesem Fall gilt $\lim_{n\to\infty} f_n = \limsup_{n\to\infty} f_n = \liminf_{n\to\infty} f_n$.)
+\end{enumerate}
+\end{definition}
+
+\begin{satz}
+\label{Satz 3.5}
+Sei $(f_n)$ eine Folge von Funktionen $f_n:X\to\imdr$ und jedes $f_n$ messbar.
+\begin{enumerate}
+\item Dann sind ebenfalls messbar:
+\begin{align*}
+&\sup_{n\in\mdn} f_n  &&\inf_{n\in\mdn} f_n &&\limsup_{n\in\mdn} f_n &&\liminf_{n\in\mdn} f_n
+\end{align*}
+\item Ist $(f_n(x))$ für jedes $x\in X$ in $\imdr$ konvergent, so ist $\lim_{n\to\infty} f_n$ messbar.
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item Sei $a\in\mdq$, dann gilt (nach \ref{Satz 3.4}(2)):
+\[\{\sup_{n\in\mdn} f_n\le a\}=\bigcap_{n\in\mdn}\{f_n\le a\}\in\fb(X)\]
+Also ist $\sup_{n\in\mdn} f_n$ messbar. Analog lässt sich die Messbarkeit von $\inf_{n\in\mdn} f_n$ zeigen, der Rest folgt dann aus ($*$).
+\item Folgt aus (1) und obiger Bemerkung in der Definition.
+\end{enumerate}
+\end{beweis}
+
+\begin{beispiel}
+Sei $X=I$ ein Intervall in $\mdr$ und $f:I\to\mdr$ sei auf $I$ differenzierbar.\\
+Für $x\in I,n\in\mdn$ sei $f_n:= n(f(x-\frac1n)-f(x))$. Da $f$ stetig ist, ist auch jedes $f_n$ stetig, also insbesondere messbar und es gilt:
+\[f_n(x)=\frac{f(x-\frac1n)-f(x)}{\frac1n}\stackrel{n\to\infty}{\to}f'(x)\]
+Aus \ref{Satz 3.5}(2) folgt, dass $f'$ messbar ist. 
+\end{beispiel}
+
+\begin{definition}
+\index{Positivteil}\index{Negativteil}
+Sei $f:X\to\imdr$ eine Funktion.
+\begin{enumerate}
+\item $f_+:=\max\{f,0\}$ heißt \textbf{Positivteil} von $f$.
+\item $f_-:=\max\{-f,0\}$ heißt \textbf{Negativteil} von $f$.
+\end{enumerate}
+Es gilt $f_+,f_-\ge 0$, $f=f_+-f_-$ und $|f|=f_++f_-$.
+\end{definition}
+
+\begin{satz}
+\label{Satz 3.6}
+Seien $f,g:X\to\imdr$ und $\alpha,\beta\in\mdr$.
+\begin{enumerate}
+\item Sind $f,g$ messbar und ist $\alpha f(x)+\beta g(x)$ für jedes $x\in X$ definiert, so ist $\alpha f+\beta g$ messbar.
+\item Sind $f,g$ messbar und ist $f(x)g(x)$ für jedes $x\in X$ definiert, so ist $fg$ messbar.
+\item $f$ ist genau dann messbar, wenn $f_+$ und $f_-$ messbar sind. In diesem Fall ist auch $|f|$ messbar.
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item[(1)+(2)] Für alle $n\in\mdn, x\in X$ seien $f_n$ und $g_n$ wie folgt definiert:
+\begin{align*}
+f_n(x)&:=\max\{-n,\min\{f(x),n\}\}\\
+g_n(x)&:=\max\{-n,\min\{g(x),n\}\}
+\end{align*}
+Dann sind $f_n(x),g_n(x)\in[-n,n]$ für alle $n\in\mdn,x\in X$. Nach \ref{Satz 3.2}(3) sind also $\alpha f_n+\beta g_n$ und $f_ng_n$ messbar. Außerdem gilt:
+\begin{align*}
+\alpha f_n(x)+\beta g_n(x)&\stackrel{n\to\infty}\to \alpha f(x)+\beta g(x)\\
+f_n(x)g_n(x)&\stackrel{n\to\infty}\to f(x)g(x)
+\end{align*}
+Die Behauptung folgt aus \ref{Satz 3.5}(2).
+\item[(3)] Nach \ref{Satz 3.5}(1) sind $f_+$ und $f_-$ messbar, wenn $f$ messbar ist. Die umgekehrte Implikation folgt aus \ref{Satz 3.6}(1). Sind $f_+$ und $f_-$ messbar, so folgt ebenfalls aus \ref{Satz 3.6}(1), dass $|f|=f_++f_-$ messbar ist.
+\end{enumerate}
+\end{beweis}
+
+\begin{beispiel}
+Sei $C\subseteq\mdr^d$ wie in \ref{Satz 2.11}, also $C\not\in\fb_d$. Definiere $f:\mdr^d\to\mdr$ wie folgt:
+\[f(x):=\begin{cases} 1&,x\in C\\ -1&,x\not\in C\end{cases}\]
+Dann ist $\{f\ge 1\}=C$, also $f$ \textbf{nicht} messbar. Aber für alle $x\in\mdr^d$ ist $|f(x)|=1$, also $|f|=\mathds{1}_{\mdr^d}$ und damit messbar.
+\end{beispiel}
+
+\begin{definition}
+\index{einfach}
+\index{Treppenfunktion}
+\index{Normalform}
+$f:X\to\mdr$ sei messbar.
+\begin{enumerate}
+\item $f$ heißt \textbf{einfach} oder \textbf{Treppenfunktion}, genau dann wenn $f(X)$ endlich ist.
+\item $f$ sei einfach und $f(X)=\{y_1,\dots,y_m\}$ mit $y_i\ne y_j$ für $i\ne j$. Sei weiter $A_j:=f^{-1}(\{y_j\})$ für $j=1,\dots,m$. Dann sind $A_1,\dots,A_m\in\fb(X)$ und $X=\bigcup_{j=1}^m A_j$ disjunkte Vereinigung.
+\[f=\sum_{j=1}^m y_j \mathds{1}_{A_j}\]
+heißt \textbf{Normalform} von $f$.
+\end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+Sei $A\in\fb(X)$. Definiere:
+\[f:=\mathds{1}_A=2\cdot\mathds{1}_A-\mathds{1}_X+\mathds{1}_{X\setminus A}=\mathds{1}_A+0\cdot\mathds{1}_{X\setminus A}\]
+Wobei das letzte die Normalform von $f$ ist. Man sieht also, dass einfache Funktionen mehrere Darstellungen haben können.
+\end{beispiel}
+
+\begin{satz}
+\label{Satz 3.7}
+Linearkombinationen und Produkte, sowie endliche Maxima und Minima einfacher Funktionen, sind einfach.
+\end{satz}
+
+\begin{satz}
+\label{Satz 3.8}
+\index{zulässig}
+Sei $f:X\to\imdr$ messbar.
+\begin{enumerate}
+\item Ist $f\ge 0$ auf $X$, so existiert eine Folge $(f_n)$ von einfachen Funktionen $f_n:X\to[0,\infty)$, sodass $0\le f_n\le f_{n+1}$ auf $X$ ($\forall n\in\mdn$) und $f_n(x)\stackrel{n\to\infty}{\to}f(x)$ ($\forall x\in X$). In diesem Fall heißt $(f_n)$ \textbf{zulässig} für $f$.
+\item Es existiert eine Folge $(f_n)$ von einfachen Funktionen $f_n:X\to\mdr$, sodass $|f_n|\le |f|$ auf $X$ ($\forall n\in\mdn$) und $f_n(x)\stackrel{n\to\infty}{\to}f(x)$ ($\forall x\in X$).
+\item Ist $f$ beschränkt auf $X$ (also insbesondere $\pm\infty\not\in f(X)$), so kommt in (2) noch hinzu, dass $(f_n)$ auf $X$ gleichmäßig gegen $f$ konvergiert.
+\end{enumerate}
+\end{satz}
+
+\begin{folgerungen}[(Beweis mit 3.8(2) und 3.5)]
+Sei $f:X\to\imdr$ eine Funktion, dann ist $f$ genau dann messbar, wenn eine Folge einfacher Funktionen $(f_n)$ mit $f_n:X\to\mdr$ und $f_n(x)\stackrel{n\to\infty}\to f(x)$ für alle $x\in X$ existiert.
+\end{folgerungen}
+
+\begin{beweis}
+\begin{enumerate}
+\item Für $n\in\mdn$ definiere $\varphi_n:[0,\infty]\to[0,\infty)$ durch
+\[\varphi_n(t):=\begin{cases}\frac{[2^nt]}{2^n} &,0\le t<n\\ n &,n\le t\le\infty\end{cases}\]
+Dann ist $\varphi_n$ $(\fb_1)_{[0,\infty]}$-$\fb_1$-messbar, außerdem gilt:
+\begin{align*}
+\forall t\in[0,\infty]\forall n\in\mdn&: 0\le\varphi_1\le\dots\le t\\
+\forall t\in[0,n]\forall n\in\mdn&: t-\frac1{2^n}\le\varphi_n(t)\le t 
+\end{align*}
+und es ist $\varphi_n(t)\stackrel{n\to\infty}\to t$ für alle $t\in[0\infty]$. Setze $f_n:=\varphi_n\circ f$. Dann leistet $(f_n)$ das gewünschte.
+\item Es ist $f=f_+-f_-$ und $f_+,f_-\ge0$ auf $X$. Seien $(g_n),(h_n)$ zulässige Folgen für $f_+$ bzw. $f_-$. Definiere $f_n:=g_n-h_n$. Dann ist klar, dass gilt:
+\[\forall x\in X: f_n(x)=g_n(x)-h_n(x)\stackrel{n\to\infty}\to f_+(x)-f_-(x)=f(x)\]
+Weiter gilt:
+\[|f_n|\le g_n+h_n\le f_++f_-=|f|\]
+\item Ohne Beweis. 
+\end{enumerate}
+\end{beweis}

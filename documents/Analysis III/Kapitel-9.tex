@@ -1,0 +1,159 @@
+Die Bezeichnungen seien wie im Kapitel 8.
+
+\begin{satz}[Prinzip von Cavalieri]
+\label{Satz 9.1}
+Sei \(C\in\fb_d\). Dann:
+\[ \lambda_d(C)=\int_{\mdr^k}\lambda_l(C^x)\,dx=\int_{\mdr^l}\lambda_k(C_y)\,dy \]
+\end{satz}
+Das heißt:
+\[ \int_{\mdr^d}\mathds{1}_{C}(x,y) \text{ d}(x,y) = \int_{\mdr^k}\left(\int_{\mdr^l} \mathds{1}_{C}(x,y)\,dy\right)\,dx = \int_{\mdr^l} \left(\int_{\mdr^k} \mathds{1}_{C}(x,y)\,dx\right)\,dy \]
+
+
+\begin{beispiel}
+\begin{enumerate}
+	\item	Sei \(k=l=1\), also \(d=2\). Sei \(r>0\) und \[C:=\{(x,y)\in\mdr^2: x^2+y^2\leq r^2\}\]
+		 Da $C$ abgeschlossen ist, gilt \(C\in\fb_2\).\\
+		Ist \(\lvert y\rvert>r\), so ist \(C_y=\emptyset\), also \(\lambda_1(C_y)=0\).\\
+		Sei also \(\lvert y\rvert\leq r\). Sei \(x\in\mdr\) so, dass \((x,y)\in\partial C\). Dann ist \(x^2+y^2=r^2\), also \(x=\pm\sqrt{r^2-y^2}\).
+		Das heißt, es ist  \[C_y=\left[-\sqrt{r^2-y^2},+\sqrt{r^2-y^2}\right]\text{ und } \lambda_1(C_y)=2\sqrt{r^2-y^2}\]
+		Aus \ref{Satz 9.1} folgt:
+		\begin{align*}
+			\lambda_2(C)
+			&=\int_\mdr\lambda_1(C_y)\,dy \\
+			&=\int_{[-r,r]}\lambda_1(C_y)\,dy + \int_{\mdr\setminus [-r,r]}\lambda_1(C_y)\,dy\\
+			&=\int_{[-r,r]}2\sqrt{r^2-y^2}\,dy\\
+			&\overset{\ref{Satz 4.13}}= \text{R-}\int^r_{-r}2\sqrt{r^2-y^2}\,dy\\
+			&\overset{Ana I}= \pi r^2
+		\end{align*}
+	\item 	Sei \(\emptyset\neq X\subseteq\mdr^d\). $X$ sei kompakt, also \(X\in\fb_d\). Weiter sei \(f\colon X\to[0,\infty)\) stetig, woraus mit \ref{Satz 4.11} \(f\in\mathfrak{L}^1(X)\) folgt.
+		Setze \[C:=\{(x,y):x\in X, 0\leq y\leq f(x)\}\] 
+		$C$ ist kompakt und somit gilt: \(C\in\fb_{d+1}\).\\
+		Ist \(x\notin X\), so ist \(C^x=\emptyset\), also \(\lambda_1(C^x)=0\).\\
+		Ist \(x\in X\), so ist \(C^x=[0,f(x)]\), also \(\lambda_1(C^x)=f(x)\). Damit gilt
+		\[\lambda_{d+1}(C) \overset{\ref{Satz 9.1}}= \int_{\mdr^d}\lambda_1(C^x)\,dx = \int_X\lambda_1(C^x)\,dx + \int_{\mdr^d\setminus X}\lambda_1(C^x) \text{ d}x = \int_Xf(x)\,dx \]
+	\item 	Sei \(I=[a,b]\subseteq\mdr\) mit \(a<b\) und \(f\colon I\to[0,\infty]\) stetig. Setze
+		\[C:=\{(x,y)\in\mdr^2:x\in I, 0\leq y\leq f(x)\}\]
+		Aus Beispiel (2) und \ref{Satz 4.13} folgt \[\lambda_2(C)=\text{R-}\int_a^bf(x)\,dx \]
+	\item 	$X$ und $f$ seien wie in Beispiel (2). Setze \[G:=\{(x,f(x)):x\in X\}\]
+		$G$ ist kompakt, also ist \(G\in\fb_2\). 
+		Ist \(x\notin X\), so ist \(G^x=\emptyset\), also \(\lambda_1(G^x)=0\).
+		Ist \(x\in X\), so ist \(G^x=\{f(x)\}\), also \(\lambda_1(G^x)=0\).
+		Aus \ref{Satz 9.1} folgt \[\lambda_2(G)=\int_\mdr\lambda_1(G^x)\,dx=0\]
+\end{enumerate}
+\end{beispiel}
+
+\begin{beweis}[Prinzip von Cavalieri]
+Wir definieren $\mu,\nu:\fb_d\to[0,\infty]$ durch:
+\begin{align*}
+\mu(A):=\int_{\mdr^k} \lambda_l(A^x)\text{ d}x && \nu(A):=\int_{\mdr^l} \lambda_k(A_y)\text{ d}y
+\end{align*}
+Dann ist klar, dass $\mu(\emptyset)=\nu(\emptyset)=\lambda_d(\emptyset)=0$ ist.\\
+Sei $(A_j)$ eine disjunkte Folge in $\fb_d$. Dann ist $(A_j^x)$ ebenfalls disjunkt und $(\bigcup A_j)^x=\bigcup A_j^x$. Somit gilt:
+\begin{align*}
+\mu(\bigcup A_j)&=\int_{\mdr^k} \lambda_l(\bigcup A_j^x)\text{ d}x\\
+&=\int_{\mdr^k} \sum \lambda_l(A_j^x)\text{ d}x\\
+&=\sum \int_{\mdr^k} \lambda_l(A_j^x)\text{ d}x\\
+&=\sum \mu(A_j)
+\end{align*}
+D.h. $\mu$ ist ein Maß auf $\fb_d$. Analog lässt sich zeigen, dass $\nu$ ein Maß auf $\fb_d$ ist.\\
+Sei nun $I\in\ci_d$, dann existieren $I'\in\ci_k, I''\in\ci_l$ mit $I=I'\times I''$. Aus §\ref{Kapitel 8} folgt:
+\begin{align*}
+I^x=\begin{cases} I''&,x\in I'\\ 
+\emptyset &,x\not\in I'\end{cases}
+\end{align*}
+Also ist $\lambda_l(I^x)=\lambda_l(I'')\cdot\mathds{1}_{I'}(x)$ und damit:
+\begin{align*}
+\mu(I)&=\int_{\mdr^k}\lambda_l(I'')\cdot\mathds{1}_{I'}(x) \text{ d}x\\
+&=\lambda_l(I'')\cdot\lambda_k(I') = \lambda_d(I)
+\end{align*}
+D.h. auf $\ci_d$ stimmen $\mu$ und $\lambda_d$ überein. Analog gilt $\nu=\lambda_d$ auf $\ci_d$. Da $\ci_d$ die Vorraussetzungen des Satzes \ref{Satz 2.6} erfüllt, gilt $\mu=\lambda_d=\nu$ auf $\fb_d$.
+\end{beweis}
+
+\begin{folgerung}
+\label{Folgerung 9.2}
+\begin{enumerate}
+\item Sei $N\in\fb_d$. Dann gilt:
+\begin{align*}
+\lambda_d(N)=0 &\iff \lambda_l(N^x) = 0 \quad \text{ f.ü. auf }\mdr^k\\
+&\iff \lambda_k(N_y) = 0 \quad \text{ f.ü. auf }\mdr^l\\
+\end{align*}
+\item Sei $M\subseteq\mdr^k$ ($M\subseteq\mdr^l$) eine Nullmenge, dann ist $M\times\mdr^l$ ($\mdr^k\times M$) eine Nullmenge.
+\end{enumerate}
+\end{folgerung}
+
+\begin{beweis}
+\begin{enumerate}
+\item Nach \ref{Satz 9.1} gilt:
+\[\lambda_d(N)=\int_{\mdr^k}\lambda_l(N^x)\text{ d}x\]
+Nach \ref{Satz 5.2}(2) folgt die Behauptung. Analog lässt sich die zweite Äquivalenz zeigen.
+\item Es gilt:
+\[\forall y\in\mdr^l:(M\times\mdr^l)_y=M\]
+Damit folgt die Behauptung aus (1).
+\end{enumerate}
+\end{beweis}
+
+\begin{lemma}
+\label{Lemma 9.3}
+Sei $\emptyset\ne D\in\fb_d$ und $f:D\to\imdr$ messbar. Definiere
+\[\tilde f(z):=\begin{cases} f(z) &,z\in D\\ 0&,z\not\in D\end{cases}\]
+Dann ist $\tilde f:\mdr^d\to\imdr$ messbar.
+\end{lemma}
+
+\begin{beweis}
+Sei $a\in\mdr$, $B_a:=\{n\in\mdr^d\mid \tilde f(z)\le a\}$.\\
+\textbf{Fall $a<0$:}
+\[B_a=\{z\in D\mid f(z)\le a\}\stackrel{\ref{Satz 3.4}}\in\fb_d\]
+\textbf{Fall $a\ge0$:}
+\[B_a=\{z\in D\mid f(z)\le a\}\cup \{z\in\mdr^d\setminus D\}\in\fb_d\]
+Also folgt aus \ref{Satz 3.4} die Messbarkeit von $\tilde f$.
+\end{beweis}
+
+\begin{beispiel}
+\index{Rotationskörper}
+\begin{enumerate}
+\item Sei $r>0$ und 
+\[K:=\{(x,y)\in\mdr^2\mid x^2+y^2<r^2\}\]
+Dann ist $K$ offen, also $K\in\fb_2$ und es gilt:
+\[\partial K=\overline{K}\setminus K=\{(x,y)\in\mdr^2\mid x^2+y^2=r^2\}\in\fb_2\]
+Damit enthält die Menge $(\partial K)_y$ für alle $x\in\mdr$ höchstens zwei Elemente, d.h.
+\[\lambda_2(\partial K)=\int_\mdr \lambda_1((\partial K)_y)\text{ d}y=0\]
+Mit $\overline K=(\partial K) \dot\cup K$ folgt dann
+\[\lambda_2(K)=\lambda_2(\partial K)+\lambda_2(\overline K)=\lambda_2(\overline K)=\pi r^2\]
+Sei nun $A\in\fb_2$ mit $K\subseteq A\subseteq\overline K$, dann ist $\lambda_2(A)=\pi r^2$.
+\item Sei $r>0$ und 
+\[K:=\{(x,y,z)\in\mdr^3\mid x^2+y^2+z^2\le r^2\}\]
+Dann ist $K$ abgeschlossen, also $K\in\fb_3$.\\
+\textbf{Fall $|z|>r$:} Es ist $K_z=\emptyset$, also $\lambda_2(K_z)=0$.\\
+\textbf{Fall $|z|\ge r$:} Es ist
+\[K_z=\{(x,y)\in\mdr^2\mid x^2+y^2\le r^2-z^2\}\]
+und damit $\lambda_2(K_z)=\pi(r^2-z^2)$.\\
+Aus \ref{Satz 9.1} folgt dann:
+\begin{align*}
+\lambda_3(K)&=\int_\mdr \lambda_2(K_z)\text{ d}z\\
+&=\int_{[-r,r]}\lambda_2(K_z)\text{ d}z+\int_{\mdr\setminus[-r,r]}\lambda_2(K_z)\text{ d}z\\
+&=\int_{[-r,r]}\pi(r^2-z^2)\text{ d}z\\
+&\stackrel{\ref{Satz 4.13}}=\int_{-r}^r \pi r^2-\pi z^2\text{ d}z\\
+&=\frac43\pi r^3
+\end{align*}
+\item $\lambda_2\left(\text{\smiley}\right)=0$
+\item Wir wollen nun \textbf{Rotationskörper} betrachten. Sei dazu $I=[a,b]\subseteq\mdr$ mit $a<b$ und $f:I\to[0,\infty)$ messbar. Definiere nun
+\[V:=\{(x,y,z,)\in\mdr^3\mid x^2+y^2\le f(z)^2, z\in I\}\]
+Setze $D:=\mdr^2\times I$ und $g(x,y,z):= x^2+y^2-f(z)^2$. Dann ist $g$ nach §\ref{Kapitel 3} messbar und $V=\{g\le 0\}\in\fb_3$.\\
+\textbf{Fall $z\not\in I$:} Es so ist $V_z=\emptyset$, also $\lambda_2(V_z)=0$.\\
+\textbf{Fall $z\in I$:} Es ist
+\[V_z=\{(x,y)\in\mdr^2\mid x^2+y^2\le f(z)^2\}\]
+und damit $\lambda_2(V_z)=\pi f(z)^2$.\\
+Aus \ref{Satz 9.1} folgt dann:
+\begin{align*}
+\lambda_3(V)&=\int_\mdr \lambda_2(V_z)\text{ d}z\\
+&= \pi\int_a^b f(z)^2\text{ d}z 
+\end{align*}
+\item Sei $h>0$, $I=[0,h]$ und $f(z)=\frac rhz$. Definiere den Kegel
+\[V:=\{(x,y,z)\in\mdr^3\mid x^2+y^2\le \frac{r^2}{h^2}z^2\}\]
+Dann ist
+\begin{align*}
+\lambda_3(V)&=\pi\int_0^h \frac{r^2}{h^2}z^2\text{ d}z\\
+&=\frac{\pi r^2h}3
+\end{align*}
+\end{enumerate}
+\end{beispiel}

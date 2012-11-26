@@ -1,0 +1,182 @@
+In diesem Kapitel sei stets $\emptyset\ne X\in\fb_d$. Wir schreiben wieder $\lambda$ statt $\lambda_d$.
+
+\begin{definition}
+\index{Nullmenge}\index{Borel!Nullmenge}
+Sei $N\in\fb_d$. $N$ heißt eine \textbf{(Borel-)Nullmenge}, genau dann wenn $\lambda(N)=0$ ist.
+\end{definition}
+
+\begin{beispiel}
+\begin{enumerate}
+\item Ist $N\subseteq\mdr^d$ höchstens abzählbar, so ist $N\in\fb_d$ und $\lambda(N)=0$.
+\item Sei $j\in\{1,\dots,d\}$ und $H_j:=\left\{(x_1,\dots,x_d) \in\mdr^d : x_j=0 \right\}$. Aus Beispiel (5) nach \ref{Satz 2.7} folgt, dass $H_j$ eine Nullmenge ist.
+\end{enumerate}
+\end{beispiel}
+
+\begin{lemma}
+\label{Lemma 5.1}
+Seien $M,N,N_1,N_2,\dots\in\fb_d$.
+\begin{enumerate}
+\item Ist $M\subseteq N$ und $N$ Nullmenge, dann ist $M$ Nullmenge.
+\item Sind alle $N_j$ Nullmengen, so ist auch $\bigcup N_j$ eine Nullmenge.
+\item $N$ ist genau dann eine Nullmenge, wenn für alle $\ep>0$ offene Intervalle $I_1,I_2,\dots\subseteq\mdr^d$ existieren mit $N\subseteq\bigcup I_j$ und $\sum_{j=1}^\infty \lambda(I_j)\le\ep$.
+\end{enumerate}
+\end{lemma}
+
+\begin{beweis}
+\begin{enumerate}
+\item $0\le\lambda(M)\le\lambda(N)=0$
+\item $0\le\lambda(\bigcup N_j)\le\sum\lambda(N_j)=0$
+\item Folgt aus \ref{Satz 2.10}.
+\end{enumerate}
+\end{beweis}
+
+\begin{bemerkung}
+$\ $
+\begin{enumerate}
+\item $\mdq$ ist "`klein"': $\mdq$ ist "`nur"' abzählbar.
+\item $\mdq$ ist "`groß"': $\overline\mdq=\mdr$
+\item $\mdq$ ist "`klein"': $\lambda(\mdq)=0$
+\end{enumerate}
+\end{bemerkung}
+
+\begin{definition}
+\index{für fast alle}
+\index{fast überall}
+\begin{enumerate}
+\item Sei $(E)$ eine Eigenschaft für Elemente in $X$.\\
+$(E)$ gilt \textbf{für fast alle} (ffa) $x\in X$, genau dann wenn $(E)$ \textbf{fast überall} (fü) (auf $X$) gilt, genau dann wenn eine Nullmenge $N\subseteq X$ existiert, sodass $(E)$ für alle $x\in X\setminus N$ gilt.
+\item $\int_\emptyset f(x) \text{ d}x:=0$
+\end{enumerate}
+\end{definition}
+
+\begin{satz}
+\label{Satz 5.2}
+Seien $f:X\to\imdr$ messbare Funktionen.
+\begin{enumerate}
+\item Ist $f$ integrierbar, so ist $f$ fast überall endlich.
+\item Ist $f \ge0$ auf $X$, so ist $\int_X f(x)\text{ d}x=0$ genau dann wenn fast überall $f=0$.
+\item Ist $f$ integrierbar und $N\subseteq X$ eine Nullmenge, so gilt:
+\[\int_N f(x)\text{ d}x=0\] 
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item ist gerade \ref{Folgerung 4.10}.
+\item ist gerade \ref{Satz 4.5}(3)
+\item Setze $g:=\mathds{1}_N f$. Aus \ref{Satz 4.11} folgt, dass g integrierbar ist, also ist nach \ref{Satz 4.9} auch $\lvert g \rvert$ integrierbar. Für $x\in X\setminus N$ gilt: 
+\[g(x)=\lvert g(x) \rvert =0\]
+D.h. $\lvert g \rvert =0$ fast überall. Aus (2) folgt damit $\int_X \lvert g \rvert \,dx = 0$. Dann ist mit \ref{Satz 4.11}: \[\left\lvert\int_X g\,dx \right\rvert \leq \int_X \lvert g \rvert \,dx =0\] 
+und somit $\int_X g\,dx=0$.
+\end{enumerate}
+\end{beweis}
+
+\begin{satz}
+\label{Satz 5.3}
+$f,g:X\to\imdr$ seien messbar.
+\begin{enumerate}
+\item Ist $f$ integrierbar und gilt fast überall $f=g$, so ist $g$ integrierbar und es gilt:
+\[\int_Xf\,dx=\int_Xg\,dx\]
+\item Ist $f$ integrierbar und $g:=\mathds{1}_{\{ \lvert f \rvert <\infty \}}\cdot f$, so ist $g$ integrierbar und es gilt: \[\int_Xf\,dx=\int_Xg\,dx\]
+\item Sind $f$ und $g$ beide $\geq0$ auf $X$, und ist fast überall $f=g$, so ist 
+\[\int_Xf\,dx=\int_Xg\,dx\]
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item Nach Voraussetzung existiert eine Nullmenge $N\subseteq X$, sodass gilt:
+\[\forall x\in X\setminus N:f(x)=g(x)\] 
+Aus \ref{Satz 5.2}(3) folgt dann $\int_N f\,dx=0$.
+Sei $x\in X\setminus N$ Dann gilt: 
+\[\left( \mathds{1}_N \lvert g \rvert \right)(x)=\mathds{1}_N(x)\cdot \lvert g(x) \rvert=0\] 
+D.h.: Fast überall ist $\mathds{1}_N \lvert g \rvert =0$. Aus \ref{Satz 5.2}(2) folgt $\int_N \lvert g \rvert\,dx=\int_X\mathds{1}_N\cdot \lvert g \rvert\,dx=0$.
+Dann gilt:
+\begin{align*}
+\int_X \lvert g\rvert\,dx & = \int_X \left(\mathds{1}_N \lvert g\rvert + \mathds{1}_{X\setminus N} \lvert g\rvert \right)\,dx\\ 
+ &= \int_X\mathds{1}_N \lvert g\rvert\,dx + \int _X\mathds{1}_{X\setminus N} \lvert g\rvert\,dx\\
+ &= \int_X \mathds{1}_{X\setminus N} \lvert g \rvert\,dx\\
+& \leq\int_X \lvert f\rvert\,dx \overset{\ref{Satz 4.9}}< \infty
+%hier soll eigentlich das kleinergleich unter das erste gleichzeichen
+\end{align*}
+\ref{Satz 4.9} liefert nun, dass $\lvert g\rvert$ und damit auch $g$ integrierbar ist. Weiter gilt:
+\begin{align*}
+\int_Xg\,dx &\overset{\ref{Satz 4.12}} = \int_N g\,dx+ \int_{X\setminus N}g\,dx = \int_{X\setminus N}g\,dx\\
+&= \int_{X\setminus N}f\,dx \overset{\ref{Satz 5.2}(3)}= \int_N f\,dx +\int_{X\setminus N}f\,dx\\
+&\overset{\ref{Satz 4.12}}= \int_X f\,dx.
+\end{align*}
+
+\item Setze $N:=\left\{\lvert f\rvert =\infty \right\}$. Aus \ref{Satz 5.2}(1) folgt, dass $N$ eine Nullmenge ist. Sei $x\in X\setminus N$, so ist $x\in \left\{\lvert f\rvert <\infty \right\}$ und $g(x)=f(x)$.
+D.h. fast überall ist $f=g$. (Klar: $g$ ist mb). Dann folgt die Behauptung aus (1).
+\item \textbf{Fall 1:} $\int_Xf\,dx<\infty$\\
+Dann ist $f$ integrierbar, damit ist nach (1) auch $g$ integrierbar und es gilt:
+\[\int_Xf\,dx=\int_Xg\,dx\]
+\textbf{Fall 2:} $\int_Xf\,dx=\infty$.\\
+Annahme: $\int_Xg\,dx<\infty$. Dann gilt nach Fall 1: $\int_Xf\,dx<\infty$. $\lightning$
+\end{enumerate}
+\end{beweis}
+
+\begin{definition}
+$(f_n)$ sei eine Folge von Funktionen $f_n:X\to\imdr$.
+\begin{enumerate}
+\item $(f_n)$ konvergiert fast überall (auf $X$) genau dann, wenn eine Nullmenge $N\subseteq X$ existiert, sodass für alle  $x\in X\setminus N$ $\left(f_n(x)\right)$ in $\imdr$ konvergiert.
+\item Sei $f:X\to\imdr$. $(f_n)$ konvergiert fast überall (auf $X$) gegen $f$ genau dann, wenn eine Nullmenge $N\subseteq X$ existiert mit: $f_n(x)\to f(x) \forall x\in X\setminus N$\\
+In diesem Fall schreiben wir: $f_n\to f$ fast überall.
+\end{enumerate}
+\end{definition}
+
+\begin{satz}
+\label{Satz 5.4}
+Sei \((f_{n})\) eine Folge messbarer Funktionen \(f_{n}: X\to\imdr\) und \((f_{n})\) konvergiere fast überall (auf \(X\)).
+Dann:
+\begin{enumerate}
+\item Es existiert \(f: X\to\imdr\) messbar mit \(f_{n}\to f\) fast überall.
+\item Ist \(g: X\to\imdr\) eine Funktion mit \(f_{n}\to g\) fast überall, so gilt \(f=g\) fast überall.
+\end{enumerate}
+\end{satz}
+
+\begin{bemerkung}
+Ist \(g\) wie in (2), so muss \(g\) nicht messbar sein (ein Beispiel gibt es in der Übung).
+\end{bemerkung}
+
+\begin{beweis}
+\begin{enumerate}
+\item Es existiert eine Nullmenge \(N_{1}\subseteq X:\,(f_{n}(x))\) konvergiert in \(\imdr\) für alle 
+\(x\in X\setminus N_{1}\).
+\[
+f(x)=\begin{cases}0&x\in N_{1}\\\lim_{n\to\infty}{f_{n}(x)}&x\in X\setminus N_{1}\end{cases}
+\]
+\(g_{n}:=\mathds{1}_{X\setminus N}\cdot f_{n}\), \(g_{n}\) ist messbar und \(g_{n}(x)\to f(x)\) für alle \(x\in X\).
+Mit \ref{Satz 3.5} folgt: \(f\) ist messbar.
+\item Es existiert eine Nullmenge \(N_{2}\subseteq X:\,f_{n}(x)\to g(x)\,\forall x\in X\setminus N_{2}\). 
+\(N=N_{1}\cup N_{2}\). Aus \ref{Lemma 5.1} folgt: \(N\) ist eine Nullmenge. 
+
+Für \(x\in X\setminus N:\,f(x)=g(x)\).
+\end{enumerate}
+\end{beweis}
+
+\begin{satz}[Satz von Beppo Levi (Version III)]
+\label{Satz 5.5}
+Sei \((f_{n})\) eine Folge messbarer Funktionen \(f_{n}:\,X\to[0,+\infty]\) und für jedes \(n\in\mdn\) gelte:
+\(f_{n}\leq f_{n+1}\) fast überall.  Dann existiert eine messbare Funktion
+\(f:X\to[0,+\infty]\) mit: \(f_{n}\to f\) fast überall und 
+\[\int_{X}{f\mathrm{d}x}=\lim_{n\to\infty}{\int_{X}{f_{n}\mathrm{d}x}}\]
+\end{satz}
+
+\begin{beweis}
+Zu jedem \(n\in\mdn\) existiert eine Nullmenge 
+\(N_{n}:\,f_{n}(x)\leq f_{n+1}(x)\;\forall x\in X\setminus N_{n}\).\\ 
+\(N:=\bigcup_{n=1}^{\infty}{N_{n}}\) \folgtnach{\ref{Lemma 5.1}} \(N\) ist eine
+Nullmenge.
+
+Dann: \(f_{n}(x)\leq f_{n+1}(x)\forall x\in X\setminus N\forall n\in\mdn\).
+
+\(\hat{f}_{n}:=\mathds{1}_{X\setminus N}\cdot f_{n}\), \(\hat{f}_{n}\) ist 
+messbar, \(\forall n\in\mdn: \hat{f}_{n}\leq\hat{f}_{n+1}\) auf $X$.
+
+\(f(x):=\lim_{n\to\infty}{\hat{f}_{n}(x)}\,(x\in X)\) \folgtnach{\ref{Satz 3.5}}
+\(f\) ist messbar. Weiter: \(\hat{f}_{n}\to f\).
+\[
+\int_{X}{f\mathrm{d}x}\overset{\text{\ref{Satz 4.6}}}{=}\lim_{n\to\infty}{\int_{X}{\hat{f}_{n}\mathrm{d}x}}\overset{\text{\ref{Satz 5.3}.(2)}}{=}\lim_{n\to\infty}{\int_{X}{f_{n}\mathrm{d}x}}
+\]
+\end{beweis}

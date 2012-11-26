@@ -1,0 +1,213 @@
+Stets in diesem Kapitel: \(\emptyset\neq X\in\fb_{d}\)
+
+\begin{lemma}[Lemma von Fatou]
+\label{Lemma 6.1}
+Sei \((f_{n})\) eine Folge messbarer Funktionen \(f_{n}:\,X\to[0,+\infty]\).
+\begin{enumerate}
+\item Es gilt:
+\[\int_{X}{\left (\liminf_{n\to\infty}f_{n} \right)(x)\mathrm{d}x}\leq\liminf_{n\to\infty}{\int_{X}{f_{n}(x)\mathrm{d}x}}\]
+\item Ist \(f: X\to[0,+\infty]\) messbar und gilt \(f_{n}\to f\) fast überall,
+so ist
+\[
+\int_{X}{f\mathrm{d}x}\leq\liminf_{n\to\infty}{\int_{X}{f_{n}\mathrm{d}x}}
+\]
+\item Ist \(f\) wie in (2) und ist \(\left(\int_{X}{f_{n}\mathrm{d}x}\right)\)
+beschränkt, so ist \(f\) integrierbar.
+\end{enumerate}
+\end{lemma}
+
+\begin{beweis}
+\begin{enumerate}
+\item \(g_{j}:=\inf_{n\geq j}{f_{n}}\) \folgtnach{\ref{Satz 3.5}} \(g_{j}\) ist messbar. Klar: \(g_{j}\leq g_{j+1}\) auf
+\(X\); \(\displaystyle \sup_{j\in\mdn}{g_{j}}=\liminf_{n\to\infty}{f_{n}}\)
+
+Weiter: \(g_{j}\leq f_{n}\,(n\geq j)\)
+
+Dann:
+\begin{align*}
+    \int_{X}{\liminf_{n\to\infty}f_{n}\mathrm{d}x}&=\int_{X}{\sup_{j\in\mdn}g_{j}\mathrm{d}x}\\
+	&=\int_{X}{\lim_{j\to\infty}g_{j}(x)\mathrm{d}x}\\
+	&\overset{\ref{Satz 4.6}}{=}\lim_{j\to\infty}\int_{X}{g_{j}\mathrm{d}x}\\
+	&=\sup_{j\in\mdn}\underbrace{\int_{X}{g_{j}\mathrm{d}x}}_{\leq\inf_{n\geq j}\int_{X}{f_{n}\mathrm{d}x}}\\
+	&\leq\sup_{j\in\mdn}\left\{\inf_{n\geq j}\int_{X}{f_{n}\mathrm{d}x}\right\}\\
+	&=\liminf_{n\to\infty}\int_{X}{f_{n}\mathrm{d}x}
+\end{align*}
+\item Es existiert eine Nullmenge \(N\subseteq X\): \(f_{n}(x)\to f(x)\;\forall x\in X\setminus N\).\\
+Dann gilt \(f=\mathds{1}_{X\setminus N}\cdot f\) fast überall.
+\begin{align*}
+    \int_{X}{f\mathrm{d}x}
+    &\overset{\text{\ref{Satz 5.3}.(3)}}{=}\int_{X}{\mathds{1}_{X\setminus N}\cdot f\mathrm{d}x}\\
+    &=\int_{X}{\left (\lim_{n\to\infty}\mathds{1}_{X\setminus N}f_{n} \right )\mathrm{d}x}\\
+    &\overset{(1)}{\leq}\liminf_{n\to\infty}\int_{X}{\mathds{1}_{X\setminus N}f_{n}\mathrm{d}x}\\
+    &\overset{\text{\ref{Satz 5.3}.(3)}}{=}\liminf_{n\to\infty}\int_{X}{f_{n}\mathrm{d}x}
+\end{align*}
+\item folgt aus (2). Nach Voraussetzung gilt 
+\[
+0\leq\int_{X}{f\mathrm{d}x}\overset{\text{(2)}}{\leq}\liminf_{n\to\infty}\int_{X}{f_{n}\mathrm{d}x}<\infty
+\]
+\end{enumerate}
+\end{beweis}
+
+\begin{satz}[Konvergenzsatz von Lebesgue (Majorisierte Konvergenz)]
+\label{Satz 6.2}
+\((f_{n})\) sei eine Folge messbarer Funktionen \(f_{n}:X\to\imdr\), \((f_{n})\)
+konvergiere fast überall und es sei \(g:X\to[0,+\infty]\) integrierbar. Für
+jedes \(n\in\mdn\) gelte \(\lvert f_{n}\rvert\leq g\) fast überall.\\
+Dann sind alle \(f_{n}\) integrierbar und es existiert ein \(f\in\fl^{1}(X)\) mit:
+\begin{enumerate}
+\item \(f_{n}\to f\) fast überall
+\item \(\int_{X}{f_{n}\mathrm{d}x}\to\int_{X}{f\mathrm{d}x}\)
+\item \(\int_{X}{\lvert f_{n}-f\rvert\mathrm{d}x}\to 0\)
+\end{enumerate}
+\end{satz}
+
+\begin{beispiele}
+% Hier fehlt eventuell eine Grafik
+\item Sei \(X=\mdr,\,f_{n}:=n\mathds{1}_{(0,\frac{1}{n})}\). Dann:
+\[
+\int_{X}{f_{n}\mathrm{d}x}=n\cdot\lambda_{1}\left(\left(0,\frac{1}{n}\right)\right)=n\cdot\frac{1}{n}=1\quad\forall n\in\mdn
+\]
+Es gilt \(f_{n}\to f:=0\) punktweise und \(\int_{X}{f\mathrm{d}x}=0 \neq 1 = \int_{X}{f_{n}\mathrm{d}x}\). 
+$\Rightarrow$ \ref{Satz 6.2} ist ohne die integrierbare Majorante 
+$g$ im allgemeinen falsch.
+\item Sei $X = [1, \infty), \alpha > 1, f_n(x) := \frac{1}{x^\alpha} \sin{\frac{x}{n}} (x \in X, n \in \mathbb{N})$.\\
+Berechne $\lim_{n \rightarrow \infty} \int_X f_n(x) \mathrm{d}x$\\
+$f_n(x) \rightarrow 0 =: f(x) \quad \forall x \in X$. $|f_n(x)| = \frac{1}{x^\alpha} |\sin{\frac{x}{n}}| \leq \frac{1}{x^\alpha} =: g(x)$
+\folgtnach{AI} $R-\int_1^\infty g(x) \mathrm{d}x$ konvergiert absolut \folgtnach{4.14} $g \in lebeq^1(X)$
+\folgtnach{6.2} $\int_X f_n \mathrm{d}x \rightarrow \int_X f \mathrm{d}x = 0, \int_X |f_n| \mathrm{d}x \rightarrow 0$
+\end{beispiele}
+
+\begin{beweis}
+% Nummerierung vernuenftig zurechtbasteln
+\begin{enumerate}
+\item Aus \ref{Satz 5.4} folgt: Es existiert \(\hat{f}:X\to\imdr\) messbar mit \(f_{n}\to\hat{f}\) fast überall.
+Es existiert eine Nullmenge \(N_{0}\subseteq X:\,f_{n}(x)\to\hat{f}(x)\,\forall x\in X\setminus N_{0}\)
+\item Für alle \(n\in\mdn\) existiert eine Nullmenge \(N_{n}\subseteq X:\,\lvert f_{n}(x)\rvert\leq g(x)\,\forall x\in X\setminus N_{n}\).
+
+Setze \(N:=\bigcup_{n=0}^{\infty}{N_{n}}\). Mit \ref{Lemma 5.1} folgt: \(N\) ist eine Nullmenge.
+
+Wir haben: \(\lvert f_{n}(x)\rvert\leq g(x)\,\forall x\in X\setminus N\forall n\in\mdn\) und
+\(\lvert\hat{f}(x)\rvert\leq g(x)\,\forall x\in X\setminus N\).
+\item \(f_{n}=\mathds{1}_{X\setminus N}f_{n}\) fast überall und \(\hat{f}=\mathds{1}_{X\setminus N}\hat{f}\)
+fast überall.
+
+Es gilt \(\lvert\mathds{1}_{X\setminus N}f_{n}\rvert\leq g\) und \(\lvert\mathds{1}_{X\setminus N}\hat{f}\rvert\leq g\). Mit
+\ref{Satz 4.9} folgt: \(\mathds{1}_{X\setminus N}f_{n}\) und \(\mathds{1}_{X\setminus N}\hat{f}\) sind integrierbar.
+
+Mit \ref{Satz 5.3}.(1) folgt: \(f_{n}\) und \(\hat{f}\) sind integrierbar.
+\item \(\tilde{N}:=N\cup\{\lvert\hat{f}\rvert=\infty\}\cup\{g=\infty\}\). Mit \ref{Folgerung 4.10} und \ref{Lemma 5.1} folgt:
+\(\tilde{N}\) ist eine Nullmenge.
+
+Setze \(f:=\mathds{1}_{X\setminus N}\hat{f}\). Dann: \(f\) ist messbar; es ist \(\lvert f\rvert\leq\lvert\hat{f}\rvert\).
+Mit \ref{Satz 4.9} folgt: \(f\) ist integrierbar.
+
+Es ist \(f(X)\subseteq\mdr\). Also: \(f\in\fl^{1}(X)\).
+
+Sei \(x\in X\setminus\tilde{N}:\,f(x)=\tilde{f}(x)=\lim_{n\to\infty}f_{n}(x)\).
+D.h. \(f_{n}\to f\) fast überall.
+\item Definiere $g_n:=|f|+\mathds{1}_{X\setminus \tilde N}g-\mathds{1}_{X\setminus \tilde N}|f_n-f|$. Es ist fast überall
+\begin{align*}
+\mathds{1}_{X\setminus \tilde N}g=g&&\mathds{1}_{X\setminus \tilde N}|f_n-f|=|f_n-f|
+\end{align*}
+Nach \ref{Satz 5.3}(1) ist $g$ integrierbar und $g_n\to |f|+g$ fast überall. Es gilt:
+\begin{align*}
+|f_n-f|\le|f_n|+|f|\le g+|f| \text{ auf} X\setminus\tilde N
+\end{align*}
+D.h. es ist $g\ge0$ auf X.
+\item Es gilt:
+\begin{align*}
+\int_X(|f|+g)\text{ d}x&\stackrel{\ref{Lemma 6.1}(2)}\le \liminf_{n\to\infty} \int_X g_n \text{ d}x\\
+&=\liminf \left(\int_{\tilde N} g_n\text{ d}x+\int_{X\setminus\tilde N}g_n\text{ d}x\right)\\
+&=\liminf \int_{X\setminus\tilde N}g_n\text{ d}x\\
+&=\liminf \int_{X\setminus\tilde N}(|f|+g-|f_n-f|)\text{ d}x\\
+&=\int_{X\setminus\tilde N} (|f|+g)\text{ d}x-\limsup \int_{X\setminus\tilde N}|f_n-f|\text{ d}x\\
+&\stackrel{\ref{Satz 5.2}(3)}= \int_X |f|+g\text{ d}x-\limsup\int_X |f_n-f|\text{ d}x
+\end{align*}
+Daraus folgt:
+\[\limsup\int_x|f_n-f|\text{ d}x\le 0\]
+Also gilt auch:
+\[|\int_Xf_n\text{ d}x-\int_Xf\text{ d}x|=|\int_X(f_n-f)\text{ d}x\le \int_X|f_n-f|\text{ d}x\to 0\]
+\end{enumerate}
+\end{beweis}
+
+\begin{beispiel}
+Sei \(X:=[1,\infty)\) und \(f_n(x):=\frac1{x^\frac32}\sin\left(\frac xn \right) \) für alle \(x\in X, n\in\mdn\) mit \(f_n(x)\to f(x)\equiv 0\) für jedes \(x\in X\).
+Dann ist \(\lvert f_n(x) \rvert\leq \frac1{x^\frac32}\) für jedes \(x\in X\) und $\natn$. 
+Definiere nun \[g(x):=\frac1{x^\frac32}\]
+Aus Analysis I ist bekannt, dass \(\int^\infty_1 g(x)\,dx\) (absolut) konvergent ist 
+und aus \ref{Satz 4.14} folgt \[g\in\mathfrak{L}^1(X) \text{ sowie } \int_X g(x)\,dx = \text{R-}\int^\infty_1 g(x)\,dx\]
+Weiter folgen aus \ref{Satz 6.2}:
+\[\int_X f_n\,dx\to 0 \text{ und } \int_X\lvert f_n\rvert\,dx\to 0 \ (n\to\infty) \]
+\end{beispiel}
+
+\begin{folgerung}[aus \ref{Satz 6.2}]
+\label{Folgerung 6.3}
+\begin{enumerate}
+	\item 	Sei \(f:X\to\imdr\) messbar und \((A_n)\) sei eine Folge in \(\fb(X)\) mit \(A_n\subseteq A_{n+1}\) für jedes $\natn$ und \(X=\bigcup A_n\). Weiter sei
+		\begin{align*}
+		f_n:=\mathds{1}_{A_n}\cdot f \text{ integrierbar für alle } \natn \intertext{und} \left(\int_{A_n}\lvert f\rvert\,dx\right) \text{ sei beschränkt. }
+		\end{align*}
+		Dann ist $f$ integrierbar und es gilt: \[\int_{A_n}f\,dx \to \int_Xf\,dx \quad \text{für } n \to \infty\]
+	\item 	Sei \(a\in\mdr\), \(X:=[a,\infty]\) und \(f:X\to\mdr\) sei stetig. Weiter sei R-\(\int_a^\infty f\,dx\) \textbf{absolut} konvergent. Dann ist \(f\in\mathfrak{L}^1(X)\) und wie in 					\ref{Satz 4.14}:
+		\[\text{L-}\int_Xf\,dx=\text{R-}\int^\infty_a f\,dx \]
+\end{enumerate}
+\end{folgerung}
+
+\begin{beweis}
+\begin{enumerate}
+	\item 	Sei \(x\in X\). Es exisitert ein $m\in\mdn$, für das \(x\in A_m\) ist und somit auch \(x\in A_n \) für jedes \(n\geq m\). Nach der Definition von $f_n$ gilt dann \(f_n(x)=f(x)\) für jedes 				\(n\geq m\) und somit \(f_n\to f\) auf $X$. Damit gilt auch \[\lvert f_n\rvert\to\lvert f\rvert \text{ auf } X\] Durch die Konstruktion der $f_n$ ergibt sich: 
+		\[ \lvert f_n\rvert=\lvert \mathds{1}_{A_n}f\rvert=\mathds{1}_{A_n}\lvert f\rvert \leq \mathds{1}_{A_{n+1}}\lvert f\rvert=\lvert f_{n+1}\rvert \]
+		Dann gilt:
+		\[ \int_X \lvert f\rvert\,dx \overset{\ref{Satz 4.6}}=\lim\int_X \lvert f_n\rvert\,dx = \lim\int_{A_n} \lvert f\rvert\,dx \overset{Vor.}<\infty \]
+		Es folgt, dass \(\lvert f\rvert\) integrierbar ist und somit ist nach \ref{Satz 4.9} auch $f$ integrierbar. Da \(\lvert f_n\rvert \leq \lvert f\rvert\) auf $X$ für jedes \(\natn\) gilt, ist $f$ eine 		
+		integrierbare Majorante und es folgt mit \ref{Satz 6.2}:
+		\[ \int_Xf\,dx = \lim\int_Xf_n\,dx = \lim\int_{A_n}f\,dx \]
+	\item 	Setze \(A_n:=[a,n]\ (\natn)\) und es gelte o.B.d.A.: \(a\leq 1\). Dann gilt:
+		\[ \int_{A_n}\lvert f\rvert\,dx \overset{\ref{Satz 4.13}}= \text{R-}\int^n_a \lvert f\rvert\,dx \overset{Vor.}\longrightarrow \text{R-}\int^\infty_a \lvert f\rvert\,dx \]
+		D.h.\(\left(\int_{A_n}\lvert f\rvert\,dx\right)\) ist beschränkt. Definiere \(f_n:=\mathds{1}_{A_n}f\) mit \ref{Satz 4.13} folgt daraus, dass $f_n$ integrierbar ist. Weiter folgt
+		aus (1) \(f\in\mathfrak{L}^1(X)\) (denn es ist \(f(X)\subseteq\mdr\)) und 
+		\[ \text{L-}\int_Xf\,dx = \lim\int_{A_n}f\,dx \overset{\ref{Satz 4.13}}= \lim\left(\text{R-}\int^n_a f\,dx \right) = \text{R-}\int^\infty_a f\,dx. \]
+\end{enumerate}
+\end{beweis}
+
+\begin{bemerkung}
+\ref{Folgerung 6.3}(2) gilt entsprechend für die anderen Typen uneigentlicher Riemann-Integrale.
+\end{bemerkung}
+
+\begin{folgerung}
+\label{Folgerung 6.4}
+\begin{enumerate}
+	\item 	\((f_n)\) sei eine Folge integrierbarer Funktionen \(f_n\colon X\to\imdr\), \(g\colon X\to[0,+\infty]\) sei ebenfalls integrierbar und 
+		\[g_n:=f_1+f_2+\dots+f_n \ (\natn)\]
+		Weiter sei $N$ eine Nullmenge in $X$ so, dass \((g_n(x))\) für jedes \(x\in X\setminus N\) in $\imdr$  konvergiert und 
+		\[\lvert g_n(x)\rvert \leq g(x) \text{ für jedes } \natn \text{ und } x\in X\setminus N\]
+		Setzt man
+		\[f(x):=\sum^\infty_{j=1}f_j(x):=	
+		\begin{cases}
+			0, 				& \text{falls } x\in N 			\\
+			\lim\limits_{n\to\infty}g_n(x), & \text{falls } x\in X\setminus N
+		\end{cases}\quad,\]
+		so gilt, dass $f$ integrierbar ist und
+		\[\int_X \left( \sum^\infty_{j=1}f_j(x) \right)\,dx = \sum^\infty_{j=1}\left( \int_Xf_j(x)\,dx \right) \]
+	\item 	Sei \(f\in\mathfrak{L}^1(X)\) und \((A_n)\) eine \textbf{disjunkte} Folge in \(\fb(X)\) mit \(X=\dot\bigcup A_n\). Dann gilt
+		\[\int_Xf\,dx = \sum^\infty_{j=1}\int_{A_j}f\,dx \]
+\end{enumerate}
+\end{folgerung}
+
+\begin{beweis}
+\begin{enumerate}
+	\item 	Fast überall gelten \(g_n\to f\) und für jedes \(\natn\) auch \(\lvert g_n\rvert \leq g\). Aus \ref{Satz 6.2} folgt
+		\begin{align*}
+			\int_X \left(\sum^\infty_{j=1}f_j(x)\right) \,dx 
+			&= \int_Xf\,dx  					\\
+			&\overset{\ref{Satz 6.2}}= \lim\int_Xg_n\,dx 	\\
+			&= \lim\int_X\left(\sum^n_{j=1}f_j\right)\,dx 	\\
+			&=\lim\sum^n_{j=1}\int_Xf_j(x)\,dx 			\\
+			&=\sum^\infty_{j=1}\int_Xf_j\,dx 			\\
+		\end{align*}
+	\item 	Setze \(f_j:=\mathds{1}_{A_j}f\), \(g:=\lvert f\rvert\), \(g_n:=f_1+\dots+f_n\). Dann ist
+		\[\lvert g_n\rvert = \lvert \mathds{1}_{A_1\cup\dots\cup A_n}\cdot f\rvert \leq \lvert f\rvert =g \]
+		Es gilt: \(g_n\to f\) auf $X$. Aus (1) folgt
+		\[ \int_Xf\,dx = \sum^\infty_{j=1}\int_Xf_j\,dx = \sum^\infty_{j=1}\int_{A_j}f\,dx \]
+\end{enumerate}
+\end{beweis}
