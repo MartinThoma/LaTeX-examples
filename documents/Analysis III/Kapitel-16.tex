@@ -1,0 +1,594 @@
+Stets in diesem Kapitel: \(\emptyset\neq X\in\fb_{d}\)
+
+\begin{definition}
+Sei \(p\in[1,+\infty]\).
+\[
+p':=\begin{cases}
+\infty&,\,p=1\\
+1&,\,p=\infty\\
+\frac{p}{p-1}&,\,1<p<\infty
+\end{cases}
+\]
+Dann gilt: \(\frac{1}{p}+\frac{1}{p'}=1\) und \(p=p'\Leftrightarrow p=2\).
+\end{definition}
+
+\begin{hilfssatz}
+Seien \(x,y\geq 0,\,p\in(1,\infty)\), dann gilt: \(xy\leq\frac{x^{p}}{p}+\frac{y^{p'}}{p'}\)
+\end{hilfssatz}
+\begin{beweis}
+Für \(t>0:\,f(t):=\frac{t}{p}+\frac{1}{p'}-t^{\frac{1}{p}}\)
+
+Übung: \(\min\{f(t)\mid t>0\}=f(1)=0\)
+
+D.h.: \(t^{\frac{1}{p}}\leq\frac{t}{p}+\frac{1}{p'}\quad\forall t>0\)
+
+Seien \(u,v>0,\,t:=\frac{u}{v}\). Dann: \(\frac{u^{\frac{1}{p}}}{v^{\frac{1}{p}}}\leq\frac{u}{vp}+\frac{1}{p'}\). Daraus folgt
+\(u^{\frac{1}{p}}v^{1-\frac{1}{p}}\leq\frac{u}{p}+\frac{v}{p'}\implies u^{\frac{1}{p}}v^{\frac{1}{p'}}\leq \frac{u}{p}+\frac{v}{p'}\)
+
+Seien \(x,y>0:\,u:=x^{p},\,v:=y^{p'}\). Dann: \(xy\leq\frac{x^{p}}{p}+\frac{y^{p'}}{p'}\).
+
+Im Falle \(x=0\) oder \(y=\infty\) ist die Ungleichung trivialerweise richtig.
+\end{beweis}
+
+\begin{erinnerung}
+Sei \(f:\,X\to\mdr\) messbar und \(p>0\), so ist \(\lvert f\rvert^{p}\) messbar (vgl. Kapitel 3).
+
+Es gilt: \(\lvert f\rvert^{p}\in\fl^{1}(X)\Leftrightarrow \int_{X}{\lvert f\rvert^{p}\mathrm{d}x}<\infty\)
+\end{erinnerung}
+
+\begin{definition}
+\begin{enumerate}
+\item Sei \(p\in[1,\infty)\). \(\fl^{p}(X)=\{f:\,X\to\mdr\mid f \text{ ist messbar und }\int_{X}{\lvert f\rvert^{p}\mathrm{d}x<\infty}\}\).
+
+Für \(f\in\fl^{p}(X)\): \(\lVert f\rVert_{p}=\left(\int_{X}{\lvert f\rvert^{p}\mathrm{d}x}\right)^{\frac{1}{p}}\)
+\item \(\fl^{\infty}(X)=\{f:\,X\to\mdr\mid f\text{ ist messbar und }f\text{ ist f.ü. beschränkt}\}\)
+
+Für \(f\in\fl^{\infty}(X)\): \(\lVert f\rVert_{\infty}:=\esssup_{x\in X}\lVert f(x)\rVert=\inf\{c>0\mid \exists\text{Nullmenge }N_{c}\subseteq X: \lvert f(x)\rvert\leq c\,\forall x\in X\setminus N_{c}\}\)
+\end{enumerate}
+\end{definition}
+
+\begin{bemerkung}
+Es sei \(f\in\fl^{\infty}(X)\) und stetig. Außerdem habe jede in \(X\) offene, nichtleere Teilmenge positives Maß. Dann ist \(f\) auf \(X\) beschränkt und \(\sup_{x\in X}\lvert f(x)\rvert=\esssup_{x\in X}\lvert f(x)\rvert\). 
+\end{bemerkung}
+\begin{beweis}
+Übung (ist \(N\subseteq X\) eine Nullmenge, so ist \(N^{\circ}=\emptyset\) und \(\overline{X\setminus N}=X\))
+\end{beweis}
+
+\begin{beispiel}
+Sei \(d=1,\,X=[1,\infty),\,p>1\,(p<\infty),\,\alpha,\beta>0,\,f(x)=\frac{1}{x^{\alpha}},\,g(x)=\frac{1}{x^{\beta}}\)
+\begin{enumerate}
+\item \[f\in\fl^{p}(X)\overset{\text{\ref{Satz 4.14}}}{\iff}\int_{1}^{\infty}{\frac{1}{x^{\alpha p}}}\mathrm{d}x\]	
+konvergiert genau dann, wenn \(\alpha p>1\Leftrightarrow \alpha>\frac{1}{p}\)
+\item
+\[fg\in\fl^{1}(X)\overset{\text{\ref{Satz 4.14}}}{\iff}\int_{1}^{\infty}{\frac{1}{x^{\alpha+\beta}}\mathrm{d}x}\]	
+konvergiert genau dann, wenn $\alpha+\beta >1$
+\end{enumerate}
+\end{beispiel}
+
+\begin{satz}
+\label{Satz 16.1}
+Sei \(p\in[1,\infty]\) und \(p'\) wie zu Anfang dieses Kapitels, also \(\frac{1}{p}+\frac{1}{p'}=1\).
+\begin{enumerate}
+\item Sei \(f\in\fl^{p}(X)\) und \(g\in\fl^{p'}(X)\).
+\index{Ungleichung!Hölder}
+Dann ist \(fg\in\fl^{1}(X)\) und es gilt die \textbf{Höldersche Ungleichung}:
+\[
+\lVert fg\rVert_{1}\leq\lVert f\rVert_{p}\cdot\lVert g\rVert_{p'}
+\]
+
+\index{Ungleichung!Cauchy-Schwarz}
+Ist \(p=2\,(\implies p'=2)\), so heißt obige Ungleichung auch \textbf{Cauchy-Schwarzsche Ungleichung}.
+\item \(\fl^{p}(X)\) ist ein reeller Vektorraum und für \(f,g\in\fl^{p}(X)\) gilt die \textbf{Minkowskische Ungleichung}:
+\index{Ungleichung!Minkowski}
+\[
+\lVert f+g\rVert_{p}\leq\lVert f\rVert_{p}+\lVert g\rVert_{p}
+\]
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item Unterscheide die folgenden Fälle:
+\begin{itemize}
+\item[Fall 1:]  \(p=1\) (also \(p'=\infty\)) oder \(p=\infty\) (also \(p'=1\)). Etwa \(p=1,\,p'=\infty\).
+
+Sei \(c>0\) und \(N_{c}\subseteq X\) Nullmenge mit: \(\lvert g(x)\rvert\leq c\,\forall x\in X\setminus N_{c}\). 
+\(\tilde{g}:=\mathds{1}_{X\setminus N_{c}}\cdot g\)
+
+Dann: \(g=\tilde{g}\) fast überall und \(\lvert\tilde{g}\rvert\leq c\) auf \(X\). Weiter: \(fg=f\tilde{g}\) fast überall,
+bzw. \(\lvert fg\rvert=\lvert f\tilde{g}\rvert\) fast überall.
+
+Dann:
+\[
+\int_{X}{\lvert fg\rvert\mathrm{d}x}=\int_{X}{\lvert f\tilde{g}\rvert\mathrm{d}x}=\int_{X}{\lvert f\rvert\underbrace{\lvert\tilde{g}\rvert}_{\leq c}\mathrm{d}x}\leq\int_{X}{\lvert f\rvert\mathrm{d}x}=c\cdot\lVert f\rVert_{1}<\infty
+\]
+Also: \(fg\in\fl^{1}(X)\) und \(\lVert fg\rVert_{1}\leq c\lVert f\rVert_{1}\). Übergang zum Infimum über alle \(c>0\) 
+liefert: \(\lVert fg\rVert_{1}\leq\lVert g\rVert_{\infty}\cdot\lVert f\rVert_{1}\)
+\item[Fall 2:] Sei \(1<p<\infty\). Ist \(\lVert f\rVert_{p}=0\) oder \(\lVert g\rVert_{p'}=0\), so ist \(f=0\) fast überall
+oder \(g=0\) fast überall. Daraus folgt: \(\lvert fg\rvert=0\) fast überall.
+Mit \ref{Satz 5.2} folgt: \(\int_{X}{\lvert fg\rvert\mathrm{d}x}=0\). Daraus folgen die Behauptungen.
+
+
+Sei \(\lVert f\rVert_{p}>0\) und \(\lVert g\rVert_{p'}>0\).
+
+Aus obigem Hilfssatz:
+\[
+\frac{\lvert f(x)\rvert}{\lVert f\rVert_{p}}\cdot\frac{\lvert g(x)\rvert}{\lVert g\rVert_{p'}}\leq\frac{1}{p}\frac{\lvert f(x)\rvert^{p}}{\lVert f\rVert_{p}^{p}}+\frac{1}{p'}\frac{\lvert g(x)\rvert^{p'}}{\lVert g\rVert_{p'}^{p'}}\quad\forall x\in X
+\]
+Integration liefert:
+\begin{align*}
+\frac{1}{\lVert f\rVert_{p}\cdot\lVert g\rVert_{p'}}\int_{X}{\lvert f(x)g(x)\rvert\mathrm{d}x}
+	&\leq\frac{1}{p}\cdot\frac{1}{\lVert f\rVert_{p}^{p}}\int_{X}{\lvert f\rvert^{p}\mathrm{d}x}+
+	\frac{1}{p'}\cdot\frac{1}{\lVert g\rVert_{p'}^{p'}}\int_{X}{\lvert g\rvert^{p'}\mathrm{d}x}\\
+	&=\frac{1}{p}+\frac{1}{p'}\\
+	&=1<\infty
+\end{align*}
+Daraus folgt: \(fg\in\fl^{1}(X)\) und
+\[
+\frac{\lVert fg\rVert_{1}}{\lVert f\rVert_{p}\cdot\lVert g\rVert_{p}}\leq 1\Leftrightarrow \lVert fg\rVert_{1}\leq\lVert f\rVert_{p}\cdot\lVert g\rVert_{p}
+\]
+\end{itemize}
+\item Klar: Ist \(f\in\fl^{p}(X)\) und \(\alpha\in\mdr\), so ist \(\alpha f\in\fl^{p}(X)\)
+\begin{itemize}
+\item[Fall 1:] \(p=1\): Mit \ref{Satz 4.11} folgt: \(\fl^{1}(X)\) ist ein reeller Vektorraum.
+
+Seien \(f,g\in\fl^{1}(X)\). Dann: \(\lvert f+g\rvert\leq\lvert f\rvert+\lvert g\rvert\) auf \(X\). Damit:
+\[
+\int_{X}{\lvert f+g\rvert\mathrm{d}x}\leq\int_{X}{\lvert f\rvert\mathrm{d}x}+\int_{X}{\lvert g\rvert\mathrm{d}x}
+\]
+\item[Fall 2:] \(p=\infty\): Seien \(f,\,g\in\fl^{\infty}(X)\). Seien \(c_{1},\,c_{2}>0\) und \(N_{1},\,N_{2}\subseteq X\)
+Nullmengen und \(\lvert f(x)\rvert\leq c_{1}\forall x\in X\setminus N_{1},\,\lvert g(x)\rvert\leq c_{2}\forall x\in X\setminus N_{2}\).
+
+\(N=N_{1}\cup N_{2}\) ist eine Nullmenge. Dann: \(\lvert f(x)+g(x)\rvert\leq\lvert f(x)\rvert+\lvert g(x)\rvert\leq c_{1}+c_{2}
+\forall x\in X\setminus N\). Es folgt: \(f+g\in\fl^{\infty}(X)\) und \(\lVert f+g\rVert_{\infty}\leq c_{1}+c_{2}\).
+
+Übergang zum Infimum über alle solche \(c_{1}\), bzw. \(c_{2}\), liefert: \(\lVert f+g\rVert_{\infty}\leq\lVert f\rVert_{\infty}+\lVert g\rVert_{\infty}\).
+\item[Fall 3:] Sei \(1<p<\infty\) und \(f,\,g\in\fl^{p}(X)\). Es ist \(\lvert f+g\rvert^{p}\leq(\lvert f\rvert+\lvert g\rvert)^{p}\leq\left(2\max\{\lvert f\rvert,\,\lvert g\rvert\}\right)^{p}\leq 2^{p}\left(\lvert f\rvert^{p}+\lvert g\rvert^{p}\right)\)
+auf \(X\). Mit \ref{Satz 4.9} folgt: \(\lvert f+g\rvert^{p}\in\fl^{1}(X)\implies f+g\in\fl^{p}(X)\)\\
+
+\(p'=\frac{p}{p-1};\,h:=\lvert f+g\rvert^{p-1}\), dann: \(h^{p'}=\left(\lvert f+g\rvert^{p-1}\right)^{\frac{p}{p-1}}=\lvert f+g\rvert^{p}\in\fl^{1}(X)\). Dann ist \(h\in\fl^{p'}(X)\). Also: \(h\in\fl^{p'}(X),\,f\in\fl^{p}(X)\) 
+(und \(\frac{1}{p}+\frac{1}{p'}=1\)).
+
+Mit der Hölderschen Ungleichung folgt:
+\(\lVert f\cdot f_{1}\rVert\leq\lVert f\rVert_{p}\lVert h\rVert_{p'}\implies\int_{X}{h\lvert f\rvert\mathrm{d}x}\leq\lVert f\rVert_{p}\left(\int_{X}{h^{p'}\mathrm{d}x}\right)^{\frac{1}{p'}}\). Dann:
+\begin{align*}
+\int_{X}{\lvert f\rvert\lvert f+g\rvert^{p-1}\mathrm{d}x}
+    &\leq\lVert f\rVert_{p}\left(\int_{X}{\left(\lvert f+g\rvert^{p-1}\right)^{p'}\mathrm{d}x}\right)^{\frac{1}{p'}}\\
+    &=\lVert f\rVert_{p}\left(\lVert f+g\rVert_{p}^{p}\right)^{\frac{1}{p'}}\\
+    &=\lVert f\rVert_{p}\lVert f+g\rVert_{p}^{p-1}
+\end{align*}
+
+Genauso: \(\int_{X}{\lvert g\rvert\lvert f+g\rvert^{p-1}\mathrm{d}x}\leq\lVert g\rVert_{p}\lVert f+g\rVert_{p}^{p+1}\)
+
+Dann:
+\begin{align*}
+\lVert f+g\rVert_{p}^{p}&=\int_{X}{\lvert f+g\rvert^{p}\mathrm{d}x}\\
+    &=\int_{X}{\lvert f+g\rvert\lvert f+g\rvert^{p-1}\mathrm{d}x}\\
+    &=\int_{X}{\lvert f\rvert\lvert f+g\rvert^{p-1}\mathrm{d}x}+\int_{X}{\lvert g\rvert\lvert f+g\rvert^{p-1}\mathrm{d}x}\\
+    &\leq\left(\lVert f\rVert_{p}+\lVert g\rVert_{p}\right)\lVert f+g\rVert_{p}^{p-1}
+\end{align*}
+
+Teilen durch \(\lVert f+g\rVert_{p}^{p-1}\) liefert die Minkowski-Ungleichung.
+
+\end{itemize}
+\end{enumerate}
+\end{beweis}
+
+\begin{satz}
+\label{Satz 16.2}
+Sei $\lambda_d(X)<\infty$, $p,q\ge 1$ und $p\leq q \leq \infty$. Dann ist $\fl^q(X)\subseteq\fl^p(X)$ und es gilt:
+\[\forall f\in\fl^q(X): \|f\|_p\le\lambda_d(X)^{\frac1p-\frac1q}\|f\|_q\]
+\end{satz}
+
+\begin{beweis}
+Sei $f\in\fl^q(X)$.\\
+\textbf{Fall $p=q$:} Klar.\\
+\textbf{Fall $q=\infty$:} Leichte Übung!\\
+\textbf{Fall $p<q<\infty$:}\\
+Sei $r:=\frac qp>1$, dann ist $\frac 1{r'}=1-\frac pq$. Aus $|f|^{pr}=|f|^q\in\fl^1(X)$ folgt $|f|^p\in\fl^r(X)$. Definiere $g:=\mathds{1}_X$, dann ist $g\in\fl^{r'}(X)$, da $\lambda_d(X)<\infty$. Wegen \ref{Satz 16.1} gilt dann:
+\[g\cdot|f|^p\in\fl^1(X)\implies |f|^p\in\fl^1(X)\implies f\in\fl^p(X)\]
+Aus der Hölderschen Ungleichung folgt:
+\begin{align*}
+\|f\|^p_p&=\|g\cdot |f|^p\|_1\\
+&\le \|g\|_{r'}\cdot\||f|^p\|_r\\
+&= (\int_X g^{r'}\text{ d}x)^{\frac 1{r'}}\cdot(\int_X |f|^{pr}\text{ d}x)^{\frac 1r}\\
+&= \lambda_d(X)^{\frac1{r'}}\cdot(\int_X |f|^{q}\text{ d}x)^{\frac pq}\\
+&= \lambda_d(X)^{1-\frac pq}\cdot\|f\|^p_q
+\end{align*}
+Also gilt:
+\[\|f\|_p\le\lambda_d(X)^{\frac1p-\frac1q}\|f\|_q\]
+\end{beweis}
+
+\begin {beispiel}
+\begin{enumerate}
+\item Sei $X:=(0,1]$, $1\le p<q<\infty$ (also $\frac 1q<\frac1p$) und $f(x):=\frac 1{x^\alpha}$ $(\alpha>0)$. Dann gilt nach 
+\ref{Satz 4.14} und Analysis I:
+\begin{align*}
+f\in\fl^p(X)&\iff\int_0^1\frac1{x^{\alpha p}}\text{ d}x \text{ konvergiert}\\
+&\iff\alpha p<1\\
+&\iff \alpha<\frac 1p
+\end{align*}
+Sei $\frac 1q<\alpha<\frac 1p$, dann ist $f\in\fl^p(X)$ und $f\not\in\fl^q(X)$. D.h. $\fl^p(X)\not\subseteq\fl^q(X)$ und aus \ref{Satz 16.2} folgt $\fl^q(X)\subseteq\fl^p(X)$.
+\item Sei $X:=[1,\infty)$, $p=1$, $q\in(1,\infty)$ und $f(x):=\frac 1x$. Dann gilt nach \ref{Satz 4.14} und Analysis I: $f\not\in\fl^p(X)$ und $f\in\fl^q(X)$. D.h. also $\fl^q(X)\not\subseteq\fl^p(X)$.\\
+Definiere $g(x):=\mathds{1}_{[1,2)}\cdot (2-x)^{-\frac 1q}$. Übung: $g\in\fl^p(X)$ und $g\not\in\fl^q(X)$. D.h. also $\fl^p(X)\not\subseteq\fl^q(X)$.
+\end{enumerate}
+\end{beispiel}
+
+\begin{satz}[Satz von Lebesgue ($\fl^p$-Version)]
+\label{Satz 16.3}
+Sei $1\le p<\infty$, $f:X\to\mdr$ sei messbar, $g:X\to[0,\infty]$ integrierbar und $(f_n)$ eine Folge in $\fl^p(X)$ mit den Eigenschaften:
+\begin{enumerate}
+\item $f_n\to f$ f.ü. auf $X$
+\item $\forall n\in\mdn: |f_n|^p\le g$ f.ü. auf $X$.
+\end{enumerate}
+Dann ist $f\in\fl^p(X)$ und es gilt
+\[\|f_n-f\|_p\stackrel{n\to\infty}\to 0\]
+\end{satz}
+
+\begin{beweis}
+Aus (i) und (ii) folgt: $|f|^p \leq g$ f.ü.
+Im Kapitel 5 haben wir gesehen, dass dann gilt:
+\[ \int_X |f|^p \text{ d}x \leq \int_X g \text{ d}x < \infty \]
+(denn $g$ ist nach Voraussetzung integrierbar). 
+Daraus folgt: $f \in \fl^p(X)$.
+
+Setze $g_n := |f_n - f|^p$. Aus (i): $g_n \to 0$ f.ü. Es sind $f_n, f \in \fl^p(X)$ (ersteres nach Voraussetzung, zweiteres haben wir gerade gezeigt), und weil $\fl^p(X)$ ein reeller Vektorraum ist (\ref{Satz 16.1}(2)), folgt:
+\[ f_n - f \in \fl^p(X) \]
+Also $g_n \in \fl^1(X)$.
+Es ist 
+\[ 0 \leq g_n \leq \left( |f_n| + |f| \right)^p \leq \left( g^{\frac{1}{p}} + g^{\frac{1}{p}} \right)^p = \left( 2g^{\frac{1}{p}} \right)^p = 2^p g \quad\text{f.ü.} \]
+Mit \ref{Satz 6.2} folgt schließlich:
+\[ \underbrace{\int_X g_n \text{ d}x}_{=\|f_n - f\|_p^p} \to 0. \]
+\end{beweis}
+
+Aus \ref{Satz 16.1} folgt: $\fl^p(X)$ ist ein reeller Vektorraum (VR), wobei für $f,g\in\fl^p(X)$ gilt:
+\[\|\alpha f\|_p=|\alpha|\cdot \|f\|_p\quad (\alpha\in\mdr)\]
+\[\|f+g\|_p\le\|f\|_p+\|g\|_p\]
+Aber $\|\cdot\|_p$ ist \textbf{keine} Norm auf $\fl^p(X)$! Denn aus $\|f\|_p=0$ folgt nur $f=0$ f.ü.
+
+\begin{definition}
+Es sei $\cn:=\{f:X\to\mdr\mid f\text{ ist messbar und } f=0 \text{ f.ü.}\}$, dann ist $\cn$ ein Untervektorraum von $\fl^p(X)$. Definiere
+\[L^p(X):=\fl^p(X)\diagup\cn=\{\hat f=f+\cn\mid f\in\fl^p(X)\}\]
+Aus der Linearen Algebra ist bekannt, dass $L^p(X)$ durch die Skalarmultiplikation
+\[\alpha\cdot\hat f := \widehat{\alpha f}\]
+und die Addition
+\[\hat f+\hat g:=\widehat{f+g}\]
+zu einem Vektorraum über $\mdr$ wird.
+\end{definition}
+
+Setze für $\hat f \in L^1(X)$: 
+\[\int_X \hat f(x) \text{ d}x := \int_X f(x) \text{ d}x\]
+dabei ist diese Definition unabhängig von der Wahl des Repräsentanten $f \in \fl^1(X)$ von $\hat f$, denn: ist auch noch $g \in \fl^1(X)$ und $\hat g = \hat f$, so ist $f - g \in \cn$, also $f-g = 0$ f.ü. und damit: $\int_X f \text{ d}x = \int_X g \text{ d}x$.
+
+Für $\hat f \in L^p(X)$ definiere 
+\[\| \hat f \|_p := \| f \|_p\]
+wobei diese Definition unabhängig ist von der Wahl des Repräsentanten $f \in \fl^p(X)$ von $\hat f$.
+
+Für $\hat f, \hat g \in L^2(X)$ setze 
+\[( \hat f | \hat g ) := \int_X f(x)g(x) \text{ d}x\]
+(auch diese Definition ist Repräsentanten-unabhängig) (Beachte: $f\cdot g \in \fl^1(X)$ )
+
+\textbf{Dann gilt:} 
+\index{Ungleichung!Cauchy-Schwarz}
+\begin{enumerate} \item $L^p(X)$ ist unter $\| \cdot \|_p$ ein normierter Raum (NR).
+\item Für $\hat f, \hat g \in L^2(X)$ gilt:
+\[ | ( \hat f | \hat g ) | = | \int_X f(x)g(x) \text{ d}x | \leq \int_X |fg| \text{ d}x = \| fg \|_1 \overset{\ref{Satz 16.1}}{\leq} \| f \|_2 \| g \|_2 = \| \hat f \|_2 \| \hat g \|_2 \]
+\textbf{(Cauchy-Schwarzsche Ungleichung)}
+\end{enumerate}
+\textbf{Nachrechnen:} $( \hat f | \hat g )$ definiert ein Skalarprodukt auf $L^2(X)$. Es gilt:
+\[ ( \hat f | \hat f) = \int_X f(x)^2 \text{ d}x = \| \hat f \|_2^2 \]
+\textbf{Also:} $\| \hat f \|_2 = \sqrt{( \hat f | \hat f )}$
+
+\begin{definition}
+\index{Prähilbertraum}
+\index{Hilbertraum}
+Sei $(B, \| \cdot \|)$ ein normierter Raum. Gilt mit einem Skalarprodukt $( \cdot | \cdot )$ auf $B$:
+\begin{align*}
+\tag{$*$} \| v \| = \sqrt{(v | v)} \quad \forall v \in B
+\end{align*}
+so heißt $B$ ein \textbf{Prähilbertraum}. Ist $B$ ein Banachraum mit $(*)$, so heißt $B$ ein \textbf{Hilbertraum}.
+\end{definition}
+
+\textbf{Vereinbarung:} ab jetzt sei stets in diesem Kapitel $1 \leq p < \infty$.
+
+\begin{bemerkung}
+\index{Chauchyfolge}
+Seien \(f,f_n\in\fl^p(X)\)
+\begin{enumerate}
+\item 	\(\| f_n-f\|_p = \| \hat{f_n}-\hat f\|_p\to 0\) genau
+		dann, wenn \((\hat{f_n})\) eine konvergente Folge im normierten Raum \(L^p(X)\) 
+ 		mit dem Grenzwert \(\hat f\) ist.
+\item 	\((\hat f_n)\) ist eine \textbf{Cauchyfolge} (CF) in \(L^p(X)\) genau dann, wenn für jedes $\ep>0$ ein $n_0\in\mdn$ exitiert mit:
+		\begin{align*}
+		\tag{$*$} \| \hat f_n-\hat f_m\|_p	=\| f_n-f_m\|_p<\ep\quad\forall n,m\geq n_0
+		\end{align*}
+\item 	Wie in Analysis II zeigt man: gilt \(\| f_n-f\|_p=
+		\| \hat f_n-\hat f\|_p\to 0\), so ist \((\hat f_n)\) eine Cauchyfolge
+		in \(L^p(X)\).
+
+
+\end{enumerate}
+\end{bemerkung}
+
+\begin{satz}[Satz von Riesz-Fischer]
+\label{Satz 16.4}
+\((\hat f_n)\) sei eine Cauchyfolge in \(L^p(X)\), das heißt es gilt \((\ast)\) aus obiger Bemerkung (2).
+Dann existiert ein \(f\in\fl^p(X)\) und eine Teilfolge \((f_{n_j})\) von \((f_n)\) mit:
+\begin{enumerate}
+\item 	\(f_{n_j}\to f\) fast überall auf \(X\).
+\item 	\(\| f_n-f\|_p\to 0 \ \ (n\to\infty)\).
+\end{enumerate}
+Das heißt \(L^p(X)\) ist ein Banachraum (\(L^2(X)\) ist ein Hilbertraum).
+\end{satz}
+
+\begin{bemerkung}
+Voraussetzungen und Bezeichnungen seien wie in \ref{Satz 16.4}. Im Allgmeinen wird \textbf{nicht}
+gelten, dass fast überall \(f_n\to f\) ist.
+\end{bemerkung}
+
+\begin{beispiel}
+Sei \(X=[0,1]\) und \((I_n)\) sei die folgende Folge von Intervallen:
+\[I_1=\left[0,1\right], I_2=\left[0,\frac12\right], I_3=\left[\frac12,1\right], I_4=\left[0,\frac14\right],
+I_5=\left[\frac14,\frac12\right], I_6=\left[\frac12, \frac34\right], I_7=\left[\frac34,1\right], \dots\]
+Es sei \(f_n:=\mathds{1}_{I_n}\), sodass \(\int_X f_n\,dx=\int_{I_n}1\,dx=\lambda_1(I_n)\to 0\).
+Also \(\hat f_n\in L^1(X)\) und \(\| \hat f_n-\hat 0\|_1\to 0\). 
+Ist \(x\in X\), so gilt: \(x\in I_n\) für unendlich viele \natn. Daraus folgt, dass eine Teilfolge 
+\(I_{n_j}\) mit \(x\in I_{n_j}\) für jedes \(j\in\mdn\) existiert. Somit ist \(f_{n_j}(x)=1\) für jedes \(j\in\mdn\)
+und deshalb gilt fast überall \(f_n\nrightarrow 0\).
+\end{beispiel}
+
+\begin{beweis}[von \ref{Satz 16.4}]
+Setze \(\ep_j:=\frac1{2^j}\ (j\in\mdn)\). 
+Zu \(\ep_1\) existiert ein \(n_1\in\mdn\) mit \(\| f_l-f_{n_1}\|_p<\ep_1\) 
+für alle \(l\geq n_1\). 
+Zu \(\ep_2\) existiert ein \(n_2\in\mdn\) mit \(n_2>n_2\) und 
+\(\| f_l-f_{n_2}\|_p<\ep_2\) für alle \(l\geq n_2\).
+Etc.\\
+Wir erhalten eine Teilfolge \((f_{n_j})\) mit 
+\[(+)\ \ \ \| f_l-f_{n_j}\|_p<\ep_j \text{ für alle } l\geq n_j \text{ mit } j\in\mdn\]
+Setze \(g_j:=f_{n_{j+1}}-f_{n_j}\ (j\in\mdn)\). Klar: \(g_l\in\fl^p(X)\).
+Für \(N\in\mdn\): \[S_N:=\int_X\left(\sum^N_{j=1}\lvert g_j(x)\rvert^p\right)^{\frac1p}\]
+Dann:
+\begin{align*}
+	S_N=\left\lvert\left\lvert\sum^N_{j=1}\lvert g_j\rvert\right\rvert\right\rvert_p 
+	\leq \sum^N_{j=1}\| g_j\|_p
+	\overset{\text{(+)}}\leq \sum^N_{j=1}\ep_j
+	=\sum^N_{j=1}\frac1{2^j}
+	\leq 1
+\end{align*}
+Setze \[g(x):=\sum^\infty_{j=1}\lvert g_j(x)\rvert \text{ für } x\in X\]
+Es ist \(g\geq0\) und messbar. Weiter gilt:
+\begin{align*}
+	0\leq \int_X g^p\,dx
+	=\int_X\lim_{N\to\infty}\left(\sum^N_{j=1}\lvert g_j\rvert\right)^p\,dx
+	\overset{\ref{Satz 6.2}}\leq \liminf_{N\to\infty}S_N^p
+	\leq 1
+\end{align*}
+Somit ist \(g^p\) ist integrierbar. Aus \ref{Satz 5.2} folgt, dass eine Nullmenge \(N_1\subseteq X\)
+existiert mit \(0\leq g^p(x)<\infty\) für alle \(x\in X\setminus N_1\). Es ist dann auch
+\(0\leq g(x)<\infty\) für alle \(x\in X\setminus N_1\) und somit folgt nach Konstruktion von $g$, dass
+\(\sum^\infty_{j=1}g_j\,dx\) konvergiert absolut in jedem \(x\in X\setminus N_1\).
+Aus Analysis I folgt, dass damit \(\sum^\infty_{j=1}g_j\,dx\) in jedem 
+\(x\in X\setminus N_1\) konvergiert.
+
+Für \(m\in\mdn\): 
+\[\sum^{m-1}_{j=1}g_j=f_{n_m}-f_{n_1} \implies f_{n_m}=\sum^{m-1}_{j=1}g_j + f_{n_1} \]
+Deshalb ist \((f_{n_m})\) konvergent (in \mdr) für alle \(x\in X\setminus N_1\).
+\begin{align*}
+f(x):=
+	\begin{cases}
+	\lim_{m\to\infty}f_{n_m}(x) 	&, x\in X\setminus N_1 \\
+	0 						&, x\in N_1
+	\end{cases}
+\end{align*}
+Aus \S 3 ist bekannt, dass $f$ messbar ist. Klar: \(f_{n_m}\to f\) fast überall und 
+\(f(X)\subseteq\mdr\).
+Es ist \(f_{n_m}=\sum^{m-1}_{j=1}g_j + f_{n_1}\) und somit 
+\[\lvert f_{n_m}\rvert = \lvert f_{n_1}\rvert + \sum^{m-1}_{j=1}g_j \leq \lvert f_{n_1}\rvert +
+\lvert g\rvert\]
+Wie im Beweis von Satz \ref{Satz 16.1} folgern wir
+\[\lvert f_{n_m}\rvert^p\leq 2^p\left(\lvert f_{n_1}\rvert^p+g^p\right)=:\tilde g \]
+ \(f_{n_1}\in\fl^p(X)\), \(g^p\) ist integrierbar. Aus \ref{Satz 16.3} folgt, dass \(f\in\fl^p(X)\)
+und \[\| f_{n_m}-f\|_p\to 0 \ (m\to\infty)\]
+Sei nun \(\ep>0\). Wähle \(m\in M\) so, dass \(\frac1{2^m}<\frac\ep2\) und 
+\(\| f-f_{n_m}\|_p<\frac\ep2\).
+Für \(l\geq n_m\) gilt: 
+\[\| f_l-f\|_p= \| f_l-f_{n_m}+f_{n_m}-f\|_p
+\leq \| f_l-f_{n_m}\|_p + \| f_{n_m}-f\|_p
+\overset{\text{(+)}}< \frac1{2^m}+\frac\ep2 <\ep\]
+Das heißt
+\[\| f_l-f\|_p\to0 \ (l\to\infty)\]
+\end{beweis}
+
+\begin{satz}
+\label{Satz 16.5}
+Sei auch noch \(1\leq q<\infty\). \((f_n)\) sei eine Folge in \(\fl^p(X)\cap\fl^q(X)\). Es sei
+\begin{align*}
+f\in\fl^p(X) & \text{ und } g\in\fl^q(X)
+\intertext{Weiter gelte: }
+\| f_n-f\|_p\to 0 & \text{ und } \| f_n-g\|_q\to 0 \ (n\to\infty)
+\end{align*}
+Dann ist fast überall \(f=g\).
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item[\textbf{1.}]
+	Aus Bemerkung (3) vor \ref{Satz 16.4} folgt, dass \((\hat f_n)\) ist eine Cachyfolge in
+	\(L^p(X)\). Wegen \ref{Satz 16.4} existiert dann ein \(\varphi\in\fl^p(X)\) und eine Teilfolge
+	\((f_{n_j})\) mit: \(f_{n_j}\to\varphi\) fast überall und 
+	\(\| f_n-\varphi\|_p\to0\)
+	\begin{align*}
+		\| f-\varphi\|_p
+		= \| f-f_n+f_n-\varphi\|_p
+		\leq \| f-f_n\|_p + \| f_n-\varphi\|_p
+		\to 0\ \ (n\to\infty)
+	\end{align*}
+	Somit ist \(\| f-\varphi\|_p=0\) und deshalb fast überall \(f=\varphi\).
+	Also gilt fast überall \(f_{n_j}\to f\). Das heißt, dass es eine Nullmenge \(N_1\subseteq X\) gibt,
+	für die gilt: \[f_{n_j}(x)\to f(x) \text{ für alle } x\in X\setminus N_1\]
+\item[\textbf{2.}]
+	Setze \(g_j:=f_{n_j}\), dann gilt \(\| g_j-g\|_q\to0\ \ (j\to\infty)\). Wie
+	im ersten Schritt zeigt man, dass eine Nullmenge \(N_2\subseteq X\) und eine Teilmenge
+	\((g_{j_k})\) existiert mit, für die gilt:
+	\[g_{j_k}(x)\to g(x) \text{ für alle } x\in X\setminus N_2\]
+\end{enumerate}
+Wir wissen, dass \(N:=N_1\cup N_2\) eine Nullmenge ist. Sei nun \(x\in X\setminus N\). Dann
+folgt aus dem ersten Schritt \(f_{n_j}(x)\to f(x)\) und daraus 
+\[ \underbrace{f_{n_{j_k}}(x)}_{=g_{n_{j_k}}(x)}\to f(x) \]
+Aus dem Zweiten Schritt folgt dann, dass \(f_{n_{j_k}}(x)\to g(x)\) und somit \(f(x)=g(x)\).
+\end{beweis}
+
+\begin{bemerkung}
+Seien \(f_n,f\in\fl^p(X)\) und es gelte \(\| f_n-f\|_p\to 0\ \ (n\to\infty)\). Der
+Beweis von \ref{Satz 16.5} zeigt, dass eine Teilfolge \((f_{n_j})\) von \((f_n)\) existiert mit 
+\(f_{n_j}\to f\) fast überall.
+\end{bemerkung}
+
+\begin{bemerkung}
+Konvergenz im Sinne der Norm \(\|\cdot\|_p\) und punktweise Konvergenz fast
+überall haben im Allgemeinen \textbf{nichts} miteinander zu tun!
+\end{bemerkung}
+
+\begin{beispiel}
+Sei \((f_n)\) wie im Beispiel vor \ref{Satz 16.4}. Also \(\| f_n-0\|_p\to 0\), aber
+\(f_n\nrightarrow 0\) fast überall.
+\end{beispiel}
+
+\begin{beispiel}
+%Bild einfügen
+Sei \(X=[0,1]\) und \(f_n\) sei wie im Bild. \(f_n\) ist stetig, also messbar. 
+\[\int_X f_n\,dx=1 \text{ für alle } \natn\]
+Somit ist \(f_n\in\fl^1(X)\).
+\[f_n(x)\to
+\begin{cases}
+0, x\in(0,1]\\
+1, x=0
+\end{cases}\]
+Damit gilt fast überall \(f_n\to0\), aber 
+\(\| f_n-0\|_1=1\nrightarrow0 \ \ (n\to\infty)\)
+\end{beispiel}
+
+\begin{definition}
+	\index{Reihe ! unendliche}
+	\index{stetig}
+Seien \((E,\|\cdot\|_1), (F,\|\cdot\|_2)\) normierte Räume.
+\begin{enumerate}
+\item 	Sei \((x_n)\) eine Folge in $E$ und \(s_n:=x_1+x_2+\dots+x_n\) (\natn).
+ 		Dann heißt \((s_n)\) eine \textbf{unendliche Reihe} und wird mit
+		\[\sum^\infty_{n=1}x_n\] bezeichnet. \(\sum^\infty_{n=1}x_n\) heißt
+		\textbf{konvergent} genau dann, wenn \((s_n)\) konvergiert. In diesem Fall ist
+		\[\sum^\infty_{n=1}x_n:=\lim_{n\to\infty}s_n\]
+\item 	\(\Phi\colon E\to F\) sei eine Abbildung. \(\Phi\) heißt \textbf{stetig} in \(x_0\in E\)
+		genau dann, wenn für jede konvergente Folge \((x_n)\) in $E$ mit \(x_n\to x_0\)
+		gilt: \[\Phi(x_n)\to\Phi(x_0)\] 
+		\(\Phi\) heißt auf $E$ stetig genau dann, wenn \(\Phi\) ist in jedem \(x\in E\) stetig.
+\item Für $(x,y)\in E\times E$ setze 
+\[\|(x,y)\|:=\sqrt{\|x\|_1^2+\|y\|_1^2}\]
+Dann ist $\|\cdot\|$ eine Norm auf $E\times E$ (nachrechnen!). Weiter gilt, dass $E\times E$ genau dann ein Banachraum ist, wenn $E$ einer ist. Für eine Folge $((x_n,y_n))$ in $E\times E$ und $(x,y)\in E\times E$ gilt
+\[(x_n,y_n)\stackrel{\|\cdot\|}\to (x,y) \iff x_n\stackrel{\|\cdot\|}\to x \wedge y_n\stackrel{\|\cdot\|}\to y\]
+\end{enumerate}
+\end{definition}
+
+\begin{bemerkung}
+Ist $(x_n)$ eine konvergente Folge in $E$, so ist $(x_n)$ beschränkt (d.h. $\exists c>0: \|x_n\|_1\le c \forall n\in\mdn$).
+
+(Beweis wie in Ana I)
+\end{bemerkung}
+
+\begin{vereinbarung}
+Für den Rest dieser Vorlesung schreiben wir (meist) $f$ statt $\hat f$ und identifizieren $\fl^p(X)$ mit $L^p(X)$. Ebenso schreiben wir $\int_X f\text{ d}x$ statt $\int_X \hat f\text{ d}x$ und $(f|g)$ statt $(\hat f|\hat g)$.
+\end{vereinbarung}
+
+\begin{wichtigesbeispiel}
+\label{Beispiel 16.6}
+\begin{enumerate}
+\item Die Abbildung $\Phi:L^p(X)\to\mdr$, definiert durch
+\[\Phi(f):=\|f\|_p\]
+ist stetig auf $L^p(X)$. D.h. für $f_n,f\in L^p(X)$ mit $f_n\stackrel{\|\cdot\|_p}\to f$ gilt $\|f_n\|_p\to\|f\|_p$, also
+\[\int_X|f_n|^p\text{ d}x\to\int_X|f|^p\text{ d}x\] 
+\begin{beweis}
+Aus Analysis II §17 folgt:
+\[| \|f_n\|_p-\|f\|_p |\le \|f_n-f\|_p\stackrel{n\to\infty}\to 0\]
+\end{beweis}
+\item Die Abbildung $\Phi:L^1(X)\to\mdr$ definiert durch
+\[\Phi(f):=\int_X f\text{ d}x\]
+ist stetig auf $L^1(X)$. D.h. aus $f_n,f\in L^1(X)$ und $f_n\stackrel{\|\cdot\|_1}\to f$ folgt
+\[\int_X f_n\text{ d}x\to\int_X f \text{ d}x\]
+\begin{beweis}
+Es gilt:
+\begin{align*}
+|\int_X f_n \text{ d}x-\int_X f \text{ d}x| &=|\int_X f_n-f \text{ d}x|\\
+&\le \int_X |f_n-f| \text{ d}x\\
+&= \|f_n-f\|_1\stackrel{n\to\infty}\to 0
+\end{align*}
+\end{beweis}
+\item Die Abbildung $\Phi:L^2(X)\times L^2(X)\to\mdr$ definiert durch
+\[\Phi(f,g):=(f|g)\]
+ist stetig auf $L^2(X)\times L^2(X)$. D.h. für $f_n,g_n,f,g\in L^2(X)$ mit $f_n\stackrel{\|\cdot\|_2}\to f$ und $g_n\stackrel{\|\cdot\|_2}\to g$ gilt
+\[(f_n|g_n)\stackrel{n\to\infty}\to(f|g)\]
+\begin{beweis}
+Es gilt:
+\begin{align*}
+|(f_n|g_n)-(f|g)|&=|(f_n|g_n)-(f_n|g)+(f_n|g)-(f|g)|\\
+&=|(f_n|g_n-g)+(f_n-f|g)|\\
+&\le |(f_n|g_n-g)|+|(f_n-f|g)|\\
+&\le \|f_n\|_2\cdot \|g_n-g\|_2 + \|f_n-f\|_2\cdot\|g\|_2\stackrel{n\to\infty}\to 0
+\end{align*}
+\end{beweis}
+\end{enumerate}
+\end{wichtigesbeispiel}
+
+\begin{satz}
+\label{Satz 16.7}
+Sei $f=f_+-f_-\in L^p(X)$ und $(g_n)$ und $(h_n)$ seien zulässige Folgen für $f_+$ bzw. $f_-$ (d.h. $g_n,h_n$ einfach, $0\le g_n\le g_{n+1}, g_n\to f_+$, $0\le h_n\le h_{n+1}, h_n\to f_-$). Setze $f_n:=g_n-h_n$.\\
+Dann sind $f_n,g_n,h_n\in L^p(X)$ und es gilt:
+\begin{align*}
+&\|g_n-f_+\|_p\to 0&&\|h_n-f_-\|_p\to 0&&\|f_n-f\|_p\to 0
+\end{align*}
+\end{satz}
+
+\begin{beweis}
+Es genügt den Fall $f\ge 0$ zu betrachten (also $f=f_+$, $f_-\equiv 0$). Sei also $(f_n)$ zulässig für $f$. Definiere $\varphi:=|f_n-f|^p$. Es ist klar, dass punktweise gilt $\varphi_n\to 0$. Außerdem gilt:
+\begin{align*}
+0\le\varphi_n&\le (|f_n|+|f|)^p\\
+&=|f_n+f|^p\le (2f)^p\\
+&=2^pf^p=:g 
+\end{align*}
+Dann ist $g\in L^1(X)$ integrierbar.\\
+Aus \ref{Satz 4.9} folgt:
+\begin{align*}
+\varphi\in L^1(X)&\implies f_n-f\in L^p(X)\\
+&\implies f_n=(f_n-f)+f\in L^p(X) 
+\end{align*}
+Aus \ref{Satz 6.2} folgt:
+\[\int_X\varphi_n\text{ d}x\to 0 \implies \|f_n-f\|_p^p\to 0\]
+\end{beweis}
+
+\begin{definition}
+\index{Träger}
+\begin{enumerate}
+\item Sei $f:X\to\mdr$. Dann heißt
+\[\supp (f):=\overline{\{x\in X\mid f(x)\ne 0\}}\]
+der \textbf{Träger} von $f$
+\item $C_c(X,\mdr):=\{f\in C(X,\mdr)\mid \supp(f)\subseteq X\text{ und } \supp(f) \text{ kompakt}\}$
+\end{enumerate}
+\end{definition}
+
+\begin{satz}
+\index{dicht}
+\label{Satz 16.8}
+\begin{enumerate}
+\item $C_c(X,\mdr)\subseteq L^p(X)$
+\item Ist $X$ offen, so liegt $C_c(X,\mdr)$ \textbf{dicht} in $L^p(X)$, d.h. ist $f\in L^p(X)$ und $\ep>0$, so existiert $g\in C_c(X,\mdr)$ mit $\|f-g\|_p<\ep$.
+\end{enumerate}
+\end{satz}
+
+\begin{beweis}
+\begin{enumerate}
+\item Sei $f\in C_c(C,\mdr)$ und $K:=\supp(f)$, dann ist $K\subseteq X$ kompakt, also $K\in\fb_d$. Es gilt für alle $x\in X\setminus K$ $f(x)=0$ und damit folgt aus \ref{Satz 4.12} $\int_K |f|^p\text{ d}x<\infty$. Dann gilt:
+\[\int_X |f|^p\text{ d}x=\int_{X\setminus K} |f|^p\text{ d}x+\int_K |f|^p\text{ d}x=\int_K |f|^p\text{ d}x<\infty\]
+Also ist $f\in L^p(X)$.
+\item Siehe Übungsblatt 13.
+\end{enumerate}
+\end{beweis}

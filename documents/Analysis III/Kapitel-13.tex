@@ -1,0 +1,67 @@
+In diesem Kapitel sei $(x_0,y_0)\in\MdR^2$ (fest), es sei 
+$R:[0,2\pi]\to[0,\infty)$ stetig und stückweise stetig 
+differenzierbar und $R(0) = R(2\pi)$. Weiter sei 
+\begin{displaymath}
+\gamma(t) := (x_0 + R(t)\cos t,y_0 + R(t)\sin t) \text{   } (t\in[0,2\pi])
+\end{displaymath}
+Dann ist $\gamma$ ein stückweise stetig differenzierbarer, geschlossener und rektifizierbarer Weg in $\MdR^2$. Es sei 
+\[B:= \{(x_0+r\cos t,y_0 + r\sin t): t\in [0,2\pi ], 0\le r\le R(t)\}\] 
+Dann ist $B$ kompakt, also $B\in\fb_2 $. Weiter ist $\partial B = \gamma([0,2\pi]) = \Gamma_\gamma$.\\
+Sind $B$ und $\gamma$ wie oben, so heißt $B$ \begriff{zulässig}.
+\index{zulässig}
+\begin{beispiel}
+ Sei $R$ konstant, also $R(t) = R > 0$, so ist $B = \overline{U_R(x_0,y_0)}$
+\end{beispiel}
+
+\begin{satz}[Integralsatz von Gauß im $\MdR^2$]
+\label{Satz 13.1}
+$B$ und $\gamma$ seien wie oben ($B$ also zulässig). Weiter sei $D\subseteq \MdR^2$ offen, $B\subseteq D$ und $f = (u,v) \in C^1(D,\MdR^2)$. Dann
+\begin{liste}
+\item $\int_B u_x(x,y)d(x,y) = \int_{\gamma} u(x,y) d(y)$
+\item $\int_B v_y(x,y)d(x,y) = -\int_{\gamma} v(x,y) d(x)$
+\item $\int_B \divv f(x,y)d(x,y) = \int_{\gamma} (udy - vdx)$
+\end{liste}
+\end{satz}
+
+\begin{folgerung}
+Mit $f(x,y) := (x,y)$ erhält man aus \ref{Satz 13.1}: Sind $B$ und $\gamma$ wie in \ref{Satz 13.1}, so gilt:
+\begin{liste}
+\item $\lambda_2(B) = \int_\gamma xdy$
+\item $\lambda_2(B) = -\int_\gamma ydx$
+\item $\lambda_2(B) = \frac12\int_\gamma (xdy - ydx)$
+\end{liste}
+\end{folgerung}
+
+\begin{beispiel}
+Definiere
+\[B:= \{(x,y)\in\MdR^2:x^2+y^2 \le R^2\}\quad (R>0)\]
+und $\gamma(t) = (R\cos t,R\sin t)$, für $t\in[0,2\pi]$, dann gilt:
+\[\lambda_2(B) = \int_0^{2\pi} R\cos t\cdot R\cos t \text{ d}t = R^2\int_0^{2\pi} \cos^2t \text{ d}t = \pi R^2\]
+\end{beispiel}
+
+\begin{beweis}
+Wir beweisen nur (1). ((2) beweist man analog und (3) folgt aus (1) und (2))\\
+O.B.d.A: $(x_0,y_0) = (0,0)$ und $R$ stetig db. Also $\gamma = (\gamma_1,\gamma_2)$, $\gamma (t) = (\underbrace{R(t)\cos t}_{= \gamma_1(t)},\underbrace{R(t)\sin t)}_{=\gamma_2(t)}$. $R$ stetig differenzierbar. $A:= \int_B u_x(x,y)d(x,y)$\\
+Zu zeigen: $A=\int_0^{2\pi} u(\gamma (t))\cdot \gamma_2'(t) dt$.\\
+Mit Polarkoordinaten, Transformations-Satz und Fubini:
+\begin{displaymath}
+	A = \int_0^{2\pi }(\int_0^{R(t)} u_x(r\cos t,r\sin t)r dr) dt
+\end{displaymath}
+\begin{enumerate}
+	\item $\beta(r,t) := u(r\cos t,r\sin t)$. Nachrechnen: $r\beta_r(r,t)\cos t - \beta_t(r,t)\sin t = u_x(r\cos t,r\sin t)r$. Also: 
+		\begin{displaymath}
+			A = \int_0^{2\pi} (\int_0^{R(t)} (r\beta_r(r,t)\cos t - \beta_t(r,t)\sin t) dr)dt
+		\end{displaymath}
+	\item $\int_0^{R(t)} r\beta_r(r,t) dr = r\beta(r,t)\vert_{r=0}^{r=R(t)} - \underbrace{\int_0^{R(t)} \beta(r,t) dr}_{=:\alpha(t)} = R(t)\beta(R(t),t) - \alpha(t) = R(t)u(\gamma(t)) -\alpha(t)$
+	\item $\Psi(s,t) := \int_0^s \beta(r,t)dr$. Mit dem zweiten Hauptsatz aus Analysis 1 folgt: $\Psi_s(s,t) = \beta(s,t)$ \\ 7.3 \folgt $\Psi_t(s,t) = \int_0^s \beta_t(r,t) dr$.\\
+		Dann: $\alpha(t) = \Psi(R(t),t)$, also 
+		\begin{displaymath}
+			\alpha'(t) = \Psi_s(R(t),t)\cdot R'(t) + \Psi_t(R(t),t)\cdot 1 = R'(t)\underbrace{\beta(R(t),t)}_{=u(\gamma(t))} + \int_0^{R(t)} \beta_t(r,t) dr
+		\end{displaymath}
+		\folgt $\int_0^{R(t)}\beta_t(r,t)dr = \alpha'(t) - R'(t)\cdot u(\gamma(t))$.
+	\item Aus (1),(2),(3) folgt: \\
+		\begin{align*}
+		A &=  \int_0^{2\pi} (R(t)\cdot u(\gamma(t))\cdot \cos t - \alpha(t)\cos t - \alpha'(t)\sin t + R'(t)\cdot u(\gamma(t))\sin t) dt\\ &= \int_0^{2\pi}u(\gamma(t))\gamma_2'(t)dt - \int_0^{2\pi} (\alpha(t)\sin t)' dt\\ &= \int_0^{2\pi} u(\gamma(t))\gamma_2'(t)dt - \underbrace{[\alpha(t)\sin t]_0^{2\pi}}_{=0}\\ &= \int_0^{2\pi} u(\gamma(t))\gamma_2'(t) dt
+		\end{align*}
+\end{enumerate}
+\end{beweis}

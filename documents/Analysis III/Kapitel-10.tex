@@ -1,0 +1,308 @@
+Die Bezeichnungen seien wie in den Kapitel 8 und 9.
+
+\begin{satz}[Satz von Tonelli]
+\label{Satz 10.1}
+Es sei \(f\colon\mdr^d\to[0,+\infty]\) messbar. (Aus \S 8 folgt dann, dass \(f^x,f_y\) messbar sind, wobei klar ist, dass \(f^x,f_y\geq 0\) sind.)\\
+Für \(x\in\mdr^k\):
+\[F(x):=\int_{\mdr^l}f(x,y)\,dy=\int_{\mdr^l}f^x(y)\,dy\]
+Für \(y\in\mdr^l\):
+\[G(y):=\int_{\mdr^k}f(x,y)\,dx=\int_{\mdr^k}f_y(x)\,dx\]
+Dann sind $F,G$ messbar und 
+\[\int_{\mdr^d}f(z)\,dz=\int_{\mdr^k}F(x)\,dx=\int_{\mdr^l}G(y)\,dy\]
+also
+\begin{align*}
+\tag{$*$}\int_{\mdr^d}f(x,y)\,d(x,y)=\int_{\mdr^k}\left(\int_{\mdr^l}f(x,y)\,dy\right)dx=\int_{\mdr^l}\left(\int_{\mdr^k}f(x,y)\,dx\right)dy
+\end{align*}
+\textbf{(iterierte Integrale)}
+\end{satz}
+
+\begin{beweis}
+\textbf{Fall 1:} Sei \(C\in\fb_d\) und \(f=\mathds{1}_{C}\). Die Behauptungen folgen dann aus \ref{Satz 9.1}.\\
+\textbf{Fall 2:} Sei \(f\geq 0\) und einfach. Die Behauptungen folgen aus Fall 1, \ref{Satz 3.6} und \ref{Satz 4.5}.\\
+\textbf{Fall 3 - Der allgemeine Fall:}\\
+ Sei \((f_n)\) zulässig für $f$, also: \(0\leq f_n\leq f_{n+1}\), \(f_n\) einfach und \(f_n\to f\) auf \(\mdr^d\).
+Für \(x\in\mdr^k\) und \(\natn\) gilt:
+\[F_n(x):=\int_{\mdr^l}f_n(x,y)\,dy\]
+und nach Fall 2 ist \(F_n\) messbar. \\
+Aus \(0\leq f_n\leq f_{n+1}\) folgt \(0\leq F_n\leq F_{n+1}\) und \ref{Satz 4.6} liefert \(F_n\to F\) auf \(\mdr^k\). Dann gilt
+\[\int_{\mdr^d}f(z)\,dz = \lim \int_{\mdr^d}f_n(z)\,dz \overset{Fall 2}= \lim \int_{\mdr^k}F_n(x)\,dx \overset{\ref{Satz 4.6}}=\int_{\mdr^k}F(x)\,dx\]
+Genauso zeigt man 
+\[\int_{\mdr^d}(f(z)\,dz=\int_{\mdr^l}G(y)\,dy\]
+\end{beweis}
+
+\begin{satz}[Satz von Fubini (Version I)]
+\label{Satz 10.2}
+Es sei \(f\colon\mdr^d\to\imdr\) integrierbar. Dann existieren Nullmengen \(M\subseteq\mdr^k\) und \(N\subseteq\mdr^l\) mit
+\begin{align*}
+	 f^x\colon\mdr^l\to\imdr \text{ ist integrierbar für jedes } x\in\mdr^k\setminus M \\
+	 f_y\colon\mdr^k\to\imdr \text{ ist integrierbar für jedes } y\in\mdr^l\setminus N 
+\end{align*}
+Setze
+\begin{align*}
+	F(x):=
+	\begin{cases}
+		\int_{\mdr^l}f^x(y)\,dy=\int_{\mdr^l}f(x,y)\,dy	& \text{, falls } x\in\mdr^k\setminus M \\
+		0							& \text{, falls } x\in M
+	\end{cases}
+\intertext{und}
+	G(y):=
+	\begin{cases}
+		\int_{\mdr^k}f_y(x)\,dx=\int_{\mdr^k}f(x,y)\,dx	& \text{, falls } y\in\mdr^l\setminus N \\
+		0							& \text{, falls } y\in N
+	\end{cases}
+\end{align*}
+Dann sind $F$ und $G$ integrierbar und es gelten folgende zwei Gleichungen
+\[ \int_{\mdr^d}f(z)\,dz = \int_{\mdr^k}F(x)\,dx = \int_{\mdr^l}G(y)\,dy \]
+Es gilt also wieder \((\ast)\) aus \ref{Satz 10.1}.
+\end{satz}
+
+\begin{beweis}
+Wir zeigen nur die Aussagen über \(f^x\), $F$ und die erste der obigen beiden Gleichungen. Genauso zeigt man die Aussagen über \(f_n, G\) und die zweite Gleichung.\\
+Aus \ref{Lemma 8.1} folgt, dass \(f^x\) messbar ist. Definiere
+	\begin{align*}
+	\Phi(x) := \int_{\mdr^l}\lvert f^x(y)\rvert\,dy 
+	= \int_{\mdr^l}\lvert f(x,y)\rvert\,dy \ \text{ für } x\in\mdr^k 
+	\end{align*}
+Nach \ref{Satz 10.1} ist \(\Phi\) messbar und 
+	\begin{align*}
+	\int_{\mdr^k}\Phi(x)\,dx 
+	= \int_{\mdr^k}\left(\int_{\mdr^l}\lvert f(x,y)\rvert\,dy\right)dx \overset{\ref{Satz 10.1}} 
+	= \int_{\mdr^d}\lvert f(z)\rvert\,dz 
+	< \infty
+	\end{align*}
+(denn mit $f$ ist nach \ref{Satz 4.9} auch \(\lvert f\rvert\) integrierbar). Somit ist \(\Phi\) integrierbar.
+Setze \(M:=\{\Phi = \infty \}\) was nach \ref{Satz 4.10} eine Nullmenge ist. 
+Also gilt:
+	\begin{align*}
+	\int_{\mdr^l}\lvert f^x(y)\rvert\,dy 
+	= \Phi(x) < \infty \ \text{ für jedes } x\in\mdr^k\setminus M 
+	\end{align*}
+Das heißt, \(\lvert f^x\rvert\) ist für jedes \(x\in\mdr^k\setminus M\) integrierbar und es gilt nach \ref{Satz 4.9} auch
+	\begin{align*}
+	f^x \text{ ist integrierbar für jedes } x\in\mdr^k\setminus M
+	\end{align*}
+Aus \ref{Folgerung 9.2} folgt, dass \(M\times\mdr^l\) eine Nullmenge ist.
+Setze
+	\begin{align*}
+	\tilde f(z):=
+		\begin{cases}
+		f(z)	&\text{, falls } z\in\mdr^d\setminus(M\times\mdr^l)\\
+		0	&\text{, falls } z\in M\times\mdr^l
+		\end{cases}
+	\end{align*}
+Aus \ref{Lemma 9.3} folgt, dass \(\tilde f\) messbar ist. Klar ist, dass fast überall \(f=\tilde f\) gilt. Es ist 
+\[\tilde f^x = \left(\mathds{1}_{(M\times\mdr^l)^C}\cdot f\right)^x\]
+Das heißt \(\tilde f^x\) ist integrierbar für jedes \(x\in\mdr^k\). Dann gilt
+	\begin{align*}
+	 F(x) \overset{\ref{Satz 5.3}} 
+	= \int_{\mdr^l}\tilde f(x,y)\,dy 
+	= \underbrace{\int_{\mdr^l}\tilde f_+ (x,y)\,dy}_{=:F^+(x)} - \underbrace{\int_{\mdr^l}\tilde f_- (x,y)\,dy}_{=:F^-(x)} 
+	\end{align*}
+Nach \ref{Satz 10.1} sind \(F^+\) und \(F^-\) messbar. Die Dreiecksungleichung liefert nun
+	\begin{align*}
+	\lvert F(x)\rvert 
+	\leq \int_{\mdr^l}\lvert \tilde f(x,y)\rvert\,dy 
+	\overset{\ref{Satz 5.3}}= \int_{\mdr^l}\lvert f(x,y)\rvert\,dy 
+	= \Phi(x) \ \text{ für } x\in\mdr^k
+	\end{align*}
+Also ist \(\lvert F\rvert\leq\Phi\) und \(\Phi\) ist integrierbar. Aus \ref{Satz 4.9} folgt, dass $F$ und \(\lvert F\rvert\) integrierbar sind 
+und dann sind auch \(F^+\) und \(F^-\) integrierbar (zur Übung). Es folgt
+	\begin{align*}
+	\int_{\mdr^k}F(x)\,dx
+	& = \int_{\mdr^k}F^+(x)\,dx - \int_{\mdr^k}F^-(x)\,dx 											\\
+	& = \int_{\mdr^k} \left(\int_{\mdr^l} \tilde f_+(x,y)\,dy\right)dx - \int_{\mdr^k} \left(\int_{\mdr^l}\tilde f(x,y)\,dy\right)dx 		\\
+	& \overset{\ref{Satz 10.1}}= \int_{\mdr^d}\tilde f_+(z)\,dz - \int_{\mdr^d}\tilde f_-(z)\,dz 						\\
+	& = \int_{\mdr^d}\tilde f(z)\,dz 														\\
+	& = \int_{\mdr^d}f(z)\,dz
+	\end{align*}
+\end{beweis}
+
+\begin{satz}[Satz von Fubini (Version II)]
+\label{Satz 10.3}
+Sei \(\emptyset\neq X\in\fb_k\), \(\emptyset\neq Y\in\fb_l\) und \(D:=X\times Y\) (nach \S 8 ist \(D\in\fb_d\)).
+Es sei \(f\colon D\to\imdr\) messbar.
+Ist \(f\geq 0\) auf $D$ oder ist $f$ integrierbar, so gilt
+\[ \int_D f(x,y)\,d(x,y) = \int_X\left(\int_Yf(x,y)\,dy\right)dx = \int_Y\left(\int_Xf(x,y)\,dx\right)dy \]
+\end{satz}
+
+\begin{beweis}
+Definiere \(\tilde f\) wie in \ref{Lemma 9.3} und wende \ref{Satz 10.1} beziehungsweise \ref{Satz 10.2} an.
+\end{beweis}
+
+\begin{bemerkung}
+\ref{Satz 10.1}, \ref{Satz 10.2} und \ref{Satz 10.3} gelten natürlich auch für mehr als zwei iterierte Integrale.
+\end{bemerkung}
+
+\textbf{"'Gebrauchsanweisung"' für Fubini:}\\
+Gegeben: \(\emptyset\neq D\subseteq\fb_d\) und messbares \(f\colon D\to\imdr\).
+Setze $f$ auf \(\mdr^d\) zu einer messbaren Funktion \(\tilde f\) fort (zum Beispiel wie in \ref{Lemma 9.3}).
+Aus \ref{Satz 3.8} folgt dann, dass \(\mathds{1}_{D}\tilde f\) messbar ist und \ref{Satz 10.1} liefert
+	\begin{align*}
+	\int_{\mdr^d}\lvert \mathds{1}_{D}\tilde f\rvert\,dz 
+	= \int_{\mdr^k}\left(\int_{\mdr^l}\lvert \mathds{1}_{D}\tilde f\rvert\,dy\right)dx 
+	= \int_{\mdr^l}\left(\int_{\mdr^k}\lvert \mathds{1}_{D}\tilde f\rvert\,dx\right)dy
+	\end{align*}
+Ist eines der drei obigen Integrale endlich, so ist \(\lvert \mathds{1}_{D}\tilde f\rvert\) integrierbar und
+damit ist nach \ref{Satz 4.9} auch \(\mathds{1}_{D}\tilde f\) integrierbar.\\
+Dann ist $f$ integrierbar und es folgt
+	\begin{align*}
+	\int_Df(z)\,dz 
+	& = \int_{\mdr^d}\left(\mathds{1}_{D}\tilde f\right)(z)\,dz									\\
+	& \overset{\ref{Satz 10.2}}= \int_{\mdr^k}\left(\int_{\mdr^l}\left(\mathds{1}_{D}\tilde f\right)(x,y)\,dy\right)dx 	\\
+	& = \int_{\mdr^l}\left(\int_{\mdr^k}\left(\mathds{1}_{D}\tilde f\right)(x,y)\,dx\right)dy
+	\end{align*}
+
+\begin{beispiel}
+\begin{enumerate}
+\item Sei \(D=[a_1,b_1]\times[a_2,b_2]\times\dots\times[a_d,b_d]\) mit \(a_i\leq b_i \ (i=1,\dots,d)\). 
+Es sei \(f\colon D\to\mdr\) stetig. $D$ ist kompakt, also gilt \(D\in\fb_d\).
+Nach \ref{Satz 4.12}(2) ist \(f\in\mathfrak{L}^1(D)\) und aus obiger Bemerkung folgt
+	\begin{align*}
+	\int_Df(x_1,\dots,x_d)\,d(x_1,\dots,x_d) 
+	= \int_{a_d}^{b^d} \left(\dots \left( \int_{a_2}^{b^2} \left(\int_{a_1}^{b^1}f(x_1,\dots,x_d)\,dx_1\right)dx_2\right)\dots\right)dx_d
+	\end{align*}
+Die Reihenfolge der Integrationen darf beliebig vertauscht werden. Aus \ref{Satz 4.13} folgt
+\[\int_{a_i}^{b_i}\dots \text{ d}x_i= \text{R-}\int_{a_i}^{b_i}\dots\text{ d}x_i\]
+
+\textbf{Konkretes Beispiel}\\
+Sei  \(D:=[a,b]\times[c,d]\subseteq\mdr^2\), \(f\in C([a,b])\) und \(g\in C([c,d])\).
+	\begin{align*}
+	\int_Df(x)g(y)\,d(x,y)						
+	& = \int_c^d\left(\int_a^bf(x)g(y)\,dx\right)dy			\\
+	& = \int_c^d\left(g(y)\left(\int_a^bf(x)\,dx\right)\right)dy		\\
+	&= \left(\int_a^bf(x)\,dx\right) \left(\int_c^dg(y)\,dy\right)
+	\end{align*}
+\item
+	Wir rechtfertigen die "'Kochrezepte"' aus Analysis II, Paragraph 15.
+	Seien \(a,b\in\mdr\) mit \(a<b\) und \(I:=[a,b]\). Weiter seien
+	\(h_1,h_2\in C(I)\) mit \(h_1\leq h_2\) auf \(I\) und 
+	\[A:=\{(x,y)\in\mdr^2: x\in I, h_1(x)\leq y\leq h_2(x)\}\]
+	Sei \(f\colon A\to\mdr\) stetig. Da \(h_1\) und \(h_2\) stetig
+	sind, ist \(A\) kompakt und somit gilt \(A\in\fb_2\). Aus
+	\ref{Satz 4.12}(2) folgt dann \(f\in\mathfrak{L}^1(A)\).
+	Definiere
+	\[\tilde f(x,y)=
+		\begin{cases}
+		f(x,y) 	&\text{, falls } (x,y)\in A  	\\
+		0	&\text{, falls } (x,y)\notin A
+		\end{cases}
+	\]
+	Nach \ref{Lemma 9.3} ist \(\tilde f\) messbar. Setze 
+	\[M:=\max\{\lvert f(x,y)\rvert:(x,y)\in A\}\]
+	Dann gilt \(\lvert\tilde f\rvert \leq M\cdot\mathds{1}_A\).
+	Wegen \(\lambda_2(A)<\infty\) ist \(M\cdot\mathds{1}_A\) 
+	integrierbar und nach \ref{Satz 4.9} ist \(\lvert\tilde f\rvert\)
+	und damit auch \(\tilde f\) integrierbar. Dann ist
+	\begin{align*}
+		\int_A f(x,y)\,d(x,y) &= \int_{\mdr^2}\tilde f(x,y)\,d(x,y) \\
+		& \overset{\ref{Satz 10.3}}= 
+		\int_\mdr\left(\int_\mdr\tilde f	(x,y)\,dy\right)dx \\
+		&=\int_a^b\left(\int^{h_2(x)}_{h_1(x)}f(x,y)\,dy\right)dx
+	\end{align*}
+	Damit ist 15.1 aus Analysis II bewiesen. Genauso zeigt man 15.3.
+\item
+	Sei \(D:=\{(x,y)\in\mdr^2:x\geq 1, 0\leq y\leq\frac1x\}\) und
+	\(f(x,y):=\frac1x\cos(xy)\). $D$ ist abgeschlossen und somit ist
+	\(D\in\fb_2\). Außerdem ist $f$ stetig, also messbar. \\
+	\textbf{Behauptung: } \[f\in\mathfrak{L}^1(D)\text{ und }\int_Df(x,y)\,d(x,y)=\sin(1)\]
+	\textbf{Beweis: } Setze \(X:=(0,\infty)\), \(Y:=[0,\infty)\) und
+	\(Q:=X\times Y\). Sei nun \[\tilde f(x,y):=\frac1x\cos(xy) \text{ für }
+	(x,y)\in Q\]
+	\(\tilde f\) ist eine Fortsetzung von \(f\) auf \(X\times Y\).
+	\(\tilde f\) ist also messbar. Es ist
+	\begin{align*}
+		\int_D\lvert f\rvert\,d(x,y) 
+		&=\int_Q\mathds{1}_D\cdot\lvert\tilde f\rvert\,d(x,y)	\\
+		&\overset{\ref{Satz 10.1}}=
+		\int_X\left(\int_Y\mathds{1}_D(x,y)\frac1x\lvert\cos(xy)\rvert
+		\,dy\right)dx 						\\
+		&\int^\infty_1\left(\int^\frac1x_0 \frac1x\lvert\cos(xy)\rvert
+		\,dy\right)dx						\\
+		&\leq \int^\infty_1\left(\int^\frac1x_0 \frac1x\,dy\right)dx \\
+		&=\int^\infty_1\frac1{x^2}\,dx = 1<\infty
+	\end{align*}
+	Also ist \(\lvert f\rvert\) integrierbar und dann nach \ref{Satz 4.9}
+	auch $f$, also \(f\in\mathfrak{L}^1(D)\). Dann:
+	\begin{align*}
+		\int_D f\,d(x,y)
+		&= \int_X\left(\int_Y\mathds{1}_D(x,y)\frac1x\cos(xy)\,dy\right)
+		dx							\\
+		&\overset{\text{wie oben}}=
+		\int^\infty_1\left(\int^\frac1x_0 \frac1x\cos(xy)\,dy\right)dx\\
+		&= \left. \int^\infty_1\left(\frac1x\cdot\frac1x\sin(xy)
+		\right\rvert^{y=\frac1x}_{y=0}\right)dx			\\
+		&= \int^\infty_1\frac1{x^2}\sin(1)\,dx			\\
+		&= \sin(1)
+	\end{align*}
+\end{enumerate}
+\end{beispiel}
+
+\textbf{Vorbemerkung: } Sei \(x>0\). Für \(b>0\) gilt
+\begin{align*}
+	\int^b_0 e^{-xy}\,dy = \left. -\frac1x e^{-xy}\right\rvert^b_0
+	=-\frac1x e^{-xb}+\frac1x
+	\overset{b\to\infty}\longrightarrow\frac1x
+\end{align*}
+und daraus folgt \(\int_0^\infty e^{-xy}\,dy=\frac1x\)
+
+\begin{beispiel}
+\begin{enumerate}
+\item[(4)]
+	Sei
+	\[g:=
+	\begin{cases}
+		\frac{\sin x}{x}	&\text{, falls } x>0	\\
+		1			&\text{, falls } x=0
+	\end{cases}\]
+	$g$ ist stetig auf \([0,\infty)\). Aus Analysis 1 ist bekannt, dass
+	\(\int_0^\infty g(x)\,dx\) konvergent, aber \textbf{ nicht } 
+	absolut konvergent ist. Aus \ref{Satz 4.14} folgt, dass 
+	\(g\notin\mathfrak{L}^1\left([0,\infty)\right)\)\\
+	\textbf{Behauptung: } \(\int^\infty_0 g(x)\,dx = \frac\pi{2}\)\\
+	\textbf{Beweis: } Setze \(X:=[0,R]\) mit \(R>0\), \(Y:=[0,\infty)\) und
+	\(D:=X\times Y\), sowie 
+	\[f(x,y):= e^{-xy}\sin x \text{ für } (x,y)\in D\]
+	Es ist \(D\in\fb_2\) und $f$ stetig, also messbar. Es ist weiter
+	\(f\in\mathfrak{L}^1(D)\) (warum?) und
+	\begin{align*}
+		\int_D f(x,y)\,d(x,y)
+		&\overset{\ref{Satz 10.3}}=
+		\int_X\left(\int_Y f(x,y)\,dy\right)dx			\\
+		&=\int_0^R\left(\int_0^\infty e^{-xy}\sin x\,dy\right)dx\\
+		&=\int^R_0\sin x\left(\int_0^\infty e^{-xy}\,dy\right)dx\\
+		&\overset{\text{Vorbemerkung}}=
+		\int^R_0\frac{\sin x}{x}\,dx =:I_R
+	\end{align*}
+	Dann gilt
+	\begin{align*}
+		I_R
+		&\overset{\ref{Satz 10.3}}=
+		\int_Y\left(\int_X f(x,y)\,dx\right)dy
+		=\int^\infty_0\underbrace{
+		\left(\int^R_0 e^{-xy}\sin x\,dx\right)}_{=:\varphi(y)}dy
+	\end{align*}
+	Zweimalige partielle Integration liefert (nachrechnen!):
+	\[\varphi(y)=\frac1{1+y^2}-\frac1{1+y^2}e^{-yR}(y\sin R+\cos R)\]
+	Damit gilt
+	\begin{align*}
+		I_R=
+		\int^\infty_0 \frac{dy}{1+y^2}
+		-\int^\infty_0\frac1{1+y^2}e^{-yR}(y\sin R+\cos R)\,dy
+	\end{align*}
+	Aus Analysis 1 ist bekannt, dass das erste Integral gegen
+	\(\frac{\pi}2\) konvergiert und das zweite Integral setzen
+	wir gleich \(\tilde I_R\).\\
+	Es gilt
+	\begin{align*}
+		\lvert\tilde I_R\rvert
+		&\leq \int^\infty_0\frac1{1+y^2}e^{-yR}
+		(y\lvert\sin R\rvert + \lvert\cos R\rvert)\,dy	\\
+		&\leq \int^\infty_0\frac{y+1}{y^2+1} e^{-yR}\,dy\\
+		&\leq 2\int^\infty_0 e^{-yR}\,dy		\\
+		&\overset{\text{Vorbemerkung}}=\frac2R
+	\end{align*}
+	Das heißt also \(\tilde I_R\to 0 \ (R\to\infty)\) und damit folgt 
+	die Behauptung durch
+	\[I_R=\frac{\pi}2-\tilde I_R\to\frac{\pi}2 \ (R\to\infty)\]	
+\end{enumerate}
+\end{beispiel}

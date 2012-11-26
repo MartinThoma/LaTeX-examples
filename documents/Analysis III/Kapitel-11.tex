@@ -1,0 +1,245 @@
+
+Die Sätze in diesem Kapitel geben wir \textbf{ohne} Beweis an. Es seien
+\(X,Y\subseteq\mdr^d\) nichtleer und offen. 
+
+\begin{definition}
+\index{Diffeomorphismus}
+Sei \(\Phi\colon X\to Y\) eine Abbildung. \(\Phi\) heißt 
+\textbf{Diffeomorphismus} genau dann wenn \(\Phi\in C^1(X,\mdr^d)\), \(\Phi\)
+ist bijektiv und \(\Phi^{-1}\in C^{1}(Y,\mdr^d)\).\\
+Es gilt \[x=\Phi^{-1}(\Phi(x))\text{ für jedes } x\in X\]
+Kettenregel: \[I=\left(\Phi^{-1}\right)^\prime(\Phi(x))\cdot\Phi^\prime(x)
+\text{ für jedes } x\in X\] Das heißt \(\Phi^\prime(x)\) ist invertierbar für
+alle \(x\in X\) und somit ist \(\det\left(\Phi^\prime(x)\right)\neq 0\)
+für alle \(x\in X\).
+\end{definition}
+
+\begin{satz}[Transformationssatz (Version I)]
+\label{Satz 11.1}
+\(\Phi\colon X\to Y\) sei ein Diffeomorphismus.
+\begin{enumerate}
+\item	\(f\colon Y\to[0,+\infty]\) sei messbar und für \(x\in X\) sei
+	\(g(x):=f\left(\Phi(x)\right)\cdot\lvert\det\Phi^\prime(x)\rvert\).\\
+	Dann ist \(g\) messbar und es gilt:
+	\begin{align*}\tag{$*$} \int_Yf(y)\,dy=\int_Xg(x)\,dx=\int_Xf\left(\Phi(x)\right)
+	\cdot\lvert\det\Phi^\prime(x)\rvert\,dx\end{align*}
+\item	\(f\colon Y\to\imdr\) sei integrierbar und $g$ sei definiert wie in (1).
+	Dann ist $g$ integrierbar und es gilt die Formel \((\ast)\).
+\end{enumerate}
+\end{satz}
+
+\begin{erinnerung}
+\index{Inneres}
+Sei \(A\subseteq\mdr^d\) und \(A^\circ:=\{x\in A :\text{ es existiert ein } r=r(x)>0
+\text{ mit } U_r(x)\subseteq A\}\) das \textbf{Innere} von $A$. $A^\circ$ ist offen!
+\end{erinnerung}
+
+\begin{beispiel}
+Sei \(A=\mdr\setminus\mdq\). Es ist \(A^\circ=\emptyset\) und 
+\(A\setminus A^\circ=A\). Aus \(\mdr=A\dot\cup\mdq\) folgt
+\[\infty=\lambda_1(\mdr)=\lambda_1(A)+\lambda_1(\mdq)=\lambda_1(A)\]
+Das heißt \(A\setminus A^\circ\) ist keine Nullmenge.
+\end{beispiel}
+
+
+\begin{satz}[Transformationssatz (Version II)]
+\label{Satz 11.2}
+Es sei $\emptyset \neq U \subseteq \MdR^d$ offen, $\Phi \in C^1(U, \MdR^d)$, $A \subseteq U$, $A \in \fb_d$,
+$X := A^{\circ}$ und $A \setminus A^{\circ}$ eine Nullmenge.
+Weiter sei $\Phi$ injektiv auf $X$, $\det\Phi' \neq 0$ für alle $x \in X$, $B:=\Phi(A) \in \fb_d$ und
+$g(x) = f(\Phi(x)) \cdot \lvert\det\Phi'(x)\rvert$ für $x \in A$.
+%% BILD: von Phi und Mengen
+Dann gilt:
+\begin{enumerate}
+\item	$Y := \Phi(X)$ ist offen und $\Phi: X\to Y$ ist ein Diffeomorphismus.
+\item	Ist $f\colon B \to [0, \infty]$ messbar, so ist $g\colon A \to [0, \infty]$ messbar und
+\[ \int_B f(y) \, dy = \int_A g(x) \, dx= \int_A f(\Phi(x)) \cdot\lvert\det(\Phi'(x))\rvert \, dx \qquad (\ast\ast)\]
+\item	Ist $f\colon B \to \imdr$ messbar, so gilt:\\
+\[ f \in \fl^{1}(B) \gdw g \in \fl^{1}(A) \]
+Ist $f \in \fl^{1}(B)$ so gilt $(\ast\ast)$
+\end{enumerate}
+\end{satz}
+
+\begin{folgerungen}
+\label{Folgerung 11.3}
+\begin{enumerate}
+\item	Sei $T\colon \MdR^d \to \MdR^d$ linear und $\det T \neq 0$. Weiter sei $A \in \fb_d$ und $v \in \MdR^d$.
+Dann ist $T(A) \in \fb_d$ und es gilt:
+\[\lambda_d(T(A)+v) = \lvert\det T\rvert \cdot\lambda_d(A)\]
+\item	$\Phi\colon X \to Y$ sei ein Diffeomorphismus und $A \in \fb(X)$. 
+Dann ist $\Phi(A) \in \fb_d$ und es gilt:
+\[\lambda_d(\Phi(A)) = \int_A |\det \Phi'(X)| \, dx\]
+\item	Sei $F \in C^1(X, \MdR^d)$ und $N \subseteq X$ eine Nullmenge.
+Dann ist $F(N)$ enthalten in einer Nullmenge.
+\end{enumerate}
+\end{folgerungen}
+
+\begin{beispiel}
+Seien $a,b > 0$ und $T:=\begin{pmatrix} a &  0 \\ 0 & b \end{pmatrix}$, $\det T = a b > 0$. Definiere:
+\[A:=\{(x,y)\in \MdR^2: x^2 + y^2 \leq 1\}\]
+Dann ist $A \in \fb_2$ und $\lambda_2(A) = \pi$.
+\begin{align*}
+(u,v) \in T(A) &\gdw \exists (x,y)\in A: (u,v) = (a x, b y)\\
+&\gdw \exists (x,y) \in A: (x = \frac{u}{a})\wedge (y = \frac{v}{b})\\
+&\gdw \frac{u^2}{a^2} + \frac{v^2}{b^2} \leq 1
+\end{align*}
+%% BILD: einer Ellipse
+Aus \ref{Folgerung 11.3} folgt $T(A) \in \fb_2$ und $\lambda(T(A)) = a b \pi$.
+\end{beispiel}
+
+\setcounter{section}{3}
+\section{Polarkoordinaten}
+\index{Polarkoordinaten}
+%% BILD: von PK neben Formeln
+%% Tabellarisches Layout?
+Jeder Vektor im $\mdr^2$ lässt sich nicht nur durch seine Projektionen auf die Koordinatenachsen $(x,y)$, sondern auch eindeutig durch seine Länge $r$ und den (kleinsten positiven) Winkel $\varphi$ zur $x$-Achse darstellen. Diese Darstellung $(r,\varphi)$ heißen die \textbf{Polarkoordinaten} des Vektors. Dabei gilt:
+\[r = \|(x,y)\| = \sqrt{x^2 + y^2}\]
+und
+\[\begin{cases}
+x = r \cos(\varphi)\\
+y = r \sin(\varphi)
+\end{cases}\]
+Definiere nun für $(r,\varphi) \in [0,\infty)\times[0,2\pi]$:
+\[\Phi(r,\varphi) := (r \cos(\varphi), r \sin(\varphi))\]
+Dann ist $\Phi \in C^1(\MdR^2, \MdR^2)$ und es gilt: 
+\[\Phi'(r,\varphi) = \begin{pmatrix}
+\cos(\varphi) & -r \sin(\varphi) \\ 
+\sin(\varphi) & r \cos(\varphi)
+\end{pmatrix}\]
+d.h. falls $r > 0$ ist gilt:
+\[\det\Phi'(r,\varphi) = r \cos^2(\varphi) + r \sin^2(\varphi) = r > 0\]
+
+
+\begin{bemerkung}[Faustregel für Polarkoordinaten]
+Ist ein Integral der Form $\int_B f(x,y) d(x,y)$ zu berechnen, so lässt sich oft eine Menge $A$ finden, sodass $\Phi(A) = B$ ist.
+%% BILD: Kreissektor <=> Rechteck
+Mit \ref{Satz 11.2} folgt dann:
+\[\int_B f(x,y) \text{ d}(x,y) = \int_A f(r \cos \varphi, r \sin \varphi) \cdot r \text{ d}(r,\varphi)\]
+\end{bemerkung}
+
+\begin{beispiel}
+\begin{enumerate}
+\item	Sei $0 \le \rho < R$. Definiere 
+\[B := \{(x,y) \in \MdR^2 : \rho^2 \le x^2 + y^2 \le R^2\} \]
+Dann gilt: 
+%% BILD: der Kreisfläche und Trafo
+\begin{align*}
+\lambda_2(B) &= \int_B 1 \text{ d}(x,y)\\ 
+&= \int_A 1 \cdot r \text{ d}(r,\varphi)\\ 
+&\overset{\text{§\ref{Kapitel 10}}}= \int_{\rho}^{R} \left( \int_0^{2\pi} r \text{ d}\varphi \right) \text{ d}r\\
+&= \left[ 2\pi \frac{1}{2} r^2 \right]_\rho^R\\
+&= \pi (R^2 - \rho^2)
+\end{align*}
+		
+\item	Definiere 
+\[B := \{ (x,y) \in \MdR^2 : x^2 + y^2 \le 1, y \ge 0 \}\]
+%% BILD: der (Halb)Kreisfläche und Trafo
+Dann gilt:
+\begin{align*}
+\int_B y \sqrt{x^2+y^2} \text{ d}(x,y) &= \int_A r \sin(\varphi) r \cdot r \text{ d}(r,\varphi)\\
+&= \int_A r^3 \sin\varphi \text{ d}(r,\varphi)	\\
+&\overset{\text{§\ref{Kapitel 10}}}= \int_0^\pi \left( \int_0^1 r^3 \sin\varphi \text{ d}r \right) \text{ d}\varphi\\
+&= \frac{1}{4} \int_0^\pi \sin\varphi \text{ d}\varphi\\
+&= \left[ \frac{1}{4}(-\cos\varphi) \right]_0^\pi\\
+&= \frac{1}{4}(1+1) = \frac{1}{2}
+\end{align*}
+\item	\textbf{Behauptung:} \[\int_{-\infty}^\infty e^{-x^2} \, dx = \sqrt{\pi}\]
+\textbf{Beweis:}
+%% BILD: Bilder von Kreis und Rechtecktrafos/näherungen
+Für $\rho > 0$ sei
+\[B_\rho := \{(x,y) \in \MdR^2 \mid x,y\ge 0, x^2+ y^2 \le \rho^2\}\]
+Weiterhin sei $Q_\rho := [0,\rho] \times [0,\frac{\pi}2]$ und $f(x,y) = e^{-(x^2 + y^2)}$. Dann gilt:
+\begin{align*}
+\int_{ B_\rho } f(x,y) \text{ d}(x,y) &= \int_{Q_\rho} e^{-r^2} r\text{ d}(r,\varphi)\\
+&\overset{\text{§\ref{Kapitel 10}}}= \int_0^{\frac{\pi}{2}} \left( \int_0^\rho r e^{-r^2} \text{ d}r \right) \text{ d}\varphi	\\
+&= \frac{\pi}{2} \left[ -\frac{1}{2} e^{-r^2} \right]_{0}^{\rho}\\
+&= \frac{\pi}{2} \left( -\frac{1}{2} e^{-\rho^2} +\frac{1}{2} \right)	\\
+& =: h(\rho) \stackrel{\rho \to \infty}\to \frac\pi4
+\end{align*}
+Außerdem gilt:
+\begin{align*}
+\int_{Q_\rho} f(x,y) \text{ d}(x,y) &= \int_{Q_\rho} e^{-x^2} e^{-y^2}\text{ d}(x,y)	\\
+&= \int_0^\rho \left( \int_0^\rho e^{-x^2} e^{-y^2} \text{ d}y \right) \text{ d}x \\
+&= \left( \int_0^\rho e^{-x^2} \text{ d}x \right)^2
+\end{align*}
+		
+Wegen $ B_\rho \subseteq Q_\rho \subseteq B_{\sqrt{2} \rho} $ und $f \ge 0$ folgt:
+\begin{center}
+\begin{tabular}{cccccc}
+&$\int_{B_\rho} f \text{ d}(x,y)$ &$\le$ &$\int_{Q_\rho} f \text{ d}(x,y)$ &$\le$ &$\int_{B_{\sqrt{2} \rho}} f \text{ d}(x,y)$\\
+$\implies$ &$h(\rho)$ &$\le$ &$\int_{Q_\rho} f \text{ d}(x,y)$	&$\le$ &$h(\sqrt{2} \rho)$ \\
+$\implies$ &$h(\rho)$ &$\le$ &$\left( \int_0^\rho e^{-x^2} \text{ d}x \right)^2$ &$\le$ &$h(\sqrt{2} \rho)$ \\
+$\implies$ &$\sqrt{h(\rho)}$ &$\le$ &$\int_0^\rho e^{-x^2} \text{ d}x$ &$\le$ &$\sqrt{h(\sqrt{2} \rho)}$\\
+\end{tabular}
+\end{center}
+Mit $\rho \to \infty$ folgt daraus 
+\[\int_0^\infty e^{-x^2} \text{ d}x = \frac{\sqrt{\pi}}{2}\]
+und damit die Behauptung.
+\end{enumerate}
+\end{beispiel}
+
+\section{Zylinderkoordinaten}
+\index{Zylinderkoordinaten}
+Definiere für $(r,\varphi,z)\in[0,\infty)\times[0,2\pi]\times\mdr$:
+\[\Phi(r,\varphi,z):=(r\cos(\varphi),r\sin(\varphi),z)\]
+Dann gilt:
+\[|\det\Phi'(r,\varphi,z)|=\left|\det
+\begin{pmatrix}
+\cos(\varphi)&-r\sin(\varphi)&0\\
+\sin(\varphi)&r\cos(\varphi)&0\\
+0&0&1\end{pmatrix}\right|=r
+\]
+
+\begin{bemerkung}[Faustregel für Zylinderkoordinaten]
+Ist ein Integral der Form $\int_B f(x,y,z) d(x,y,z)$ zu berechnen, so lässt sich eine Menge $A$ finden, sodass $\Phi(A) = B$ ist.
+Mit \ref{Satz 11.2} folgt dann:
+\[\int_B f(x,y,z) \text{ d}(x,y,z) = \int_A f(r \cos \varphi, r \sin \varphi, z) \cdot r \text{ d}(r,\varphi,z)\]
+\end{bemerkung}
+
+\begin{beispiel}
+Definiere
+\[B:=\{(x,y,z)\in\mdr^3\mid x^2+y^2\le 1, x,y\ge 0,z\in[0,1]\}\]
+Dann gilt:
+\begin{align*}
+\int_B z+y\sqrt{x^2+y^2}\text{ d}(x,y,z)&=\int_A(z+r\sin(\varphi)\cdot r)\cdot r\text{ d}(r,\varphi,z)\\
+&=\int_A rz+r^3\sin(\varphi)\text{ d}(r,\varphi,z)\\
+&=\int_0^1(\int_0^{\frac\pi 2}(\int_0^1 rz+r^3\sin(\varphi)\text{ d}r)\text{ d}\varphi)\text{ d}z\\
+&=(\int_0^1 r\text{ d}r)\cdot(\int_0^1 z\text{ d}z)\cdot(\int_0^{\frac\pi 2} \text{ d}\varphi)+ (\int_0^1 r^3\text{ d}r)\cdot(\int_0^{\frac\pi 2} \sin(\varphi)\text{ d}\varphi)\cdot(\int_0^1 \text{ d}z)\\
+&= \frac\pi 8+\frac14
+\end{align*}
+\end{beispiel}
+
+\section{Kugelkoordinaten}
+\index{Kugelkoordinaten}
+Definiere für $(r,\varphi,\theta)\in [0,\infty)\times[0,2\pi]\times[0,\pi]$:
+\[\Phi(r,\varphi,\theta):=(r\cos(\varphi)\sin(\theta),r\sin(\varphi)\sin(\theta),r\cos(\theta))\]
+Dann gilt (nachrechnen!):
+\[\det\Phi'(r,\varphi,\theta)= -r^2\sin(\theta)\]
+
+\begin{bemerkung}[Faustregel für Kugelkoordinaten]
+Ist ein Integral der Form $\int_B f(x,y,z) d(x,y,z)$ zu berechnen, so lässt sich eine Menge $A$ finden, sodass $\Phi(A) = B$ ist.
+Mit \ref{Satz 11.2} folgt dann:
+\[\int_B f(x,y,z) \text{ d}(x,y,z) = \int_A f(r\cos(\varphi)\sin(\theta),r\sin(\varphi)\sin(\theta),r\cos(\theta)) \cdot r^2\sin(\theta) \text{ d}(r,\varphi,\theta)\]
+\end{bemerkung}
+
+\begin{beispiel}
+Definiere
+\[B:=\{(x,y,z)\in\mdr^3\mid 1\le \|(x,y,z)\|\le 2, x,y,z\ge 0\}\]
+Dann gilt:
+\begin{align*}
+\int_B \frac1{x^2+y^2+z^2}\text{ d}(x,y,z)&=\int_A \frac1{r^2}\cdot r^2\cdot\sin(\theta)\text{ d}(r,\varphi,\theta)\\
+&=\int_A \sin(\theta)\text{ d}(r,\varphi,\theta)\\
+&=\frac\pi2
+\end{align*}
+\end{beispiel}
+
+\begin{beispiel}[Zugabe von Herrn Dr. Ullmann]
+Wir wollen das Kugelvolumen $\lambda_3(K)$ mit $K:=\{(x,y,z)\in\mdr^3\mid\|(x,y,z)\|\le 1\}$ berechnen. Dann ist $K=\Phi(A)$ mit $A:= [0,1]\times[0,2\pi]\times [0,\pi]$. Und es gilt:
+\begin{align*}
+\lambda_3(K)&=\int_K 1\text{ d}(x,y,z)\\
+&=\int_A r^2\sin(\theta)\text{ d}(r,\varphi,\theta)\\
+&=\int_0^1(\int_0^{2\pi}(\int_0^\pi r^2\sin(\theta) \text{ d}\theta)\text{ d}\varphi)\text{ d}r\\
+&=(\int_0^1 r^2 \text{ d}r)\cdot(\int_0^{2\pi} \text{ d}\varphi)\cdot(\int_0^\pi \sin(\theta) \text{ d}\theta)\\
+&=\frac{4\pi}3
+\end{align*}
+\end{beispiel}

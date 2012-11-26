@@ -1,0 +1,94 @@
+In diesem Kapitel sei \(\emptyset\neq B\subseteq\mdr^{2}\), \(B\) 
+kompakt, \(D\subseteq\mdr^{2}\) offen, \(B\subseteq D\)
+und \(\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\in C^{1}(D,\mdr^{3})\). Das heißt: \(\varphi_{|B}\) ist eine Fläche mit 
+Parameterbereich \(B\), \(S:=\varphi(B)\)
+
+\begin{definition}
+\index{Oberflächenintegral}
+Definiere die folgenden \textbf{Oberflächenintegrale}:
+\begin{enumerate}
+\item Sei \(f:\,S\to\mdr\) stetig. Dann: 
+\[
+\int_{\varphi}{f\mathrm{d}\sigma}:=\int_{B}{f(\varphi(u,v))\lVert N(u,v)\rVert\mathrm{d}(u,v)}
+\]
+\item Sei \(F:\,S\to\mdr^{3}\) stetig. Dann:
+\[
+\int_{\varphi}{F\cdot n\mathrm{d}\sigma}:=\int_{B}{F(\varphi(u,v))\cdot N(u,v)\mathrm{d}(u,v)}
+\]
+\end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+Seien \(D,\,B,\,f,\,\varphi\) wie im letzten Beispiel in Kapitel 14.
+
+Sei \(F(x,y,z):=(x,y,z)\); bekannt: \(N(u,v)=(-2u,-2v,1)\). Dann:
+\begin{align*}
+F(\varphi(u,v))\cdot N(u,v)&=F(u,v,u^{2}+v^{2})\cdot(-2u,-2v,1)\\
+&=(u,v,u^{2}+v^{2})\cdot (-2u,-2v,1)\\
+&=-(u^{2}+v^{2})
+\end{align*}
+
+Also: 
+\[
+\int_{\varphi}{F\cdot n\mathrm{d}\sigma}=-\int_{B}{(u^{2}+v^{2})\mathrm{d}(u,v)}=-\frac{\pi}{2}
+\]
+\end{beispiel}
+
+\begin{satz}[Integralsatz von Stokes]
+\label{Satz 15.1}
+Es sei \(B\) zulässig, \(\partial B=\Gamma_{\gamma}\), wobei \(\gamma=(\gamma_{1},\gamma_{2})\) wie zu Beginn des Kapitels
+13 ist. Es sei \(\varphi\in C^{2}(D,\mdr^{3})\). Weiter sei \(G\subseteq\mdr^{3}\) offen, \(S\subseteq G\) und \(F=(F_{1},F_{2},F_{3})\in C^{1}(G,\mdr^{3})\). Dann:
+\[
+\underbrace{\int_{\varphi}{\rot F\cdot n\mathrm{d}\sigma}}_{\text{Oberflächenint.}}=
+    \underbrace{\int_{\varphi\circ\gamma}{F(x,y,z)\cdot\mathrm{d}(x,y,z)}}_{\text{Wegint.}}
+\]
+\end{satz}
+
+\begin{beispiel}
+\(D,\,B,\,f,\,F\) und \(\varphi\) seien wie in obigem Beispiel.
+% Bild einfuegen
+Hier: \(\gamma(t)=(\cos t,\sin t)\quad(t\in [0,2\pi])\). 
+Dann: \((\varphi\circ\gamma)(t)=\varphi(\cos t, \sin t)=(\cos t, \sin t, 1)\quad(t\in [0,2\pi])\).
+
+Es ist \(\rot F=0\), also: \(\int_{\varphi}{\rot F\cdot n\mathrm{d}\sigma}=0\)
+\begin{align*}
+\int_{\varphi\circ\gamma}{F(x,y,z)\mathrm{d}(x,y,z)}&=
+    \int_{0}^{2\pi}{F((\varphi\circ\gamma)(t))\cdot(\varphi\circ\gamma)'(t)\mathrm{d}t}\\
+&=\int_{0}^{2\pi}{F(\cos t,\sin t, 1)\cdot (-\sin t,\cos t,0)\mathrm{d}t}\\
+&=\int_{0}^{2\pi}{\underbrace{(\cos t,\sin t,1)\cdot (-\sin t,\cos t,0)}_{=0}\mathrm{d}t}\\
+&=0
+\end{align*}
+\end{beispiel}
+
+\begin{beweis}
+Sei \(\varphi:=\varphi\circ\gamma,\,\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\), also 
+    \(\varphi_{j}=\varphi_{j}\circ\gamma\quad(j=1,2,3)\).
+
+Zu zeigen:
+\begin{align*}
+\int_{\varphi}{\rot F\cdot n\mathrm{d}\sigma}
+    &=\int_{\varphi}{F(x,y,z)\mathrm{d}(x,y,z)}\\
+    &=\int_{0}^{2\pi}{F(\varphi(t))\cdot\varphi'(t)\mathrm{d}t}\\
+    &=\int_{0}^{2\pi}{\left(\sum_{j=1}^{3}{F_{j}(\varphi(t))\varphi_{j}'(t)}\right)\mathrm{d}t}\\
+    &=\sum_{j=1}^{3}{\int_{0}^{2\pi}{F_{j}(\varphi(t))\varphi_{j}'(t)\mathrm{d}t}}
+\end{align*}
+
+Es ist \(\int_{\varphi}{\rot F\cdot n\mathrm{d}\sigma}=\int_{B}{\underbrace{(\rot F)(\varphi(x,y))\cdot(\varphi_{x}(x,y)\times\varphi_{y}(x,y))}_{=:g(x,y)}\mathrm{d}(x,y)}\).
+Für \(j=1,2,3\):
+\[
+h_{j}(x,y):=\left(\underbrace{F_{j}(\varphi(x,y))\frac{\partial\varphi_{j}}{\partial y}(x,y)}_{=:u_{j}(x,y)},\underbrace{-F_{j}(\varphi(x,y))\frac{\partial\varphi_{j}}{\partial x}(x,y)}_{=:v_{j}(x,y)}\right)\quad((x,y)\in D)
+\]
+
+
+\(h_{j}=(u_{j},v_{j});\quad F\in C^{1},\,\varphi\in C^{2}\), damit folgt: \(h_{j}\in C^{1}\)
+
+Nachrechnen: \(g=\mathrm{div} h_{1}+\mathrm{div} h_{2}+\mathrm{div} h_{3}\)
+
+Damit:
+\begin{align*}
+\int_{B}{\rot F\cdot n\mathrm{d}\sigma}
+    &=\sum_{j=1}^{3}{\int_{B}{\mathrm{div}\,h_{j}(x,y)\mathrm{d}(x,y)}}\\
+    &=\sum_{j=1}^{3}{\int_{\gamma}{(u_{j}\mathrm{d}y-v_{j}\mathrm{d}x)}}\\
+    &=\int_{0}^{2\pi}{F_{j}(\varphi(t))\varphi_{j}'(t)\mathrm{d}t}
+\end{align*}
+\end{beweis}
