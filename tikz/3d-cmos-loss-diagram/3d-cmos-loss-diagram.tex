@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+
+\begin{document}
+\begin{preview}
+\pgfplotsset{
+    colormap={whitered}{
+        color(0cm)=(white);
+        color(1cm)=(orange!75!red)
+    }
+}
+\begin{tikzpicture}
+    \begin{axis}[
+    colormap name=whitered,
+    width=15cm,
+    view={10}{15},
+    enlargelimits=false,
+    grid=major,
+    domain=1.5:6,
+    y domain=0:10^9,
+    ymode=log,
+    samples=46, %57 : TeX capacity exceeded, sorry [main memory size=3000000].
+                % see also http://tex.stackexchange.com/a/7954/5645
+    xlabel=$V_{dd}$ in V,
+    ylabel=$f$ in Hz,
+    zlabel=$P_v$ in mW,
+    %colorbar,
+    %colorbar style={
+    %    at={(-0.1,0)},
+    %    anchor=south west,
+    %    height=0.25*\pgfkeysvalueof{/pgfplots/parent axis height},
+    %    title={$f(x,y)$}
+    %}
+    ]
+      %\addplot3[patch,patch type=bilinear,mesh,black] {0};
+      \addplot3[surf,opacity=0.9] {x*x*y};
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}
