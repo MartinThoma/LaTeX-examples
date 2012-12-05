@@ -5,4 +5,4 @@ make:
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out
