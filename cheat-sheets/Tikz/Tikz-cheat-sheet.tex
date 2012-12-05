@@ -1,0 +1,95 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{amssymb, amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+%layout
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\pdfinfo{
+   /Author (StackExchange and GitHub authors)
+   /Title  (TikZ Cheat Sheet)
+   /CreationDate (D:20120221095400)
+   /Subject (TikZ)
+   /Keywords (TikZ)
+}
+
+\newcommand{\myCode}[1]{\colorbox{gray!30}{#1}}
+
+\begin{document}
+
+\title{TikZ cheat sheet}
+\author{StackExchange and GitHub authors}
+\date{\today}
+
+\section*{Command Templates}
+\begin{itemize}
+    \item Basic path: \myCode{\textbackslash drawing-command [options] path-specification;}
+    \item Path specification: \myCode{(coordinate) path-component (coordinate);}
+    \item Path Reusage  \myCode{postaction=\{<basic drawing commands> or <decorate>\}} When this option is given to any basic drawing commands below, the path is not immediately discarded and reused after the initial drawing command is finished. \\
+            \myCode{preaction=\{<basic drawing commands> or <decorate>\}} When this option is given to any basic drawing commands below, the path is used once before the initial drawing command is executed. 
+\end{itemize}
+
+\section*{Basic Drawing Commands}
+\begin{itemize}
+    \item \myCode{\textbackslash path}: constructs a path
+\end{itemize}
+
+All following commands are in fact short forms for \myCode{\textbackslash path} with one option or two:
+\begin{itemize}
+    \item \myCode{\textbackslash draw}: constructs and draws ("strokes") a path
+    \item \myCode{\textbackslash fill}: constructs and fills a path
+    \item \myCode{\textbackslash filldraw}: constructs, fills, and draws a path (in that order)
+    \item \myCode{\textbackslash shade}: constructs and shades a path
+    \item \myCode{\textbackslash shadedraw}: constructs, shades, and draws a path (in that order)
+    \item \myCode{\textbackslash coordinate}: label a coordinate
+    \item \myCode{\textbackslash node}: constructs a node
+\end{itemize}
+
+
+\section*{Coordinate Specifications}
+\begin{itemize}
+    \item \myCode{(<x>,<y>)}: specifies the coordinate as a multiple of the current x- and y-vector (default: 1cm right and 1cm upwards)
+    \item \myCode{(<$\theta$>:<r>)} specifies a coordinate in polar form with \myCode{r} being the vector length and \myCode{$\theta$} being the angle in degrees
+    \item \myCode{+<coordinate specification>}: specifies a coordinate relative to the previous position but does not save the current position
+    \item \myCode{++<coordinate specification>}: specifies a coordinate relative to the previous position
+\end{itemize}
+
+\subsection*{Notes}
+\begin{enumerate}
+    \item Lengths can be with or without unit.  If with a unit they are taken literally, if without they are multiples of the current `x` or `y` vector (as appropriate).
+    \item Relative coordinates are with respect to the last *saved* position.  Unless specified otherwise, the above all save their resultant position as the last saved position.
+    \item When a relative coordinate is used in a bezier curve specification the behaviour is slightly different.  The second control point is taken relative to the final position of the curve, and the final point is taken relative to the initial one (or last saved position).
+\end{enumerate}
+
+
+\section*{Path Specifications}
+\begin{itemize}
+    \item \myCode{(coordinate) (coordinate)}: moves the "current point" from the first coordinate to the second
+    \item \myCode{(coordinate) -- (coordinate)}: draws a line from the first coordinate to the second
+    \item \myCode{(coordinate) .. controls (control) and (control) .. (coordinate)}: draws a cubic bezier from the first coordinate to the second with the specified control points
+    \item \myCode{(coordinate) to[options] (coordinate)}: draws a `to path` from the first coordinate to the second; \myCode{to path}s can be extremely complicated
+    \item \myCode{(coordinate) rectangle (coordinate)}: draws a rectangle with the coordinates as opposite corners
+    \item \myCode{(coordinate) circle[options]}: draws a circle centred at the coordinate
+    \item \myCode{(coordinate) arc[options]}: draws an arc starting at the coordinate
+    \item \myCode{(coordinate) node[options] \{text\}}: adds a node at the coordinate
+    \item \myCode{(coordinate) coordinate}: adds a coordinate label at the given coordinate
+\end{itemize}
+
+\section*{Basic Options}
+\begin{itemize}
+    \item \myCode{draw[=<colour specification>]}<sup>1</sup>: draw the current path (with the given colour)
+    \item \myCode{fill[=<colour specification>]}<sup>1</sup>: fill the current path (with the given colour)
+    \item \myCode{<colour specification>}: set the colour for draw, fill, text (without explicitly enforcing those actions)
+    \item \myCode{line width=<dimen>}: sets the line width
+    \item \myCode{thin, thick, ultra thick} \href{http://martin-thoma.com/sizes-in-latex/}{etc}: presets for the line width
+\end{itemize}
+
+[1] The brackets indicate an optional part and must not be type in the code. I.e. use \myCode{draw=red} and not \myCode{draw[=red]}.
+\end{document}
