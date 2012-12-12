@@ -1,0 +1,263 @@
+\ProvidesPackage{gantt}[2011/03/20 Some macros for drawing gantt diagrams using tkiz v.1.3]
+% Some macros for drawing gantt diagrams using tkiz.
+%
+% Martin Kumm, 17.05.2010 (Version 1.0)
+% Alan Munn, Martin Kumm, 14.03.2011 (Version 1.2)
+% Andrés Silva Marambio, 20.03.2011 (Version 1.3)
+% 
+% Update 20.03.2011, Version 1.3
+%
+% changes from v1.2:
+% change \ProvidesPackage{gantt.sty} for \ProvidesPackage{gantt}
+% add \bfseries for the command \ganttgroup
+% add two newcommands for doing Gantt Milestones: \ganttmilestone and \ganttmilestonecon
+% usage: \ganttmilestone[color=<color>]{label}{start} - Create a gantt milestone using a diamond
+% usage: \ganttmilestonecon[color=<color>]{label}{start} - Create a gantt milestone using a diamond and conect with the previuos itemg
+% fixed the issue when \ganttbarcon or \ganttmilestonecon connect in decimal positions
+%
+% Update 15.03.2011, Version 1.2
+%
+% changes from v1.1:
+% px sizes has ben changed ot pt due to problems with some LaTeX distributions (thanks to Michael Kubovy and Loïc Le Guyader!)
+% Correction of the text aligned in \titleelement (thanks to Josh Hykes!)
+% \unitlength was changed to \ganttunitlength (thanks to Alan Munn!)
+% \RequirePackage was added (thanks to Alan Munn!)
+% 
+% Update 05.08.2010, Version 1.1
+%
+% changes from v1.0:
+% \ganttbar and \ganttbarcon have been extended with the xkeyval syntax
+% The pattern of the bar is now independent of the color and can be set by 
+% e.g. \ganttbar[pattern=horizontal lines,color=blue]{...}{1}{1}
+% This syntax is incompatible with the previous ones!
+% replace \ganttbar[<pattern>] with \ganttbar[pattern=<pattern>]
+
+\RequirePackage{tikz,pgffor,xkeyval,ifthen,calc,forloop}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}
+
+\newcounter{ganttnum}
+\newcounter{ganttwidth}
+
+\newlength{\ganttlastx}
+\setlength{\ganttlastx}{0cm}
+
+\newlength{\nextganttlastx}
+
+\newlength{\gantttmpa}
+\newlength{\gantttmpb}
+\newlength{\ganttunitlength}
+
+\setlength{\ganttunitlength}{1cm}
+
+\newlength{\titleunitlength}
+\setlength{\titleunitlength}{1cm}
+
+\newcounter{gantttitlenum}
+
+\define@key{ganttx}{xunitlength}{%
+  \setlength{\ganttunitlength}{#1}
+}
+\define@boolkey{ganttx}{drawledgerline}{}
+
+\define@key{ganttx}{fontsize}{\def\ganttfontsize{#1}}
+\define@key{ganttx}{titlefontsize}{\def\gantttitlefontsize{#1}}
+
+\presetkeys{ganttx}{drawledgerline=false,xunitlength=1cm,titlefontsize=\small,fontsize=\normalsize}{}
+
+\define@key{ganttbarx}{pattern}{\def\ganttbarpattern{#1}}
+\define@key{ganttbarx}{color}{\def\ganttbarcolor{#1}}
+
+\presetkeys{ganttbarx}{pattern=north west lines,color=black}{}
+
+
+% The gantt environment draws the canvas of a gantt figure (realized as tikzpicture)
+% The usage is \begin{gantt}[...]{no of Tasks to plot}{no of time slots}
+% The optional argument [...] can be filled in a key=value syntax, using one or more of the following keys:
+%
+% xunitlength - length of one time slot (default: 1 cm)
+% fontsize - fontsize of labels (default: \normalsize)
+% titlefontsize - fontsize of title section (default: \small)
+% drawledgerline  - Switch to enable/disable the drawing of horizontal ledger lines (default value: false)
+
+\newenvironment{gantt}[3][]{%
+  \begin{tikzpicture}[draw=black, yscale=.7,xscale=1]
+  \tikzstyle{time}=[coordinate]
+  \setkeys{ganttx}{#1}{%
+      \setcounter{ganttwidth}{#3}
+
+      \setcounter{ganttnum}{0}
+      \newcount\ganttx
+      \newcount\ganttheight
+      \ganttheight=#2 %define the number of Y ticks
+      \advance\ganttheight by 1
+
+      \def\ganttxstringtop{};
+      \def\ganttxstringbottom{};
+
+      \ganttx=0
+      \draw (0,0.5) node[above] {\ganttxstringtop} -- (0,1.4-\ganttheight)  node[below] {\ganttxstringbottom};
+      \draw (\value{ganttwidth}*\ganttunitlength,0.5) node[above] {\ganttxstringtop} -- (\value{ganttwidth}*\ganttunitlength,1.4-\ganttheight)  node[below] {\ganttxstringbottom};
+
+      %draw grid
+      \foreach \t in {1,2,...,\value{ganttwidth}}{
+        \ganttx=1
+        \multiply\ganttx by \t
+
+        \draw[dotted] (\ganttunitlength*\t,-0.5) node[above] {\ganttxstringtop} -- (\ganttunitlength*\t,1.4-\ganttheight)  node[below] {\ganttxstringbottom};
+      }
+     %draw x axis
+     \draw[] (0,-#2+0.4) -- (\value{ganttwidth}*\ganttunitlength,-#2+0.4);
+}
+}{\end{tikzpicture}}
+
+
+% ganttitle is the environment for drawing the title section
+\newenvironment{ganttitle}[1][]{%
+  \setlength{\ganttlastx}{0 cm}
+}{%
+  \setlength{\ganttlastx}{0 cm}
+  \addtocounter{ganttnum}{-1}%
+}
+
+% \titleelement draws one element of the title
+% usage: \titleelement{label}{length}
+\newcommand{\titleelement}[2]{
+  \setlength{\gantttmpa}{\ganttunitlength*#2}
+  \divide\gantttmpa by 2;
+
+  \draw (\the\ganttlastx,\value{ganttnum}) rectangle (\the\ganttlastx+#2*\ganttunitlength,\value{ganttnum}+0.6);
+  \node [text height=1.5ex,text depth=0.7ex] at (\the\ganttlastx+\the\gantttmpa,\value{ganttnum}+0.25) {%
+    \gantttitlefontsize #1%
+  };
+  \setlength{\ganttlastx}{\ganttlastx+\ganttunitlength*\real{#2}}
+}
+
+
+% \numtitle draws a numbered sequence of title elements
+% usage: \numtitle{start number}{increment}{end number}{length of each title element}
+\newcommand{\numtitle}[4]{
+  \forloop[#2]{gantttitlenum}{#1}{\(\value{gantttitlenum} < #3\) \or \(\value{gantttitlenum} = #3\)}%
+  {%
+    \titleelement{\thegantttitlenum}{#4}
+  }
+}
+
+% \ganttbar draws a single, unconnected bar for representing a task
+% usage: \ganttbar[pattern=<pattern>,color=<color>]{label}{start}{length}
+% where the optional comma separated arguments are:
+% pattern - is a tikz pattern (e.g. north west lines (default), north east lines, crosshatch, crosshatch dots, grid, ...)
+% color - a tikz color of the pattern (e.g. red, green blue gray, dark gray)
+% for more information see the tikz documentation
+\newcommand{\ganttbar}[4][]{
+  \setlength{\gantttmpa}{#3\ganttunitlength}
+  \setlength{\gantttmpb}{#4\ganttunitlength}
+  \setlength{\gantttmpb}{\gantttmpa+\gantttmpb}
+
+  \ifKV@ganttx@drawledgerline
+    \draw[dotted] (0,\value{ganttnum}-0.2) -- (\value{ganttwidth}*\ganttunitlength,\value{ganttnum}-0.2);
+  \fi
+  \node at (0,\value{ganttnum}) [anchor=base east] {%
+		\ganttfontsize #2%
+  };
+  \setkeys{ganttbarx}{#1}{%
+  \draw[pattern=\ganttbarpattern,pattern color=\ganttbarcolor] (\gantttmpa,\value{ganttnum}+0.1) rectangle (\gantttmpb,\value{ganttnum}+0.5);
+  }
+  \setlength{\ganttlastx}{\gantttmpb}
+  \addtocounter{ganttnum}{-1}
+}
+
+
+% \ganttcon draws an arrow between to bars with specified coordinates
+% usage: \ganttcon{startx}{starty}{endx}{endy}
+\newcommand{\ganttcon}[4]{
+    \draw[-latex,rounded corners=1pt] (#1\ganttunitlength,-#2+0.1 + 0.2) -- (#1\ganttunitlength+0.4*\ganttunitlength,-#2+0.1+0.2) -- (#1\ganttunitlength+0.4*\ganttunitlength,-#2-0.4+0.2) -- (#1\ganttunitlength-0.4*\ganttunitlength,-#2-0.4+0.2) -- (#1\ganttunitlength-0.4*\ganttunitlength,-#4+0.1+0.2) -- (#3\ganttunitlength,-#4+0.1+0.2);
+}
+
+
+% \ganttbarcon draws a single bar *and* connects the bar with the previous bar for 
+% consecutive tasks
+% usage: \ganttbarcon[pattern=<pattern>,color=<color>]{label}{start}{length}
+% where the optional pattern argument are the same as for \ganttbar
+\newcommand{\ganttbarcon}[4][]{
+  \setlength{\nextganttlastx}{\the\ganttlastx+1\ganttunitlength}
+  \ifdim\nextganttlastx>#3\ganttunitlength
+    \draw[-latex,rounded corners=1pt] (\the\ganttlastx,\value{ganttnum}+1.1 + 0.2) -- (\the\ganttlastx+0.4*\ganttunitlength,\value{ganttnum}+1.1+0.2) -- (\the\ganttlastx+0.4*\ganttunitlength,\value{ganttnum}+0.6+0.2) -- (\the\ganttlastx-0.4*\ganttunitlength,\value{ganttnum}+0.6+0.2) -- (\the\ganttlastx-0.4*\ganttunitlength,\value{ganttnum}+0.1+0.2) -- (#3\ganttunitlength,\value{ganttnum}+0.1+0.2);
+  \else
+    \draw[-latex,rounded corners=1pt] (\the\ganttlastx,\value{ganttnum}+1.1 + 0.2) -- (\the\ganttlastx+0.4*\ganttunitlength,\value{ganttnum}+1.1+0.2) -- (\the\ganttlastx+0.4*\ganttunitlength,\value{ganttnum}+0.1+0.2) -- (#3\ganttunitlength,\value{ganttnum}+0.1+0.2);
+  \fi
+  \ganttbar[#1]{#2}{#3}{#4}  
+}
+
+
+% \ganttgroup draws a bar to group tasks
+% usage: \ganttgroup{label}{start}{length}
+\newcommand{\ganttgroup}[3]{%
+  \setlength{\gantttmpa}{#2\ganttunitlength}
+  \setlength{\gantttmpb}{#3\ganttunitlength}
+  \setlength{\gantttmpb}{\gantttmpa+\gantttmpb}
+
+  \ifKV@ganttx@drawledgerline
+    \draw[dotted] (0,\value{ganttnum}-0.2) -- (\value{ganttwidth}*\ganttunitlength,\value{ganttnum}-0.2);
+  \fi
+  \node at (0,\value{ganttnum}) [anchor=base east] {%
+    \ganttfontsize\bfseries #1%
+   };
+  \fill[black] (\gantttmpa-0.14cm,\value{ganttnum}+0.2) rectangle (\gantttmpb+0.14cm,\value{ganttnum}+0.4);
+  \draw[diamond-diamond] (\gantttmpa-0.14cm,\value{ganttnum}+0.2) -- (\gantttmpb+0.14cm,\value{ganttnum}+0.2);
+
+  \setlength{\ganttlastx}{\gantttmpb}
+  \addtocounter{ganttnum}{-1}
+}
+
+
+% \ganttmilestone, draw a diamond to represent a milestone
+% usage: \ganttgroup[fill=<color>]{label}{start}
+% color - a tikz color of the pattern (e.g. red, green blue gray, dark gray)
+% for more information see the tikz documentation
+
+% Declaring layers to abvoid superposition when you connect a \ganttmileston with a task
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\newcommand{\ganttmilestone}[3][]{
+  \setlength{\gantttmpa}{#3\ganttunitlength}
+  \setlength{\gantttmpb}{0\ganttunitlength}
+  \setlength{\gantttmpb}{\gantttmpa+\gantttmpb}
+
+  \ifKV@ganttx@drawledgerline
+    \draw[dotted] (0,\value{ganttnum}-0.2) -- (\value{ganttwidth}*\ganttunitlength,\value{ganttnum}-0.2);
+  \fi
+  \node at (0,\value{ganttnum}) [anchor=base east] {%
+		\ganttfontsize #2%
+  };
+  \setkeys{ganttbarx}{#1}{%
+  \pgfonlayer{foreground}
+  \draw[diamond-, color=\ganttbarcolor] (\gantttmpa,\value{ganttnum}+0.1) -- (\gantttmpb,\value{ganttnum}+0.4);
+  \endpgfonlayer
+  }
+  \setlength{\ganttlastx}{\gantttmpb}
+  \addtocounter{ganttnum}{-1}
+}
+
+
+% \ganttmilestonecon draws a single diamond *and* connects the diamond with the previous task
+% usage: \ganttmilestonecon[color=<color>]{label}{start}{length}
+% where the optional color argument are the same as for \ganttbar and \ganttmilestone
+
+\newcommand{\ganttmilestonecon}[3][]{
+  \setlength{\nextganttlastx}{\the\ganttlastx+1\ganttunitlength}
+  \ifdim\nextganttlastx>#3\ganttunitlength
+    \draw[-latex,rounded corners=1pt] (\the\ganttlastx,\value{ganttnum}+1.1 + 0.2) -- (\the\ganttlastx+0.4*\ganttunitlength,\value{ganttnum}+1.1+0.2) -- (\the\ganttlastx+0.4*\ganttunitlength,\value{ganttnum}+0.6+0.2) -- (\the\ganttlastx-0.4*\ganttunitlength-1.8,\value{ganttnum}+0.6+0.2) -- (\the\ganttlastx-0.4*\ganttunitlength-1.8,\value{ganttnum}+0.1+0.2) -- (#3\ganttunitlength-1.8,\value{ganttnum}+0.1+0.2);
+    %
+    \else
+    \draw[-latex,rounded corners=1pt] (\the\ganttlastx,\value{ganttnum}+1.1 + 0.2) -- (\the\ganttlastx+0.4*\ganttunitlength,\value{ganttnum}+1.1+0.2) -- (\the\ganttlastx+0.4*\ganttunitlength,\value{ganttnum}+0.1+0.2) -- (#3\ganttunitlength-1.8,\value{ganttnum}+0.1+0.2);
+  \fi
+%  \fi
+  \ganttmilestone[#1]{#2}{#3}  
+}
+
+
+\endinput

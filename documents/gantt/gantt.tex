@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{gantt}
+
+\begin{document}
+\begin{preview}
+  \begin{gantt}{10}{12}
+    \begin{ganttitle}
+    \numtitle{1}{1}{12}{1}
+    \end{ganttitle}
+    \ganttbar{a task}{0}{2}
+    \ganttbarcon{a consecutive task}{2}{4}
+    \ganttbarcon{another consecutive task}{8}{2}
+    \ganttmilestone[color=cyan]{Milestone with color!}{4}
+    \ganttbar{another task}{2}{2}
+    \ganttbar[color=cyan]{another coloured task}{4}{4}
+    \ganttbar{another task}{4}{2}
+    \ganttcon{4}{5}{4}{7}
+    \ganttmilestonecon{A connected Milestone}{7}
+    \ganttbarcon{another consecutive task}{8}{2}
+  \end{gantt}
+\end{preview}
+\end{document}
