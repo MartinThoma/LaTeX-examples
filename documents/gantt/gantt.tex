@@ -5,20 +5,22 @@
 
 \begin{document}
 \begin{preview}
-  \begin{gantt}{10}{12}
+  \begin{gantt}{10}{8}
     \begin{ganttitle}
-    \numtitle{1}{1}{12}{1}
+        \numtitle{50}{1}{51}{1}
+        \titleelement{Christmas}{2}
+        \numtitle{2}{1}{5}{1}
     \end{ganttitle}
-    \ganttbar{a task}{0}{2}
-    \ganttbarcon{a consecutive task}{2}{4}
-    \ganttbarcon{another consecutive task}{8}{2}
-    \ganttmilestone[color=cyan]{Milestone with color!}{4}
-    \ganttbar{another task}{2}{2}
-    \ganttbar[color=cyan]{another coloured task}{4}{4}
-    \ganttbar{another task}{4}{2}
-    \ganttcon{4}{5}{4}{7}
-    \ganttmilestonecon{A connected Milestone}{7}
-    \ganttbarcon{another consecutive task}{8}{2}
+
+    \ganttbar{compile ViMuDat}{0}{1.5}
+        \ganttbarcon{create stubs}{1.5}{3}
+            \ganttbarcon{implement metadata}{4.5}{1}
+                \ganttmilestonecon{metadata works}{5.5}
+
+    \ganttbar{implement Matlab controler}{4}{2}
+    \ganttbar{implement file parser}{4}{1.5}
+    \ganttbarcon{implement upload part}{5.5}{1}
+    \ganttmilestonecon[color=red]{implementation finished}{7}
   \end{gantt}
 \end{preview}
 \end{document}
