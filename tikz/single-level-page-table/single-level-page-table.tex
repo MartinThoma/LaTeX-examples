@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+% http://upload.wikimedia.org/wikipedia/de/5/5d/EinstufigeSeitentabelle.png
+\usepackage{tikz}
+\usetikzlibrary{calc, shapes.multipart}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \newcommand{\PageNumber}{Seitennummer};
+    \newcommand{\Offset}{Offset};
+    \newcommand{\VirtualAdress}{Virtuelle Adresse};
+    \newcommand{\RealAdress}{Reale Adresse};
+    \newcommand{\PageTable}{Seitentabelle};
+    \newcommand{\textBoxHeight}{1};
+
+    \node[rectangle split, rectangle split horizontal, 
+          rectangle split parts=2, draw, fill=black!20,label=left:\textbf{\VirtualAdress}] 
+         (VirtualAdressNode) at (5,0)
+         {\nodepart{one}\PageNumber \nodepart{two}\Offset};
+
+    \newcommand{\titleShift}{0.45cm};
+    \draw[<->] ([yshift=\titleShift]VirtualAdressNode.one west) -- ([yshift=\titleShift]VirtualAdressNode.one split);
+    \draw[<->] ([yshift=\titleShift]VirtualAdressNode.one split) -- ([yshift=\titleShift]VirtualAdressNode.one east);
+
+    \node[fill=white,font=\tiny,yshift=\titleShift] at ($(VirtualAdressNode.one west)!0.5!(VirtualAdressNode.one split)$) {n bit};
+    \node[fill=white,font=\tiny,yshift=\titleShift] at ($(VirtualAdressNode.one split)!0.5!(VirtualAdressNode.one east)$) {m bit};
+
+    \node[rectangle split, 
+          rectangle split parts=10, draw, fill=black!20] 
+         (PageTableNode1) at (2,-3)
+         {};
+    \node[rectangle split, minimum width=3cm,anchor=west,
+          rectangle split parts=10, draw, fill=black!20,label=above:\textbf{\PageTable}] 
+         (PageTableNode2) at (2.2,-3)
+         {};
+
+    \node (StatusBitsNode) at (2,-5.6) {Statusbits};
+    \node (BasisadresseNode) at (4,-5.6) {Basisadresse};
+    \draw[->,very thick] (StatusBitsNode)   -- (2, -5);
+    \draw[->,very thick] (BasisadresseNode) -- (4, -5);
+
+    \node[rectangle split, rectangle split horizontal, 
+          rectangle split parts=2, draw, fill=black!20,label=left:\textbf{\RealAdress}] 
+         (RealAdressNode) at (5,-6.4)
+         {\nodepart{one}Basisadresse der realen Seite \nodepart{two}\Offset};
+
+    \draw[->, very thick] (VirtualAdressNode.two south) -- (RealAdressNode.two north);
+\end{tikzpicture}
+\end{preview}
+\end{document}

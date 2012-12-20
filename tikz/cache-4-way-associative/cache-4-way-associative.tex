@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{amsmath,array}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
+\setlength\arraycolsep{4pt} % default value: 6pt
+
+\newcommand\tikzmark[1]{%
+  \tikz[overlay,remember picture,baseline] \coordinate [anchor=base] (#1);}
+
+\newcommand\DrawBrace[3]{%
+  \draw [decorate,decoration={brace,amplitude=2pt,mirror,raise=2pt}]
+    (#1) -- (#2) node [black,midway,sloped,yshift=-10pt] {\footnotesize$#3$};
+}
+
+\begin{document}
+\begin{preview}
+    TODO!!!
+    \begin{tabular}{|l|l|}
+    \hline
+    Tag & Daten\\
+    \hline \hline
+     0  & 12345 \tikzmark{a}\\
+     1  & 12345\\
+     2  & 12345\\
+     3  & 12345 \tikzmark{b}\\
+     4  & 12345\\
+     5  & 12345\\
+     6  & 12345\\
+     7  & 12345\\
+     8  & 12345\\
+     9  & 12345\\
+    10  & 12345\\
+    11  & 12345\\
+    12  & 12345\\
+    13  & 12345\\
+    14  & 12345\\
+    15  & 12345\\
+    16  & 12345\\
+    \hline
+    \end{tabular}
+
+\begin{tikzpicture}[remember picture,overlay]
+\DrawBrace{b}{a}{blibla}
+\end{tikzpicture}
+
+\end{preview}
+\end{document}

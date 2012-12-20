@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{preview}
+\pgfplotsset{
+    colormap={whitered}{
+        color(0cm)=(white);
+        color(1cm)=(orange!75!red)
+    }
+}
+\begin{tikzpicture}
+    \newcommand{\Pages}{250}
+    \begin{axis}[
+    colormap name=whitered,
+    width=15cm,
+    view={20}{25},
+    enlargelimits=false,
+    grid=major,
+    domain=0:\Pages,
+    y domain=1:\Pages,
+    samples=16,
+    xlabel=$p$, 
+    ylabel=$C$,
+    zlabel={$z$},
+    colorbar,
+    colorbar style={
+        at={(-0.1,0)},
+        anchor=south west,
+        height=0.25*\pgfkeysvalueof{/pgfplots/parent axis height},
+        title={$f(x,y)$}
+    }
+    ]
+      \addplot3[surf] {(\Pages!/(x!*(\Pages-x)!)) * (1/y)^x * (1-1/y)^(\Pages-x)};
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}
