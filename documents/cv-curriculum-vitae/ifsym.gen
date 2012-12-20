@@ -1,0 +1,591 @@
+%%%%%%%%%%%%%%%%%% ifsym.gen %%%%%%%%%%%%%%%%%%%%%%%
+% (c) Ingo Kloeckl
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+
+% History
+% 20.12.1999 v1.0  IK 
+% 25.05.2000 v1.1  IK ligtable for pulse diagrams improved
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% miscellaneous and alpinistic symbols
+% by I.Kloeckl, ingo.kloeckl@2k-software.de
+
+pen normalpen, boldpen;
+normalpen := pencircle scaled 1linewidth;
+if boldface=1:
+  boldpen = pencircle scaled 2linewidth;
+else:
+  boldpen = pencircle scaled 4linewidth;
+fi;
+
+transform t;
+if italic=0:
+  t := identity;
+else:
+  t := identity slanted 0.2;
+fi;
+
+
+%
+% miscellaneous symbols
+%
+% sectioning symbols
+"Diamonds1";
+beginchar(1,10pt#,10pt#,0);
+  pickup normalpen;
+  path p;
+  p = (2pt,0pt)--(0pt,2pt)--(-2pt,0pt)--(0pt,-2pt)--cycle;
+  draw p shifted (5pt,9pt);  draw p shifted (5pt,1pt);
+  draw p shifted (2pt,5pt);  draw p shifted (8pt,5pt);
+endchar;
+
+"FilledDiamonds1";
+beginchar(2,10pt#,10pt#,0);
+  pickup normalpen;
+  path p;
+  p = (2pt,0pt)--(0pt,2pt)--(-2pt,0pt)--(0pt,-2pt)--cycle;
+  fill p shifted (5pt,9pt);  fill p shifted (5pt,1pt);
+  fill p shifted (2pt,5pt);  fill p shifted (8pt,5pt);
+endchar;
+
+% paper symbol
+"Portrait";
+beginchar(3,6pt#,10pt#,0);
+  pickup normalpen;
+  draw (0pt,0pt)--(6pt,0pt)--(6pt,10pt)--(2pt,10pt)--(0pt,8pt)--cycle;
+  pickup pencircle scaled .7linewidth;
+  draw (2pt,10pt)--(2pt,8pt)--(0pt,8pt);
+  pickup pencircle scaled .3linewidth;
+  for i=1.5 upto 7.5:
+    draw (1pt,i*1pt)--(5pt,i*1pt);
+  endfor
+endchar;
+
+"Landscape";
+beginchar(4,10pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,0pt)--(10pt,0pt)--(10pt,6pt)--(2pt,6pt)--(0pt,4pt)--cycle;
+  pickup pencircle scaled .7linewidth;
+  draw (2pt,6pt)--(2pt,4pt)--(0pt,4pt);
+  pickup pencircle scaled .3linewidth;
+  for i=1.5 upto 4.5:
+    draw (2pt,i*1pt)--(8pt,i*1pt);
+  endfor
+endchar;
+
+"Envelope";
+beginchar(0,10pt#,7pt#,0);
+  pickup normalpen;
+  draw unitsquare xscaled w yscaled h;% shifted(w/2,h/2);
+  z0=(0,h); z1=(w/2,h/3); z2=(w,h);
+  z3=(0,0); z4=(w/2,2*h/3); z5=(w,0);
+  numeric s; s[z3,z4] = whatever[z0,z1];
+  draw z0--z1--z2; draw z3--s[z3,z4]; draw z5--s[z5,z4];
+endchar;
+
+% seven-segment digits
+path seg[];
+seg[0] = (.5pt,8.5pt)--(1pt,9pt)--(4pt,9pt)--(4.5pt,8.5pt)--
+	(4pt,8pt)--(1pt,8pt)--cycle;
+seg[1] = (4.5pt,8.5pt)--(5pt,8pt)--(5pt,5pt)--(4.5pt,4.5pt)--
+	(4pt,5pt)--(4pt,8pt)--cycle;
+seg[2] = (4.5pt,4.5pt)--(5pt,4pt)--(5pt,1pt)--(4.5pt,0.5pt)--
+	(4pt,1pt)--(4pt,4pt)--cycle;
+seg[3] = (.5pt,0.5pt)--(1pt,1pt)--(4pt,1pt)--(4.5pt,0.5pt)--
+	(4pt,0)--(1pt,0)--cycle;
+seg[5] = (0.5pt,8.5pt)--(1pt,8pt)--(1pt,5pt)--(0.5pt,4.5pt)--
+	(0pt,5pt)--(0pt,8pt)--cycle;
+seg[4] = (0.5pt,4.5pt)--(1pt,4pt)--(1pt,1pt)--(0.5pt,0.5pt)--
+	(0pt,1pt)--(0pt,4pt)--cycle;
+seg[6] = (.5pt,4.5pt)--(1pt,5pt)--(4pt,5pt)--(4.5pt,4.5pt)--
+	(4pt,4pt)--(1pt,4pt)--cycle;
+
+beginchar("0",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[0] transformed t; fill seg[1] transformed t;
+  fill seg[2] transformed t; fill seg[3] transformed t;
+  fill seg[4] transformed t; fill seg[5] transformed t;
+endchar;
+beginchar("1",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[1] transformed t; fill seg[2] transformed t;
+endchar;
+beginchar("2",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[0] transformed t; fill seg[1] transformed t;
+  fill seg[6] transformed t; fill seg[4] transformed t;
+  fill seg[3] transformed t;
+endchar;
+beginchar("3",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[0] transformed t; fill seg[1] transformed t;
+  fill seg[6] transformed t; fill seg[2] transformed t;
+  fill seg[3] transformed t;
+endchar;
+beginchar("4",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[5] transformed t; fill seg[6] transformed t;
+  fill seg[1] transformed t; fill seg[2] transformed t;
+endchar;
+beginchar("5",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[0] transformed t; fill seg[5] transformed t;
+  fill seg[6] transformed t; fill seg[2] transformed t;
+  fill seg[3] transformed t;
+endchar;
+beginchar("6",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[0] transformed t; fill seg[5] transformed t;
+  fill seg[4] transformed t; fill seg[3] transformed t;
+  fill seg[2] transformed t; fill seg[6] transformed t;
+endchar;
+beginchar("7",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[5] transformed t; fill seg[0] transformed t;
+  fill seg[1] transformed t; fill seg[2] transformed t;
+endchar;
+beginchar("8",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[0] transformed t; fill seg[1] transformed t;
+  fill seg[2] transformed t; fill seg[3] transformed t;
+  fill seg[4] transformed t; fill seg[5] transformed t;
+  fill seg[6] transformed t;
+endchar;
+beginchar("9",7pt#,10pt#,0);
+  pickup normalpen;
+  fill seg[6] transformed t; fill seg[5] transformed t;
+  fill seg[0] transformed t; fill seg[1] transformed t;
+  fill seg[2] transformed t; fill seg[3] transformed t;
+endchar;
+beginchar("-",7pt#,10pt#,0); % minus
+  pickup normalpen;
+  fill seg[6] transformed t;
+endchar;
+beginchar(".",0pt#,10pt#,0);
+  pickup boldpen; drawdot (-1pt,0) transformed t;
+endchar;
+beginchar("b",7pt#,10pt#,0);
+endchar; % space (width of 1 digit)
+
+def basis_cube =
+  pickup normalpen;
+  draw unitsquare scaled 10pt;
+  pickup boldpen;
+enddef;
+
+"Cube1";
+beginchar(5,10pt#,10pt#,0);
+  basis_cube; drawdot (5pt,5pt);
+endchar;
+
+"Cube2";
+beginchar(6,10pt#,10pt#,0);
+  basis_cube; drawdot (2pt,2pt);  drawdot (8pt,8pt);
+endchar;
+
+"Cube3";
+beginchar(7,10pt#,10pt#,0);
+  basis_cube; drawdot (2pt,8pt);  drawdot (5pt,5pt);  drawdot (8pt,2pt);
+endchar;
+
+"Cube4";
+beginchar(8,10pt#,10pt#,0);
+  basis_cube;
+  drawdot (2pt,2pt);  drawdot (2pt,8pt);  drawdot (8pt,2pt);  drawdot (8pt,8pt);
+endchar;
+
+"Cube5";
+beginchar(9,10pt#,10pt#,0);
+  basis_cube; drawdot (2pt,2pt);  drawdot (2pt,8pt); 
+  drawdot (8pt,2pt);  drawdot (8pt,8pt); drawdot (5pt,5pt);
+endchar;
+
+"Cube6";
+beginchar(10,10pt#,10pt#,0);
+  basis_cube;
+  drawdot (2pt,2pt);  drawdot (2pt,5pt);  drawdot (2pt,8pt);
+  drawdot (8pt,2pt);  drawdot (8pt,5pt);  drawdot (8pt,8pt);
+endchar;
+
+
+% dangerous symbols
+"Irritant";
+beginchar(11,10pt#,10pt#,0);
+  pickup normalpen;
+  fill (0.5pt,1.5pt)--(1.5pt,0.5pt)--(9.5pt,8.5pt)--(8.5pt,9.5pt)--cycle;
+  fill (0.5pt,8.5pt)--(1.5pt,9.5pt)--(9.5pt,1.5pt)--(8.5pt,0.5pt)--cycle;
+endchar;
+
+%"Fire";
+beginchar(12,10pt#,10pt#,0);
+  pickup normalpen;
+  fill (1pt,1.5pt)--(9pt,1.5pt)--(9pt,0.5pt)--(1pt,0.5pt)--cycle;
+  fill (2.2pt,4.9pt){dir -40}..{dir -45}(3.4pt,2.2pt)..(4.8pt,1.5pt)..
+	 {dir 120}(6.8pt,4.4pt){dir -90}..{dir -40}(6pt,3pt){dir 100}..
+	 (6.3pt,5pt)..{dir 100}(4pt,7.3pt){dir -100}..{dir -135}(4.5pt,3.3pt){dir 120}..
+	 {dir 120}(3pt,5.2pt){dir -80}..{dir -100}(3.7pt,2.8pt){dir 90}..{dir 160}cycle;
+  fill (4.7pt,3pt){dir 140}..{dir 110}(3.7pt,6.2pt){dir -40}..{dir -120}cycle;
+  fill (3.5pt,5.9pt){dir 80}..{dir 120}(2.2pt,7.5pt){dir -80}..{dir -50}cycle;
+  fill (2.5pt,5.2pt){dir 90}..{dir 135}(1.5pt,6.5pt){dir -100}..{dir -45}cycle;
+  fill (7.1pt,4.6pt){dir 60}..{dir 160}(6.4pt,6.1pt){dir -60}..{dir -100}cycle;
+  fill (5pt,7.6pt){dir 80}..{dir 140}(4pt,8.6pt){dir -100}..{dir -50}cycle;
+endchar;
+
+%"Death";
+%beginchar(13,10pt#,10pt#,0);
+%  pickup pencircle scaled 1linewidth;
+%  fill (5pt,9.4pt){dir 180}..{dir -90}(1.8pt,7.5pt)..{dir -60}(2.8p,5.4pt)..
+%         {dir 0}(5pt,2.9pt){dir 0}..(7.2pt,5.4pt){dir 60}..
+%         (8.2pt,7.5pt){dir90}..{dir 180}cycle;
+%  unfill (2.9pt,7.6pt)..(3.3pt,7.1pt)..(4.2pt,8pt)..(3.7pt,8.3pt)..cycle;
+%  unfill (7.1pt,7.6pt)..(6.7pt,7.1pt)..(5.8pt,8pt)..(6.3pt,8.3pt)..cycle;
+%  % Nase
+%  unfill (5pt,6.4pt)..{dir -120}(4.7pt,5.8pt)..{dir 0}(5pt,5.4pt){dir 0}..
+%	 (5.3pt,8.3pt){dir 120}..cycle;
+%  % Mund
+%  unfill (4.1pt,4.7pt){dir -80}..{dir 0}(5pt,4.4pt}{dir 0}..{dir 80}(5.9pt,4.7pt){dir -90}..
+%         {dir 180}(5pt,3.8pt){dir 180}..{dir 90}cycle;
+%  % Knochen
+%  fill (5pt,2.5pt){dir 180}..{dir 135}(3.1pt,3.6pt)..{dir 180}(1.8pt,5.2pt)..
+%	 {dir -90}(1.8pt,4.2pt)..{dir -90}(1.2pt,3.8pt)..{dir -30}(2.2pt,3.3pt)..
+%	  {dir -90}(3.4pt,2.2pt)..{dir -135}(2.6pt,1.6pt)..{dir 180}(1.2pt,.6pt)..
+%	  {dir -90}(0.8pt,1.2pt)..{dir -45}(1.3pt,0.8pt)..{dir 0}(1.7pt,0pt)..
+%	  {dir 30}(2.4pt,0.8pt)..{dir 50}(3.8pt,1.4pt)..{dir 0}(5pt,1.9pt)--cycle;
+%endchar;
+
+"Radiation";
+beginchar(14,10pt#,10pt#,0);
+  pickup normalpen;
+  fill fullcircle scaled 3pt shifted(5pt,5pt);
+  z0=(7pt,5pt); z1=(10pt,5pt);
+  z2=z0 rotatedaround((5pt,5pt),60);
+  z3=z1 rotatedaround((5pt,5pt),60);
+  path p; p := z0--z1{dir 90}..{dir 150}z3--z2{dir -30}..{dir -90}cycle;
+  fill p rotatedaround((5pt,5pt),60);
+  fill p rotatedaround((5pt,5pt),180);
+  fill p rotatedaround((5pt,5pt),300);
+endchar;
+
+% telephone
+beginchar(40,15pt#,10pt#,0);
+  pickup normalpen;
+  numeric x[], y[];
+  z0=(1.8pt,0); z1=(1.8pt,2.25pt); z2=(w/2,3.9pt);
+  z3=(w-1.8pt,2.25pt); z4=(w-1.8pt,0);
+  fill z0--z1..z2..z3--z4--cycle;
+  % Hoerer
+  z5=(0.3pt,3.3pt); z6=(3.3pt,3.3pt); z7=(3.3pt,4.2pt);
+  z8=(7.5pt,4.95pt);
+  z9=(w-3.3pt,4.2pt); z10=(w-3.3pt,3.3pt); z11=(w-0.3pt,3.3pt);
+  z12=(w-0.3pt,4.2pt);
+  z13=(7.5pt,5.7pt);
+  z14=(0.3pt,4.2pt);
+  fill z5--z6--z7..z8..z9--z10--z11--z12..z13..z14--cycle;
+  % keyboard
+  unfill fullcircle xscaled 4.5pt yscaled 2.4pt shifted(7.5pt,2.25pt);
+endchar;
+
+% up arrow symbolizing spin +1/2
+beginchar(41,5pt#,10pt#,0);
+  pickup normalpen;
+  draw (2.5pt,2pt)--(2.5pt,8pt);
+  draw (1pt,6pt)--(2.5pt,8pt)--(4pt,6pt);
+endchar;
+
+% down arrow symbolizing spin -1/2
+beginchar(42,10pt#,10pt#,0);
+  pickup normalpen;
+  draw (7.5pt,2pt)--(7.5pt,8pt);
+  draw (6pt,4pt)--(7.5pt,2pt)--(9pt,4pt);
+endchar;
+
+% bar (one stroke for "1")
+beginchar(58,2pt#,10pt#,0);
+  pickup normalpen;
+  numeric x[], y[]; path p;
+  lft z0=(0,0); lft z1=(0,8pt); p := z0--z1;
+  draw p transformed t;
+endchar;
+% bar group (five strokes for "5")
+beginchar(59,10pt#,10pt#,0);
+  pickup normalpen;
+  path p; p:=(0,0)--(0,8pt);
+  draw p shifted(1pt,0) transformed t; draw p shifted(3pt,0) transformed t;
+  draw p shifted(5pt,0) transformed t; draw p shifted(7pt,0) transformed t;
+  path p; p := (0,2pt)--(8pt,6pt);
+  draw p transformed t;
+endchar;
+
+
+%
+% electronic symbols
+%
+%
+% first, some symbols for pulse/clock diagrams
+%
+"RaisingEdge";
+beginchar(32,8pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,0pt)--(4pt,0pt)--(4pt,6pt)--(8pt,6pt);
+endchar;
+
+"FallingEdge";
+beginchar(33,8pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,6pt)--(4pt,6pt)--(4pt,0pt)--(8pt,0pt);
+endchar;
+
+"ShortPulseHigh";
+beginchar(34,10pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,0pt)--(4pt,0pt)--(4pt,6pt)--(6pt,6pt)--(6pt,0pt)--(10pt,0pt);
+endchar;
+
+"ShortPulseLow";
+beginchar(35,10pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,6pt)--(4pt,6pt)--(4pt,0pt)--(6pt,0pt)--(6pt,6pt)--(10pt,6pt);
+endchar;
+
+"PulseHigh";
+beginchar(36,14pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,0pt)--(4pt,0pt)--(4pt,6pt)--(10pt,6pt)--(10pt,0pt)--(14pt,0pt);
+endchar;
+
+"PulseLow";
+beginchar(37,14pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,6pt)--(4pt,6pt)--(4pt,0pt)--(10pt,0pt)--(10pt,6pt)--(14pt,6pt);
+endchar;
+
+"LongPulseHigh";
+beginchar(38,18pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,0pt)--(4pt,0pt)--(4pt,6pt)--(14pt,6pt)--(14pt,0pt)--(18pt,0pt);
+endchar;
+
+"LongPulseLow";
+beginchar(39,18pt#,6pt#,0);
+  pickup normalpen;
+  draw (0pt,6pt)--(4pt,6pt)--(4pt,0pt)--(14pt,0pt)--(14pt,6pt)--(18pt,6pt);
+endchar;
+
+%
+% constructing pulse diagrams out of basic characters
+%
+"RaiseFall";
+beginchar("|",0pt#,10pt#,0); 
+  pickup normalpen; draw (0pt,0pt)--(0pt,10pt);
+endchar;
+
+"LowLineShort";
+beginchar("l",5pt#,10pt#,0);
+  pickup normalpen; draw (0pt,0pt)--(5pt,0pt);
+endchar;
+
+"MiddleLineShort";
+beginchar("m",5pt#,10pt#,0);
+  pickup normalpen; draw (0pt,5pt)--(5pt,5pt);
+endchar;
+
+"DoubleLineShort";
+beginchar("d",5pt#,10pt#,0);
+  pickup normalpen; draw (0pt,0pt)--(5pt,0pt); draw (0pt,10pt)--(5pt,10pt);
+endchar;
+
+"HighLineShort";
+beginchar("h",5pt#,10pt#,0);
+  pickup normalpen; draw (0pt,10pt)--(5pt,10pt);
+endchar;
+
+"LowLineLong";
+beginchar("L",10pt#,10pt#,0);
+  pickup normalpen; draw (0pt,0pt)--(10pt,0pt);
+endchar;
+
+"MiddleLineLong";
+beginchar("M",10pt#,10pt#,0);
+  pickup normalpen; draw (0pt,5pt)--(10pt,5pt);
+endchar;
+
+"DoubleLineLong";
+beginchar("D",10pt#,10pt#,0);
+  pickup normalpen; draw (0pt,0pt)--(10pt,0pt); draw (0pt,10pt)--(10pt,10pt);
+endchar;
+
+"HighLineLong";
+beginchar("H",10pt#,10pt#,0);
+  pickup normalpen; draw (0pt,10pt)--(10pt,10pt);
+endchar;
+
+"Opening";
+beginchar("<",5pt#,10pt#,0);
+  pickup normalpen; draw (w,h)--(0,.5h)--(w,0);
+endchar;
+
+"Closing";
+beginchar(">",5pt#,10pt#,0);
+  pickup normalpen; draw (0,h)--(w,.5h)--(0,0);
+endchar;
+
+"LongOpening"; % <<
+beginchar(61,10pt#,10pt#,0);
+  pickup normalpen; draw (w,h)--(0,.5h)--(w,0);
+endchar;
+
+"LongClosing"; % >>
+beginchar(63,10pt#,10pt#,0);
+  pickup normalpen; draw (0,h)--(w,.5h)--(0,0);
+endchar;
+
+ligtable "l":
+	"l" =: "L",
+	"h" |=:| "|",
+	"H" |=:| "|";
+ligtable "h":
+	"h" =: "H",
+	"l" |=:| "|",
+	"L" |=:| "|";
+ligtable "L":
+	"h" |=:| "|",
+	"H" |=:| "|";
+ligtable "H":
+	"l" |=:| "|",
+	"L" |=:| "|";
+ligtable "<":
+	"<" =: 61;
+ligtable ">":
+	">" =: 63;
+
+%
+% alpine symbols
+%
+"SummitSign";
+beginchar(16,8pt#,9pt#,0);
+  pickup boldpen;
+  draw (4pt,1pt)--(4pt,8pt);  draw (1pt,6pt)--(7pt,6pt);
+endchar;
+
+"StoneMan";
+beginchar(17,6pt#,8pt#,0);
+  pickup normalpen;
+  fill (0pt,1pt)--(5pt,1pt)--(2.5pt,8pt)--cycle;
+endchar;
+
+"Hut";
+beginchar(18,8pt#,9pt#,0);
+  pickup normalpen;
+  draw (1pt,5pt)--(1pt,1pt)--(7pt,1pt)--(7pt,5pt)--
+    (8pt,5pt)--(4pt,9pt)--(0pt,5pt)--cycle;
+endchar;
+
+"FilledHut";
+beginchar(19,8pt#,9pt#,0);
+  pickup normalpen;
+  fill (1pt,5pt)--(1pt,1pt)--(7pt,1pt)--(7pt,5pt)--
+    (8pt,5pt)--(4pt,9pt)--(0pt,5pt)--cycle;
+endchar;
+
+"Summit";
+beginchar(20,10pt#,10pt#,0);
+  pickup normalpen;
+  fill (-0.5pt,-0.5pt)--(0.5pt,-0.5pt)--(0pt,0.5pt)--cycle 
+    scaled 10 shifted(5pt,5pt);
+endchar;
+
+"Mountain";
+beginchar(21,10pt#,0pt#,0);
+  pickup normalpen;
+  fill (0pt,0pt)--(10pt,0pt)--(7pt,5pt)--cycle;
+  fill (0pt,0pt)--(3pt,8pt)--(7pt,0pt)--cycle;
+endchar;
+
+"IceMountain";
+beginchar(22,10pt#,0pt#,0);
+  pickup normalpen;
+  fill (0pt,0pt)--(10pt,0pt)--(7pt,5pt)--cycle;
+  draw (0pt,0pt)--(3pt,8pt)--(7pt,0pt)--cycle;
+endchar;
+
+"Mountain2";
+beginchar(23,10pt#,0pt#,0);
+  pickup normalpen;
+  fill (0pt,0pt)--(2pt,6.5pt)--(3.4pt,3.3pt)--(5.6pt,4.3pt)--
+       (6.5pt,3pt)--(7.2pt,3.8pt)--(10pt,0pt)--cycle;
+endchar;
+
+"IceMountain2";
+beginchar(24,10pt#,0pt#,0);
+  pickup normalpen;
+  fill (0pt,0pt)--(2pt,6.5pt)--(3.4pt,3.3pt)--(5.6pt,4.3pt)--
+       (6.5pt,3pt)--(7.2pt,3.8pt)--(10pt,0pt)--cycle;
+  unfill (0.6pt,1.6pt)--(1.9pt,6.1pt)--(1.9pt,3.9pt)--(3.2pt,2.9pt)--
+	 (5.6pt,4.1pt)--(5.2pt,3.4pt)--(6.2pt,3.1pt)--(4.0pt,2.1pt)--cycle;
+  unfill (3.5pt,1.2pt)--(5.9pt,2.7pt)--(7.2pt,3.6pt)--(6.9pt,1.7pt)--cycle;
+endchar;
+
+"Vermessung";
+beginchar(25,8pt#,8pt#,0);
+  pickup normalpen;
+  draw (0pt,0pt)--(8pt,0pt)--(4pt,8pt)--cycle;
+  pickup boldpen;
+  drawdot (4pt,3pt);
+endchar;
+
+"Joch";
+beginchar(26,6pt#,8pt#,0);
+  pickup normalpen;
+  fill (0pt,0pt)--(2pt,2pt)--(2pt,6pt)--(0pt,8pt)--
+		  (1pt,6pt)--(1pt,2pt)--cycle;
+  fill (6pt,0pt)--(4pt,2pt)--(4pt,6pt)--(6pt,8pt)--
+		  (5pt,6pt)--(5pt,2pt)--cycle;
+endchar;
+
+"Fahne";
+beginchar(27,10pt#,10pt#,0);
+  pickup normalpen;
+  draw (3pt,0pt)--(3pt,10pt);
+  fill (3pt,10pt)--(0pt,8pt)--(3pt,6pt)--cycle;
+endchar;
+
+"varFahne";
+beginchar(29,10pt#,10pt#,0);
+  pickup normalpen;
+  draw (3pt,0pt)--(3pt,10pt);
+  fill (3pt,10pt)--(0pt,10pt)--(0pt,7pt)--(3pt,7pt)--cycle;
+endchar;
+
+"Zelt";
+beginchar(28,10pt#,10pt#,0);
+  z0 = (0pt,0pt);
+  z1 = (10pt,0pt);
+  z2 = (5pt,7pt);
+  pickup normalpen;
+  fill z0--z1--z2--cycle;
+  draw 1.3[z0,z2]--z0--z1--1.3[z1,z2];
+  unfill (3pt,0pt)--(7pt,0pt)--(5pt,3pt)--cycle;
+endchar;
+
+"HalfFilledHut";
+beginchar(31,8pt#,9pt#,0);
+  pickup normalpen;
+  draw (1pt,5pt)--(1pt,1pt)--(7pt,1pt)--(7pt,5pt)--
+    (8pt,5pt)--(4pt,9pt)--(0pt,5pt)--cycle;
+  fill (1pt,1pt)--(7pt,1pt)--(7pt,5pt)--cycle;
+endchar;
+
+"WhiteSummit";
+beginchar(30,10pt#,10pt#,0);
+  pickup normalpen;
+  path p; 
+  p:= (-0.5pt,-0.5pt)--(0.5pt,-0.5pt)--(0pt,0.5pt)--cycle;
+  draw p scaled 10 shifted(5pt,5pt);
+endchar;
+
+end.
+
+%%%%%%%%%%%%%%%%%% end of ifsym.gen %%%%%%%%%%%%%%%%%%%%%%%

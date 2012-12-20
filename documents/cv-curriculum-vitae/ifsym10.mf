@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%%% ifsym10.mf %%%%%%%%%%%%%%%%%%%%%%%
+% (c) Ingo Kloeckl
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+
+% History
+% 20.12.1999 v1.0  IK 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% miscellaneous and alpinistic symbols
+% by I.Kloeckl, ingo.kloeckl@2k-software.de
+font_size=10pt#;
+mode_setup;
+design_size=10pt#;
+linewidth=0.5pt;
+italic=0; boldface=0;
+input ifsym.gen;
+%%%%%%%%%%%%%%%%%% end of ifsym10.mf %%%%%%%%%%%%%%%%%%%%%%%

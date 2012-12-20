@@ -1,0 +1,306 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Two Column Curriculum Vitae XeLaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com/template/two-column-one-page-cv
+%
+% Original author:
+% Alessandro (The CV Inn)
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,10pt]{article} % Font size (10pt, 11pt or 12pt)
+
+\usepackage[ngerman]{babel} % this is needed for umlauts
+
+\usepackage[hmargin=1.25cm, vmargin=1.5cm]{geometry} % Document margins
+
+\usepackage{marvosym} % Required for symbols in the colored box
+\usepackage{ifsym} % Required for symbols in the colored box
+\usepackage{pdfpages}  % Signatureinbingung und includepdf
+
+\usepackage{xcolor} % Allows the definition of hex colors
+
+% Fonts and tweaks for XeLaTeX
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Mapping=tex-text]{Times New Roman} % Main document font
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Arial} % Font for your name at the top
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+% Colors for links, text and headings
+\usepackage{hyperref}
+\definecolor{linkcolor}{HTML}{506266} % Blue-gray color for links
+\definecolor{shade}{HTML}{F5DD9D} % Peach color for the contact information box
+\definecolor{text1}{HTML}{2b2b2b} % Main document font color, off-black
+\definecolor{headings}{HTML}{701112} % Dark red color for headings
+% Other color palettes: shade=B9D7D9 and linkcolor=A40000; shade=D4D7FE and linkcolor=FF0080
+
+\hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor} % Set up links and colors
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+% Headers and footers can be added with the \lhead{} \rhead{} \lfoot{} \rfoot{} commands
+% Example footer:
+%\rfoot{\color{headings} {\sffamily Last update: \today}. Typeset with Xe\LaTeX}
+
+\renewcommand{\headrulewidth}{0pt} % Get rid of the default rule in the header
+
+\usepackage{titlesec} % Allows creating custom \section's
+
+% Format of the section titles
+\titleformat{\section}{\color{headings}
+\scshape\Large\raggedright}{}{0em}{}[\color{black}\titlerule]
+
+\titlespacing{\section}{0pt}{0pt}{5pt} % Spacing around titles
+
+\newcommand{\ts}{\textsuperscript}
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Martin Thoma,KIT,CV}, 
+  pdftitle    = {Curriculum Vitae of Martin Thoma} 
+} 
+
+\begin{document}
+
+\color{text1} % Sets the default text color for the whole document
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\par{\centering{\sffamily\Huge Martin Thoma}\\ % Your name
+{\Huge \color{headings}\fontspec{Zapfino Linotype One} Curriculum {Vit\fontspec{Zapfino Linotype One}\ae}\\[15pt]\par}
+	
+%----------------------------------------------------------------------------------------
+
+% Start the left-hand side of the page
+\begin{minipage}[t]{0.5\textwidth}
+\vspace{0pt} % Trick for alignment
+	
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience} 
+
+%----------------------------------------------------------------------------------------
+% WORK EXPERIENCE -0-
+
+{\raggedleft\textsc{2012}\par}
+
+{\raggedright\large Tutor for programming\\
+\textit{teaching students programming at university}\\[5pt]}
+
+\normalsize{This year, I have started to teach people how to program
+in Java. It is a beginners course with about 30 students.}\\
+
+%----------------------------------------------------------------------------------------
+% WORK EXPERIENCE -1-
+
+{\raggedleft\textsc{2011}\par}
+
+{\raggedright\large Freelancer at KTC\\
+\textit{programming for a consulting company}\\[5pt]}
+
+\normalsize{At KTC, I gained first experiences with buisness-logic
+and a big, but algorithmically not challenging project. To be honest,
+I only fixed some Java bugs.}\\
+
+%----------------------------------------------------------------------------------------
+% WORK EXPERIENCE -2-
+
+{\raggedleft\textsc{2011}\par}
+
+{\raggedright\large Student research assistant at \textsc{ Institute of Toxicology and Genetics}, KIT\\
+\textit{participating in a university research project}\\[5pt]}
+
+\normalsize{In summer 2011 I worked for over a month for a 
+research project at KIT. I have written bash scripts for file
+conversions, fixed some bugs and re-written a slow Mathematica script
+in a much faster Python version. But it quickly turned out that
+this project had a lot of C++ source which was rarely commented or
+documented. I realized, that I wouldn't have time for this project
+after beginning my studies at university.}\\
+
+%----------------------------------------------------------------------------------------
+% WORK EXPERIENCE -3-
+
+{\raggedleft\textsc{since 2011}\par}
+
+{\raggedright\large Freelance Work\\
+\textit{building an online service}\\[5pt]}
+
+\normalsize{I have started to work as a freelancer at the beginning 
+of 2011. I have developed an online-service which helped
+schools to coordinate their dates. I have sold this online service to
+two schools in bavaria and three other schools were interested. 
+Unfortunately, the ministry of education of Bavaria 
+released an application with similar functionality in
+2012. This was the reason why I decided to shut down my service.}\\
+
+%----------------------------------------------------------------------------------------
+% WORK EXPERIENCE -4-
+
+%{\raggedleft\textsc{2010}\par}
+
+%{\raggedright\large Compulsory community service\\
+%\textit{District Office Augsburg}\\[5pt]}
+
+%\normalsize{I have worked in the district office of Augsburg in my
+%as compulsory community service. I had the task to controll nature 
+%conservation conditions. To do so, I had to use a geographic 
+%information system (which could definitely be improved).}\\
+
+%----------------------------------------------------------------------------------------	
+
+%----------------------------------------------------------------------------------------
+% WORK EXPERIENCE -5-
+
+{\raggedleft\textsc{since 2006}\par}
+
+{\raggedright\large HackIts, Puzzles and Challenges\\
+\textit{ProjectEuler, bright-shadows.net and many more}\\[5pt]}
+
+\normalsize{I really love solving logical, algorithmical or math 
+puzzles and participated in competitions. I started to solve puzzles 
+in 2006 and I still like them. This was the reason why I participated 
+in a practical curse at KIT for preparation for ICPC. It was fun, 
+but I found out that many people are much faster in producing C++ 
+code that passed the tests than I am.
+However, as I've been very successfull at the Federal Competition for 
+Computer Science (``Bundeswettbewerb Informatik'') it seems as if I'm 
+better in problem solving if I get more time to think about it.}\\
+
+%----------------------------------------------------------------------------------------	
+
+\end{minipage} % End left-hand side of the page
+\hfill
+% Start the right-hand side of the page
+\begin{minipage}[t]{0.44\textwidth} 
+\vspace{0pt} %trick for alignment
+
+%----------------------------------------------------------------------------------------
+%	COLORED BOX
+%----------------------------------------------------------------------------------------
+
+\colorbox{shade}{\textcolor{text1}{
+\begin{tabular}{c|p{7cm}}
+\raisebox{-4pt}{\textifsymbol{18}} & Parkstraße 17, 76131 Karlsruhe \\ % Address
+\raisebox{-3pt}{\Mobilefone} & +49 $($1636$)$ 28 04 91 \\ % Phone number
+\raisebox{-1pt}{\Letter} & \href{mailto:info@martin-thoma.de}{info@martin-thoma.de} \\ % Email address
+\Keyboard & \href{http://martin-thoma.com}{martin-thoma.com} \\ % Website
+\end{tabular}
+}
+}\\[10pt]
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education} 
+
+\begin{tabular}{rl} % Start a table with two columns, one for dates and one for qualifications
+
+%----------------------------------------------------------------------------------------
+% EDUCATION -1-
+
+from 2011 & \textbf{Bachelor of Science} \\ 
+& \textsc{Computer Science} \\ 
+& \textit{Karlsruhe Institute of Technology}\\
+&\\
+	 
+%----------------------------------------------------------------------------------------
+% EDUCATION -2-
+
+2004 -- 2010 & \textbf{Abitur}\\ 
+& \textsc{Intensive course physics and mathematics} \\ 
+& \textit{Paul-Klee-Gymnasium Gersthofen}\\
+&\\
+
+%----------------------------------------------------------------------------------------
+
+\end{tabular}\\[10pt]
+
+%----------------------------------------------------------------------------------------
+%	AWARDS
+%----------------------------------------------------------------------------------------
+
+\section{Awards} 
+
+\begin{tabular}{rl}
+2010	 & \textbf{Winner}\\
+& \textit{Federal Competition for Computer Science}\\ \\
+
+%----------------------------------------------------------------------------------------
+
+2009	 & \textbf{2nd price - regional competition}\\
+& \textit{Youth Research Competition}\\[10pt]
+
+%----------------------------------------------------------------------------------------
+
+2008	 & \textbf{1st price}\\
+& \textit{data analysis competition at University of Augsburg}\\[10pt]
+
+%----------------------------------------------------------------------------------------
+
+2008	 & \textbf{Award for social commitment}\\
+& \textit{Paul-Klee-Gymnasium}
+\\[10pt]
+
+%----------------------------------------------------------------------------------------
+
+2007	 & \textbf{Price for science and research}\\
+& \textit{FOCUS pupils competition}
+\end{tabular}\\[10pt]
+
+%----------------------------------------------------------------------------------------
+%	COMPUTER SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Computer Skills} 
+
+\begin{tabular}{rl}
+Basic Knowledge         & \textsc{Java}, \textsc{C++}, \textsc{JavaScript}\\
+                        & \LaTeX, \textsc{Linux}, \textsc{SQL}, \textsc{PHP}\\ \\
+Intermediate Knowledge
+                        &  \textsc{Python}, \textsc{HTML}\\ \\
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Language Skills} 
+
+\begin{tabular}{rl}
+\textsc{German}
+& mother tongue\\
+& \\
+\textsc{English}
+& Camebridge Certificate – C1\\
+& \\
+\textsc{French}
+& DELF A2 \\
+\end{tabular}\\[10pt]
+
+%----------------------------------------------------------------------------------------
+	
+\end{minipage} % End right-hand side of the page
+
+%\includepdf[pages=1-2]{zeugnis}
+
+\end{document}  
