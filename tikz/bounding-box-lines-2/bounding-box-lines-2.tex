@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{0mm}
+
+\usepackage{tkz-fct}
+\usetikzlibrary{arrows, decorations.pathreplacing}
+\usetikzlibrary{shapes.misc}
+
+\tikzset{
+    line/.style={
+        very thick,
+        black,
+        to path={% works only with "to" and not "--"
+            -- (\tikztotarget) node[at start,point] {} node [at end,point] {} \tikztonodes
+        }
+    },
+    point/.style={
+        ultra thick,
+        draw=gray,
+        cross out,
+        inner sep=0pt,
+        minimum width=4pt,
+        minimum height=4pt,
+    },
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+       \draw[white,fill=white] (-0.5,-0.5) rectangle (6.2,5.2); % background
+       \draw[red!15,fill=red!15] (1,1) rectangle (4,4); % bounding box
+       \draw[blue!15,fill=blue!15] (2,2) rectangle (3,3); % bounding box
+       \tkzInit [xmin=0,xmax=4.5,ymin=0,ymax=4.5]
+        \begin{scriptsize}
+            \tkzGrid[color = gray!30!white]
+            \tkzAxeXY
+        \end{scriptsize}
+
+        \draw[line,red] (1,1) to (4,4);
+        \draw[line,blue] (2,2) to (3,3);
+\end{tikzpicture}
+\end{preview}
+\end{document}

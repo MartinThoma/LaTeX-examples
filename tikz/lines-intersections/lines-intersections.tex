@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{tkz-fct}
+\usetikzlibrary{arrows, decorations.pathreplacing}
+\usetikzlibrary{shapes.misc}
+
+\tikzset{
+    line/.style={
+        very thick,
+        black,
+        to path={% works only with "to" and not "--"
+            -- (\tikztotarget) node[at start,point] {} node [at end,point] {} \tikztonodes
+        }
+    },
+    point/.style={
+        thick,
+        draw=gray,
+        cross out,
+        inner sep=0pt,
+        minimum width=4pt,
+        minimum height=4pt,
+    },
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+       \draw[white,fill=white] (-1,-1) rectangle (22,8); % background
+       \tkzInit [xmin=0,xmax=21,ymin=0,ymax=7]
+        \begin{scriptsize}
+            \tkzGrid[color = gray!30!white]
+            \tkzAxeXY
+        \end{scriptsize}
+        \draw[line] (1,4) to (6,1);
+        \draw[line] (2,1) to (5,4);
+        \draw[line] (3,1) to (6,4);
+        \draw[line] (4,1) to (8,5);
+        \draw[line] (3,4) to (9,3);
+        \draw[line] (7,2) to (9,3);
+        \draw[line] (6,7) to (9,1);
+
+        \draw[line] (11,1) to (16,5);
+        \draw[line] (13,2) to (14,2);
+        \draw[line] (14,1) to (14,2);
+        \draw[line] (14,3) to (15,2);
+        \draw[line] (15,4) to (15,3);
+        \draw[line] (13,4) to (13,3);
+
+        \draw[line] (17,3) to (21,3);
+        \draw[line] (19,1) to (19,5);
+\end{tikzpicture}
+\end{preview}
+\end{document}
