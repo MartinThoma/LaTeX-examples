@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{0mm}
+
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{preview}
+  \begin{circuitikz}
+    \draw (0,0) node[european and port] (myand){}
+      (myand.in 1) node[anchor=east]{P} 
+      (myand.in 2) node[anchor=east]{Q} 
+      (1.8,0) node[european not port] (mynot){}
+      (mynot.out) node[anchor=west]{S}
+      (myand.out) -- (mynot.in);
+  \end{circuitikz}
+\end{preview}
+\end{document}
