@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{0mm}
+
+\usepackage{circuitikz}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+\begin{preview}
+  \begin{circuitikz}
+    \draw (0,2) node[european nand port] (mynand1){};
+    \draw (0,0) node[european nand port] (mynand2){};
+    \draw (2.5,1.73) node[european nand port] (mynand3){};
+    \draw (2.5,0.28) node[european nand port] (mynand4){};
+
+    \draw (mynand1.in 1) node[ocirc,label=left:$D$]{};
+    \draw (mynand2.in 2) node[circ] (lowerConnection) {};
+    \draw (-2.3,-0.27) node[ocirc,label=left:$E$] (E) {};
+    \draw (E) -- (lowerConnection);
+    \draw (mynand1.out) -- (mynand3.in 1);
+    \draw (mynand2.out) -- (mynand4.in 2);
+  \end{circuitikz}
+\end{preview}
+\end{document}
