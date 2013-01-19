@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{0mm}
+
+\usepackage{tikz}
+\usetikzlibrary{circuits.logic.IEC}
+
+\begin{document}
+\begin{preview}
+    \begin{tikzpicture}[circuit logic IEC]
+        \node[and gate, inputs={normal,normal}] (myand) {};
+        \draw (1,0) node[not gate, inputs={normal,normal}] (mynot) {};
+
+        \draw (myand.input 1 -| -0.8,0) node[anchor=east]{P} -- (myand.input 1);
+        \draw (myand.input 2 -| -0.8,0) node[anchor=east]{Q} -- (myand.input 2);
+
+        \draw (myand.output) -- (mynot.input);
+        \draw (mynot.output -| 1.8,0) node[anchor=west]{S} -- (mynot.output);
+    \end{tikzpicture}
+\end{preview}
+\end{document}
