@@ -1,4 +1,4 @@
-SOURCE = 3d-cmos-loss-diagram
+SOURCE = vertex-cover-1
 DELAY = 80
 DENSITY = 300
 WIDTH = 500

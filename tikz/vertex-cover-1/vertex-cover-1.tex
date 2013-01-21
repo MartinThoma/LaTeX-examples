@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+\begin{document}
+\begin{preview}
+\tikzset{mynode/.style={circle,minimum height=15pt,minimum width=15pt,draw,fill=blue!10},}
+\begin{tikzpicture}
+  \node[mynode] (n1) at (0,0) {$n_1$};
+  \node[mynode] (n2) at (2,0) {$n_2$};
+  \node[mynode] (n3) at (4,0) {$n_3$};
+  \node[mynode] (n4) at (6,0) {$n_4$};
+  \node[mynode] (n5) at (8,0) {$n_5$};
+  \node[mynode] (n6) at (0,2) {$n_6$};
+  \node[mynode] (n7) at (2,2) {$n_7$};
+  \node[mynode] (n8) at (4,2) {$n_8$};
+  \node[mynode] (n9) at (6,2) {$n_9$};
+  \node[mynode] (n10) at (8,2) {$n_{10}$};
+  \node[mynode] (n11) at (0,4) {$n_{11}$};
+  \node[mynode] (n12) at (2,4) {$n_{12}$};
+  \node[mynode] (n13) at (4,4) {$n_{13}$};
+  \node[mynode] (n14) at (6,4) {$n_{14}$};
+  \node[mynode] (n15) at (8,4) {$n_{15}$};
+  \node[mynode] (n16) at (0,6) {$n_{16}$};
+  \node[mynode] (n17) at (2,6) {$n_{17}$};
+  \node[mynode] (n18) at (4,6) {$n_{18}$};
+  \node[mynode] (n19) at (6,6) {$n_{19}$};
+  \node[mynode] (n20) at (8,6) {$n_{20}$};
+  \node[mynode] (n21) at (0,8) {$n_{21}$};
+  \node[mynode] (n22) at (2,8) {$n_{22}$};
+  \node[mynode] (n23) at (4,8) {$n_{23}$};
+  \node[mynode] (n24) at (6,8) {$n_{24}$};
+  \node[mynode] (n25) at (8,8) {$n_{25}$};
+  \node[mynode] (n26) at (10,8) {$n_{26}$};
+  \node[mynode] (n27) at (10,6) {$n_{27}$};
+  \node[mynode] (n28) at (10,4) {$n_{28}$};
+
+  \foreach \from/\to in {n1/n2,n1/n6,n2/n7,n3/n8,n3/n9,n4/n9,n5/n9,
+    n5/n10,n6/n7,n7/n13,n7/n8,n8/n14,n8/n9,n9/n10,n9/n15,
+    n11/n12,n12/n13,n12/n18,n13/n17,n13/n18,n13/n19,n13/n14,n14/n15,n14/n18,n14/n19,n15/n20,
+    n16/n17,n17/n22,n18/n19,n18/n24,n19/n24,n20/n24,
+    n21/n22,n23/n24,n24/n25,n27/n28}
+    \draw (\from) -- (\to);
+
+\end{tikzpicture}
+\end{preview}
+\end{document}
