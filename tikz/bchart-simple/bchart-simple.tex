@@ -4,13 +4,19 @@
 \usepackage{bchart}
 
 \begin{document}
-    \begin{bchart}[step=2,max=10]
-        \bcbar{3.4}
+    \begin{bchart}[step=50,max=550]
+        \bcbar[label=JAMA]{51.367}
             \smallskip
-        \bcbar{5.6}
-            \medskip
-        \bcbar{7.2}
-            \bigskip
-        \bcbar{9.9}
+        \bcbar[text=leafsize:2]{548.002}
+        \bcbar[label=l:4]{158.890}
+        \bcbar[label=l:8]{66.560}
+        \bcbar[label=16]{40.899}
+        \bcbar[label=32]{32.626}
+        \bcbar[label=64]{30.638}
+        \bcbar[label=128]{31.086}
+        \bcbar[label=256]{28.526}
+        \bcbar[label=512]{31.798}
+        \bcbar[label=1024]{42.967}
+        \bcbar[label=2048]{46.535}
     \end{bchart}
 \end{document}
