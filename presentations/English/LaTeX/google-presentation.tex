@@ -1,0 +1,42 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{../templates/myStyle}
+
+\begin{document}
+\title{\titleText}
+\subtitle{History, Algorithm}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{Introduction}
+\subsection{The early days}
+\begin{frame}{The early days}
+    In the beginning, there were only web catalogues (maintained by hand)
+\end{frame}
+
+\begin{frame}{The early days}
+    Web crawler
+\end{frame}
+
+\section{PageRank}
+\subsection{Kommende Tutorien}
+\begin{frame}{Kommende Tutorien}
+
+\end{frame}
+
+\framedgraphic{Thank you for your attention!}{../images/Teach-yourself-C++-in-21-days.png}
+
+\end{document}
