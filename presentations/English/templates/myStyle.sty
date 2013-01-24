@@ -20,6 +20,17 @@
 \usepackage{xcolor}
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage{soul}
+\usepackage{algorithm,algpseudocode}
+
+%\algdef{SE}[IF]{NoThenIf}{EndIf}[1]{\algorithmicif\ #1\textbf{:}}{\algorithmicend\ \algorithmicif}%
+\algtext*{EndIf}        % Remove "end if" text
+\algtext*{EndWhile}     % Remove "end while" text
+\algtext*{EndFunction}  % Remove "end while" text
+\algnewcommand\Global{\textbf{global }}
+
+\newcommand{\alertline}{%
+ \usebeamercolor[fg]{normal text}%
+ \only{\usebeamercolor[fg]{alerted text}}}
 
 \newcommand {\framedgraphic}[2] {
     \begin{frame}{#1}
