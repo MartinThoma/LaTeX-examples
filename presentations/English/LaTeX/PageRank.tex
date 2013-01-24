@@ -1,5 +1,5 @@
 \subsection{Idea}
-\begin{frame}{The early days}
+\begin{frame}{Basics}
     \begin{itemize}[<+->]
         \item Humans know what is good for them
         \item Humans create Websites
@@ -15,6 +15,43 @@
         \item Count numbers of Websites that link to a Website
         \item[\xmark] Quality of the page matters
         \item[\xmark] Total number of links on the source page matters
+    \end{itemize}
+\end{frame}
+
+\framedgraphic{A brilliant idea}{../images/BrinPage.jpg}
+
+\begin{frame}{Ideas of PageRank}
+    \begin{itemize}[<+->]
+        \item Decisions of humans are complicated
+        \item A lot of webpages get visited
+        \item[$\Rightarrow$] modellize clicks on links as random behaviour
+        \item Links are important
+        \item Links of page A get less important, if A has many links
+        \item Links of page A get more important, if many link to A
+        \item[$\Rightarrow$] if B has a link from A, the rank of B increases by $\frac{Rank(A)}{Links(A)}$
+    \end{itemize}
+
+    \pause[\thebeamerpauses]
+
+    \begin{algorithmic}
+        \If{A links to B}
+            \State $Rank(B)$ += $\frac{Rank(A)}{Links(A)}$
+        \EndIf
+    \end{algorithmic}
+\end{frame}
+
+\begin{frame}{Ants}
+    \begin{itemize}[<+->]
+        \item Websites = nodes = anthill
+        \item Links = edges = paths
+        \item You place ants on each node
+        \item They walk over the paths
+        \item[] (at random, they are ants!)
+        \item After some time, some anthills will have more ants than
+              others
+        \item Those hills are more attractive than others
+        \item \# ants is probability that a random user would end on
+              a website
     \end{itemize}
 \end{frame}
 
