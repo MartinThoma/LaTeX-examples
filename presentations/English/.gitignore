@@ -1,0 +1,5 @@
+logos/kitlogo*
+templates/*kit*.sty
+templates/example.bib
+templates/semirounded.sty
+templates/tikzuml.sty
