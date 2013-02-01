@@ -35,3 +35,8 @@ Contact
 =======
 If you have examples or suggestions for improving given examples, 
 you send them to info@martin-thoma.de
+
+Re-use
+=======
+Feel free to use and modify the examples of this repository.
+But please add a link to this repository or martin-thoma.com
