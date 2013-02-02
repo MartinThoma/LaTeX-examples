@@ -1,0 +1,82 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc, shapes.misc}
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={->,thick}
+}
+
+\tikzstyle{point}=[    thick,
+    draw=gray,
+    cross out,
+    inner sep=0pt,
+    minimum width=4pt,
+    minimum height=4pt]
+
+\begin{document}
+  \begin{tikzpicture}
+    % draw the background
+    % -2/cos(30°) = 4/sqrt(3) \approx 2.309 - Umkreisradius
+    %  2*tan(30°) = 2/sqrt(3) \approx 1.155 - Inkreisradius
+
+    \node[point] (TriangleCenter) at (0,0) {};
+    \draw[thick, fill=blue!15, draw=blue] (TriangleCenter) circle(2.345cm);
+
+    \begin{scope}[shift={(30:-2.309)}]
+        \draw [line width=1.5pt, fill=gray!2] (0,0) -- (60:4) -- (4,0) -- cycle;
+        \draw[thick, fill=green!15, draw=green] (TriangleCenter) circle(1.12cm);
+        \coordinate[label=left:$A$]  (A) at (0,0);
+        \coordinate[label=right:$B$] (B) at (4,0);
+        \coordinate[label=above:$C$] (C) at (2,3.464);
+
+
+        % Sign for right angle of h_c
+        %\begin{scope}[shift={(2,0)}]
+        %    \draw[fill=gray!30] (0,0) -- node[above=-0.15cm,near start] {$\cdot$} (0:0.18cm)
+        %                        arc (0:90:.18cm);
+        %\end{scope}
+
+        % sign of right angle of h_a
+        %\begin{scope}[shift={(30:3.464cm)}]
+        %    \draw[fill=gray!30] (0,0) -- node[near end,right=-0.28cm] {$\cdot$} (-60:0.18cm)
+        %                        arc (-60:-150:.18cm);
+        %\end{scope}
+
+        % sign of right angle of h_b
+        %\begin{scope}[shift={(60:2cm)}]
+        %    \draw[fill=gray!30] (0,0) -- node[right=-0.08cm, near start] {$\cdot$} (60:0.18cm)
+        %                        arc (60:-30:.18cm);
+        %\end{scope}
+
+        % angle alpha
+        %\draw[fill=green!30] (0,0) -- (0:0.75cm) arc (0:60:.75cm);
+        %\draw (0.35cm,0.25cm) node {$\alpha$};
+
+        % angle beta
+        \begin{scope}[shift={(4cm,0cm)}]
+            %\draw[fill=green!30] (0,0) -- (-180:0.75cm) arc (180:120:0.75cm);
+            \draw[color=gray, dashed] (0,0) -- node[sloped, above=-0.1cm] {} (150:3.464cm); % $\scriptstyle h_b$
+            %\draw (150:0.5cm) node {$\beta$};
+        \end{scope}
+
+        % angle gamma
+        \begin{scope}[shift={(60:4)}]
+            %\draw[fill=green!30] (0,0) -- (-120:.75cm) arc (-120:-60:.75cm);
+            \draw[color=gray, dashed] (0,0) -- node[right=-0.1cm] {} (-90:3.464cm); % $\scriptstyle h_c$
+            %\draw (-90:0.5cm) node {$\gamma$};
+        \end{scope}
+
+        % Height with label
+        \draw[color=gray, dashed] (0,0) -- node[sloped, above=-0.1cm] {} (30:3.464cm); % $\scriptstyle h_a$
+
+        % The triangle
+        \draw [line width=1.5pt] (0,0) -- (60:4) -- (4,0) -- cycle;
+    \end{scope}
+
+    \coordinate[label=below:$c$](c) at ($ (A)!.5!(B) $);
+    \coordinate[label=left:$b$] (b) at ($ (A)!.5!(C) $);
+    \coordinate[label=right:$a$](a) at ($ (B)!.5!(C) $);
+  \end{tikzpicture}
+\end{document}
