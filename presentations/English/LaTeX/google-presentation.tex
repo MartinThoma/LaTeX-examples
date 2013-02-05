@@ -1,17 +1,19 @@
-\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+\documentclass[usepdftitle=false]{beamer}
 \usepackage{../templates/myStyle}
 
 \begin{document}
+\selectlanguage{english}
+
 \title{\titleText}
 \subtitle{History, Algorithm}
 \author{\tutor}
-\date{\today}
-\subject{Programmieren}
+\date{7th of February, 2013}
+%\subject{Programmieren}
 
 \frame{\titlepage}
 
 \frame{
-    \frametitle{Inhaltsverzeichnis}
+    \frametitle{Contents}
     \setcounter{tocdepth}{1}
     \tableofcontents
     \setcounter{tocdepth}{2}
@@ -22,14 +24,7 @@
 %}
 
 \section{Introduction}
-\subsection{The early days}
-\begin{frame}{The early days}
-    In the beginning, there were only web catalogues (maintained by hand)
-\end{frame}
-
-\begin{frame}{The early days}
-    Web crawler
-\end{frame}
+\input{introduction}
 
 \section{PageRank}
 \input{PageRank}
