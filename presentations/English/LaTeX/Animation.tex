@@ -1,0 +1,58 @@
+\begin{frame}
+    \begin{figure}
+        \begin{tikzpicture}[->,scale=1.8, auto,swap]
+            % Draw the vertices. First you define a list.
+            \foreach \pos/\name in {{(1,0)/a}, {(4,0)/b}, {(5,1)/c},
+                                    {(3,1)/d}, {(4,2)/e}, {(5,2)/f}, 
+                                    {(1,2)/g}, {(0,3)/h}, {(2,4)/i},
+                                    {(4,3)/j}, {(4,4)/k}, {(5,4)/l}}
+                \node[vertex] (\name) at \pos {$\name$};
+ 
+            % Connect vertices with edges and draw weights
+            \foreach \source/ \dest /\pos in {g/a/, b/c/bend right, 
+                c/b/bend right, d/e/bend right, e/d/, h/g/, g/i/,g/i/bend left, g/i/bend right,
+                h/i/, h/i/bend left, g/j/bend right, j/g/,
+                j/k/bend right, k/j/bend right, j/f/, f/l/,e/j/,
+                l/l/loop right, j/d/}
+                \path (\source) edge [\pos] node {} (\dest);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\begin{frame}
+    \begin{figure}
+        \begin{tikzpicture}[->,scale=1.8, auto,swap]
+            % Draw the vertices. First you define a list.
+            \foreach \pos/\name in {{(1,0)/a}, {(4,0)/b}, {(5,1)/c},
+                                    {(3,1)/d}, {(4,2)/e}, {(5,2)/f}, 
+                                    {(1,2)/g}, {(0,3)/h}, {(2,4)/i},
+                                    {(4,3)/j}, {(4,4)/k}, {(5,4)/l}}
+                \node[vertex] (\name) at \pos {$15$};
+ 
+            % Connect vertices with edges and draw weights
+            \foreach \source/ \dest /\pos in {g/a/, b/c/bend right, 
+                c/b/bend right, d/e/bend right, e/d/, h/g/, g/i/,g/i/bend left, g/i/bend right,
+                h/i/, h/i/bend left, g/j/bend right, j/g/,
+                j/k/bend right, k/j/bend right, j/f/, f/l/,e/j/,
+                l/l/loop right, j/d/}
+                \path (\source) edge [\pos] node {} (\dest);
+
+             \node<3->[vertex] (a) at (1,0) {$17$};
+             \node<5->[vertex] (g) at (1,2) {$21$};
+             \node<9->[vertex] (i) at (2,4) {$19$};
+
+            \begin{pgfonlayer}{background}
+                \path<2->[selected edge] (g.center) edge [] node {2} (a.center);
+                \path<4->[selected edge] (j.center) edge [] node {6} (g.center);
+                \path<6->[selected edge] (g.center) edge [bend left] node {1} (i.center);
+                \path<7->[selected edge] (g.center) edge [] node {0} (i.center);
+                \path<8->[selected edge] (g.center) edge [bend right] node {3} (i.center);
+            \end{pgfonlayer}
+
+
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
