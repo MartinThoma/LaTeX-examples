@@ -12,6 +12,8 @@
 \usepackage[english]{babel} % this is needed for german umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
 \usepackage{relsize}
 \usepackage{subfigure}
 \usepackage{algorithm,algpseudocode}
@@ -21,6 +23,15 @@
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage{soul}
 \usepackage{algorithm,algpseudocode}
+
+% Define some styles for graphs
+\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{blue vertex} = [vertex, fill=blue!24]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{weight} = [font=\small]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
 
 %\algdef{SE}[IF]{NoThenIf}{EndIf}[1]{\algorithmicif\ #1\textbf{:}}{\algorithmicend\ \algorithmicif}%
 \algtext*{EndIf}        % Remove "end if" text

@@ -1,7 +1,9 @@
 \subsection{Idea}
 \begin{frame}{Basics of PageRank}
+    We all know that:
     \begin{itemize}[<+->]
         \item Humans know what is good for them
+        \item[\xmark] Machines don't know what's good for humans
         \item Humans create Websites
         \item Humans will only \href{http://en.wikipedia.org/wiki/Hyperlink}{link} to Websites they like
         \item[$\Rightarrow$] Hyperlinks are a quality indicator
@@ -12,8 +14,8 @@
     \begin{itemize}[<+->]
         \item Simply count number of links to a Website
         \item[\xmark] 10,000 links from only one page
-        \item Count numbers of Websites that link to a Website
-        \item[\xmark] Quality of the page matters
+        \item Count number of Websites that link to a Website
+        \item[\xmark] Quality of the linking website matters
         \item[\xmark] Total number of links on the source page matters
     \end{itemize}
 \end{frame}
@@ -42,20 +44,27 @@
     \end{algorithmic}
 \end{frame}
 
-\begin{frame}{Ants}
-    \begin{itemize}[<+->]
-        \item Websites = nodes = anthill
-        \item Links = edges = paths
-        \item You place ants on each node
-        \item They walk over the paths
-        \item[] (at random, they are ants!)
-        \item After some time, some anthills will have more ants than
-              others
-        \item Those hills are more attractive than others
-        \item \# ants is probability that a random user would end on
-              a website
-    \end{itemize}
+\begin{frame}{What is PageRank?}
+    The PageRank algorithm calculates the probability of a randomly
+    clicking user ending up on a given page.
 \end{frame}
+
+\input{Animation}
+
+%\begin{frame}{Ants}
+%    \begin{itemize}[<+->]
+%        \item Websites = nodes = anthill
+%        \item Links = edges = paths
+%        \item You place ants on each node
+%        \item They walk over the paths
+%        \item[] (at random, they are ants!)
+%        \item After some time, some anthills will have more ants than
+%              others
+%        \item Those hills are more attractive than others
+%        \item \# ants is probability that a random user would end on
+%              a website
+%    \end{itemize}
+%\end{frame}
 
 \begin{frame}{Mathematics}
     Let $x$ be a web page. Then
@@ -72,19 +81,19 @@
 \begin{frame}{Pseudocode}
         \begin{algorithmic}
 \alertline<1>             \Function{PageRank}{Graph $web$, double $q=0.15$, int $iterations$} %q is a damping factor
-\alertline<2>                 \ForAll{$page \in web$}
-\alertline<3>                     \State $page.pageRank = \frac{1}{|web|}$ \Comment{intial probability}
-\alertline<2>                 \EndFor
+%\alertline<2>                 \ForAll{$page \in web$}
+%\alertline<3>                     \State $page.pageRank = \frac{1}{|web|}$ \Comment{intial probability}
+%\alertline<2>                 \EndFor
 
-\alertline<4>                 \While{$iterations > 0$}
-\alertline<5>                     \ForAll{$page \in web$} \Comment{calculate pageRank of $page$}
-\alertline<6>                         \State $page.pageRank = q$
-\alertline<7>                         \ForAll{$y \in L(page)$}
-\alertline<8>                             \State $page.pageRank$ += $\frac{y.pageRank}{C(y)}$
-\alertline<7>                         \EndFor
-\alertline<5>                     \EndFor
-\alertline<4>                     \State $iterations$ -= $1$
-\alertline<4>                 \EndWhile
+\alertline<2>                 \While{$iterations > 0$}
+\alertline<3>                     \ForAll{$page \in web$} \Comment{calculate pageRank of $page$}
+\alertline<4>                         \State $page.pageRank = q$
+\alertline<5>                         \ForAll{$y \in L(page)$}
+\alertline<6>                             \State $page.pageRank$ += $\frac{y.pageRank}{C(y)}$
+\alertline<5>                         \EndFor
+\alertline<3>                     \EndFor
+\alertline<2>                     \State $iterations$ -= $1$
+\alertline<2>                 \EndWhile
 \alertline<1>             \EndFunction
         \end{algorithmic}
 \end{frame}
