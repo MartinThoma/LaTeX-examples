@@ -26,8 +26,10 @@
         \item A lot of webpages get visited
         \item[$\Rightarrow$] modellize clicks on links as random behaviour
         \item Links are important
-        \item Links of page A get less important, if A has many links
-        \item Links of page A get more important, if many link to A
+        \begin{itemize}
+            \item Links of page A get less important, if A has many links
+            \item Links of page A get more important, if many link to A
+        \end{itemize}
         \item[$\Rightarrow$] if B has a link from A, the rank of B increases by $\frac{Rank(A)}{Links(A)}$
     \end{itemize}
 
@@ -64,18 +66,18 @@
         \item $N$ is the total number of websites
     \end{itemize}
 
-    \[\displaystyle PR(x) := \alpha \left ( \frac{1}{N} \right ) + (1-\alpha) \sum_{y\in L(x)} \frac{PR(y)}{C_{y}}\]
+    \[\displaystyle PR(x) := \alpha \left ( \frac{1}{N} \right ) + (1-\alpha) \sum_{y\in L(x)} \frac{PR(y)}{C(y)}\]
 \end{frame}
 
 \begin{frame}{Pseudocode}
         \begin{algorithmic}
 \alertline<1>             \Function{PageRank}{Graph $web$, double $q=0.15$, int $iterations$} %q is a damping factor
-\alertline<2>                 \ForAll{$page \in G$}
-\alertline<3>                     \State $page.pageRank = \frac{1}{|G|}$ \Comment{intial probability}
+\alertline<2>                 \ForAll{$page \in web$}
+\alertline<3>                     \State $page.pageRank = \frac{1}{|web|}$ \Comment{intial probability}
 \alertline<2>                 \EndFor
 
 \alertline<4>                 \While{$iterations > 0$}
-\alertline<5>                     \ForAll{$page \in G$} \Comment{calculate pageRank of $page$}
+\alertline<5>                     \ForAll{$page \in web$} \Comment{calculate pageRank of $page$}
 \alertline<6>                         \State $page.pageRank = q$
 \alertline<7>                         \ForAll{$y \in L(page)$}
 \alertline<8>                             \State $page.pageRank$ += $\frac{y.pageRank}{C(y)}$
