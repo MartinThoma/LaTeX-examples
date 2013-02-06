@@ -2,35 +2,35 @@
 \begin{frame}{Basics of PageRank}
     We all know that:
     \begin{itemize}[<+->]
-        \item Humans know what is good for them
-        \item[\xmark] Machines don't know what's good for humans
-        \item Humans create Websites
-        \item Humans will only \href{http://en.wikipedia.org/wiki/Hyperlink}{link} to Websites they like
-        \item[$\Rightarrow$] Hyperlinks are a quality indicator
+        \item humans know what is good for them
+        \item[\xmark] machines don't know what's good for humans
+        \item humans create websites
+        \item humans will only \href{http://en.wikipedia.org/wiki/Hyperlink}{link} to websites they like
+        \item[$\Rightarrow$] hyperlinks are a quality indicator
     \end{itemize}
 \end{frame}
 
-\begin{frame}{How could we use that?}
+\begin{frame}{How Could We Use That?}
     \begin{itemize}[<+->]
-        \item Simply count number of links to a Website
+        \item simply count number of links to a website
         \item[\xmark] 10,000 links from only one page
-        \item Count number of Websites that link to a Website
-        \item[\xmark] Quality of the linking website matters
-        \item[\xmark] Total number of links on the source page matters
+        \item count number of websites that link to a website
+        \item[\xmark] quality of the linking website matters
+        \item[\xmark] total number of links on the source page matters
     \end{itemize}
 \end{frame}
 
-\framedgraphic{A brilliant idea}{../images/BrinPage.jpg}
+\framedgraphic{A Brilliant Idea}{../images/BrinPage.jpg}
 
 \begin{frame}{Ideas of PageRank}
     \begin{itemize}[<+->]
-        \item Decisions of humans are complicated
-        \item A lot of webpages get visited
+        \item decisions of humans are complicated
+        \item a lot of webpages get visited
         \item[$\Rightarrow$] modellize clicks on links as random behaviour
-        \item Links are important
+        \item links are important
         \begin{itemize}
-            \item Links of page A get less important, if A has many links
-            \item Links of page A get more important, if many link to A
+            \item links of page A get less important, if A has many links
+            \item links of page A get more important, if many link to A
         \end{itemize}
         \item[$\Rightarrow$] if B has a link from A, the rank of B increases by $\frac{Rank(A)}{Links(A)}$
     \end{itemize}
@@ -69,7 +69,7 @@
 \begin{frame}{Mathematics}
     Let $x$ be a web page. Then
     \begin{itemize}
-        \item $L(x)$ is the set of Websites that link to $x$
+        \item $L(x)$ is the set of websites that link to $x$
         \item $C(y)$ is the out-degree of page $y$
         \item $\alpha$ is probability of random jump
         \item $N$ is the total number of websites
