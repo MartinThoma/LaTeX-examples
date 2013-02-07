@@ -1,0 +1,120 @@
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{xcolor}
+\makeatletter
+
+% to change colors
+\newcommand{\fillcol}{green!20}
+\newcommand{\bordercol}{black}
+
+% code from Andrew Stacey (with small adjustment to the border color)
+% http://tex.stackexchange.com/questions/51582/background-coloring-with-overlay-specification-in-algorithm2e-beamer-package
+\newcounter{jumping}
+\resetcounteronoverlays{jumping}
+
+\def\jump@setbb#1#2#3{%
+  \@ifundefined{jump@#1@maxbb}{%
+    \expandafter\gdef\csname jump@#1@maxbb\endcsname{#3}%
+  }{%
+    \csname jump@#1@maxbb\endcsname
+    \pgf@xa=\pgf@x
+    \pgf@ya=\pgf@y
+    #3
+    \pgfmathsetlength\pgf@x{max(\pgf@x,\pgf@xa)}%
+    \pgfmathsetlength\pgf@y{max(\pgf@y,\pgf@ya)}%
+    \expandafter\xdef\csname jump@#1@maxbb\endcsname{\noexpand\pgfpoint{\the\pgf@x}{\the\pgf@y}}%
+  }
+  \@ifundefined{jump@#1@minbb}{%
+    \expandafter\gdef\csname jump@#1@minbb\endcsname{#2}%
+  }{%
+    \csname jump@#1@minbb\endcsname
+    \pgf@xa=\pgf@x
+    \pgf@ya=\pgf@y
+    #2
+    \pgfmathsetlength\pgf@x{min(\pgf@x,\pgf@xa)}%
+    \pgfmathsetlength\pgf@y{min(\pgf@y,\pgf@ya)}%
+    \expandafter\xdef\csname jump@#1@minbb\endcsname{\noexpand\pgfpoint{\the\pgf@x}{\the\pgf@y}}%
+  }
+}
+
+\tikzset{%
+  remember picture with id/.style={%
+    remember picture,
+    overlay,
+    draw=\bordercol,
+    save picture id=#1,
+  },
+  save picture id/.code={%
+    \edef\pgf@temp{#1}%
+    \immediate\write\pgfutil@auxout{%
+      \noexpand\savepointas{\pgf@temp}{\pgfpictureid}}%
+  },
+  if picture id/.code args={#1#2#3}{%
+    \@ifundefined{save@pt@#1}{%
+      \pgfkeysalso{#3}%
+    }{
+      \pgfkeysalso{#2}%
+    }
+  },
+  onslide/.code args={<#1>#2}{%
+    \only<#1>{\pgfkeysalso{#2}}%
+  },
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}%
+  },
+  stop jumping/.style={
+    execute at end picture={%
+      \stepcounter{jumping}%
+      \immediate\write\pgfutil@auxout{%
+        \noexpand\jump@setbb{\the\value{jumping}}{\noexpand\pgfpoint{\the\pgf@picminx}{\the\pgf@picminy}}{\noexpand\pgfpoint{\the\pgf@picmaxx}{\the\pgf@picmaxy}}
+      },
+      \csname jump@\the\value{jumping}@maxbb\endcsname
+      \path (\the\pgf@x,\the\pgf@y);
+      \csname jump@\the\value{jumping}@minbb\endcsname
+      \path (\the\pgf@x,\the\pgf@y);
+    },
+  }
+}
+
+
+\def\savepointas#1#2{%
+  \expandafter\gdef\csname save@pt@#1\endcsname{#2}%
+}
+
+\def\tmk@labeldef#1,#2\@nil{%
+  \def\tmk@label{#1}%
+  \def\tmk@def{#2}%
+}
+
+\tikzdeclarecoordinatesystem{pic}{%
+  \pgfutil@in@,{#1}%
+  \ifpgfutil@in@%
+    \tmk@labeldef#1\@nil
+  \else
+    \tmk@labeldef#1,\pgfpointorigin\@nil
+  \fi
+  \@ifundefined{save@pt@\tmk@label}{%
+    \tikz@scan@one@point\pgfutil@firstofone\tmk@def
+  }{%
+  \pgfsys@getposition{\csname save@pt@\tmk@label\endcsname}\save@orig@pic%
+  \pgfsys@getposition{\pgfpictureid}\save@this@pic%
+  \pgf@process{\pgfpointorigin\save@this@pic}%
+  \pgf@xa=\pgf@x
+  \pgf@ya=\pgf@y
+  \pgf@process{\pgfpointorigin\save@orig@pic}%
+  \advance\pgf@x by -\pgf@xa
+  \advance\pgf@y by -\pgf@ya
+  }%
+}
+\newcommand\tikzmark[2][]{%
+\tikz[remember picture with id=#2] #1;}
+\makeatother
+
+\resetcounteronoverlays{algocf}
+
+\newcommand<>{\boxto}[1]{%
+\only#2{\tikz[remember picture with id=#1]
+\draw[line width=1pt,fill=\fillcol,rectangle,rounded corners]
+(pic cs:#1) ++(5.2,-.1) rectangle (-0.4,0)
+;\tikz\node [anchor=base] (#1){};}% <= insertion to store the anchor to be used as based for the annotation
+}

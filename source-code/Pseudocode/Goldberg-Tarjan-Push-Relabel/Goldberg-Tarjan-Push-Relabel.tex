@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\begin{document}
+\begin{preview}
+    \begin{itemize}
+        \item $c:E \rightarrow \mathbb{R}_0^+$: capacity of an edge
+        \item $e: V \rightarrow \mathbb{R}_0^+$: excess (too much flow in one node)
+        \item $r_f: V \times V \rightarrow \mathbb{R}, \; r_f(u,v) := c(u,v) - f(u,v) $: remaining capacity 
+        \item $dist: V \rightarrow \mathbb{N}$: the label (imagine this as height)
+    \end{itemize}
+
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+             \Function{PushRelabel}{Network $N(D, s, t, c)$}
+                \ForAll{$(v,w) \in (V \times V \setminus E)$} \Comment{If an edge is not in $D=(V,E)$,}
+                    \State $c(v,w) \gets 0$ \Comment{then its capacity is 0}
+                \EndFor
+                \\
+                \ForAll{$(v,w) \in V \times V$} \Comment{At the beginning, every edge}
+                    \State $f(v,w) \gets 0$ \Comment{has flow=0}
+                    \State $r_f(v,w) \gets c(v,w)$  \Comment{flow=max in the residualgraph}
+                \EndFor
+                \\
+                \State $dist(s) \gets |V|$
+
+                \ForAll{$v \in V \setminus \Set{s}$}
+                    \State $f(s,v) \gets c(s,v)$    \Comment{Push maximum flow out at the beginning}
+                    \State $r(v,s) \gets c(v,s) - f(v,s)$
+                    \State $dist(v) \gets 0$
+                    \State $e(v) \gets c(s,v)$ \Comment{$v$ has to much flow}
+                \EndFor
+                \\
+                \While{$\exists v \in V:$ \Call{isActive}{v}}
+                    \If{\Call{isPushOk}{v}}
+                        \State \Call{Push}{v}
+                    \ElsIf{\Call{isRelabelOk}{v}}
+                        \State \Call{Relabel}{v}
+                    \EndIf
+                \EndWhile
+                \\
+                \State \Return $f$ \Comment{Maximaler Fluss}
+             \EndFunction
+            \\
+            \Function{Push}{Graph $D$, Flow $f$, Node $v$, Node $w$}
+                \State $\Delta \gets \min\Set{e(v), r_f(v,w)}$
+                \State $f(v,w) \gets f(v,w) + \Delta$
+                \State $f(w,v) \gets f(w,v) - \Delta$
+                \State $r_f(v,w) \gets r_f(v,w) - \Delta$
+                \State $r_f(w,v) \gets r_f(w,v) + \Delta$
+                \State $e(v) \gets e(v) - \Delta$
+                \State $e(w) \gets e(w) + \Delta$
+            \EndFunction
+            \\
+            \Function{Relabel}{Node $v$}
+                \If{$\Set{w|r_f(v,w) > 0} == \emptyset$}
+                    \State $dist(v) \gets \infty$
+                \Else
+                    \State $dist(v) \gets \min\Set{dist(w)+1|w \in V: r_f(v,w) > 0}$
+                \EndIf
+            \EndFunction
+            \\
+            \Function{isActive}{Node v}
+                \State\Return $(e(v) > 0) \land (dist(v) < \infty)$
+            \EndFunction
+            \\
+            \Function{isRelabelOk}{Node v}
+                \State\Return \Call{isActive}{v} $\land (\forall w \in \Set{r_f(v,w) >0}: dist(v) \leq dist(w))$
+            \EndFunction
+            \\
+            \Function{isPushOk}{Node v}
+                \State\Return \Call{isActive}{v} $\land (r_f > 0) \land (dist(v) == dist(w)+1)$
+            \EndFunction
+        \end{algorithmic}
+    \caption{Algorithm of Goldberg and Tarjan}
+    \label{alg:seq1}
+    \end{algorithm}
+\end{preview}
+\end{document}
