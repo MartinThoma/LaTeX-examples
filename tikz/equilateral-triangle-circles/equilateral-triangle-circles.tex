@@ -22,11 +22,11 @@
     %  2*tan(30°) = 2/sqrt(3) \approx 1.155 - Inkreisradius
 
     \node[point] (TriangleCenter) at (0,0) {};
-    \draw[thick, fill=blue!15, draw=blue] (TriangleCenter) circle(2.345cm);
+    \draw[thick, draw=blue] (TriangleCenter) circle(2.345cm);
 
     \begin{scope}[shift={(30:-2.309)}]
         \draw [line width=1.5pt, fill=gray!2] (0,0) -- (60:4) -- (4,0) -- cycle;
-        \draw[thick, fill=green!15, draw=green] (TriangleCenter) circle(1.12cm);
+        \draw[thick, draw=green] (TriangleCenter) circle(1.12cm);
         \coordinate[label=left:$A$]  (A) at (0,0);
         \coordinate[label=right:$B$] (B) at (4,0);
         \coordinate[label=above:$C$] (C) at (2,3.464);
