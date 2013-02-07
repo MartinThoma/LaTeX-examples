@@ -38,7 +38,7 @@ def make3dhistogram(x, y, z, zmin, output):
         writeCoordinates(file, x[i], y[j], zmin)
 
 if __name__ == "__main__":
-    x = [0,1,2,3,4]
-    y = [0,1,2,3,4] # <- size of y
+    x = [0,1,2,3,4] # Whats that good for? Can it be replaced by range(xMax+1)?
+    y = [0,1,2,3,4] # Whats that good for? Can it be replaced by range(yMax+1)?
     z = [[2,3,1,0], [0,6,0,0], [1,0,0,4], [0,0,0,0]]
     createTex(x,y,z)
