@@ -4,11 +4,14 @@
 \usepackage[ngerman]{babel} % this is needed for german umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{fancyhdr}  % needed for the footer
+\usepackage{lastpage}  % needed for the footer
+\usepackage{hyperref}  % links im text
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{color}
 \usepackage{listings}
-\usepackage{pdfpages}  % includepdf
+\usepackage{pdfpages}  % Signatureinbingung und includepdf
 \usepackage{menukeys}
 \usepackage{vmargin}          % Adjust margins in a simple way
 \usepackage{subfigure}
@@ -18,7 +21,12 @@
 \usepackage{caption}
 \usepackage{changepage}% http://ctan.org/pkg/changepage
 \usepackage{floatflt}
+\usepackage{tabularx}
 \usepackage[titletoc]{appendix}
+\usepackage[onehalfspacing]{setspace} % eineinhalbfacher Zeienabstand
+\clubpenalty  = 10000 % Schusterjungen verhindern
+\widowpenalty = 10000 % Hurenkinder verhindern
+\newcommand{\quoteitalic}[1]{\glqq{\textit{#1}}\grqq{}} % quotes
 
 \definecolor{bluekeywords}{rgb}{0.13,0.13,1}
 \definecolor{greencomments}{rgb}{0,0.5,0}
