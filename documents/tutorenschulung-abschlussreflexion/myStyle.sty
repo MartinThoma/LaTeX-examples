@@ -1,0 +1,125 @@
+\usepackage{amssymb} % needed for math
+\usepackage{amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{pdfpages}  % includepdf
+\usepackage{menukeys}
+\usepackage{vmargin}          % Adjust margins in a simple way
+\usepackage{subfigure}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{changepage}% http://ctan.org/pkg/changepage
+\usepackage{floatflt}
+\usepackage[titletoc]{appendix}
+
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+
+\lstset{
+    language=[Sharp]C,
+    columns=flexible,              % needed because of spaces
+    keepspaces=true,               % needed because of spaces
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    escapeinside={(*@}{@*)},
+    commentstyle=\color{greencomments},
+    keywordstyle=\color{bluekeywords}\bfseries,
+    stringstyle=\color{redstrings},
+    basicstyle=\small\ttfamily
+}
+
+% doch lieber nicht:
+% http://stackoverflow.com/a/6295698/562769
+%\lstset{prebreak=\raisebox{0ex}[0ex][0ex]
+%        {\ensuremath{\hookleftarrow}}}
+%\lstset{postbreak=\raisebox{0ex}[0ex][0ex]
+%        {\ensuremath{\rightarrow\space}}}
+%\lstset{breaklines=true, breakatwhitespace=true}
+%\lstset{numbers=left, numberstyle=\scriptsize}
+
+\makeatletter
+\def\lst@outputspace{{\ifx\lst@bkgcolor\empty\color{white}\else\lst@bkgcolor\fi\lst@visiblespace}}
+\makeatother
+
+\renewcommand{\captionfont}{\scriptsize}
+
+% used for tables in Qualitätszielbestimmungen
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\makeglossary 
+
+%% -------------------------------
+%% |        Declarations         |
+%% -------------------------------
+\DeclareGraphicsExtensions{.svg}
+%% --- End of Declarations ---
+
+%% -------------------------------
+%% |         New commands        |
+%% -------------------------------
+\newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+%\renewcommand*{\headfont}{\slshape}
+%\newcommand{\captionfont}{}
+\newcommand{\chapterheadfont}{}
+\newcommand{\blankpage}{
+ \clearpage{\pagestyle{empty}\cleardoublepage}
+}
+
+% new page before section
+%\let\stdsection\section
+%\renewcommand\section{\newpage\stdsection}
+%\newcommand{\sectionbreak}{\clearpage}
+%% --- End of New Commands ---
+
+
+%% -------------------------------
+%% |      Globale Settings       |
+%% -------------------------------
+\setcounter{secnumdepth}{3} % Numbering also for \subsubsections
+\setcounter{tocdepth}{3}    % Register \subsubsections in content directory
+
+\setpapersize{A4}
+\setmarginsrb{3cm}{1cm}{3cm}{1cm}{6mm}{7mm}{5mm}{15mm}
+
+\parindent 0cm                     % Do not indent beginning of paragraph
+\parskip1.5ex plus0.5ex minus0.5ex % Margin between paragraphs
+%% --- End of global Settings ---
+
+\newcommand{\subsubsubsection}[1]{\noindent\textbf{#1}\newline\nopagebreak}
+
+\widowpenalties 1 10000
+\raggedbottom
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create a shorter version for tables. DO NOT CHANGE               	 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\addrow[2]{#1 &#2\\ }
+
+\newcommand\addheading[2]{#1 &#2\\ \hline}
+\newcommand\tabularhead{\begin{tabular}{lp{13cm}}
+\hline
+}
+
+\newcommand\addmulrow[2]{ \begin{minipage}[t][][t]{2.5cm}#1\end{minipage}% 
+   &\begin{minipage}[t][][t]{8cm}
+    \begin{enumerate} #2   \end{enumerate}
+    \end{minipage}\\ }
+
+\newenvironment{usecase}{\tabularhead}
+{\hline\end{tabular}}
+
+\usepackage{listings}
