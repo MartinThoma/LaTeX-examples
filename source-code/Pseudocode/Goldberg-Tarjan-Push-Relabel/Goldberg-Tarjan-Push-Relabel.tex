@@ -33,21 +33,22 @@
                     \State $f(s,v) \gets c(s,v)$    \Comment{Push maximum flow out at the beginning}
                     \State $r(v,s) \gets c(v,s) - f(v,s)$
                     \State $dist(v) \gets 0$
-                    \State $e(v) \gets c(s,v)$ \Comment{$v$ has to much flow}
+                    \State $e(v) \gets c(s,v)$ \Comment{$v$ has too much flow}
                 \EndFor
                 \\
-                \While{$\exists v \in V:$ \Call{isActive}{v}}
-                    \If{\Call{isPushOk}{v}}
-                        \State \Call{Push}{v}
-                    \ElsIf{\Call{isRelabelOk}{v}}
-                        \State \Call{Relabel}{v}
+                \While{$\exists v \in V:$ \Call{isActive}{$v$}}
+                    \If{\Call{isPushOk}{$v$}}
+                        \State \Call{Push}{$v$}
+                    \EndIf
+                    \If{\Call{isRelabelOk}{$v$}}
+                        \State \Call{Relabel}{$v$}
                     \EndIf
                 \EndWhile
                 \\
                 \State \Return $f$ \Comment{Maximaler Fluss}
              \EndFunction
             \\
-            \Function{Push}{Graph $D$, Flow $f$, Node $v$, Node $w$}
+            \Function{Push}{Node $v$, Node $w$}
                 \State $\Delta \gets \min\Set{e(v), r_f(v,w)}$
                 \State $f(v,w) \gets f(v,w) + \Delta$
                 \State $f(w,v) \gets f(w,v) - \Delta$
@@ -65,16 +66,16 @@
                 \EndIf
             \EndFunction
             \\
-            \Function{isActive}{Node v}
+            \Function{isActive}{Node $v$}
                 \State\Return $(e(v) > 0) \land (dist(v) < \infty)$
             \EndFunction
             \\
-            \Function{isRelabelOk}{Node v}
-                \State\Return \Call{isActive}{v} $\land (\forall w \in \Set{r_f(v,w) >0}: dist(v) \leq dist(w))$
+            \Function{isRelabelOk}{Node $v$}
+                \State\Return \Call{isActive}{$v$} $\displaystyle \bigwedge_{w \in \Set{w \in V | r_f(v,w) >0}}(dist(v) \leq dist(w))$
             \EndFunction
             \\
-            \Function{isPushOk}{Node v}
-                \State\Return \Call{isActive}{v} $\land (r_f > 0) \land (dist(v) == dist(w)+1)$
+            \Function{isPushOk}{Node $v$}
+                \State\Return \Call{isActive}{$v$} $\land (e(v) > 0) \land (dist(v) == dist(w)+1)$
             \EndFunction
         \end{algorithmic}
     \caption{Algorithm of Goldberg and Tarjan}
