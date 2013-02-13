@@ -32,22 +32,6 @@
 \definecolor{greencomments}{rgb}{0,0.5,0}
 \definecolor{redstrings}{rgb}{0.9,0,0}
 
-\lstset{
-    language=[Sharp]C,
-    columns=flexible,              % needed because of spaces
-    keepspaces=true,               % needed because of spaces
-    showspaces=false,
-    showtabs=false,
-    breaklines=true,
-    showstringspaces=false,
-    breakatwhitespace=true,
-    escapeinside={(*@}{@*)},
-    commentstyle=\color{greencomments},
-    keywordstyle=\color{bluekeywords}\bfseries,
-    stringstyle=\color{redstrings},
-    basicstyle=\small\ttfamily
-}
-
 % doch lieber nicht:
 % http://stackoverflow.com/a/6295698/562769
 %\lstset{prebreak=\raisebox{0ex}[0ex][0ex]
@@ -67,8 +51,6 @@
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
-\makeglossary 
-
 %% -------------------------------
 %% |        Declarations         |
 %% -------------------------------
@@ -85,13 +67,6 @@
 \newcommand{\blankpage}{
  \clearpage{\pagestyle{empty}\cleardoublepage}
 }
-
-% new page before section
-%\let\stdsection\section
-%\renewcommand\section{\newpage\stdsection}
-%\newcommand{\sectionbreak}{\clearpage}
-%% --- End of New Commands ---
-
 
 %% -------------------------------
 %% |      Globale Settings       |
@@ -126,8 +101,3 @@
    &\begin{minipage}[t][][t]{8cm}
     \begin{enumerate} #2   \end{enumerate}
     \end{minipage}\\ }
-
-\newenvironment{usecase}{\tabularhead}
-{\hline\end{tabular}}
-
-\usepackage{listings}

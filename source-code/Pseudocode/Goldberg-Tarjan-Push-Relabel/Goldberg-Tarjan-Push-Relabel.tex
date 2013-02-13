@@ -59,7 +59,7 @@
             \EndFunction
             \\
             \Function{Relabel}{Node $v$}
-                \If{$\Set{w|r_f(v,w) > 0} == \emptyset$}
+                \If{$\Set{w \in V |r_f(v,w) > 0} == \emptyset$}
                     \State $dist(v) \gets \infty$
                 \Else
                     \State $dist(v) \gets \min\Set{dist(w)+1|w \in V: r_f(v,w) > 0}$

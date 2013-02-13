@@ -1,16 +1,6 @@
 def writeCoordinates(file, x, y, z):
     file.write("(" + str(x) + "," + str(y) + "," + str(z) + ") ")
 
-def createTex(x, y, z, output='3d-manhattan-bar-plot.tex'):
-    template = open('template.tpl', 'r').read()
-    make3dhistogram(x, y, z, 0.0, 'data')
-    data = open('data', 'r').read()
-    file = open(output, 'wb')
-    template = template.replace('[PLACE_PLOT_HERE]', data)
-    template = template.replace('[XMAX]', str(len(x)-1))
-    template = template.replace('[YMAX]', str(len(y)-1))
-    file.write(template)
-
 def make3dhistogram(x, y, z, zmin, output):
     file = open(output, 'wb')
     i = 0
@@ -36,6 +26,16 @@ def make3dhistogram(x, y, z, zmin, output):
     for j in range(len(y)):
         writeCoordinates(file, x[i], y[j], zmin)
         writeCoordinates(file, x[i], y[j], zmin)
+
+def createTex(x, y, z, output='3d-manhattan-bar-plot.tex'):
+    template = open('template.tpl', 'r').read()
+    make3dhistogram(x, y, z, 0.0, 'data')
+    data = open('data', 'r').read()
+    file = open(output, 'wb')
+    template = template.replace('[PLACE_PLOT_HERE]', data)
+    template = template.replace('[XMAX]', str(len(x)-1))
+    template = template.replace('[YMAX]', str(len(y)-1))
+    file.write(template)
 
 if __name__ == "__main__":
     x = [0,1,2,3,4] # Whats that good for? Can it be replaced by range(xMax+1)?
