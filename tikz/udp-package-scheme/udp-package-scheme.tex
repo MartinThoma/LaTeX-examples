@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart, calc, decorations.pathreplacing} 
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[array/.style={rectangle split,rectangle split horizontal, rectangle split parts=#1,draw, anchor=center, rectangle split part fill={blue!20, green!20, blue!20!green!90}}]
+\node[array=3] (a) {
+\nodepart{one}IP-Header
+\nodepart{two}UDP-Header
+\nodepart{three}UDP-Daten
+};
+
+\draw [decoration={brace,raise=2pt},decorate] (a.north west) --  node[above=3pt]{IP-Datagramm}(a.north east);
+\draw [decoration={brace,mirror,raise=2pt},decorate] ($(a.two) + (-0.13,-0.14)$) --  node[below=3pt]{UDP-Datagramm}(a.south east);
+\end{tikzpicture}
+\end{preview}
+\end{document}
