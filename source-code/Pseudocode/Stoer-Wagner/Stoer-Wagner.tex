@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\begin{document}
+\begin{preview}
+    Sei $S \subseteq V$ und $c:E\rightarrow\mathbb{R}_0^+$ die 
+    Kantengewichtsfunktion.
+    Für $v \in V \setminus S$ sei:
+
+        \begin{align*}
+            c &:\mathcal{P}(V) \times V \rightarrow \mathbb{R}_0^+\\
+        c(S,v) &:= \sum_{\substack{\Set{u,v} \in E\\ u \in S}} c(\Set{u,v})
+        \end{align*}
+
+    Sei nun $d: \mathcal{P}(V) \rightarrow V$ die Funktion, die den 
+    Knoten liefert, der am stärksten mit $S \in \mathcal{P}(V)$ 
+    verbunden ist:
+        \[d(S) := v \in V \setminus S: c(S, v) = \max(\Set{c(S,v) | v \in V \setminus S})\]
+
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Function{StoerWagner}{Network $N(D, s, t, c)$}
+                \State Graph $G_0 = D$
+                \State Knoten $a,b,v$
+                \State Phasenergebnisse $P$ \Comment{Speichert Schnitt und Gewicht}
+                \For{($i=1$; $\;i<|V|$; $\;i$++)}
+                    \State Knotenmenge $S_i \gets \Set{}$
+                    \State $S_i$.add($S_i \in G_i$) \Comment{Wähle einen beliebigen Startknoten}
+                    \While{$S_i \neq V_{i-1}$}
+                        \State $v \gets$ \Call{d}{$S_i$}
+                        \State $S_i$.add($v$)
+                    \EndWhile
+
+                    \State $a \gets v$
+                    \State $b \gets$ \Call{d}{$\Set{a}$}
+                    \State $V_i \gets$ \Call{Verschmelzen}{$V_{i-1}$, $a$, $b$}
+                    \State $E_i \gets$ \Call{Verschmelzen}{$E_{i-1}$, $a$, $b$}
+                    \State $G_i = (V_i, E_i)$
+                    \State $P$.add($(a, V \setminus a)$, $c(a, V \setminus a)$)
+                \EndFor
+
+                \State \Return $P$.getMinimalCut()
+            \EndFunction
+
+            \Function{Verschmelzen}{Knotenmenge $V$, Knoten $a$, Knoten $b$}
+                \State $V$.remove($a$)
+                \State $V$.remove($b$)
+                \State \Comment{TODO: was, wenn a und b schon Mengen sind?}
+                \State $V$.add($\Set{a, b}$)
+            \EndFunction
+
+            \Function{Verschmelzen}{Kantenmenge $E$, Knoten $a$, Knoten $b$}
+                \State \Comment{TODO: Kantengewichtsfunktion muss auch angepasst werden}
+                \ForAll{Kante $e:=(x,y) \in E$}
+                    \If{$x == a \lor x == b$}
+                        \State $E$.remove($e$)
+                        \State $E$.add($(\Set{a, b},y)$)
+                    \ElsIf{$y == a \lor y == b$}
+                        \State $E$.remove($e$)
+                        \State $E$.add($(x, \Set{a, b})$)
+                    \EndIf
+                \EndFor
+            \EndFunction
+        \end{algorithmic}
+    \caption{Algorithmus von Stoer und Wanger}
+    \label{alg:seq1}
+    \end{algorithm}
+\end{preview}
+\end{document}
