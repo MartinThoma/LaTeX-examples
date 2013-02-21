@@ -1,7 +1,7 @@
-SOURCE = line-segments-bounding-box
+SOURCE = flowchart
 DELAY = 80
 DENSITY = 300
-WIDTH = 500
+WIDTH = 512
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf

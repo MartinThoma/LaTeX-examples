@@ -1,0 +1,42 @@
+% thanks for the template:
+% http://www.texample.net/tikz/examples/simple-flow-chart/
+\documentclass{standalone}
+\usepackage{gensymb}
+%\usepackage[pdftex,active,tightpage]{preview}
+%\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\begin{document}
+%\begin{preview}
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+    
+\begin{tikzpicture}[auto]
+    % Place nodes
+    \node [block] (init) {start};
+    \node [decision, below of=init] (boundingBoxes) {do bounding boxes intersect?};
+    \node [decision, right of=boundingBoxes, node distance=4cm] (lineAIntersectLineB) {does line a intersect line segment b?};
+    \node [decision, right of=lineAIntersectLineB, node distance=4.7cm] (lineBIntersectLineA) {does line b intersect line segment a?};
+    \node [block, right of=lineBIntersectLineA, node distance=4.7cm] (yes) {yes};
+    \node [block, below of=boundingBoxes, node distance=3cm] (no) {no};
+    % Draw edges
+    \path [line] (init) -- (boundingBoxes);
+    \path [line] (boundingBoxes) -- node {no}(no);
+    \path [line] (boundingBoxes) -- node {yes}(lineAIntersectLineB);
+    \path [line] (lineAIntersectLineB) |- node {no}(no);
+    \path [line] (lineAIntersectLineB) -- node {yes}(lineBIntersectLineA);
+    \path [line] (lineBIntersectLineA) |- node {no}(no);
+    \path [line] (lineBIntersectLineA) -- node {yes}(yes);
+\end{tikzpicture}
+%\end{preview}
+\end{document}

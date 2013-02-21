@@ -1,7 +1,7 @@
 SOURCE = 3d-cmos-loss-diagram
 DELAY = 80
 DENSITY = 300
-WIDTH = 500
+WIDTH = 512
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf
