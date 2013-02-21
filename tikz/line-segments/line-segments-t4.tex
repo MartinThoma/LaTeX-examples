@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{gensymb}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{arrows, calc, positioning,decorations.pathreplacing,shapes} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick},
+    line/.style={
+        very thick,
+        black,
+        to path={% works only with "to" and not "--"
+            -- (\tikztotarget) node[at start,point] {} node [at end,point] {} \tikztonodes
+        }
+    },
+    point/.style={
+        thick,
+        draw=gray,
+        cross out,
+        inner sep=0pt,
+        minimum width=4pt,
+        minimum height=4pt,
+    },
+}
+
+\begin{document}
+\begin{preview}
+  \begin{tikzpicture}
+    \newcommand\MinX{0}
+    \newcommand\MinY{0}
+    \newcommand\MaxX{2}
+    \newcommand\MaxY{4}
+
+    % Coordinate system
+    \draw [<->, thick, red] (0,{\MaxY+0.5}) -- (0,0) -- ({\MaxX+0.5},0);
+
+    \coordinate (A) at (2,4);
+    \coordinate (B) at (2,0);
+    \coordinate (C) at (0,2);
+    \coordinate (D) at (2,2);
+
+    % \draw[color=orange, very thick, fill=orange!20] (A) -- (B) -- cycle;
+
+    \draw[line] (A) -- (B);
+    \draw[line] (C) -- (D);
+
+    \draw[step=0.5cm,color=gray] ({\MinX-0.25}, {\MinY-0.25}) grid ({\MaxX+0.25},{\MaxY+0.25});
+    \path[every node/.style={point}]
+         node at (A) {}
+         node at (B) {}
+         node at (C) {}
+         node at (D) {};
+  \end{tikzpicture}
+\end{preview}
+\end{document}

@@ -1,4 +1,4 @@
-SOURCE = rectangle-3
+SOURCE = line-segments-bounding-box
 DELAY = 80
 DENSITY = 300
 WIDTH = 500
@@ -9,6 +9,9 @@ make:
 
 clean:
 	rm -rf  $(TARGET) *.class *.html *.log *.aux *.data *.gnuplot
+
+noimage:
+	rm -rf  $(TARGET) *.png *.svg
 
 gif:
 	pdfcrop $(SOURCE).pdf
