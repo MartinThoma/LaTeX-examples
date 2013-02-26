@@ -1,0 +1,141 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb} % needed for math
+\usepackage{amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{fancyhdr}  % needed for the footer
+\usepackage{lastpage}  % needed for the footer
+\usepackage{hyperref}  % links im text
+\usepackage{wasysym}  % farbige Tabellenzellen
+\usepackage{footnote}
+
+\newcommand{\Nachname}{Thoma}
+\newcommand{\Vorname}{Martin}
+\newcommand{\Titel}{Klausurvorbereitung für Algorithmen II im WS 2012 / 2013}
+
+\hypersetup{ 
+  pdfauthor   = {\Vorname~\Nachname}, 
+  pdfkeywords = {\Vorname~\Nachname, Algorithmen II, Klausur}, 
+  pdftitle    = {\Titel} 
+} 
+
+\begin{document}
+
+\title{\Titel}
+\author{\Vorname~\Nachname}
+
+\section{Flüsse und Schnitte}
+\begin{itemize}
+    \item Beschreibe den Algorithmus von Goldberg und Tarjan. Welche Laufzeit besitzt er?
+    \item Beschreibe den Algorithmus von Stoer und Wagner. Welche Laufzeit besitzt er?
+\end{itemize}
+
+\section{Kreise}
+\begin{itemize}
+    \item Wie funktioniert der Algorithmus von Horton?  Welche Laufzeit besitzt er?
+    \item Wie funktioniert der Algorithmus von de Pina? Welche Laufzeit besitzt er?
+\end{itemize}
+
+\section{Randomisierte Algorithmen}
+\begin{itemize}
+    \item Wie sind die Klassen $\mathcal{RP}, \mathcal{BPP}$ und 
+          $\mathcal{PP}$ definiert?
+\end{itemize}
+
+\section{Algorithmische Geometrie}
+\begin{itemize}
+    \item Wie bestimmt man, ob sich zwei Strecken schneiden?
+    \item Wie funktioniert der Sweep-Line Algorithmus? Welche Laufzeit besitzt er?
+    \item Wie funktioniert der Graham-Scan? Welche Laufzeit besitzt er?
+    \item Wie funktioniert Jarvis March? Welche Laufzeit besitzt er?
+\end{itemize}
+
+\section{String-Matching}
+\begin{itemize}
+    \item Wie funktioniert der Algorithmus von Rabin-Karp? Welche Laufzeit besitzt er?
+    \item Wie funktioniert der Algorithmus mit einem Endlichen Automaten?
+    \item Was sind Suffixbäume? Wie nutzt man sie?
+\end{itemize}
+
+\section{Approximierende Algorithmen}
+\begin{itemize}
+    \item Wie bedeuten die Abkürzungen PAS, FPAS, APAS?
+\end{itemize}
+
+\section{Parametrisierte Algorithmen}
+\begin{itemize}
+    \item Was ist ein Fixed Parameter Tractable?
+    \item Nenne ein Beispiel für Kernbildung.
+\end{itemize}
+
+\section{Online Algorithmen}
+\begin{itemize}
+    \item Was bedeutet c-Kompetitivität?
+    \item Wann ist ein Algorithmus konservativ?
+    \item Was ist Béládys Anomalie?
+\end{itemize}
+
+\section{Parallelität}
+\begin{itemize}
+    \item In welcher Einheit wird die Laufzeit $\mathcal{T_A}$ 
+          eines parallelen Algorithmus $\mathcal{A}$ gemessen?
+    \item Was bedeutet "`Speedup"', "`Kosten"' und "`Kostenoptimal"' 
+          bei parallelen Algorithmen?
+    \item Welche Einheit hat "`Effizienz"' $E_{\mathcal A} (n)$? 
+    \item Welche Werte kann sie annehmen?
+    \item Was ist ein sequentieller Algorithmus?
+    \item Wie sind die Komplexitätsklassen $\mathcal{NC}$ und 
+          $\mathcal{SC}$ definiert?
+\end{itemize}
+\clearpage
+
+\section{Wahr oder Falsch}
+% http://texblog.org/2012/02/03/using-footnote-in-a-table/
+\begin{minipage*}{16cm}
+    \begin{tabular}{| c | p{12 cm}  | c | c |}
+    \hline
+    \textbf{\#} & \textbf{Frage} & \textbf{Wahr} & \textbf{Falsch} \\
+    \hline
+    \hline
+    1 & Gegeben ist ein Flussnetzwerk mit ganzzahligen Kapazitäten. 
+        Dann ist jeder maximale Fluss auf jeder Kante ganzzahlig.    &  \Square &  \Square \\
+    \hline
+    2 & Gegeben ist ein Flussnetzwerk mit ganzzahligen Kapazitäten. 
+        Dann existiert ein maximale Fluss, der auf jeder Kante 
+        ganzzahlig is.                                               &  \Square &  \Square \\
+    \hline
+    3 & Falls $\mathcal{P} \neq \mathcal{NP}$, dann gibt es einen 
+        polynomialen Algorithmus zur Lösung eines beliebigen LP.     &  \Square &  \Square \\
+    \hline
+    4 & Falls $\mathcal{P} \neq \mathcal{NP}$, dann gibt es keinen 
+        polynomialen Algorithmus zur Lösung eines beliebigen 
+        ganzzahligen LP.                                             &  \Square &  \Square \\
+    \hline
+    5 & Jeder ungerichtete kreisfreie Graph mit $n$ Knoten 
+        hat genau $n - 1$ Kanten.                                    &  \Square &  \Square \\
+    \hline
+    6 & Jeder ungerichtete, zusammenhängende, kreisfreie Graph mit 
+        $n$ Knoten hat genau $n - 1$ Kanten.                         &  \Square &  \Square \\
+    \hline
+    7 & Jeder Baum mit $n$ Knoten hat genau $n - 1$ Kanten.          &  \Square &  \Square \\
+    \hline
+    8 & Der Sweep-Line-Algorithmus ist zum finden aller Paare sich
+        schneidender Strecken immer besser als Brute-Force.          &  \Square &  \Square \\
+    \hline
+    9 & $\mathcal{RP} \subseteq \mathcal{BPP}$                       &  \Square &  \Square \\
+    \hline
+   10 & Jeder $\mathcal{RP}$-Algorithmus ist ein 
+       $\mathcal{BPP}$-Algorithmus.
+      \footnote{Siehe \href{http://de.wikipedia.org/wiki/Diskussion:BPP\_(Komplexit\%C3\%A4tsklasse)\#Jeder\_RP-Algorithmus\_ist\_ein\_BPP-Algorithmus}{Wikipedia}}
+                                                                     &  \Square &  \Square \\
+    \hline
+   11 & $\mathcal{PP} \subseteq \mathcal{BPP}$                       &  \Square &  \Square \\
+    \hline
+   12 & $\mathcal{BPP} \subseteq \mathcal{PP}$                       &  \Square &  \Square \\
+    \hline
+    \end{tabular}
+\end{minipage*}
+
+\end{document}

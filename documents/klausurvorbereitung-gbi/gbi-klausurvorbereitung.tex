@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb} % needed for math
+\usepackage{amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{fancyhdr}  % needed for the footer
+\usepackage{lastpage}  % needed for the footer
+\usepackage{hyperref}  % links im text
+\usepackage{wasysym}  % farbige Tabellenzellen
+
+\newcommand{\Nachname}{Thoma}
+\newcommand{\Vorname}{Martin}
+
+\hypersetup{ 
+  pdfauthor   = {\Vorname~\Nachname}, 
+  pdfkeywords = {\Vorname~\Nachname, GBI, Klausur}, 
+  pdftitle    = {Klausurvorbereitung für GBI im WS 2011 / 2012} 
+} 
+
+\begin{document}
+
+\title{Klausurvorbereitung für GBI im WS 2011 / 2012}
+\author{\Vorname~\Nachname}
+
+\section{Definitionen}
+Definiere folgendes Formal korrekt:
+
+\begin{enumerate}
+  \item ${\cal O}(f(n))$,  $\Omega(f(n))$,  $\Theta(f(n))$
+  \item Das Master-Theorem
+  \item $L^*, L^+$
+\end{enumerate}
+
+\section{Aussagenlogik}
+Finde möglichst einfache Aussagenlogische Formeln C, D, E in Abhängigkeit von A 
+und B für folgende Tabelle:
+\begin{table}[h]
+	\begin{tabular}{| c | c  || c | c | c |}
+	\hline
+	\textbf{A} & \textbf{B} & C & D & E\\
+	\hline
+	\hline
+	0 & 0 & 0 & 1 & 0\\
+	\hline
+	0 & 1 & 1 & 1 & 1\\
+	\hline
+	1 & 0 & 1 & 0 & 0\\
+	\hline
+	1 & 1 & 1 & 0 & 0\\
+	\hline
+	\end{tabular}
+\end{table}
+
+\section{Master-Theorem}
+Wenden Sie, falls möglich, das Master-Theorem auf folgende Funktionen an. Jede 
+Funktion hat $\mathbb{N}_0$ als Definitions- und Zielmenge.\footnote{An dieser Stelle sollte man Frage 5.20 beantworten.}
+\begin{enumerate}
+  \item $f(n) := 2 \cdot 5 + 3 f(\frac{n}{2})$
+  \item $g(n) := 2 \cdot 5 - 3 g(\frac{n}{2})$
+  \item $h(n) := h(\frac{n}{3}) + 1$
+  \item $i(n) := 9 \cdot i(\frac{n}{3}) + n^2$
+  \item $j(n) := 8 \cdot j(\frac{n}{3}) + n^2$
+  \item $k(n) := 8 \cdot k(\frac{n}{3}) + \frac{1}{2} n^2$
+  \item $l(n) := 8 \cdot l(\frac{n}{9}) + 1/n$
+  \item $m(n) := 2 \cdot m(\frac{n}{2}) + n log(n)$ \footnote{\href{http://www.cits.rub.de/imperia/md/content/may/dima08/26_erzeugende.pdf}{Folie 310}, LEHRSTUHL KRYPTOLOGIE und IT-SICHERHEIT der Uni Bochum}
+\end{enumerate}
+
+\pagebreak
+
+\section{Formale Sprachen}
+Sei $\Sigma = \{a, b, c\}$
+
+\subsection{Dies und das}
+\begin{enumerate}
+  \item Wieviele Sprachen gibt es über $\Sigma^*$?
+  \item Wie viele endliche Sprachen gibt es über $\Sigma^*$?
+  \item Wie viele Wörter hat die Sprache $L = \{w \in \Sigma^* |~~|w| \leq 2\}$?
+\end{enumerate}
+
+\subsection{Palindrome}
+Sei L die Sprache der Palindrome. Ein Palindrom ist ein Wort, das von links nach 
+rechts gelesen genauso aussieht, wie von rechts nach links gelesen.
+
+Beispiele:
+\begin{itemize}
+  \item Anna
+  \item Die Liebe ist Sieger; stets rege ist sie bei Leid.
+  \item Rentner
+\end{itemize}
+
+Aufgaben:
+\begin{enumerate}
+  \item Beschreiben Sie L als Menge
+  \item Geben Sie eine Grammatik G an, sodass gilt: L = L(G).
+  \item Geben Sie, falls möglich, einen Endlichen Automaten an, der L erkennt. Falls das nicht möglich ist, begründen Sie warum.
+  \item Geben Sie, falls möglich, eine Ableitung von \glqq abcba\grqq{} an. Falls das nicht möglich ist, begründen Sie warum.
+  \item Geben Sie, falls möglich, einen/den Ableitungsbaum zu \glqq abcba\grqq{} an. Falls das nicht möglich ist, begründen Sie warum.
+  \item Geben Sie, falls möglich, einen regulären Ausdruck zu L an, sodass $L = \langle R \rangle $. Falls das nicht möglich ist, begründen Sie warum.
+\end{enumerate}
+
+\pagebreak
+
+\section{Wahr oder Falsch}
+\begin{table}[h]
+	\begin{tabular}{| c | p{12 cm}  | c | c |}
+	\hline
+	\textbf{\#} & \textbf{Frage} & \textbf{Wahr} & \textbf{Falsch} \\
+	\hline
+	\hline
+	1 & Alle Sprachen sind regulär.           &  \Square &  \Square \\
+	\hline
+	2 & Alle endlichen Sprachen sind regulär. &  \Square &  \Square \\
+	\hline
+	3 & Alle regulären Sprachen sind endlich. &  \Square &  \Square \\
+	\hline
+	4 & Es gibt unentscheidbare Probleme.     &  \Square &  \Square \\
+	\hline
+	5 & Es gibt Probleminstanzen unentscheidbarer Probleme, die entscheidbar sind.     &  \Square &  \Square \\
+	\hline
+	6 & Die Busy-Beaver-Funktion bb(n) wächst schneller als jede berechenbare Funktion. &  \Square &  \Square \\
+	\hline
+	7 & Es gibt keine Funktion $f(n)$, für die gilt: $f(n) \notin {\cal O}(n^n)$ &  \Square &  \Square \\
+	\hline
+	8 & Es gibt keine berechenbare Funktion $f(n)$, für die gilt: \newline $f(n) \notin {\cal O}(n^n)$ &  \Square &  \Square \\
+	\hline
+	9 & Eine Turingmaschine erkennt genau die Kontextfreien Sprachen. &  \Square &  \Square \\
+	\hline
+	10 & Es gibt zu jeder Sprache L eine Grammatik G, sodass L = L(G).  &  \Square &  \Square \\
+	\hline
+	11 & Es gibt zu jeder regulären Sprache L eine Grammatik G, \newline sodass L = L(G). &  \Square &  \Square \\
+	\hline
+	12 & Es gibt zu jeder kontextfreien Sprache L eine Grammatik G, \newline sodass L = L(G). &  \Square &  \Square \\
+	\hline
+	13 & ${\cal O}(f(n)) \cap \Omega(f(n)) = \Theta(f(n))$   &  \Square &  \Square \\
+	\hline
+	14 & 1 Mebibyte = $2^{20}$ Byte &  \Square &  \Square \\
+	\hline
+	15 & 1 Megabyte = $2^6$ Byte   &  \Square &  \Square \\
+	\hline
+	16 & $L = \{w\} \Rightarrow \forall n \in \mathbb{N}_0: L^n = \{w^n\} $ &  \Square &  \Square \\
+	\hline
+	17 & $L = \{w\} \Rightarrow \exists n \in \mathbb{N}_0: L^n = \{w^n\} $ &  \Square &  \Square \\
+	\hline
+	18 & $L = \{w\} \Rightarrow \exists n, m \in \mathbb{N}_0: n \neq m \land L^n = \{w^n\} \land L^m = \{w^m\}$ &  \Square &  \Square \\
+	\hline
+	19 & Sei $G(V, E)$ ein Graph und $n = |V|$. Dann existiert eine obere Schranke in Abhängigkeit von $n$ für $|E|$ &  \Square &  \Square \\
+	\hline
+	20 & Sei $f: \mathbb{N}_0 \rightarrow \mathbb{N}_0$ eine Funktion und $\varepsilon, a, b > 0$. Dann gilt entweder \newline
+$f \in {\cal O}(n^{log_b a - \varepsilon})$ oder \newline
+$f \in \Theta(n^{log_b a})$ oder \newline
+$f \in \Omega(n^{log_b a + \varepsilon})$ &  \Square &  \Square \\
+	\hline
+	\end{tabular}
+\end{table}
+
+
+
+
+
+\end{document}
