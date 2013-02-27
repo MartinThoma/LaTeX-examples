@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm,
+pflicht/.style ={rectangle, draw=blue, thick, fill=blue!20,align=center, rounded corners, minimum height=2em},
+wahl/.style ={rectangle, draw=green, thick, fill=green!20,align=center, rounded corners, minimum height=2em}]
+    % Draw the vertices.
+    \node[pflicht] (programmieren) {Programmieren};
+    \node[pflicht] (gbi)  [right of=programmieren] {GBI};
+    \node[pflicht] (wt)   [right of=gbi]  {WT};
+    \node[pflicht] (tgi)  [below of=gbi]  {TGI};
+    \node[pflicht] (os)   [right of=wt]   {OS};
+    \node[pflicht] (algi) [right of=os]   {Algorithmen I};
+    \node[pflicht] (algii)[below of=algi] {Algorithmen II};
+    \node[pflicht] (dt)   [right of=algi] {DT};
+    \node[pflicht] (ro)   [below of=dt]   {RO};
+    \node[pflicht] (lai)  [right of=dt]   {LA I};
+    \node[pflicht] (laii) [below of=lai]  {LA II};
+    \node[pflicht] (anai) [right of=lai]  {ANA I};
+    \node[pflicht] (anaii) [below of=anai] {ANA II};
+    \node[pflicht] (swti) [left of=programmieren] {SWT I};
+    \node[pflicht] (pse) [below left of=tgi] {PSE};
+    \node[wahl] (icpc) [below of=algii] {ICPC};
+    \node[wahl] (web) [above of=swti] {Web Engineering};
+    \node[wahl] (tse) [left of=pse] {TSE};
+
+    % Connect vertices with edges and draw weights
+    \path[->] (gbi)     edge[thick] node {} (tgi);
+    \path[->] (algi)    edge node {} (algii);
+    \path[->] (tgi)     edge node {} (algii);
+    \path[->] (wt)      edge node {} (algii);
+    \path[->] (dt)      edge node {} (ro);
+    \path[->] (lai)     edge[ultra thick] node {} (laii);
+    \path[<->] (lai)    edge[bend right] node {} (gbi);
+    \path[->] (anai)    edge[ultra thick] node {} (anaii);
+    \path[->] (laii)    edge[bend left] node {} (algii);
+    \path[->] (programmieren)    edge [very thick] node {} (swti);
+    \path[->] (programmieren)    edge node {} (pse);
+    \path[->] (programmieren)    edge[bend left] node {} (os);
+    \path[->] (swti)    edge node {} (pse);
+    \path[<->] (ro)     edge node {} (os);
+    \path[<->] (algii)  edge [very thick] node {} (icpc);
+    \path[->] (swti)    edge node {} (web);
+    \path[<->] (pse)    edge[red] node {} (tse);
+    \path[->] (laii)    edge[red, bend left] node {} (pse);
+    \path[->] (anaii)   edge[red, bend left] node {} (pse);
+    \path[->] (programmieren)   edge[red, bend left] node {} (pse);
+    \path[->] (algi)   edge[red, bend left] node {} (pse);
+    \path[->] (swti)    edge[red, bend left] node {} (pse);
+    \path[->] (gbi)    edge[red, bend left] node {} (pse);
+\end{tikzpicture}
+\end{preview}
+\end{document}
