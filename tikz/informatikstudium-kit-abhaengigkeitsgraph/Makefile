@@ -1,7 +1,7 @@
 SOURCE = informatikstudium-kit-abhaengigkeitsgraph
 DELAY = 80
 DENSITY = 300
-WIDTH = 512
+WIDTH = 1000
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf

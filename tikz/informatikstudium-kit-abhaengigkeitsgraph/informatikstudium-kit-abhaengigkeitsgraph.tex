@@ -2,33 +2,62 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes}
 
+\usepackage{pgfplots}
+
+% argument #1: any options
+\newenvironment{customlegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \csname pgfplots@init@cleared@structures\endcsname
+    \pgfplotsset{#1}%
+}{%
+    % draws the legend:
+    \csname pgfplots@createlegend\endcsname
+    \endgroup
+}%
+
+% makes \addlegendimage available (typically only available within an
+% axis environment):
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
 \begin{document}
 \begin{preview}
-\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm,
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3.5cm,
 pflicht/.style ={rectangle, draw=blue, thick, fill=blue!20,align=center, rounded corners, minimum height=2em},
-wahl/.style ={rectangle, draw=green, thick, fill=green!20,align=center, rounded corners, minimum height=2em}]
+wahl/.style ={rectangle, draw=green, thick, fill=green!20,align=center, rounded corners, minimum height=2em},
+soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corners, minimum height=2em}]
     % Draw the vertices.
     \node[pflicht] (programmieren) {Programmieren};
-    \node[pflicht] (gbi)  [right of=programmieren] {GBI};
-    \node[pflicht] (wt)   [right of=gbi]  {WT};
-    \node[pflicht] (tgi)  [below of=gbi]  {TGI};
-    \node[pflicht] (os)   [right of=wt]   {OS};
-    \node[pflicht] (algi) [right of=os]   {Algorithmen I};
-    \node[pflicht] (algii)[below of=algi] {Algorithmen II};
-    \node[pflicht] (dt)   [right of=algi] {DT};
-    \node[pflicht] (ro)   [below of=dt]   {RO};
-    \node[pflicht] (lai)  [right of=dt]   {LA I};
-    \node[pflicht] (laii) [below of=lai]  {LA II};
-    \node[pflicht] (anai) [right of=lai]  {ANA I};
-    \node[pflicht] (anaii) [below of=anai] {ANA II};
-    \node[pflicht] (swti) [left of=programmieren] {SWT I};
-    \node[pflicht] (pse) [below left of=tgi] {PSE};
-    \node[wahl] (icpc) [below of=algii] {ICPC};
-    \node[wahl] (web) [above of=swti] {Web Engineering};
-    \node[wahl] (tse) [left of=pse] {TSE};
+    \node[pflicht] (gbi)    [right of=programmieren] {GBI};
+    \node[pflicht] (lai)    [right of=gbi] {LA I};
+    \node[pflicht] (anai)   [right of=lai]  {ANA I};
+
+    \node[pflicht] (laii)   [below of=lai]  {LA II};
+    \node[pflicht] (anaii)  [below of=anai] {ANA II};
+    \node[pflicht] (algi)   [below of=gbi]   {Algorithmen I};
+    \node[pflicht] (swti)   [below of=programmieren] {SWT I};
+    \node[pflicht] (ro)     [right of=anaii]   {RO};
+
+    \node[pflicht] (dt)     [below of=ro] {DT};
+    \node[pflicht] (wt)     [left of=dt]  {WT};
+    \node[pflicht] (tgi)    [left of=wt]  {TGI};
+    \node[pflicht] (os)     [left of=tgi]  {OS};
+    \node[pflicht] (pse)    [left of=os] {PSE};
+    \node[soft]    (tse)    [left of=pse] {TSE};
+
+    \node[pflicht] (algii)  [below of=tgi] {Algorithmen II};
+
+    \node[wahl]    (icpc)   [below of=algii] {ICPC};
+
+    \node[wahl]    (web)    [left of=swti] {Web Engineering};
+
 
     % Connect vertices with edges and draw weights
     \path[->] (gbi)     edge[thick] node {} (tgi);
@@ -37,23 +66,34 @@ wahl/.style ={rectangle, draw=green, thick, fill=green!20,align=center, rounded 
     \path[->] (wt)      edge node {} (algii);
     \path[->] (dt)      edge node {} (ro);
     \path[->] (lai)     edge[ultra thick] node {} (laii);
-    \path[<->] (lai)    edge[bend right] node {} (gbi);
+    \path[<->] (lai)    edge node {} (gbi);
     \path[->] (anai)    edge[ultra thick] node {} (anaii);
     \path[->] (laii)    edge[bend left] node {} (algii);
-    \path[->] (programmieren)    edge [very thick] node {} (swti);
-    \path[->] (programmieren)    edge node {} (pse);
-    \path[->] (programmieren)    edge[bend left] node {} (os);
+    \path[->] (programmieren)    edge[very thick] node {} (swti);
+    \path[->] (programmieren)    edge[bend left] node {} (pse);
+    \path[->] (programmieren)    edge node {} (os);
     \path[->] (swti)    edge node {} (pse);
     \path[<->] (ro)     edge node {} (os);
     \path[<->] (algii)  edge [very thick] node {} (icpc);
     \path[->] (swti)    edge node {} (web);
     \path[<->] (pse)    edge[red] node {} (tse);
-    \path[->] (laii)    edge[red, bend left] node {} (pse);
-    \path[->] (anaii)   edge[red, bend left] node {} (pse);
-    \path[->] (programmieren)   edge[red, bend left] node {} (pse);
-    \path[->] (algi)   edge[red, bend left] node {} (pse);
-    \path[->] (swti)    edge[red, bend left] node {} (pse);
-    \path[->] (gbi)    edge[red, bend left] node {} (pse);
+
+    \path[->] (laii)    edge[red] node {} (pse);
+    \path[->] (anaii)   edge[red] node {} (pse);
+    \path[->] (programmieren)   edge[red, bend right] node {} (pse);
+    \path[->] (algi)    edge[red] node {} (pse);
+    \path[->] (swti)    edge[red, bend right] node {} (pse);
+    \path[->] (gbi)     edge[red] node {} (pse);
+
+    \begin{customlegend}[legend entries={Pflichtmodul,Wahlmodul,Softskill,Inhaltliche Abhängigkeit,Harte Abhängigkeit},legend style={at={(-3,-12)},anchor=center}]
+    \addlegendimage{blue,fill=blue!20,area legend}
+    \addlegendimage{green,fill=green!20,area legend}
+    \addlegendimage{red,fill=red!20,area legend}
+    \addlegendimage{->,black,sharp plot}
+    \addlegendimage{->,red,sharp plot}
+    %\addlegendimage{red,fill=black!50!red,mark=*,sharp plot}
+    %\addlegendimage{red,fill=black!50!red,ybar,ybar legend}
+    \end{customlegend}
 \end{tikzpicture}
 \end{preview}
 \end{document}
