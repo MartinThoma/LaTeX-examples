@@ -60,10 +60,10 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
 
 
     % Connect vertices with edges and draw weights
-    \path[->] (gbi)     edge[thick] node {} (tgi);
+    \path[->] (gbi)     edge[thick] node[anchor=center,above,sloped] {\tiny{Automaten}} (tgi);
     \path[->] (algi)    edge node {} (algii);
     \path[->] (tgi)     edge node {} (algii);
-    \path[->] (wt)      edge node {} (algii);
+    \path[->] (wt)      edge node[anchor=center,above,sloped] {\tiny{Randomisierte Algorithmen}} (algii);
     \path[->] (dt)      edge node {} (ro);
     \path[->] (lai)     edge[ultra thick] node {} (laii);
     \path[<->] (lai)    edge node {} (gbi);
@@ -84,6 +84,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (algi)    edge[red] node {} (pse);
     \path[->] (swti)    edge[red, bend right] node {} (pse);
     \path[->] (gbi)     edge[red] node {} (pse);
+    \path[<->] (os)     edge node[anchor=center,above,sloped] {\tiny{Caches}} (algii);
 
     \begin{customlegend}[legend entries={Pflichtmodul,Wahlmodul,Softskill,Inhaltliche Abhängigkeit,Harte Abhängigkeit},legend style={at={(-3,-12)},anchor=center}]
     \addlegendimage{blue,fill=blue!20,area legend}
