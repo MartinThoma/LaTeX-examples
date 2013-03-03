@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \newcommand\ALPHA{65}
+    \newcommand\R{2.5cm}
+    \newcommand\Add{0.5cm}
+    \draw[fill=black!10, thick] (0,0) -- (90+\ALPHA:\R) node [sloped,midway,below] {$r$} arc (90+\ALPHA:90-\ALPHA:\R) -- cycle;
+    \draw[<-, thick] (90+\ALPHA:\R+\Add/2) arc (90+\ALPHA:95:\R+\Add/2);
+    \draw[->, thick] (85:\R+\Add/2) arc (85:90-\ALPHA:\R+\Add/2);
+    \draw[<->]  (90+\ALPHA:\R/2) arc (90+\ALPHA:90:\R/2); % sloped \alpha didnt work
+    \node at (90+\ALPHA/2:\R/2-\Add/2) {$\alpha$};
+    \node at (90-\ALPHA/2:\R/2-\Add/2) {$\alpha$};
+    \draw[<->]  (90:\R/2) arc (90:90-\ALPHA:\R/2);
+    \node at (0,\R) [above] (b) {$b$};
+    \draw[dotted] (0,0) -- (90+\ALPHA:\R+\Add/2);
+    \draw[dotted] (0,0) -- (90-\ALPHA:\R+\Add/2);
+    \draw (0,0) -- (b);
+    \draw[thick, <->] (-{sin(\ALPHA)*\R},-\Add/2) -- ({sin(\ALPHA)*\R},-\Add/2);
+    \draw[dashed] (-{sin(\ALPHA)*\R},-\Add/2) -- (90+\ALPHA:\R);
+    \draw[dashed] ( {sin(\ALPHA)*\R},-\Add/2) -- (90-\ALPHA:\R);
+    \node[below] at (0,-\Add/2) (l) {$l$};
+    \draw[dashed] (0,0) -- (\R/2,0) -- (\R/2, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) node[pos=0.7,right] {$y_s$} -- 
+       (0, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) node [thick,draw=blue,cross out,solid,inner sep=0pt,minimum width=4pt,minimum height=4pt] {};
+    \node[left] at (0, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) {$S$};
+    \node[thick,draw=blue,cross out,solid,inner sep=0pt,minimum width=4pt,minimum height=4pt] (0,0) {};
+\end{tikzpicture}
+\end{preview}
+\end{document}

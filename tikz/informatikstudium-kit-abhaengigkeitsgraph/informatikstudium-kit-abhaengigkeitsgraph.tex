@@ -62,20 +62,20 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     % Connect vertices with edges and draw weights
     \path[->] (gbi)     edge[thick] node[anchor=center,above,sloped] {\tiny{Automaten}} (tgi);
     \path[->] (algi)    edge node {} (algii);
-    \path[->] (tgi)     edge node {} (algii);
+    \path[->] (tgi)     edge node[anchor=center,above,sloped] {\tiny{ILP}} (algii);
     \path[->] (wt)      edge node[anchor=center,above,sloped] {\tiny{Randomisierte Algorithmen}} (algii);
     \path[->] (dt)      edge node {} (ro);
     \path[->] (lai)     edge[ultra thick] node {} (laii);
     \path[<->] (lai)    edge node {} (gbi);
     \path[->] (anai)    edge[ultra thick] node {} (anaii);
-    \path[->] (laii)    edge[bend left] node {} (algii);
+    \path[->] (laii)    edge[bend left] node[anchor=center,above,sloped] {\tiny{Mathematische Strukturen}} (algii);
     \path[->] (programmieren)    edge[very thick] node {} (swti);
     \path[->] (programmieren)    edge[bend left] node {} (pse);
     \path[->] (programmieren)    edge node {} (os);
     \path[->] (swti)    edge node {} (pse);
-    \path[<->] (ro)     edge node {} (os);
+    \path[<->] (ro)     edge node[anchor=center,above,sloped] {\tiny{Assembler}} (os);
     \path[<->] (algii)  edge [very thick] node {} (icpc);
-    \path[->] (swti)    edge node {} (web);
+    \path[->] (swti)    edge node[anchor=center,above,sloped] {\tiny{Prozessmodelle}} (web);
     \path[<->] (pse)    edge[red] node {} (tse);
 
     \path[->] (laii)    edge[red] node {} (pse);
@@ -84,7 +84,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (algi)    edge[red] node {} (pse);
     \path[->] (swti)    edge[red, bend right] node {} (pse);
     \path[->] (gbi)     edge[red] node {} (pse);
-    \path[<->] (os)     edge node[anchor=center,above,sloped] {\tiny{Caches}} (algii);
+    \path[<->] (os)     edge node[anchor=center,above,sloped] {\tiny{Paging}} (algii);
 
     \begin{customlegend}[legend entries={Pflichtmodul,Wahlmodul,Softskill,Inhaltliche Abhängigkeit,Harte Abhängigkeit},legend style={at={(-3,-12)},anchor=center}]
     \addlegendimage{blue,fill=blue!20,area legend}
