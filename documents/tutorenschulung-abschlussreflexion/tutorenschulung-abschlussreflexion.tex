@@ -8,18 +8,19 @@
 \newcommand{\Semester}{Wintersemester}  % "Wintersemester" oder "Sommersemester"
 \newcommand{\Datum}{\today}             % Wann wurde der Bericht erstellt?
 \newcommand{\Ort}{Karlsruhe}
-\newcommand{\Vorname}{Max}
-\newcommand{\Nachname}{Mustermann}
-\newcommand{\Matrikelnummer}{123456}
 \newcommand{\Studienfach}{Informatik (BA)}
 \newcommand{\Institut}{Institut für Theoretische Informatik}
 \newcommand{\TutoriumTitle}{Programmieren Tutorium}
+\newcommand{\Vorname}{Martin}
+\newcommand{\Nachname}{Thoma}
+\newcommand{\Matrikelnummer}{1633521}
 \newcommand{\Email}{info@martin-thoma.de}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{ 
   pdfauthor   = {\Vorname~\Nachname}, 
   pdfkeywords = {KIT; \Vorname~\Nachname}, 
-  pdftitle    = {Abschlussreflexion von~\Vorname~\Nachname~-~\Semester~\Jahr} 
+  pdftitle    = {Abschlussreflexion von~\Vorname~\Nachname~-~\Semester~\Jahr},
+  pdfsubject  = {Tutorenschulung}
 } 
  
 \pagestyle{fancy}
@@ -45,33 +46,150 @@
 % \date{\Datum}
 
 \section*{Meine Lehre und ihr Umfeld}
-\subsection*{Rahmenbedingungen}
 Das Programmieren-Tutorium habe ich jeden Montag von 15:45 bis 17:15 
 Uhr gehalten. Insgesamt habe ich so an 14 Tagen meinen 19 Studenten 
 Grundlagen in Java beigebracht. Allerdings waren von den 19 Studenten
-nur etwa sieben regelmäßig anwesend.\\
+nur etwa sieben regelmäßig anwesend.
+
+Das Ziel meines Tutoriums war es, alle Studenten in die Lage zu 
+versetzen, einfache Programme schreiben zu können. Außerdem sollten 
+sie wissen, wie sie sich neues Wissen im Bereich Programmieren 
+aneignen. Dadurch sollten sie in der Lage sein, die Abschlussaufgaben
+mit einer guten Note zu bestehen.\\
+Meine Studenten haben vermutlich genau das von mir erwartet. Außerdem
+hatte ich den Eindruck, dass sie von mir erwarteten, dass ich den 
+Vorlesungsstoff wiederhole. Da von den anwesenden Studierenden leider
+sehr viele keinen Computer im Tutorium hatte, habe ich mich dieser
+Erwartungshaltung gebeugt. 
+
+Wenn ich Fragen zur Lehre hatte, habe ich mit anderen Tutoren, dem
+Übungsleiter und meinen Studenten geredet. Bei inhaltlichen Fragen 
+habe ich auf \href{http://stackoverflow.com/}{stackoverflow.com}
+zurückgegriffen.
+Die Betreuung des Übungsleiters war gut. Er war immer gut per Email
+zu erreichen und ist sehr zügig auf Fragen eingegangen. 
+
+Frontalunterricht - das Format meiner Wahl für mein Tutorium - schien
+mir aus einigen Gründen passend: Zum einen waren meine Studenten 
+nicht besonders motiviert, an dem Tutorium teilzunehmen. Viele sind
+bereits müde in das Tutorium gekommen und ich sehe es nicht als meine
+Aufgabe an, die Studenten zu bespaßen oder zur Teilnahme zu 
+motivieren. Zum anderen hatten die meisten keinen Computer, was 
+anspruchsvollere Praxisaufgaben unpraktikabel macht. Ein weiterer 
+Grund für Frontalunterricht war die Erwartungshaltung der Studenten, 
+dass ich den Stoff wiederhole.
+
+Neuen Programmieren-Tutoren kann ich keine überaschenden Tipps geben:
+Schaut euch die Folien von anderen Tutoren an (z.B. meine unter
+\href{martin-thoma.com/programmieren-tutorium}{martin-thoma.com}),
+erledigt eure Korrekturen direkt nach der Abgabe, bereitet euch gründlich 
+auf das Tutorium vor.
+
+\section*{Ich als Lehrperson und mein didaktisches Handeln}
+Zu beginn meines Tutoriums habe ich mich als Lehrer gesehen, der
+den Studenten helfen soll, Lücken in bereits vorhandenem wissen zu 
+schließen. Ich habe jedoch relativ schnell das Gefühl gehabt, dass 
+ich manchen Personen nur beim Einschlafen helfen soll und andere den
+Stoff zum ersten mal hören. 
+
+Um das Tutorium interessant zu halten, habe ich häufig darauf 
+hingewiesen, was in der Praxis bzw. in der Wirtschaft tatsächlich
+verwendet wird und was man nur für die Abschlussaufgaben braucht.
+Da ich schnell mitbekommen habe, dass wohl mehr Studenten meine
+Folien anschauen als tatsächlich in meinem Tutorium anwesend sind,
+habe ich diese sehr ausführlich formuliert. Somit sollte es den
+Studenten allein mit den Folien gut möglich sein, den Stoff zu lernen.
+Auch habe ich am Ende häufiger auf kleine Programmierprojekte, wie
+z.B. das Programmieren der Spiele Snake, Tetris oder Sokuban hingewiesen
+und ausführliche Tutorials in Form von Links bereitgestellt.
+Nach dem sechstem Tutorium habe ich eine anonyme Feedback-Runde gemacht.
+Dabei haben mir meine Studenten bestätigt, dass sie den Aufbau meines
+Tutoriums für gut strukturiert halten, meine Folien äußerst hilfreich
+sind und ich sowohl von der Lautstärke, als auch in bezug auf die 
+Geschwindigkeit gut rede. Außerdem haben sie sich eher mehr 
+Frontalunterricht und weniger Praxisaufgaben gewünscht. Die 
+Java-Quizze - kurze Code-Fragmente, die mindestens eine problematische
+Stelle haben, die die Studenten finden sollen - sind äußerst positiv
+angekommen.
+
+Die größte fachliche Herausforderung waren unbounded Wildcards im
+Themenkomplex "`Generics"'. Da dies allerdings nicht Prüfungsrelevant
+für die Studenten ist, gab das keine Probleme. Ich habe den 
+Studenten gesagt, dass ich mir nicht sicher bin, ob ich das Verhalten
+dieser in konkreten Detailfragen richtig beantworten kann. Für den
+Fall das jemand daran interessiert sein sollte, habe ich die 
+relevanten Stellen in der Spezifikation bereitgestellt, Links auf
+Tutorials einfließen lassen und auf die Experten bei StackOverflow.com
+hingewiesen.
+
+\section*{Persönlicher Qualifizierungsprozess}
+Aus dem Tutorenprogramm habe ich mitgenommen, dass ich die Arme nicht
+so häufig verschränken sollte.
+
+Abgesehen von der Fachlichen kompetenz, die man immer ausbauen kann,
+sehen weder meine Studenten noch ich Verbesserungsmöglichkeiten.
+
+\section*{Lehrhospitation}
+Bei der kollegialen Lehrhospitation, die ich mit Nilan Marktanner
+durchgeführt habe, ist mir aufgefallen, dass er deutlich mehr 
+Praxisaufgaben macht, dafür aber weniger Frontalunterricht durchführt.
+Mir persönlich hätte es auch besser gefallen, mit meinen Studenten 
+mehr Praxisaufgaben zu machen. Da die Studenten aber weder dazu 
+bereit waren, noch - aufgrund der fehlenden Computer - dazu in der
+Lage waren, ist das bei mir schlicht nicht möglich gewesen.
+
+Es hat mich außerdem sehr gefreut zu erfahren, dass den Studenten
+anderer Tutorien auch meine Folien bzw. meine Hilfsmaterialien 
+bekannt sind und die Folieninhalte weiterverwendet werden.
 
 \clearpage
 \section*{Ablaufplanung für eine Einzelveranstaltung}
-\textbf{Datum und Thema}: TODO\\
-\textbf{Lernziele}: TODO\\
+\textbf{Datum und Thema}: 14. Januar 2013, Sortieren, equals, 
+hashCode(), abstrakte und finale Klassen\\
+\textbf{Lernziele}: Die Studenten sollten nach dem Tutorium \dots
+\begin{itemize} 
+    \item in der Lage sein Liste und Arrays in Java zu sortieren,
+    \item die Bedeutung der Methode hashCode() kennen,
+    \item wissen, wann man Interfaces, abstrakte Klassen und finale 
+          Klassen verwendet.
+\end{itemize}
 
 \begin{tabularx}{\textwidth}{@{}llllX}
-Dauer   & Inhalte   & Methoden  & Medien    & Sinn \& Zweck\\
+Dauer   & Inhalte        & Methoden            & Medien  & Sinn \& Zweck\\
 \hline
-1 min   & Begrüßung &   -       & Folien    & -\\
-1 min   & Begrüßung &   -       & Folien    & -\\
-1 min   & Begrüßung &   -       & Folien    & -\\
-1 min   & Begrüßung &   -       & Folien    & -\\
-1 min   & Begrüßung &   -       & Folien    & -\\
+8 min   & Java-Quiz      & \parbox[t]{2cm}{Blitzlicht\\Umfrage} & Folien  & Studenten treffen ein, können sich auf das Tutorium einstellen, bekommen eine Einleitung ins Thema und werden direkt eingebunden\\
+3 min   & Quiz-Auflösung & Frontal  & Folien    & Studenten sehen das Problem im Quiz\\
+2 min   & Altes Übungblatt & Frontal& Folien    & Erklärung zu einer Frage aus dem letzten Tutorium\\
+5 min   & Nachtrag zu equals() &Frontal & Folien& instanceOf vs. getClass()\\
+25 min  & Sortieren      & Frontal  & \parbox[t]{2cm}{Folien\\Tafel}    & Studenten sollen sortieren können\\
+30 min  & hashCode()     & Frontal  & \parbox[t]{2cm}{Folien\\Tafel}    & Studenten sollen die Aufgabe auf dem nächsten ÜB verstehen\\
+ 2 min  & Interface      & Frontal  & Folien    & Wiederholung\\
+ 7 min  & abstrac class  & Frontal  & Folien    & Ergänzung zur Vorlesung\\
+ 3 min  & final class    & Frontal  & Folien    & Ergänzung zur Vorlesung\\
+ 5 min  & Ende           & Einzelgespräch  & -  & Studenten können Fragen stellen\\
 \end{tabularx}
 
 \textbf{Kurzreflexion}:
 
-(mind. 0.5 Seiten, siehe Fragen unter 4.)
+Die Umsetzung dieser Planung hat gut funktioniert. Im nächsten 
+Übungsblatt haben alle Studenten korrekt sortiert und die meisten
+eine sinnvolle Hash-Funktion erstellt. Da ich bei der Erstellung der
+Folien mir natürlich vorher überlege, was ich den Studenten beibringen
+will, haben die Lernziele geholfen. Allerdings ist mir auch
+nicht klar, wie man guten Frontalunterricht ohne Lernziele überhaupt
+machen sollte.
+Ich habe bei dem Tutorium nicht so konkret die Zeiten aufgeschrieben.
+Ich habe es im Gefühl, wie lange die Studenten für den Stoff brauchen
+und das so gelegt, wie es mir als passend erschien. Das hat - wie immer -
+wunderbar geklappt. Da ich für die Vorbereitung der Folien jeweils 
+über 9 Studen investiert habe, ist es vielleicht nicht ganz so erstaunlich,
+dass ich keinen konkreten Zeitplan brauche, um die benötigte Zeit 
+abschätzen zu können.
+
+Es gab im Ablauf keine unvorhergesehenen Situationen.
 
 \noindent \Ort, den \Datum\\
 \\
-\includegraphics[height=10mm]{max-mustermann.pdf}\\
+\includegraphics[height=10mm]{signature.pdf}\\
 \Vorname~\Nachname
 \end{document}
