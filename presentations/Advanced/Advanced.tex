@@ -1,0 +1,64 @@
+\documentclass{beamer}
+\usetheme{Frankfurt}
+\usecolortheme{default}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[english]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\begin{document}
+
+\title{The title of your presentation}
+\subtitle{A subtitle}
+\author{Martin Thoma}
+\date{25. March 2013}
+\subject{Computer Science}
+
+\frame{\titlepage}
+
+% Show table of contents
+\frame{
+    \frametitle{Contents}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{Introduction}
+\subsection{A subsection!}
+\begin{frame}{Slide title}
+    Slide content
+\end{frame}
+
+\begin{frame}{Another title}
+    Some text\\
+    \uncover<2->{Uncover me on slide 2 (-)\\}
+    \visible<3->{visible from slide 3 on (-)\\}
+    \only<4->{only from slide 4 (-)\\} 
+    \onslide<5->{on slide 5 and further (-)\\}
+    \uncover<6>{Uncover me on slide 6 \\}
+    \visible<7>{visible on 7\\}
+    \only<8>{only on slide 8 \\} 
+    \alt<8>{I am on slide 8\\}{I am not on slide 8\\}
+    \onslide<9>{on slide 9\\}
+\end{frame}
+
+\begin{frame}{Third title}
+    \begin{block}{Title}
+        This is a block.
+    \end{block}
+
+    \begin{exampleblock}{my Title}
+        This is an example block.
+    \end{exampleblock}
+
+    \begin{alertblock}{another Title}
+        This is an alert block.
+    \end{alertblock}
+\end{frame}
+
+\end{document}
