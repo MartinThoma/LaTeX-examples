@@ -11,7 +11,7 @@
     \newcommand\ALPHA{65}
     \newcommand\R{2.5cm}
     \newcommand\Add{0.5cm}
-    \draw[fill=black!10, thick] (0,0) -- (90+\ALPHA:\R) node [sloped,midway,below] {$r$} arc (90+\ALPHA:90-\ALPHA:\R) -- cycle;
+    \draw[fill=gray!10, thick] (0,0) -- (90+\ALPHA:\R) node [sloped,midway,below] {$r$} arc (90+\ALPHA:90-\ALPHA:\R) -- cycle;
     \draw[<-, thick] (90+\ALPHA:\R+\Add/2) arc (90+\ALPHA:95:\R+\Add/2);
     \draw[->, thick] (85:\R+\Add/2) arc (85:90-\ALPHA:\R+\Add/2);
     \draw[<->]  (90+\ALPHA:\R/2) arc (90+\ALPHA:90:\R/2); % sloped \alpha didnt work
@@ -27,9 +27,9 @@
     \draw[dashed] ( {sin(\ALPHA)*\R},-\Add/2) -- (90-\ALPHA:\R);
     \node[below] at (0,-\Add/2) (l) {$l$};
     \draw[dashed] (0,0) -- (\R/2,0) -- (\R/2, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) node[pos=0.7,right] {$y_s$} -- 
-       (0, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) node [thick,draw=blue,cross out,solid,inner sep=0pt,minimum width=4pt,minimum height=4pt] {};
+       (0, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) node [thick,draw,cross out,solid,inner sep=0pt,minimum width=4pt,minimum height=4pt] {};
     \node[left] at (0, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) {$S$};
-    \node[thick,draw=blue,cross out,solid,inner sep=0pt,minimum width=4pt,minimum height=4pt] (0,0) {};
+    \node[thick,draw,cross out,solid,inner sep=0pt,minimum width=4pt,minimum height=4pt] (0,0) {};
 \end{tikzpicture}
 \end{preview}
 \end{document}
