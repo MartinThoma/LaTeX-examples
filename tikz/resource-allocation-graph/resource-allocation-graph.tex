@@ -6,7 +6,8 @@
 \usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing,intersections} 
 \tikzstyle{resource}= [draw,minimum size=16pt,inner sep=0pt]
 \tikzstyle{process} = [draw,minimum size=16pt,inner sep=0pt,circle]
-\tikzstyle{allocation} = [->,thick,arrows={-latex}]
+\tikzstyle{allocated} = [->,thick,arrows={-latex}]
+\tikzstyle{requested} = [<-,thick,arrows={latex-}, dashed]
 
 \begin{document}
 \begin{preview}
@@ -19,10 +20,10 @@
     \node (p3)[process]  at (2,1) {$P_3$};
     \node (r4)[resource] at (0,0) {$R_4$};
 
-    \draw[allocation] (r1) -- (p1);
-    \draw[allocation] (r2) -- (p2);
-    \draw[allocation] (r3) -- (p2);
-    \draw[allocation] (p3) -- (r3);
+    \draw[allocated] (r1) -- (p1);
+    \draw[allocated] (r2) -- (p2);
+    \draw[allocated] (r3) -- (p2);
+    \draw[requested] (r3) -- (p3);
 \end{tikzpicture}
 \end{preview}
 \end{document}
