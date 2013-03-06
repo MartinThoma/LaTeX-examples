@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing,intersections} 
+\tikzstyle{resource}= [draw,minimum size=16pt,inner sep=0pt]
+\tikzstyle{process} = [draw,minimum size=16pt,inner sep=0pt,circle]
+\tikzstyle{allocation} = [->,thick,arrows={-latex}]
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=2]
+    \node (r1)[resource] at (0,2) {$R_1$};
+    \node (r2)[resource] at (1,2) {$R_2$};
+    \node (r3)[resource] at (2,2) {$R_3$};
+    \node (p1)[process]  at (0,1) {$P_1$};
+    \node (p2)[process]  at (1,1) {$P_2$};
+    \node (p3)[process]  at (2,1) {$P_3$};
+    \node (r4)[resource] at (0,0) {$R_4$};
+
+    \draw[allocation] (r1) -- (p1);
+    \draw[allocation] (r2) -- (p2);
+    \draw[allocation] (r3) -- (p2);
+    \draw[allocation] (p3) -- (r3);
+\end{tikzpicture}
+\end{preview}
+\end{document}
