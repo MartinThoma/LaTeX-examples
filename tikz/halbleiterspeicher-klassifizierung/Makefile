@@ -1,4 +1,4 @@
-SOURCE = parse-tree
+SOURCE = halbleiterspeicher-klassifizierung
 DELAY = 80
 DENSITY = 300
 WIDTH = 512
