@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[dvipsnames]{xcolor}
+\input{kvmacros}
+
+\begin{document}
+\begin{preview}
+	\karnaughmap{4}{$f(w,x,y,z)$}{{$w$}{$x$}{$y$}{$z$}}%
+	{
+		1100
+		1100
+		0011
+		0101
+	}
+	{
+		% Long one at top
+		\textcolor{Blue}{
+			\put(2,3.5){\oval(3.9,0.9)[]}
+		}
+		\textcolor{WildStrawberry}{
+			\put(0.9,3.5){\oval(1.7,0.8)[]}
+		}
+		% two left
+		\textcolor{Green}{
+			\put(0.7,1.5){\oval(1.9,0.9)}
+		}
+		\textcolor{Sepia}{
+			\put(1.5,1.5){\oval(1.6,0.7)}
+		}
+		\textcolor{Red}{
+			\put(1.92,1){\oval(0.9,1.9)}
+		}
+		\textcolor{LimeGreen}{
+			\put(1.76,-0.2){\oval(0.9,2.1)[t]}
+			\put(1.76,4.2){\oval(0.9,2.1)[b]}
+		}
+	}
+\end{preview}
+\end{document}
