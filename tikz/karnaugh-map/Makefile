@@ -18,7 +18,7 @@ gif:
 
 png:
 	make
-	convert -density 320x320 $(SOURCE).pdf $(SOURCE).png
+	convert -density $(DENSITY)x$(DENSITY) $(SOURCE).pdf $(SOURCE).png
 
 transparentGif:
 	convert $(SOURCE).pdf -transparent white result.gif
