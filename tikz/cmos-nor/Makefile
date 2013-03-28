@@ -17,8 +17,9 @@ gif:
 
 png:
 	make
-	make svg
-	inkscape $(SOURCE).svg -w $(WIDTH) --export-png=$(SOURCE).png
+	#make svg
+	#inkscape $(SOURCE).svg -w $(WIDTH) --export-png=$(SOURCE).png
+	convert -density $(DENSITY)x$(DENSITY) $(SOURCE).pdf $(SOURCE).png
 
 transparentGif:
 	convert $(SOURCE).pdf -transparent white result.gif
@@ -26,7 +27,7 @@ transparentGif:
 
 svg:
 	make
-	#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
+	#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE)3.svg
 	pdf2svg $(SOURCE).pdf $(SOURCE).svg
 	# Necessary, as pdf2svg does not always create valid svgs:
 	inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg
