@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{arrows, calc, positioning,decorations.pathreplacing,shapes} 
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=0.5]
+	% verbindungen
+	\draw (0,5) -- (2,5);
+	\draw (0,8) -- (6,8);
+	\draw (6,3) -- (6,9);
+	\draw (6,3) -- (7,3);
+	\draw (6,9) -- (7,9);
+	\draw (6,9) -- (7,9);
+	\draw (3,3) -- (2,3) -- (2,6) -- (7,6);
+	\draw (3.5,1) -- (3.5,2.25);
+	\draw (7.5,1) -- (7.5,2.25);
+	\draw (3.5,1) -- (7.5,1);
+	\draw (3.5,3.75) -- (3.5,4.25) -- (10,4.25);
+	\draw (7.5,3.75) -- (7.5,5.25);
+	\draw (7.5,6.75) -- (7.5,8.25);
+	\draw (7.5,9.75) -- (7.5,11);
+
+	% Transistor left down
+	\draw (3,2) -- (3,4);
+	\draw[dashed] (3.25,2) -- (3.25,4);
+	\draw (3.25,2.25) -- (3.5,2.25);
+	\draw (3.25,3.75) -- (3.5,3.75);
+	\draw[latex-] (3.25,3) -- (4, 3); % Gate
+
+	% Transistor right down
+	\draw (7,2) -- (7,4);
+	\draw[dashed] (7.25,2) -- (7.25,4);
+	\draw (7.25,2.25) -- (7.5,2.25);
+	\draw (7.25,3.75) -- (7.5,3.75);
+	\draw[latex-] (7.25,3) -- (8, 3); % Gate
+
+	% Transistor right middle
+	\draw (7,5) -- (7,7);
+	\draw[dashed] (7.25,5) -- (7.25,7);
+	\draw (7.25,5.25) -- (7.5,5.25);
+	\draw (7.25,6.75) -- (7.5,6.75);
+	\draw[-latex] (7.25,6) -- (8, 6); % Gate
+
+	% Transistor right top
+	\draw (7,8) -- (7,10);
+	\draw[dashed] (7.25,8) -- (7.25,10);
+	\draw (7.25,8.25) -- (7.5,8.25);
+	\draw (7.25,9.75) -- (7.5,9.75);
+	\draw[-latex] (7.25,9) -- (8,9); % Gate
+
+	% GND
+	\node (GND-label) at (8,0){GND};
+	\draw (6,0) -- (6,1);
+	\draw (5,0) -- (7,0);
+	\draw (5.2,-0.2) -- (6.8,-0.2);
+	\draw (5.4,-0.4) -- (6.6,-0.4);
+
+	\node (U-label) at (8.25,11){$U_{dd}$};
+	\node (U-label) at (9.5,4.6){$a \overline{\lor} b$};
+	\node (U-label) at (-0.5,8){$a$};
+	\node (U-label) at (-0.5,5){$b$};
+
+	\draw[fill=black] (6,8) circle (0.1);
+	\draw[fill=black] (7.5,4.25) circle (0.1);
+	\draw[fill=white] (0,5) circle (0.1);
+	\draw[fill=white] (0,8) circle (0.1);
+\end{tikzpicture}
+\end{preview}
+\end{document}
