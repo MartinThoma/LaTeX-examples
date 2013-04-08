@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=0.1,dot/.style={    thick,
+    draw=gray,
+    cross out,
+    inner sep=0pt,
+    minimum width=4pt,
+    minimum height=4pt}]
+
+\draw[->] (-3.43,8.41) -- (-0.69,1.68);
+\draw[->] (-5.48,3.65) -- (-1.10,0.73);
+\draw[->] (2.52,-7.45) -- (0.50,-1.49);
+\draw[->] (2.97,-3.76) -- (0.59,-0.75);
+\draw[->] (3.43,-0.85) -- (0.69,-0.17);
+\draw[->] (15.00,0.00) -- (3.00,0.00);
+\node[circle,inner sep=1pt,fill]  at (0.00,0.00) {};
+\foreach \point in {(15.00,0.00),(3.43,-0.85),(2.97,-3.76),(2.52,-7.45),(-5.48,3.65),(-3.43,8.41)}{
+\node[dot] at \point {};
+}
+\draw[->] (39.63,0.85) -- (39.93,0.17);
+\draw[->] (43.27,-8.94) -- (40.65,-1.79);
+\draw[->] (38.54,9.68) -- (39.71,1.94);
+\draw[->] (34.19,-5.01) -- (38.84,-1.00);
+\draw[->] (44.37,3.43) -- (40.87,0.69);
+\draw[->] (25.00,0.00) -- (37.00,0.00);
+\node[circle,inner sep=1pt,fill]  at (40.00,0.00) {};
+\foreach \point in {(25.00,0.00),(44.37,3.43),(34.19,-5.01),(38.54,9.68),(43.27,-8.94),(39.63,0.85)}{
+\node[dot] at \point {};
+}
+\node[circle,inner sep=1pt,fill]  at (40.00,0.00) {};
+\foreach \point in {(15,0), (35,0)}{
+\node[dot] at \point {};
+}
+
+\end{tikzpicture}
+\end{preview}
+\end{document}
+

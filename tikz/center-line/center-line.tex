@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[cross/.style={    thick,
+    draw=gray,
+    cross out,
+    inner sep=0pt,
+    minimum width=4pt,
+    minimum height=4pt},
+dot/.style={    thick,
+    draw=gray,
+	circle,
+	fill=black,
+    inner sep=0pt,
+    minimum width=4pt,
+    minimum height=4pt}]
+\node at (0,3) {Schritt 1:};
+\foreach \point in {(2,3),(4,3),(6,3),(8,3),(10,3),(12,3)}{
+	\node[cross] at \point {};
+}
+\foreach \point in {(3,3),(11,3)}{
+	\node[dot] at \point {};
+}
+
+\draw[->] (2,3) edge[bend left] (2.9,3);
+\draw[->] (12,3) edge[bend right] (11.1,3);
+%%%%%%%%%%%%%%%%%%%%%%%%
+\node at (0,2) {Schritt 2:};
+\foreach \point in {(3,2),(4,2),(6,2),(8,2),(10,2),(11,2)}{
+	\node[cross] at \point {};
+}
+\foreach \point in {(3.5,2),(4.33,2),(9.66,2),(10.5,2)}{
+	\node[dot] at \point {};
+}
+
+\draw[->] (3,2) edge[bend left] (3.4,2);
+\draw[->] (4,2) edge[bend left] (4.2,2);
+\draw[->] (11,2) edge[bend right] (10.6,2);
+\draw[->] (10,2) edge[bend right] (9.73,2);
+%%%%%%%%%%%%%%%%%%%%%%%%
+\node at (0,1) {Schritt 3:};
+\node[cross] at (7,1) {};
+
+\node at (0,1.6) {$\vdots$};
+\node at (0,2.6) {$\vdots$};
+
+
+% Brace
+\draw [decorate,decoration={brace,amplitude=6pt},yshift=3pt]
+(2,3) -- (4,3) node [black,midway,yshift=12pt] 
+{\footnotesize 200m};
+\draw [decorate,decoration={brace,amplitude=6pt},yshift=3pt]
+(4,3) -- (6,3) node [black,midway,yshift=12pt] 
+{\footnotesize 200m};
+\draw [decorate,decoration={brace,amplitude=6pt},yshift=3pt]
+(6,3) -- (8,3) node [black,midway,yshift=12pt] 
+{\footnotesize 200m};
+\draw [decorate,decoration={brace,amplitude=6pt},yshift=3pt]
+(8,3) -- (10,3) node [black,midway,yshift=12pt] 
+{\footnotesize 200m};
+\draw [decorate,decoration={brace,amplitude=6pt},yshift=3pt]
+(10,3) -- (12,3) node [black,midway,yshift=12pt] 
+{\footnotesize 200m};
+
+\end{tikzpicture}
+\end{preview}
+\end{document}
