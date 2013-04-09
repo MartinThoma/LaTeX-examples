@@ -1,4 +1,4 @@
-SOURCE = vector-addition-and-scaling
+SOURCE = 3d-vector
 DELAY = 80
 DENSITY = 300
 WIDTH = 512
