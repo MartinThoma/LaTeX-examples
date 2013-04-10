@@ -1,7 +1,7 @@
 SOURCE = 3d-manhattan-bar-plot
 DELAY = 80
 DENSITY = 300
-WIDTH = 500
+WIDTH = 512
 
 make:
 	python getCoordinates.py
