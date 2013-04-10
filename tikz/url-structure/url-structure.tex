@@ -23,21 +23,22 @@
 
 
 \begin{tikzpicture}
-\node [mybox] (box){
-    \begin{minipage}{0.9\textwidth}
-        $\underbrace{\text{http}}_{\text{protocol}}
-          \text{://}
-          \underbrace{
+    \node [mybox] (box){
+        \begin{minipage}{0.9\textwidth}
+            $\underbrace{\text{http}}_{\text{protocol}}
+            \text{://}
+            \underbrace{
                 \overbrace{\text{martin-thoma}}^\text{2\textsuperscript{nd} level domain}
                 \text{.}
                 \overbrace{\text{com}}^\text{TLD}
-          }_\text{hostname}
-          \underbrace{\text{/why-to-study-math/}}_\text{path}
-          \text{\#}
-          \underbrace{\text{Math\_is\_fun}}_\text{Fragment identifier}$
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {The URL};
+            }_\text{hostname}
+            \underbrace{\text{/why-to-study-math/}}_\text{path}
+            \text{\#}
+            \underbrace{\text{Math\_is\_fun}}_\text{Fragment identifier}$
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {The URL};
 \end{tikzpicture}
+
 \end{preview}
 \end{document}
