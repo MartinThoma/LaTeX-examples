@@ -1,0 +1,66 @@
+\subsection{Königsberger Brückenproblem}
+\begin{frame}{Königsberger Brückenproblem}
+TODO: Allgemeine Beschreibung
+\end{frame}
+
+\begin{frame}{Übersetzung in einen Graphen}
+TODO: Übersetzung in Graph
+\end{frame}
+
+\begin{frame}{Eulerscher Kreis}
+\begin{block}{Eulerscher Kreis}
+Sei $G$ ein Graph und $A$ ein Kreis in $G$.
+
+$A$ heißt \textbf{eulerscher Kreis} $:\Leftrightarrow \forall_{e \in E}: e \in A$.
+\end{block}
+
+\begin{block}{Eulerscher Graph}
+Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
+\end{block}
+\end{frame}
+
+\begin{frame}{Eulerscher Kreis}
+TODO: $K_5$ eulerkreis animieren
+\end{frame}
+
+\begin{frame}{Satz von Euler}
+\begin{block}{Satz von Euler}
+Wenn ein Graph $G$ eulersch ist, dann hat jeder Knoten von $G$ geraden Grad.
+\end{block}
+
+Wenn $G$ einen Knoten mit ungeraden Grad hat, ist $G$ nicht eulersch.
+\end{frame}
+
+\begin{frame}{Umkehrung des Satzes von Euler}
+\begin{block}{Umkehrung des Satzes von Euler}
+Wenn in einem zusammenhängenden Graphen $G$ jeder Knoten geraden Grad hat, dann 
+ist $G$ eulersch.
+\end{block}
+
+Beweis per Induktion
+
+TODO
+\end{frame}
+
+\begin{frame}{Offene eulersche Linie}
+\begin{block}{Offene eulersche Linie}
+Sei $G$ ein Graph und $A$ ein Weg, der kein Kreis ist.
+
+$A$ heißt \textbf{offene eulersche Linie} von $G :\Leftrightarrow$ Jede Kante in $G$ kommt genau ein mal in $A$ vor.
+\end{block}
+
+Ein Graph kann genau dann "`in einem Zug"' gezeichnet werden, wenn er eine 
+offene eulersche Linie besitzt.
+\end{frame}
+
+\begin{frame}{Offene eulersche Linie}
+\begin{block}{Satz 8.2.3}
+Sei $G$ ein zusammenhängender Graph.
+
+$G$ hat eine offene eulersche Linie $:\Leftrightarrow G$ hat genau zwei Ecken 
+ungeraden Grades.
+\end{block}
+
+TODO: Haus des Nikolaus-Animation.
+TODO: Beweis
+\end{frame}

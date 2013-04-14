@@ -1,0 +1,135 @@
+\subsection{Grundlagen}
+\begin{frame}{Graph}
+\begin{block}{Graph}
+Ein Graph ist ein Tupel $(V, E)$, wobei $V \neq \emptyset$ die Knotenmenge und 
+$E \subseteq V \times V$ die 
+Kantenmenge bezeichnet.
+\end{block}
+
+TODO: 8 Bilder von Graphen
+\end{frame}
+
+\begin{frame}{Inzidenz}
+\begin{block}{Inzidenz}
+Sei $v \in V$ und $e = (v_1, v_2) \in E$.
+
+$v$ heißt \textbf{inzident} zu $e :\Leftrightarrow v = v_1$ oder $v = v_2$
+\end{block}
+
+TODO: 8 Bilder von Graphen
+\end{frame}
+
+\begin{frame}{Vollständige Graphen}
+\begin{block}{Vollständiger Graph}
+Sei $G = (V, E)$ ein Graph.
+
+$G$ heißt \textbf{vollständig} $:\Leftrightarrow E = V \times V \setminus \Set{v \in V: \Set{v, v}}$
+\end{block}
+
+Ein vollständiger Graphen mit $n$ Knoten wird als $K_n$ bezeichnet.
+
+TODO: 8 Bilder von Graphen
+TODO: $K_1, K_2, ... K_8$
+\end{frame}
+
+\begin{frame}{Bipartite Graphen}
+\begin{block}{Bipartite Graph}
+Sei $G = (V, E)$ ein Graph und $A, B \subset V$ zwei disjunkte Knotenmengen mit
+$V \setminus A = B$.
+
+$G$ heißt \textbf{bipartit} $:\Leftrightarrow \forall_{e = \Set{v_1, v_2} \in E}: (v_1 \in A \text{ und } v_2 \in B) \text{ oder } (v_1 \in B \text{ und } v_2 \in A) $
+\end{block}
+
+TODO: 8 Bilder von Graphen
+\end{frame}
+
+\begin{frame}{Vollständig bipartite Graphen}
+\begin{block}{Vollständig bipartite Graphen}
+Sei $G = (V, E)$ ein bipartiter Graph und $\Set{A, B}$ bezeichne die Bipartition.
+
+$G$ heißt \textbf{vollständig bipartit} $:\Leftrightarrow \forall_{a \in A} \forall_{b \in B}: \Set{a, b} \in E$
+\end{block}
+
+TODO: 8 Bilder von Graphen
+\end{frame}
+
+\begin{frame}{Vollständig bipartite Graphen}
+Bezeichnung: Vollständig bipartite Graphen mit der Bipartition $\Set{A, B}$ 
+bezeichnet man mit $K_{|A|, |B|}$.
+
+TODO: $K_{2,2}$
+TODO: $K_{2,3}$
+TODO: $K_{3,3}$
+\end{frame}
+
+\begin{frame}{Kantenzug}
+\begin{block}{Kantenzug}
+Sei $G = (V, E)$ ein Graph.
+
+Dann heißt eine Folge $e_1, e_2, \dots, e_s$ von Kanten, zu denen es Knoten
+$v_0, v_1, v_2, \dots, v_s$ gibt, so dass
+\begin{itemize}
+    \item $e_1 = \Set{v_0, v_1}$
+    \item $e_2 = \Set{v_1, v_2}$
+    \item \dots
+    \item $e_s = \Set{v_{s-1}, v_s}$
+\end{itemize}
+gilt ein \textbf{Kantenzug}, der $v_0$ und $v_s$ \textbf{verbindet} und $s$ 
+seine \textbf{Länge}.
+\end{block}
+
+TODO: 8 Bilder
+\end{frame}
+
+\begin{frame}{Geschlossener Kantenzug}
+\begin{block}{Geschlossener Kantenzug}
+Sei $G = (V, E)$ ein Graph und $A = (e_1, e_2 \dots, e_s)$ ein Kantenzug.
+
+A heißt \textbf{geschlossen} $:\Leftrightarrow v_s = v_0$ .
+\end{block}
+
+TODO: 8 Bilder
+\end{frame}
+
+\begin{frame}{Weg}
+\begin{block}{Weg}
+Sei $G = (V, E)$ ein Graph und $A = (e_1, e_2 \dots, e_s)$ ein Kantenzug.
+
+A heißt \textbf{Weg} $:\Leftrightarrow \forall_{i, j \in [1, s] \cap \mathbb{N}}: i \neq j \Rightarrow e_i \neq e_j$ .
+\end{block}
+
+TODO: 8 Bilder
+\end{frame}
+
+\begin{frame}{Kreis}
+\begin{block}{Kreis}
+Sei $G = (V, E)$ ein Graph und $A = (e_1, e_2 \dots, e_s)$ ein Kantenzug.
+
+A heißt \textbf{Kreis} $:\Leftrightarrow A$ ist geschlossen und ein Weg.
+\end{block}
+
+TODO: 8 Bilder
+\end{frame}
+
+\begin{frame}{Zusammenhängender Graph}
+\begin{block}{Zusammenhängender Graph}
+Sei $G = (V, E)$ ein Graph.
+
+$G$ heißt \textbf{zusammenhängend} $:\Leftrightarrow \forall v_1, v_2 \in V: $ Es ex. ein Kantenzug, der $v_1$ und $v_2$ verbindet
+\end{block}
+
+TODO: 8 Bilder
+\end{frame}
+
+\begin{frame}{Grad eines Knotens}
+\begin{block}{Grad eines Knotens}
+Der \textbf{Grad} eines Knotens ist die Anzahl der Kanten, die von diesem Knoten
+ausgehen.
+\end{block}
+
+\begin{block}{Isolierte Knoten}
+Hat ein Knoten den Grad 0, so nennt man ihn \textbf{isoliert}.
+\end{block}
+
+TODO: 8 Bilder
+\end{frame}

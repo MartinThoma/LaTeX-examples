@@ -1,0 +1,32 @@
+\documentclass[hyperref={pdfpagelabels=false},usepdftitle=false]{beamer}
+\usepackage{../templates/myStyle}
+
+\begin{document}
+%\selectlanguage{english}
+
+\title{\titleText}
+\subtitle{}
+\author{\tutor}
+\date{2. Juli 2013}
+\subject{Diskrete Mathematik}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Contents}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{Grundlagen}
+\input{Grundlagen}
+
+\section{Königsberger Brückenproblem}
+\input{Koenigsberger-Brueckenproblem}
+
+\end{document}
