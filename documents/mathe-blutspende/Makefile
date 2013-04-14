@@ -1,4 +1,4 @@
-SOURCE = mathe-blutspende
+SOURCE = Aufgabe-Blutspende
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf
