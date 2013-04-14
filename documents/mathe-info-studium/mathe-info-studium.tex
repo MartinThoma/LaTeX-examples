@@ -1,0 +1,101 @@
+\documentclass[a4paper,landscape]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{hyperref}   % links im text
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{footnote} % footnotes in tables
+\usepackage{color, colortbl} % highlight one row
+\usepackage[margin=1cm]{geometry}
+\definecolor{LightGreen}{rgb}{0.7,1,0.7}
+\definecolor{VeryLightGreen}{rgb}{0.9,1,0.9}
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Studienplan}, 
+  pdftitle    = {Studienplan} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section{Allgemeines}
+\begin{itemize}
+    \item 1 SWS entspricht etwa 1,5 LP (LP = ECTS)
+    \item Bachelor Informatik und Bachelor Mathematik benötigen jeweils 180 LP
+    \item Regelstudienzeit sind 6 Semester
+    \item Maximalstudienzeit sind 9 Semester
+\end{itemize}
+
+\section{Mathematik}
+\begin{itemize}
+    \item Ergänzungsfach und Wahlpflichtfach müssen zusammen 38 LP ergeben.
+    \item 6 LP an Schlüsselqualifikationen
+    \item  insgesamt über alle 6 Semester des Bachelorstudiums beträgt das Anwendungsfach 23-30 Leistungspunkte
+    \item 50-57 Leistungspunkte aus den Gebieten Algebra/Geometrie, Analysis, Stochastik oder Angewandte/Numerische Mathematik erworben werden, wobei mindestens je 8 Leistungspunkte aus den Gebieten Algebra/Geometrie sowie Analysis kommen müssen
+\end{itemize}
+
+\section{Vergleich}
+\begin{savenotes}
+\begin{tabular}{llll || llll}
+\multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{1. Semester Informatik}} & \multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{1. Semester Mathematik}}\\
+\rowcolor{LightGreen}
+ IN1INGI    & Grundbegr. d. Informatik      & 2/1/2 & 4 &  IN1INGI    & Grundbegr. d. Informatik      & 2/1/2 & 4 \\
+\rowcolor{VeryLightGreen}
+ IN1INPROG  & Programmieren                 & 2/0/2 & 5 & MATHBANM01 & EidIaM \footnote{Programmieren: Einstieg in die Informatik und algorithmische Mathematik}  & 2/2/2 & 6 \\
+\rowcolor{LightGreen}
+ MATHBAAN01 & Analysis I                    & 4/2/2 & 9 & MATHBAAN01 & Analysis I                    & 4/2/2 & 9 \\
+\rowcolor{LightGreen}
+ MATHBAAG01 & Lineare Algebra I             & 4/2/2 & 9 & MATHBAAG01 & Lineare Algebra I             & 4/2/2 & 9 \\
+            & Summe                         &12/5/8 &$\Sigma$ 27 &            & Summe                         &12/7/8 &$\Sigma$ 28 \\
+\multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{2. Semester Informatik}} & \multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{2. Semester Mathematik}}\\
+\rowcolor{LightGreen}
+ MATHBAAN01 & Analysis II                   & 4/2/2 & 9 & MATHBAAN01 & Analysis II                   & 4/2/2 & 9 \\
+\rowcolor{LightGreen}
+ MATHBAAG01 & Lineare Algebra II            & 2/1/2 & 9 & MATHBAAG01 & Lineare Algebra II            & 2/1/2 & 9 \\
+\rowcolor{LightGreen}
+ IN1INALG1  & Algorithmen I                 & 3/1/2 & 6 & IN1INALG1  & Algorithmen I                 & 3/1/2 & 6 \\
+ IN1INSWT1  & Softwaretechnik I             & 3/1/2 & 6 & MATHBAAN02 & Analysis III                  & 4/2/1 & 9 \\
+ IN1INTI    & Rechnerorganisation           & 3/1/2 & 6  \\
+            & Summe                         &15/6/10&$\Sigma$ 36 &   & Summe                         &13/6/7&$\Sigma$ 33 \\
+\multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{3. Semester Informatik}} & \multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{3. Semester Mathematik}}\\
+ IN2INTHEOG & Theor. Grundl. der Informatik & 3/1/2 & 6 & MATHBANM02 & Numerische Mathematik I      & 3/1/1 & 6 \\
+ IN2INSWP   & Praxis der Software-Entwicklung& 0/4/0 & 6 \\
+ IN2INBS    & Betriebssysteme               & 3/1/2 & 6 \\
+ IN1INTI    & Digitaltechnik u. Entwurfsverfahren & 3/1/2 & 6 \\
+ IN2MATHPM  & Wahrscheinlichkeitstheorie u. Statistik & 2/1/0 & 4.5  & MATHBAST01  & Einführung in die Stochastik & 3/1/2 & 6  \\
+\rowcolor{LightGreen}
+  ?         & Schlüsselqualifikationen      & ?     & 6 & MATHBASQ01    & Schlüsselqualifikationen  & ? & 6  \\
+            & Summe                         &? &$\Sigma$ 34.5 &   & Summe                           & ? & $\Sigma$ 18 \\
+\multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{4. Semester Informatik}} & \multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{4. Semester Mathematik}}\\
+ IN2INKD    & Kommunikation u. Datenhaltung & 4/2/0 & 8 & MATHBAST03 & Markovsche Ketten             & 3/1/0 & 6\\
+ IN2MATHPM  & Numerik                       & 2/1/0 & 4.5 & MATHBANM02 & Numerische Mathematik II      & 3/1/1 & 6\\
+\rowcolor{LightGreen}
+ MATHBAPS01 & Proseminar                    & 1/0/0 & 3 &  MATHBAPS01 & Proseminar                    & 1/0/0 & 3 \\
+\rowcolor{LightGreen}
+ IN3MATHAG02& Einführung in Algebra und Zahlentheorie & 6 & 9 & MATHBAAG02 & Einführung in Algebra und Zahlentheorie & 6 & 8\\
+            & Summe                         &? &$\Sigma$ 24.5 &   & Summe                           & ? & $\Sigma$ 23 \\
+\multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{5. Semester Informatik}} & \multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{5. Semester Mathematik}}\\
+\rowcolor{LightGreen}
+ IN3MATHAG03& Einführung in Geometrie und Topologie & 6 & 9 & MATHBAAG03 & Einführung in Geometrie und Topologie & 6 & 8\\
+ IN3INALG2  & Algorithmen II                & 3/1/0 & 6 & MATHBASE01    & Seminar                       & 1/0/0 &  4\\
+ IN3INPROGP & Programmierparadigmen         & 3/1   & 6 \\
+            & Summe                         &? &$\Sigma$ 21 &   & Summe                           & ? & $\Sigma$ 12 \\
+\multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{6. Semester Informatik}} & \multicolumn{4}{l}{\cellcolor{blue!25} \bfseries{6. Semester Mathematik}}\\
+            & Bachelorarbeit                &       & 15  &          & Bachelorarbeit               &       & 12 \\
+\hline
+\hline
+            & Summe                         &       & 158 &          &                              &       & 126 \\
+\end{tabular}
+\end{savenotes}
+\end{document}
