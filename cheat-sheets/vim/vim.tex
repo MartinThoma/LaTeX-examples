@@ -1,0 +1,51 @@
+\documentclass[a4paper,10pt,landscape]{article}
+\usepackage{myStyle}
+
+\begin{document}
+
+\raggedright
+\footnotesize
+\begin{multicols}{3}
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\begin{center}
+     \Large{\textbf{Vim}} \\
+\end{center}
+
+\section{Basic commands}
+\begin{tabular}{@{}ll@{}}
+\verb!:w [file]!    & Write to \textit{file} \\
+\verb!:x!           & Exit, saving changes \\
+\verb!:q!           & Exit as long as there have been no changes \\
+\verb!:q!!          & Exit and ignore any changes \\
+\verb!:wq!          & Save file and exit
+\end{tabular}
+
+\section{Inserting Text}
+\begin{tabular}{@{}ll@{}}
+\keys{i}    & Insert before cursor \\
+\keys{I}    & Insert before line \\
+\end{tabular}
+
+\section{Motion}
+\begin{tabular}{@{}ll@{}}
+\keys{h}    & Move left \\
+\keys{j}    & Move down \\
+\keys{k}    & Move up \\
+\keys{l}    & Move right \\
+\keys{w}    & Move to next word \\
+\keys{W}    & Move to next blank delimited word \\
+\keys{e}    & Move to the end of the word \\
+\end{tabular}
+
+
+\end{multicols}
+\end{document}
