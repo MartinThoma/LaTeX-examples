@@ -1,0 +1,45 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}         % this is needed for umlauts
+\usepackage[ngerman]{babel}         % this is needed for umlauts
+\usepackage[T1]{fontenc}            % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate}  % get DD.MM.YYYY dates
+
+% See http://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes#Margin_Notes
+\usepackage{marginnote}             % write notes in margin
+\usepackage[top=2.5cm, bottom=1cm, outer=3.0cm, inner=1.5cm, heightrounded, marginparwidth=1cm, marginparsep=0.5cm]{geometry}
+
+\newcommand{\Student}{Martin Thoma}
+\newcommand{\Matrikelnummer}{1634567}
+\newcommand{\Nr}{1}
+
+\pagestyle{empty}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\Student}
+\rhead{Matrikelnummer: \Matrikelnummer}
+
+\usepackage{lipsum}
+
+\begin{document}
+\begin{center} \Huge{Übungsblatt \Nr} \end{center}
+
+\section*{Aufgabe 1}
+\lipsum[1]
+
+\marginnote{\underline{$\;\;\;\;\;\;\;\;\;\;\;\;$} \\ Punkte}[0cm]
+
+
+\section*{Aufgabe 2}
+\lipsum[2]
+
+\marginnote{\underline{$\;\;\;\;\;\;\;\;\;\;\;\;$} \\ Punkte}[0cm]
+
+\section*{Aufgabe 3}
+\lipsum[2]
+
+\marginnote{\underline{$\;\;\;\;\;\;\;\;\;\;\;\;$} \\ Punkte}[0cm]
+
+\marginnote{\underline{$\Sigma \;\;\;\;\;\;\;\;\;\;\;\;$} \\ Punkte}[2cm]
+
+\end{document}
