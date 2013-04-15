@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+ 
+\usepackage{xcolor}
+\definecolor{pink}{HTML}{FF00FF}
+\definecolor{purple}{HTML}{800080}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing,intersections} 
+\tikzstyle{vertex}=[draw,
+fill=black,
+circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+\tikzstyle{markedCircle}=[line width=1pt,rotate=90,decorate,decoration={snake, segment length=2mm, amplitude=0.4mm}]
+
+\begin{document}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\begin{preview}
+\begin{tikzpicture}  [scale=1.2]
+  \node (a)[vertex] at (1,1) {};
+  \node (b)[vertex] at (2,5) {};
+  \node (c)[vertex] at (3,3) {};
+  \node (d)[vertex] at (5,4) {};
+  \node (e)[vertex] at (3,6) {};
+  \node (f)[vertex] at (5,6) {};
+  \node (g)[vertex] at (7,6) {};
+  \node (h)[vertex] at (7,4) {};
+  \node (i)[vertex] at (6,2) {};
+  \node (j)[vertex] at (8,7) {};
+  \node (k)[vertex] at (9,5) {};
+  \node (l)[vertex] at (13,6) {};
+  \node (m)[vertex] at (11,7) {};
+  \node (n)[vertex] at (15,7) {};
+  \node (o)[vertex] at (16,4) {};
+  \node (p)[vertex] at (10,2) {};
+  \node (q)[vertex] at (13,1) {};
+  \node (r)[vertex] at (16,1) {};
+  \node (s)[vertex] at (17,4) {};
+  \node (t)[vertex] at (19,6) {};
+  \node (u)[vertex] at (18,3) {};
+  \node (v)[vertex] at (20,2) {};
+  \node (w)[vertex] at (15,4) {};
+
+  \foreach \from/\to in {a/c,c/b,c/d,d/f,f/g,g/h,h/d,d/g,h/f,i/k,k/j,k/l,l/m,m/n,n/o,o/t,t/v,v/u,s/r,o/q,q/p,u/t}
+    \draw[line width=2pt] (\from) -- (\to);
+\end{tikzpicture}
+\end{preview}
+\end{document}
