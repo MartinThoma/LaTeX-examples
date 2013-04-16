@@ -3,10 +3,15 @@
 \usepackage[ngerman]{babel}         % this is needed for umlauts
 \usepackage[T1]{fontenc}            % needed for right umlaut output in pdf
 \usepackage[ngerman, num]{isodate}  % get DD.MM.YYYY dates
+\usepackage{amsmath}
 
 % See http://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes#Margin_Notes
 \usepackage{marginnote}             % write notes in margin
 \usepackage[top=2.5cm, bottom=1cm, outer=3.0cm, inner=1.5cm, heightrounded, marginparwidth=1cm, marginparsep=0.5cm]{geometry}
+
+\usepackage{enumerate}
+\usepackage{minted} % needed for the inclusion of source code
+\usepackage{lastpage}
 
 \newcommand{\Student}{Martin Thoma}
 \newcommand{\Matrikelnummer}{1634567}
@@ -17,6 +22,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \lhead{\Student}
+\chead{Seite \thepage\ von \pageref{LastPage}}
 \rhead{Matrikelnummer: \Matrikelnummer}
 
 \usepackage{lipsum}
