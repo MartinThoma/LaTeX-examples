@@ -1,22 +1,22 @@
 \subsection{Grundlagen}
 \begin{frame}{Graph}
 \begin{block}{Graph}
-Ein Graph ist ein Tupel $(V, E)$, wobei $V \neq \emptyset$ die Knotenmenge und 
-$E \subseteq V \times V$ die 
+Ein Graph ist ein Tupel $(E, K)$, wobei $E \neq \emptyset$ die Eckenmenge und 
+$K \subseteq E \times E$ die 
 Kantenmenge bezeichnet.
 \end{block}
 \pause
 \tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
 
 \begin{gallery}
-    \galleryimage{graphs/graph-1}
-    \galleryimage{graphs/graph-2}
-    \galleryimage{graphs/k-3-3}
-    \galleryimage{graphs/k-5}\\
-    \galleryimage{graphs/k-16}
-    \galleryimage{graphs/graph-6}
-    \galleryimage{graphs/star-graph}
-    \galleryimage{graphs/tree}
+    \galleryimage[Green]{graphs/graph-1}
+    \galleryimage[Green]{graphs/graph-2}
+    \galleryimage[Green]{graphs/k-3-3}
+    \galleryimage[Green]{graphs/k-5}\\
+    \galleryimage[Green]{graphs/k-16}
+    \galleryimage[Green]{graphs/graph-6}
+    \galleryimage[Green]{graphs/star-graph}
+    \galleryimage[Green]{graphs/tree}
 \end{gallery}
 \end{frame}
 
@@ -30,54 +30,54 @@ Kantenmenge bezeichnet.
 
 \begin{frame}{Inzidenz}
 \begin{block}{Inzidenz}
-Sei $v \in V$ und $e = \Set{v_1, v_2} \in E$.
+Sei $e \in E$ und $k = \Set{v_1, v_2} \in K$.
 
-$v$ heißt \textbf{inzident} zu $e :\Leftrightarrow v = v_1$ oder $v = v_2$
+$e$ heißt \textbf{inzident} zu $k :\Leftrightarrow e = e_1$ oder $e = e_2$
 \end{block}
 
 \pause
 \tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
 
 \begin{gallery}
-    \galleryimage{inzidenz/graph-1}
-    \galleryimage{inzidenz/graph-2}
-    \galleryimage{inzidenz/k-3-3}
-    \galleryimage{inzidenz/k-5}\\
-    \galleryimage{inzidenz/k-16}
-    \galleryimage{inzidenz/graph-6}
-    \galleryimage{inzidenz/star-graph}
-    \galleryimage{inzidenz/tree}
+    \galleryimage[Green]{inzidenz/graph-1}
+    \galleryimage[Green]{inzidenz/graph-2}
+    \galleryimage[Green]{inzidenz/k-3-3}
+    \galleryimage[Green]{inzidenz/k-5}\\
+    \galleryimage[Green]{inzidenz/k-16}
+    \galleryimage[red]{inzidenz/graph-6}
+    \galleryimage[Green]{inzidenz/star-graph}
+    \galleryimage[Green]{inzidenz/tree}
 \end{gallery}
 \end{frame}
 
 \begin{frame}{Vollständige Graphen}
 \begin{block}{Vollständiger Graph}
-Sei $G = (V, E)$ ein Graph.
+Sei $G = (E, K)$ ein Graph.
 
-$G$ heißt \textbf{vollständig} $:\Leftrightarrow E = V \times V \setminus \Set{v \in V: \Set{v, v}}$
+$G$ heißt \textbf{vollständig} $:\Leftrightarrow  = E \times E \setminus \Set{e \in E: \Set{e, e}}$
 \end{block}
 
-Ein vollständiger Graph mit $n$ Knoten wird als $K_n$ bezeichnet.
+Ein vollständiger Graph mit $n$ Ecken wird als $K_n$ bezeichnet.
 \pause
 \tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
 \begin{gallery}
-    \galleryimage{vollstaendig/k-1}
-    \galleryimage{vollstaendig/k-2}
-    \galleryimage{vollstaendig/k-3}
-    \galleryimage{vollstaendig/k-4}\\
-    \galleryimage{vollstaendig/k-5}
-    \galleryimage{vollstaendig/k-6}
-    \galleryimage{vollstaendig/k-7}
-    \galleryimage{vollstaendig/k-16}
+    \galleryimage[Green]{vollstaendig/k-1}
+    \galleryimage[Green]{vollstaendig/k-2}
+    \galleryimage[Green]{vollstaendig/k-3}
+    \galleryimage[Green]{vollstaendig/k-4}\\
+    \galleryimage[Green]{vollstaendig/k-5}
+    \galleryimage[Green]{vollstaendig/k-6}
+    \galleryimage[Green]{vollstaendig/k-7}
+    \galleryimage[Green]{vollstaendig/k-16}
 \end{gallery}
 \end{frame}
 
 \begin{frame}{Bipartite Graphen}
 \begin{block}{Bipartite Graph}
-Sei $G = (V, E)$ ein Graph und $A, B \subset V$ zwei disjunkte Knotenmengen mit
-$V \setminus A = B$.
+Sei $G = (E, K)$ ein Graph und $A, B \subset V$ zwei disjunkte Eckenmengen mit
+$E \setminus A = B$.
 
-$G$ heißt \textbf{bipartit} $:\Leftrightarrow \forall_{e = \Set{v_1, v_2} \in E}: (v_1 \in A \text{ und } v_2 \in B) \text{ oder } (v_1 \in B \text{ und } v_2 \in A) $
+$G$ heißt \textbf{bipartit} $:\Leftrightarrow \forall_{k = \Set{e_1, e_2} \in K}: (e_1 \in A \text{ und } e_2 \in B) \text{ oder } (e_1 \in B \text{ und } e_2 \in A) $
 \end{block}
 
 TODO: 8 Bilder von Graphen
@@ -85,40 +85,90 @@ TODO: 8 Bilder von Graphen
 
 \begin{frame}{Vollständig bipartite Graphen}
 \begin{block}{Vollständig bipartite Graphen}
-Sei $G = (V, E)$ ein bipartiter Graph und $\Set{A, B}$ bezeichne die Bipartition.
+Sei $G = (E, K)$ ein bipartiter Graph und $\Set{A, B}$ bezeichne die Bipartition.
 
-$G$ heißt \textbf{vollständig bipartit} $:\Leftrightarrow \forall_{a \in A} \forall_{b \in B}: \Set{a, b} \in E$
+$G$ heißt \textbf{vollständig bipartit} $:\Leftrightarrow \forall_{a \in A} \forall_{b \in B}: \Set{a, b} \in K$
 \end{block}
 
-TODO: 8 Bilder von Graphen
+\begin{gallery}
+    \galleryimage[Green]{vollstaendig-bipartit/k-2-2}
+    \galleryimage[Green]{vollstaendig-bipartit/k-2-3}
+    \galleryimage[Green]{vollstaendig-bipartit/k-2-5}
+    \galleryimage[Green]{vollstaendig-bipartit/k-3-3}\\
+    \galleryimage[Green]{vollstaendig-bipartit/k-3-4}
+    \galleryimage[Green]{vollstaendig-bipartit/k-3-5}
+    \galleryimage[Green]{vollstaendig-bipartit/k-4-5}
+    \galleryimage[Green]{vollstaendig-bipartit/k-5-5}
+\end{gallery}
 \end{frame}
 
 \begin{frame}{Vollständig bipartite Graphen}
 Bezeichnung: Vollständig bipartite Graphen mit der Bipartition $\Set{A, B}$ 
 bezeichnet man mit $K_{|A|, |B|}$.
 
-TODO: $K_{2,2}$
-TODO: $K_{2,3}$
-TODO: $K_{3,3}$
+\begin{gallery}
+    \galleryimage[Green]{vollstaendig-bipartit/k-2-2}
+    \galleryimage[Green]{vollstaendig-bipartit/k-2-3}
+    \galleryimage[Green]{vollstaendig-bipartit/k-2-5}
+    \galleryimage[Green]{vollstaendig-bipartit/k-3-3}\\
+    \galleryimage[Green]{vollstaendig-bipartit/k-3-4}
+    \galleryimage[Green]{vollstaendig-bipartit/k-3-5}
+    \galleryimage[Green]{vollstaendig-bipartit/k-4-5}
+    \galleryimage[Green]{vollstaendig-bipartit/k-5-5}
+\end{gallery}
 \end{frame}
 
 \begin{frame}{Kantenzug}
 \begin{block}{Kantenzug}
-Sei $G = (V, E)$ ein Graph.
+Sei $G = (E, K)$ ein Graph.
 
-Dann heißt eine Folge $e_1, e_2, \dots, e_s$ von Kanten, zu denen es Knoten
-$v_0, v_1, v_2, \dots, v_s$ gibt, so dass
+Dann heißt eine Folge $k_1, k_2, \dots, k_s$ von Kanten, zu denen es Ecken
+$e_0, e_1, e_2, \dots, e_s$ gibt, so dass
 \begin{itemize}
-    \item $e_1 = \Set{v_0, v_1}$
-    \item $e_2 = \Set{v_1, v_2}$
+    \item $k_1 = \Set{e_0, e_1}$
+    \item $k_2 = \Set{e_1, e_2}$
     \item \dots
-    \item $e_s = \Set{v_{s-1}, v_s}$
+    \item $k_s = \Set{e_{s-1}, e_s}$
 \end{itemize}
-gilt ein \textbf{Kantenzug}, der $v_0$ und $v_s$ \textbf{verbindet} und $s$ 
+gilt ein \textbf{Kantenzug}, der \textcolor{purple}{$e_0$} und \textcolor{blue}{$e_s$} \textbf{verbindet} und $s$ 
 seine \textbf{Länge}.
 \end{block}
 
-TODO: 8 Bilder
+\tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
+\adjustbox{max size={\textwidth}{0.2\textheight}}{
+\begin{tikzpicture}
+  \node (a)[vertex] at (1,1) {};
+  \node (b)[vertex] at (2,5) {};
+  \node (c)[vertex] at (3,3) {};
+  \node (d)[vertex] at (5,4) {};
+  \node (e)[vertex] at (3,6) {};
+  \node (f)[vertex] at (5,6) {};
+  \node (g)[vertex] at (7,6) {};
+  \node (h)[vertex] at (7,4) {};
+  \node (i)[vertex] at (6,2) {};
+  \node (j)[vertex] at (8,7) {};
+  \node (k)[vertex] at (9,5) {};
+  \node (l)[vertex] at (13,6) {};
+  \node (m)[vertex] at (11,7) {};
+  \node (n)[vertex] at (15,7) {};
+  \node (o)[vertex] at (16,4) {};
+  \node (p)[vertex] at (10,2) {};
+  \node (q)[vertex] at (13,1) {};
+  \node (r)[vertex] at (16,1) {};
+  \node (s)[vertex] at (17,4) {};
+  \node (t)[vertex] at (19,6) {};
+  \node (u)[vertex] at (18,3) {};
+  \node (v)[vertex] at (20,2) {};
+  \node (w)[vertex] at (15,4) {};
+
+  \foreach \from/\to in {a/c,c/b,c/d,d/f,f/g,g/h,h/d,d/g,h/f,i/k,k/j,k/l,l/m,m/n,n/o,o/t,t/v,v/u,s/r,o/q,q/p,u/t}
+    \draw[line width=2pt] (\from) -- (\to);
+
+  \node (i)[vertex,purple] at (6,2) {};
+  \node (v)[vertex,blue] at (20,2) {};
+    \draw[line width=4pt, red] (i) -- (k) -- (l) -- (m) -- (n) -- (o) -- (t) -- (v);
+\end{tikzpicture}
+}
 \end{frame}
 
 \begin{frame}{Geschlossener Kantenzug}
@@ -161,14 +211,14 @@ $G$ heißt \textbf{zusammenhängend} $:\Leftrightarrow \forall v_1, v_2 \in V: $
 TODO: 8 Bilder
 \end{frame}
 
-\begin{frame}{Grad eines Knotens}
-\begin{block}{Grad eines Knotens}
-Der \textbf{Grad} eines Knotens ist die Anzahl der Kanten, die von diesem Knoten
+\begin{frame}{Grad einer Ecke}
+\begin{block}{Grad einer Ecke}
+Der \textbf{Grad} einer Ecke ist die Anzahl der Kanten, die von dieser Ecke
 ausgehen.
 \end{block}
 
-\begin{block}{Isolierte Knoten}
-Hat ein Knoten den Grad 0, so nennt man ihn \textbf{isoliert}.
+\begin{block}{Isolierte Ecken}
+Hat eine Ecke den Grad 0, so nennt man ihn \textbf{isoliert}.
 \end{block}
 
 TODO: 8 Bilder

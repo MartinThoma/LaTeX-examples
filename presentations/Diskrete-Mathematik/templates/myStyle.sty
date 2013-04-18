@@ -121,10 +121,12 @@
     \par\endcenter
 }
 
-\def\galleryimage#1{%
+\newcommand{\galleryimage}[2][borderColor]{
     \adjustbox{width=2cm,height=2cm,keepaspectratio, center=2cm,
     valign=M, set vsize={1cm}{1cm},
-    bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}
-    {\includestandalone{#1}}%
+    bgcolor=myLightGray,cfbox=#1 1px 0px 2px}
+    {\includestandalone{#2}}%
     \space\ignorespaces
 }%
+
+\definecolor{Green}{HTML}{BEF781}
