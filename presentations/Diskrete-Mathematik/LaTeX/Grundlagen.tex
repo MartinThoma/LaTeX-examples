@@ -5,18 +5,49 @@ Ein Graph ist ein Tupel $(V, E)$, wobei $V \neq \emptyset$ die Knotenmenge und
 $E \subseteq V \times V$ die 
 Kantenmenge bezeichnet.
 \end{block}
+\pause
+\tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
 
-TODO: 8 Bilder von Graphen
+\begin{gallery}
+    \galleryimage{graphs/graph-1}
+    \galleryimage{graphs/graph-2}
+    \galleryimage{graphs/k-3-3}
+    \galleryimage{graphs/k-5}\\
+    \galleryimage{graphs/k-16}
+    \galleryimage{graphs/graph-6}
+    \galleryimage{graphs/star-graph}
+    \galleryimage{graphs/tree}
+\end{gallery}
+\end{frame}
+
+\begin{frame}{Synonyme}
+
+\begin{center}
+\Huge{Knoten $\Leftrightarrow$ Ecken}
+\end{center}
+
 \end{frame}
 
 \begin{frame}{Inzidenz}
 \begin{block}{Inzidenz}
-Sei $v \in V$ und $e = (v_1, v_2) \in E$.
+Sei $v \in V$ und $e = \Set{v_1, v_2} \in E$.
 
 $v$ heißt \textbf{inzident} zu $e :\Leftrightarrow v = v_1$ oder $v = v_2$
 \end{block}
 
-TODO: 8 Bilder von Graphen
+\pause
+\tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
+
+\begin{gallery}
+    \galleryimage{inzidenz/graph-1}
+    \galleryimage{inzidenz/graph-2}
+    \galleryimage{inzidenz/k-3-3}
+    \galleryimage{inzidenz/k-5}\\
+    \galleryimage{inzidenz/k-16}
+    \galleryimage{inzidenz/graph-6}
+    \galleryimage{inzidenz/star-graph}
+    \galleryimage{inzidenz/tree}
+\end{gallery}
 \end{frame}
 
 \begin{frame}{Vollständige Graphen}
@@ -26,10 +57,19 @@ Sei $G = (V, E)$ ein Graph.
 $G$ heißt \textbf{vollständig} $:\Leftrightarrow E = V \times V \setminus \Set{v \in V: \Set{v, v}}$
 \end{block}
 
-Ein vollständiger Graphen mit $n$ Knoten wird als $K_n$ bezeichnet.
-
-TODO: 8 Bilder von Graphen
-TODO: $K_1, K_2, ... K_8$
+Ein vollständiger Graph mit $n$ Knoten wird als $K_n$ bezeichnet.
+\pause
+\tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
+\begin{gallery}
+    \galleryimage{vollstaendig/k-1}
+    \galleryimage{vollstaendig/k-2}
+    \galleryimage{vollstaendig/k-3}
+    \galleryimage{vollstaendig/k-4}\\
+    \galleryimage{vollstaendig/k-5}
+    \galleryimage{vollstaendig/k-6}
+    \galleryimage{vollstaendig/k-7}
+    \galleryimage{vollstaendig/k-16}
+\end{gallery}
 \end{frame}
 
 \begin{frame}{Bipartite Graphen}

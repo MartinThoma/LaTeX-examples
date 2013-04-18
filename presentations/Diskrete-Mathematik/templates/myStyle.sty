@@ -98,3 +98,33 @@
     \tableofcontents[subsectionstyle=show/show/show, subsubsectionstyle=show/show/show, #1]
   \end{frame}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Gallery                                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\definecolor{myLightGray}{HTML}{F9F9F9}
+\definecolor{borderColor}{HTML}{CCCCCC}
+
+\usepackage{standalone} % needed for includestandalone
+\usepackage{tikz} % needed for includestandalone
+\usetikzlibrary{arrows,positioning, calc}
+
+\tikzset{
+    pil/.style={->,thick}
+}
+
+\newenvironment{gallery}{%
+    \center
+}{%
+    \par\endcenter
+}
+
+\def\galleryimage#1{%
+    \adjustbox{width=2cm,height=2cm,keepaspectratio, center=2cm,
+    valign=M, set vsize={1cm}{1cm},
+    bgcolor=myLightGray,cfbox=borderColor 1px 0px 2px}
+    {\includestandalone{#1}}%
+    \space\ignorespaces
+}%

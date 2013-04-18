@@ -1,0 +1,36 @@
+% A complete graph
+% Author: Quintin Jean-Noël
+% <http://moais.imag.fr/membres/jean-noel.quintin/>
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\usepackage{tikz}
+\usetikzlibrary[topaths]
+
+
+\begin{document}
+    \newcommand\n{5}
+    \begin{tikzpicture}
+        \node[vertex] (a) at (3,6) {};
+        \node[vertex,red] (b) at (2,4) {};
+        \node[vertex] (c) at (4,4) {};
+        \node[vertex] (d) at (1,2) {};
+        \node[vertex] (e) at (2,2) {};
+        \node[vertex,red] (f) at (3,2) {};
+        \node[vertex] (g) at (4,2) {};
+        \node[vertex] (h) at (0,0) {};
+        \node[vertex] (i) at (2,0) {};
+        \node[vertex] (j) at (3,0) {};
+        \node[vertex] (k) at (5,0) {};
+
+        \draw (a) -- (b);
+        \draw (a) -- (c);
+        \draw (b) -- (d);
+        \draw (b) -- (e);
+        \draw[green,ultra thick] (b) -- (f);
+        \draw (d) -- (h);
+        \draw (d) -- (i);
+        \draw (c) -- (g);
+        \draw (g) -- (j);
+        \draw (g) -- (k);
+    \end{tikzpicture}
+\end{document}

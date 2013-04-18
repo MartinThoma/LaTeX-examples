@@ -1,0 +1,24 @@
+% A complete graph
+% Author: Quintin Jean-Noël
+% <http://moais.imag.fr/membres/jean-noel.quintin/>
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\usepackage{tikz}
+\usetikzlibrary[topaths]
+
+
+\begin{document}
+    \newcommand\n{7}
+    \begin{tikzpicture}
+        %the multiplication with floats is not possible. Thus I split the loop in two.
+        \foreach \number in {1,...,\n}{
+            \node[vertex] (N-\number) at ({\number*(360/\n)}:5.4cm) {};
+        }
+
+        \foreach \number in {1,...,\n}{
+            \foreach \y in {1,...,\n}{
+                \draw (N-\number) -- (N-\y);
+            }
+        }
+    \end{tikzpicture}
+\end{document}

@@ -1,0 +1,45 @@
+% A complete graph
+% Author: Quintin Jean-Noël
+% <http://moais.imag.fr/membres/jean-noel.quintin/>
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary[topaths]
+
+
+\begin{document}
+
+% A counter, since TikZ is not clever enough (yet) to handle
+% arbitrary angle systems.
+\newcount\mycount
+
+  \tikzstyle{vertexs}=[draw,fill=black,circle,minimum size=4pt,inner sep=0pt]
+
+  \begin{tikzpicture}
+      %the multiplication with floats is not possible. Thus I split the loop in two.
+      \foreach \number in {1,...,8}{
+          % Computer angle:
+            \mycount=\number
+            \advance\mycount by -1
+      \multiply\mycount by 45
+            \advance\mycount by 0
+          \node[draw,circle,inner sep=0.25cm] (N-\number) at (\the\mycount:5.4cm) {};
+        }
+      \foreach \number in {9,...,16}{
+          % Computer angle:
+            \mycount=\number
+            \advance\mycount by -1
+      \multiply\mycount by 45
+            \advance\mycount by 22.5
+          \node[draw,circle,inner sep=0.25cm] (N-\number) at (\the\mycount:5.4cm) {};
+        }
+      \foreach \number in {1,...,15}{
+            \mycount=\number
+            \advance\mycount by 1
+      \foreach \numbera in {\the\mycount,...,16}{
+        \path (N-\number) edge[->,bend right=3] (N-\numbera)  edge[<-,bend
+          left=3] (N-\numbera);
+      }
+    }
+  \end{tikzpicture}
+\end{document}

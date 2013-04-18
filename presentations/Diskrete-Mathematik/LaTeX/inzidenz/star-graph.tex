@@ -1,0 +1,27 @@
+% A complete graph
+% Author: Quintin Jean-Noël
+% <http://moais.imag.fr/membres/jean-noel.quintin/>
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\usepackage{tikz}
+\usetikzlibrary[topaths]
+
+
+\begin{document}
+    \newcommand\n{5}
+    \begin{tikzpicture}
+        \node[vertex] (N-0) at (0:0) {};
+        \foreach \number in {1,...,\n}{
+            \node[vertex] (N-\number) at ({\number*(360/\n)}:5.4cm) {};
+        }
+
+        \node[vertex,red] (N-0) at (0,0) {};
+        \node[vertex,red] (N-4) at ({4*(360/\n)}:5.4cm) {};
+
+        \draw (N-0) -- (N-1);
+        \draw (N-0) -- (N-2);
+        \draw (N-0) -- (N-3);
+        \draw[green,ultra thick] (N-0) -- (N-4);
+        \draw (N-0) -- (N-5);
+    \end{tikzpicture}
+\end{document}
