@@ -26,21 +26,64 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
 \end{block}
 \end{frame}
 
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
 \begin{frame}{Eulerscher Kreis}
-TODO: $K_5$ eulerkreis animieren
+    \newcommand\n{5}
+    \tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+    \begin{center}
+    \adjustbox{max size={\textwidth}{0.8\textheight}}{
+    \begin{tikzpicture}
+        \foreach \number in {1,...,\n}{
+            \node[vertex] (N-\number) at ({\number*(360/\n)}:5.4cm) {};
+        }
+
+        \foreach \number in {1,...,\n}{
+            \foreach \y in {1,...,\n}{
+                \draw (N-\number) -- (N-\y);
+            }
+        }
+
+        \node<2->[vertex,red] (N-1) at ({1*(360/\n)}:5.4cm) {};
+
+        \begin{pgfonlayer}{background}
+            \path<2->[selected edge] (N-1.center) edge node {} (N-2.center);
+            \path<3->[selected edge] (N-2.center) edge node {} (N-3.center);
+            \path<4->[selected edge] (N-3.center) edge node {} (N-4.center);
+            \path<5->[selected edge] (N-4.center) edge node {} (N-5.center);
+            \path<6->[selected edge] (N-5.center) edge node {} (N-1.center);
+            \path<7->[selected edge] (N-1.center) edge node {} (N-3.center);
+            \path<8->[selected edge] (N-3.center) edge node {} (N-5.center);
+            \path<9->[selected edge] (N-5.center) edge node {} (N-2.center);
+            \path<10->[selected edge] (N-2.center) edge node {} (N-4.center);
+            \path<11->[selected edge](N-4.center) edge node {} (N-1.center);
+        \end{pgfonlayer}
+    \end{tikzpicture}
+    }
+    \end{center}
 \end{frame}
 
+\subsection{Satz von Euler}
 \begin{frame}{Satz von Euler}
 \begin{block}{Satz von Euler}
-Wenn ein Graph $G$ eulersch ist, dann hat jeder Knoten von $G$ geraden Grad.
+Wenn ein Graph $G$ eulersch ist, dann hat jede Ecke von $G$ geraden Grad.
 \end{block}
 
-Wenn $G$ einen Knoten mit ungeraden Grad hat, ist $G$ nicht eulersch.
+\pause
+
+$\Rightarrow$ Wenn $G$ eine Ecke mit ungeraden Grad hat, ist $G$ nicht eulersch.
+
+\pause
+
+\begin{gallery}
+    \galleryimage{vollstaendig/k-5}
+    \galleryimage{koenigsberg/koenigsberg-1}
+\end{gallery}
 \end{frame}
 
 \begin{frame}{Umkehrung des Satzes von Euler}
 \begin{block}{Umkehrung des Satzes von Euler}
-Wenn in einem zusammenhängenden Graphen $G$ jeder Knoten geraden Grad hat, dann 
+Wenn in einem zusammenhängenden Graphen $G$ jede Ecke geraden Grad hat, dann 
 ist $G$ eulersch.
 \end{block}
 
@@ -68,6 +111,54 @@ $G$ hat eine offene eulersche Linie $:\Leftrightarrow G$ hat genau zwei Ecken
 ungeraden Grades.
 \end{block}
 
-TODO: Haus des Nikolaus-Animation.
-TODO: Beweis
+\pause
+
+\begin{block}{Beweis "`$\Rightarrow"'$}
+Sei $G=(E, K)$ ein zusammenhängender Graph und $L = (e_0, \dots, e_s)$ eine offene
+eulersche Linie. \pause
+Sei $G^* = (E, K \cup \Set{e_s, e_0})$. \pause
+Es gibt einen Eulerkreis in $G^*$ \pause \\
+$\xRightarrow{\text{Satz von Euler}}$ In $G^*$ hat jede Ecke geraden Grad \pause \\
+Der Grad von nur zwei Kanten wurde um jeweils 1 erhöht \pause \\
+$\Rightarrow$ in $G$ haben genau 2 Ecken ungeraden Grad $\blacksquare$
+\end{block}
+\end{frame}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{frame}{Haus des Nikolaus}
+    \tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+    \begin{center}
+    \adjustbox{max size={\textwidth}{0.8\textheight}}{
+    \begin{tikzpicture}
+        \node[vertex] (a) at (0,0) {};
+        \node[vertex] (b) at (2,0) {};
+        \node[vertex] (c) at (2,2) {};
+        \node[vertex] (d) at (0,2) {};
+        \node[vertex] (e) at (1,4) {};
+
+        \draw (a) -- (d);
+        \draw (d) -- (b);
+        \draw (b) -- (c);
+        \draw (c) -- (d);
+        \draw (d) -- (e);
+        \draw (e) -- (c);
+        \draw (c) -- (a);
+        \draw (a) -- (b);
+
+        \node<2->[vertex, red] (a) at (0,0) {};
+
+        \begin{pgfonlayer}{background}
+            \path<2->[selected edge] (a.center) edge node {} (d.center);
+            \path<3->[selected edge] (d.center) edge node {} (b.center);
+            \path<4->[selected edge] (b.center) edge node {} (c.center);
+            \path<5->[selected edge] (c.center) edge node {} (d.center);
+            \path<6->[selected edge] (d.center) edge node {} (e.center);
+            \path<7->[selected edge] (e.center) edge node {} (c.center);
+            \path<8->[selected edge] (c.center) edge node {} (a.center);
+            \path<9->[selected edge] (a.center) edge node {} (b.center);
+        \end{pgfonlayer}
+    \end{tikzpicture}
+    }
+    \end{center}
 \end{frame}
