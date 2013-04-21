@@ -1,0 +1,24 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={->,thick}
+}
+
+\begin{document}
+  \begin{tikzpicture}
+      \node (a)[vertex] at (0,3) {};
+      \node (b)[vertex] at (0,1) {};
+      \node (c)[vertex] at (1,0) {};
+      \node (d)[vertex] at (2,0) {};
+      \node (e)[vertex] at (3,0) {};
+      \node (f)[vertex] at (4,1) {};
+      \node (g)[vertex] at (4,3) {};
+
+      \foreach \from/\to/\color in {b/c/black,c/d/red,d/e/blue,e/f/lime}
+        \draw[line width=2pt,\color] (\from) -- (\to);
+  \end{tikzpicture}
+\end{document}

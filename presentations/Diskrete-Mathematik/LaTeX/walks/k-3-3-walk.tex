@@ -1,0 +1,20 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+
+\begin{document}
+  \tikzstyle{vertexs}=[draw,fill=black,circle,minimum size=4pt,inner sep=0pt]
+
+  \begin{tikzpicture}
+    \foreach \x in {0,1,2}
+    \foreach \y in {0,1,2}{
+      \node (a)[vertexs] at (\y,0) {};
+      \node (b)[vertexs] at (\x,1) {};
+        \draw (a) -- (b);
+    }
+  %  \foreach \x in {0,1,2}{
+  %      \draw (\x,0) circle (2pt);
+  %      \draw (\x,1) circle (2pt);
+  %  }
+  \end{tikzpicture}
+\end{document}
