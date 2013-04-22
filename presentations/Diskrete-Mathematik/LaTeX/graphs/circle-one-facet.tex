@@ -1,0 +1,36 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={->,thick}
+}
+
+\begin{document}
+  \begin{tikzpicture}
+      \node (a)[vertex] at (0,0) {};
+      \node (b)[vertex] at (1,1) {};
+      \node (c)[vertex] at (2,1) {};
+      \node (d)[vertex] at (3,0) {};
+      \node (e)[vertex] at (4,1) {};
+      \node (f)[vertex] at (5,1) {};
+      \node (g)[vertex] at (6,0) {};
+      \node (h)[vertex] at (5,-1) {};
+      \node (i)[vertex] at (4,-1) {};
+      %\node (j)[vertex] at (3,0) {};
+      \node (k)[vertex] at (2,-1) {};
+      \node (l)[vertex] at (1,-1) {};
+      \node (m)[vertex] at (2,2) {};
+      \node (n)[vertex] at (3,2) {};
+
+      \foreach \from/\to in {a/b,b/c,c/d,d/k,k/l,l/a}
+        \draw[selected edge] (\from) -- (\to);
+
+      \foreach \from/\to in {a/b,b/c,c/d,d/e,e/f,f/g,g/h,h/i,i/d,d/k,k/l,l/a}
+        \draw[line width=2pt] (\from) -- (\to);
+      \draw[line width=2pt] (b) -- (m);
+      \draw[line width=2pt] (m) -- (n);
+  \end{tikzpicture}
+\end{document}

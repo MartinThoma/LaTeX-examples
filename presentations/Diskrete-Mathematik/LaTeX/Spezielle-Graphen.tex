@@ -130,9 +130,9 @@ seine \textbf{Länge}.
 
 \begin{frame}{Geschlossener Kantenzug}
 \begin{block}{Geschlossener Kantenzug}
-Sei $G = (V, E)$ ein Graph und $A = (e_1, e_2 \dots, e_s)$ ein Kantenzug.
+Sei $G = (E, K)$ ein Graph und $A = (e_0, e_1, \dots, e_s)$ ein Kantenzug.
 
-A heißt \textbf{geschlossen} $:\Leftrightarrow v_s = v_0$ .
+A heißt \textbf{geschlossen} $:\Leftrightarrow e_s = e_0$ .
 \end{block}
 
 \begin{gallery}
@@ -149,9 +149,9 @@ A heißt \textbf{geschlossen} $:\Leftrightarrow v_s = v_0$ .
 
 \begin{frame}{Weg}
 \begin{block}{Weg}
-Sei $G = (V, E)$ ein Graph und $A = (e_1, e_2 \dots, e_s)$ ein Kantenzug.
+Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2 \dots, k_s)$ ein Kantenzug.
 
-A heißt \textbf{Weg} $:\Leftrightarrow \forall_{i, j \in [1, s] \cap \mathbb{N}}: i \neq j \Rightarrow e_i \neq e_j$ .
+A heißt \textbf{Weg} $:\Leftrightarrow \forall_{i, j \in 1, \dots, s}: i \neq j \Rightarrow k_i \neq k_j$ .
 \end{block}
 
 \pause
@@ -167,7 +167,7 @@ Achtung: Knoten dürfen mehrfach abgelaufen werden!
 
 \begin{frame}{Kreis}
 \begin{block}{Kreis}
-Sei $G = (V, E)$ ein Graph und $A = (e_1, e_2 \dots, e_s)$ ein Kantenzug.
+Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2 \dots, k_s)$ ein Kantenzug.
 
 A heißt \textbf{Kreis} $:\Leftrightarrow A$ ist geschlossen und ein Weg.
 \end{block}
@@ -175,13 +175,20 @@ A heißt \textbf{Kreis} $:\Leftrightarrow A$ ist geschlossen und ein Weg.
 \pause
 
 Manchmal wird das auch "`einfacher Kreis"' genannt.
+
+\pause
+
+\begin{gallery}
+    \galleryimage[Green]{graphs/circle-one-facet}
+    \galleryimage[Green]{graphs/circle-two-facets}
+\end{gallery}
 \end{frame}
 
 \begin{frame}{Zusammenhängender Graph}
 \begin{block}{Zusammenhängender Graph}
-Sei $G = (V, E)$ ein Graph.
+Sei $G = (E, K)$ ein Graph.
 
-$G$ heißt \textbf{zusammenhängend} $:\Leftrightarrow \forall v_1, v_2 \in V: $ Es ex. ein Kantenzug, der $v_1$ und $v_2$ verbindet
+$G$ heißt \textbf{zusammenhängend} $:\Leftrightarrow \forall e_1, e_2 \in E: $ Es ex. ein Kantenzug, der $e_1$ und $e_2$ verbindet
 \end{block}
 
 \begin{gallery}
