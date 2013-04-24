@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[dot/.style={    thick,
+    %draw=gray,
+    %cross out,
+    fill,
+    shape=circle,
+    inner sep=3pt,
+    minimum width=4pt,
+    minimum height=4pt}]
+\newcommand{\R}{2cm};
+
+\node (a) [dot] at (0,0) {};
+\node (b) [dot] at (\R,0) {};
+\node (c) [dot] at (2*\R,0) {};
+\node (d) [dot] at (3*\R,0) {};
+
+\node (e) [dot] at (0,\R) {};
+\node (f) [dot] at (\R,\R) {};
+\node (g) [dot] at (2*\R,\R) {};
+\node (h) [dot] at (3*\R,\R) {};
+
+%\node (center1) [thick,draw=blue,cross out,black,inner sep=3pt,minimum width=4pt,minimum height=4pt] at (0.5*\R,0.5*\R) {};
+\draw[dotted,thick] (0.5*\R,0.5*\R) circle(\R);
+\node (center1) at (0.5*\R+3,0.5*\R) {Cluster 1};
+\draw[dotted,thick] (2.5*\R,0.5*\R) circle(\R);
+\node (center1) at (2.5*\R-3,0.5*\R) {Cluster 2};
+%\draw[dashed,thick] (a) circle(\R);
+%\draw[dashed,thick] (b) circle(\R);
+%\draw[dashed,thick] (c) circle(\R);
+
+\draw[->, ultra thick] (b) -- (a);
+\draw[->, ultra thick] (f) -- (e);
+\draw[->, ultra thick] (c) -- (d);
+\draw[->, ultra thick] (g) -- (h);
+\draw[->, ultra thick] (a) to[bend right] (e);
+\draw[->, ultra thick] (e) to[bend right] (a);
+\draw[->, ultra thick] (d) to[bend right] (h);
+\draw[->, ultra thick] (h) to[bend right] (d);
+\end{tikzpicture}
+\end{preview}
+\end{document}

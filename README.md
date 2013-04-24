@@ -1,7 +1,8 @@
 LaTeX-examples
 ==============
 
-Examples for the usage of LaTeX
+More than 200 examples for the usage of LaTeX 
+(you can check that with the following command: `find . -type d | sort | awk '$0 !~ last "/" {print last} {last=$0} END {print last}' | grep -v .git | wc -l`)
 
 Most examples can be found on [my Wikpedia Commons user page](http://commons.wikimedia.org/wiki/User:MartinThoma#Galerie)
 

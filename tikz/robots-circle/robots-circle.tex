@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[dot/.style={    thick,
+    %draw=gray,
+    %cross out,
+    fill,
+    shape=circle,
+    inner sep=3pt,
+    minimum width=4pt,
+    minimum height=4pt}]
+\newcommand{\R}{2cm};
+
+\node (a) [dot] at (0,0) {};
+\node (b) [dot] at (\R,0) {};
+\node (c) [dot] at ({\R*cos(60)},{\R*sin(60)}) {};
+
+%\draw[dashed,thick] (a) circle(\R);
+%\draw[dashed,thick] (b) circle(\R);
+%\draw[dashed,thick] (c) circle(\R);
+
+\draw[->, ultra thick] (a) -- (b);
+\draw[->, ultra thick] (b) -- (c);
+\draw[->, ultra thick] (c) -- (a);
+\end{tikzpicture}
+\end{preview}
+\end{document}

@@ -1,0 +1,88 @@
+\documentclass[a4paper, 12pt, KOMAold, sections]{scrlttr2}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
+
+\usepackage{hyperref}
+ 
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vorname}{Martin}     % Vorname des Senders             %
+\newcommand{\Nachname}{Thoma}     % Nachname des Senders            %
+\newcommand{\Strasse}{Parkstraße} % Deine Straße                    %
+\newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
+\newcommand{\PLZ}{76131}          % Deine PLZ                       %
+\newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
+\newcommand{\Kundennr}{123456}    % Deine Kundennummer              %
+                                                                    %
+\newcommand{\Empfaenger}{Lisa Müller} % Der Empfänger               %
+\newcommand{\EStrasse}{Poststr. 17}   % Straße des Empfängers       %
+\newcommand{\EPLZ}{12345}             % PLZ des Empfängers          %
+\newcommand{\EOrt}{Berlin}            % Ort des Empfängers          %
+                                                                    %
+\newcommand{\DocTitle}{Milgrams Small World Experiment} %Titel des Dokuments%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
+% pdfinfo
+\hypersetup{ 
+  pdfauthor   = {\Nachname, \Vorname}, 
+  pdfkeywords = {Experiment, Fun, Web}, 
+  pdftitle    = {\DocTitle} 
+}
+ 
+% set letter variables
+\signature{\Vorname~\Nachname}
+\backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
+\newcommand{\section}[1]{\noindent\textbf{#1}\newline}
+ 
+% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
+    \date{\today}%Change this if you want a different date than today
+    \subject{\DocTitle}
+    \opening{Hallo \Empfaenger,}
+    ich schreibe dir diesen Brief, weil ich Milgrams Experiment wiederhole und
+    dabei auf deine Hilfe angewiesen bin.\\
+
+    \section{Was ist Milgrams Experiment?}
+    Ist es dir auch schon einmal passiert, dass du überraschend mit einem Freund 
+    oder eine Freundin einen gemeinsamen Bekannten hattest? Kennst du
+    das "`Freundesfreunde"'-System aus sozialen Netzwerken?
+
+    Dann weißt du im Prinzip schon worum es hier geht. Die Welt ist heutzutage
+    durch viele Beziehungen zu anderen Menschen, die teilweise sogar in anderen
+    Weltteilen sind, klein geworden. Das hat schon Stanley Milgram 1967 vermutet.
+    Er hat seine Vermutung dadurch bestätigt, dass er 60 Personen zufällig
+    gewählt hat, die einen Brief an eine Zielperson in Bosten senden sollte.
+    Allerdings sollten sie den Brief nur an Personen schicken, die sie kennen
+    und die die Zielperson eventuell kennen könnten.\\
+
+    \section{Wie kannst du helfen?}
+    Im Anhang ist ein Blatt auf dem die Zielperson steht, an die du diesen Brief
+    und alle Blätter im Anhang schicken sollst. 
+
+    Da ich nicht will, dass du einfach die Adresse im Internet
+    suchst, gebe ich dir nur den Ort, den Beruf und einen Vornamen. Nun musst 
+    du den Brief an einen Bekannten schicken, der diese Person kennen könnte.
+    Wenn deine Zielperson also in den USA lebt, könntest du den Brief zuerst
+    an einen Englisch-sprachigen Bekannten schicken. Oder du schickst ihn an
+    eine Person, von der du weißt dass sie sehr viele weitere Personen kennt.
+    Wenn du keine Ahnung hast wer die Zielperson kennen könnte, kannst du den
+    Brief auch an einen zufälligen Bekannten schicken. Egal wie, bitte schicke
+    den Brief bald weiter! Es wäre schade, wenn er bei dir liegen bleibt.\\
+
+    \section{Ich bin die Zielperson, was nun?}
+    Bitte schicke den Brief zurück an:\\
+
+    \noindent Martin Thoma\\
+    Parkstraße 17\\
+    76131 Karlsruhe\\
+
+    \section{Wo werden die Ergebnisse veröffentlicht?}
+    Die Ergebnisse wirst du auf meinem Blog unter \href{http://martin-thoma.com/milgram}{martin-thoma.com/milgram}
+    finden.
+ 
+    \closing{Mit freundlichen Grüßen,}
+    \end{letter}
+\end{document}
