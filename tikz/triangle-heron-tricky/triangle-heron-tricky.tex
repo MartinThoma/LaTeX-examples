@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[dot/.style={    thick,
+    %draw=gray,
+    %cross out,
+    fill,
+    shape=circle,
+    inner sep=3pt,
+    minimum width=4pt,
+    minimum height=4pt}]
+    % Draw the triangle
+    \draw[fill=green!10]  (0,    0) coordinate (a) 
+        -- (5cm,0) coordinate (b) 
+        -- (3.6cm,  4.8cm) coordinate (c) 
+        -- (0,    0)  -- cycle;
+
+    \draw[fill=blue!10]  (a) 
+        -- (b) 
+        -- (6.4cm,  4.8cm) coordinate (d) 
+        -- (0,    0)  -- cycle;
+
+    \draw[fill=red!10]  (a) 
+        -- (b) 
+        -- (4.1cm,3.07cm) coordinate (e) 
+        -- (0,    0)  -- cycle;
+
+    %\node (a) [dot] at (0,0) {};
+    %\node (b) [dot] at (5cm,0) {};
+    %\node (c) [dot] at (3.6cm,4.8cm) {};
+
+    \draw[thick] (a) -- (b) node [black,midway,yshift=-0.2cm,sloped] {5cm};
+    \draw[thick] (b) -- (c) node [black,midway,yshift=+0.2cm,sloped] {5cm};
+    \draw[thick] (a) -- (c) node [black,midway,yshift=+0.2cm,sloped] {7cm};
+
+    \draw[thick] (a) -- (d) node [black,midway,yshift=+0.2cm,sloped] {8cm};
+    \draw[thick] (b) -- (d) node [black,midway,yshift=-0.2cm,sloped] {5cm};
+
+%   \draw[dashed,thick,lime] (a) circle(8cm);
+%    \draw[dashed,thick,red] (a) circle(6cm);
+%    \draw[dashed,thick,lime] (b) circle(5cm);
+%    \draw[dashed,thick,red] (b) circle(6cm);
+%    \draw[dashed,thick,lime] (c) circle(5cm);
+%    \draw[dashed,thick,red] (c) circle(6cm);
+\end{tikzpicture}
+\end{preview}
+\end{document}
