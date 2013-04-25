@@ -1,0 +1,19 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+
+\begin{document}
+    \tikzstyle{vertex}=[draw,fill=black,circle,minimum size=3pt,inner sep=0pt]
+    \begin{tikzpicture}
+        \node[vertex] (N-1) at (0,0) {};
+        \node[vertex] (N-2) at (0,1) {};
+        \node[vertex] (N-3) at (1,0) {};
+        \node[vertex] (N-4) at (1,1) {};
+
+        \draw (N-1) -- (N-2);
+        \draw (N-1) -- (N-3);
+        \draw (N-1) -- (N-4);
+
+        \draw (N-2) -- (N-3);
+        \draw (N-2) -- (N-4);
+    \end{tikzpicture}
+\end{document}
