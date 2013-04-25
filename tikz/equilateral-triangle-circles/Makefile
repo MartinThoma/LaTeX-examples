@@ -1,7 +1,7 @@
 SOURCE = equilateral-triangle-circles
 DELAY = 80
 DENSITY = 300
-WIDTH = 500
+WIDTH = 512
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf
