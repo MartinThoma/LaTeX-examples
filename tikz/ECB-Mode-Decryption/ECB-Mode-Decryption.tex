@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{preview}
+\tikzstyle{vertex}=[draw,fill=black!15,circle,minimum size=20pt,inner sep=0pt]
+\tikzstyle{encrypt}=[draw,fill=black!15,rectangle,minimum size=20pt,inner sep=0pt]
+\begin{tikzpicture}
+    \newcommand{\n}{3}
+    \foreach \nr in {1, ..., \n}{
+        \node (M\nr) at (0,{(\n-\nr)*2}) {$C_\nr$};
+        \node (C\nr) at (4,{(\n-\nr)*2}) {$M_\nr$};
+        \node (E\nr)[encrypt] at (2,{(\n-\nr)*2}) {$D$};
+        \node (K\nr) at (2,{(\n-\nr)*2+1}) {$K$};
+
+        \draw[->,very thick] (M\nr) -- (E\nr);
+        \draw[->,very thick] (K\nr) -- (E\nr);
+        \draw[->,very thick] (E\nr) -- (C\nr);
+    }
+
+   \node (Mx) at (0,-1) {$\vdots$};
+   \node (Ex) at (2,-1) {$\vdots$};
+   \node (Cx) at (4,-1) {$\vdots$};
+\end{tikzpicture}
+\end{preview}
+\end{document}
