@@ -38,10 +38,13 @@
         \draw[->,very thick] (E\tmp) -- (4, {(\n-\tmp)*2-0.5}) -- (2, {(\n-\nr)*2+1.5}) -- (x\nr);
     }
 
-   \node (Mx) at (0,-1) {$\vdots$};
-   \node (xx) at (2,-1) {$\vdots$};
-   \node (Ex) at (4,-1) {$\vdots$};
-   \node (Cx) at (6,-1) {$\vdots$};
+    \node (IV) at (2,{\n*2-1}) {$IV$};
+    \draw[->, very thick] (IV) -- (x1);
+
+    \node (Mx) at (0,-1) {$\vdots$};
+    \node (xx) at (2,-1) {$\vdots$};
+    \node (Ex) at (4,-1) {$\vdots$};
+    \node (Cx) at (6,-1) {$\vdots$};
 \end{tikzpicture}
 \end{preview}
 \end{document}
