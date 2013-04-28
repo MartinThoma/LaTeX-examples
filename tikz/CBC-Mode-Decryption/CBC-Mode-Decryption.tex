@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{preview}
+% thanks to http://tex.stackexchange.com/a/75838/5645
+\tikzset{XOR/.style={fill=black!15,draw,minimum size=13pt,circle,append after command={
+        [shorten >=\pgflinewidth, shorten <=\pgflinewidth,]
+        (\tikzlastnode.north) edge (\tikzlastnode.south)
+        (\tikzlastnode.east) edge (\tikzlastnode.west)
+        }
+    }
+}
+
+\tikzstyle{encrypt}=[draw,fill=black!15,rectangle,minimum size=20pt,inner sep=0pt]
+\begin{tikzpicture}
+    \newcommand{\n}{3}
+    \foreach \nr in {1, ..., \n}{
+        \node (C\nr)            at (0,{(\n-\nr)*2}) {$C_\nr$};
+        \node (D\nr)[encrypt]   at (2,{(\n-\nr)*2}) {$D$};
+        \node (x\nr)[XOR]       at (4,{(\n-\nr)*2}) {};
+        \node (M\nr)            at (6,{(\n-\nr)*2}) {$M_\nr$};
+
+        \node (K\nr)            at (2,{(\n-\nr)*2+1}) {$K$};
+
+        \draw[->,very thick] (C\nr) -- (D\nr);
+        \draw[->,very thick] (D\nr) -- (x\nr);
+        \draw[->,very thick] (x\nr) -- (M\nr);
+
+        \draw[->,very thick] (K\nr) -- (D\nr);
+    }
+
+    \foreach \nr in {2, ..., \n}{
+        \pgfmathtruncatemacro{\tmp}{\nr-1} 
+        \draw[->,very thick] (1,{(\n-\tmp)*2}) -- (1,{(\n-\tmp)*2-0.5}) -- (4,{(\n-\tmp)*2-0.5}) -- (x\nr);
+    }
+
+    \node (IV) at (4,{\n*2-1}) {$IV$};
+    \draw[->, very thick] (IV) -- (x1);
+
+    \node (Mx) at (0,-1) {$\vdots$};
+    \node (xx) at (2,-1) {$\vdots$};
+    \node (Ex) at (4,-1) {$\vdots$};
+    \node (Cx) at (6,-1) {$\vdots$};
+\end{tikzpicture}
+\end{preview}
+\end{document}
