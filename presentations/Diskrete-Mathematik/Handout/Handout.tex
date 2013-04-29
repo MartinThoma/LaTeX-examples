@@ -1,0 +1,183 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage{braket} % needed for nice printing of sets
+\usepackage{xcolor}
+\usepackage{lastpage}
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Diskrete Mathematik}, 
+  pdftitle    = {Graphentheorie I: Handout} 
+} 
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Diskrete Mathematik}
+\chead{Graphentheorie I (Martin Thoma)}
+\rhead{Seite \thepage\ von \pageref{LastPage}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom definition style, by                                       %
+% http://mathoverflow.net/questions/46583/what-is-a-satisfactory-way-to-format-definitions-in-latex/58164#58164
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newdimen\errorsize \errorsize=0.2pt
+% Frame with a label at top
+\newcommand\LabFrame[2]{%
+    \fboxrule=\FrameRule
+    \fboxsep=-\errorsize
+    \textcolor{FrameColor}{%
+    \fbox{%
+      \vbox{\nobreak
+      \advance\FrameSep\errorsize
+      \begingroup
+        \advance\baselineskip\FrameSep
+        \hrule height \baselineskip
+        \nobreak
+        \vskip-\baselineskip
+      \endgroup
+      \vskip 0.5\FrameSep
+      \hbox{\hskip\FrameSep \strut
+        \textcolor{TitleColor}{\textbf{#1}}}%
+      \nobreak \nointerlineskip
+      \vskip 1.3\FrameSep
+      \hbox{\hskip\FrameSep
+        {\normalcolor#2}%
+        \hskip\FrameSep}%
+      \vskip\FrameSep
+    }}%
+}}
+\definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
+\definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
+
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+  % Optional continuation label defaults to the first label plus
+  \def\Frame@Lab{#2}%
+  \def\FrameCommand{\LabFrame{#2}}%
+  \def\FirstFrameCommand{\LabFrame{#2}}%
+  \def\MidFrameCommand{\LabFrame{#1}}%
+  \def\LastFrameCommand{\LabFrame{#1}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore} 
+}{\endMakeFramed} 
+\newcounter{definition}
+\newenvironment{definition}[1]{%
+  \par
+  \refstepcounter{definition}%
+  \begin{contlabelframe}{Definition \thedefinition:\quad #1}
+ \noindent\ignorespaces}
+{\end{contlabelframe}} 
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{definition}{Graph}
+Ein Graph ist ein Tupel $(E, K)$, wobei $E \neq \emptyset$ die Eckenmenge und 
+$K \subseteq E \times E$ die 
+Kantenmenge bezeichnet.
+\end{definition}
+
+\begin{definition}{Inzidenz}
+Sei $e \in E$ und $k = \Set{e_1, e_2} \in K$.
+
+$e$ heißt \textbf{inzident} zu $k :\Leftrightarrow e = e_1$ oder $e = e_2$
+\end{definition}
+
+\begin{definition}{Vollständiger Graph}
+Sei $G = (E, K)$ ein Graph.
+
+$G$ heißt \textbf{vollständig} $:\Leftrightarrow K = E \times E \setminus \Set{e \in E: \Set{e, e}}$
+\end{definition}
+
+Ein vollständiger Graph mit $n$ Ecken wird als $K_n$ bezeichnet.
+
+\begin{definition}{Bipartiter Graph}
+Sei $G = (E, K)$ ein Graph und $A, B \subset E$ zwei disjunkte Eckenmengen mit
+$E \setminus A = B$.
+
+$G$ heißt \textbf{bipartit} $:\Leftrightarrow \forall_{k = \Set{e_1, e_2} \in K}: (e_1 \in A \text{ und } e_2 \in B) \text{ oder } (e_1 \in B \text{ und } e_2 \in A) $
+\end{definition}
+
+\begin{definition}{Vollständig bipartiter Graph}
+Sei $G = (E, K)$ ein bipartiter Graph und $\Set{A, B}$ bezeichne die Bipartition.
+
+$G$ heißt \textbf{vollständig bipartit} $:\Leftrightarrow A \times B = K$
+\end{definition}
+
+\begin{definition}{Kantenzug, Länge eines Kantenzuges und Verbindung von Ecken}
+Sei $G = (E, K)$ ein Graph.
+
+Dann heißt eine Folge $k_1, k_2, \dots, k_s$ von Kanten, zu denen es Ecken
+$e_0, e_1, e_2, \dots, e_s$ gibt, so dass
+\begin{itemize}
+    \item $k_1 = \Set{e_0, e_1}$
+    \item $k_2 = \Set{e_1, e_2}$
+    \item \dots
+    \item $k_s = \Set{e_{s-1}, e_s}$
+\end{itemize}
+gilt ein \textbf{Kantenzug}, der $e_0$ und $e_s$ \textbf{verbindet} und $s$ 
+seine \textbf{Länge}.
+\end{definition}
+
+\begin{definition}{Geschlossener Kantenzug}
+Sei $G = (E, K)$ ein Graph und $A = (e_0, e_1, \dots, e_s)$ ein Kantenzug.
+
+A heißt \textbf{geschlossen} $:\Leftrightarrow e_s = e_0$ .
+\end{definition}
+
+\begin{definition}{Weg}
+Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2 \dots, k_s)$ ein Kantenzug.
+
+A heißt \textbf{Weg} $:\Leftrightarrow \forall_{i, j \in 1, \dots, s}: i \neq j \Rightarrow k_i \neq k_j$ .
+\end{definition}
+
+\begin{definition}{Einfacher Kreis}
+Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2 \dots, k_s)$ ein Kantenzug.
+
+A heißt \textbf{Kreis} $:\Leftrightarrow A$ ist geschlossen und ein Weg.
+\end{definition}
+
+\begin{definition}{Zusammenhängender Graph}
+Sei $G = (E, K)$ ein Graph.
+
+$G$ heißt \textbf{zusammenhängend} $:\Leftrightarrow \forall e_1, e_2 \in E: $ 
+Es ex. ein Kantenzug, der $e_1$ und $e_2$ verbindet
+\end{definition}
+
+\begin{definition}{Grad einer Ecke}
+Der \textbf{Grad} einer Ecke ist die Anzahl der Kanten, die von dieser Ecke
+ausgehen.
+\end{definition}
+
+\begin{definition}{Isolierte Ecke}
+Hat eine Ecke den Grad 0, so nennt man ihn \textbf{isoliert}.
+\end{definition}
+
+\begin{definition}{Eulerscher Kreis}
+Sei $G$ ein Graph und $A$ ein Kreis in $G$.
+
+$A$ heißt \textbf{eulerscher Kreis} $:\Leftrightarrow \forall_{e \in E}: e \in A$.
+\end{definition}
+
+\begin{definition}{Eulerscher Graph}
+Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
+\end{definition}
+
+\begin{definition}{Offene eulersche Linie}
+Sei $G$ ein Graph und $A$ ein Weg, der kein Kreis ist.
+
+$A$ heißt \textbf{offene eulersche Linie} von $G :\Leftrightarrow$ Jede Kante 
+in $G$ kommt genau ein mal in $A$ vor.
+\end{definition}
+
+\end{document}

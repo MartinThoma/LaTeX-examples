@@ -3,7 +3,7 @@
 \begin{block}{Vollständiger Graph}
 Sei $G = (E, K)$ ein Graph.
 
-$G$ heißt \textbf{vollständig} $:\Leftrightarrow  = E \times E \setminus \Set{e \in E: \Set{e, e}}$
+$G$ heißt \textbf{vollständig} $:\Leftrightarrow K = E \times E \setminus \Set{e \in E: \Set{e, e}}$
 \end{block}
 
 Ein vollständiger Graph mit $n$ Ecken wird als $K_n$ bezeichnet.
@@ -21,9 +21,9 @@ Ein vollständiger Graph mit $n$ Ecken wird als $K_n$ bezeichnet.
 \end{gallery}
 \end{frame}
 
-\begin{frame}{Bipartite Graphen}
-\begin{block}{Bipartite Graphen}
-Sei $G = (E, K)$ ein Graph und $A, B \subset V$ zwei disjunkte Eckenmengen mit
+\begin{frame}{Bipartiter Graph}
+\begin{block}{Bipartiter Graph}
+Sei $G = (E, K)$ ein Graph und $A, B \subset E$ zwei disjunkte Eckenmengen mit
 $E \setminus A = B$.
 
 $G$ heißt \textbf{bipartit} $:\Leftrightarrow \forall_{k = \Set{e_1, e_2} \in K}: (e_1 \in A \text{ und } e_2 \in B) \text{ oder } (e_1 \in B \text{ und } e_2 \in A) $
@@ -41,11 +41,11 @@ $G$ heißt \textbf{bipartit} $:\Leftrightarrow \forall_{k = \Set{e_1, e_2} \in K
 \end{gallery}
 \end{frame}
 
-\begin{frame}{Vollständig bipartite Graphen}
-\begin{block}{Vollständig bipartite Graphen}
+\begin{frame}{Vollständig bipartiter Graph}
+\begin{block}{Vollständig bipartiter Graph}
 Sei $G = (E, K)$ ein bipartiter Graph und $\Set{A, B}$ bezeichne die Bipartition.
 
-$G$ heißt \textbf{vollständig bipartit} $:\Leftrightarrow \Set{\Set{a, b} | a \in A \land b \in B} = K$
+$G$ heißt \textbf{vollständig bipartit} $:\Leftrightarrow A \times B = K$
 \end{block}
 
 \begin{gallery}
@@ -74,4 +74,15 @@ bezeichnet man mit $K_{|A|, |B|}$.
     \galleryimage[Green]{vollstaendig-bipartit/k-4-5}
     \galleryimage[Green]{vollstaendig-bipartit/k-5-5}
 \end{gallery}
+\end{frame}
+
+\begin{frame}{Aufgabe 2}
+Wie viele Ecken und wie viele Kanten hat der $K_{m, n}$?
+
+\visible<2>{
+    \begin{align}
+        \text{Ecken: }  &m+n\\
+        \text{Kanten: } &m\cdot n
+    \end{align}
+}
 \end{frame}
