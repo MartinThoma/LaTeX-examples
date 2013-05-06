@@ -5,8 +5,6 @@
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage[margin=2.5cm]{geometry} %layout
 \usepackage{hyperref}   % links im text
-\usepackage{color}
-\usepackage{framed}
 \usepackage{enumerate}  % for advanced numbering of lists
 \usepackage{siunitx} % this package is for units!
 \clubpenalty  = 10000   % Schusterjungen verhindern
@@ -22,11 +20,9 @@
 % Begin document                                                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\si{\meter/\second^2}
-
 Fusce commodo erat et eros tincidunt quis elementum dui tincidunt. Sed blandit elementum eros nec pulvinar. Aenean vitae dignissim est. Sed auctor porttitor tempor. Donec id euismod diam. Aenean vulputate hendrerit metus sit amet aliquet. Curabitur ac pretium lacus. Ut tempus, augue vitae tristique laoreet, lacus lorem ultrices libero, et pretium sapien leo facilisis massa. Nunc pretium lorem eget libero hendrerit in pretium sapien convallis. Ut molestie, mi eget accumsan laoreet, lacus urna scelerisque metus, et luctus erat arcu non ante. Donec sit amet nisi felis, a interdum nibh.
 
 \[ N = \frac{f_S}{\Delta f} = \frac{33\si{\kilo\hertz}}{10\si{\hertz}} = 3300\]
 
-Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adipiscing cursus purus dolor venenatis velit. Vivamus enim augue, lacinia in ultrices a, varius sit amet sapien. Aliquam enim velit, molestie vitae bibendum eget, laoreet at ante. Suspendisse pulvinar leo at nisi accumsan nec malesuada neque ullamcorper. Aenean quis mi lectus, quis porttitor nisi. Curabitur interdum luctus lectus et egestas. Aenean sapien ligula, aliquam sed fermentum id, blandit at orci. Integer a turpis ac tellus commodo suscipit. Vivamus massa orci, pharetra eu consequat eu, vulputate eget lacus. Suspendisse non justo arcu. Nullam lacus augue, dapibus vitae convallis a, consectetur at elit.
+Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adipiscing cursus purus dolor venenatis velit. Vivamus enim augue, lacinia in ultrices a, varius sit amet sapien. Aliquam enim velit, molestie vitae bibendum eget, laoreet at ante. Suspendisse pulvinar leo at nisi accumsan nec malesuada neque ullamcorper. Aenean quis mi lectus, \si{\meter/\second^2} quis porttitor nisi. Curabitur interdum luctus lectus et egestas. Aenean sapien ligula, aliquam sed fermentum id, blandit at orci. Integer a turpis ac tellus commodo suscipit. Vivamus massa orci, pharetra eu consequat eu, vulputate eget lacus. Suspendisse non justo arcu. Nullam lacus augue, dapibus vitae convallis a, consectetur at elit.
 \end{document}
