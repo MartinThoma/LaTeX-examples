@@ -92,10 +92,26 @@ $\Rightarrow$ Grad($e$) $\equiv 0 \mod 2$
 Wenn in einem zusammenhängenden Graphen $G$ jede Ecke geraden Grad hat, dann 
 ist $G$ eulersch.
 \end{block}
+\pause
+\underline{Beweis:} Induktion über Anzahl $m$ der Kanten\\
+\pause
+\underline{I.A.:} $m=0$: $G$ ist eulersch. \cmark\\
+\pause
+$m=1$: Es gibt keinen Graphen in dem jede Ecke geraden Grad hat. \cmark\\
+\pause
+$m=2$: Nur ein zus. Graph möglich. Dieser ist eulersch. \cmark\\ % Anzeichnen
+\pause
 
-Beweis per Induktion
+\underline{I.V.:} Sei $m \in \mathbb{N}_0$ beliebig, aber fest und 
+es gelte: Für 
+alle zusammenhängenden Graphen $G$ mit höchstens $m$ Kanten, bei 
+denen jede Ecke geraden Grad hat, ist $G$ eulersch.
 
-TODO
+\pause
+
+\underline{I.S.:} Jede Ecke von $G$ hat min. Grad 2.
+
+
 \end{frame}
 
 \begin{frame}{Offene eulersche Linie}
