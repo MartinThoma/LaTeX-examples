@@ -9,14 +9,19 @@
 \tikzstyle{vertex}=[draw,fill=black!15,circle,minimum size=20pt,inner sep=0pt]
 \tikzstyle{encrypt}=[draw,fill=black!15,rectangle,minimum size=20pt,inner sep=0pt]
 \begin{tikzpicture}
-    \node (A)[draw, minimum height=2cm,fill=black!15] at (0,0) {$\mathcal{A}$};
-    \node (E)[draw, minimum height=2cm,fill=black!15] at (4,0) {$Enc(K, \cdot)$};
+    \draw[fill=black!15] (-0.4,-1) -- (1,-1) -- (1,1) -- (-0.4,1) --cycle;
+    \draw[fill=black!35] (-0.35,0) -- (0.95,-0) -- (0.95,0.9) -- (-0.35,0.9) --cycle;
+    \draw[fill=black!15] (3.5,-1) -- (5.5,-1) -- (5.5,1) -- (3.5,1) --cycle;
+    \node (A) at (0.25,-0.5) {$\mathcal{A}$};
+    \node[text width=2cm] (E) at (4.7,0) {Challenger\\$Enc(K, \cdot)$};
+    \node[text width=1.5cm] (O) at (0.5,0.5) {\scriptsize{Orakel\\$Enc(K, \cdot)$}};
 
-    \draw[->,thick] (A.north east)     -- node[sloped, above=-0.1cm] {$\scriptstyle M^{(1)}$} (E.north west);
-    \draw[->,thick] (A.60)             -- node[sloped, above=-0.1cm] {$\scriptstyle M^{(2)}$} (E.150);
-    \draw[->,thick] (E.179)            -- node[sloped, above=-0.1cm] {$\scriptstyle C^* = Enc(K, M^{(b)})$} (A.east);
 
-    \draw[->,thick] (A.south)|- node[sloped, above=0.19cm,right=0.3cm] {rate $b$} (2,-2);
+    \draw[->,thick] (1,0.7)  -- node[sloped, above=-0.1cm] {$\scriptstyle M^{(1)}$} (3.5,0.7);
+    \draw[->,thick] (1,0.4)  -- node[sloped, above=-0.1cm] {$\scriptstyle M^{(2)}$} (3.5,0.4);
+    \draw[<-,thick] (1,0.0)  -- node[sloped, above=-0.1cm] {$\scriptstyle C^* = Enc(K, M^{(b)})$} (3.5,0.0);
+
+    \draw[->,thick] (0,-1) |- node[sloped, above=0.19cm,right=0.3cm] {rate $b$} (2,-2);
     \draw[<-,very thick] (-0.5,-2) -- node[sloped, above=-0.05cm] {Zeit} (-0.5,1.5);
 \end{tikzpicture}
 \end{preview}
