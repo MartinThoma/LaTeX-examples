@@ -1,0 +1,90 @@
+\section{Lineare Kongruenzen}
+\subsection{Allgemeine Informationen}
+Zwei Zahlen $a, b \in \mathbb{Z}$ heißen kongruent modulo $m \in \mathbb{N}$, 
+falls $a$ und $b$ bei der Division durch $m$ den den gleichen Rest lassen. 
+Man schreibt $a \equiv b \imod{m}$\footnote{[Reiss], S. 179f}.
+
+Gilt $ax \equiv b \imod{m}$, für $a, b, x \in \mathbb{Z}$ und $m \in \mathbb{N}$,
+dann bedeutet das, dass $m | (ax - b)$ für ein passendes $x$. 
+Man nennt $ax \equiv b \imod{m}$ ein lineares Kongruenzsystem. 
+\clearpage 
+
+\subsection{Chinesischer Restsatz}
+Der Chinesische Restsatz sagt, ob lineare Kongruenzsysteme lösbar 
+sind und wie diese Lösungen aussehen:
+
+\begin{mdframed}[tikzsetting={draw=red,ultra thick}, innertopmargin=0.6cm]
+Seien $m_1, m_2, ..., m_n$ paarweise teilerfremde natürliche Zahlen und
+$a_1, a_2, \dots, a_n$ ganze Zahlen.
+
+Dann ist das System linearer Kongruenzen
+\[x \equiv a_1 \imod{m_1},\;\;\; x \equiv a_2 \imod{m_2},\;\;\;\dots,\;\;\; x \equiv a_n \imod{m_n}\]
+lösbar. Alle Lösungen des Systems liegen in einer gemeinsamen
+ Restklasse modulo $M=\prod_{i = 1}^n m_i$
+\end{mdframed}
+
+\textbf{Beweis nach [Reiss], S. 221f:}
+\begin{enumerate}[label=(\Roman{*}),labelsep=2em]
+    \item $M_j = \frac{M}{m_j}$ für $j = 1, \dots, n$
+    \item $y_j \cdot M_j \equiv 1 \imod{m_j}$, $y_j$ mit dem erweitertem Euklidischem Algorithmus bestimmen
+    \item $a_j \cdot y_j \cdot M_j \equiv a_j \imod{m_j}$ für $j = 1, \dots, n$\\
+Weil $m_j$ für $i \neq j$ ein Teiler von  $M_i$ ist, gilt auch:
+    \item $a_i \cdot y_i \cdot M_i \equiv 0 \imod{m_j}$ für alle $i, j = 1, \dots, n$ mit $i \neq j$
+\end{enumerate}
+
+Da alle Summanden bis auf Einen ($j = i$) gleich Null sind, stimmt dieser Ausdruck:
+\begin{align*}
+a_i \cdot y_i \cdot M_i &\equiv \sum_{j=1}^n {a_j \cdot y_j \cdot M_j} \imod{m_i}\\
+a_i &\equiv \sum_{j=1}^n {a_j \cdot y_j \cdot M_j} \imod{m_i}\text{, da }y_i \cdot M_i \equiv 1 \imod{m_i}
+\end{align*}
+
+$a_i$ ist die Lösung des Kongruenzsystems. Alle Lösungen liegen in dieser Restklasse.
+
+
+\subsubsection*{Beispielaufgabe}
+Folgende Aufgabe wurde [Berendt] entnommen:
+
+\hangindent2em
+\hangafter=0
+17 chinesische Piraten erbeuten eine Truhe mit Goldstücken. Beim Versuch, diese gleichmäßig zu verteilen, bleiben 7 Goldstücke übrig. Um diese entbrennt ein heftiger Streit, bei dem einer der Piraten das Leben lässt. Die verbleibenden 16 versuchen erneut, die Goldstücke gerecht zu verteilen, behalten jedoch elf Stücke übrig. Bei der folgenden Auseinandersetzung geht wieder einer der Streitenden über Bord. Den 15 Überlebenden gelingt dann die Teilung. Wie viele Goldstücke müssen es mindestens gewesen sein?
+
+\subsubsection*{Restklassensystem} % This should semantically rather be subsubsubsection
+\begin{align*}
+x &:= \text{Anzahl der Goldstücke}\\
+x &\equiv 7 \imod{17}\\
+x &\equiv 11 \imod{16}\\
+x &\equiv 0 \imod{15}
+\end{align*}
+
+\subsubsection*{Lösung}
+I Produkte
+\begin{align*}
+M   &= 17 \cdot 16 \cdot 15 = 4080\\
+M_1 &= \frac{4080}{17} = 240\\
+M_2 &= \frac{4080}{16} = 255\\
+M_3 &= \frac{4080}{15} = 272
+\end{align*}
+
+II Multiplikativ Inverses der Restklassensysteme
+\begin{align*}
+ 9 \cdot 240 &\equiv 1 \imod{17}\\
+15 \cdot 255 &\equiv 1 \imod{16}\\
+8 \cdot 272 &\equiv 1 \imod{15}
+\end{align*}
+
+III  Multiplikation der Restklassensysteme mit $a_j$
+\begin{align*}
+7 \cdot 9 \cdot 240     &\equiv 7   \imod{17}\\
+11 \cdot 15 \cdot 255   &\equiv 11  \imod{16}\\
+8 \cdot 272             &\equiv 0   \imod{15}
+\end{align*}
+
+IV Berechnung der Lösung des Restklassensystem
+\begin{align*}
+x = \sum_{j = 1}^3 a_j \cdot y_j \cdot M_j \imod{15 \cdot 16 \cdot 17} = 7 \cdot 240 \cdot 9 + 11 \cdot 255 \cdot 15 = 57195\\
+57195 \equiv 75 \imod{4080}\\
+75 \text{ ist die kleinste positive Lösung des Kongruenzsystems.}
+\end{align*}
+
+\subsubsection*{Antwort:}
+Die Anzahl der von den Piraten erbeuteten Goldstücken muss mindestens $75$ betragen, kann aber auch $75 + 1 \cdot 4080$, $75 + 2 \cdot 4080$  oder ein beliebiger anderer positiver Vertreter dieser Restklasse$\imod{4080}$ sein.

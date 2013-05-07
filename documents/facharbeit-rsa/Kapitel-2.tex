@@ -1,0 +1,19 @@
+\section{Einwegfunktionen}
+Eine Einwegfunktion ist in der Mathematik eine Beziehung zwischen 
+zwei Mengen, die "`komplexitätstheoretisch "`schwer"' umzukehren ist"'\footnote{[Beutelspacher], S. 114}. 
+Ein Beispiel für eine Einwegfunktion ist die Multiplikation zweier 
+Zahlen. Die Laufzeit des Schönhage-Strassen-Algorithmus zur 
+Multiplikation zweier $n$-stelliger ganzer Zahlen ist mit
+$\mathcal{O}(n \cdot \log(n) \cdot \log(log(n)))$\footnote{[Pethö], S. 25}
+deutlich kleiner als die Laufzeit von  des Zahlkörpersiebs 
+$\mathcal{O}(e^{(1,92+o(1)) \sqrt[3]{\ln n} \sqrt[3]{(\ln \ln n)^2}})$\footnote{[Rothe], S. 384}, 
+das der Faktorisierung dient.
+
+Die Sicherheit des RSA-Verfahrens zur asymmetrischen 
+Verschlüsselung basiert auf der Annahme, dass die Faktorisierung 
+einer großen Zahl deutlich länger dauert als das Multiplizieren der 
+Primfaktoren. Falls es keinen besseren Algorithmus zur Faktorisierung 
+als zur Multiplikation gibt, ist diese Annahme korrekt. Nach dem 
+Stand von 2009 ist dies der Fall.
+
+Weitere Hinweise zur Sicherheit des RSA-Kryptosystems sind in Kapitel 7.4 zu finden. % TODO link zu kapitel 7.4

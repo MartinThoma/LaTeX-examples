@@ -1,0 +1,11 @@
+# Gegebener Öffentlicher Schlüssel N = p*q und e sowie Geheimtext y 
+N := 6593724735903381194175738064212775889771. 
+e := 47. 
+y := 6508724329196926526021005674657658127499. 
+p := ec_factorize(N).  		# 6890701303127411
+q := N div p. 				# 956207997714884457630761
+phi :=  (p-1)*(q-1). 	#6588943695914805815679579653627015131600 
+d := mod_inverse(e, phi). 
+cc := byte_string(y). 
+z := y**d mod N. 
+string(byte_string(z)). 
