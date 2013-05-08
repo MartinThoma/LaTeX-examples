@@ -18,13 +18,14 @@ Seien $m_1, m_2, ..., m_n$ paarweise teilerfremde natürliche Zahlen und
 $a_1, a_2, \dots, a_n$ ganze Zahlen.
 
 Dann ist das System linearer Kongruenzen
+\vspace{-0.4cm}
 \[x \equiv a_1 \imod{m_1},\;\;\; x \equiv a_2 \imod{m_2},\;\;\;\dots,\;\;\; x \equiv a_n \imod{m_n}\]
 lösbar. Alle Lösungen des Systems liegen in einer gemeinsamen
  Restklasse modulo $M=\prod_{i = 1}^n m_i$
 \end{mdframed}
 
 \textbf{Beweis nach [Reiss], S. 221f:}
-\begin{enumerate}[label=(\Roman{*}),labelsep=2em]
+\begin{enumerate}[label=(\Roman{*}),labelsep=0.5em,noitemsep]
     \item $M_j = \frac{M}{m_j}$ für $j = 1, \dots, n$
     \item $y_j \cdot M_j \equiv 1 \imod{m_j}$, $y_j$ mit dem erweitertem Euklidischem Algorithmus bestimmen
     \item $a_j \cdot y_j \cdot M_j \equiv a_j \imod{m_j}$ für $j = 1, \dots, n$\\

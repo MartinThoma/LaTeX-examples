@@ -1,4 +1,4 @@
-\section{RSA-Verfahren}
+\section{RSA-Verfahren}\label{sec:RSA-Verfahren}
 Das RSA-Verfahren ist ein asymmetrisches Kryptosystem, das von 
 Ronald Linn \textbf{R}ivest, Adi \textbf{S}hamir und Leonard 
 \textbf{A}dleman entwickelt und im August 1977 veröffentlicht wurde\footnote{[msri], S. 2}.
@@ -16,13 +16,13 @@ kann, in An-lehnung an [wiki-RSA], in fünf Schritte unterteilt werden:
     \item[Schritt 1:] Als erstes werden zwei große Primzahlen  gewählt. 
                       Je größer diese Primzahlen sind, desto sicherer 
                       ist die Verschlüsselung.
-                     (vgl. Kapitel 7.4 "`Sicherheit des RSA-Verfahrens"')
+                     (vgl. \cref{sec:Security})
     \item[Schritt 2:] In diesem Schritt wird RSA-Modul $N = p \cdot q$ 
                       berechnet, das ein Teil des öffentlichen 
                       Schlüssels ist.
     \item[Schritt 3:] Schritt 3: Nun wird der Wert der Eulerschen 
                       $\varphi$-Funktion bei $N$ berechnet. Da $p$ 
-                      und $q$ Primzahlen sind, gilt $\varphi(N) = (p-1) \cdot (q-1)$ (vgl. Kapitel 4) % TODO
+                      und $q$ Primzahlen sind, gilt $\varphi(N) = (p-1) \cdot (q-1)$ (vgl. \cref{sec:Eulersche-Phi-Funktion})
     \item[Schritt 4:] Nachdem $\varphi(N)$ ermittelt wurde, kann der 
                       zweite Teil des öffentlichen Schlüssel, der 
                       Verschlüsselungsexponent $e$, ermittelt werden. 
@@ -59,8 +59,8 @@ Um ein $d$ zu finden, das diese Kongruenz erfüllt, wird der
 erweiterte euklidische Algorithmus angewendet:
 
 \begin{tabular}{lll}
-\textbf{Schritt 1}: euklidischer Algorithmus & & \textbf{Schritt 2}: nach Rest auflösen\\
-$130788 = 149 \cdot 877 + 115$    & $\rightarrow$     & $115 = 130788 - 149 \cdot 877$\\
+\textbf{Schritt 1}: euklidischer Algorithmus  & & \textbf{Schritt 2}: nach Rest auflösen\\
+$130788 = 149 \cdot 877 + 115$    \myDownArrowB & $\rightarrow$     & $115 = 130788 - 149 \cdot 877$ \myUpArrowB\\
 $877= 7  \cdot 115 + 72$     & $\rightarrow$     & $72 = 877 - 7 \cdot 115$\\
 $115= 1 \cdot 72 + 43$      & $\rightarrow$     & $43 = 115 - 72$\\
 $72= 1 \cdot 43 + 29$      & $\rightarrow$     & $29 = 72 - 43$\\
@@ -98,7 +98,7 @@ G &\equiv 27077 \cdot 95706^{9} \equiv 27077 \cdot 9189^{3} \equiv 27077 \cdot 5
 G &\equiv 29467 \imod{131513}
 \end{align*}
 
-\subsection{Entschlüsselung mit dem privaten Schlüssel}
+\subsection{Entschlüsselung mit dem privaten Schlüssel}\label{sec:Decryption}
 \subsubsection{Entschlüsselung ohne den Chinesischen Restsatz}
 Der Geheimtext wird entschlüsselt, indem man ihn mit $d$ potenziert 
 und dann denn kleinsten positiven Repräsentanten der Restklasse $N$ 
@@ -193,15 +193,15 @@ $\varphi(N)$ und $d$ nicht bekannt. Um $\varphi(N)$ zu berechnen,
 werden die Primfaktoren $p$ und $q$, aus denen $N$ besteht, benötigt. 
 $N$ muss also faktorisiert werden. Sobald ein Faktor von $N$ bekannt 
 ist, kann man $N$ durch diesen Faktor teilen und man erhält den 
-zweiten Faktor. Dann kann man wie in Kapitel 7 vorgehen und $d$ % TODO link to kapitel
-berechnen. Mit $d$ kann man wie in Kapitel 7.2 beschrieben die  % TODO link to kapitel
+zweiten Faktor. Dann kann man wie in \cref{sec:RSA-Verfahren} vorgehen und $d$
+berechnen. Mit $d$ kann man wie in \cref{sec:Decryption} beschrieben die
 Geheimbotschaft entschlüsseln.
 
 Wird das Aribas-Skript im Anhang ausgeführt, das diese Schritte 
 ausführt, erhält man den Klartext "`\textbf{RSAribas}"'.
 
 
-\subsection{Sicherheit des RSA-Algorithmus}
+\subsection{Sicherheit des RSA-Algorithmus}\label{sec:Security}
 Der RSA-Algorithmus kann, wie oben beschrieben, "`geknackt"' werden, 
 indem der öffentliche Schlüssel faktorisiert wird. Allerdings ist das 
 bei großen Zahlen nahezu unmöglich, da die Algorithmen sehr lange 
