@@ -1,0 +1,39 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+            axis x line=middle,
+            axis y line=middle,
+            enlarge y limits=true,
+            xmin=0, xmax=2150,
+            ymin=0, ymax=20000000,
+            width=15cm, height=8cm,     % size of the image
+            grid = major,
+            grid style={dashed, gray!30},
+            ylabel=Stored game situations,
+            xlabel=seconds,
+            legend style={at={(0.1,-0.1)}, anchor=north}
+         ]
+          \addplot table [x=seconds, y=situations, col sep=comma] {linearProbing.csv};
+          \addplot table [x=seconds, y=situations, col sep=comma] {quadraticProbing.csv};
+          \legend{linear probing,quadratic probing}
+    \end{axis}
+
+    % this is the right axis
+    \begin{axis}[
+        hide x axis,
+        axis y line*=right,
+        width=15cm, height=8cm,     % size of the image
+    ]
+          \addplot[orange, mark=halfcircle] table [x=seconds, y=mirrored, col sep=comma] {linearProbing.csv};
+          \addplot[black, mark=x] table [x=seconds, y=mirrored, col sep=comma] {quadraticProbing.csv};
+    \end{axis}
+\end{tikzpicture}
+\end{document}

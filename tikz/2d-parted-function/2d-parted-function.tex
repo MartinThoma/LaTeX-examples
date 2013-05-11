@@ -1,0 +1,41 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+    legend pos=south west,
+        axis x line=middle,
+        axis y line=middle,
+        grid = major,
+        %width=9cm,
+        %height=4.5cm,
+        grid style={dashed, gray!30},
+        xmin=-1,     % start the diagram at this x-coordinate
+        xmax= 6,    % end   the diagram at this x-coordinate
+        ymin=-0.25,     % start the diagram at this y-coordinate
+        ymax= 2.25,   % end   the diagram at this y-coordinate
+        axis background/.style={fill=white},
+        xlabel=x,
+        ylabel=y,
+        %xticklabels={-2,-1.6,...,7},
+        %yticklabels={-8,-7,...,8},
+        tick align=outside,
+        minor tick num=-3,
+        enlargelimits=true,
+        tension=0.08]
+      % plot the stirling-formulae
+      \addplot[domain=0:1, red, thick,samples=20] {0.5*x*x}; 
+      \addplot[domain=1:2, green, thick,samples=20] {x-0.5}; 
+      \addplot[domain=2:3, blue, thick,samples=500] {-0.5*(x-2)*(x-2)+x-0.5}; 
+      \addplot[domain=3:5, purple, thick,samples=20] {5-x}; 
+      \addplot[domain=5:7, orange, thick,samples=3] {0}; 
+      \addplot[domain=-3:0, orange, thick,samples=3] {0}; 
+      %\addlegendentry{$f_1(x)=\frac{1}{2}x^2$}
+      %\addlegendentry{$f_2(x)=x-\frac{1}{2}$}
+      %\addlegendentry{$f_2(x)=-\frac{1}{2} (x-2)^2+x-\frac{1}{2}$}
+    \end{axis} 
+\end{tikzpicture}
+\end{document}
