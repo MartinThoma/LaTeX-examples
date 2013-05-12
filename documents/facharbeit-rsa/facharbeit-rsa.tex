@@ -53,6 +53,19 @@
 
 \usepackage{minted} % needed for the inclusion of source code
 
+
+\newcommand{\titledate}[2][2.5in]{%
+  \noindent%
+  \begin{tabular}{@{}p{#1}@{}}
+    \\ \hline \\[-.75\normalbaselineskip]
+    #2
+  \end{tabular} \hspace{1in}
+  \begin{tabular}{@{}p{#1}@{}}
+    \\ \hline \\[-.75\normalbaselineskip]
+    Unterschrift
+  \end{tabular}
+}
+
 \begin{document}
 
 \def\myDownArrow{\smash{\begin{tikzpicture}[baseline=6mm]\useasboundingbox (-2,0);\node[single arrow,draw=black,fill=black!10,minimum height=4cm,minimum width=1.2cm,shape border rotate=270] at (0,-1) {};\end{tikzpicture}}}
