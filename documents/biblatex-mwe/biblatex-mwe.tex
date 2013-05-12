@@ -1,0 +1,26 @@
+\documentclass[]{article}
+
+\usepackage[autostyle]{csquotes}
+
+\usepackage[
+    backend=biber,
+    style=authoryear-icomp,
+    sortlocale=de_DE,
+    natbib=true,
+    url=false, 
+    doi=true,
+    eprint=false
+]{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\usepackage[]{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+%% ##############################
+\begin{document}
+    Lorem ipsum dolor sit amet~\citep{KandR}.
+    At vero eos et accusam et justo duo dolores et ea rebum~\citet{KandR}.
+    \printbibliography 
+\end{document}
