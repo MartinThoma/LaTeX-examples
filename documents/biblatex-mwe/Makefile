@@ -1,7 +1,7 @@
 SOURCE = biblatex-mwe
 make:
 	pdflatex -shell-escape $(SOURCE).tex -output-format=pdf
-	biber $(SOURCE).tex
+	biber $(SOURCE)
 	pdflatex -shell-escape $(SOURCE).tex -output-format=pdf
 	make clean
 
