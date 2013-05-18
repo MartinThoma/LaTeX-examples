@@ -51,7 +51,7 @@ $\underbrace{(0,-i)}_{=: S}$.
 \begin{algorithm}
     \begin{algorithmic}
         \Function{calculateSteps}{$x \in \mathbb{Z}$, $y \in \mathbb{Z}$}
-            \State $s \gets 1$
+            \State $s \gets 0$
             \State $dist \gets |x| + |y|$
             \\
             \While{$\overbrace{\frac{s^2 + s}{2} < dist}^\text{condition 1}$ or $\overbrace{\frac{s^2 + s}{2} \not\equiv dist \imod{2}}^\text{condition 2}$}
@@ -70,10 +70,10 @@ $\underbrace{(0,-i)}_{=: S}$.
 \begin{algorithm}[ht!]
     \begin{algorithmic}[ht!]
         \Function{solvePogo}{$x \in \mathbb{Z}$, $y \in \mathbb{Z}$}
-            \State $max \gets$ \Call{calculateSteps}{$x, y$}
+            \State $s_{\min} \gets$ \Call{calculateSteps}{$x, y$}
             \\
             \State $solution \gets \varepsilon$
-            \For{$i$ in $max, \dots, 1$}
+            \For{$i$ in $s_{\min}, \dots, 1$}
                 \If{$|x| > |y|$}
                     \If{$x > 0$}
                         \State $solution \gets solution + E$
@@ -135,9 +135,16 @@ This is what algorithm \ref{alg:calculateSteps} check with condition 1.
 As the algorithm increases $s$ only by one in each loop, it makes 
 sure that $\sum_{i=1}^{s_{\min1} - 1} i$ is bigger than $|x| + |y|$.
 
-TODO: Proof necessarity of condition two
+You can undo moves by going back. But this will always make an even
+number undone. When you go $(+i, 0)$ and later $(-j, 0)$ it is the 
+same as if you've been going $(i-j, 0)$. So $2\cdot i$ steps got undone.
+But $2\cdot i$ is an even number. You will never be able to undo
+an odd number of moved units. This means, the parity of the minimum 
+number of units you would have to move if you would move one unit per
+step has to be the same as the parity of the moves you actually do.
+This is exactly what condition two makes sure.
 
-TODO: I guess I should initialize $s$ with 0 (should only make a difference when (x,y) = (0,0))
+So we need at least $s$ steps $\Rightarrow s \leq s_{\min} \square$
 \end{myindentpar}
 
 \textbf{Theorem: } $s \geq s_{\min}$ (we make enough steps)
