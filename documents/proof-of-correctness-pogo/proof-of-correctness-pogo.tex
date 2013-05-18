@@ -93,7 +93,7 @@ $\underbrace{(0,-i)}_{=: S}$.
                 \EndIf
             \EndFor
             \\
-            \State \Return $solution$
+            \State \Return \Call{reverse}{$solution$}
         \EndFunction
     \end{algorithmic}
     \caption{Algorithm to solve the pogo problem}
@@ -131,7 +131,7 @@ we have to solve the following equations for $s_{\min1}$:
     \frac{s_{\min1}^2 + s_{\min1}}{2} &\geq |x| + |y| &&             &               &> \sum_{i=1}^{s_{\min1} - 1} i & 
 \end{align}
 
-This is what algorithm \ref{alg:calculateSteps} check with condition 1. 
+This is what algorithm \ref{alg:calculateSteps} check with \texttt{condition 1}. 
 As the algorithm increases $s$ only by one in each loop, it makes 
 sure that $\sum_{i=1}^{s_{\min1} - 1} i$ is bigger than $|x| + |y|$.
 
@@ -142,7 +142,7 @@ But $2\cdot i$ is an even number. You will never be able to undo
 an odd number of moved units. This means, the parity of the minimum 
 number of units you would have to move if you would move one unit per
 step has to be the same as the parity of the moves you actually do.
-This is exactly what condition two makes sure.
+This is exactly what \texttt{condition 2} makes sure.
 
 So we need at least $s$ steps $\Rightarrow s \leq s_{\min} \square$
 \end{myindentpar}
@@ -151,7 +151,12 @@ So we need at least $s$ steps $\Rightarrow s \leq s_{\min} \square$
 
 \textbf{Proof: } 
 \begin{myindentpar}{1cm}
-TODO
+We chose $s$ in a way that \texttt{condition 1} is true.
+As we have to go $i \in 1,\dots,s$, we can get every possible sum $\Sigma \in \Set{-\frac{s^2+s}{2}, \dots +\frac{s^2+s}{2}}$
+with a subset of $\Set{1, \dots, s}$\footnote{This can easily be proved by induction over $\Sigma$.}.
+This means we can make a partition $(A, \underbrace{\Set{1, \dots, s} \setminus A}_{=: B})$
+such that $|\sum_{i \in A} i| = |x|$ and $|\sum_{i \in B} i|-2\cdot j = |y|$. 
+This means, we can reach $(x,y)$ from $(0,0)$.
 \end{myindentpar}
 \end{myindentpar}
 
@@ -160,7 +165,15 @@ TODO
 
 \textbf{Proof: } 
 \begin{myindentpar}{1cm}
-TODO
+As $s_{\min}$ is the minimum amount of steps you need to get from 
+$(0,0)$ to $(x,y)$, \Call{solvePogo}{$x,y$} will return a minimal 
+sequence of steps to get from $(0, 0)$ to $(x,y)$ (see proof above).
+
+We only have to prove that the sequence of steps that \Call{solvePogo}{$x,y$}
+is valid, i.e. that you will get from $(0,0)$ to $(x,y)$ with the given
+sequence.
+
+TODO.
 \end{myindentpar}
 
 \end{document}
