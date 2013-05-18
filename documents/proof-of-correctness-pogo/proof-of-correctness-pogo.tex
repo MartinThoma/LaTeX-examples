@@ -1,0 +1,159 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage{parskip} % no indentation on new paragraphs
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage{algorithm,algpseudocode}
+\usepackage{braket} % needed for \Set
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Google Code Jam, Round 1C 2013, Pogo}, 
+  pdftitle    = {Proof of correctness for an algorithm for pogo} 
+} 
+
+% From http://www.matthewflickinger.com/blog/archives/2005/02/20/latex_mod_spacing.asp
+% Thanks!
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+\renewcommand{\algorithmicrequire}{\textbf{Input: }}
+\renewcommand{\algorithmicensure}{\textbf{Output: }}
+
+\newenvironment{myindentpar}[1]%
+ {\begin{list}{}%
+         {\setlength{\leftmargin}{#1}}%
+         \item[]%
+ }
+ {\end{list}}
+
+\begin{document}
+\section{The Problem}
+You're on a two-dimensional grid $\mathbb{Z} \times \mathbb{Z}$ and
+have to find a way to get to one coordinate $(x,y) \in \mathbb{Z} \times \mathbb{Z}$. You start at
+$(0, 0)$.
+
+In your
+$i$-th step you move either $\underbrace{(+i,0)}_{=: E}$, 
+$\underbrace{(-i,0)}_{=: W}$, $\underbrace{(0,+i)}_{=: N}$ or
+$\underbrace{(0,-i)}_{=: S}$.
+
+\section{The algorithm}
+\begin{algorithm}
+    \begin{algorithmic}
+        \Function{calculateSteps}{$x \in \mathbb{Z}$, $y \in \mathbb{Z}$}
+            \State $s \gets 1$
+            \State $dist \gets |x| + |y|$
+            \\
+            \While{$\overbrace{\frac{s^2 + s}{2} < dist}^\text{condition 1}$ or $\overbrace{\frac{s^2 + s}{2} \not\equiv dist \imod{2}}^\text{condition 2}$}
+                \State $s \gets s + 1$
+            \EndWhile
+            \\
+            \State \Return $s$
+        \EndFunction
+    \end{algorithmic}
+    \caption{Algorithm to calculate the minimum amount of steps}
+    \label{alg:calculateSteps}
+\end{algorithm}
+
+\clearpage
+
+\begin{algorithm}[ht!]
+    \begin{algorithmic}[ht!]
+        \Function{solvePogo}{$x \in \mathbb{Z}$, $y \in \mathbb{Z}$}
+            \State $max \gets$ \Call{calculateSteps}{$x, y$}
+            \\
+            \State $solution \gets \varepsilon$
+            \For{$i$ in $max, \dots, 1$}
+                \If{$|x| > |y|$}
+                    \If{$x > 0$}
+                        \State $solution \gets solution + E$
+                        \State $x \gets x - i$
+                    \Else
+                        \State $solution \gets solution + W$
+                        \State $x \gets x + i$
+                    \EndIf
+                \Else
+                    \If{$y > 0$}
+                        \State $solution \gets solution + N$
+                        \State $y \gets y - i$
+                    \Else
+                        \State $solution \gets solution + S$
+                        \State $y \gets y + i$
+                    \EndIf
+                \EndIf
+            \EndFor
+            \\
+            \State \Return $solution$
+        \EndFunction
+    \end{algorithmic}
+    \caption{Algorithm to solve the pogo problem}
+    \label{alg:solvePogo}
+\end{algorithm}
+
+\section{Correctness}
+\subsection{calculateSteps}
+Let $x,y \in \mathbb{Z}$ and $s := \Call{calculateSteps}{x, y}$.
+
+Let $s_{\min}$ be the minimum amount of necessary steps to get from $(0,0)$
+to $(x,y)$ when you move $i$ units in your $i$'th step.
+
+\textbf{Theorem: } $s = s_{\min}$
+
+It's enough to proof $s \geq s_{\min}$ and $s \leq s_{\min}$.
+
+\begin{myindentpar}{1cm}
+\textbf{Theorem: } $s \leq s_{\min}$ (we don't make too many steps)
+
+\textbf{Proof: } 
+\begin{myindentpar}{1cm}
+We have to get from $(0,0)$ to $(x, y)$. As we may only move in
+taxicab geometry we have to use the taxicab distance measure $d_1$:
+\[d_1 \left (p, q \right ) := \sum_{i=1}^2 |p_i -q_i|\]
+
+So in our scenario:
+\[d_1 \left ((0,0), (x,y) \right ) = |x| + |y|\]
+
+This means we have to move at least $|x| + |y|$ units to get 
+from $(0,0)$ to $(x, y)$. As we move $i$ units in the $i$'th step,
+we have to solve the following equations for $s_{\min1}$:
+\begin{align}
+    \sum_{i=1}^{s_{\min1}} i          &\geq |x| + |y| &&\text{ and } &|x| + |y|      &> \sum_{i=1}^{s_{\min1} - 1} i\\
+    \frac{s_{\min1}^2 + s_{\min1}}{2} &\geq |x| + |y| &&             &               &> \sum_{i=1}^{s_{\min1} - 1} i & 
+\end{align}
+
+This is what algorithm \ref{alg:calculateSteps} check with condition 1. 
+As the algorithm increases $s$ only by one in each loop, it makes 
+sure that $\sum_{i=1}^{s_{\min1} - 1} i$ is bigger than $|x| + |y|$.
+
+TODO: Proof necessarity of condition two
+
+TODO: I guess I should initialize $s$ with 0 (should only make a difference when (x,y) = (0,0))
+\end{myindentpar}
+
+\textbf{Theorem: } $s \geq s_{\min}$ (we make enough steps)
+
+\textbf{Proof: } 
+\begin{myindentpar}{1cm}
+TODO
+\end{myindentpar}
+\end{myindentpar}
+
+\subsection{solvePogo}
+\textbf{Theorem: } \Call{solvePogo}{$x,y$} returns a valid, minimal sequence of steps to get from $(0, 0)$ to $(x,y)$
+
+\textbf{Proof: } 
+\begin{myindentpar}{1cm}
+TODO
+\end{myindentpar}
+
+\end{document}
