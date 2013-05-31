@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\begin{document}
+\begin{preview}
+    Sei $n \in \mathbb{N}_{\geq 1}$, $A \in \mathbb{R}^{n \times n}$ und 
+    positiv definit sowie symmetrisch.
+
+    Dann existiert eine Zerlegung $A = L \cdot L^T$, wobei $L$ eine
+    untere Dreiecksmatrix ist. Diese wird von folgendem Algorithmus 
+    berechnet:
+
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Function{Cholesky}{$A \in \mathbb{R}^{n \times n}$}
+                \State $L = \Set{0} \in \mathbb{R}^{n \times n}$ \Comment{Initialisiere $L$}
+                \For{($k=1$; $\;k \leq n$; $\;k$++)}
+                    \State $L_{k,k} = \sqrt{A_{k,k} - \sum_{i=1}^{k-1} L_{k,i}^2}$
+                    \For{($i=k+1$; $\;i \leq n$; $\;i$++)}
+                        \State $L_{i,k} = \frac{A_{i,k} - \sum_{j=1}^{k-1} L_{i,j} \cdot L_{k,j}}{L_{k,k}}$
+                    \EndFor
+                \EndFor
+                \State \Return $L$
+            \EndFunction
+        \end{algorithmic}
+    \caption{Cholesky-Zerlegung}
+    \label{alg:seq1}
+    \end{algorithm}
+\end{preview}
+\end{document}

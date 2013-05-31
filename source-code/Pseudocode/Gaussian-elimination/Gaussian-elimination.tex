@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Function{Gauss}{$A \in \mathbb{R}^{n \times {n+1}}$}
+                \For{($i=1$; $\;i \leq n$; $\;i$++)}
+                    \State // Search for maximum in this column
+                    \State $maxEl = |A_{i,i}|$
+                    \State $maxRow = i$
+                    \For{($k=i+1$; $\;k \leq n$; $\;k$++)}
+                        \If{$|A_{k,i}| > maxEl$}
+                            \State $maxEl = A_{k,i}$
+                            \State $maxRow = k$
+                        \EndIf
+                    \EndFor
+                    \\
+                    \State // Swap maximum row with current row
+                    \For{($k=i$; $\;k \leq n$; $\;k$++)}
+                        \State $tmp = A_{maxRow,k}$
+                        \State $A_{maxRow,k} = A_{i,k}$
+                        \State $A_{i,k} = tmp$
+                    \EndFor
+                    \\
+                    \State // Make all rows below this one 0 in current column
+                    \For{($k=i+1$; $\;k \leq n$; $\;k$++)}
+                        \State $c = -\frac{A_{k,i}}{A_{i,i}}$
+                        \For{($j=i$; $\;j \leq n$; $\;j$++)}
+                            \If{$i == j$}
+                                \State $A_{k,j} = 0$
+                            \Else
+                                \State $A_{k,j} += c \cdot A_{i,j}$
+                            \EndIf
+                        \EndFor
+                    \EndFor
+                \EndFor
+                \\
+                \State // Solve equation for an upper triangular matrix
+                \State $x = \Set{0} \in \mathbb{R^n}$
+                \For{($i=n$; $\;i \geq 1$; $\;i$-\--)}
+                    \State $x_i = \frac{A_{i,n+1}}{A_{i,i}}$
+                    \For{($k=i-1$; $\;k \geq 1$; $\;k$-\--)}
+                        \State $A_{k,n+1} -= A_{k,i} \cdot x_{i}$
+                    \EndFor
+                \EndFor
+                \\
+                \State \Return $x$
+            \EndFunction
+        \end{algorithmic}
+    \caption{Gaussian elimination}
+    \label{alg:seq1}
+    \end{algorithm}
+\end{preview}
+\end{document}
