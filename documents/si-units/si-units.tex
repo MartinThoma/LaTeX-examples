@@ -6,14 +6,14 @@
 \usepackage[margin=2.5cm]{geometry} %layout
 \usepackage{hyperref}   % links im text
 \usepackage{enumerate}  % for advanced numbering of lists
-\usepackage{siunitx} % this package is for units!
+\usepackage[binary-units = true]{siunitx} % this package is for units!
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
 \hypersetup{ 
   pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Lineare Algebra}, 
-  pdftitle    = {Lineare Algebra} 
+  pdfkeywords = {siunitx example}, 
+  pdftitle    = {siunitx example} 
 } 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,5 +24,12 @@ Fusce commodo erat et eros tincidunt quis elementum dui tincidunt. Sed blandit e
 
 \[ N = \frac{f_S}{\Delta f} = \frac{33\si{\kilo\hertz}}{10\si{\hertz}} = 3300\]
 
-Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adipiscing cursus purus dolor venenatis velit. Vivamus enim augue, lacinia in ultrices a, varius sit amet sapien. Aliquam enim velit, molestie vitae bibendum eget, laoreet at ante. Suspendisse pulvinar leo at nisi accumsan nec malesuada neque ullamcorper. Aenean quis mi lectus, \si{\meter/\second^2} quis porttitor nisi. Curabitur interdum luctus lectus et egestas. Aenean sapien ligula, aliquam sed fermentum id, blandit at orci. Integer a turpis ac tellus commodo suscipit. Vivamus massa orci, pharetra eu consequat eu, vulputate eget lacus. Suspendisse non justo arcu. Nullam lacus augue, dapibus vitae convallis a, consectetur at elit.
+Pellentesque commodo, nisi nec feugiat vehicula, augue erat convallis ipsum, adipiscing cursus purus dolor venenatis velit. Vivamus enim augue, lacinia in ultrices a, varius sit amet sapien. Aliquam enim velit, molestie vitae bibendum eget, laoreet at ante. Suspendisse pulvinar leo at nisi accumsan nec malesuada neque ullamcorper. Aenean quis mi lectus, \si{\meter/\second^2} quis porttitor nisi. Curabitur interdum luctus lectus et egestas. Aenean sapien ligula, aliquam sed fermentum id, blandit at orci. Integer a turpis ac tellus commodo suscipit. 
+
+
+\[ 57,6 \si[per-mode=symbol]{\kilo\bit\per\second} \]
+
+\[ 6 \si{\kilo\byte} \]
+
+Vivamus massa orci, pharetra eu consequat eu, vulputate eget lacus. Suspendisse non justo arcu. Nullam lacus augue, dapibus vitae convallis a, consectetur at elit.
 \end{document}
