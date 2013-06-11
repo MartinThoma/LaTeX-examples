@@ -6,7 +6,10 @@ Teilnehmervortrag erstellt worden.
 Er wird am 02.07.2013 gehalten und behandelt die Seiten 137 - 144 aus 
 "Diskrete Mathematik für Einsteiger" von Beutelspacher (ISBN 978-3-8348-1248-3).
 
-Der Vortrag ist für 80 Minuten ausgelegt.
+Der Vortrag ist für 75 Minuten ausgelegt.
+
+* [Präsentation](LaTeX/Graphentheorie-I.pdf)
+* [Handout](Handout/Handout.pdf)
 
 KIT-Style
 ---------
