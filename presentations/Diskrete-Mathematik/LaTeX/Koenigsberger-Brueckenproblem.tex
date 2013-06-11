@@ -18,11 +18,27 @@
 \begin{block}{Eulerscher Kreis}
 Sei $G$ ein Graph und $A$ ein Kreis in $G$.
 
-$A$ heißt \textbf{eulerscher Kreis} $:\Leftrightarrow \forall_{e \in E}: e \in A$.
+$A$ heißt \textbf{eulerscher Kreis} $:\Leftrightarrow \forall_{k \in K}: k \in A$.
 \end{block}
 
 \begin{block}{Eulerscher Graph}
 Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
+\end{block}
+\end{frame}
+
+\begin{frame}{Hamiltonkreis}
+ACHTUNG, VERWECHSLUNGSGEFAHR:
+
+\begin{block}{Hamiltonkreis}
+Sei $G$ ein Graph und $A$ ein Kreis in $G$.
+
+$A$ heißt \textbf{Hamilton-Kreis} $:\Leftrightarrow \forall_{e \in E}: e \in A$.
+\end{block}
+
+\begin{block}{Eulerscher Kreis}
+Sei $G$ ein Graph und $A$ ein Kreis in $G$.
+
+$A$ heißt \textbf{eulerscher Kreis} $:\Leftrightarrow \forall_{k \in K}: k \in A$.
 \end{block}
 \end{frame}
 
@@ -58,6 +74,55 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
             \path<11->[selected edge](N-4.center) edge node {} (N-1.center);
         \end{pgfonlayer}
     \end{tikzpicture}
+    }
+    \end{center}
+\end{frame}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{frame}{Hamilton-Kreis, kein EK}
+    \begin{center}
+    \adjustbox{max size={\textwidth}{0.8\textheight}}{
+      \begin{tikzpicture}
+          \node (a)[vertex] at (0,0) {};
+          \node (b)[vertex] at (2,0) {};
+          \node (c)[vertex] at (2,2) {};
+          \node (d)[vertex] at (0,2) {};
+
+          \foreach \from/\to in {a/b,b/c,c/d,d/a,a/c,b/d}
+            \draw[line width=2pt] (\from) -- (\to);
+
+        \node<2->[vertex,red] (a) at (0,0) {};
+        \node<3->[vertex,red] (b) at (2,0) {};
+        \node<4->[vertex,red] (c) at (2,2) {};
+        \node<5->[vertex,red] (d) at (0,2) {};
+        \begin{pgfonlayer}{background}
+            \path<3->[selected edge,black!50] (a.center) edge node {} (b.center);
+            \path<4->[selected edge,black!50] (b.center) edge node {} (c.center);
+            \path<5->[selected edge,black!50] (c.center) edge node {} (d.center);
+            \path<6->[selected edge,black!50] (d.center) edge node {} (a.center);
+        \end{pgfonlayer}
+      \end{tikzpicture}
+    }
+    \end{center}
+\end{frame}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{frame}{Eulerkreis, kein HK}
+    \begin{center}
+    \adjustbox{max size={\textwidth}{0.8\textheight}}{
+      \begin{tikzpicture}
+          \node (a)[vertex] at (0,0) {};
+          \node (b)[vertex] at (2,0) {};
+          \node (c)[vertex] at (2,2) {};
+          \node (d)[vertex] at (0,2) {};
+          \node (e)[vertex] at (1,1) {};
+
+          \foreach \from/\to in {a/b,b/c,c/d,d/a,b/e,e/d}
+            \draw[line width=2pt] (\from) -- (\to);
+          \draw[line width=2pt] (b) to[bend right] (d);
+      \end{tikzpicture}
     }
     \end{center}
 \end{frame}
@@ -99,7 +164,7 @@ ist $G$ eulersch.
 \pause
 $m=1$: Es gibt keinen Graphen in dem jede Ecke geraden Grad hat. \cmark\\
 \pause
-$m=2$: Nur ein zus. Graph möglich. Dieser ist eulersch. \cmark\\ % Anzeichnen
+$m=2$: Nur ein Graph möglich. Dieser ist eulersch. \cmark\\ % Anzeichnen
 \pause
 
 \underline{I.V.:} Sei $m \in \mathbb{N}_0$ beliebig, aber fest und 
@@ -109,9 +174,33 @@ denen jede Ecke geraden Grad hat, ist $G$ eulersch.
 
 \pause
 
-\underline{I.S.:} Jede Ecke von $G$ hat min. Grad 2.
+\underline{I.S.:} Sei $G=(E,K)$ mit $2 \leq m  = |K|$. $G$ ist zus. \pause
+$\Rightarrow$ Jede Ecke von $G$ hat min. Grad 2. \pause
+$\xRightarrow[]{A. 5}$ Es gibt einen Kreis $C$ in $G$.\pause
 
+\dots
 
+\end{frame}
+
+\begin{frame}{Umkehrung des Satzes von Euler}
+\begin{block}{Umkehrung des Satzes von Euler}
+Wenn in einem zusammenhängenden Graphen $G$ jede Ecke geraden Grad hat, dann 
+ist $G$ eulersch.
+\end{block}
+\dots
+
+Sei
+\[G_C = (E_C, K_C) \]
+Graph zu Kreis $C$ und
+
+\[G^* = (E, K \setminus K_C).\] \pause
+$\Rightarrow$ Alle Knoten jeder Zusammenhangskomponente in $G^*$ haben geraden Grad\\
+\pause
+$\xRightarrow[]{IV}$ Alle $n$ Zhsgk. haben Eulerkreise $C_1, \dots, C_n$\\
+\pause
+$\Rightarrow$ $C_1, \dots, C_n$ können in $C$ \enquote{eingehängt} werden\\
+\pause
+$\Rightarrow G$ ist eulersch\pause $\Rightarrow $ Beh.
 \end{frame}
 
 \begin{frame}{Offene eulersche Linie}
@@ -141,10 +230,13 @@ Sei $G=(E, K)$ ein zusammenhängender Graph und $L = (e_0, \dots, e_s)$ eine off
 eulersche Linie. \pause
 Sei $G^* = (E, K \cup \Set{e_s, e_0})$. \pause
 Es gibt einen Eulerkreis in $G^*$ \pause \\
-$\xRightarrow{\text{Satz von Euler}}$ In $G^*$ hat jede Ecke geraden Grad \pause \\
+$\xLeftrightarrow{\text{Satz von Euler}}$ In $G^*$ hat jede Ecke geraden Grad \pause \\
 Der Grad von nur zwei Kanten wurde um jeweils 1 erhöht \pause \\
-$\Rightarrow$ in $G$ haben genau 2 Ecken ungeraden Grad $\blacksquare$
+$\Leftrightarrow$ in $G$ haben genau 2 Ecken ungeraden Grad. Diese heißen $e_0, e_s$. $\blacksquare$
 \end{block}
+
+\pause
+Rückrichtung analog
 \end{frame}
 
 \pgfdeclarelayer{background}

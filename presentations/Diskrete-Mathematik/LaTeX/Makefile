@@ -1,7 +1,6 @@
 SOURCE = Graphentheorie-I
 
 make:
-	#latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -use-make $(SOURCE).tex
 	pdflatex -shell-escape $(SOURCE).tex -output-format=pdf # shellescape wird fürs logo benötigt
 	pdflatex -shell-escape $(SOURCE).tex -output-format=pdf # nochmaliges ausführen wegen Inhaltsverzeichnissen
 	make clean

@@ -1,0 +1,21 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={->,thick}
+}
+
+\begin{document}
+  \begin{tikzpicture}
+      \node (a)[vertex] at (0,8) {$a$};
+      \node (b)[vertex] at (0,4) {$b$};
+      \node (c)[vertex] at (0,0) {$c$};
+      \node (d)[vertex] at (4,4) {$d$};
+
+      \foreach \from/\to/\pos in {a/b/20,a/b/-20,a/d/0,b/c/20,b/c/-20,b/d/0,c/d/0}
+        \draw[line width=2pt] (\from) to [bend left=\pos] (\to);
+  \end{tikzpicture}
+\end{document}

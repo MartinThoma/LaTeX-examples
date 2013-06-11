@@ -1,0 +1,21 @@
+% A complete graph
+% Author: Quintin Jean-Noël
+% <http://moais.imag.fr/membres/jean-noel.quintin/>
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\usepackage{tikz}
+\usetikzlibrary[topaths]
+
+
+\begin{document}
+    \begin{tikzpicture}
+        \node[vertex] (N1) at (0,0) {};
+        \node[vertex] (N2) at (2,0) {};
+        \node[vertex] (N3) at (4,0) {};
+        \node[vertex] (N4) at (1,1) {};
+        \node[vertex] (N5) at (3,1) {};
+        \node[vertex] (N6) at (2,2) {};
+
+        \draw (N1) -- (N4) -- (N2) -- (N5) -- (N4) -- (N6) -- (N5) -- (N3) -- (N2) -- (N1);
+    \end{tikzpicture}
+\end{document}

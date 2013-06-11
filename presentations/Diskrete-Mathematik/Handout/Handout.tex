@@ -11,6 +11,8 @@
 \usepackage{braket} % needed for nice printing of sets
 \usepackage{xcolor}
 \usepackage{lastpage}
+\usepackage{parskip}
+\usepackage{csquotes}
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
@@ -77,6 +79,42 @@
  \noindent\ignorespaces}
 {\end{contlabelframe}} 
 \makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorem                                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% needed for theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{changepage}
+\newlength\Thmindent
+\setlength\Thmindent{20pt}
+
+\newenvironment{precondition}
+  {\par\medskip\adjustwidth{\Thmindent}{}\normalfont\textbf{Voraussetzungen:}\par\nobreak}
+  {\endadjustwidth}
+\newenvironment{claim}
+  {\par\medskip\adjustwidth{\Thmindent}{}\normalfont\textbf{Behauptung:}}
+  {\endadjustwidth}
+
+\declaretheoremstyle[
+  spaceabove=0pt,spacebelow=0pt,
+  preheadhook=\adjustwidth{\Thmindent}{},
+  prefoothook=\endadjustwidth,
+  headpunct=:,
+  numbered=no,
+  qed=\qedsymbol
+]{proof}
+\declaretheorem[style=proof,name=Beweis]{Proof}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Satz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add some shortcuts                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}% a checkmark
+\newcommand{\xmark}{\ding{55}}% a cross
+\usepackage{amsmath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin document                                                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -166,12 +204,74 @@ Hat eine Ecke den Grad 0, so nennt man ihn \textbf{isoliert}.
 \begin{definition}{Eulerscher Kreis}
 Sei $G$ ein Graph und $A$ ein Kreis in $G$.
 
-$A$ heißt \textbf{eulerscher Kreis} $:\Leftrightarrow \forall_{e \in E}: e \in A$.
+$A$ heißt \textbf{eulerscher Kreis} $:\Leftrightarrow \forall_{k \in K}: k \in A$.
 \end{definition}
 
 \begin{definition}{Eulerscher Graph}
 Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
 \end{definition}
+
+\begin{theorem}{Euler 1736}
+    ~~~
+    \begin{precondition}
+        Sei $G = (E, K)$ ein Graph.
+    \end{precondition}
+    \begin{claim}
+        Wenn ein Graph $G$ eulersch ist, dann hat jede Ecke von $G$ geraden Grad.
+    \end{claim}
+    \begin{Proof} Direkt\\
+        Sei $C = (e_0, \dots, e_n, e_0)$ ein Eulerkreis in $G$
+        $\Rightarrow $ Es gilt: $\forall e \in E \exists i \in \Set{0, \dots, n}: e = e_i$ und alle Kanten aus $G$ sind genau ein mal in $C$.\\
+        Außerdem gilt: 
+        \[\text{Grad}(e_i) = \begin{cases}
+            2 \cdot \text{Anzahl der vorkommen von } e_i \text{in } C & \text{falls } i\neq 0\\
+            2 \cdot (\text{Anzahl der vorkommen von } e_i -1) \text{in } C & \text{falls } i = 0\\
+        \end{cases}
+        \]
+        $\Rightarrow \forall e \in E: \text{Grad}(e)$ ist gerade 
+    \end{Proof}
+\end{theorem}
+
+\begin{theorem}{Umkehrung des Satzes von Euler}
+    ~~~
+    \begin{precondition}
+        Sei $G = (E, K)$ ein zusammenhängender Graph.
+    \end{precondition}
+    \begin{claim}
+        Wenn jede Ecke von $G$ geraden Grad hat, dann ist $G$ eulersch.
+    \end{claim}
+    \begin{Proof} über Induktion über Anzahl $m$ der Kanten\\
+        \underline{I.A.:} $m=0$: $G$ ist eulersch. \cmark\\
+        $m=1$: Es gibt keinen Graphen in dem jede Ecke geraden Grad hat. \cmark\\
+        $m=2$: Nur ein Graph ist zusammenhängend, hat zwei Kanten und nur Ecken geraden Grades. Dieser ist eulersch. \cmark
+
+        \underline{I.V.:} Sei $m \in \mathbb{N}_0$ beliebig, aber fest und 
+        es gelte: 
+
+        Für alle zusammenhängenden Graphen $G$ mit höchstens $m$ Kanten, bei denen jede Ecke geraden Grad hat, ist $G$ eulersch.
+
+        \underline{I.S.:} Sei $G=(E,K)$ mit $2 \leq m  = |K|$ ein zusammenhängender Graph, der nur Ecken geraden Grades hat.\\
+        $\Rightarrow$ Jede Ecke von $G$ hat min. Grad 2.
+        $\stackrel{A5}{\Rightarrow}$ Es gibt einen Kreis $C$ in $G$.\\
+
+        Sei nun 
+            \[G_C = (E_C, K_C) \text{ mit } E_C \subseteq E \text{ und } K_C \subseteq K \]
+        der Graph, der durch $C$ induziert wird.
+        Sei 
+
+            \[ G^* = (E, K \setminus K_C) \]
+
+        Es gilt: 
+        \begin{itemize}
+            \item Jede Ecke in $G^*$ hat geraden Grad
+            \item Jede Zusammenhangskomponente (Zshk) hat weniger als $m$ Knoten
+            \item[$\Rightarrow$] IV ist auf jede Zshk anwendbar
+            \item[$\Rightarrow$] Jede Zshk hat einen Eulerkreis
+            \item[$\Rightarrow$] Man kann den Kreis $C$ durch die Eulerkreise erweitern und erhält insgesamt einen Eulerkreis
+        \end{itemize}
+        $\Rightarrow$ $G$ ist eulersch 
+    \end{Proof}
+\end{theorem}
 
 \begin{definition}{Offene eulersche Linie}
 Sei $G$ ein Graph und $A$ ein Weg, der kein Kreis ist.
@@ -180,4 +280,26 @@ $A$ heißt \textbf{offene eulersche Linie} von $G :\Leftrightarrow$ Jede Kante
 in $G$ kommt genau ein mal in $A$ vor.
 \end{definition}
 
+\begin{theorem}{Satz 8.2.3}
+    ~~~
+    \begin{precondition}
+        Sei $G = (E, K)$ ein zusammenhängender Graph.
+    \end{precondition}
+    \begin{claim}
+        $G$ hat eine offene eulersche Linie $:\Leftrightarrow G$ hat genau zwei Ecken ungeraden Grades
+    \end{claim}
+    \begin{Proof} Direkt von \enquote{$\Rightarrow$}, Rückrichtung \enquote{$\Leftarrow$} analog\\
+        Sei $L=(e_0, \dots, e_s)$ in $G$  eine offene eulerschle Linie in $G$.\\
+        $\Leftrightarrow G^* = (E, K \cup \Set{e_s, e_0})$ hat einen Eulerkreis\\
+        $\Leftrightarrow G^*$ hat nur Knoten geraden Grades\\
+        $\Leftrightarrow G$ hat genau zwei Knoten ($e_0, e_s$) ungeraden Grades
+    \end{Proof}
+\end{theorem}
+
+
+Alle \LaTeX-Quellen und die neueste Version der PDF sind unter
+
+\href{https://github.com/MartinThoma/LaTeX-examples/tree/master/presentations/Diskrete-Mathematik}{github.com/MartinThoma/LaTeX-examples/tree/master/presentations/Diskrete-Mathematik}
+
+zu finden
 \end{document}

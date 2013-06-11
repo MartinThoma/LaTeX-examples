@@ -1,14 +1,173 @@
-\subsection{Weitere Aufgaben}
+\subsection{Aufgabe 3}
 \begin{frame}{Aufgabe 3}
 Zeigen Sie: Ein Kreis ist genau dann bipartit, wenn er gerade Länge hat.
 \end{frame}
 
-% TODO
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{frame}{Aufgabe 3 - Lösung}
+Idee: Knoten abwechselnd färben
+
+    \tikzstyle{selected edge} = [draw,line width=5pt,-,black!50]
+    \begin{center}
+    \adjustbox{max size={\textwidth}{0.8\textheight}}{
+    \begin{tikzpicture}
+        \node[vertex] (a) at (0,0) {};
+        \node[vertex] (b) at (2,0) {};
+        \node[vertex] (c) at (2,2) {};
+        \node[vertex] (d) at (0,2) {};
+        \node[vertex] (e) at (1,4) {};
+
+        \draw (a) -- (b) -- (c) -- (e) -- (d) -- (a);
+
+        \node<2->[vertex, red] (a) at (0,0) {};
+        \node<3->[vertex, blue] (b) at (2,0) {};
+        \node<4->[vertex, red] (c) at (2,2) {};
+        \node<5->[vertex, blue] (e) at (1,4) {};
+        \node<6->[vertex, red] (d) at (0,2) {};
+
+        \begin{pgfonlayer}{background}
+            \path<3->[selected edge] (a.center) edge node {} (b.center);
+            \path<4->[selected edge] (b.center) edge node {} (c.center);
+            \path<5->[selected edge] (c.center) edge node {} (e.center);
+            \path<6->[selected edge] (e.center) edge node {} (d.center);
+            \path<7->[selected edge,lime] (d.center) edge node {} (a.center);
+        \end{pgfonlayer}
+    \end{tikzpicture}
+    }
+    \end{center}
+\end{frame}
+
+\subsection{Aufgabe 4}
+\begin{frame}{Aufgabe 4}
+Zeigen Sie: Ein Graph $G$ ist genau dann bipartit, wenn er nur Kreise
+gerade Länge hat.
+\end{frame}
+
+\begin{frame}{Aufgabe 4: Lösung, Teil 1}
+\underline{Vor.:} Sei $G = (E, K)$ ein zus. Graph. \pause
+
+\underline{Beh.:} $G$ ist bipartit $\Rightarrow G$ hat keine Kreis ungerader Länge \pause
+
+\underline{Bew.:} durch Widerspruch \pause
+
+\underline{Annahme:} $G$ hat Kreis ungerader Länge \pause
+
+$\xRightarrow[]{A.4}$ Ein Subgraph von $G$ ist nicht bipartit \pause
+
+$\Rightarrow$ Widerspruch zu \enquote{$G$ ist bipartit} \pause
+
+$\Rightarrow$ $G$ hat keinen Kreis ungerader Länge $\blacksquare$
+\end{frame}
+
+\begin{frame}{Aufgabe 4: Lösung, Teil 2}
+\underline{Vor.:} Sei $G = (E, K)$ ein zus. Graph. \pause
+
+\underline{Beh.:} $G$ hat keinen Kreis ungerader Länge $\Rightarrow G$ ist bipartit \pause
+
+\underline{Bew.:} Konstruktiv \pause
+
+Färbe Graphen mit Breitensuche $\blacksquare$
+\end{frame}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{frame}{Aufgabe 4 - Beispiel}
+    \tikzstyle{selected edge} = [draw,line width=5pt,-,black!50]
+    \begin{center}
+    \adjustbox{max size={\textwidth}{0.8\textheight}}{
+    \begin{tikzpicture}
+        \node[vertex] (a) at (1,1) {};
+        \node[vertex] (b) at (2,0) {};
+        \node[vertex] (c) at (4,0) {};
+        \node[vertex] (d) at (1,2) {};
+        \node[vertex] (e) at (2,2) {};
+        \node[vertex] (f) at (3,2) {};
+        \node[vertex] (g) at (2,4) {};
+        \node[vertex] (h) at (3,3) {};
+        \node[vertex] (i) at (4,2) {};
+        \node[vertex] (j) at (1,3) {};
+
+        \draw (a) -- (b);
+        \draw (a) -- (d);
+        \draw (b) -- (e);
+        \draw (b) -- (c);
+        \draw (c) -- (f);
+        \draw (d) -- (e);
+        \draw (d) -- (j);
+        \draw (e) -- (f);
+        \draw (f) -- (i);
+        \draw (g) -- (j);
+        \draw (g) -- (h);
+
+        \node<2->[vertex, red]  (a) at (1,1) {};
+        \node<3->[vertex, blue] (b) at (2,0) {};
+        \node<3->[vertex, blue] (d) at (1,2) {};
+        \node<4->[vertex, red]  (c) at (4,0) {};
+        \node<4->[vertex, red]  (e) at (2,2) {};
+        \node<4->[vertex, red]  (j) at (1,3) {};
+        \node<5->[vertex, blue] (f) at (3,2) {};
+        \node<5->[vertex, blue] (g) at (2,4) {};
+        \node<6->[vertex, red]  (h) at (3,3) {};
+        \node<6->[vertex, red]  (i) at (4,2) {};
+
+        \begin{pgfonlayer}{background}
+            \path<3->[selected edge] (a.center) edge node {} (b.center);
+            \path<3->[selected edge] (a.center) edge node {} (d.center);
+            \path<4->[selected edge] (b.center) edge node {} (c.center);
+            \path<4->[selected edge] (b.center) edge node {} (e.center);
+            \path<4->[selected edge] (d.center) edge node {} (j.center);
+            \path<4->[selected edge] (d.center) edge node {} (e.center);
+            \path<5->[selected edge] (j.center) edge node {} (g.center);
+            \path<5->[selected edge] (e.center) edge node {} (f.center);
+            \path<5->[selected edge] (c.center) edge node {} (f.center);
+            \path<6->[selected edge] (g.center) edge node {} (h.center);
+            \path<6->[selected edge] (f.center) edge node {} (i.center);
+        \end{pgfonlayer}
+    \end{tikzpicture}
+    }
+    \end{center}
+\end{frame}
+
+\subsection{Aufgabe 9}
+\begin{frame}{Aufgabe 9, Teil 1}
+Im folgenden sind die ersten drei Graphen $G_1, G_2, G_3$ einer
+Folge $(G_n)$ aus Graphen abgebildet. Wie sieht $G_4$ aus?
+
+\begin{gallery}
+    \galleryimage{graphs/triangular-1}
+    \galleryimage{graphs/triangular-2}
+    \galleryimage{graphs/triangular-3}
+\end{gallery}
+\end{frame}
+
+\begin{frame}{Aufgabe 9, Teil 2}
+Wieviele Ecken / Kanten hat $G_n = (E_n, K_n)$?
+\end{frame}
+
+\begin{frame}{Aufgabe 9, Teil 2: Antwort}
+Ecken:
+
+\[|E_n| = |E_{n-1}| + (n+1) = \sum_{i=1}^{n+1} = \frac{n^2 + 2n+2}{2}\]
+
+Kanten:
+
+\begin{align}
+|K_n| &= |K_{n-1}| + \underbrace{((n+1)-1)+2}_{\text{außen}} + (n-1) \cdot 2\\
+    &= |K_{n-1}| + n+2+2n-2\\
+    &= |K_{n-1}| + 3n\\
+    &= \sum_{i=1}^{n} 3i = 3 \sum_{i=1}^{n} i \\
+    &= 3 \frac{n^2 + n}{2}
+\end{align}
+\end{frame}
+
+
 
 \subsection{Bildquelle}
 \begin{frame}{Bildquelle}
 \begin{itemize}
     \item \href{http://commons.wikimedia.org/wiki/File:Konigsberg\_bridges.png}{http://commons.wikimedia.org/wiki/File:Konigsberg\_bridges.png}
+    \item \href{http://commons.wikimedia.org/wiki/File:Unit\_disk\_graph.svg}{http://commons.wikimedia.org/wiki/File:Unit\_disk\_graph.svg}
     \item \href{http://goo.gl/maps/WnXRh}{Google Maps} (Grafiken \TCop 2013 Cnes/Spot Image, DigitalGlobe)
 \end{itemize}
 \end{frame}
