@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,calc}
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+\newcommand*{\AddNote}[4]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [decoration={brace,amplitude=0.5em},decorate,very thick]
+            ($(#3)!(#1.north)!($(#3)-(0,1)$)$) --  
+            ($(#3)!(#2.south)!($(#3)-(0,1)$)$)
+                node [align=center, text width=2.5cm, pos=0.5, anchor=west] {#4};
+    \end{tikzpicture}
+}%
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Require $Z \in \mathbb{R}_{\geq 0}, b \in \mathbb{N}_{\geq 2}$
+            \State $p\gets 0$\tikzmark{top}
+            \While{$b^p > Z$}\tikzmark{right}
+                \State $p\gets p+1$ 
+            \EndWhile
+            \State $i\gets p-1$\tikzmark{bottom}
+            \\
+            \While{$Z \neq 0$}\tikzmark{top2}
+                \State $y_i\gets Z\,\mbox{div}\, b^i$
+                \State $R\gets Z\,\mbox{mod}\, b^i$
+                \State $Z\gets R$
+                \State $i\gets i-1$
+            \EndWhile\tikzmark{bottom2}
+            \\
+            \State \textbf{Ergebnis:} $y_{p-1} y_{p-2} \dots y_0, y_{-1} \dots y_{i+1}$
+        \end{algorithmic}
+    \caption{Euklidischer Algorithmus zum Basiswechsel}
+    \AddNote{top}{bottom}{right}{Berechne $p$ sodass gilt: $b^p \leq Z < b^{p+1}$}
+    \AddNote{top2}{bottom2}{right}{In jedem Schritt wird eine Ziffer berechnet}
+    \label{alg:euclidBaseTransformation}
+    \end{algorithm}
+\end{preview}
+\end{document}

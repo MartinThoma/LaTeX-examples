@@ -6,7 +6,7 @@
 \begin{document}
 \begin{tikzpicture}
     \newcommand{\R}{1.5} % radius of the circle
-    \newcommand{\n}{6} % edges of the polygon
+    \newcommand{\n}{12} % edges of the polygon
 
     % Center
     \path ( 0,0) coordinate (M);
@@ -18,7 +18,7 @@
     }
     \draw (0:0.3*\R) arc (0:360/\n:0.3*\R);
     \coordinate[label=right:$\alpha$] (Alpha) at ({2*360/(\n+2)}:0.1*\R);
-    \draw (i1) -- (i2) -- (i3) -- (i4) --(i5) -- (i6) -- cycle;
+    \draw (i1) \foreach \i in {2,...,\n} {-- (i\i)} -- cycle;
 
     % Circle
     \draw[green] (0,0) circle (\R);
