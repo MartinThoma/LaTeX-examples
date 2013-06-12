@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{calc} 
+\tikzstyle{vertex}=[draw,red,fill=red,circle,
+minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[red, very thick]
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \newcommand{\n}{10}
+    \foreach \y in {0, ..., \n}{
+        \pgfmathsetmacro{\loopend}{{2*\n-\y}}
+        \pgfmathsetmacro{\second}{{\y+2}}
+        \foreach \x in {\y, \second,..., \loopend}{
+            \ifthenelse{\n=\y}{\breakforeach}{}
+            \node (n-\x\y)[vertex] at (\x,\y) {};
+
+            \ifthenelse{\y=0}{}{\draw[edge] (\x,\y) -- (\x+1,\y-1);}
+            \pgfmathtruncatemacro\X{\x}
+            \ifthenelse{\X<\loopend}{\draw[edge] (\x,\y) -- (\x+2,\y);}{}
+            \ifthenelse{\X=\loopend}{}{\draw[edge] (\x,\y) -- (\x+1,\y+1);}
+            
+        }
+    }
+\end{tikzpicture}
+\end{preview}
+\end{document}
