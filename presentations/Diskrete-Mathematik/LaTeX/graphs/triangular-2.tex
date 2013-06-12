@@ -1,21 +1,27 @@
-% A complete graph
-% Author: Quintin Jean-Noël
-% <http://moais.imag.fr/membres/jean-noel.quintin/>
 \documentclass[varwidth=true, border=2pt]{standalone}
-\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\usepackage{ifthen}
 \usepackage{tikz}
-\usetikzlibrary[topaths]
-
+\usetikzlibrary{calc} 
 
 \begin{document}
-    \begin{tikzpicture}
-        \node[vertex] (N1) at (0,0) {};
-        \node[vertex] (N2) at (2,0) {};
-        \node[vertex] (N3) at (4,0) {};
-        \node[vertex] (N4) at (1,1) {};
-        \node[vertex] (N5) at (3,1) {};
-        \node[vertex] (N6) at (2,2) {};
+\tikzstyle{vertex}=[draw,red,fill=red,circle,
+minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[red, very thick]
+\begin{tikzpicture}
+    \newcommand{\n}{2}
+    \foreach \y in {0, ..., \n}{
+        \pgfmathsetmacro{\loopend}{{2*\n-\y}}
+        \pgfmathsetmacro{\second}{{\y+2}}
+        \foreach \x in {\y, \second,..., \loopend}{
+            \ifthenelse{\n=\y}{\breakforeach}{}
+            \node (n-\x\y)[vertex] at (\x,\y) {};
 
-        \draw (N1) -- (N4) -- (N2) -- (N5) -- (N4) -- (N6) -- (N5) -- (N3) -- (N2) -- (N1);
-    \end{tikzpicture}
+            \ifthenelse{\y=0}{}{\draw[edge] (\x,\y) -- (\x+1,\y-1);}
+            \pgfmathtruncatemacro\X{\x}
+            \ifthenelse{\X<\loopend}{\draw[edge] (\x,\y) -- (\x+2,\y);}{}
+            \ifthenelse{\X=\loopend}{}{\draw[edge] (\x,\y) -- (\x+1,\y+1);}
+            
+        }
+    }
+\end{tikzpicture}
 \end{document}

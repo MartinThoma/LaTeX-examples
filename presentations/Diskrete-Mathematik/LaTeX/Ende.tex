@@ -141,8 +141,32 @@ Folge $(G_n)$ aus Graphen abgebildet. Wie sieht $G_4$ aus?
 \end{gallery}
 \end{frame}
 
+\begin{frame}{Aufgabe 9, Teil 1 (Lösung)}
+    \begin{center}
+        \input{graphs/triangular-4}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Aufgabe 9, Teil 1 (Lösung)}
+    \begin{center}
+        \input{graphs/triangular-5}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Aufgabe 9, Teil 1 (Lösung)}
+    \begin{center}
+        \input{graphs/triangular-6}
+    \end{center}
+\end{frame}
+
 \begin{frame}{Aufgabe 9, Teil 2}
-Wieviele Ecken / Kanten hat $G_n = (E_n, K_n)$?
+Wie viele Ecken und wie viele Kanten hat $G_i$?
+
+\begin{gallery}
+    \galleryimage{graphs/triangular-1}
+    \galleryimage{graphs/triangular-2}
+    \galleryimage{graphs/triangular-3}
+\end{gallery}
 \end{frame}
 
 \begin{frame}{Aufgabe 9, Teil 2: Antwort}
@@ -161,7 +185,32 @@ Kanten:
 \end{align}
 \end{frame}
 
+\begin{frame}{Aufgabe 9, Teil 3}
+Gebe $G_i$ formal an.
 
+\begin{gallery}
+    \galleryimage{graphs/triangular-1}
+    \galleryimage{graphs/triangular-2}
+    \galleryimage{graphs/triangular-3}
+\end{gallery}
+\end{frame}
+
+\begin{frame}{Aufgabe 9, Teil 3 (Lösung)}
+Gebe $G_n$ formal an.
+
+\begin{gallery}
+    \galleryimage{graphs/triangular-1}
+    \galleryimage{graphs/triangular-2}
+    \galleryimage{graphs/triangular-3}
+\end{gallery}
+
+\begin{align*}
+    E_n &= \Set{e_{x,y} | y \in 1, \dots, n;\; x \in y, \dots, 2 \cdot n - y \text{ mit } x-y \equiv 0 \mod 2}\\
+    K_n &= \Set{\Set{e_{x,y}, e_{i,j}} \in E_n^2 | (x+2=i \land y=j) \lor (x+1=i \land y\pm1=j)}\\
+    G_n &= (E_n, K_n)
+\end{align*}
+
+\end{frame}
 
 \subsection{Bildquelle}
 \begin{frame}{Bildquelle}
