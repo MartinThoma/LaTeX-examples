@@ -212,6 +212,66 @@ Gebe $G_n$ formal an.
 
 \end{frame}
 
+\begin{frame}{{\sc RectangleFreeColoring}}
+    \begin{block}{{\sc RectangleFreeColoring}}
+        Gegeben ist $n, m \in \mathbb{N}_{\geq 1}$ und ein 
+        ungerichteter Graph $G = (E, K)$ mit 
+            \[E = \Set{e_{x,y} | 1 \leq x \leq n} \land 1 \leq y \leq m\]
+        und
+            \[K = \Set{k=\Set{e_{x,y}, e_{x',y'}} \in E \times E : |x-x'| + |y-y'| = 1} \]
+        
+        Färbe die Ecken von $G$ min einer minimalen Anzahl von Farben so, dass gilt:
+            \[\forall e_{x,y}, e_{x',y'} \in E: \neg(c(e_{x,y}) = c(e_{x',y'}) = c(e_{x',y}) = c(e_{x,y'}))\]
+    \end{block}
+\end{frame}
+
+\begin{frame}{{\sc RectangleFreeColoring}}
+    $4 \times 4$ - Instanz:\\
+
+    \vspace{1cm}
+    \begin{tikzpicture}
+        \newcommand{\n}{4}
+        \newcommand{\m}{4}
+        \foreach \x in {1, ..., \n}{
+            \foreach \y in {1, ..., \m}{
+                \node[vertex] (n-\x-\y) at (\x,\y) {};
+            }
+        }
+
+        \foreach \x in {1, ..., \n}{
+            \foreach \y in {1, ..., \m}{
+                \ifthenelse{\x<\n}{\draw (\x,\y) -- (\x+1,\y);}{}
+            }
+        }
+        \foreach \y in {1, ..., \m}{
+            \foreach \x in {1, ..., \n}{
+                \ifthenelse{\y<\m}{\draw (\x,\y) -- (\x,\y+1);}{}
+            }
+        }
+
+        \node[vertex,blue] (n-1-1) at (1,1) {};
+        \node[vertex,blue] (n-2-1) at (2,1) {};
+        \node[vertex,blue] (n-3-1) at (3,1) {};
+        \node[vertex,red]  (n-4-1) at (4,1) {};
+
+        \node[vertex,blue] (n-1-1) at (1,2) {};
+        \node[vertex,red]  (n-2-1) at (2,2) {};
+        \node[vertex,red]  (n-3-1) at (3,2) {};
+        \node[vertex,blue] (n-4-1) at (4,2) {};
+
+        \node[vertex,red]  (n-1-1) at (1,3) {};
+        \node[vertex,blue] (n-2-1) at (2,3) {};
+        \node[vertex,red]  (n-3-1) at (3,3) {};
+        \node[vertex,blue] (n-4-1) at (4,3) {};
+
+
+        \node[vertex,red]  (n-1-1) at (1,4) {};
+        \node[vertex,red]  (n-2-1) at (2,4) {};
+        \node[vertex,blue] (n-3-1) at (3,4) {};
+        \node[vertex,blue] (n-4-1) at (4,4) {};
+    \end{tikzpicture}
+\end{frame}
+
 \subsection{Bildquellen}
 \begin{frame}{Bildquellen}
 \begin{itemize}

@@ -53,10 +53,14 @@ seine \textbf{Länge}.
 
 \begin{frame}{Geschlossener Kantenzug}
 \begin{block}{Geschlossener Kantenzug}
-Sei $G = (E, K)$ ein Graph und $A = (e_0, e_1, \dots, e_s)$ ein Kantenzug.
+Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2, \dots, k_s)$ ein Kantenzug
+mit $k_1 = \Set{e_0, e_1}$ und $k_s = \Set{e_{s-1}, e_s}$.
 
-A heißt \textbf{geschlossen} $:\Leftrightarrow e_s = e_0$ .
+A heißt \textbf{geschlossen} $:\Leftrightarrow e_0 = e_s$ .
 \end{block}
+
+Ein Kantenzug wird durch den Tupel $(e_0, \dots, e_s) \in E^{s+1}$ 
+charakterisiert.
 
 \begin{gallery}
     \galleryimage{walks/walk-1}

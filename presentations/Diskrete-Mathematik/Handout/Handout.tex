@@ -140,7 +140,7 @@ $k$ heißt \textbf{Schlinge} $:\Leftrightarrow e_1 = e_2$
 \begin{definition}{Vollständiger Graph}
 Sei $G = (E, K)$ ein Graph.
 
-$G$ heißt \textbf{vollständig} $:\Leftrightarrow K = E \times E \setminus \Set{e \in E: \Set{e, e}}$
+$G$ heißt \textbf{vollständig} $:\Leftrightarrow K = E \times E \setminus \Set{\Set{e, e} | e \in E}$
 \end{definition}
 
 Ein vollständiger Graph mit $n$ Ecken wird als $K_n$ bezeichnet.
@@ -173,10 +173,14 @@ gilt ein \textbf{Kantenzug}, der $e_0$ und $e_s$ \textbf{verbindet} und $s$
 seine \textbf{Länge}.
 \end{definition}
 
-\begin{definition}{Geschlossener Kantenzug}
-Sei $G = (E, K)$ ein Graph und $A = (e_0, e_1, \dots, e_s)$ ein Kantenzug.
+Ein Kantenzug wird durch den Tupel $(e_0, \dots, e_s) \in E^{s+1}$ 
+charakterisiert.
 
-A heißt \textbf{geschlossen} $:\Leftrightarrow e_s = e_0$ .
+\begin{definition}{Geschlossener Kantenzug}
+Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2, \dots, k_s)$ ein Kantenzug
+mit $k_1 = \Set{e_0, e_1}$ und $k_s = \Set{e_{s-1}, e_s}$.
+
+A heißt \textbf{geschlossen} $:\Leftrightarrow e_0 = e_s$ .
 \end{definition}
 
 \begin{definition}{Weg}
@@ -190,6 +194,20 @@ Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2 \dots, k_s)$ ein Kantenzug.
 
 A heißt \textbf{Kreis} $:\Leftrightarrow A$ ist geschlossen und ein Weg.
 \end{definition}
+
+\vspace{0.5cm}
+\begin{theorem}{Aufgabe 5}
+    ~~~
+    \begin{precondition}
+        Sei $G = (E, K)$ ein Graph, in dem jede Ecke min. Grad 2 hat.
+    \end{precondition}
+    \begin{claim}
+        Es ex. ein Kreis $C$ in $G$ mit $|C| > 0$
+    \end{claim}
+    \begin{Proof} In den Folien.
+    \end{Proof}
+\end{theorem}
+\vspace{0.5cm}
 
 \begin{definition}{Zusammenhängender Graph}
 Sei $G = (E, K)$ ein Graph.
@@ -226,8 +244,8 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
         Wenn ein Graph $G$ eulersch ist, dann hat jede Ecke von $G$ geraden Grad.
     \end{claim}
     \begin{Proof} Direkt\\
-        Sei $C = (e_0, \dots, e_n, e_0)$ ein Eulerkreis in $G$
-        $\Rightarrow $ Es gilt: $\forall e \in E \exists i \in \Set{0, \dots, n}: e = e_i$ und alle Kanten aus $G$ sind genau ein mal in $C$.\\
+        Sei $C = (e_0, \dots, e_n, e_0) \in E^{n+2}$ ein Eulerkreis in $G$
+        $\Rightarrow $ Es gilt: $\forall e \in E\;\exists i \in \Set{0, \dots, n}: e = e_i$ und alle Kanten aus $G$ sind genau ein einziges Mal in $C$.\\
         Außerdem gilt: 
         \[\text{Grad}(e_i) = \begin{cases}
             2 \cdot \text{Anzahl der Vorkommen von } e_i \text{ in } C & \text{falls } i\neq 0\\
@@ -269,13 +287,13 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
 
         Es gilt: 
         \begin{itemize}
-            \item Jede Ecke in $G^*$ hat geraden Grad
-            \item Jede Zusammenhangskomponente hat weniger als $m$ Knoten
-            \item[$\Rightarrow$] I.V. ist auf jede Zusammenhangskomponente anwendbar
-            \item[$\Rightarrow$] Jede Zusammenhangskomponente hat einen Eulerkreis
-            \item[$\Rightarrow$] Man kann den Kreis $C$ durch die Eulerkreise erweitern und erhält insgesamt einen Eulerkreis
+            \item Jede Ecke in $G^*$ hat geraden Grad.
+            \item Jede Zusammenhangskomponente hat weniger als $m$ Knoten.
+            \item[$\Rightarrow$] I.V. ist auf jede Zusammenhangskomponente anwendbar.
+            \item[$\Rightarrow$] Jede Zusammenhangskomponente hat einen Eulerkreis.
+            \item[$\Rightarrow$] Der Kreis $C$ kann durch die Eulerkreise erweitern werden. So erhält man insgesamt einen Eulerkreis.
         \end{itemize}
-        $\Rightarrow$ $G$ ist eulersch 
+        $\Rightarrow$ $G$ ist eulersch.
     \end{Proof}
 \end{theorem}
 \vspace{0.5cm}
@@ -295,11 +313,11 @@ in $G$ kommt genau ein mal in $A$ vor.
     \begin{claim}
         $G$ hat eine offene eulersche Linie $:\Leftrightarrow G$ hat genau zwei Ecken ungeraden Grades
     \end{claim}
-    \begin{Proof} Direkt von \enquote{$\Rightarrow$}, Rückrichtung \enquote{$\Leftarrow$} analog\\
-        Sei $L=(e_0, \dots, e_s)$ in $G$  eine offene eulerschle Linie in $G$.\\
-        $\Leftrightarrow G^* = (E, K \cup \Set{e_s, e_0})$ hat einen Eulerkreis\\
-        $\Leftrightarrow G^*$ hat nur Knoten geraden Grades\\
-        $\Leftrightarrow G$ hat genau zwei Knoten ($e_0, e_s$) ungeraden Grades
+    \begin{Proof} Direkt von \enquote{$\Rightarrow$}; Rückrichtung \enquote{$\Leftarrow$} analog\\
+        Sei $L=(e_0, \dots, e_s)$ in $G$  eine offene eulersche Linie in $G$.\\
+        $\Leftrightarrow G^* = (E, K \cup \Set{e_s, e_0})$ hat einen Eulerkreis.\\
+        $\Leftrightarrow G^*$ hat nur Knoten geraden Grades.\\
+        $\Leftrightarrow G$ hat genau zwei Knoten ($e_0, e_s$) ungeraden Grades.
     \end{Proof}
 \end{theorem}
 

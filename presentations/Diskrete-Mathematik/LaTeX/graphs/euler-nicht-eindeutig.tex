@@ -1,0 +1,57 @@
+\documentclass[hyperref={pdfpagelabels=false},usepdftitle=false]{beamer}
+\usepackage{../../templates/myStyle}
+
+\begin{document}
+
+\title{\titleText}
+\subtitle{}
+\author{\tutor}
+\date{2. Juli 2013}
+\subject{Diskrete Mathematik}
+
+\tikzstyle{vertex}=[draw,circle,fill,minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[red, very thick]
+\tikzstyle{markedCircle}=[blue,line width=1pt,rotate=90,decorate,decoration={snake, segment length=2mm, amplitude=0.4mm},->]
+\tikzstyle{markedCircle2}=[red,line width=1pt,rotate=90,decorate,decoration={snake, segment length=3mm, amplitude=0.4mm},->]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{frame}{Sind Eulerkreise eindeutig?}
+    \begin{tikzpicture}[scale=1.9]
+        \node[vertex,label=$a_1$] (a1) at (1,2) {};
+        \node[vertex,label=$b_1$] (b1) at (3,2) {};
+        \node[vertex,label=$c_1$] (c1) at (2,1) {};
+
+        \node[vertex,label=$b_2$] (b2) at (0,2) {};
+        \node[vertex,label=$c_2$] (c2) at (1,3) {};
+
+        \node[vertex,label=$c_3$] (c3) at (3,3) {};
+        \node[vertex,label=$a_3$] (a3) at (4,2) {};
+
+        \draw (a1) -- (b1) -- (c1) -- (a1) -- cycle;
+        \draw (a1) -- (b2) -- (c2) -- (a1) -- cycle;
+        \draw (b1) -- (c3) -- (a3) -- (b1) -- cycle;
+
+        \node<2->[vertex, red] (a1) at (1,2) {};
+
+        \draw<2->[color=blue, markedCircle,->] (a1.center) -- (b2.center);
+        \draw<3->[color=blue, markedCircle] (b2.center) -- (c2.center);
+        \draw<4->[color=blue, markedCircle] (c2.center) -- (a1.center);
+        \draw<5->[color=blue, markedCircle] (a1.center) -- (b1.center);
+        \draw<6->[color=blue, markedCircle] (b1.center) -- (c3.center);
+        \draw<7->[color=blue, markedCircle] (c3.center) -- (a3.center);
+        \draw<8->[color=blue, markedCircle] (a3.center) -- (b1.center);
+        \draw<9->[color=blue, markedCircle] (b1.center) -- (c1.center);
+        \draw<10->[color=blue, markedCircle] (c1.center) -- (a1.center);
+
+        \draw<11->[markedCircle2] (a1) -- (b2.center);
+        \draw<12->[markedCircle2] (b2.center) -- (c2.center);
+        \draw<13->[markedCircle2] (c2.center) -- (a1.center);
+        \draw<14->[markedCircle2] (a1.center) -- (b1.center);
+        \draw<15->[markedCircle2] (b1.center) -- (a3.center);
+        \draw<16->[markedCircle2] (a3.center) -- (c3.center);
+        \draw<17->[markedCircle2] (c3.center) -- (b1.center);
+        \draw<18->[markedCircle2] (b1.center) -- (c1.center);
+        \draw<19->[markedCircle2] (c1.center) -- (a1.center);
+    \end{tikzpicture}
+\end{frame}
+\end{document}

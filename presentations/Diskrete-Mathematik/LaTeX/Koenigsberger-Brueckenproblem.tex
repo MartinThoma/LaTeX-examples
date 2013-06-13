@@ -27,7 +27,9 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
 \end{frame}
 
 \begin{frame}{Hamiltonkreis}
-ACHTUNG, VERWECHSLUNGSGEFAHR:
+\begin{alertblock}{Achtung}
+Verwechslungsgefahr: Hamiltonkreis $\neq$ Eulerkreis
+\end{alertblock}
 
 \begin{block}{Hamiltonkreis}
 Sei $G$ ein Graph und $A$ ein Kreis in $G$.
@@ -122,6 +124,23 @@ $A$ heißt \textbf{eulerscher Kreis} $:\Leftrightarrow \forall_{k \in K}: k \in 
           \foreach \from/\to in {a/b,b/c,c/d,d/a,b/e,e/d}
             \draw[line width=2pt] (\from) -- (\to);
           \draw[line width=2pt] (b) to[bend right] (d);
+
+            \node<2->[vertex,lime] (d) at (0,2) {};
+            \node<3->[vertex,red] (a) at (0,0) {};
+            \node<4->[vertex,red] (b) at (2,0) {};
+            \node<5->[vertex,red] (c) at (2,2) {};
+            \node<6->[vertex,lime] (d) at (0,2) {};
+            \node<7->[vertex,red] (e) at (1,1) {};
+            \node<8->[vertex,red] (b) at (2,0) {};
+            \begin{pgfonlayer}{background}
+                \path<3->[selected edge,black!50] (d.center) edge node {} (a.center);
+                \path<4->[selected edge,black!50] (a.center) edge node {} (b.center);
+                \path<5->[selected edge,black!50] (b.center) edge node {} (c.center);
+                \path<6->[selected edge,black!50] (c.center) edge node {} (d.center);
+                \path<7->[selected edge,black!50] (d.center) edge node {} (e.center);
+                \path<8->[selected edge,black!50] (e.center) edge node {} (b.center);
+                \path<9->[selected edge,black!50] (b.center) to[bend right] (d.center);
+            \end{pgfonlayer}
       \end{tikzpicture}
     }
     \end{center}
@@ -164,7 +183,7 @@ ist $G$ eulersch.
 \pause
 $m=1$: Es gibt keinen Graphen in dem jede Ecke geraden Grad hat. \cmark\\
 \pause
-$m=2$: Nur ein Graph möglich. Dieser ist eulersch. \cmark\\ % Anzeichnen
+$m=2$: Nur ein Graph möglich. Dieser ist eulersch. \cmark\\
 \pause
 
 \underline{I.V.:} Sei $m \in \mathbb{N}_0$ beliebig, aber fest und 
@@ -201,6 +220,75 @@ $\xRightarrow[]{IV}$ Alle $n$ Zhsgk. haben Eulerkreise $C_1, \dots, C_n$\\
 $\Rightarrow$ $C_1, \dots, C_n$ können in $C$ \enquote{eingehängt} werden\\
 \pause
 $\Rightarrow G$ ist eulersch\pause $\Rightarrow $ Beh.
+\end{frame}
+
+\begin{frame}{Wie findet man Eulerkreise?}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Require $G = (E, K)$ ein eulerscher Graph.
+            \\
+            \State $C \gets$ leerer Kreis
+            \Repeat
+                \State $C_\text{tmp} \gets \text{ein beliebiger Kreis}$ \Comment{vgl. Aufgabe 5}
+                \State $C \gets C $ vereinigt mit $C_\text{tmp}$
+                \State Entferne Kanten in $C_\text{tmp}$ aus $G$
+                \State Entferne isolierte Ecken
+            \Until{$C$ ist Eulerkreis}
+            \\
+            \State \textbf{Ergebnis:} Eulerkreis $C$
+        \end{algorithmic}
+    \caption{Algorithmus von Hierholzer}
+    \label{alg:Hierholzer}
+    \end{algorithm}
+\end{frame}
+
+\begin{frame}{Sind Eulerkreise eindeutig?}
+    \begin{center}
+        \large Sind Eulerkreise bis auf Rotation und Symmetrie eindeutig?
+    \end{center}
+\end{frame}
+
+\tikzstyle{markedCircle}=[blue,line width=1pt,rotate=90,decorate,decoration={snake, segment length=2mm, amplitude=0.4mm},->]
+\tikzstyle{markedCircle2}=[red,line width=1pt,rotate=90,decorate,decoration={snake, segment length=3mm, amplitude=0.4mm},->]
+\begin{frame}{Sind Eulerkreise eindeutig?}
+    \begin{tikzpicture}[scale=1.9]
+        \node[vertex,label=$a_1$] (a1) at (1,2) {};
+        \node[vertex,label=$b_1$] (b1) at (3,2) {};
+        \node[vertex,label=$c_1$] (c1) at (2,1) {};
+
+        \node[vertex,label=$b_2$] (b2) at (0,2) {};
+        \node[vertex,label=$c_2$] (c2) at (1,3) {};
+
+        \node[vertex,label=$c_3$] (c3) at (3,3) {};
+        \node[vertex,label=$a_3$] (a3) at (4,2) {};
+
+        \draw (a1) -- (b1) -- (c1) -- (a1) -- cycle;
+        \draw (a1) -- (b2) -- (c2) -- (a1) -- cycle;
+        \draw (b1) -- (c3) -- (a3) -- (b1) -- cycle;
+
+        \node<2->[vertex, red] (a1) at (1,2) {};
+
+        \draw<2->[color=blue, markedCircle,->] (a1.center) -- (b2.center);
+        \draw<3->[color=blue, markedCircle] (b2.center) -- (c2.center);
+        \draw<4->[color=blue, markedCircle] (c2.center) -- (a1.center);
+        \draw<5->[color=blue, markedCircle] (a1.center) -- (b1.center);
+        \draw<6->[color=blue, markedCircle] (b1.center) -- (c3.center);
+        \draw<7->[color=blue, markedCircle] (c3.center) -- (a3.center);
+        \draw<8->[color=blue, markedCircle] (a3.center) -- (b1.center);
+        \draw<9->[color=blue, markedCircle] (b1.center) -- (c1.center);
+        \draw<10->[color=blue, markedCircle] (c1.center) -- (a1.center);
+
+        \draw<11->[markedCircle2] (a1) -- (b2.center);
+        \draw<12->[markedCircle2] (b2.center) -- (c2.center);
+        \draw<13->[markedCircle2] (c2.center) -- (a1.center);
+        \draw<14->[markedCircle2] (a1.center) -- (b1.center);
+        \draw<15->[markedCircle2] (b1.center) -- (a3.center);
+        \draw<16->[markedCircle2] (a3.center) -- (c3.center);
+        \draw<17->[markedCircle2] (c3.center) -- (b1.center);
+        \draw<18->[markedCircle2] (b1.center) -- (c1.center);
+        \draw<19->[markedCircle2] (c1.center) -- (a1.center);
+    \end{tikzpicture}
+    $\Rightarrow$ Eulerkreise sind im Allgemeinen nicht eindeutig
 \end{frame}
 
 \begin{frame}{Offene eulersche Linie}
