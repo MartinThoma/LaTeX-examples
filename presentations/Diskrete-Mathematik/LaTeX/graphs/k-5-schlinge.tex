@@ -1,0 +1,28 @@
+% A complete graph
+% Author: Quintin Jean-Noël
+% <http://moais.imag.fr/membres/jean-noel.quintin/>
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\usepackage{tikz}
+\usetikzlibrary[topaths]
+
+\tikzstyle{vertex}=[draw,fill=black,circle,minimum size=10pt,inner sep=0pt]
+\begin{document}
+    \newcommand\n{5}
+    \begin{tikzpicture}
+        %the multiplication with floats is not possible. Thus I split the loop in two.
+        \foreach \number in {1,...,\n}{
+            \node[vertex] (N-\number) at ({\number*(360/\n)}:5.4cm) {};
+        }
+
+        \foreach \number in {1,...,\n}{
+            \foreach \y in {1,...,\n}{
+                \draw (N-\number) -- (N-\y);
+            }
+            \path (N-\number) edge[ out=140, in=50
+                    , looseness=0.8, loop
+                    , distance=2cm]
+                node[above=3pt] {} (N-\number);
+        }
+    \end{tikzpicture}
+\end{document}
