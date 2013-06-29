@@ -1,0 +1,21 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{calc} 
+
+\begin{document}
+\tikzstyle{vertex}=[draw,black,fill=blue,circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[very thick]
+\begin{tikzpicture}
+    \node (a)[vertex,fill=lime] at (1,0) {};
+    \node (b)[vertex,fill=red]  at (0,1) {};
+    \node (c)[vertex,fill=lime] at (1,2) {};
+    \node (d)[vertex,fill=blue] at (2,2) {};
+    \node (e)[vertex,fill=red]  at (3,1) {};
+    \node (f)[vertex,fill=blue] at (2,0) {};
+
+    \draw[edge] (a) -- (b) -- (c) -- (d) -- (e) -- (f) -- (a) -- cycle;
+    \draw[edge] (b) -- (f);
+    \draw[edge] (b) -- (d);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+\renewcommand{\thealgorithm}{2} %disable numbers for algorithm
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Require $G = (V, E)$ an undirected graph
+            \State $n \gets |V|$
+            \State Give all vertices an index $1 \leq i \leq n$ that defines an order
+            
+            \For{$i \in 1, \dots, n$}
+                \State $v_i$.color $\gets 1$
+            \EndFor
+            \\
+            \For{$i \in 1, \dots, n$}
+                \State $possible \gets \Set{1, \dots, n}$
+                \For{$j \in i+1, \dots, n$}
+                    \If{$\Set{v_i, v_j} \in E$}
+                        \State $possible \gets possible \setminus \Set{v_j.\text{color}}$
+                    \EndIf
+                \EndFor
+                \State $v_i$.color $\gets \min(possible)$
+            \EndFor
+        \end{algorithmic}
+    \caption{Find a vertex coloring for $G$}
+    \label{alg:vertexColoring}
+    \end{algorithm}
+\end{preview}
+\end{document}

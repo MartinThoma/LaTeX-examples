@@ -1,16 +1,12 @@
-\documentclass{article}
-\usepackage[pdftex,active,tightpage]{preview}
-\setlength\PreviewBorder{2mm}
-
+\documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage{ifthen}
 \usepackage{tikz}
 \usetikzlibrary{calc} 
+
+\begin{document}
 \tikzstyle{vertex}=[draw,red,fill=red,circle,
 minimum size=10pt,inner sep=0pt]
 \tikzstyle{edge}=[red, very thick]
-
-\begin{document}
-\begin{preview}
 \begin{tikzpicture}
     \newcommand{\n}{10}
     \foreach \y in {0, ..., \n}{
@@ -28,5 +24,4 @@ minimum size=10pt,inner sep=0pt]
         }
     }
 \end{tikzpicture}
-\end{preview}
 \end{document}
