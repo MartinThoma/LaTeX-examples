@@ -1,0 +1,36 @@
+\documentclass[pstricks,border=2pt]{standalone}
+\usepackage{pst-solides3d}  
+\begin{document}
+\psset{
+    unit=0.5,
+    lightsrc=50 -50 50,
+    viewpoint=100 0 0 rtp2xyz,
+    Decran=110,
+    linewidth=0.5\pslinewidth
+}
+\begin{pspicture}(-7,-6)(6,6)
+\defFunction{F}(t){
+    t cos dup mul 5 mul
+}{t cos t sin mul 5 mul}{t sin 5 mul}
+
+\codejps{%
+    /cylindre1 {
+        -5 2.5 5 [36 36] newcylindre
+        {2.5 0 0 translatepoint3d} solidtransform
+        dup (White) outputcolors
+    } def
+    /sphere1 {
+        5 [36 72] newsphere
+        dup (White) outputcolors
+    } def
+    /CS {cylindre1 sphere1 solidfuz} def
+    CS drawsolid**
+}
+\psPoint(0,0,0){O}
+\psSolid[object=courbe,r=0,
+    function=F,
+    range=0 360,
+    linecolor=red,
+    linewidth=4\pslinewidth]
+\end{pspicture}
+\end{document}
