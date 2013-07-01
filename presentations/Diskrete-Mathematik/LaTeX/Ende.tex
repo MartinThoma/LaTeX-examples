@@ -172,7 +172,7 @@ Wie viele Ecken und wie viele Kanten hat $G_i$?
 \begin{frame}{Aufgabe 9, Teil 2: Antwort}
 Ecken:
 
-\[|E_n| = |E_{n-1}| + (n+1) = \sum_{i=1}^{n+1} = \frac{n^2 + 2n+2}{2}\]
+\[|E_n| = |E_{n-1}| + (n+1) = \sum_{i=1}^{n+1} i = \frac{n^2 + 2n+2}{2}\]
 
 Kanten:
 
@@ -216,11 +216,11 @@ Gebe $G_n$ formal an.
     \begin{block}{{\sc RectangleFreeColoring}}
         Gegeben ist $n, m \in \mathbb{N}_{\geq 1}$ und ein 
         ungerichteter Graph $G = (E, K)$ mit 
-            \[E = \Set{e_{x,y} | 1 \leq x \leq n} \land 1 \leq y \leq m\]
+            \[E = \Set{e_{x,y} | 1 \leq x \leq n \land 1 \leq y \leq m}\]
         und
             \[K = \Set{k=\Set{e_{x,y}, e_{x',y'}} \in E \times E : |x-x'| + |y-y'| = 1} \]
         
-        Färbe die Ecken von $G$ min einer minimalen Anzahl von Farben so, dass gilt:
+        Färbe die Ecken von $G$ mit einer minimalen Anzahl von Farben so, dass gilt:
             \[\forall e_{x,y}, e_{x',y'} \in E: \neg(c(e_{x,y}) = c(e_{x',y'}) = c(e_{x',y}) = c(e_{x,y'}))\]
     \end{block}
 \end{frame}
