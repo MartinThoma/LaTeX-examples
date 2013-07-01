@@ -1,0 +1,40 @@
+<html>
+<header>
+    <script type="text/javascript" src="graph1-js/raphael-min.js"></script>
+    <script type="text/javascript" src="graph1-js/graffle.js"></script>
+    <script type="text/javascript" src="graph1-js/graph.js"></script>
+    <script type="text/javascript">
+        var redraw;
+        var height = 600;
+        var width = 800;
+
+        /* only do all this when document has finished loading (needed for RaphaelJS */
+        window.onload = function() {
+            var g = new Graph();
+
+            g.addEdge("n1", "n2");
+            g.addEdge("n1", "n3");
+            g.addEdge("n1", "n4");
+            g.addEdge("n2", "n3");
+            g.addEdge("n4", "n3");
+
+            /* layout the graph using the Spring layout implementation */
+            var layouter = new Graph.Layout.Spring(g);
+            layouter.layout();
+
+            /* draw the graph using the RaphaelJS draw implementation */
+            var renderer = new Graph.Renderer.Raphael('canvas', g, width, height);
+            renderer.draw();
+
+            redraw = function() {
+            layouter.layout();
+            renderer.draw();
+            };
+        };
+    </script>
+</header>
+<body>
+<div id="canvas"></div>
+<button id="redraw" onclick="redraw();">redraw</button>
+</body>
+</html>

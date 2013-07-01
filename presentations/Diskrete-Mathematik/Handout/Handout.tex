@@ -125,16 +125,25 @@ $K \subseteq E \times E$ die
 Kantenmenge bezeichnet.
 \end{definition}
 
-\begin{definition}{Inzidenz}
-Sei $e \in E$ und $k = \Set{e_1, e_2} \in K$.
+\begin{definition}{Grad einer Ecke}
+Der \textbf{Grad} einer Ecke ist die Anzahl der Kanten, die von dieser Ecke
+ausgehen.
+\end{definition}
 
-$e$ heißt \textbf{inzident} zu $k :\Leftrightarrow e = e_1$ oder $e = e_2$
+\begin{definition}{Isolierte Ecke}
+Hat eine Ecke den Grad 0, so nennt man ihn \textbf{isoliert}.
 \end{definition}
 
 \begin{definition}{Schlinge}
 Sei $G=(E, K)$ ein Graph und $k=\Set{e_1, e_2} \in K$ eine Kante.
 
 $k$ heißt \textbf{Schlinge} $:\Leftrightarrow e_1 = e_2$ 
+\end{definition}
+
+\begin{definition}{Inzidenz}
+Sei $e \in E$ und $k = \Set{e_1, e_2} \in K$.
+
+$e$ heißt \textbf{inzident} zu $k :\Leftrightarrow e = e_1$ oder $e = e_2$
 \end{definition}
 
 \begin{definition}{Vollständiger Graph}
@@ -189,7 +198,7 @@ Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2 \dots, k_s)$ ein Kantenzug.
 A heißt \textbf{Weg} $:\Leftrightarrow \forall_{i, j \in 1, \dots, s}: i \neq j \Rightarrow k_i \neq k_j$ .
 \end{definition}
 
-\begin{definition}{Einfacher Kreis}
+\begin{definition}{Kreis}
 Sei $G = (E, K)$ ein Graph und $A = (k_1, k_2 \dots, k_s)$ ein Kantenzug.
 
 A heißt \textbf{Kreis} $:\Leftrightarrow A$ ist geschlossen und ein Weg.
@@ -214,15 +223,6 @@ Sei $G = (E, K)$ ein Graph.
 
 $G$ heißt \textbf{zusammenhängend} $:\Leftrightarrow \forall e_1, e_2 \in E: $ 
 Es ex. ein Kantenzug, der $e_1$ und $e_2$ verbindet
-\end{definition}
-
-\begin{definition}{Grad einer Ecke}
-Der \textbf{Grad} einer Ecke ist die Anzahl der Kanten, die von dieser Ecke
-ausgehen.
-\end{definition}
-
-\begin{definition}{Isolierte Ecke}
-Hat eine Ecke den Grad 0, so nennt man ihn \textbf{isoliert}.
 \end{definition}
 
 \begin{definition}{Eulerscher Kreis}
