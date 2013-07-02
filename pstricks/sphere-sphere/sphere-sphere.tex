@@ -1,0 +1,15 @@
+\documentclass[pstricks,border=2pt]{standalone}
+\usepackage{pst-solides3d}
+\begin{document}
+
+\begin{pspicture}(-4.5,-4)(5.5,2)
+\psset{solidmemory,unit=0.55,
+       lightsrc=viewpoint,viewpoint=20 20 20 rtp2xyz,Decran=40}
+\psSolid[object=sphere,r=2,ngrid=36 36,fillcolor=lightgray,
+    incolor=lightgray,hollow,name=sph1,action=none](3,0,0)
+\psSolid[object=sphere,r=2,ngrid=36 36,fillcolor=lightgray,
+    incolor=lightgray,hollow,name=sph2,action=none](1,3,0)
+\psSolid[object=fusion,base=sph1 sph2,opacity=0.5,action=draw**](0,0,0)
+\end{pspicture}
+
+\end{document}
