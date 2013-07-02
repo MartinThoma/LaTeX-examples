@@ -5,6 +5,7 @@ WIDTH = 512
 
 make:
 	latexmk -pdf $(SOURCE).tex
+	latexmk -pdf $(SOURCE).tex
 	make clean
 
 clean:

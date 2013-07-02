@@ -1,4 +1,4 @@
-This is an example from `pst-solides3d` documentation.
+THIS DOES NOT WORK RIGHT NOW!
 
 Compiled example
 ----------------
