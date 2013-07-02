@@ -221,7 +221,10 @@ Gebe $G_n$ formal an.
             \[K = \Set{k=\Set{e_{x,y}, e_{x',y'}} \in E \times E : |x-x'| + |y-y'| = 1} \]
         
         Färbe die Ecken von $G$ mit einer minimalen Anzahl von Farben so, dass gilt:
-            \[\forall e_{x,y}, e_{x',y'} \in E: \neg(c(e_{x,y}) = c(e_{x',y'}) = c(e_{x',y}) = c(e_{x,y'}))\]
+		\begin{align*}
+			\forall e_{x,y}, e_{x',y'} \in E: (x \neq x' \land y \neq y') \Rightarrow\\
+			\neg \left (c(e_{x,y}) = c(e_{x',y'}) = c(e_{x',y}) = c(e_{x,y'}) \right )
+		\end{align*}
     \end{block}
 \end{frame}
 
@@ -275,9 +278,11 @@ Gebe $G_n$ formal an.
 \subsection{Bildquellen}
 \begin{frame}{Bildquellen}
 \begin{itemize}
+	\item \href{http://commons.wikimedia.org/wiki/File:Hypercube.svg}{http://commons.wikimedia.org/wiki/File:Hypercube.svg}
     \item \href{http://commons.wikimedia.org/wiki/File:Konigsberg\_bridges.png}{http://commons.wikimedia.org/wiki/File:Konigsberg\_bridges.png}
     \item \href{http://commons.wikimedia.org/wiki/File:Unit\_disk\_graph.svg}{http://commons.wikimedia.org/wiki/File:Unit\_disk\_graph.svg}
     \item \href{http://goo.gl/maps/WnXRh}{Google Maps} (Grafiken \TCop 2013 Cnes/Spot Image, DigitalGlobe)
+	\item \href{http://cf.drafthouse.com/\_uploads/galleries/29140/good_will\_hunting\_3.jpg}{cf.drafthouse.com/\_uploads/galleries/29140/good\_will\_hunting\_3.jpg}
 \end{itemize}
 \end{frame}
 
