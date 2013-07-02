@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{lmodern}
+\usepackage[inline]{asymptote}
+\begin{document}
+\begin{figure}
+\begin{asy}
+settings.prc=false;
+settings.render=0;
+import graph3;
+
+currentprojection=orthographic(camera=(150,900,412),up=(-0.4,-0.7,1.4),target=(100,111,1),zoom=0.5);
+currentlight=nolight;
+size(300);size3(300);
+
+real r1=162;
+real r2=100;
+
+triple v1=(0,0,0);
+triple v2=(250,0,0);
+
+// from http://mathworld.wolfram.com/Sphere-SphereIntersection.html :
+real d=arclength(v1--v2); // distance between v1,v2
+real a=1/2/d*sqrt((2*d*r1)^2-(d^2-r2^2+r1^2)^2);
+
+triple P=(sqrt(r1^2-a^2),0,-a);
+
+triple fs1(pair t){
+  return v1+r1*(cos(t.x)*sin(t.y),sin(t.x)*sin(t.y),cos(t.y));
+}
+
+triple fs2(pair t){
+  return v2+r2*(cos(t.x)*sin(t.y),sin(t.x)*sin(t.y),cos(t.y));
+}
+
+surface s1=surface(fs1,(0,0),(2pi,pi),16,Spline);
+surface s2=surface(fs2,(0,0),(2pi,pi),16,Spline);
+
+draw(s1
+  ,darkgreen+opacity(0.2)
+  ,render(compression=Low,merge=true)
+);
+
+draw(s2
+  ,darkblue+opacity(0.2)
+  ,render(compression=Low,merge=true)
+);
+
+dot(v1); label("$V_1$",v1,-X+Z);
+dot(v2); label("$V_2$",v2,-X+Z);
+dot(P); label("$P$",P,-X-Z);
+\end{asy}
+\end{figure}
+\end{document}
