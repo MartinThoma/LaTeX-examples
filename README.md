@@ -41,3 +41,8 @@ Re-use
 =======
 Feel free to use and modify the examples of this repository.
 But please add a link to this repository or martin-thoma.com
+
+Other resources
+===============
+* [LaTeX Templates](http://www.latextemplates.com/)
+* [LaTeX templates for writing a thesis](http://tex.stackexchange.com/q/326/5645)
