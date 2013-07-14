@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[thick]
+
+
+    % Draw the triangle
+    \fill[fill=gray!40]  (0, 0) coordinate (A) 
+        -- (5,0) coordinate (B) 
+        -- (0,2) coordinate (C) -- cycle;
+
+    \fill[fill=blue!40]  (B)
+        -- (C)
+        -- (2,2) coordinate (D)
+        -- (5,2) coordinate (E) -- cycle;
+
+    \fill[fill=red!40]  (C)
+        -- (D)
+        -- (3,5) coordinate (G)
+        -- (0,5) coordinate (F);
+
+    \fill[fill=green!40]  (D)
+        -- (E)
+        -- (5,5) coordinate (H)
+        -- (G);
+
+
+    \fill[fill=green!40]  (6,1) coordinate (I)
+        -- (9,1) coordinate (J)
+        -- (9,2.9) coordinate (O)
+        -- (6,4) coordinate (L);
+
+    \fill[fill=gray!40]  (J)
+        -- (14,1) coordinate (K)
+        -- (O);
+
+    \fill[fill=blue!40]  (L)
+        -- (11,2.14) coordinate (P)
+        -- (11,4) coordinate (M);
+
+    \fill[fill=red!40]  (M)
+        -- (14,4) coordinate (N)
+        -- (K)
+        -- (P);
+
+    % Draw edge text
+    \node (a) at ($(A)!0.5!(B)$) [below] {$f_n$};
+    \node (b) at ($(A)!0.5!(C)$) [left] {$f_{n-2}$};
+    \node (c) at ($(C)!0.5!(F)$) [left] {$f_{n-1}$};
+    \node (d) at ($(C)!0.5!(D)$) [above] {$f_{n-2}$};
+    \node (e) at ($(D)!0.5!(E)$) [above] {$f_{n-1}$};
+    \node (f) at ($(F)!0.5!(G)$) [above] {$f_{n-1}$};
+    \node (g) at ($(G)!0.5!(H)$) [above] {$f_{n-2}$};
+
+    \node (h) at ($(N)!0.5!(K)$) [right] {$f_{n-1}$};
+    \node (i) at ($(I)!0.5!(J)$) [below] {$f_{n-1}$};
+    \node (j) at ($(J)!0.5!(K)$) [below] {$f_{n}$};
+
+\draw [
+    thick,
+    decoration={
+        brace,
+        mirror,
+        raise=0.5cm
+    },
+    decorate
+] (I) -- (K) 
+node [pos=0.5,anchor=north,yshift=-0.55cm] {$f_{n+1}$}; 
+
+\end{tikzpicture}
+\end{preview}
+\end{document}
