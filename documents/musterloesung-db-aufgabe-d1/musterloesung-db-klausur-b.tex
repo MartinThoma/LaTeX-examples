@@ -1,0 +1,115 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{pdfpages}       % Signatureinbingung und includepdf
+\usepackage{geometry}       % [margin=2.5cm]layout
+\usepackage{hyperref}       % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}      % for advanced numbering of lists
+\usepackage{marvosym}       % checkedbox
+\usepackage{wasysym}
+\usepackage{braket}         % for \Set{}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{minted} % needed for the inclusion of source code
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Datenbanksysteme,KIT}, 
+  pdftitle    = {Musterlösung: Datenbanksysteme} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section{Aufgabe D1 - ER-Modellierung}
+\subsection{Teilaufgabe a)}
+  \begin{tabular}{lcc}
+    & Richtig & Falsch\\
+    Es kann Gutachter geben, die keiner Konferenz zugewiesen sind & \Square & \Checkedbox\\
+    Es ist sichergestellt, dass eine Publikation von mehreren Gutachtern bewertet wird. & \Checkedbox & \Square\\
+    Jede Konferenz besitzt zugewiesene Gutachter & \Square & \Checkedbox\\
+    Jeder Autor steht über seine Publikationen mit mindestens drei Gutachtern in Verbindung. & \Checkedbox & \Square\\
+    Es kann auch Konferenzen geben, auf denen nichts veröffentlicht wird. & \Checkedbox & \Square\\
+    Es gilt immer: $N(Publikationen) \geq N(Autor)$ & \Square & \Checkedbox\\
+    Es gilt immer: $N(Konferenz) \geq N(Publikation)$ & \Square & \Checkedbox\\
+    Es gilt immer: $N(Gutachter) \geq N(Publikation)$ & \Checkedbox & \Square\\
+  \end{tabular}
+
+\subsection{Teilaufgabe b)}
+?
+
+\section{Aufgabe D2 - Normalformen}
+\subsection{Teilaufgabe a)}
+Jede Menge mit $A$ ist Schlüsselkandidat. Also:
+\begin{itemize}
+    \item $\Set{A}$
+    \item $\Set{A, B}$
+    \item $\Set{A, B, C}$
+    \item $\Set{A, B, C, D}$
+    \item \dots
+    \item Allgemein: $\Set{A} \cup x$ mit $x \in \mathcal{P}(\Set{B, C, D})$
+\end{itemize}
+
+\subsection{Teilaufgabe b)}
+$R = \Set{\underline{A}, B, C, D}$ hat
+\begin{itemize}
+    \item 1NF, da jedes Attribut atomar ist
+    \item 2NF, da es bein einem einzelnen Attribut als Schlüssel niemals ein Nicht-Schlüssel von einer Teilmenge abhängig sein kann
+    \item nicht 3NF, da $A \rightarrow B \rightarrow C$. Der Nicht-Schlüssel $C$ ist also vom Schlüssel $A$ transitiv abhängig.
+\end{itemize}
+
+\subsection{Teilaufgabe c)}
+TODO: Überprüfen! Hier bin ich mir sehr unsicher
+
+
+\begin{tabular}{lcccp{5cm}}
+    Zerlegung                                       & 3NF    & verbundtreu & abhängigkeitstreu & Bemerkung\\
+    \hline
+    $S_1 = \Set{\underline{A}BC, \underline{C}D}$   & \xmark & \cmark      & \cmark            & nur 2NF, da $A \rightarrow B \rightarrow C$\\
+    $S_2 = \Set{\underline{A}B, \underline{B}C, \underline{C}D}$ & \cmark & \xmark & \cmark    & \\
+    $S_3 = \Set{\underline{A}B, \underline{B}CD}$ & \cmark   & \cmark      & \cmark            & \\
+    $S_4 = \Set{\underline{A}B, \underline{C}D}$  & \cmark   & \xmark      & \cmark            & nicht verbundtreu, da beide Relation nur per Natural Join verbunden werden können
+\end{tabular}
+
+\section{Aufgabe D3 - SQL}
+\subsection{Teilaufgabe a)}
+\includegraphics[width=0.7\textwidth]{d3.pdf}
+
+\subsection{Teilaufgabe b)}
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d3b.sql}
+
+Problem: Nun kann es auch Kunden geben, die gar nicht beraten werden!
+
+\subsection{Teilaufgabe c)}
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d3c.sql}
+
+\subsection{Teilaufgabe d)}
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d3d.sql}
+
+\subsection{Teilaufgabe e)}
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d3e.sql}
+
+\section{D4 - Transaktionen und Histories}
+\subsection{Teilaufgabe a)}
+TODO: Keine Ahnung wie man das lesen muss. Kann mir jemand das auf
+Papier machen und ein Foto schicken?
+
+\subsection{Teilaufgabe b)}
+TODO
+
+\subsection{Teilaufgabe c)}
+TODO
+
+\subsection{Teilaufgabe d)}
+TODO
+
+\subsection{Teilaufgabe e)}
+TODO
+\end{document}
