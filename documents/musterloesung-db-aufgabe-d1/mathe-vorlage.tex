@@ -1,0 +1,36 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{geometry}       % [margin=2.5cm]layout
+\usepackage{hyperref}       % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}      % for advanced numbering of lists
+\usepackage{marvosym}       % checkedbox
+\usepackage{wasysym}
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Datenbanksysteme,KIT}, 
+  pdftitle    = {Musterlösung: Datenbanksysteme} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section{Aufgabe D1 - ER-Modellierung}
+  \begin{tabular}{lcc}
+    & Richtig & Falsch\\
+    Es kann Gutachter geben, die keiner Konferenz zugewiesen sind & \Square & \Checkedbox\\
+    Es ist sichergestellt, dass eine Publikation von mehreren Gutachtern bewertet wird. & \Square & \Checkedbox\\
+    Jede Konferenz besitzt zugewiesene Gutachter & \Square & \Checkedbox\\
+    Jeder Autor steht über seine Publikationen mit mindestens drei Gutachtern in Verbindung. & \Square & \Checkedbox\\
+    Es kann auch Konferenzen geben, auf denen nichts veröffentlicht wird. & \Square & \Checkedbox\\
+    Es gilt immer: $N(Publikationen) \geq N(Autor)$ & \Square & \Checkedbox\\
+    Es gilt immer: $N(Konferenz) \geq N(Publikation)$ & \Square & \Checkedbox\\
+    Es gilt immer: $N(Gutachter) \geq N(Publikation)$ & \Square & \Checkedbox\\
+  \end{tabular}
+\end{document}
