@@ -1,0 +1,165 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{pdfpages}       % Signatureinbingung und includepdf
+\usepackage{geometry}       % [margin=2.5cm]layout
+\usepackage{hyperref}       % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}      % for advanced numbering of lists
+\usepackage{marvosym}       % checkedbox
+\usepackage{wasysym}
+\usepackage{braket}         % for \Set{}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{minted} % needed for the inclusion of source code
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing,intersections} 
+\tikzstyle{vertex}=[draw,
+fill=yellow,
+circle,minimum size=10pt,inner sep=0pt]
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Datenbanksysteme,KIT}, 
+  pdftitle    = {Musterlösung: Datenbanksysteme} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section{Aufgabe 1 - Funktionale Abhängigkeiten}
+\subsection{Teilaufgabe a)}
+  Gilt $F \Rightarrow f$?
+
+  \begin{tabular}{clccl}
+    & Funktionale Abhängigkeit $f$ &  & Begründung\\
+    \hline\hline
+    1 & $DI \rightarrow BCDEFI$         & \xmark &   kein F\\
+    2 & $BDG \rightarrow ABCDEFHH$      & \cmark &\\
+    3 & $DHI \rightarrow ACDGI$         & \xmark &   kein A\\
+    4 & $BCDEGI \rightarrow ABCDEFGHI$  & \cmark &\\
+    5 & $AF \rightarrow ABCEGH$         & \cmark &\\
+    6 & $ABCDE \rightarrow ABCEFHI$     & \xmark &   kein I\\
+    7 & $DI \rightarrow CFGI$           & \xmark &   kein C\\
+    8 & $ADFI \rightarrow BCDEFGHI$     & \cmark &\\
+    9 & $GI \rightarrow BDEFG$          & \xmark &   kein B\\
+  \end{tabular}
+
+\subsection{Teilaufgabe b)}
+Schlüssel in R:
+\begin{itemize}
+    \item $\Set{I, A}$
+    \item $\Set{I, B}$
+    \item $\Set{I, C}$
+\end{itemize}
+
+Die Relation befindet sich nur in 1NF, da $I \rightarrow H$ eine 
+partielle Abhängigkeit darstellt. Daher kann die Relation nicht in
+2NF sein.
+
+\subsection{Teilaufgabe c)}
+\begin{align*}
+F^{(2)} = \{  & A \rightarrow B,\\
+    &AI \rightarrow \delta,\\
+    & B \rightarrow C, B \rightarrow D,\\
+    & C \rightarrow A,C \rightarrow D,C \rightarrow F,\\
+    & D \rightarrow E,D \rightarrow F,D \rightarrow G,D \rightarrow H,D \rightarrow H,\\
+    & F \rightarrow G,\\
+    & I \rightarrow H 
+\}
+\end{align*}
+
+\begin{align*}
+F^{(3)} = \{  & A \rightarrow B,\\
+    &AI \rightarrow \delta,\\
+    & B \rightarrow C, B \rightarrow D,\\
+    & C \rightarrow A,\\
+    & D \rightarrow E,D \rightarrow F,D \rightarrow G,D \rightarrow H,\\
+    & F \rightarrow G,\\
+    & I \rightarrow H 
+\}
+\end{align*}
+
+aufgelöst wurden wie folgt:
+
+  \begin{tabular}{l|l}
+             & redundant durch\\
+    \hline
+    $C \rightarrow D$ & $C \rightarrow A \land A \rightarrow B \land B \rightarrow D$\\
+    $C \rightarrow F$ & $C \rightarrow A \land A \rightarrow B \land B \rightarrow D \land D \rightarrow F$\\
+    $D \rightarrow G$ & $D \rightarrow F \land F \rightarrow G$\\
+  \end{tabular}
+
+ergibt die Zerlegung 
+
+\begin{align*}
+    R = \{\\
+            & (\Set{A, B}, \Set{\Set{A}}),\\
+            &(\Set{A, I}, \Set{\Set{A, I}}),\\
+            & (\Set{B, C, D}, \Set{\Set{B}}),\\
+            & (\Set{C, A}, \Set{\Set{C}}),\\
+            & (\Set{D, E, F, H},\Set{\Set{D}}),\\
+            & (\Set{F, G}, \Set{\Set{F}}),\\
+            & (\Set{I, H}, \Set{\Set{I}})\\
+        \}
+\end{align*}
+\clearpage
+
+\section{Aufgabe 2 - SQL}
+\subsection{Teilaufgabe a)}
+\begin{tikzpicture}  [scale=1.2]
+  \node (a)[vertex] at (1,2) {1};
+  \node (b)[vertex] at (2,2) {2};
+  \node (c)[vertex] at (3,1) {3};
+  \node (d)[vertex] at (2,0) {4};
+  \node (e)[vertex] at (1,0) {5};
+  \node (f)[vertex] at (0,1) {6};
+
+  \foreach \from/\to in {a/b,a/c,a/d,b/c,b/d,c/d,d/e,e/f}
+    \draw[line width=1.5pt] (\from) -- (\to);
+\end{tikzpicture}
+
+\subsection{Teilaufgabe b)}
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2b.sql}
+
+\subsection{Teilaufgabe c)}
+\subsubsection{Version A}
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c1.sql}
+ 
+\subsubsection{Version B}
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c2.sql}
+
+\section{Aufgabe 3 - Histories}
+\subsubsection{Teilaufgabe a)}
+\begin{itemize}
+\item[H1] Es gibt folgende Kanten:
+    (12, xyz), (13, xy), (23, y), (32, y).\\
+    Somit ist ein Zykel zwischen 2 und 3 $\Rightarrow$ nicht serialisierbar
+\item[H2] (21, xyz), (23, y), (31, xy).\\
+    Somit keine Zykel und serialisierbar
+\end{itemize}
+
+\subsubsection{Teilaufgabe b) und c)}
+(Y = erfüllt, N = nicht erfüllt)
+\begin{itemize}
+\item[H1]
+    \begin{itemize}
+        \item T3 reads y from T2 NN
+        \item T2 reads x from T3 YN
+        \item T2 reads z from T1 YN
+        \item T3 reads x from T1 YN
+    \end{itemize}
+\item[H2]
+    \begin{itemize}
+        \item T1 reads y from T3 YN
+        \item H1 ist nicht rücksetzbar (also weder in RC, ACA oder ST)
+        \item H2 ist in RC (also nicht in ACA oder ST)
+    \end{itemize}
+\end{itemize}
+\end{document}
