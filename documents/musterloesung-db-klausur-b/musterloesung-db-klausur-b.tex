@@ -14,6 +14,11 @@
 \usepackage{braket}         % for \Set{}
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage{minted} % needed for the inclusion of source code
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing,intersections} 
+\tikzstyle{vertex}=[draw,
+fill=yellow,
+circle,minimum size=10pt,inner sep=0pt]
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -43,19 +48,11 @@
   \end{tabular}
 
 \subsection{Teilaufgabe b)}
-?
+ER-Modelierung ist kapazitätserhöhend? (Beispiel? TODO)
 
 \section{Aufgabe D2 - Normalformen}
 \subsection{Teilaufgabe a)}
-Jede Menge mit $A$ ist Schlüsselkandidat. Also:
-\begin{itemize}
-    \item $\Set{A}$
-    \item $\Set{A, B}$
-    \item $\Set{A, B, C}$
-    \item $\Set{A, B, C, D}$
-    \item \dots
-    \item Allgemein: $\Set{A} \cup x$ mit $x \in \mathcal{P}(\Set{B, C, D})$
-\end{itemize}
+$A$ ist Schlüsselkandidat.
 
 \subsection{Teilaufgabe b)}
 $R = \Set{\underline{A}, B, C, D}$ hat
@@ -66,16 +63,14 @@ $R = \Set{\underline{A}, B, C, D}$ hat
 \end{itemize}
 
 \subsection{Teilaufgabe c)}
-TODO: Überprüfen! Hier bin ich mir sehr unsicher
-
 
 \begin{tabular}{lcccp{5cm}}
     Zerlegung                                       & 3NF    & verbundtreu & abhängigkeitstreu & Bemerkung\\
     \hline
-    $S_1 = \Set{\underline{A}BC, \underline{C}D}$   & \xmark & \cmark      & \cmark            & nur 2NF, da $A \rightarrow B \rightarrow C$\\
-    $S_2 = \Set{\underline{A}B, \underline{B}C, \underline{C}D}$ & \cmark & \xmark & \cmark    & \\
+    $S_1 = \Set{\underline{A}BC, \underline{C}D}$   & \xmark & \xmark      & \xmark            & nur 2NF, da $A \rightarrow B \rightarrow C$ \newline Im Schnitt ist nur $C$, aber $C \nrightarrow ABC$ und $C \nrightarrow CD$ \newline $C \rightarrow D$ ist nicht in $F$ \\
+    $S_2 = \Set{\underline{A}B, \underline{B}C, \underline{C}D}$ & \cmark & \xmark & \xmark    & $C \rightarrow D$ ist nicht in $F$\newline Gegenbeispiel für verbundtreue gefunden\\
     $S_3 = \Set{\underline{A}B, \underline{B}CD}$ & \cmark   & \cmark      & \cmark            & \\
-    $S_4 = \Set{\underline{A}B, \underline{C}D}$  & \cmark   & \xmark      & \cmark            & nicht verbundtreu, da beide Relation nur per Natural Join verbunden werden können
+    $S_4 = \Set{\underline{A}B, \underline{C}D}$  & \cmark   & \xmark      & \xmark            & $C \rightarrow D$ nicht in $F$\newline nicht verbundtreu, da beide Relation nur per Natural Join verbunden werden können
 \end{tabular}
 
 \section{Aufgabe D3 - SQL}
@@ -101,15 +96,29 @@ Problem: Nun kann es auch Kunden geben, die gar nicht beraten werden!
 TODO: Keine Ahnung wie man das lesen muss. Kann mir jemand das auf
 Papier machen und ein Foto schicken?
 
-\subsection{Teilaufgabe b)}
-TODO
+\begin{tikzpicture}  [scale=1.2]
+  \node (T1)[vertex] at (1,2) {$T_1$};
+  \node (T2)[vertex] at (2,2) {$T_2$};
+  \node (T3)[vertex] at (3,1) {$T_3$};
+  \node (T4)[vertex] at (2,0) {$T_4$};
+  \node (T5)[vertex] at (1,0) {$T_5$};
 
-\subsection{Teilaufgabe c)}
-TODO
+  \foreach \from/\to in {T1/T2, T4/T5, T4/T3, T4/T2, T3/T1, T5/T1}
+    \draw[line width=1.5pt,->] (\from) -- (\to);
+\end{tikzpicture}
+
+\subsection{Teilaufgabe b) und c)}
+    \begin{tabular}{l|lll}
+    ~                          & RC     & ACA    & ST     \\ \hline
+    $T_4$ reads $d$ from $T_3$ & \cmark & \cmark & \cmark \\
+    $T_4$ reads $c$ from $T_2$ & \cmark & \cmark & \cmark \\
+    $T_1$ reads $a$ from $T_2$ & \cmark & \cmark & \cmark \\
+    \end{tabular}
 
 \subsection{Teilaufgabe d)}
 TODO
 
 \subsection{Teilaufgabe e)}
-TODO
+Es muss nichts geändert werden?!?
+
 \end{document}

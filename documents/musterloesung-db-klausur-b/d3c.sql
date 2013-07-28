@@ -1,3 +1,3 @@
 SELECT name FROM Berater
-    JOIN Kunden ON Kunden.berater_id = Berater.berater_id 
+    JOIN Kunden, Kunden2Berater, Berater 
     WHERE Kunden.name = "Müller"
