@@ -131,6 +131,33 @@ ergibt die Zerlegung
 \subsection{Teilaufgabe c)}
 \subsubsection{Version A}
 \inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c1.sql}
+
+\paragraph{Weitere Erklärungen:}
+Ansatz:
+\begin{enumerate}
+    \item Suche alle Personenpaare, die beide <id> als Freund haben (wobei
+   nur ungleiche paare gesucht sind, da man nicht mit sich selbst befreundet
+   sein kann)
+    \item Prüfe über die Menge dieser Paare, welche noch nicht befreundet sind
+\end{enumerate}
+
+Dazu:
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c1.2.sql}
+
+Ein LEFT JOIN ergänzen, um zu ermitteln, welche Paare nicht tatsächlich
+in FriendshipSymmetric stehen (diese werden NULL joinen). Daher nach NULL
+selektieren
+
+
+Beispielhaftes Ergebnis für gegebene Situation und id=4:
+\begin{verbatim}
+"1","5"
+"2","5"
+"3","5"
+"5","1"
+"5","2"
+"5","3"
+\end{verbatim}
  
 \subsubsection{Version B}
 \inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c2.sql}
