@@ -80,7 +80,7 @@ F^{(3)} = \{  & A \rightarrow B,\\
     &AI \rightarrow \delta,\\
     & B \rightarrow C, B \rightarrow D,\\
     & C \rightarrow A,\\
-    & D \rightarrow E,D \rightarrow F,D \rightarrow G,D \rightarrow H,\\
+    & D \rightarrow E,D \rightarrow F,D \rightarrow H,\\
     & F \rightarrow G,\\
     & I \rightarrow H 
 \}
@@ -100,10 +100,8 @@ ergibt die Zerlegung
 
 \begin{align*}
     R = \{\\
-            & (\Set{A, B}, \Set{\Set{A}}),\\
+            & (\Set{A, B, C, D}, \Set{\Set{A}, \Set{B}, \Set{C}}),\\
             &(\Set{A, I}, \Set{\Set{A, I}}),\\
-            & (\Set{B, C, D}, \Set{\Set{B}}),\\
-            & (\Set{C, A}, \Set{\Set{C}}),\\
             & (\Set{D, E, F, H},\Set{\Set{D}}),\\
             & (\Set{F, G}, \Set{\Set{F}}),\\
             & (\Set{I, H}, \Set{\Set{I}})\\
@@ -161,14 +159,6 @@ Beispielhaftes Ergebnis für gegebene Situation und id=4:
  
 \subsubsection{Version B}
 \inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c2.sql}
-
-Ohne EXCEPT (da ich mir nicht sicher bin, ob es nun SQL-Standard
-ist oder nicht, z.B. SQLite kenn kein EXCEPT, auf einer Übersicht
-stand es aber bei SQL89 angehakt dabei).
-Hinweis: NOT EXISTS ist True, gdw die Unterabfrage genau 0
-Zeilen enthält.
-
-\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c2.1.sql}
 
 \section{Aufgabe 3 - Histories}
 \subsubsection{Teilaufgabe a)}
