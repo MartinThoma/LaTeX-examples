@@ -1,4 +1,4 @@
-\documentclass[a4paper,9pt]{scrartcl}
+\documentclass[a4paper]{scrartcl}
 \usepackage{amssymb, amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
@@ -35,7 +35,7 @@ circle,minimum size=10pt,inner sep=0pt]
 \begin{document}
 \section{Aufgabe D1 - ER-Modellierung}
 \subsection{Teilaufgabe a)}
-  \begin{tabular}{lcc}
+  \begin{tabular}{p{12cm}cc}
     & Richtig & Falsch\\
     Es kann Gutachter geben, die keiner Konferenz zugewiesen sind & \Square & \Checkedbox\\
     Es ist sichergestellt, dass eine Publikation von mehreren Gutachtern bewertet wird. & \Checkedbox & \Square\\
@@ -49,6 +49,7 @@ circle,minimum size=10pt,inner sep=0pt]
 
 \subsection{Teilaufgabe b)}
 ER-Modelierung ist kapazitätserhöhend? (Beispiel? TODO)
+\clearpage
 
 \section{Aufgabe D2 - Normalformen}
 \subsection{Teilaufgabe a)}
@@ -64,14 +65,15 @@ $R = \Set{\underline{A}, B, C, D}$ hat
 
 \subsection{Teilaufgabe c)}
 
-\begin{tabular}{lcccp{5cm}}
-    Zerlegung                                       & 3NF    & verbundtreu & abhängigkeitstreu & Bemerkung\\
+\begin{tabular}{lcp{1cm}p{2cm}p{5cm}}
+    Zerlegung                                       & 3NF    & ver\-bund\-treu & ab\-hängigkeits\-treu & Bemerkung\\
     \hline
     $S_1 = \Set{\underline{A}BC, \underline{C}D}$   & \xmark & \xmark      & \xmark            & nur 2NF, da $A \rightarrow B \rightarrow C$ \newline Im Schnitt ist nur $C$, aber $C \nrightarrow ABC$ und $C \nrightarrow CD$ \newline $C \rightarrow D$ ist nicht in $F$ \\
     $S_2 = \Set{\underline{A}B, \underline{B}C, \underline{C}D}$ & \cmark & \xmark & \xmark    & $C \rightarrow D$ ist nicht in $F$\newline Gegenbeispiel für verbundtreue gefunden\\
     $S_3 = \Set{\underline{A}B, \underline{B}CD}$ & \cmark   & \cmark      & \cmark            & \\
     $S_4 = \Set{\underline{A}B, \underline{C}D}$  & \cmark   & \xmark      & \xmark            & $C \rightarrow D$ nicht in $F$\newline nicht verbundtreu, da beide Relation nur per Natural Join verbunden werden können
 \end{tabular}
+\clearpage
 
 \section{Aufgabe D3 - SQL}
 \subsection{Teilaufgabe a)}
