@@ -160,6 +160,14 @@ Beispielhaftes Ergebnis für gegebene Situation und id=4:
 \subsubsection{Version B}
 \inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c2.sql}
 
+Ohne EXCEPT (da ich mir nicht sicher bin, ob es nun SQL-Standard
+ist oder nicht, z.B. SQLite kenn kein EXCEPT, auf einer Übersicht
+stand es aber bei SQL89 angehakt dabei).
+Hinweis: NOT EXISTS ist True, gdw die Unterabfrage genau 0
+Zeilen enthält.
+
+\inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c2.1.sql}
+
 \section{Aufgabe 3 - Histories}
 \subsubsection{Teilaufgabe a)}
 \begin{itemize}
