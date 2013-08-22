@@ -1,0 +1,184 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {EAZ}, 
+  pdftitle    = {Einführung in die Algebra und Zahlentheorie} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom definition style, by                                       %
+% http://mathoverflow.net/questions/46583/what-is-a-satisfactory-way-to-format-definitions-in-latex/58164#58164
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newdimen\errorsize \errorsize=0.2pt
+% Frame with a label at top
+\newcommand\LabFrame[2]{%
+    \fboxrule=\FrameRule
+    \fboxsep=-\errorsize
+    \textcolor{FrameColor}{%
+    \fbox{%
+      \vbox{\nobreak
+      \advance\FrameSep\errorsize
+      \begingroup
+        \advance\baselineskip\FrameSep
+        \hrule height \baselineskip
+        \nobreak
+        \vskip-\baselineskip
+      \endgroup
+      \vskip 0.5\FrameSep
+      \hbox{\hskip\FrameSep \strut
+        \textcolor{TitleColor}{\textbf{#1}}}%
+      \nobreak \nointerlineskip
+      \vskip 1.3\FrameSep
+      \hbox{\hskip\FrameSep
+        {\normalcolor#2}%
+        \hskip\FrameSep}%
+      \vskip\FrameSep
+    }}%
+}}
+\definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
+\definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
+
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+  % Optional continuation label defaults to the first label plus
+  \def\Frame@Lab{#2}%
+  \def\FrameCommand{\LabFrame{#2}}%
+  \def\FirstFrameCommand{\LabFrame{#2}}%
+  \def\MidFrameCommand{\LabFrame{#1}}%
+  \def\LastFrameCommand{\LabFrame{#1}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore} 
+}{\endMakeFramed} 
+\newcounter{definition}
+\newenvironment{definition}[1]{%
+  \par
+  \refstepcounter{definition}%
+  \begin{contlabelframe}{Definition \thedefinition:\quad #1}
+ \noindent\ignorespaces}
+{\end{contlabelframe}} 
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NPC-Box                                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newdimen\errorsize \errorsize=0.2pt
+% Frame with a label at top
+\newcommand\LabFrameNPC[2]{%
+    \fboxrule=\FrameRule
+    \fboxsep=-\errorsize
+    \textcolor{FrameColorNPC}{%
+    \fbox{%
+      \vbox{\nobreak
+      \advance\FrameSep\errorsize
+      \begingroup
+        \advance\baselineskip\FrameSep
+        \hrule height \baselineskip
+        \nobreak
+        \vskip-\baselineskip
+      \endgroup
+      \vskip 0.5\FrameSep
+      \hbox{\hskip\FrameSep \strut
+        \textcolor{TitleColor}{\textbf{#1}}}%
+      \nobreak \nointerlineskip
+      \vskip 1.3\FrameSep
+      \hbox{\hskip\FrameSep
+        {\normalcolor#2}%
+        \hskip\FrameSep}%
+      \vskip\FrameSep
+    }}%
+}}
+\definecolor{FrameColorNPC}{rgb}{0.25,0.25,0.25}
+\definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
+
+\newenvironment{contlabelframenpc}[2][\Frame@Lab\ (cont.)]{% 
+  % Optional continuation label defaults to the first label plus
+  \def\Frame@Lab{#2}%
+  \def\FrameCommand{\LabFrameNPC{#2}}%
+  \def\FirstFrameCommand{\LabFrameNPC{#2}}%
+  \def\MidFrameCommand{\LabFrameNPC{#1}}%
+  \def\LastFrameCommand{\LabFrameNPC{#1}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore} 
+}{\endMakeFramed} 
+\newcounter{npcproblem}
+\newenvironment{satz}[2]{%
+  \par
+  \refstepcounter{npcproblem}%
+  \begin{contlabelframenpc}{Satz \thenpcproblem:\quad {#1}}
+ \noindent\ignorespaces}
+{\end{contlabelframenpc}} 
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section*{Unendlich viele Primzahlen}
+\begin{satz}{Euklid}
+Es sein $n \in \mathbb{N}$. Die Zahl $m := n! + 1$ hat einen Primteiler,
+aber dieser kann nicht $\leq n$ sein, denn sonst müsste er mit $n!$
+auch $1=m-n!$ teilen. Also gibt es eine Primzahl $> n \blacksquare$
+\end{satz}
+
+\begin{satz}{Euler}
+\underline{Annahme:} Es gibt nur endlich viele Primzahlen $\{p_1, \dots, p_k\}$
+mit $p_1 < \dots < p_k$
+
+Es gilt:
+
+\begin{align*}
+	\prod_{i=1}^k \frac{1}{1-p_i^{-1}} &= \prod_{i=1}^k \left ( \sum_{i=1}^\infty p_i^{j_i} \right )\\
+	&= \sum_{j_1 = 0}^\infty \sum_{j_2=0}^\infty \dots \sum_{j_k = 0}^\infty p_1^{-j_1} \cdot p_2^{-j_2} \cdot \dots \cdot p_k^{-j_k}\\
+	&= \sum_{n=1}^\infty \frac{1}{n}
+\end{align*}
+\end{satz}
+
+\section*{Sylowsätze}
+\begin{satz}{Erster Sylowsatz}
+	Es seien $G$ eine endliche Gruppe und $p$ eine Primzahl. Dann existiert in $G$
+	mindestens eine $p$-Sylowgruppe.
+\end{satz}
+
+\begin{satz}{Zweiter Sylowsatz}
+	Es seien $G$ eine endliche Gruppe und $p$ eine Primzahl. Weiter sei $\#G = p^e \cdot f$
+	die Zerlegung von $\#G$ in eine $p$-Potenz und eine Zahl $f$, die kein Vielfaches
+	von $p$ ist.
+
+	Dann gelten die folgenden Aussagen:
+
+	\begin{enumerate}
+		\item Jede $p$-Untergruppe $H$ von $G$ ist in einer $p$-Sylowgruppe von $G$ enthalten.
+		\item Je zwei $p$-Sylowgruppen von $G$ sind zueinander konjugiert.
+		\item Die Anzahl der $p$-Sylowgruppen ist ein Teiler von $f$.
+		\item Die Anzahl der $p$-Sylowgruppen von $G$ lässt bei Division durch $p$ Rest $1$.
+	\end{enumerate}
+\end{satz}
+
+\section*{Endliche Körper}
+\begin{definition}{Legendre-Symbol}
+Es sein $p \geq 3$ eine Primzahl. Für $a \in \mathbb{Z}$ sei
+
+\[\left(\frac{a}{p}\right) := \begin{cases}
+1 & \mbox{wenn } a \mbox{ quadratischer Rest modulo } p \mbox{ ist} \\
+-1 & \mbox{wenn } a \mbox{ quadratischer Nichtrest modulo } p \mbox{ ist} \\
+0 & \mbox{wenn } a \mbox{ ein Vielfaches von } p \mbox{ ist}
+\end{cases} \]
+\end{definition}
+
+\begin{itemize}
+	\item Restklassenkörper
+\end{itemize}
+
+\section*{Weiteres}
+In alten Klausuren begegnen uns desöfteren Ringe der Form ZZ adjungiert Wurzel aus d -- in diesem Zusammenhang begegnet uns die Normabbildung. (Ein Beispiel, das in der Vorlesung gesehen wurde, waren die gauß'schen Zahlen.) Wie können wir die Norm dafür benutzen, um Zerlegungen von Elementen zu finden oder deren Unzerlegbarkeit zu zeigen?
+\end{document}
