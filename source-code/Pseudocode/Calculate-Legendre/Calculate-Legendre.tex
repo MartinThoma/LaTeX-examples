@@ -28,31 +28,25 @@
             \Require $p \in \mathbb{P}, a \in \mathbb{Z}, p \geq 3$
             \If{$a \geq p$ or $a < 0$}\Comment{Regel (III)}
 				\State \Return $\Call{CalculateLegendre}{a \mod p, p}$ \Comment{nun: $a \in [0, \dots, p-1]$}
-			\ElsIf{$a \equiv 0 \mod p$} \Comment{Null-Fall}
-				\State \Return 0
-			\ElsIf{$a \equiv 1 \mod p$} \Comment{Eins-Fall}
-				\State \Return 1
-			\ElsIf{$a \equiv -1 \mod p$} \Comment{Regel (VI)}
-				\If{$p \equiv 1 \mod 4$}
-					\State \Return 1
-				\Else
-					\State \Return -1
-				\EndIf
-			\ElsIf{!$\Call{isPrime}{|a|}$} \Comment{Regel (II)}
-				\State $p_1, p_2, \dots, p_n \gets \Call{Faktorisiere}{a}$
-				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, a}$ \Comment{nun: $a \in \mathbb{P}$}
+			\ElsIf{$a == 0$} \Comment{Null-Fall}
+				\State \Return 0 \Comment{nun: $a \in [1, \dots, p-1]$}
+			\ElsIf{$a == 1$} \Comment{Eins-Fall}
+				\State \Return 1 \Comment{nun: $a \in [2, \dots, p-1]$}
 			\ElsIf{$a == 2$} \Comment{Regel (VII)}
 				\If{$a \equiv \pm 1 \mod 8$}
 					\State \Return 1
 				\Else
 					\State \Return -1
-				\EndIf	\Comment{nun: $a \in \mathbb{P}, a \geq 3$}
-			\ElsIf{$p == 3$} \Comment{Regel (IV)}
-				\State $t \gets p \mod 3$
-				\If{$t == 2$}
-					\State $t \gets -1$
-				\EndIf
-				\State \Return $t$
+				\EndIf	\Comment{nun: $a \in [3, \dots, p-1]$}
+			\ElsIf{$a == p-1$} \Comment{Regel (VI)}
+				\If{$p \equiv 1 \mod 4$}
+					\State \Return 1
+				\Else
+					\State \Return -1
+				\EndIf \Comment{nun: $a \in [3, \dots, p-2]$}
+			\ElsIf{!$\Call{isPrime}{a}$} \Comment{Regel (II)}
+				\State $p_1, p_2, \dots, p_n \gets \Call{Faktorisiere}{a}$
+				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ \Comment{nun: $a \in \mathbb{P}, a \geq 3$}
 			\Else
 				\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
 			\EndIf
