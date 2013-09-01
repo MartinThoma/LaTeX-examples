@@ -223,7 +223,35 @@ Will man die Elementarteiler einer Matrix $M$ berechnen, so gilt:
 \end{itemize}
 
 \section*{Weiteres}
-In alten Klausuren begegnen uns desöfteren Ringe der Form $Z[\sqrt{d}]$. 
+Finden von Zerlegungen von Elementen im Ring $\mathbb{Z}[\sqrt{d}] := \Set{a + b \sqrt{d} | a, b \in \mathbb{Z}}$:
+
+Es sei
+\begin{align*}
+	|\cdot|:\mathbb{Z}[\sqrt{d}] &\rightarrow \mathbb{R}_0^+\\
+	|x + y \cdot \sqrt{d}| &:= \sqrt{x^2 + y^2 |d|}
+\end{align*}
+
+und
+
+\begin{align*}
+	N:   \mathbb{Z}[\sqrt{d}] &\rightarrow \mathbb{N}_0\\
+	N(z) &:= |z|^2
+\end{align*}
+und die Konjugation:
+\[\overline{x+ y \sqrt{d}} = \begin{cases}x - y \sqrt{d} &\text{, falls } d < 0\\x + y \sqrt{d} &\text{, falls } x \geq 0\end{cases}\]
+
+Die Konjugation ist multiplikativ:
+\[\overline{wz} = \overline{w} \cdot \overline{z}\]
+
+Außerdem gilt:
+\begin{align*}
+  N(\pi) &= x^2+y^2 |d|\\
+         &= (x+y\sqrt{d}) \cdot (x+\frac{d}{|d|}y\sqrt{d})\\
+		 &= \pi \cdot \overline{\pi}
+\end{align*}
+
+
+In alten Klausuren begegnen uns desöfteren Ringe der Form . 
 In diesem Zusammenhang begegnet uns die Normabbildung. 
 (Ein Beispiel, das in der Vorlesung gesehen wurde, waren die gauß'schen Zahlen.)
 
