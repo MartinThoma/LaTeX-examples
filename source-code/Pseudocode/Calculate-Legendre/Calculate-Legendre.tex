@@ -40,7 +40,13 @@
 				\EndIf
 			\ElsIf{!$\Call{isPrime}{|a|}$} \Comment{Regel (II)}
 				\State $p_1, p_2, \dots, p_n \gets \Call{Faktorisiere}{a}$
-				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, a}$
+				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, a}$ \Comment{nun: $a \in \mathbb{P}$}
+			\ElsIf{$a == 2$} \Comment{Regel (VII)}
+				\If{$a \equiv \pm 1 \mod 8$}
+					\State \Return 1
+				\Else
+					\State \Return -1
+				\EndIf	\Comment{nun: $a \in \mathbb{P}, a \geq 3$}
 			\ElsIf{$p == 3$} \Comment{Regel (IV)}
 				\State $t \gets p \mod 3$
 				\If{$t == 2$}
@@ -48,7 +54,7 @@
 				\EndIf
 				\State \Return $t$
 			\Else
-				\State \Return $a^\frac{p-1}{2} \mod p$
+				\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
 			\EndIf
         \end{algorithmic}
     \caption{Calculate Legendre-Symbol}
