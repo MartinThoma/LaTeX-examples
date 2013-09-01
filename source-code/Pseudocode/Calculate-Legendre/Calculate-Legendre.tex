@@ -35,7 +35,11 @@
 				\State $p_1, p_2, \dots, p_n \gets \Call{Factorize}{a}$
 				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ 
 			\Else \Comment{now: $a \in \mathbb{P}, \sqrt{p-2} \geq a \geq 3$}
-				\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
+				\If{$\frac{p-1}{2} \equiv 0 \mod 2$}
+					\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
+				\Else
+					\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
+				\EndIf
 			\EndIf
 		\EndProcedure
         \end{algorithmic}
