@@ -20,7 +20,7 @@
 			\ElsIf{$a == 0$ or $a == 1$}
 				\State \Return $a$ \Comment{now: $a \in [2, \dots, p-1]$}
 			\ElsIf{$a == 2$} \Comment{rule (VII)}
-				\If{$a \equiv \pm 1 \mod 8$}
+				\If{$p \equiv \pm 1 \mod 8$}
 					\State \Return 1
 				\Else
 					\State \Return -1
@@ -35,7 +35,7 @@
 				\State $p_1, p_2, \dots, p_n \gets \Call{Factorize}{a}$
 				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ 
 			\Else \Comment{now: $a \in \mathbb{P}, \sqrt{p-2} \geq a \geq 3$}
-				\If{$\frac{p-1}{2} \equiv 0 \mod 2$}
+				\If{$\frac{p-1}{2} \equiv 0 \mod 2$ or $\frac{a-1}{2} \equiv 0 \mod 2$}
 					\State \Return $\Call{CalculateLegendre}{p, a}$
 				\Else
 					\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
