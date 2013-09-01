@@ -28,10 +28,8 @@
             \Require $p \in \mathbb{P}, a \in \mathbb{Z}, p \geq 3$
             \If{$a \geq p$ or $a < 0$}\Comment{Regel (III)}
 				\State \Return $\Call{CalculateLegendre}{a \mod p, p}$ \Comment{nun: $a \in [0, \dots, p-1]$}
-			\ElsIf{$a == 0$} \Comment{Null-Fall}
-				\State \Return 0 \Comment{nun: $a \in [1, \dots, p-1]$}
-			\ElsIf{$a == 1$} \Comment{Eins-Fall}
-				\State \Return 1 \Comment{nun: $a \in [2, \dots, p-1]$}
+			\ElsIf{$a == 0$ or $a == 1$}
+				\State \Return $a$ \Comment{nun: $a \in [2, \dots, p-1]$}
 			\ElsIf{$a == 2$} \Comment{Regel (VII)}
 				\If{$a \equiv \pm 1 \mod 8$}
 					\State \Return 1
@@ -46,7 +44,7 @@
 				\EndIf \Comment{nun: $a \in [3, \dots, p-2]$}
 			\ElsIf{!$\Call{isPrime}{a}$} \Comment{Regel (II)}
 				\State $p_1, p_2, \dots, p_n \gets \Call{Faktorisiere}{a}$
-				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ \Comment{nun: $a \in \mathbb{P}, a \geq 3$}
+				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ \Comment{nun: $a \in \mathbb{P}, \sqrt{p-2} \geq a \geq 3$}
 			\Else
 				\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
 			\EndIf
