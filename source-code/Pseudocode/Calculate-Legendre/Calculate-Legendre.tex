@@ -26,7 +26,7 @@
     \begin{algorithm}[H]
         \begin{algorithmic}
             \Require $p \in \mathbb{P}, a \in \mathbb{Z}, p \geq 3$
-            \If{$a \geq p$}\Comment{Regel (III)}
+            \If{$a \geq p$ or $a < 0$}\Comment{Regel (III)}
 				\State \Return $\Call{CalculateLegendre}{a \mod p, p}$ \Comment{nun: $a \in [0, \dots, p-1]$}
 			\ElsIf{$a \equiv 0 \mod p$} \Comment{Null-Fall}
 				\State \Return 0
