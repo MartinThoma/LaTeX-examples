@@ -27,9 +27,9 @@ def calculateLegendre(a, p):
 
 	>>> calculateLegendre(3, 29)
 	-1
-	>>> calculateLegendre(111, 41)
+	>>> calculateLegendre(111, 41) # Beispiel aus dem Skript, S. 114
 	-1
-	>>> calculateLegendre(113, 41)
+	>>> calculateLegendre(113, 41) # Beispiel aus dem Skript, S. 114
 	1
 	"""
 	if a >= p or a < 0:
