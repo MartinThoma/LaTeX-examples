@@ -8,6 +8,7 @@
 \usepackage{color}
 \usepackage{framed}
 \usepackage{enumerate}  % for advanced numbering of lists
+\usepackage{braket}  % needed for Set
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
@@ -124,14 +125,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \section*{Unendlich viele Primzahlen}
-\begin{satz}{Euklid}
+\begin{satz}{Euklid}{}
 Es sein $n \in \mathbb{N}$. Die Zahl $m := n! + 1$ hat einen Primteiler,
 aber dieser kann nicht $\leq n$ sein, denn sonst müsste er mit $n!$
 auch $1=m-n!$ teilen. Also gibt es eine Primzahl $> n \blacksquare$
 \end{satz}
 
 \begin{satz}{Euler}
-\underline{Annahme:} Es gibt nur endlich viele Primzahlen $\{p_1, \dots, p_k\}$
+\underline{Annahme:} Es gibt nur endlich viele Primzahlen $\Set{p_1, \dots, p_k}$
 mit $p_1 < \dots < p_k$
 
 Es gilt:
@@ -141,6 +142,11 @@ Es gilt:
 	&= \sum_{j_1 = 0}^\infty \sum_{j_2=0}^\infty \dots \sum_{j_k = 0}^\infty p_1^{-j_1} \cdot p_2^{-j_2} \cdot \dots \cdot p_k^{-j_k}\\
 	&= \sum_{n=1}^\infty \frac{1}{n}
 \end{align*}
+\end{satz}
+
+\begin{satz}{Dirichlets Primzahlsatz}{}
+Es sei $n \in \mathbb{N}$ beliebig. Dann gibt es unendlich viele
+Primzahlen $p \cong 1 \mod n$.
 \end{satz}
 
 \section*{Sylowsätze}
@@ -175,8 +181,38 @@ Es sein $p \geq 3$ eine Primzahl. Für $a \in \mathbb{Z}$ sei
 \end{cases} \]
 \end{definition}
 
+\subsection*{Rechenregeln und Beispiele für das Legendre-Symbol}
 \begin{itemize}
-	\item Restklassenkörper
+	\item[(I)] Eulers Kriterium: $\left(\frac{a}{p}\right) = a^\frac{p-1}{2} \mod p$
+	\item[(II)] Strikt multiplikativ im Zähler: $\left(\frac{a \cdot b}{p}\right) = \left(\frac{a}{p}\right) \cdot \left(\frac{b}{p}\right)$
+	\item[(III)] $a \equiv b \mod p \Rightarrow \left(\frac{a}{p}\right) = \left(\frac{b}{p}\right)$
+	\item[(IV)] $\left(\frac{a}{3}\right) = a \mod 3$
+	\item[(V)] Quadratische Reziprozitätsgesetz: Es seinen $p \neq l$ zwei ungerade Primzahlen. Dann gilt:\\
+		$\left(\frac{p}{l}\right) \cdot \left(\frac{l}{p}\right) = 
+				(-1)^{\frac{p-1}{2} \cdot \frac{l-1}{2}}
+				$
+	\item[(VI)] Erste Ergänzung: $\left(\frac{-1}{p}\right) = 
+				\begin{cases}
+					1 	& \text{, falls } p \equiv 1 \mod 4\\
+				   -1	& \text{, falls } p \equiv 3 \mod 4
+				\end{cases}
+				$
+	\item[(VII)] Zweite Ergänzung: $\left(\frac{2}{p}\right) = 
+				\begin{cases}
+					1 	& \text{, falls } p \equiv \pm 1 \mod 8\\
+				   -1	& \text{, falls } p \equiv \pm 3 \mod 8
+				\end{cases}
+				$
+	\item 2 ist quadratischer Rest modulo 7, da: $2 \equiv 3^2 \mod 7$
+\end{itemize}
+
+\subsection*{Weiteres}
+\begin{itemize}
+	\item Die Charakteristik eines endlichen Körpers $F$ ist eine Primzahl 
+          $p$ und $\mathbb{Z}/p\mathbb{Z}$ ist ein Teilring von $F$.
+	\item Die Kardinalität von $F$ ist eine Potenz vom $p$.
+	\item $F^\times$ ist zyklisch.
+	\item $F$ ist ein Restklassenkörper des Polynomrings $\mathbb{F}_p [X]$
 \end{itemize}
 
 \section*{Weiteres}
