@@ -9,49 +9,38 @@
 \usepackage{braket} % needed for \Set
 \usepackage{algorithm,algpseudocode}
 
-\usepackage{tikz}
-\usetikzlibrary{decorations.pathreplacing,calc}
-\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
-\newcommand*{\AddNote}[4]{%
-    \begin{tikzpicture}[overlay, remember picture]
-        \draw [decoration={brace,amplitude=0.5em},decorate,very thick]
-            ($(#3)!(#1.north)!($(#3)-(0,1)$)$) --  
-            ($(#3)!(#2.south)!($(#3)-(0,1)$)$)
-                node [align=center, text width=2.5cm, pos=0.5, anchor=west] {#4};
-    \end{tikzpicture}
-}%
-
 \begin{document}
 \begin{preview}
     \begin{algorithm}[H]
         \begin{algorithmic}
-            \Require $p \in \mathbb{P}, a \in \mathbb{Z}, p \geq 3$
-            \If{$a \geq p$ or $a < 0$}\Comment{Regel (III)}
-				\State \Return $\Call{CalculateLegendre}{a \mod p, p}$ \Comment{nun: $a \in [0, \dots, p-1]$}
+        \Require $p \in \mathbb{P}, a \in \mathbb{Z}, p \geq 3$
+		\Procedure{CalculateLegendre}{$a$, $p$}
+            \If{$a \geq p$ or $a < 0$}\Comment{rule (III)}
+				\State \Return $\Call{CalculateLegendre}{a \mod p, p}$ \Comment{now: $a \in [0, \dots, p-1]$}
 			\ElsIf{$a == 0$ or $a == 1$}
-				\State \Return $a$ \Comment{nun: $a \in [2, \dots, p-1]$}
-			\ElsIf{$a == 2$} \Comment{Regel (VII)}
+				\State \Return $a$ \Comment{now: $a \in [2, \dots, p-1]$}
+			\ElsIf{$a == 2$} \Comment{rule (VII)}
 				\If{$a \equiv \pm 1 \mod 8$}
 					\State \Return 1
 				\Else
 					\State \Return -1
-				\EndIf	\Comment{nun: $a \in [3, \dots, p-1]$}
-			\ElsIf{$a == p-1$} \Comment{Regel (VI)}
+				\EndIf	\Comment{now: $a \in [3, \dots, p-1]$}
+			\ElsIf{$a == p-1$} \Comment{rule (VI)}
 				\If{$p \equiv 1 \mod 4$}
 					\State \Return 1
 				\Else
 					\State \Return -1
-				\EndIf \Comment{nun: $a \in [3, \dots, p-2]$}
-			\ElsIf{!$\Call{isPrime}{a}$} \Comment{Regel (II)}
-				\State $p_1, p_2, \dots, p_n \gets \Call{Faktorisiere}{a}$
-				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ \Comment{nun: $a \in \mathbb{P}, \sqrt{p-2} \geq a \geq 3$}
-			\Else
+				\EndIf \Comment{now: $a \in [3, \dots, p-2]$}
+			\ElsIf{!$\Call{isPrime}{a}$} \Comment{rule (II)}
+				\State $p_1, p_2, \dots, p_n \gets \Call{Factorize}{a}$
+				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ 
+			\Else \Comment{now: $a \in \mathbb{P}, \sqrt{p-2} \geq a \geq 3$}
 				\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
 			\EndIf
+		\EndProcedure
         \end{algorithmic}
-    \caption{Calculate Legendre-Symbol}
-    %\AddNote{top}{bottom}{right}{calclulate $p$ such that: $b^p \leq Z < b^{p+1}$}  %\tikzmark{top},\tikzmark{right},\tikzmark{bottom}
-    \label{alg:euclidBaseTransformation}
+    \caption{Calculate Legendre symbol}
+    \label{alg:calculateLegendreSymbol}
     \end{algorithm}
 \end{preview}
 \end{document}
