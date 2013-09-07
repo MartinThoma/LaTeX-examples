@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\algnewcommand\True{\textbf{true}\space} 
+\algnewcommand\False{\textbf{false}\space} 
+\algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Require Klauselmenge $K$, Symbolmenge $S$, (partielles) Modell $M$
+
+			\Procedure{DPLL}{$K$, $S$, $M$}
+            \If{Alle Klauseln sind wahr in $M$}
+                \State \Return \texttt{true}
+            \EndIf
+
+            \If{Eine Klausel ist falsch in $M$}
+                \State \Return \texttt{false}
+            \EndIf
+			\\
+
+            \State $P, Wert \gets \Call{FindeEinheitsklausel}{K, S, M}$
+            \If{$P$ existiert}
+                \State $M \gets \Call{SetzePInModell}{P, Wert, M}$
+                \State \Return $\Call{DPLL}{k, S \setminus \Set{P}, M}$
+            \EndIf
+			\\
+
+			\LineComment{Ein reines Literal ist eines, das in jeder Klausel}
+			\LineComment{immer wahr bzw. immer falsch ist}
+            \State $P, Wert \gets \Call{FindeReinesLiteral}{K, M}$
+            \If{$P$ existiert}
+                \State $m \gets \Call{SetzePInModell}{P, Wert, M}$
+                \State \Return $\Call{DPLL}{K, S \setminus \Set{P}, M}$
+            \EndIf
+			\\
+
+            \State $P \gets S.pop()$ \Comment{Symbolmenge schrumpft}
+            \State $M_1 \gets \Call{SetzePInModell}{P, \texttt{true}, M}$
+            \State $M_2 \gets \Call{SetzePInModell}{P, \texttt{false}, M}$
+            \State \Return $\Call{DPLL}{K, S, M_1} \lor \Call{DPLL}{K, S, M_2}$
+			\EndProcedure
+        \end{algorithmic}
+    \caption{DPLL-Verfahren}
+    \label{alg:dpll}
+    \end{algorithm}
+\end{preview}
+\end{document}
