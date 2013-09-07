@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\algnewcommand\True{\textbf{true}\space} 
+\algnewcommand\False{\textbf{false}\space} 
+\algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+        \Require Klauselmenge $K$ in KNF (jede Klausel wird durch ein mit den
+        Werten $\Set{-1,0,1}$ Array
+        repräsentiert, dessen Länge gleich der Anzahl $n$ der Symbole ist),\\
+            zu beweisende Aussage ist $\alpha$,\\
+            $\beta := \neg \alpha$ in KNF
+		\Procedure{Resolutionsalgorithmus}{$K$, $\beta$}
+			\State $\gamma \gets K \cup \Set{\beta}$
+			\State $foundMatch \gets$ \True
+			\While{$foundMatch$}
+		        \State $foundMatch \gets$ \False
+
+				\LineComment{Finde zwei Klauseln, bei denen ein Symbol verneint bzw. nicht-verneint vorkommt. Wende darauf die Resolutionsregel an}
+		        \For{$i \in \Set{1, \dots, |\gamma|-1}$}
+		            \For{$j \in \Set{i+1, \dots |\gamma|}$}
+		                \For{$k \in \Set{0, \dots, n-1}$}
+		                    \If{$\gamma_i[k] \cdot \gamma_j[k] == (-1)$}
+		                        \State $foundMatch \gets$ \True
+		                        \State $tmp \gets $ Array der Länge $n$
+		                        \For{$l \in \Set{0, \dots, n-1}$}
+		                            \If{$\gamma_i[l] \cdot \gamma_j[l] == (-1)$ and
+		                                $l \neq k$}
+		                                \State $tmp \gets $ leere Klausel
+		                                \State break
+		                            \ElsIf{$\gamma_i[l] \neq 0$}
+		                                \State $tmp[l] \gets \gamma_i[l]$
+		                            \Else
+		                                \State $tmp[l] \gets \gamma_j[l]$
+		                            \EndIf
+		                        \EndFor
+		                        \State $\gamma \gets (\gamma \cup \Set{tmp}) \setminus
+		                                \Set{\gamma_i, \gamma_j}$
+		                        \State break
+		                    \EndIf
+		                \EndFor
+
+		                \If{$foundMatch$}
+		                    \State break
+		                \EndIf
+		            \EndFor
+
+	                \If{$foundMatch$}
+	                    \State break
+	                \EndIf
+		        \EndFor
+			\EndWhile
+		\EndProcedure
+        \end{algorithmic}
+    \caption{Resolutionsalgorithmus}
+    \label{alg:resolutionsalgorithmus}
+    \end{algorithm}
+\end{preview}
+\end{document}
