@@ -28,10 +28,11 @@
             \EndIf
 			\\
 
-            \State $P, Wert \gets \Call{FindeEinheitsklausel}{K, S, M}$
+			\LineComment{Eine Einheitsklausel hat nur ein Literal}
+            \State $K_i, P, Wert \gets \Call{FindeEinheitsklausel}{K, S, M}$
             \If{$P$ existiert}
                 \State $M \gets \Call{SetzePInModell}{P, Wert, M}$
-                \State \Return $\Call{DPLL}{k, S \setminus \Set{P}, M}$
+                \State \Return $\Call{DPLL}{K \setminus \Set{K_i}, S \setminus \Set{P}, M}$
             \EndIf
 			\\
 
@@ -39,7 +40,8 @@
 			\LineComment{immer wahr bzw. immer falsch ist}
             \State $P, Wert \gets \Call{FindeReinesLiteral}{K, M}$
             \If{$P$ existiert}
-                \State $m \gets \Call{SetzePInModell}{P, Wert, M}$
+                \State $M \gets \Call{SetzePInModell}{P, Wert, M}$
+				\State $K \gets \Call{EntferneWahreKlauseln}{K, M}$
                 \State \Return $\Call{DPLL}{K, S \setminus \Set{P}, M}$
             \EndIf
 			\\
