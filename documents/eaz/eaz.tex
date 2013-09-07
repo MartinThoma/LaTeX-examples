@@ -127,8 +127,9 @@
 \section*{Unendlich viele Primzahlen}
 \begin{satz}{Euklid}{}
 Es sein $n \in \mathbb{N}$. Die Zahl $m := n! + 1$ hat einen Primteiler,
-aber dieser kann nicht $\leq n$ sein, denn sonst müsste er mit $n!$
-auch $1=m-n!$ teilen. Also gibt es eine Primzahl $> n \blacksquare$
+aber dieser kann nicht $\leq n$ sein, denn sonst müsste er wegen
+$p|m$ und $p|n!$ auch $1=m-n!$ teilen. 
+Also gibt es eine Primzahl $> n \blacksquare$
 \end{satz}
 
 \begin{satz}{Euler}
@@ -146,16 +147,16 @@ Es gilt:
 
 \begin{satz}{Dirichlets Primzahlsatz}{}
 Es sei $n \in \mathbb{N}$ beliebig. Dann gibt es unendlich viele
-Primzahlen $p \cong 1 \mod n$.
+Primzahlen $p \equiv 1 \mod n$.
 \end{satz}
 
 \section*{Sylowsätze}
-\begin{satz}{Erster Sylowsatz}
+\begin{satz}{Erster Sylowsatz}{}
 	Es seien $G$ eine endliche Gruppe und $p$ eine Primzahl. Dann existiert in $G$
 	mindestens eine $p$-Sylowgruppe.
 \end{satz}
 
-\begin{satz}{Zweiter Sylowsatz}
+\begin{satz}{Zweiter Sylowsatz}{}
 	Es seien $G$ eine endliche Gruppe und $p$ eine Primzahl. Weiter sei $\#G = p^e \cdot f$
 	die Zerlegung von $\#G$ in eine $p$-Potenz und eine Zahl $f$, die kein Vielfaches
 	von $p$ ist.
@@ -206,15 +207,6 @@ Es sein $p \geq 3$ eine Primzahl. Für $a \in \mathbb{Z}$ sei
 	\item 2 ist quadratischer Rest modulo 7, da: $2 \equiv 3^2 \mod 7$
 \end{itemize}
 
-\subsection*{Weiteres}
-\begin{itemize}
-	\item Die Charakteristik eines endlichen Körpers $F$ ist eine Primzahl 
-          $p$ und $\mathbb{Z}/p\mathbb{Z}$ ist ein Teilring von $F$.
-	\item Die Kardinalität von $F$ ist eine Potenz vom $p$.
-	\item $F^\times$ ist zyklisch.
-	\item $F$ ist ein Restklassenkörper des Polynomrings $\mathbb{F}_p [X]$
-\end{itemize}
-
 \section*{Elementarteiler}
 Will man die Elementarteiler einer Matrix $M$ berechnen, so gilt:
 \begin{itemize}
@@ -225,35 +217,11 @@ Will man die Elementarteiler einer Matrix $M$ berechnen, so gilt:
 \section*{Weiteres}
 Finden von Zerlegungen von Elementen im Ring $\mathbb{Z}[\sqrt{d}] := \Set{a + b \sqrt{d} | a, b \in \mathbb{Z}}$:
 
-Es sei
-\begin{align*}
-	|\cdot|:\mathbb{Z}[\sqrt{d}] &\rightarrow \mathbb{R}_0^+\\
-	|x + y \cdot \sqrt{d}| &:= \sqrt{x^2 + y^2 |d|}
-\end{align*}
-
-und
-
 \begin{align*}
 	N:   \mathbb{Z}[\sqrt{d}] &\rightarrow \mathbb{N}_0\\
-	N(z) &:= |z|^2
-\end{align*}
-und die Konjugation:
-\[\overline{x+ y \sqrt{d}} = \begin{cases}x - y \sqrt{d} &\text{, falls } d < 0\\x + y \sqrt{d} &\text{, falls } x \geq 0\end{cases}\]
-
-Die Konjugation ist multiplikativ:
-\[\overline{wz} = \overline{w} \cdot \overline{z}\]
-
-Außerdem gilt:
-\begin{align*}
-  N(\pi) &= x^2+y^2 |d|\\
-         &= (x+y\sqrt{d}) \cdot (x+\frac{d}{|d|}y\sqrt{d})\\
-		 &= \pi \cdot \overline{\pi}
+	N(a+b \sqrt{d}) :&= |(a+b\sqrt{d})(a-b \sqrt{d})|\\
+			&= |a^2-b^2 d|
 \end{align*}
 
-
-In alten Klausuren begegnen uns desöfteren Ringe der Form . 
-In diesem Zusammenhang begegnet uns die Normabbildung. 
-(Ein Beispiel, das in der Vorlesung gesehen wurde, waren die gauß'schen Zahlen.)
-
-Wie können wir die Norm dafür benutzen, um Zerlegungen von Elementen zu finden oder deren Unzerlegbarkeit zu zeigen?
+$a$ ist irreduzibel $\Leftrightarrow N(a)$ ist prim
 \end{document}

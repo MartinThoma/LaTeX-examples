@@ -52,7 +52,11 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \node[pflicht] (pse)    [left of=os] {PSE};
     \node[soft]    (tse)    [left of=pse] {TSE};
 
-    \node[pflicht] (algii)  [below of=tgi] {Algorithmen II};
+    \node[pflicht] (numerik)    [below of=pse] {Numerik};
+    \node[pflicht] (datenbanken)    [right of=numerik] {Datenbanken};
+    \node[pflicht] (rechnernetze)    [below of=wt] {Rechnernetze};
+
+    \node[pflicht] (algii)  [right of=datenbanken, below of=datenbanken] {Algorithmen II};
 
     \node[wahl]    (icpc)   [below of=algii] {ICPC};
 
@@ -67,6 +71,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (dt)      edge node[anchor=center,above,sloped] {\tiny{Zahlendarstellungen}} (ro);
     \path[->] (lai)     edge[ultra thick] node[anchor=center,above,sloped] {\tiny{Gruppe, Körper, \dots}} (laii);
     \path[<->] (lai)    edge node {} (gbi);
+    \path[->] (lai)     edge node[anchor=center,above,sloped] {\tiny{Matrixmultiplikation; Lösen von linearen Gleichungssystemen}} (numerik);
     \path[<->] (gbi)    edge[bend left] node [anchor=center,above,sloped] {\tiny{Induktion}} (anai);
     \path[->] (anai)    edge[ultra thick] node {} (anaii);
     \path[->] (laii)    edge[bend left] node[anchor=center,above,sloped] {\tiny{Mathematische Strukturen}} (algii);
