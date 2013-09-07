@@ -38,6 +38,8 @@
 
 			\LineComment{Ein reines Literal ist eines, das in jeder Klausel}
 			\LineComment{immer wahr bzw. immer falsch ist}
+			\LineComment{Dieser Schritt ist der Grund,}
+			\LineComment{warum DPLL nicht immer alle Lösungen findet}
             \State $P, Wert \gets \Call{FindeReinesLiteral}{K, M}$
             \If{$P$ existiert}
                 \State $M \gets \Call{SetzePInModell}{P, Wert, M}$
