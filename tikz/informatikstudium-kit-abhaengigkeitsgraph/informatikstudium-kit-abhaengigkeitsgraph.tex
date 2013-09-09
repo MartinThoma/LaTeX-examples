@@ -31,6 +31,7 @@
 \begin{preview}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3.5cm,
 pflicht/.style ={rectangle, draw=blue, thick, fill=blue!20,align=center, rounded corners, minimum height=2em},
+stammmodul/.style ={rectangle, draw=yellow, thick, fill=yellow!20,align=center, rounded corners, minimum height=2em},
 wahl/.style ={rectangle, draw=green, thick, fill=green!20,align=center, rounded corners, minimum height=2em},
 soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corners, minimum height=2em}]
     % Draw the vertices.
@@ -55,6 +56,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \node[pflicht] (numerik)    [below of=pse] {Numerik};
     \node[pflicht] (datenbanken)    [right of=numerik] {Datenbanken};
     \node[pflicht] (rechnernetze)    [below of=wt] {Rechnernetze};
+    \node[stammmodul]   (KogSys)    [right of=rechnernetze] {KogSys};
 
     \node[pflicht] (algii)  [right of=datenbanken, below of=datenbanken] {Algorithmen II};
 
@@ -68,6 +70,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (algi)    edge node {} (algii);
     \path[->] (tgi)     edge node[anchor=center,above,sloped] {\tiny{ILP}} (algii);
     \path[->] (wt)      edge node[anchor=center,above,sloped] {\tiny{Randomisierte Algorithmen}} (algii);
+    \path[->] (wt)      edge node[anchor=center,above,sloped] {\tiny{Bayes Regel}} (KogSys);
     \path[->] (dt)      edge node[anchor=center,above,sloped] {\tiny{Zahlendarstellungen}} (ro);
     \path[->] (lai)     edge[ultra thick] node[anchor=center,above,sloped] {\tiny{Gruppe, Körper, \dots}} (laii);
     \path[<->] (lai)    edge node {} (gbi);
@@ -92,8 +95,9 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (gbi)     edge[red] node {} (pse);
     \path[<->] (os)     edge node[anchor=center,above,sloped] {\tiny{Paging}} (algii);
 
-    \begin{customlegend}[legend entries={Pflichtmodul,Wahlmodul,Softskill,Inhaltliche Abhängigkeit,Harte Abhängigkeit},legend style={at={(-3,-12)},anchor=center}]
+    \begin{customlegend}[legend entries={Pflichtmodul,Stammmodul,Wahlmodul,Softskill,Inhaltliche Abhängigkeit,Harte Abhängigkeit},legend style={at={(-3,-12)},anchor=center}]
     \addlegendimage{blue,fill=blue!20,area legend}
+    \addlegendimage{yellow,fill=yellow!20,area legend}
     \addlegendimage{green,fill=green!20,area legend}
     \addlegendimage{red,fill=red!20,area legend}
     \addlegendimage{->,black,sharp plot}
