@@ -6,7 +6,6 @@
 \begin{document}
 \begin{tikzpicture}
     \begin{axis}[
-    	legend pos=north west,
         axis x line=middle,
         axis y line=middle,
         grid = major,
@@ -16,17 +15,15 @@
         xmin=-1,     % start the diagram at this x-coordinate
         xmax= 1,    % end   the diagram at this x-coordinate
         ymin= 0,     % start the diagram at this y-coordinate
-        ymax= 1,   % end   the diagram at this y-coordinate
-        %axis background/.style={fill=white},
+        ymax= 1.2,   % end   the diagram at this y-coordinate
         xlabel=x,
         ylabel=y,
+		/pgfplots/xtick={-1, -0.5, ..., 1}, % make steps of length 0.5
+		/pgfplots/ytick={0, 0.5, ..., 1}, % make steps of length 0.5
         tick align=outside,
         enlargelimits=false]
-      % plot the stirling-formulae
-      \addplot[domain=-1:1, red, ultra thick,samples=500] {1/(1+exp(-5*x))}; 
-      \addplot[domain=-1:1, blue, ultra thick,samples=500] {1/(1+exp(-10*x))}; 
-      \addlegendentry{$f(x)=\frac{1}{1+e^{-5x}}$}
-      \addlegendentry{$g(x)=\frac{1}{1+e^{-10x}}$}
+      % plot the function
+	  \addplot[domain=-1:1, blue, ultra thick,samples=500] {x < 0 ? 0 : 1}; 
     \end{axis} 
 \end{tikzpicture}
 \end{document}
