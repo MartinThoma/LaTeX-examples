@@ -1,0 +1,36 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{pdfpages}       % Signatureinbingung und includepdf
+\usepackage{geometry}       % [margin=2.5cm]layout
+\usepackage{hyperref}       % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}      % for advanced numbering of lists
+\usepackage{marvosym}       % checkedbox
+\usepackage{wasysym}
+\usepackage{braket}         % for \Set{}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{gauss}
+\usepackage{algorithm,algpseudocode}
+\usepackage{parskip}
+\allowdisplaybreaks
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Numerik,KIT}, 
+  pdftitle    = {Numerik Klausur1 - Musterlösung} 
+} 
+
+\begin{document}
+	\include{Aufgabe1}
+	\include{Aufgabe2}
+	\include{Aufgabe3}
+	\include{Aufgabe4}
+	\include{Aufgabe5}
+\end{document}

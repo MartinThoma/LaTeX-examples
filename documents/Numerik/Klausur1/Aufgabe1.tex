@@ -1,0 +1,195 @@
+\section*{Aufgabe 1}
+\subsection*{Teilaufgabe a}
+\textbf{Gegeben:}
+
+\[A = 
+\begin{pmatrix}
+    3 & 15 & 13 \\
+    6 & 6  & 6  \\
+    2 & 8  & 19
+\end{pmatrix}\]
+
+\textbf{Aufgabe:} LR-Zerlegung von $A$ mit Spaltenpivotwahl
+
+\textbf{Lösung:} 
+
+\[P = 
+\begin{pmatrix}
+    0 & 1 & 0 \\
+    1 & 0 & 0  \\
+    0 & 0 & 1
+\end{pmatrix}\]
+
+durch scharfes hinsehen.
+
+Nun $L, R$ berechnen:
+
+\begin{align}
+	&\begin{gmatrix}[p]
+		6 & 6  & 6  \\
+		3 & 15 & 13 \\
+		2 & 8  & 19
+	 \rowops
+	 \add[\cdot (-\frac{1}{2})]{0}{1}
+	 \add[\cdot (-\frac{1}{3})]{0}{2}
+	\end{gmatrix}
+	\\
+  = \begin{pmatrix}
+		          1 & 0 & 0 \\
+	   -\frac{1}{2} & 1 & 0  \\
+	   -\frac{1}{3} & 0 & 1
+	\end{pmatrix} \cdot
+	&\begin{gmatrix}[p]
+		6 & 6  & 6  \\
+		0 & 12 & 10 \\
+		0 & 6  & 17
+	 \rowops
+	 \add[\cdot (-\frac{1}{2})]{1}{2}
+	\end{gmatrix}
+	\\
+  = \begin{pmatrix}
+		          1 & 0 & 0 \\
+	              0 & 1 & 0  \\
+	              0 & -\frac{1}{2} & 1
+	\end{pmatrix} \cdot
+    \begin{pmatrix}
+		          1 & 0 & 0 \\
+	   -\frac{1}{2} & 1 & 0  \\
+	   -\frac{1}{3} & 0 & 1
+	\end{pmatrix} \cdot
+	&\begin{gmatrix}[p]
+		6 & 6  & 6  \\
+		0 & 12 & 10 \\
+		0 & 0  & 12
+	 \colops
+	 \add[\cdot (-1)]{0}{1}
+	 \add[\cdot (-1)]{0}{2}
+	\end{gmatrix}
+	\\
+  = \begin{pmatrix}
+		          1 & 0 & 0 \\
+	   -\frac{1}{2} & 1 & 0  \\
+	   -\frac{1}{12} & - \frac{1}{2} & 1
+	\end{pmatrix} \cdot
+	&\begin{gmatrix}[p]
+		6 & 0  & 0  \\
+		0 & 12 & 10 \\
+		0 & 0  & 12
+	 \colops
+	 \add[\cdot (-\frac{10}{12})]{1}{2}
+	\end{gmatrix}
+	\cdot
+	\begin{pmatrix}
+		          1 & -1 & -1 \\
+	              0 &  1 &  0  \\
+	              0 &  0 &  1
+	\end{pmatrix}
+	\\
+  = \begin{pmatrix}
+		          1 & 0 & 0 \\
+	   -\frac{1}{2} & 1 & 0  \\
+	   -\frac{1}{12} & - \frac{1}{2} & 1
+	\end{pmatrix} \cdot
+	&\begin{gmatrix}[p]
+		6 & 0  & 0 \\
+		0 & 12 & 0 \\
+		0 & 0  & 12
+	 \colops
+	  	\mult{0}{\cdot \frac{1}{6}}
+	  	\mult{1}{\cdot \frac{1}{12}}
+	  	\mult{2}{\cdot \frac{1}{12}}
+	\end{gmatrix}
+	\cdot
+	\begin{pmatrix}
+		          1 & -1 & -1 \\
+	              0 &  1 &  0 \\
+	              0 &  0 &  1
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		          1 &  0 &  0 \\
+	              0 &  1 &  -\frac{10}{12} \\
+	              0 &  0 &  1
+	\end{pmatrix}
+	\\
+  = \begin{pmatrix}
+		          1 & 0 & 0 \\
+	   -\frac{1}{2} & 1 & 0  \\
+	   -\frac{1}{12} & - \frac{1}{2} & 1
+	\end{pmatrix} \cdot
+	&\begin{gmatrix}[p]
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+	\end{gmatrix}
+	\cdot
+	\begin{pmatrix}
+		          1 & -1 & -\frac{1}{6} \\
+	              0 &  1 & -\frac{5}{6} \\
+	              0 &  0 &  1
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+	    \frac{1}{6} &  0 & 0 \\
+	              0 &  \frac{1}{12} & 0 \\
+	              0 &  0 & \frac{1}{12}
+	\end{pmatrix}
+	\\
+  = \underbrace{\begin{pmatrix}
+		          1 & 0 & 0 \\
+	   -\frac{1}{2} & 1 & 0  \\
+	   -\frac{1}{12} & - \frac{1}{2} & 1
+	\end{pmatrix}}_L \cdot
+	&\begin{gmatrix}[p]
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+	\end{gmatrix}
+	\cdot \underbrace{\frac{1}{72}
+	\begin{pmatrix}
+		          12 & -6 & -1 \\
+	               0 &  6 & -5 \\
+	               0 &  0 &  6
+	\end{pmatrix}}_R
+\end{align}
+
+ACHTUNG: Ich habe mich irgendwo verrechnet!
+Siehe \href{http://www.wolframalpha.com/input/?i=%7B%7B1%2C0%2C0%7D%2C%7B-1%2F2%2C1%2C0%7D%2C%7B-1%2F12%2C-1%2F2%2C1%7D%7D*%7B%7B12%2C-6%2C-1%7D%2C%7B0%2C6%2C-5%7D%2C%7B0%2C0%2C6%7D%7D}{WolframAlpha}
+
+\subsection*{Teilaufgabe b}
+
+\textbf{Gegeben:}
+
+\[A = 
+\begin{pmatrix}
+    9 & 4 & 12 \\
+    4 & 1  & 4 \\
+   12 & 4  & 17
+\end{pmatrix}\]
+
+\textbf{Aufgabe:} $A$ auf positive Definitheit untersuchen, ohne Eigenwerte zu berechnen.
+
+\textbf{Lösung:}
+Eine Matrix $A \in \mathbb{R}^{n \times n}$ heißt positiv Definit $\dots$
+\begin{align*}
+  \dots & \Leftrightarrow \forall x \in \mathbb{R}^n: x^T A x > 0\\
+	& \Leftrightarrow \text{Alle Eigenwerte sind größer als 0}
+\end{align*}
+
+Falls $A$ symmetrisch ist, gilt:
+\begin{align*}
+ \text{$A$ ist pos. Definit} & \Leftrightarrow \text{alle führenden Hauptminore von $A$ sind positiv}\\
+	& \Leftrightarrow \text{es gibt eine Cholesky-Zerlegung $A=GG^T$ mit $G$ ist reguläre untere Dreiecksmatrix}\\
+\end{align*}
+
+Mit dem Hauptminor-Kriterium gilt:
+
+\begin{align}
+	\det(A_1) &= 9 > 0\\
+	\det(A_2) &= 
+		\begin{vmatrix}
+			9 & 4 \\
+			4 & 1 \\
+		\end{vmatrix} = 9 - 16 < 0\\
+	&\Rightarrow \text{$A$ ist nicht positiv definit}
+\end{align}
