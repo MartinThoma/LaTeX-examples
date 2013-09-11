@@ -18,21 +18,13 @@
 \begin{tikzpicture}[scale=2]
 	\node (x)[input] at (0,1) {$x$};
 	\node (y)[input] at (0,0) {$y$};
-	\node (h1)[hidden] at (1, 1.5) {$1$};
-	\node (h2)[hidden] at (1, 0.5) {$2$};
-	\node (h3)[hidden] at (1,-0.5) {$1$};
-	\node (o1)[output] at (2,0.5) {$1$};
+	\node (o)[output] at (1,0.5) {$1$};
 
-	\draw[stateTransition] (x) -- (h1) node [midway,above=-0.06cm] {$1$};
-	\draw[stateTransition] (x) -- (h2) node [midway,above=-0.06cm] {$1$};
-	\draw[stateTransition] (y) -- (h2) node [midway,above=-0.06cm] {$1$};
-	\draw[stateTransition] (y) -- (h3) node [midway,above=-0.06cm] {$1$};
+	\draw[stateTransition] (x) -- (o) node [midway,above=-0.06cm] {$1$};
+	\draw[stateTransition] (y) -- (o) node [midway,above=-0.06cm] {$1$};
 
-	\draw[stateTransition] (h1) -- (o1) node [midway,above=-0.06cm] {$1$};
-	\draw[stateTransition] (h2) -- (o1) node [midway,above=-0.1cm] {$-2$};
-	\draw[stateTransition] (h3) -- (o1) node [midway,above=-0.06cm] {$1$};
 
-	\draw[stateTransition] (o1) -- (3.5,0.5) node [midway,above=-0.1cm] {$\xor(x, y)$};
+	\draw[stateTransition] (o) -- (2,0.5) node [midway,above=-0.1cm] {$x \lor y$};
 
 \end{tikzpicture}
 \end{preview}
