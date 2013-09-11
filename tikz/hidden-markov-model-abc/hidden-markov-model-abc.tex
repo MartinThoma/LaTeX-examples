@@ -1,0 +1,18 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{units}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{calc} 
+
+\begin{document}
+\tikzstyle{vertex}=[draw,black,fill=blue,circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[very thick]
+\begin{tikzpicture}[scale=2.5]
+    \node (a)[vertex,fill=gray!10,align=left] at (0,0) {$A~\nicefrac{1}{3}$\\$B~\nicefrac{1}{6}$\\$C~\nicefrac{1}{2}$};
+    \node (b)[vertex,fill=gray!10,align=left] at (1,0)  {$A~\nicefrac{2}{5}$\\$B~\nicefrac{1}{5}$\\$C~\nicefrac{2}{5}$};
+
+    \path[thick,->] (a)    edge node [anchor=center,above,sloped] {$\nicefrac{9}{10}$} (b);
+    \path[thick,->] (a)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$\nicefrac{1}{10}$} (a);
+    \path[thick,->] (b)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$1$} (b);
+\end{tikzpicture}
+\end{document}
