@@ -7,43 +7,35 @@ wobei $L$ eine invertierbare, untere Dreiecksmatrix ist.
 
 Geben Sie die Formel zur Berechnung von $y_i$ an.
 
-\textbf{Lösung:} TODO! %TODO!
+\textbf{Lösung:} 
+
+\[y_i = \frac{b_i - \sum_{k=i}^{i-1} l_{ik} \cdot y_k}{l_{ii}}\]
+
+\subsection*{Teilaufgabe b}
+\[Ax = b ? PAx = Pb ? LRx = Pb \]
+
+Pseudocode:
 
    \begin{algorithm}[H]
         \begin{algorithmic}
-        \Require $p \in \mathbb{P}, a \in \mathbb{Z}, p \geq 3$
-		\Procedure{CalculateLegendre}{$a$, $p$}
-            \If{$a \geq p$ or $a < 0$}\Comment{rule (III)}
-				\State \Return $\Call{CalculateLegendre}{a \mod p, p}$ \Comment{now: $a \in [0, \dots, p-1]$}
-			\ElsIf{$a == 0$ or $a == 1$}
-				\State \Return $a$ \Comment{now: $a \in [2, \dots, p-1]$}
-			\ElsIf{$a == 2$} \Comment{rule (VII)}
-				\If{$p \equiv \pm 1 \mod 8$}
-					\State \Return 1
-				\Else
-					\State \Return -1
-				\EndIf	\Comment{now: $a \in [3, \dots, p-1]$}
-			\ElsIf{$a == p-1$} \Comment{rule (VI)}
-				\If{$p \equiv 1 \mod 4$}
-					\State \Return 1
-				\Else
-					\State \Return -1
-				\EndIf \Comment{now: $a \in [3, \dots, p-2]$}
-			\ElsIf{!$\Call{isPrime}{a}$} \Comment{rule (II)}
-				\State $p_1, p_2, \dots, p_n \gets \Call{Factorize}{a}$
-				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ 
-			\Else \Comment{now: $a \in \mathbb{P}, \sqrt{p-2} \geq a \geq 3$}
-				\If{$\frac{p-1}{2} \equiv 0 \mod 2$ or $\frac{a-1}{2} \equiv 0 \mod 2$}
-					\State \Return $\Call{CalculateLegendre}{p, a}$
-				\Else
-					\State \Return $(-1) \cdot \Call{CalculateLegendre}{p, a}$
-				\EndIf
-			\EndIf
+        \Require Matrix $A$, Vektor $b$
+		\Procedure{CalculateLegendre}{$A$, $b$}
+        	\State $P, L, R \gets \Call{LRZerlegung}{A}$
+			\State $b^* \gets Pb$
+			\State $c \gets \Call{VorwärtsSubstitution}{L, b^*}$
+			\State $x \gets \Call{RückwärtsSubstitution}{R, c}$
+			\State \Return $x$
 		\EndProcedure
         \end{algorithmic}
-    \caption{Calculate Legendre symbol}
-    \label{alg:calculateLegendreSymbol}
+    \caption{Calculate TODO}
+    \label{alg:TODO}
     \end{algorithm}
 
-\subsection*{Teilaufgabe b}
 \subsection*{Teilaufgabe c}
+Der Gesamtaufwand ist:
+\begin{itemize}
+	\item LR-Zerlegung, $\frac{1}{3}n^3 - \frac{1}{3} n^2$
+	\item Vektormultiplikation, $2n$
+	\item Vorwärtssubstitution, $\frac{1}{2} n^2$
+	\item Rückwärtssubstitution, $\frac{1}{2} n^2$
+\end{itemize}

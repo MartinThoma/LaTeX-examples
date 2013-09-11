@@ -1,0 +1,21 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{units}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{calc} 
+
+\begin{document}
+\tikzstyle{vertex}=[draw,black,fill=blue,circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[very thick]
+\begin{tikzpicture}[scale=2.5]
+    \node (x)[vertex,fill=gray!10,align=left,label=below:$x$] at (0,0) {$A~\nicefrac{6}{10}$\\$B~\nicefrac{2}{10}$\\$C~\nicefrac{2}{10}$};
+    \node (y)[vertex,fill=gray!10,align=left,label=below:$y$] at (1,0) {$A~\nicefrac{1}{10}$\\$B~\nicefrac{1}{10}$\\$C~\nicefrac{8}{10}$};
+    \node (z)[vertex,fill=gray!10,align=left,label=below:$z$] at (2,0) {$A~\nicefrac{5}{10}$\\$B~\nicefrac{2}{10}$\\$C~\nicefrac{3}{10}$};
+
+    \path[thick,->] (x)    edge                          node [anchor=center,above,sloped] {$\nicefrac{2}{10}$} (y);
+    \path[thick,->] (y)    edge                          node [anchor=center,above,sloped] {$\nicefrac{8}{10}$} (z);
+    \path[thick,->] (x)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$\nicefrac{8}{10}$} (x);
+    \path[thick,->] (y)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$\nicefrac{2}{10}$} (y);
+    \path[thick,->] (z)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$1$} (z);
+\end{tikzpicture}
+\end{document}

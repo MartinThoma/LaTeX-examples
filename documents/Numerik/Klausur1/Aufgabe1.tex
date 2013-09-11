@@ -13,19 +13,24 @@
 
 \textbf{Lösung:} 
 
-\[P = 
-\begin{pmatrix}
-    0 & 1 & 0 \\
-    1 & 0 & 0  \\
-    0 & 0 & 1
-\end{pmatrix}\]
-
-durch scharfes hinsehen.
-
-Nun $L, R$ berechnen:
-
-\begin{align}
-	&\begin{gmatrix}[p]
+\begin{align*}
+	&
+	&
+    A^{(0)} &= \begin{gmatrix}[p]
+		3 & 15 & 13 \\
+		6 & 6  & 6  \\
+		2 & 8  & 19
+	 \rowops
+	 \swap{0}{1}
+	\end{gmatrix}
+	&\\
+    P^{(1)} &= \begin{pmatrix}
+		0 & 1 & 0\\
+		1 & 0 & 0\\
+     	0 & 0 & 1
+	\end{pmatrix},
+	&
+    A^{(1)} &= \begin{gmatrix}[p]
 		6 & 6  & 6  \\
 		3 & 15 & 13 \\
 		2 & 8  & 19
@@ -33,128 +38,48 @@ Nun $L, R$ berechnen:
 	 \add[\cdot (-\frac{1}{2})]{0}{1}
 	 \add[\cdot (-\frac{1}{3})]{0}{2}
 	\end{gmatrix}
-	\\
-  = \begin{pmatrix}
-		          1 & 0 & 0 \\
-	   -\frac{1}{2} & 1 & 0  \\
-	   -\frac{1}{3} & 0 & 1
-	\end{pmatrix} \cdot
-	&\begin{gmatrix}[p]
+	&\\
+	L^{(2)} &= \begin{pmatrix}
+		1 & 0 & 0\\
+		-\frac{1}{2} & 1 & 0\\
+     	-\frac{1}{3} & 0 & 1
+	\end{pmatrix},
+	&
+    A^{(2)} &= \begin{gmatrix}[p]
 		6 & 6  & 6  \\
 		0 & 12 & 10 \\
 		0 & 6  & 17
 	 \rowops
 	 \add[\cdot (-\frac{1}{2})]{1}{2}
 	\end{gmatrix}
-	\\
-  = \begin{pmatrix}
-		          1 & 0 & 0 \\
-	              0 & 1 & 0  \\
-	              0 & -\frac{1}{2} & 1
-	\end{pmatrix} \cdot
-    \begin{pmatrix}
-		          1 & 0 & 0 \\
-	   -\frac{1}{2} & 1 & 0  \\
-	   -\frac{1}{3} & 0 & 1
-	\end{pmatrix} \cdot
-	&\begin{gmatrix}[p]
+	&\\
+	L^{(3)} &= \begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+     	0 & -\frac{1}{2} & 1
+	\end{pmatrix},
+	&
+    A^{(3)} &= \begin{gmatrix}[p]
 		6 & 6  & 6  \\
 		0 & 12 & 10 \\
 		0 & 0  & 12
-	 \colops
-	 \add[\cdot (-1)]{0}{1}
-	 \add[\cdot (-1)]{0}{2}
 	\end{gmatrix}
-	\\
-  = \begin{pmatrix}
-		          1 & 0 & 0 \\
-	   -\frac{1}{2} & 1 & 0  \\
-	   -\frac{1}{12} & - \frac{1}{2} & 1
-	\end{pmatrix} \cdot
-	&\begin{gmatrix}[p]
-		6 & 0  & 0  \\
-		0 & 12 & 10 \\
-		0 & 0  & 12
-	 \colops
-	 \add[\cdot (-\frac{10}{12})]{1}{2}
-	\end{gmatrix}
-	\cdot
-	\begin{pmatrix}
-		          1 & -1 & -1 \\
-	              0 &  1 &  0  \\
-	              0 &  0 &  1
+\end{align*}
+
+Es gilt:
+
+\begin{align}
+	L^{(3)} \cdot L^{(2)} \cdot \underbrace{P^{(1)}}_{=: P} \cdot A^{0} &= \underbrace{A^{(3)}}_{=: R}\\
+	\Leftrightarrow P A &= (L^{(3)} \cdot L^{(2)})^{-1} \cdot R \\
+	\Rightarrow L &= (L^{(3)} \cdot L^{(2)})^{-1}\\
+	&= \begin{pmatrix}
+		1 & 0 & 0\\
+		\frac{1}{2} & 1 & 0\\
+		\frac{1}{3} & \frac{1}{2} & 1
 	\end{pmatrix}
-	\\
-  = \begin{pmatrix}
-		          1 & 0 & 0 \\
-	   -\frac{1}{2} & 1 & 0  \\
-	   -\frac{1}{12} & - \frac{1}{2} & 1
-	\end{pmatrix} \cdot
-	&\begin{gmatrix}[p]
-		6 & 0  & 0 \\
-		0 & 12 & 0 \\
-		0 & 0  & 12
-	 \colops
-	  	\mult{0}{\cdot \frac{1}{6}}
-	  	\mult{1}{\cdot \frac{1}{12}}
-	  	\mult{2}{\cdot \frac{1}{12}}
-	\end{gmatrix}
-	\cdot
-	\begin{pmatrix}
-		          1 & -1 & -1 \\
-	              0 &  1 &  0 \\
-	              0 &  0 &  1
-	\end{pmatrix}
-	\cdot
-	\begin{pmatrix}
-		          1 &  0 &  0 \\
-	              0 &  1 &  -\frac{10}{12} \\
-	              0 &  0 &  1
-	\end{pmatrix}
-	\\
-  = \begin{pmatrix}
-		          1 & 0 & 0 \\
-	   -\frac{1}{2} & 1 & 0  \\
-	   -\frac{1}{12} & - \frac{1}{2} & 1
-	\end{pmatrix} \cdot
-	&\begin{gmatrix}[p]
-		1 & 0 & 0 \\
-		0 & 1 & 0 \\
-		0 & 0 & 1
-	\end{gmatrix}
-	\cdot
-	\begin{pmatrix}
-		          1 & -1 & -\frac{1}{6} \\
-	              0 &  1 & -\frac{5}{6} \\
-	              0 &  0 &  1
-	\end{pmatrix}
-	\cdot
-	\begin{pmatrix}
-	    \frac{1}{6} &  0 & 0 \\
-	              0 &  \frac{1}{12} & 0 \\
-	              0 &  0 & \frac{1}{12}
-	\end{pmatrix}
-	\\
-  = \underbrace{\begin{pmatrix}
-		          1 & 0 & 0 \\
-	   -\frac{1}{2} & 1 & 0  \\
-	   -\frac{1}{12} & - \frac{1}{2} & 1
-	\end{pmatrix}}_L \cdot
-	&\begin{gmatrix}[p]
-		1 & 0 & 0 \\
-		0 & 1 & 0 \\
-		0 & 0 & 1
-	\end{gmatrix}
-	\cdot \underbrace{\frac{1}{72}
-	\begin{pmatrix}
-		          12 & -6 & -1 \\
-	               0 &  6 & -5 \\
-	               0 &  0 &  6
-	\end{pmatrix}}_R
 \end{align}
 
-ACHTUNG: Ich habe mich irgendwo verrechnet!
-Siehe \href{http://www.wolframalpha.com/input/?i=%7B%7B1%2C0%2C0%7D%2C%7B-1%2F2%2C1%2C0%7D%2C%7B-1%2F12%2C-1%2F2%2C1%7D%7D*%7B%7B12%2C-6%2C-1%7D%2C%7B0%2C6%2C-5%7D%2C%7B0%2C0%2C6%7D%7D}{WolframAlpha}
+Nun gilt: $P A = L R = A^{(1)}$ (Kontrolle mit \href{http://www.wolframalpha.com/input/?i=%7B%7B1%2C0%2C0%7D%2C%7B0.5%2C1%2C0%7D%2C%7B1%2F3%2C0.5%2C1%7D%7D*%7B%7B6%2C6%2C6%7D%2C%7B0%2C12%2C10%7D%2C%7B0%2C0%2C12%7D%7D}{Wolfram|Alpha})
 
 \subsection*{Teilaufgabe b}
 
@@ -182,7 +107,7 @@ Falls $A$ symmetrisch ist, gilt:
 	& \Leftrightarrow \text{es gibt eine Cholesky-Zerlegung $A=GG^T$ mit $G$ ist reguläre untere Dreiecksmatrix}\\
 \end{align*}
 
-Mit dem Hauptminor-Kriterium gilt:
+\subsubsection*{Lösung 1: Hauptminor-Kriterium}
 
 \begin{align}
 	\det(A_1) &= 9 > 0\\
@@ -193,3 +118,15 @@ Mit dem Hauptminor-Kriterium gilt:
 		\end{vmatrix} = 9 - 16 < 0\\
 	&\Rightarrow \text{$A$ ist nicht positiv definit}
 \end{align}
+
+\subsubsection*{Lösung 2: Cholesky-Zerlegung}
+\begin{align}
+	l_{11} &= \sqrt{a_{11}} = 3\\
+	l_{21} &= \frac{a_{21}}{l_{11}} = \frac{4}{3}\\
+	l_{31} &= \frac{a_{31}}{l_{11}} = 4\\
+	l_{22} &= \sqrt{a_{21} - {l_{21}}^2} = \frac{2 \sqrt{5}}{3}\\
+	\dots
+\end{align}
+
+ACHTUNG: Noch nicht fertig! Irgendwo muss was negatives unter einer
+Wurzel kommen!
