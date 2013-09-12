@@ -5,7 +5,7 @@
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage{pdfpages}       % Signatureinbingung und includepdf
 \usepackage{geometry}       % [margin=2.5cm]layout
-\usepackage{hyperref}       % links im text
+\usepackage[pdftex]{hyperref}       % links im text
 \usepackage{color}
 \usepackage{framed}
 \usepackage{enumerate}      % for advanced numbering of lists
@@ -16,16 +16,28 @@
 \usepackage{gauss}
 \usepackage{algorithm,algpseudocode}
 \usepackage{parskip}
+\usepackage{lastpage}
 \allowdisplaybreaks
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Numerik,KIT}, 
-  pdftitle    = {Numerik Klausur1 - Musterlösung} 
-} 
+\title{Numerik Klausur1 - Musterlösung}
+\makeatletter
+\AtBeginDocument{
+	\hypersetup{ 
+	  pdfauthor   = {Martin Thoma}, 
+	  pdfkeywords = {Numerik,KIT}, 
+	  pdftitle    = {\@title} 
+  	}
+	\pagestyle{fancy}
+	\lhead{\@title}
+	\rhead{Seite \thepage von \pageref{LastPage}}
+}
+\makeatother
+
+\usepackage{fancyhdr}
+\fancyfoot[C]{}
 
 \begin{document}
 	\include{Aufgabe1}
