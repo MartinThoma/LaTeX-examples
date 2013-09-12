@@ -1,1 +1,69 @@
 \section*{Aufgabe 4}
+\textbf{Aufgabe}: 
+
+\[I(f) = \int_a^b f(x) \mathrm{d}x \]
+
+\begin{enumerate}
+	\item Integrand am linken und am rechten Rand interpolieren
+	\item Interpolationspolynom mit Quadraturformel integrieren
+\end{enumerate}
+
+\textbf{Lösung}:
+
+Stützstellen:
+
+\[(a, f(a)) \text{ und } (b, f(b))\]
+
+$\Rightarrow$ Polynom 1. Grades interpoliert diese \\
+$\Rightarrow$ Gerade $y = m \cdot x +t$ interpoliert
+
+\begin{align}
+    f(a) &= a \cdot m + t\\
+	f(b) &= b \cdot m + t\\
+\Leftrightarrow 
+	t &= f(a) - ma\\
+	t &= f(b) - mb\\
+\Rightarrow 
+	f(a) - ma &= f(b) - mb\\
+\Leftrightarrow	f(a) - f(b) &= ma - mb\\
+\stackrel{a \neq b}{\Leftrightarrow}	m &= \frac{f(a) - f(b)}{a - b}\\
+\Rightarrow t &= f(a) - \frac{f(a) - f(b)}{a - b} \cdot a\\
+\Leftrightarrow t &= \frac{f(a) \cdot a - f(a) \cdot b - f(a) \cdot a - f(b) \cdot a}{a-b}\\
+\Leftrightarrow t &= \frac{- f(a) \cdot b - f(b) \cdot a}{a-b}\\
+\Leftrightarrow t &= \frac{f(a) \cdot b + f(b) \cdot a}{b-a}
+\end{align}
+
+Das Interpolationspolynom $p(x)$ lautet also
+
+\[ p(x) = \frac{f(a) - f(b)}{a - b} \cdot x + \frac{f(a) \cdot b + f(b) \cdot a}{b-a}\]
+
+Für Polynome ersten Grades benötigt man eine Quadraturformel vom Grad 2 (also NICHT die Rechteckregel). 
+
+\paragraph{Lösung 1: Mittelpunktsregel}
+Die Mittelpunktsregel lautet
+\[\int_a^b f(x) dx \approx (b-a) f(a + \frac{1}{2}(b-a))\]
+
+Damit ergibt sich
+
+\[I(f) \approx (b-a) \underbrace{(\frac{f(a) - f(b)}{a - b} \cdot (a + \frac{1}{2}(b-a)) + \frac{f(a) \cdot b + f(b) \cdot a}{b-a})}_{p(a + \frac{1}{2}(b-a))}\]
+
+\paragraph{Lösung 2: Trapezregel}
+Die Trapezregel lautet
+\[\int_a^b f(x) dx \approx (b-a) \left (\frac{1}{2}f(a) + \frac{1}{2} f(b) \right )\]
+
+TODO: Mache das, wer will.
+
+\subsection*{Teilaufgabe b)}
+Sei nun $f(x) = x^2$ und $a = 0$ sowie $b = 4$. Man soll die ermittelte
+Formel zwei mal auf äquidistanten Intervallen anwenden.
+
+\textbf{Lösung:}
+
+\begin{align}
+	\int_a^b f(x)\mathrm{d}x &=\int_a^{\frac{b-a}{2}} f(x) \mathrm{d}x + \int_{\frac{b-a}{2}}^b f(x) \mathrm{d}x\\
+	\int_0^4 x^2 \mathrm{d}x &=\int_0^2 x^2 \mathrm{d}x + \int_2^4 x^2 \mathrm{d}x\\
+	\int_0^2 x^2 \mathrm{d}x &\approx (2-0) (\frac{f(0) - f(2)}{0 - 2} \cdot (0 + \frac{1}{2}(2-0)) + \frac{f(0) \cdot 2 + f(2) \cdot 0}{2-0})\\
+		&= 2 \cdot \frac{-4}{-2} = 2\\
+	\int_2^4 x^2 \mathrm{d}x &\approx (4-2) (\frac{f(2) - f(4)}{2 - 4} \cdot (2 + \frac{1}{2}(4-2)) + \frac{f(2) \cdot 4 + f(4) \cdot 2}{4-2})\\
+		&= \text{TODO}
+\end{align}

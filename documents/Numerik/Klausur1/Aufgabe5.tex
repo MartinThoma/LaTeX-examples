@@ -1,7 +1,41 @@
 \section*{Aufgabe 5}
 \subsection*{Teilaufgabe a}
-Die Ordnung $n$ einer Quadraturformel gibt an, dass diese Polynome
-bis zum Grad $\leq n - 1$ exakt löst.
+Eine Quadraturformel $(b_i, c_i)_{i=1, \dots, s}$ hat die Ordnung
+$p$, falls sie exakte Lösungen für alle Polynome vom Grad $\leq p -1$
+liefert.
 
 \subsection*{Teilaufgabe b}
+\[\sum_{i=1}^s b_i c_i^{q-1} = \frac{1}{q} \text{ für } q = 1, \dots, p\]
+
 \subsection*{Teilaufgabe c}
+\paragraph{Aufgabe} Bestimmen Sie zu den Knoten $c_1 = 0$ und $c_2 = \frac{2}{3}$ Gewichte, um eine Quadraturformel
+maximaler Ordnung zu erhalten. Wie hoch ist die Ordnung?
+
+\paragraph{Lösung}
+Die möglichen Quadraturformeln lauten:
+\begin{align}
+	Q(f) &= (b-a)\sum_{i=1}^2 b_i f (a+ c_i (b-a))\\
+		 &= (b-a) \cdot \left ( b_1 f(a) + b_2 f \left (a + \frac{2}{3}(b-a) \right ) \right )
+\end{align}
+
+$\stackrel{\text{Satz 28}}{\Rightarrow}$ Wenn wir Ordnung $s = 2$ fordern, sind die Gewichte eindeutig bestimmt.
+Die Trapetzregel hat Ordnung 2 und $b_1 = b_2 = \frac{1}{2}$.
+
+Nun gilt:
+
+\[Q(f) = (b-a) \cdot \left (\frac{1}{2} f(a) + \frac{1}{2} f (a + \frac{2}{3} (b-a)) \right ) \]
+
+Aber für $f(x) = x$ ist $\int_0^3 x \mathrm d x = \left [x^2 \right ]_0^3 = 9 \neq 6 = 3 \cdot 2 = Q(f)$.
+
+$\Rightarrow$ Es gibt keine Quadraturformel mit diesen Knoten und Ordnung 2.
+
+Für Ordnung 1 müssen wir nur Konstanten korrekt interpolieren, also
+
+\begin{align}
+	\int_a^b c \mathrm d x &= \left [ cx \right ]_a^b\\
+	&= (b-a) \cdot c\\
+	&= (b-a) \cdot f(x) \text{ mit } x \text{ beliebig}
+\end{align}
+
+Daher wählt man $b_1 = b_2 = \frac{1}{2}$. Dies ist eine Quadraturformel erster Ordnung.
+Da es keine Quadraturformel mit diesen Knoten von Ordnung 2 gibt, ist das die höchst mögliche Ordnung.
