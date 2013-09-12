@@ -8,28 +8,40 @@ wobei $L$ eine invertierbare, untere Dreiecksmatrix ist.
 Geben Sie die Formel zur Berechnung von $y_i$ an.
 
 \textbf{Lösung:} 
+\[y_i = \frac{b_i - \sum_{k=1}^{i-1} l_{ik} \cdot y_k}{l_{ii}}\]
 
-\[y_i = \frac{b_i - \sum_{k=i}^{i-1} l_{ik} \cdot y_k}{l_{ii}}\]
+\begin{algorithm}[H]
+    \begin{algorithmic}
+    \Require Lower, invertable, triangular Matrix $L \in \mathbb{R}^{n \times n}$, Vektor $b$
+	\Procedure{solve}{$L$, $b$}
+    	\For{$i \in \Set{1, \dots n}$}
+			\State $y_i \gets b_i$
+			\For{$k \in \Set{1, \dots, i-1}$}
+				\State $y_i \gets y_i - l_{ik} \cdot y_k$
+			\EndFor
+			\State $y_i \gets \frac{y_i}{l_{ii}}$
+		\EndFor
+	\EndProcedure
+    \end{algorithmic}
+\caption{Calculate $y$ in $Ly = b$}
+\end{algorithm}
 
 \subsection*{Teilaufgabe b}
-\[Ax = b ? PAx = Pb ? LRx = Pb \]
+\[Ax = b \Leftrightarrow PAx = Pb \Leftrightarrow LRx = Pb \]
 
-Pseudocode:
-
-   \begin{algorithm}[H]
-        \begin{algorithmic}
-        \Require Matrix $A$, Vektor $b$
-		\Procedure{CalculateLegendre}{$A$, $b$}
-        	\State $P, L, R \gets \Call{LRZerlegung}{A}$
-			\State $b^* \gets Pb$
-			\State $c \gets \Call{VorwärtsSubstitution}{L, b^*}$
-			\State $x \gets \Call{RückwärtsSubstitution}{R, c}$
-			\State \Return $x$
-		\EndProcedure
-        \end{algorithmic}
-    \caption{Calculate TODO}
-    \label{alg:TODO}
-    \end{algorithm}
+\begin{algorithm}[H]
+    \begin{algorithmic}
+    \Require Matrix $A$, Vektor $b$
+	\Procedure{LoeseLGS}{$A$, $b$}
+    	\State $P, L, R \gets \Call{LRZer}{A}$
+		\State $b^* \gets Pb$
+		\State $c \gets \Call{VorSub}{L, b^*}$
+		\State $x \gets \Call{RueckSub}{R, c}$
+		\State \Return $x$
+	\EndProcedure
+    \end{algorithmic}
+\caption{Löse ein LGS $Ax = b$}
+\end{algorithm}
 
 \subsection*{Teilaufgabe c}
 Der Gesamtaufwand ist:
