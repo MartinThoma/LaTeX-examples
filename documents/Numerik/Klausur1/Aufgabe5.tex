@@ -13,14 +13,30 @@ maximaler Ordnung zu erhalten. Wie hoch ist die Ordnung?
 
 \paragraph{Lösung}
 
-$b_1 = \frac{1}{4}$ und $b_2 = \frac{3}{4}$ erreichen laut Felix Ordnung 3.
-
-Damit is
-
-Die möglichen Quadraturformeln lauten:
-\begin{align}
-	Q(f) &= (b-a)\sum_{i=1}^2 b_i f (a+ c_i (b-a))\\
-		 &= (b-a) \cdot \left ( b_1 f(a) + b_2 f \left (a + \frac{2}{3}(b-a) \right ) \right )
-\end{align}
+Als erstes stellen wir fest, dass die Knoten nicht symmetrisch (d.h. 
+gespiegelt bei $\frac{1}{2}$) sind. TODO: Warum ist das wichtig?
 
 $\stackrel{\text{Satz 28}}{\Rightarrow}$ Wenn wir Ordnung $s = 2$ fordern, sind die Gewichte eindeutig bestimmt.
+
+Da $c_1 = 0$ kann es sich nicht um die Gauß-QF handeln. Somit können 
+wir nicht Ordnung 4  erreichen.
+
+Nach VL kann bei Vorgabe von $s$ Knoten auch die Ordnung $s$ durch 
+geschickte Wahl der Gewichte erreicht werden. 
+Also berechnen wir die Gewichte, um die Ordnung 2 zu sichern:
+
+\begin{align}
+	b_i &= \int_0^1 L_i(x) \mathrm{d}x\\
+	b_1 &= \frac{1}{4}\\
+	b_2 &= \frac{3}{4}
+\end{align}
+
+Diese Gewichte $b_1, b_2$ erfüllen die 1. und 2. Ordnungsbedingung.
+
+\begin{align}
+	\frac{1}{3} &= \sum_{i=1}^2 b_i \cdot c_i^2\\
+			&= \frac{3}{4} \cdot \frac{4}{9}\\
+			&= \frac{1}{3}
+\end{align}
+
+Damit ist auch die 3. Ordnungsbedingung und mit den Knoten maximale Ordnung erfüllt.
