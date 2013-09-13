@@ -1,0 +1,28 @@
+\section*{Aufgabe 3}
+\subsection*{Teilaufgabe a)}
+\begin{align}
+	L_0(x) &= - \frac{1}{6} \cdot (x^3 - 3 x^2 + 2x)\\
+	L_1(x) &= \frac{1}{2} \cdot (x^3 - 2x^2 - x + 2)\\
+	L_2(x) &= - \frac{1}{2} \cdot (x^3 - x^2 - 2x)\\
+	L_3(x) &= \frac{1}{6} \cdot (x^3 - x)
+\end{align}
+
+Damit ergibt sich:
+\begin{align}
+	p(x) &= x^3 + 2x^2 - 5x + 1
+\end{align}
+
+\subsection*{Teilaufgabe b)}
+Zunächst die dividierten Differenzen berechnen:
+\begin{align}
+	f[x_0] &= 7,           &f[x_1] &= 1,       & f[x_2] &= -1,     & f[x_3] = 7\\
+	f[x_0, x_1] &= -6,     &f[x_1, x_2] &= -2, &f[x_2, x_3] &= 8\\
+	f[x_0, x_1, x_2] &= 2, &f[x_1, x_2, x_3] &= 5\\
+	f[x_0, x_1, x_2, x_3] &= 1
+\end{align}
+
+Insgesamt ergibt sich also
+\begin{align}
+	p(x) &= 7 - (x+1) \cdot 6 + (x+1) \cdot x \cdot 2 + (x+1) \cdot x \cdot (x-1)
+\end{align}
+

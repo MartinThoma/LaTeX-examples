@@ -1,0 +1,35 @@
+\section*{Aufgabe 1}
+\subsection*{Teilaufgabe a)}
+
+$
+L =
+\begin{pmatrix}
+2 & 0 & 0 \\
+1 & 2 & 0 \\
+4 & 2 & 3 \\
+\end{pmatrix}
+$
+
+
+\subsection*{Teilaufgabe b)}
+\textbf{Gesucht}: $\det(A)$
+
+Sei $P \cdot L = L \cdot R$, die gewohnte LR-Zerlegung.
+
+Dann gilt:
+
+\[\det(A) = \det(L) \cdot \det(R) / \det(P)\]
+
+$\det(L) = 1$, da alle Diagonalelemente 1 sind und es sich um eine untere Dreiecksmatrix handelt.
+
+$\det(R) = r_{11} \cdot \ldots \cdot r_{nn} $ da es sich um eine obere Dreiecksmatrix handelt.
+
+
+$\det(P) = 1$ oder $-1$
+
+Das Verfahren ist also:
+\begin{enumerate}
+\item Berechne Restmatrix R mit dem Gaußverfahren.
+\item \label{manker} Multipliziere die Diagonalelemente von R
+\item falls die Anzahl an Zeilenvertauschungen ungerade ist negiere das Produkt aus \ref{manker} (eine Zeilenvertauschung verändert lediglich das Vorzeichen und P ist durch Zeilenvertauschungen aus der Einheitsmatrix hervorgegangen)
+\end{enumerate}

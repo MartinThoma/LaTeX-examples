@@ -1,97 +1,48 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{pdfpages}       % Signatureinbingung und includepdf
+\usepackage{geometry}       % [margin=2.5cm]layout
+\usepackage[pdftex]{hyperref}       % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}      % for advanced numbering of lists
+\usepackage{marvosym}       % checkedbox
+\usepackage{wasysym}
+\usepackage{braket}         % for \Set{}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{gauss}
+\usepackage{algorithm,algpseudocode}
+\usepackage{parskip}
+\usepackage{lastpage}
+\allowdisplaybreaks
 
-\usepackage[english]{babel}
-\usepackage[utf8x]{inputenc}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage{stmaryrd}
-\usepackage{parskip} % damit keine "unsinnigen" Einrückungen passieren
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
-\title{Musterlösungen für Numerik}
-\author{Felix Benz-Baldas}
+\title{Numerik Klausur 2 - Musterlösung}
+\makeatletter
+\AtBeginDocument{
+	\hypersetup{ 
+	  pdfauthor   = {Felix Benz-Baldas, Martin Thoma, Peter},
+	  pdfkeywords = {Numerik, KIT, Klausur}, 
+	  pdftitle    = {\@title} 
+  	}
+	\pagestyle{fancy}
+	\lhead{\@title}
+	\rhead{Seite \thepage von \pageref{LastPage}}
+}
+\makeatother
+
+\usepackage{fancyhdr}
+\fancyfoot[C]{}
 
 \begin{document}
-\maketitle
-
-\section{Klausur 2}
-\subsection{Aufgabe 1}
-\subsubsection*{(a)}
-
-$
-L =
-\begin{pmatrix}
-2 & 0 & 0 \\
-1 & 2 & 0 \\
-4 & 2 & 3 \\
-\end{pmatrix}
-$
-
-
-\subsubsection*{(b)}
-gesucht: det(A)
-
-sei P * L = L * R, die gewohnte LR-Zerlegung
-
-dann gilt:
-
-$det(A) = det(L) * det(R) / det(P)$
-
-det(L) = 1, da alle Diagonalelemente 1 sind und es sich um eine untere Dreiecksmatrix handelt.
-
-$ det(R) = r_{11} * ... * r_{nn} $ da es sich um eine obere Dreiecksmatrix handelt.
-
-
-$ det(P) = $ 1 oder -1
-
-Das Verfahren ist also:
-\begin{enumerate}
-\item Berechne Restmatrix R mit dem Gaußverfahren.
-\item \label{manker} Multipliziere die Diagonalelemente von R
-\item falls die Anzahl an Zeilenvertauschungen ungerade ist negiere das Produkt aus \ref{manker} (eine Zeilenvertauschung verändert lediglich das Vorzeichen und P ist durch Zeilenvertauschungen aus der Einheitsmatrix hervorgegangen)
-\end{enumerate}
-
-\subsection{Aufgabe 2}
-\subsubsection*{(a)}
-Formel: $y_i = (b_i - \sum_{j=1}^{i-1} y_j \cdot l_{ij} ) \div l_{ii} $
-
-Anmerkung: $l_{ii}$ kann nicht $0$ sein, da L dann nicht mehr invertierbar wäre.
-
-Algorithmus:
-\begin{itemize}
-\item for i = 1 to i = n do
-\begin{itemize}
-\item sum = 0
-\item for j = 1 to j = i - 1 do
-\begin{itemize}
-\item sum = sum + $y_i \cdot l_{ij}$
-\end{itemize}
-\item od
-\item $y_i = (b_i - sum) \div l_{ii}$
-\end{itemize}
-\item od
-\end{itemize}
-
-\subsubsection*{(b)}
-\begin{itemize}
-\item function $ x = LoeseLGS(A,b)$
-\begin{itemize}
-\item $(P,L,R) = LRZer(A)$
-\item $b'=P \cdot b $
-\item $c = VorSub(L,b') $
-\item $x=RueckSub(R,c)$
-\end{itemize}
-\item end
-
-\end{itemize}
-
-
-\subsubsection*{(c)}
-Aufwand:
-\begin{itemize}
-\item Vorwärts-/Rückwärtssubstitution: jeweils $\frac{1}{2} \cdot n^2$
-\item LR-Zerlegung: $\frac{1}{3}n^3$ (den Beweis dazu braucht man nicht wissen)
-\item gesamt: $\frac{1}{3}n^3+n^2$
-\end{itemize}
-
+	\include{Aufgabe1}
+	\include{Aufgabe2}
+	\include{Aufgabe3}
+	\include{Aufgabe4}
+	\include{Aufgabe5}
 \end{document}

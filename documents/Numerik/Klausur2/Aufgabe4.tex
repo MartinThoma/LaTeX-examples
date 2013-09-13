@@ -1,0 +1,52 @@
+\section*{Aufgabe 4}
+\subsection*{Teilaufgabe a)}
+\begin{enumerate}
+    \item Ordnung 3 kann durch geschickte Gewichtswahl erzwungen werden.
+    \item Ordnung 4 ist automatisch gegeben, da die QF symmetrisch sein soll.
+    \item Aufgrund der Symmetrie gilt Äquivalenz zwischen Ordnung 5 und 6. 
+          Denn eine hätte die QF Ordnung 5, so wäre wegen der 
+          Symmetrie Ordnung 6 direkt gegeben. Ordnung 6 wäre aber 
+          bei der Quadraturformel mit 3 Knoten das Maximum, was nur 
+          mit der Gauß-QF erreicht werden kann. Da aber $c_1 = 0$ gilt, 
+          kann es sich hier nicht um die Gauß-QF handeln. Wegen 
+          erwähnter Äquivalenz kann die QF auch nicht Ordnung 5 haben.
+\end{enumerate}
+
+Da $c_1 = 0$ gilt, muss $c_3 = 0$ sein. Und dann muss $c_2 = \frac{1}{2}$
+sein. Es müssen nun die Gewichte bestimmt werden um Ordnung 3 zu 
+garantieren mit:
+
+\begin{align}
+    b_i &= \int_0^1 L_i(x) \mathrm{d}x\\
+    b_1 &= \frac{1}{6},\\
+    b_2 &= \frac{4}{6},\\
+    b_4 &= \frac{1}{6}
+\end{align}
+
+\subsection*{Teilaufgabe b)}
+Als erstes ist festzustellen, dass es sich hier um die Simpsonregel handelt und die QF
+\begin{align}
+    \int_a^b f(x) \mathrm{d}x &= (b-a) \cdot \frac{1}{6} \cdot \left ( f(a) + 4 \cdot f(\frac{a+b}{2}) + f(b) \right )
+\end{align}
+
+ist. Wenn diese nun auf $N$ Intervalle aufgepflittet wird gilt folgendes:
+
+\begin{align}
+    \int_a^b f(x) \mathrm{d}x &= (b-a) \cdot \frac{1}{6} \cdot \left [ f(a) + f(b) + 2 \cdot \sum_{i=1}^{N-1} f(i \cdot \frac{1}{N}) + 4 \cdot \sum_{i=1}^N f(i \cdot \frac{1}{2N})\right ]
+\end{align}
+
+$\sum_{i=1}^{N-1} f(i \cdot \frac{1}{N})$  sind die Grenzknoten der Intervalle
+ (deshalb werden sie doppelt gezählt). Von den Grenzknoten gibt es 
+insgesamt $s-2$ Stück, da die tatsächlichen Integralgrenzen $a$ und $b$ 
+nur einmal in die Berechnung mit einfließen.
+
+$\sum_{i=1}^N f(i \cdot \frac{1}{2N})$ sind die jeweiligen 
+mittleren Knoten der Intervalle. Davon gibt es $s-1$ Stück.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=\linewidth, keepaspectratio]{aufgabe4-b.png} 
+\end{figure}
+
+\subsection*{Teilaufgabe c)}
+TODO

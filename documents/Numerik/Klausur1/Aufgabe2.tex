@@ -34,7 +34,7 @@ Geben Sie die Formel zur Berechnung von $y_i$ an.
     \Require Matrix $A$, Vektor $b$
 	\Procedure{LoeseLGS}{$A$, $b$}
     	\State $P, L, R \gets \Call{LRZer}{A}$
-		\State $b^* \gets Pb$
+		\State $b^* \gets P \cdot b$
 		\State $c \gets \Call{VorSub}{L, b^*}$
 		\State $x \gets \Call{RueckSub}{R, c}$
 		\State \Return $x$
