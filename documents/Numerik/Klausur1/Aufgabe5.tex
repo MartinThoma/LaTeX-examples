@@ -12,6 +12,11 @@ liefert.
 maximaler Ordnung zu erhalten. Wie hoch ist die Ordnung?
 
 \paragraph{Lösung}
+
+$b_1 = \frac{1}{4}$ und $b_2 = \frac{3}{4}$ erreichen laut Felix Ordnung 3.
+
+Damit is
+
 Die möglichen Quadraturformeln lauten:
 \begin{align}
 	Q(f) &= (b-a)\sum_{i=1}^2 b_i f (a+ c_i (b-a))\\
@@ -19,23 +24,3 @@ Die möglichen Quadraturformeln lauten:
 \end{align}
 
 $\stackrel{\text{Satz 28}}{\Rightarrow}$ Wenn wir Ordnung $s = 2$ fordern, sind die Gewichte eindeutig bestimmt.
-Die Trapetzregel hat Ordnung 2 und $b_1 = b_2 = \frac{1}{2}$.
-
-Nun gilt:
-
-\[Q(f) = (b-a) \cdot \left (\frac{1}{2} f(a) + \frac{1}{2} f (a + \frac{2}{3} (b-a)) \right ) \]
-
-Aber für $f(x) = x$ ist $\int_0^3 x \mathrm d x = \left [x^2 \right ]_0^3 = 9 \neq 6 = 3 \cdot 2 = Q(f)$.
-
-$\Rightarrow$ Es gibt keine Quadraturformel mit diesen Knoten und Ordnung 2.
-
-Für Ordnung 1 müssen wir nur Konstanten korrekt interpolieren, also
-
-\begin{align}
-	\int_a^b c \mathrm d x &= \left [ cx \right ]_a^b\\
-	&= (b-a) \cdot c\\
-	&= (b-a) \cdot f(x) \text{ mit } x \text{ beliebig}
-\end{align}
-
-Daher wählt man $b_1 = b_2 = \frac{1}{2}$. Dies ist eine Quadraturformel erster Ordnung.
-Da es keine Quadraturformel mit diesen Knoten von Ordnung 2 gibt, ist das die höchst mögliche Ordnung.
