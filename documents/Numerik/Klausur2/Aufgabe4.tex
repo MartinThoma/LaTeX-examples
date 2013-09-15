@@ -30,11 +30,12 @@ Als erstes ist festzustellen, dass es sich hier um die Simpsonregel handelt und 
 \end{align}
 
 ist. Wenn diese nun auf $N$ Intervalle aufgepflittet wird gilt folgendes:
-
 \begin{align}
-    \int_a^b f(x) \mathrm{d}x &= (b-a) \cdot \frac{1}{6} \cdot \left [ f(a) + f(b) + 2 \cdot \sum_{i=1}^{N-1} f(i \cdot \frac{1}{N}) + 4 \cdot \sum_{i=1}^N f(i \cdot \frac{1}{2N})\right ]
+	h &= \frac{(b-a)}{N} \\
+	\int_a^b f(x) \mathrm{d}x &= h \cdot \frac{1}{6} \cdot \left [ f(a) + f(b) + 2 \cdot \sum_{i=1}^{N-1} f(a + i \cdot h) + 4 \cdot \sum_{l=0}^{N-1} f(a + \frac{1}{2} \cdot h + l \cdot h)\right ]
 \end{align}
 
+<<<<<<< HEAD
 $\sum_{i=1}^{N-1} f(i \cdot \frac{1}{N})$  sind die Grenzknoten der Intervalle
  (deshalb werden sie doppelt gezählt). Von den Grenzknoten gibt es
 insgesamt $s-2$ Stück, da die tatsächlichen Integralgrenzen $a$ und $b$
@@ -47,6 +48,15 @@ mittleren Knoten der Intervalle. Davon gibt es $s-1$ Stück.
     \centering
     \includegraphics*[width=\linewidth, keepaspectratio]{aufgabe4-b.png}
 \end{figure}
+=======
+$\sum_{i=1}^{N-1} f(a + i \cdot h)$ steht für die Grenzknoten
+ (deshalb werden sie doppelt gezählt). Von den Grenzknoten gibt es 
+insgesamt $N-2$ Stück, da die tatsächlichen Integralgrenzen $a$ und $b$ 
+nur einmal in die Berechnung mit einfließen.
+
+$\sum_{l=0}^{N-1} f(a + \frac{1}{2} \cdot h + l \cdot h)$ sind die jeweiligen 
+mittleren Knoten der Intervalle. Davon gibt es $N$ Stück.
+>>>>>>> f4422549d96c4826905bce10e7379dca20b9b4b7
 
 \subsection*{Teilaufgabe c)}
 TODO
