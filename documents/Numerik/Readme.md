@@ -11,7 +11,7 @@ Detailliert in den Commit-Nachrichten, aber die beitragenden waren:
 
 * Felix Benz-Baladas
 * Martin Thoma
-* Peter
+* Peter Merkert
 
 Korrektur gelesen
 =================
