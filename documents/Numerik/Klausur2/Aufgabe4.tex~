@@ -34,7 +34,7 @@ ist. Wenn diese nun auf $N$ Intervalle aufgepflittet wird gilt folgendes:
 	h &= \frac{(b-a)}{N} \\
 	\int_a^b f(x) \mathrm{d}x &= h \cdot \frac{1}{6} \cdot \left [ f(a) + f(b) + 2 \cdot \sum_{i=1}^{N-1} f(a + i \cdot h) + 4 \cdot \sum_{l=0}^{N-1} f(a + \frac{1}{2} \cdot h + l \cdot h)\right ]
 \end{align}
-
+	
 $\sum_{i=1}^{N-1} f(a + i \cdot h)$ steht für die Grenzknoten
  (deshalb werden sie doppelt gezählt). Von den Grenzknoten gibt es 
 insgesamt $N-2$ Stück, da die tatsächlichen Integralgrenzen $a$ und $b$ 

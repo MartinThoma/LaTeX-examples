@@ -1,0 +1,48 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{pdfpages}       % Signatureinbingung und includepdf
+\usepackage{geometry}       % [margin=2.5cm]layout
+\usepackage[pdftex]{hyperref}       % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}      % for advanced numbering of lists
+\usepackage{marvosym}       % checkedbox
+\usepackage{wasysym}
+\usepackage{braket}         % for \Set{}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{gauss}
+\usepackage{algorithm,algpseudocode}
+\usepackage{parskip}
+\usepackage{lastpage}
+\allowdisplaybreaks
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\title{Numerik Klausur 2 - Musterlösung}
+\makeatletter
+\AtBeginDocument{
+	\hypersetup{ 
+	  pdfauthor   = {Felix Benz-Baldas, Martin Thoma, Peter},
+	  pdfkeywords = {Numerik, KIT, Klausur}, 
+	  pdftitle    = {\@title} 
+  	}
+	\pagestyle{fancy}
+	\lhead{\@title}
+	\rhead{Seite \thepage von \pageref{LastPage}}
+}
+\makeatother
+
+\usepackage{fancyhdr}
+\fancyfoot[C]{}
+
+\begin{document}
+	\include{Aufgabe1}
+	\include{Aufgabe2}
+	\include{Aufgabe3}
+	\include{Aufgabe4}
+	\include{Aufgabe5}
+\end{document}

@@ -1,0 +1,46 @@
+\section*{Aufgabe 1}
+\subsection*{Teilaufgabe a)}
+
+Erste Spalte:
+\begin{align}
+	l_{11} &= \sqrt{a_{11}} \\
+	l_{21} &= \frac{a_{21}}{l_{11}}\\
+	l_{31} &= \frac{a_{31}}{l_{11}}\\
+\end{align}
+Zweite Spalte:
+\begin{align}
+	l_{22} &= \sqrt{a_{22} - {l_{21}}^2}\\
+	l_{32} &= (a_{32} -l_{21} \cdot l_{31}) \div l_{22} \\
+\end{align}
+Dritte Spalte:
+\begin{align}
+	l_{33} &= \sqrt{a_{33}-{l_{32}^2}-{l_{31}}^2}
+\end{align}
+
+\subsection*{Teilaufgabe b)}
+\begin{align}
+	l_{11} &= 2 \\
+	l_{21} &= 1 \\
+	l_{31} &= -2 \\
+	l_{22} &= 3 \\
+	l_{32} &= 1 \\
+	l_{33} &= 1 \\
+\end{align}
+Die restlichen Einträge sind $0$. ($L$ ist immer eine untere Dreiecksmatrix)
+
+\subsection*{Teilaufgabe c)}
+
+\begin{align}
+	A \cdot x = b \Leftrightarrow L \cdot L^T \cdot x = b \\
+	L \cdot c = b \label{a1}
+\end{align}
+Löse \ref{a1} mit Vorwärtssubstitution.
+\begin{align}
+	L^T \cdot x = c \label{a2}
+\end{align}
+Löse \ref{a2} mit Rückwärtssubstitution.
+\begin{align}
+	x_3 &= 3 \\
+	x_2 &= 1 \\
+	x_1 &= 2 \\
+\end{align}
