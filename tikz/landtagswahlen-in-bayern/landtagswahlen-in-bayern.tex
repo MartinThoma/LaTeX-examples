@@ -1,0 +1,41 @@
+\documentclass[varwidth=false, border=2pt]{standalone}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usetikzlibrary{pgfplots.dateplot}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+            date coordinates in=x,
+            xticklabel={\year},
+            x tick label style={align=center, rotate=45},
+            date ZERO=2010-01-01, % Set near lowest date
+            xmin={1945-01-01}, % A date with no time is assumed to have a time of 00:00
+            xmax={2010-01-01},
+            extra y ticks={5},
+            /pgfplots/ytick={0,10,...,100},
+            %axis x line=middle,
+            %axis y line=middle,
+            %enlarge y limits=true,
+            ymin=0, ymax=100,
+            width=15cm, height=8cm,     % size of the image
+            grid = major,
+            grid style={dashed, gray!30},
+            ylabel=\%,
+            %xlabel=Jahr,
+            legend style={at={(1.2,1)}, anchor=north}
+         ]
+          \addplot[blue, dashed, mark=triangle*] table [x=Wahltag, y=Wahlbeteiligung, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \addplot[black,mark=square*] table [x=Wahltag, y=CSU, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \addplot[red,mark=square*] table [x=Wahltag, y=SPD, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \addplot[green,mark=square*] table [x=Wahltag, y=GRÜNE, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \addplot[yellow,mark=square*] table [x=Wahltag, y=FDP, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \legend{Wahlbeteiligung,CSU,SPD,Grüne,FDP}
+    \end{axis}
+\end{tikzpicture}
+\end{document}
