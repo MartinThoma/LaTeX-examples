@@ -1,0 +1,17 @@
+\section*{Aufgabe 5}
+\subsection*{Teilaufgabe i}
+relativer Fehler:
+
+% TODO: eps soll nicht kursiv sein.
+\begin{align}
+	\frac{ | \frac{x}{y} - \frac{x \cdot (1 + \epsilon_x)}{y \cdot (1 + \epsilon_y}|}{|\frac{x}{y}|}
+	= \ldots = |\frac{\epsilon_y - \epsilon_x }{1 + \epsilon_y} |
+	\le \frac{|\epsilon_y | + | \epsilon_x |}{|1 + \epsilon_y|} \le \frac{2 \cdot eps}{|1 + \epsilon_y|} 
+\end{align}
+
+Der letzte Ausdruck ist ungefähr gleich $2 \cdot eps$, da $1 + \epsilon_y$ ungefähr gleich $1$ ist.
+Also: Der relative Fehler kann sich maximal verdoppeln.
+
+\subsection*{Teilaufgabe ii}
+Die zweite Formel ist vorzuziehen, also $f(x) = -\ln (x + \sqrt{x^2-1})$, da es bei Subtraktion zweier annähernd gleich-großer Zahlen zur Stellenauslöschung kommt. Bei der ersten Formel, also $f(x) = \ln (x - \sqrt{x^2-1})$, tritt genau dieses Problem auf: $x$ und $\sqrt{x^2-1}$ sind für große $x$ ungefähr gleich groß. \\
+Bei der zweiten Formel tritt das Problem nicht auf: $x$ ist positiv und $\sqrt{x^2 - 1}$ auch, also gibt es in dem Ausdruck keine Subtraktion zweier annähernd gleich-großer Zahlen.
