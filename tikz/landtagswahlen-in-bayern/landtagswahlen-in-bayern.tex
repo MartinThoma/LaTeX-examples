@@ -14,21 +14,17 @@
             date coordinates in=x,
             xticklabel={\year},
             x tick label style={align=center, rotate=45},
-            date ZERO=2010-01-01, % Set near lowest date
-            xmin={1945-01-01}, % A date with no time is assumed to have a time of 00:00
+            yticklabel=$\pgfmathprintnumber{\tick}$\,\%,
+            date ZERO=1946-06-30,
+            xmin={1946-01-01},
             xmax={2010-01-01},
             extra y ticks={5},
             /pgfplots/ytick={0,10,...,100},
-            %axis x line=middle,
-            %axis y line=middle,
-            %enlarge y limits=true,
             ymin=0, ymax=100,
             width=15cm, height=8cm,     % size of the image
             grid = major,
             grid style={dashed, gray!30},
-            ylabel=\%,
-            %xlabel=Jahr,
-            legend style={at={(1.2,1)}, anchor=north}
+            legend style={at={(1.15,1)}, anchor=north}
          ]
           \addplot[blue, dashed, mark=triangle*] table [x=Wahltag, y=Wahlbeteiligung, col sep=comma] {landtagswahlen-in-bayern.csv};
           \addplot[black,mark=square*] table [x=Wahltag, y=CSU, col sep=comma] {landtagswahlen-in-bayern.csv};
