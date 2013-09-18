@@ -1,12 +1,15 @@
 \section*{Aufgabe 3}
+Die Jacobi-Matrix von $f$ lautet:
 \[f' (x,y) = \begin{pmatrix}
 	3     & \cos y\\
 	3 x^2 & e^y
 \end{pmatrix}\]
+Hierfür wurde in in der ersten Spalte nach $x$ abgeleitet und in der
+zweiten Spalte nach $y$.
 
-Und jetzt die Berechnung
+Und jetzt die Berechnung %TODO: Was ist hiermit gemeint?
 
-\[f'(x, y) \cdot (x_0, y_0) = f(x,y)\]
+\[f'(x, y) \cdot (x_0, y_0) = f(x,y)\] %TODO: Was ist hiermit gemeint?
 
 LR-Zerlegung für $f'(x, y)$ kann durch scharfes hinsehen durchgeführt
 werden, da es in $L$ nur eine unbekannte (links unten) gibt. Es gilt
@@ -59,7 +62,11 @@ also ausführlich:
 		0 & -x^2 \cdot \cos y + e^y
 	\end{pmatrix}\\
 	P &= I_2\\
--f ( \frac{-1}{3}, 0) &= \begin{pmatrix} 2\\ -\frac{26}{27}\end{pmatrix}\\
-c &= \begin{pmatrix} 2\\ \frac{82}{27} \end{pmatrix}\\
+\end{align}
+
+Es folgt:
+\begin{align}
+-f ( \nicefrac{-1}{3}, 0) &= \begin{pmatrix} -2\\ -\frac{26}{27}\end{pmatrix}\\
+c &= \begin{pmatrix} 2\\ \frac{82}{27} \end{pmatrix}\\ %TODO: Was ist c?
 (x_1, y_1) &= \begin{pmatrix} \frac{5}{3}\\ \frac{82}{27}\end{pmatrix}
 \end{align}
