@@ -1,7 +1,7 @@
 SOURCE = landtagswahlen-in-bayern
 DELAY = 80
 DENSITY = 300
-WIDTH = 512
+WIDTH = 768
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf

@@ -24,7 +24,8 @@
             width=15cm, height=8cm,     % size of the image
             grid = major,
             grid style={dashed, gray!30},
-            legend style={at={(1.15,1)}, anchor=north}
+            legend style={at={(1.15,1)}, anchor=north},
+            xtick=data
          ]
           \addplot[blue, dashed, mark=triangle*] table [x=Wahltag, y=Wahlbeteiligung, col sep=comma] {landtagswahlen-in-bayern.csv};
           \addplot[black,mark=square*] table [x=Wahltag, y=CSU, col sep=comma] {landtagswahlen-in-bayern.csv};
