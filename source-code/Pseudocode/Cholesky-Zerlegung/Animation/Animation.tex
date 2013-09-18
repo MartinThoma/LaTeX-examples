@@ -1,0 +1,279 @@
+\documentclass[aspectratio=169,hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+ 
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+ 
+% Define some styles for graphs
+\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{blue vertex} = [vertex, fill=blue!24]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{weight} = [font=\small]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
+ 
+% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%\usetheme{Frankfurt}
+\usefonttheme{professionalfonts}
+ 
+% disables bottom navigation bar
+\beamertemplatenavigationsymbolsempty
+ 
+% http://tex.stackexchange.com/questions/23727/converting-beamer-slides-to-animated-images
+\setbeamertemplate{navigation symbols}{}%
+
+\newcommand{\alertline}{%
+ \usebeamercolor[fg]{normal text}%
+ \only{\usebeamercolor[fg]{alerted text}}}
+
+
+\begin{document}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\newcommand\hlight[1]{\tikz[overlay, remember picture,baseline=-\the\dimexpr\fontdimen22\textfont2\relax]\node[rectangle,fill=blue!50,rounded corners,fill opacity = 0.2,draw,thick,text opacity =1] {$#1$};}
+\newcommand\tocalculate[1]{\tikz[overlay, remember picture,baseline=-\the\dimexpr\fontdimen22\textfont2\relax]\node[rectangle,fill=green!50,rounded corners,fill opacity = 0.2,draw,thick,text opacity =1] {$#1$};}
+ 
+\begin{frame}
+    \begin{minipage}[b]{0.30\linewidth}
+    \centering
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+       \alertline<1> L &= \alertline<1>\begin{pmatrix}
+            0 & 0 & 0\\
+            0 & 0 & 0\\
+            0 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.60\linewidth}
+    \centering
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Function{Cholesky}{$A \in \mathbb{R}^{n \times n}$}
+                \alertline<1>\State $L = \Set{0} \in \mathbb{R}^{n \times n}$ \Comment{Initialisiere $L$}\\
+
+                \alertline<2>\alertline<4>\For{($k=1$; $\;k \leq n$; $\;k$++)}
+                    \alertline<3>\State $L_{k,k} = \sqrt{A_{k,k} - \sum_{i=1}^{k-1} L_{k,i}^2}$
+                    \For{($i=k+1$; $\;i \leq n$; $\;i$++)}
+                        \State $L_{i,k} = \frac{A_{i,k} - \sum_{j=1}^{k-1} L_{i,j} \cdot L_{k,j}}{L_{k,k}}$
+                    \EndFor
+                \EndFor
+                \alertline<5>\State \Return $L$
+            \EndFunction
+        \end{algorithmic}
+    \caption{Cholesky-Zerlegung}
+    \label{alg:seq1}
+    \end{algorithm}
+    \end{minipage}
+\end{frame}
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            \hlight{1} &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            \tocalculate{0} & 0 & 0\\
+            0 & 0 & 0\\
+            0 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            \tocalculate{1} & 0 & 0\\
+            0 & 0 & 0\\
+            0 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Calculate L_2,1
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            \hlight{2} &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            \tocalculate{0} & 0 & 0\\
+            0 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            \hlight{1} & 0 & 0\\
+            \tocalculate{2} & 0 & 0\\
+            0 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            \tocalculate{2} & 0 & 0\\
+            0 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Calculate L_3,1
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            \hlight{3} & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            2 & 0 & 0\\
+            \tocalculate{0} & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            \hlight{1} &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            2 & 0 & 0\\
+            \tocalculate{3} & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Calculate L_2,2
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  \hlight{8} & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            2 & \tocalculate{0} & 0\\
+            3 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            \hlight{2} & \tocalculate{8} & 0\\
+            3 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            2 & \tocalculate{8} & 0\\
+            3 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= \hlight{4}
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            2 & \tocalculate{4} & 0\\
+            3 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}
+    \begin{align*}
+        A &= \begin{pmatrix}
+            1 &  2 & 3\\
+            2 &  8 & 14\\
+            3 & 14 & 34
+        \end{pmatrix}\\
+        L &= \begin{pmatrix}
+            1 & 0 & 0\\
+            2 & \tocalculate{2} & 0\\
+            3 & 0 & 0
+        \end{pmatrix}\\
+        tmp &= 0
+    \end{align*}
+\end{frame}
+\end{document}
