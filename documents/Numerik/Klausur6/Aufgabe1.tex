@@ -1,1 +1,73 @@
 \section*{Aufgabe 1}
+\textbf{Gegeben:}
+
+\[
+A = \begin{pmatrix}
+    1 & 2 & 3\\
+    2 & 8 & 14\\
+    3 & 14 & 34
+\end{pmatrix}\]
+
+\textbf{Aufgabe:} Durch Gauß-Elimination die Cholesky-Zerlegung $A = \overline{L} \overline{L}^T$
+berechnen
+
+\textbf{Lösung mit Gauß-Elimination:}
+\begin{align*}
+    A &=
+	\begin{gmatrix}[p]
+        1 & 2 & 3\\
+        2 & 8 & 14\\
+        3 & 14 & 34
+        \rowops
+        \add[\cdot (-2)]{0}{1}
+        \add[\cdot (-3)]{0}{2}
+    \end{gmatrix}\\
+    \leadsto
+    L^{(1)} &=
+    \begin{pmatrix}
+		1 & 0 & 0\\
+	   -2 & 1 & 0\\
+       -3 & 0 & 1
+	\end{pmatrix},&
+    A^{(1)} &=
+	\begin{gmatrix}[p]
+        1 & 2 & 3\\
+        0 & 4 & 8\\
+        0 & 8 & 25
+        \rowops
+        \add[\cdot (-2)]{1}{2}
+    \end{gmatrix}\\
+    \leadsto
+    L^{(2)} &=
+    \begin{pmatrix}
+		1 & 0 & 0\\
+	    0 & 1 & 0\\
+        0 & -2 & 1
+	\end{pmatrix},&
+    A^{(2)} &=
+	\begin{gmatrix}[p]
+        1 & 2 & 3\\
+        0 & 4 & 8\\
+        0 & 0 & 9
+        \rowops
+        \add[\cdot (-2)]{1}{2}
+    \end{gmatrix}\\
+\end{align*}
+
+TODO: Und wie gehts weiter?
+
+
+\textbf{Lösung ohne Gauß-Elimination:}
+\[
+    A = 
+    \underbrace{
+	\begin{pmatrix}
+        1 & 0 & 0\\
+        2 & 2 & 0\\
+        3 & 4 & 3
+    \end{pmatrix}}_{=: L} \cdot \underbrace{\begin{pmatrix}
+        1 & 2 & 3\\
+        0 & 2 & 4\\
+        0 & 0 & 3
+    \end{pmatrix}}_{=: L^T}
+\]
