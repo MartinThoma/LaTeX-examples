@@ -30,9 +30,11 @@
           \addplot[blue, dashed, mark=triangle*] table [x=Wahltag, y=Wahlbeteiligung, col sep=comma] {landtagswahlen-in-bayern.csv};
           \addplot[black,mark=square*] table [x=Wahltag, y=CSU, col sep=comma] {landtagswahlen-in-bayern.csv};
           \addplot[red,mark=square*] table [x=Wahltag, y=SPD, col sep=comma] {landtagswahlen-in-bayern.csv};
-          \addplot[green,mark=square*] table [x=Wahltag, y=GRÜNE, col sep=comma] {landtagswahlen-in-bayern.csv};
-          \addplot[yellow,mark=square*] table [x=Wahltag, y=FDP, col sep=comma] {landtagswahlen-in-bayern.csv};
-          \legend{Wahlbeteiligung,CSU,SPD,Grüne,FDP}
+          \addplot[green,mark=x] table [x=Wahltag, y=GRÜNE, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \addplot[yellow,mark=x] table [x=Wahltag, y=FDP, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \addplot[blue,mark=x] table [x=Wahltag, y=BP, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \addplot[orange,mark=x] table [x=Wahltag, y=FW, col sep=comma] {landtagswahlen-in-bayern.csv};
+          \legend{Wahlbeteiligung,CSU,SPD,Grüne,FDP,BP,FW}
     \end{axis}
 \end{tikzpicture}
 \end{document}

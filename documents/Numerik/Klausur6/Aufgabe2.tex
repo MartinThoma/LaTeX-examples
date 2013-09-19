@@ -1,0 +1,77 @@
+\section*{Aufgabe 2}
+\subsection*{Teilaufgabe i}
+Es gilt:
+
+\begin{align}
+    2x - e^{-x} &= 0\\
+    \Leftrightarrow 2x &= e^{-x}\\
+\end{align}
+
+Offensichtlich ist $g(x) := 2x$ streng monoton steigend und $h(x) := e^{-x}$ streng
+monoton fallend.
+
+Nun gilt: $g(0) = 0 < 1 = e^0 = h(0)$. Das heißt, es gibt keinen
+Schnittpunkt für $x \leq 0$.
+
+Außerdem: $g(1) = 2$ und $h(1) = e^{-1} = \frac{1}{e} < 2$.
+Das heißt, für $x \geq 1$ haben $g$ und $h$ keinen Schnittpunkt.
+
+Da $g$ und $h$ auf $[0,1]$ stetig sind und $g(0) < h(0)$ sowie $g(1) > h(1)$
+gilt, müssen sich $g$ und $h$ im Intervall mindestens ein mal schneiden.
+Da beide Funktionen streng monoton sind, schneiden sie sich genau
+ein mal.
+
+Ein Schnittpunkt der Funktion $g,h$ ist äquivalent zu einer
+Nullstelle der Funktion $f$. Also hat $f$ genau eine Nullstelle
+und diese liegt in $[0,1]$.
+
+\subsection*{Teilaufgabe ii}
+    \begin{align}
+        2x - e^{-x} &= 0\\
+    \Leftrightarrow 2x &= e^{-x}\\
+    \Leftrightarrow x &= \frac{1}{2} \cdot e^{-x} = F_1(x) \label{a2iif1}\\
+    \stackrel{x \in \mathbb{R}^+}{\Rightarrow} \ln(2x) &= -x\\
+    \Leftrightarrow x &= - \ln(2x) = F_2(x)\label{a2iif2}
+    \end{align}
+
+Gleichung \ref{a2iif1} zeigt, dass der Fixpunkt von $F_1$ mit der 
+Nullstelle von $f$ übereinstimmt.
+
+Gleichung \ref{a2iif2} zeigt, dass der Fixpunkt von $F_1$ mit der 
+Nullstelle von $f$ übereinstimmt. Da es nur in $[0,1]$ eine Nullstelle
+gibt (vgl. Teilaufgabe i), ist die Einschränkung von $x$ auf $\mathbb{R}^+$
+irrelevant.
+
+TODO: Ich vermute, man soll die Kontraktionszahlen ermitteln.
+Die Funktion mit der niedrigern Kontraktionszahl ist besser, da man
+bessere Abschätzungen machen kann.
+
+$F_1$ ist auf $[0,1]$ eine Kontraktion mit Kontraktionszahl $\theta = \frac{1}{2}$:
+\begin{align}
+    \|\frac{1}{2} e^{-x} - \frac{1}{2} e^{-y}\| &\leq \frac{1}{2} \cdot \|x-y\|\\
+    \Leftrightarrow \frac{1}{2} \cdot \| e^{-x} - e^{-y}\| &\leq \frac{1}{2} \cdot \|x-y\|\\
+    \Leftrightarrow \| e^{-x} - e^{-y}\| &\leq \|x-y\|\\
+    \Leftrightarrow \| -e^{-x-y}(e^{x} - e^{y})\| &\leq \|x-y\|\\
+    \Leftrightarrow \|-e^{-x-y} \| \cdot \|e^{x} - e^{y}\| &\leq \|x-y\|\\
+    \Leftrightarrow \underbrace{e^{-(x+y)}}_{\leq 1} \cdot \|e^{x} - e^{y}\| &\leq \|x-y\|
+\end{align}
+
+TODO: Beweis ist noch nicht fertig
+
+$F_2$ ist auf $(0,1]$ eine Kontraktion mit Kontraktionszahl $\theta$:
+\begin{align}
+    \|- \ln (2x) + \ln(2y) \| &\leq \theta \cdot \|x-y\|\\
+    \Leftrightarrow \| \ln(\frac{2y}{2x}) \| &\leq \theta \cdot \|x-y\|\\
+    \Leftrightarrow \| \ln(\frac{y}{x}) \| &\leq \theta \cdot \|x-y\|
+\end{align}
+
+TODO: Beweis ist nicht mal wirklich angefangen
+
+Gegen $F_2$ spricht auch, dass $\log$ nur auf $\mathbb{R}^+$ definiert
+ist. Das kann bei Rundungsfehlern eventuell zu einem Fehler führen.
+(vgl. Python-Skript)
+
+\subsection*{Teilaufgabe iii}
+\[x_{k+1} = x_k - \frac{2x_k - e^{-x_k}}{2 + e^{-x_k}}\]
+
+Laut \href{http://www.wolframalpha.com/input/?i=2x-e%5E(-x)%3D0}{Wolfram|Alpha} ist die Lösung etwa 0.35173371124919582602

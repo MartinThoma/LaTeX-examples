@@ -1,9 +1,44 @@
 \section*{Aufgabe 5}
-Es gibt unendlich viele symmetrische QF mit $0=c_1 < c_2 < c_3$ und Ordnung $\geq 4$. Die Knoten müssen nur 
-folgende Eigenschaft erfüllen:
-\[c_i = 1 - c_{s+1-i}\]
-Die Gewichte sind durch Vorgabe der Knoten und der Bedingung, dass 
-die QF die Ordnung von $s \geq 3$ erfüllen soll, nach VL bereits 
-eindeutig bestimmt.
 
-Anmerkung: Es gilt immer $c_2 = \frac{1}{2}$!
+Zunächst ist nach der Familie von Quadraturformeln gefragt, für die gilt: ($p := $ Ordnung der QF)
+\begin{align}
+	s = 3 \\
+	0 = c_1 < c_2 < c_3 \\
+	p \ge 4
+\end{align}
+
+Nach Satz 29 sind in der Familie genau die QFs, für die gilt: \\
+Für alle Polynome $g(x)$ mit Grad $\le 0$ gilt:
+\begin{align}
+	 \int_0^1 M(x) \cdot g(x) \mathrm{d}x = 0 \label{a3}
+\end{align}
+Es gilt $g(x) = c$ für eine Konstante c, da der Grad von $g(x)$ $0$ ist. Also ist \ref{a3} gleichbedeutend mit:
+\begin{align}
+	 \int_0^1 M(x) \cdot c \mathrm{d}x &= 0 \\
+	 \Leftrightarrow c \cdot \int_0^1 M(x) \mathrm{d}x &= 0 \\
+ 	 \Leftrightarrow \int_0^1 M(x) \mathrm{d}x &= 0 \\
+ 	 \Leftrightarrow \int_0^1 (x-c_1)(x-c_2)(x-c_3) \mathrm{d}x &= 0 \\
+ 	 \Leftrightarrow \frac{1}{4} - \frac{1}{3} \cdot (c_2 + c_3) + \frac{1}{2} \cdot c_2 \cdot c_3 &= 0 \\
+ 	 \Leftrightarrow \frac{\frac{1}{4} - \frac{1}{3} \cdot c_3}
+ 	                      {\frac{1}{3} - \frac{1}{2} \cdot c_3} &= c_2
+\end{align}
+
+Natürlich müssen auch die Gewichte optimal gewählt werden. Dafür wird Satz 28 genutzt:
+Sei $b^T = (b_1, b_2, b_3)$ der Gewichtsvektor. Sei zudem $C :=
+\begin{pmatrix}
+    {c_1}^0 & {c_2}^0 & {c_3}^0 \\
+    {c_1}^1 & {c_2}^1 & {c_3}^1 \\
+    {c_1}^2 & {c_2}^2 & {c_3}^2
+\end{pmatrix}
+$. \\
+Dann gilt: $C$ ist invertierbar und $b = C^{-1} \cdot
+\begin{pmatrix}
+    1 \\
+    \frac{1}{2} \\
+    \frac{1}{3}
+\end{pmatrix}
+$.
+
+Es gibt genau eine symmetrische QF in der Familie. Begründung: \\
+Aus $c_1 = 0 $ folgt, dass $c_3 = 0$ ist. Außerdem muss $c_2 = \frac{1}{2} $ sein. Also sind die Knoten festgelegt. Da wir die Ordnung $\ge s = 3$ fordern, sind auch die Gewichte eindeutig. \\
+Es handelt sich um die aus der Vorlesung bekannte Simpsonregel.
