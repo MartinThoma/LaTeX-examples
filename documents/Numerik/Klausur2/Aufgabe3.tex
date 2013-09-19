@@ -1,17 +1,36 @@
 \section*{Aufgabe 3}
+\textbf{Gegeben:}
+
+\begin{table}[h!]
+    \begin{tabular}{l||l|l|l|l}
+    $f_i$ & 7  & 1 & -1 & 7 \\\hline
+    $x_i$ & -1 & 0 & 1  & 2 \\
+    \end{tabular}
+\end{table}
+
 \subsection*{Teilaufgabe a)}
+Allgemein lauten Lagrange-Polynome:
+
+\[L_i = \frac{\overbrace{\prod_{j=0, j \neq i}^n (x-x_j)}^\text{Produkt der Nullstellen}}{\underbrace{\prod_{j=0, j \neq i}^n (x_i - x_j)}_\text{Normalisierungsfaktor}}\]
+
+Im speziellen:
 \begin{align}
-	L_0(x) &= - \frac{1}{6} \cdot (x^3 - 3 x^2 + 2x)\\
-	L_1(x) &= \frac{1}{2} \cdot (x^3 - 2x^2 - x + 2)\\
-	L_2(x) &= - \frac{1}{2} \cdot (x^3 - x^2 - 2x)\\
-	L_3(x) &= \frac{1}{6} \cdot (x^3 - x)
+	L_0(x) &= \frac{(x-0)(x-1)(x-2)}{(-1-0)(-1-1)(-1-2)} &&=-\frac{1}{6} \cdot (x^3 - 3 x^2 + 2x)\\
+	L_1(x) &= \frac{(x+1)(x-1)(x-2)}{(0+1)(0-1)(0-2)}    &&= \frac{1}{2} \cdot (x^3 - 2x^2 - x + 2)\\
+	L_2(x) &= \frac{(x+1)x(x-2)}{(1+1)(1-0)(1-2)}        &&=-\frac{1}{2} \cdot (x^3 - x^2 - 2x)\\
+	L_3(x) &= \frac{(x+1)(x-0)(x-1)}{(2+1)(2-0)(2-1)}    &&= \frac{1}{6} \cdot (x^3 - x)
 \end{align}
 
-Damit ergibt sich:
+Durch die Interpolationsformel von Lagrange
+
+\[p(x) = \sum_{i=0}^n f_i L_i(x)\]
+
+ergibt sich
 \begin{align}
 	p(x) &= x^3 + 2x^2 - 5x + 1
 \end{align}
-Anmerkung: Es ist in der Klausur allerdings nicht notwendig die Monomdarstellung zu berechnen außer es wird explizit verlangt. (Das spart viel Zeit) % Anmerkung hinzugefügt von Felix Benz-Baldas
+Anmerkung: Es ist nicht notwendig die Monomdarstellung zu berechnen.
+In diesem Fall hat es jedoch das Endergebnis stark vereinfacht.
 
 \subsection*{Teilaufgabe b)}
 Zunächst die dividierten Differenzen berechnen:
