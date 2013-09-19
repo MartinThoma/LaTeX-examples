@@ -4,62 +4,96 @@
 	3 x^2 & e^y
 \end{pmatrix}\]
 
-Und jetzt die Berechnung
+Laut Skript ist eine Iteration gegeben durch:
+\begin{align}
+x_{k+1}&=x_{k}-f'(x_k)^{-1}\cdot f(x_k)
+\end{align}
 
-\[f'(x, y) \cdot (x_0, y_0) = f(x,y)\]
-
-LR-Zerlegung für $f'(x, y)$ kann durch scharfes hinsehen durchgeführt
-werden, da es in $L$ nur eine unbekannte (links unten) gibt. Es gilt
-also ausführlich:
+Zur praktischen Durchführung Lösen wir
+\[f'(x_0, y_0)\Delta x = -f(x_0,y_0)\]
+mit Hilfe der LR Zerlegung:
 
 \begin{align}
-	\begin{pmatrix}
-		3     & \cos y\\
-		3 x^2 & e^y
+%
+	f'(x_0,y_0)	&= L \cdot R \\
+	\Leftrightarrow \begin{pmatrix}
+		3     & 1\\
+		\frac{1}{3} & 1
 	\end{pmatrix}
 	&=
 	\overbrace{\begin{pmatrix}
 		1      & 0\\
-		l_{12} & 1
+		\frac{1}{9} & 1
 	\end{pmatrix}}^L \cdot 
 	\overbrace{\begin{pmatrix}
-		r_{11} & r_{12}\\
-		0      & r_{22}
+		3 & 1\\
+		0      & \frac{8}{9}
 	\end{pmatrix}}^R\\
-	\Rightarrow r_{11} &= 3\\
-	\Rightarrow r_{12} &= \cos y\\
-	\Rightarrow \begin{pmatrix}
-		3     & \cos y\\
-		3 x^2 & e^y
-	\end{pmatrix}
-	&=
+%
+	L \cdot c	&= -f(x_0,y_0) \\
+	\Leftrightarrow
 	\begin{pmatrix}
 		1      & 0\\
-		l_{12} & 1
-	\end{pmatrix} \cdot 
-	\begin{pmatrix}
-		3 & \cos y\\
-		0 & r_{22}
-	\end{pmatrix}\\
-	\Rightarrow 3x^2 &\stackrel{!}{=} l_{12} \cdot 3 + 1 \cdot 0\\
-	\Leftrightarrow l_{12} &= x^2\\
-	\Rightarrow e^y &\stackrel{!}{=} x^2 \cdot \cos y + 1 \cdot r_{22}\\
-	\Leftrightarrow r_{22} &= -x^2 \cdot \cos y + e^y\\
-	\Rightarrow \begin{pmatrix}
-		3     & \cos y\\
-		3 x^2 & e^y
+		\frac{1}{9} & 1
 	\end{pmatrix}
+	\cdot c
 	&=
-	\begin{pmatrix}
-		1   & 0\\
-		x^2 & 1
-	\end{pmatrix} \cdot 
-	\begin{pmatrix}
-		3 & \cos y\\
-		0 & -x^2 \cdot \cos y + e^y
+		\begin{pmatrix}
+		-2\\
+		\frac{26}{27}
 	\end{pmatrix}\\
-	P &= I_2\\
--f ( \frac{-1}{3}, 0) &= \begin{pmatrix} 2\\ -\frac{26}{27}\end{pmatrix}\\
-c &= \begin{pmatrix} 2\\ \frac{82}{27} \end{pmatrix}\\
-(x_1, y_1) &= \begin{pmatrix} \frac{5}{3}\\ \frac{82}{27}\end{pmatrix}
+	\Rightarrow
+	c &= 		\begin{pmatrix}
+		-2\\
+		\frac{32}{27}
+	\end{pmatrix}\\
+%
+	R\cdot \Delta x &= c\\
+	\Leftrightarrow
+	\begin{pmatrix}
+		3 & 1\\
+		0      & \frac{8}{9}
+	\end{pmatrix}
+	\cdot \Delta x &=
+	\begin{pmatrix}
+		-2\\
+		\frac{32}{27}
+	\end{pmatrix}\\
+	\Rightarrow \Delta x &= 
+	\begin{pmatrix}
+		-\frac{10}{9}\\
+		\frac{4}{3}
+	\end{pmatrix}
+\end{align}
+
+Anschließend berechnen wir
+\begin{align}
+	\begin{pmatrix}
+		x_1\\
+		y_1
+	\end{pmatrix} &= 
+	\begin{pmatrix}
+		x_0\\
+		y_0
+	\end{pmatrix}+\Delta x \\
+	\Leftrightarrow\begin{pmatrix}
+		x_1\\
+		y_1
+	\end{pmatrix} &= 
+	\begin{pmatrix}
+		\frac{1}{3}\\
+		0
+	\end{pmatrix} +
+	\begin{pmatrix}
+		-\frac{10}{9}\\
+		\frac{4}{3}
+	\end{pmatrix} \\
+	\Leftrightarrow\begin{pmatrix}
+		x_1\\
+		y_1
+	\end{pmatrix} &= 
+	\begin{pmatrix}
+		-\frac{7}{9}\\
+		\frac{4}{3}
+	\end{pmatrix}
 \end{align}
