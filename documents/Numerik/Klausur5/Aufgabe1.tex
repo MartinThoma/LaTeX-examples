@@ -1,2 +1,106 @@
 \section*{Aufgabe 1}
-TODO
+\paragraph{Gegeben:}
+
+\[A = \begin{pmatrix}
+     2 &  3 & -1\\
+    -6 & -5 &  0\\
+     2 & -5 &  6
+\end{pmatrix},\;\;\; b = \begin{pmatrix}20\\-41\\-15\end{pmatrix}\]
+
+\paragraph{LR-Zerlegung:}
+
+\begin{align}
+    &&A^{(0)} &= \begin{gmatrix}[p]
+         2 &  3 & -1\\
+        -6 & -5 &  0\\
+         2 & -5 &  6
+        \rowops
+        \swap{0}{1}
+    \end{gmatrix}\\
+    P^{(1)} &= \begin{pmatrix}
+        0 & 1 & 0\\
+        1 & 0 & 0\\
+        0 & 0 & 1
+    \end{pmatrix}
+    &A^{(1)} &=
+    \begin{gmatrix}[p]
+        -6 & -5 &  0\\
+         2 &  3 & -1\\
+         2 & -5 &  6
+        \rowops
+        \add[\cdot \frac{1}{3}]{0}{1}
+        \add[\cdot \frac{1}{3}]{0}{2}
+    \end{gmatrix}\\
+    L^{(2)} &=\begin{pmatrix}
+        1 & 0 & 0\\
+      \nicefrac{1}{3} & 1 & 0\\
+      \nicefrac{1}{3} & 0 & 1
+    \end{pmatrix},
+    & A^{(2)} &= \begin{gmatrix}[p]
+        -6 & -5 &  0\\
+         0 &  \frac{4}{3} & -1\\
+         0 & -\frac{20}{3} &  6
+        \rowops
+        \swap{1}{2}
+    \end{gmatrix}\\
+    P^{(3)} &= \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 0 & 1\\
+        0 & 1 & 0
+    \end{pmatrix},
+    & A^{(3)} &= \begin{gmatrix}[p]
+        -6 & -5 &  0\\
+         0 & -\frac{20}{3} &  6\\
+         0 &  \frac{4}{3} & -1
+        \rowops
+        \add[\cdot \frac{1}{5}]{1}{2}
+    \end{gmatrix}\\
+    L^{(4)} &= \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0\\
+        0 & \nicefrac{1}{5} & 1
+    \end{pmatrix},
+    & A^{(4)} &= \begin{gmatrix}[p]
+        -6 & -5 &  0\\
+         0 & -\frac{20}{3} &  6\\
+         0 &  0 & \nicefrac{1}{5}
+    \end{gmatrix} =:R
+\end{align}
+
+Es gilt nun:
+
+\begin{align}
+    P :&= P^{(3)} \cdot P^{(1)}\\
+      &= \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 0 & 1\\
+        0 & 1 & 0
+    \end{pmatrix} \cdot \begin{pmatrix}
+        0 & 1 & 0\\
+        1 & 0 & 0\\
+        0 & 0 & 1
+    \end{pmatrix} \\
+    &=
+    \begin{pmatrix}
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+        1 & 0 & 0
+    \end{pmatrix}\\
+    L^{(4)} \cdot P^{(3)} \cdot L^{(2)} \cdot P^{(1)} \cdot A &= R\\
+L^{-1} &= L^{(4)} \cdot \hat{L_1}\\
+    \hat{L_1} &= P^{(3)} \cdot L^{(2)} \cdot (P^{(3)})^{-1}\\
+&= P^{(3)} \cdot L^{(2)} \cdot P^{(3)}\\
+&= \begin{pmatrix}
+        1 & 0 & 0\\
+      \nicefrac{1}{3} & 1 & 0\\
+      \nicefrac{1}{3} & 0 & 1
+    \end{pmatrix}\\
+    L &= (L^{(4)} \cdot \hat{L_1})^{-1}\\
+    &= \begin{pmatrix}
+    1 & 0 & 0\\
+    -\frac{1}{3} & 1 & 0\\
+    -\frac{1}{3} & -\frac{1}{5} & 1
+\end{pmatrix}
+\end{align}
+
+Überprüfung mit \href{http://www.wolframalpha.com/input/?i=%7B%7B1%2C+0%2C+0%7D%2C+%7B-1%2F3%2C+1%2C+0%7D%2C+%7B-1%2F3%2C+-1%2F5%2C+1%7D%7D*%7B%7B-6%2C-5%2C0%7D%2C%7B0%2C-20%2F3%2C6%7D%2C%7B0%2C0%2C1%2F5%7D%7D}{Wolfram|Alpha}.
