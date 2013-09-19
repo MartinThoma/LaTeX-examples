@@ -13,7 +13,7 @@ Sei $ x \in D$, so gilt:
 \end{align*}
 Also: $cos(x) \in D$.\\ Wenn $x \not\in D$, so gilt $y := cos(x)$ und $cos(y) \in D$. D.h. bereits nach einem Iterationschritt wäre $cos(x) \in D$ für $x \in \mathbb{R}$! Dies ist wichtig, da damit gezeigt ist, dass $cos(x_k) = x_{k+1}$ für jedes $x \in \mathbb{R}$ konvergiert! Es kommt nur dieser einzige Iteratationsschritt für $x \not\in \mathbb{R}$ hinzu.
 
-Nun gilt mit $ x, y \in [0,1], x < y, \xi \in (x,y) $ und dem Mittelwert der Differentialrechnung:
+Nun gilt mit $ x, y \in D, x < y, \xi \in (x,y) $ und dem Mittelwert der Differentialrechnung:
 \begin{align*}
 	\frac{cos(x) - cos(y)}{x - y} = cos'(\xi) \\
 	\Leftrightarrow cos(x) - cos(y) =  cos'(\xi) * (x - y)  \\
@@ -21,7 +21,7 @@ Nun gilt mit $ x, y \in [0,1], x < y, \xi \in (x,y) $ und dem Mittelwert der Dif
 \end{align*}
 Da $ \xi \in (0, 1) $ gilt:
 \begin{align*}
-	0 \leq cos'(\xi) < 1 
+	0 \leq | cos'(\xi) | = | sin(\xi) | < 1 
 \end{align*}
 Damit ist gezeigt, dass $cos(x) : D \rightarrow D$ Kontraktion auf $D$.
 
