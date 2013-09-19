@@ -17,6 +17,7 @@
 \usepackage{algorithm,algpseudocode}
 \usepackage{parskip}
 \usepackage{lastpage}
+\usepackage{amsthm}
 \allowdisplaybreaks
 
 \newcommand{\cmark}{\ding{51}}%
@@ -38,6 +39,23 @@
 
 \usepackage{fancyhdr}
 \fancyfoot[C]{}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \list{}{\leftmargin=4em
+          \rightmargin=\leftmargin
+          \settowidth{\itemindent}{\itshape#1}%
+          \labelwidth=\itemindent}
+
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endlist\@endpefalse
+}
+\makeatother
 
 \begin{document}
 	\include{Aufgabe1}
