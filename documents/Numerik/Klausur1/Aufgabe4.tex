@@ -31,6 +31,13 @@ Nun integrieren wir das Interpolationspolynom:
 \[ = \int_a^b \frac{f(a) \cdot x}{a-b}dx - \int_a^b \frac{f(a) \cdot b}{a-b}dx + \int_a^b \frac{f(b) \cdot x}{b-a}dx - \int_a^b \frac{f(b) \cdot a}{b-a}dx \]
 \[ = \frac{1}{2} \cdot \frac{f(a) \cdot b^2}{a-b} - \frac{1}{2} \cdot \frac{f(a) \cdot a^2}{a-b} - \frac{f(a) \cdot b^2}{a-b} + \frac{f(a) \cdot b \cdot a}{a-b} + \frac{1}{2} \cdot \frac{f(b) \cdot b^2}{b-a} \]
 \[ - \frac{1}{2} \cdot \frac{f(b) \cdot a^2}{b-a} - \frac{f(b) \cdot a \cdot b}{b-a} + \frac{f(b) \cdot a^2}{b-a}\]
+\[=(b-a)\cdot(\frac{f(a)}{2} + \frac{f(b)}{2})\]
+
+Betrachtet man nun die allgemeine Quadraturformel,
+\[
+\int_a^b f(x)dx \approx (b-a) \sum_{i=1}^s b_i f(a+c_i(b-a))
+\]
+so gilt für die hergeleitete Quadraturformel also $s=2$, $c_1=0, c_2=1$ und $b_1 = b_2 = \frac{1}{2}$. Sie entspricht damit der Trapezregel.
 
 \subsection*{Teilaufgabe b)}
 Sei nun $f(x) = x^2$ und $a = 0$ sowie $b = 4$. Man soll die ermittelte
