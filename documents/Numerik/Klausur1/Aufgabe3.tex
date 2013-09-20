@@ -10,7 +10,7 @@ zweiten Spalte nach $y$.
 \subsection*{Lösungsvorschlag 1 (Numerische Lösung)}
 Eine Iteration des Newton-Verfahren ist durch
 \begin{align}
-x_{k+1}&=x_{k}-f'(x_k)^{-1}\cdot f(x_k)
+x_{k+1}&=x_{k}\underbrace{-f'(x_k)^{-1}\cdot f(x_k)}_{\Delta x}
 \end{align}
 gegeben (vgl. Skript, S. 35).
 
@@ -166,13 +166,4 @@ also ausführlich:
 		0 & -x^2 \cdot \cos y + e^y
 	\end{pmatrix}\\
 	P &= I_2
-\end{align}
-
-TODO: Eigentlich sollten sich ab hier die Lösungsvorschläge gleichen\dots
-
-Es folgt:
-\begin{align}
--f ( \nicefrac{-1}{3}, 0) &= \begin{pmatrix} -2\\ -\frac{26}{27}\end{pmatrix}\\
-c &= \begin{pmatrix} 2\\ \nicefrac{82}{27} \end{pmatrix}\\ %TODO: Was ist c?
-(x_1, y_1) &= \begin{pmatrix} \nicefrac{5}{3}\\ \nicefrac{82}{27}\end{pmatrix}
 \end{align}

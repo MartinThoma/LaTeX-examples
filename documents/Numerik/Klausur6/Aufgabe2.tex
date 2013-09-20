@@ -42,9 +42,10 @@ Nullstelle von $f$ übereinstimmt. Da es nur in $[0,1]$ eine Nullstelle
 gibt (vgl. Teilaufgabe i), ist die Einschränkung von $x$ auf $\mathbb{R}^+$
 irrelevant.
 
-TODO: Ich vermute, man soll die Kontraktionszahlen ermitteln.
-Die Funktion mit der niedrigern Kontraktionszahl ist besser, da man
-bessere Abschätzungen machen kann.
+Man sollte $F_1$ zur Fixpunktiteration verwenden, da $\ln(x)$ nur für
+$x>0$ definiert ist. Bei der Iteration kommt man aber schnell in
+einen Bereich, der nicht erlaubt ist (das erlaubte Intervall ist klein;
+Rechenungenauigkeit)
 
 $F_1$ ist auf $[0,1]$ eine Kontraktion mit Kontraktionszahl $\theta = \frac{1}{2}$:
 \begin{align}
@@ -56,7 +57,8 @@ $F_1$ ist auf $[0,1]$ eine Kontraktion mit Kontraktionszahl $\theta = \frac{1}{2
     \Leftrightarrow \underbrace{e^{-(x+y)}}_{\leq 1} \cdot \|e^{x} - e^{y}\| &\leq \|x-y\|
 \end{align}
 
-TODO: Beweis ist noch nicht fertig
+TODO: Beweis ist noch nicht fertig. Mittelwertsatz der Differentialrechnung
+anwenden.
 
 $F_2$ ist auf $(0,1]$ eine Kontraktion mit Kontraktionszahl $\theta$:
 \begin{align}

@@ -1,7 +1,7 @@
 \section*{Aufgabe 2}
 \subsection*{Teilaufgabe a)}
 \begin{align}
-	r_{ij} = a_{ij} - \sum_{k=1}^{i-1} l_{ik} \cdot r_{kj} \\
+	r_{ij} = a_{ij} - \sum_{k=1}^{i-1} l_{ik} \cdot r_{kj} \\ %TODO: Korrektheit überprüfen
 	l_{ij} = \frac{a_{ij} - \sum_{k=1}^{j-1} l_{ik} \cdot r_{kj}}{r_{jj}}
 \end{align}
 
@@ -9,8 +9,8 @@
 \begin{algorithm}
     \begin{algorithmic}
     	\For{$d \in \Set{1, \dots n}$}
-    		\State berechne d-te Zeile von R
-    		\State berechne d-te Spalte von L
+    		\State berechne d-te Zeile von $R$
+    		\State berechne d-te Spalte von $L$
 	\EndFor
     \end{algorithmic}
 \end{algorithm}

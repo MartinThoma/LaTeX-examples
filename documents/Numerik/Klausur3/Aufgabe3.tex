@@ -3,11 +3,11 @@
 
 \begin{enumerate}
 \item Selbstabbildung: \\
-	Sei $x \in D := [1.75 , 2]$.
+	Sei $x \in D := [1.75 , 2] = [\frac{7}{4}, \frac{8}{4}]$.
 
 	Dann:
 	\begin{align}
-		F(x) = 1 + \frac{1}{x} + \frac{1}{x^2} \le 1 + \frac{1}{1.75} + \frac{1}{1.75^2} = 1 + \frac{44}{49} \le 2
+		F(x) = 1 + \frac{1}{x} + \frac{1}{x^2} \le 1 + \frac{1}{1.75} + \frac{1}{1.75^2} = 1 + \frac{44}{49} \le 2 %TODO: schöner formulieren
 	\end{align}
 	und: \\
 	\begin{align}
@@ -19,6 +19,7 @@
     %\textbf{Behauptung:} $F(x)$ ist auf $A$ eine Kontraktion.
     %\textbf{Beweis:}
     %z.Z.: $\exists L \in [0, 1): \forall x,y \in A: || F(x) - F(y) || \leq L \cdot || x - y||$
+    Hier ist der Mittelwertsatz der Differentialrechnung von Nutzen.\\
 	$F$ ist Lipschitz-stetig auf $D$ und für alle $x \in D$ gilt: \\
 	\begin{align}
 		|F'(x)| = |-\frac{1}{x^2}-2 \cdot \frac{1}{x^3}| \le \frac{240}{343} =: \theta < 1
