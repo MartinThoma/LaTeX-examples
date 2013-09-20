@@ -1,6 +1,35 @@
 \section*{Aufgabe 1}
 \subsection*{Teilaufgabe a)}
 
+\textbf{Gegeben:}
+
+\[A := \begin{pmatrix}
+4 & 2 & 8\\
+2 & 5 & 8\\
+8 & 8 & 29
+\end{pmatrix}\]
+
+\textbf{Aufgabe:} Cholesky-Zerlegung $A = L \cdot L^T$ berechnen
+
+\textbf{Rechenweg:}
+\begin{algorithm}[H]
+    \begin{algorithmic}
+        \Function{Cholesky}{$A \in \mathbb{R}^{n \times n}$}
+            \State $L = \Set{0} \in \mathbb{R}^{n \times n}$ \Comment{Initialisiere $L$}
+            \For{($k=1$; $\;k \leq n$; $\;k$++)}
+                \State $L_{k,k} = \sqrt{A_{k,k} - \sum_{i=1}^{k-1} L_{k,i}^2}$
+                \For{($i=k+1$; $\;i \leq n$; $\;i$++)}
+                    \State $L_{i,k} = \frac{A_{i,k} - \sum_{j=1}^{k-1} L_{i,j} \cdot L_{k,j}}{L_{k,k}}$
+                \EndFor
+            \EndFor
+            \State \Return $L$
+        \EndFunction
+    \end{algorithmic}
+\caption{Cholesky-Zerlegung}
+\label{alg:seq1}
+\end{algorithm}
+
+\textbf{Lösung:}
 $
 L =
 \begin{pmatrix}
@@ -14,22 +43,36 @@ $
 \subsection*{Teilaufgabe b)}
 \textbf{Gesucht}: $\det(A)$
 
-Sei $P \cdot L = L \cdot R$, die gewohnte LR-Zerlegung.
+Sei $P \cdot A = L \cdot R$, die gewohnte LR-Zerlegung.
 
 Dann gilt:
 
-\[\det(A) = \det(L) \cdot \det(R) / \det(P)\]
+\[\det(A) = \frac{\det(L) \cdot \det(R)}{\det(P)}\]
 
-$\det(L) = 1$, da alle Diagonalelemente 1 sind und es sich um eine untere Dreiecksmatrix handelt.
+$\det(L) = 1$, da alle Diagonalelemente 1 sind und es sich um eine strikte untere Dreiecksmatrix handelt.
 
-$\det(R) = r_{11} \cdot \ldots \cdot r_{nn} $ da es sich um eine obere Dreiecksmatrix handelt.
+$\det(R) = r_{11} \cdot \ldots \cdot r_{nn}$, da es sich um eine obere Dreiecksmatrix handelt.
 
 
-$\det(P) = 1$ oder $-1$
+$\det(P) \in \Set{1, -1}$
 
 Das Verfahren ist also:
-\begin{enumerate}
-\item Berechne Restmatrix R mit dem Gaußverfahren.
-\item \label{manker} Multipliziere die Diagonalelemente von R
-\item falls die Anzahl an Zeilenvertauschungen ungerade ist negiere das Produkt aus \ref{manker} (eine Zeilenvertauschung verändert lediglich das Vorzeichen und P ist durch Zeilenvertauschungen aus der Einheitsmatrix hervorgegangen)
-\end{enumerate}
+
+\begin{algorithm}[H]
+    \begin{algorithmic}
+        \Require $A \in \mathbb{R}^{n \times n}$
+        \State $P, L, R \gets \Call{LRZerl}{A}$
+        \State $x \gets 1$
+        \For{$i$ in $1..n$}
+            \State $x \gets x \cdot r_{ii}$
+            \State $x \gets x \cdot p_{ii}$
+        \EndFor
+    \end{algorithmic}
+\caption{Determinante berechnen}
+\label{alg:seq1}
+\end{algorithm}
+
+Alternativ kann man auch in einer angepassten LR-Zerlegung direkt die
+Anzahl an Zeilenvertauschungen zählen. Dann benötigt man $P$ nicht mehr.
+Ist die Anzahl der Zeilenvertauschungen ungerade, muss das Produkt 
+der $r_ii$ negiert werden.
