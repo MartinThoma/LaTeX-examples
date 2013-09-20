@@ -1,5 +1,6 @@
 \section*{Aufgabe 2}
-\textbf{Bemerkung:}  Das ist Aufgabe 20, Übungsblatt 7.
+
+\subsection*{Lösungsalternative 1:}
 
 \textbf{Voraussetzung:} 
 Gegeben sei eine Funktion $F$:
@@ -67,3 +68,33 @@ Banachsche Fixpunktsatz. Es folgt direkt, dass auch für alle $x \in [0,1]$
 die Folge $(x)_k$ gegen den einzigen Fixpunkt $x^*$ konvergiert.
 
 \end{proof}
+
+\subsection*{Lösungsalternative 2:}
+
+\textbf{Behauptung:} Für $x \in \mathbb{R}$ gilt, dass $cos(x_k) = x_{k+1}$ gegen den einzigen Fixpunkt $x^{*} = cos(x^{*})$ konvergiert.
+
+\textbf{Beweis:} 
+Sei $ D := [-1, 1]$.\\
+Trivial: $D$ ist abgeschlossen.
+
+Sei $ x \in D$, so gilt:
+\begin{align*}
+	0 < cos(x) \leq 1
+\end{align*}
+Also: $cos(x) \in D$.\\ Wenn $x \not\in D$, so gilt $y := cos(x)$ und $cos(y) \in D$. D.h. bereits nach einem Iterationschritt wäre $cos(x) \in D$ für $x \in \mathbb{R}$! Dies ist wichtig, da damit gezeigt ist, dass $cos(x_k) = x_{k+1}$ für jedes $x \in \mathbb{R}$ konvergiert! Es kommt nur dieser einzige Iteratationsschritt für $x \not\in \mathbb{R}$ hinzu.
+
+Nun gilt mit $ x, y \in D, x < y, \xi \in (x,y) $ und dem Mittelwert der Differentialrechnung:
+\begin{align*}
+	\frac{cos(x) - cos(y)}{x - y} = cos'(\xi) \\
+	\Leftrightarrow cos(x) - cos(y) =  cos'(\xi) * (x - y)  \\
+	\Leftrightarrow | cos(x) - cos(y) | = | cos'(\xi) * (x - y) | \leq | cos'(\xi) | * | (x - y) | 
+\end{align*}
+Da $ \xi \in (0, 1) $ gilt:
+\begin{align*}
+	0 \leq | cos'(\xi) | = | sin(\xi) | < 1 
+\end{align*}
+Damit ist gezeigt, dass $cos(x) : D \rightarrow D$ Kontraktion auf $D$.
+
+Damit sind alle Voraussetzung des Banachschen Fixpunktsatzes erfüllt.
+
+Nach dem Banachschen Fixpunktsatz folgt die Aussage.
