@@ -1,2 +1,38 @@
 \section*{Aufgabe 5}
-TODO
+\subsection*{Aufgabe}
+Bestimme alle Quadraturformeln mit $s=3$ und Knoten
+$0 = c_1 < c_2, c_3$ und Ordnung $p \geq 4$.
+
+Schreiben Sie ein Programm in Pseudocode, welches zu vorgegebenem
+$c_2$ den Knoten $c_3$ und die Gewichte $b_i$ möglichst effizient 
+berechnet.
+
+Wie viele symmetrische Quadraturformeln gibt es mit diesen Eigneschaften?
+
+\subsection*{Lösung}
+Da $c_1 = 0$ kann es keine Gauß-Quadraturformel sein. Daher kann 
+die Ordnung nicht $2 \cdot s = 6$ sein. Interessant sind also 
+\begin{itemize}
+    \item[(A)] Symmetrische Quadraturformeln der Ordnung 4
+    \item[(B)] Unsymmetrische Quadraturformeln der Ordnung 4
+    \item[(C)] Unsymmetrische Quadraturformeln der Ordnung 5
+\end{itemize}
+
+Die Simpson-Regel mit $c_1 = 0, c_2 = \frac{1}{2}$ und $c_3 = 1$
+mit $b_1 = b_3 = \frac{1}{6}$ und $b_2 = \frac{4}{6}$ ist die einzige
+symmetrische Quadraturformel in (A).
+
+Für (B) müssen die Ordnungsbedingungen gelten:
+\begin{align}
+    \nicefrac{1}{1} &\stackrel{!}{=} b_1 + b_2 + b_3\\
+    \nicefrac{1}{2} &\stackrel{!}{=} b_2 \cdot c_2 + b_3 c_3\\
+    \nicefrac{1}{3} &\stackrel{!}{=} b_2 \cdot c_2^2 + b_3 c_3^2\\
+    \nicefrac{1}{4} &\stackrel{!}{=} b_2 \cdot c_2^3 + b_3 c_3^3
+\end{align}
+
+Für (C) muss zusätzlich gelten:
+\begin{align}
+    \nicefrac{1}{5} &\stackrel{!}{=} b_2 \cdot c_2^4 + b_3 c_3^4
+\end{align}
+
+TODO: Und weiter?

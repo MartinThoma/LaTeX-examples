@@ -33,7 +33,13 @@ Anmerkung: Es ist nicht notwendig die Monomdarstellung zu berechnen.
 In diesem Fall hat es jedoch das Endergebnis stark vereinfacht.
 
 \subsection*{Teilaufgabe b)}
-Zunächst die dividierten Differenzen berechnen:
+Für die Berechnung der dividierten Differenzen gilt allgemein:
+
+\begin{align}
+    f[x_i, \dots, x_{i+k}] = \frac{f[x_i, \dots x_{(i+k)-1}] - f[x_{i+1}, \dots x_{i+k}]}{x_i - x_{i+k}}
+\end{align}
+
+In diesem Fall bedeutet das konkret:
 \begin{align}
 	f[x_0] &= 7,           &f[x_1] &= 1,       & f[x_2] &= -1,     & f[x_3] = 7\\
 	f[x_0, x_1] &= -6,     &f[x_1, x_2] &= -2, &f[x_2, x_3] &= 8\\
@@ -43,6 +49,7 @@ Zunächst die dividierten Differenzen berechnen:
 
 Insgesamt ergibt sich also
 \begin{align}
-	p(x) &= 7 - (x+1) \cdot 6 + (x+1) \cdot x \cdot 2 + (x+1) \cdot x \cdot (x-1)
+	p(x) &= 7 + (x-\underbrace{(-1)}_{x_0}) \cdot (-6) + (x-\underbrace{(-1)}_{x_0}) \cdot (x-\underbrace{(0)}_{x_1}) \cdot 2 + (x+1) \cdot x \cdot (x-1)
 \end{align}
 
+(Siehe erste Spalte mit $x_0$)
