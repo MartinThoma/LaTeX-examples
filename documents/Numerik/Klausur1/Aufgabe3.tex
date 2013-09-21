@@ -7,7 +7,6 @@ Die Jacobi-Matrix von $f$ lautet:
 Hierfür wurde in in der ersten Spalte nach $x$ abgeleitet und in der
 zweiten Spalte nach $y$.
 
-\subsection*{Lösungsvorschlag 1 (Numerische Lösung)}
 Eine Iteration des Newton-Verfahren ist durch
 \begin{align}
 x_{k+1}&=x_{k}\underbrace{-f'(x_k)^{-1}\cdot f(x_k)}_{\Delta x}
@@ -19,8 +18,9 @@ Zur praktischen Durchführung lösen wir
     f'(x_0, y_0)\Delta x &= -f(x_0,y_0)\\
     L \cdot \underbrace{R \cdot \Delta x}_{=: c} &= -f(x_0, y_0)
 \end{align}
-mit Hilfe der LR Zerlegung nach $\Delta x$ auf:
+mit Hilfe der LR Zerlegung nach $\Delta x$ auf.
 
+\subsection*{Lösungsvorschlag 1 (Numerische Lösung)}
 \begin{align}
 %
 	f'(x_0,y_0)	&= L \cdot R \\
@@ -111,12 +111,8 @@ Anschließend berechnen wir
 
 
 \subsection*{Lösungsvorschlag 2 (Analytische Lösung)}
-Und jetzt die Berechnung %TODO: Was ist hiermit gemeint?
-
-\[f'(x, y) \cdot (x_0, y_0) = f(x,y)\] %TODO: Was ist hiermit gemeint?
-
 LR-Zerlegung für $f'(x, y)$ kann durch scharfes hinsehen durchgeführt
-werden, da es in $L$ nur eine unbekannte (links unten) gibt. Es gilt
+werden, da es in $L$ nur eine Unbekannte links unten gibt. Es gilt
 also ausführlich:
 
 \begin{align}
