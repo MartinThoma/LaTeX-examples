@@ -12,7 +12,10 @@
 
 Nutze Interpolationsformel von Lagrange:
 
-\[p(x) = \sum_{i=0}^{1} f_i \cdot L_i(x)\]
+\begin{align}
+    L_i &= \frac{\prod_{j=1, j \neq i}^n (x-x_j)}{\prod_{j=1, j \neq i}^n (x_i - x_j)}\\
+    p(x) &= \sum_{i=0}^{1} f_i \cdot L_i(x)
+\end{align}
 
 Berechne Lagrangepolynome:
 
@@ -23,9 +26,26 @@ Berechne Lagrangepolynome:
 
 So erhalten wir:
 
-\[p(x) = f(a) \frac{x-b}{a-b} + f(b) \frac{x-a}{b-a}\]
+\begin{align}
+    p(x) &= f(a) \frac{x-b}{a-b} + f(b) \frac{x-a}{b-a}\\
+    &= \frac{f(a) (b-x) + f(b) (x-a)}{b-a} \\
+    &= \frac{f(a)b- f(a)x + f(b) x- f(b)a}{b-a}\\
+    &=\frac{x \cdot \left (f(b)-f(a) \right  ) + f(a)b- f(b)a}{b-a}\\
+    &= x \cdot \underbrace{\frac{f(b)-f(a)}{b-a}}_{=:r} + \underbrace{\frac{f(a)b - f(b)a}{b-a}}_{=: s}
+\end{align}
 
 Nun integrieren wir das Interpolationspolynom:
+
+\begin{align}
+    \int_a^b p(x) \mathrm{d} x &= \left [\frac{r}{2} x^2 +  sx \right ]_a^b\\
+    &= \left (\frac{a^2 r}{2} + sa \right ) - \left (\frac{b^2 r}{2} + sb \right )\\
+    &= a\left (\frac{a r}{2} + s \right ) - b \left (\frac{b r}{2} + s \right )\\
+    &= a\left (\frac{a \frac{f(b)-f(a)}{b-a}}{2} + \frac{f(a)b - f(b)a}{b-a} \right ) - b \left (\frac{b \frac{f(b)-f(a)}{b-a}}{2} + \frac{f(a)b - f(b)a}{b-a} \right )\\
+    &= a\left (\frac{-a f(a)+2b f(a)-a f(b)}{2 \cdot(b-a)}\right ) - b \left (\frac{bf(b) + b f(a) - 2 a f(b)}{2 \cdot (b-a)} \right )\\
+    & \dots \text{theoretisch sollte das zu } (b-a)(\frac{f(a)}{2} + \frac{f(b)}{2}) \text{ zu vereinfachen sein}
+\end{align}
+
+Alternativer Rechenweg
 
 \[ \int_a^b p(x)dx = \int_a^b f(a) \frac{x-b}{a-b}dx + \int_a^b f(b) \frac{x-a}{b-a}dx \]
 \[ = \int_a^b \frac{f(a) \cdot x}{a-b}dx - \int_a^b \frac{f(a) \cdot b}{a-b}dx + \int_a^b \frac{f(b) \cdot x}{b-a}dx - \int_a^b \frac{f(b) \cdot a}{b-a}dx \]
@@ -46,5 +66,8 @@ Formel zwei mal auf äquidistanten Intervallen anwenden.
 \textbf{Lösung:}
 
 \begin{align}
-	\int_0^4 p(x) dx = \int_0^2 p(x)dx + \int_2^4 p(x)dx = 24
+	\int_0^4 p(x) \mathrm{d}x &= \int_0^2 p(x)\mathrm{d}x + \int_2^4 p(x)\mathrm{d}x \\
+    &= (2-0)\cdot \left (\frac{0}{2} + \frac{4}{2} \right ) + (4-2) \cdot \left (\frac{4}{2} + \frac{16}{2} \right )\\
+    &= 2 \cdot 2 + 2 \cdot (2+8)\\
+    &= 24
 \end{align}
