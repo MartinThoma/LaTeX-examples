@@ -48,17 +48,18 @@ einen Bereich, der nicht erlaubt ist (das erlaubte Intervall ist klein;
 Rechenungenauigkeit)
 
 $F_1$ ist auf $[0,1]$ eine Kontraktion mit Kontraktionszahl $\theta = \frac{1}{2}$:
-\begin{align}
-    \|\frac{1}{2} e^{-x} - \frac{1}{2} e^{-y}\| &\leq \frac{1}{2} \cdot \|x-y\|\\
-    \Leftrightarrow \frac{1}{2} \cdot \| e^{-x} - e^{-y}\| &\leq \frac{1}{2} \cdot \|x-y\|\\
-    \Leftrightarrow \| e^{-x} - e^{-y}\| &\leq \|x-y\|\\
-    \Leftrightarrow \| -e^{-x-y}(e^{x} - e^{y})\| &\leq \|x-y\|\\
-    \Leftrightarrow \|-e^{-x-y} \| \cdot \|e^{x} - e^{y}\| &\leq \|x-y\|\\
-    \Leftrightarrow \underbrace{e^{-(x+y)}}_{\leq 1} \cdot \|e^{x} - e^{y}\| &\leq \|x-y\|
-\end{align}
 
-TODO: Beweis ist noch nicht fertig. Mittelwertsatz der Differentialrechnung
-anwenden.
+Nach dem Mittelwertsatz der Differentialrechnung ex. ein $\xi \in (a,b)$ mit $ 0 \leq a < b \leq 1$, sodass 
+gilt:
+
+
+\begin{align}
+    \frac{F(b) - F(a)}{b-a} &= f'(\xi) \\
+    \Leftrightarrow \frac{F(b) - F(a)}{b-a} &= - \frac{1}{2} e^{- \xi} \\
+    \Leftrightarrow \frac{\|F(b) - F(a)\|}{\|b-a\|} &= \frac{1}{2} \frac{1}{e^{\xi}} < \frac{1}{2 e^a} \\
+    \Leftrightarrow \|F(b) - F(a)\| &< \frac{1}{2 e^a} |b-a|\\
+    \Rightarrow \forall x, y \in [0,1]: |F(x) - F(y)| &< \frac{1}{2} |x-y|
+\end{align}
 
 $F_2$ ist auf $(0,1]$ eine Kontraktion mit Kontraktionszahl $\theta$:
 \begin{align}
