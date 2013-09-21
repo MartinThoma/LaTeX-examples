@@ -61,14 +61,9 @@ gilt:
     \Rightarrow \forall x, y \in [0,1]: |F(x) - F(y)| &< \frac{1}{2} |x-y|
 \end{align}
 
-$F_2$ ist auf $(0,1]$ eine Kontraktion mit Kontraktionszahl $\theta$:
-\begin{align}
-    \|- \ln (2x) + \ln(2y) \| &\leq \theta \cdot \|x-y\|\\
-    \Leftrightarrow \| \ln(\frac{2y}{2x}) \| &\leq \theta \cdot \|x-y\|\\
-    \Leftrightarrow \| \ln(\frac{y}{x}) \| &\leq \theta \cdot \|x-y\|
-\end{align}
-
-TODO: Beweis ist nicht mal wirklich angefangen
+Die Ableitung $F_2' = -\frac{1}{x}$. Da $F_2(1) \neq 1$ ist $x^* \neq 1$.
+Also ist $|F_2'(x^*)| > 1$. Deshalb konvergiert das Iterationsverfahren
+definiert durch $F_2$ nicht gegen $x^*$ für Startwerte ungleich $x^*$.
 
 Gegen $F_2$ spricht auch, dass $\log$ nur auf $\mathbb{R}^+$ definiert
 ist. Das kann bei Rundungsfehlern eventuell zu einem Fehler führen.
