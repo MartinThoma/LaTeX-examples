@@ -14,18 +14,38 @@ sowie eine Folge $(x)_k$ mit $x_{k+1} := F(x_k)$.
 \textbf{Behauptung:} $\displaystyle \exists! x^*: \forall x \in \mathbb{R}: \lim_{k \rightarrow \infty} x_k = x^*$
 
 \paragraph{Beweis:} über den Banachschen Fixpunktsatz.
-
-Teil 1: Es gibt genau einen Fixpunkt und dieser ist in $(0,1)$
 \begin{proof}
-Sei $ x \in \mathbb{R}$, so gilt:
+Sei $ x \in \mathbb{R}$, so gilt:\marginpar{Teil 1: Fix\-punkte können nur in $[0,1]$ sein.}
 \begin{align*}
 	-1 \leq \cos(x) \leq 1
 \end{align*}
-Also genügt es $x \in [-1, 1]$ zu betrachten.
+Also genügt es $x \in [-1, 1]$ auf der Suche nach Fixpunkten zu betrachten.
 
 Sei nun $x \in [-1, 0)$. Dann gilt: $\cos(x) > 0$. Da $x <0$ aber $F(x) > 0$,
 kann kein Fixpunkt in $[-1, 0)$ sein. Es genügt also sogar,
 nur $[0, 1]$ zu betrachten.
+
+Sei $0 \leq x < y \leq 1$. Dann folgt:\marginnote{Teil 2: $F$ ist auf $[0,1]$ eine Kontraktion}
+\begin{align}
+    \stackrel{\text{Mittelwertsatz}}{\Rightarrow} \exists L \in (x,y): \frac{\cos(y) - \cos(x)}{y-x} &= f'(L)\\
+    \Rightarrow \exists L \in [0,1]: \| \cos y - \cos x \| &= \| - \sin(L) \cdot (y-x)\| \\
+    &= \underbrace{\sin(L)}_{[0,1)} (y-x)\\
+   \Rightarrow F \text{ ist Kontraktion auf [0,1]}
+\end{align}
+
+Da $F|_{[0,1]}$ eine Selbstabbildung und eine Kontraktion ist und
+offensichtlich $[0,1]$ abgeschlossen ist, greift der 
+Banachsche Fixpunktsatz. Es folgt direkt, dass auch für alle $x \in [0,1]$
+die Folge $(x)_k$ gegen den einzigen Fixpunkt $x^*$ konvergiert.
+\end{proof}
+
+\subsection*{Anmerkung}
+Um zu zeigen, dass es genau einen Fixpunkt $x^*$ in $(0,1)$ gibt, 
+braucht man den Banachschen Fixpunktsatz nicht. Nur um zu zeigen, 
+dass die Fixpunktiteration auf für jedes $x \in \mathbb{R}$ gegen
+diesen Fixpunkt $x^*$ konvergiert, braucht man ihn.
+
+So kann man die existenz eines Fixpunktes zeigen:
 
 Offensichtlich ist $F(0) \neq 0$ und $F(1) \neq 1$, also ist der 
 Fixpunkt - falls vorhanden - in $(0,1)$. $F$ ist in $(0,1)$ stetig
@@ -46,55 +66,3 @@ $x=45^\circ = \frac{1}{4} \pi < 1 \Rightarrow \cos(45^\circ) - \frac{\pi}{4} = \
 $\stackrel{\text{Zwischenwertsatz}}{\Rightarrow} \exists x^*: \cos(x^*) - x^* = 0 \Leftrightarrow \exists x^*: \cos(x^*) = x^*$.
 
 Dieses $x^*$ ist eindeutig, da $\cos(x)-x$ \emph{streng} monoton fallend ist.
-\end{proof}
-
-Teil 2: Jeder Startwert $x \in \mathbb{R}$ konvergiert gegen $x^*$.
-
-\begin{proof}
-Er genügt zu zeigen, dass $F$ auf $[0,1]$ eine Kontraktion ist, da
-bereits in Teil 1 gezeigt wurde, dass man bereits $x_2 = \cos(\cos(x)) \in (0,1)$ ist.
-
-Sei $0 \leq x < y \leq 1$. Dann folgt:
-\begin{align}
-    \stackrel{\text{Mittelwertsatz}}{\Rightarrow} \exists L \in (x,y): \frac{\cos(y) - \cos(x)}{y-x} &= f'(L)\\
-    \Rightarrow \exists L \in [0,1]: \| \cos y - \cos x \| &= \| - \sin(L) \cdot (y-x)\| \\
-    &= \underbrace{\sin(L)}_{[0,1)} (y-x)\\
-   \Rightarrow F \text{ ist Kontraktion auf [0,1]}
-\end{align}
-
-Da $F|_{[0,1]}$ eine Selbstabbildung und eine Kontraktion ist und
-offensichtlich $[0,1]$ abgeschlossen ist, greift der 
-Banachsche Fixpunktsatz. Es folgt direkt, dass auch für alle $x \in [0,1]$
-die Folge $(x)_k$ gegen den einzigen Fixpunkt $x^*$ konvergiert.
-
-\end{proof}
-
-\subsection*{Lösungsalternative 2:}
-
-\textbf{Behauptung:} Für $x \in \mathbb{R}$ gilt, dass $cos(x_k) = x_{k+1}$ gegen den einzigen Fixpunkt $x^{*} = cos(x^{*})$ konvergiert.
-
-\textbf{Beweis:} 
-Sei $ D := [-1, 1]$.\\
-Trivial: $D$ ist abgeschlossen.
-
-Sei $ x \in D$, so gilt:
-\begin{align*}
-	0 < cos(x) \leq 1
-\end{align*}
-Also: $cos(x) \in D$.\\ Wenn $x \not\in D$, so gilt $y := cos(x)$ und $cos(y) \in D$. D.h. bereits nach einem Iterationschritt wäre $cos(x) \in D$ für $x \in \mathbb{R}$! Dies ist wichtig, da damit gezeigt ist, dass $cos(x_k) = x_{k+1}$ für jedes $x \in \mathbb{R}$ konvergiert! Es kommt nur dieser einzige Iteratationsschritt für $x \not\in \mathbb{R}$ hinzu.
-
-Nun gilt mit $ x, y \in D, x < y, \xi \in (x,y) $ und dem Mittelwert der Differentialrechnung:
-\begin{align*}
-	\frac{cos(x) - cos(y)}{x - y} = cos'(\xi) \\
-	\Leftrightarrow cos(x) - cos(y) =  cos'(\xi) * (x - y)  \\
-	\Leftrightarrow | cos(x) - cos(y) | = | cos'(\xi) * (x - y) | \leq | cos'(\xi) | * | (x - y) | 
-\end{align*}
-Da $ \xi \in (0, 1) $ gilt:
-\begin{align*}
-	0 \leq | cos'(\xi) | = | sin(\xi) | < 1 
-\end{align*}
-Damit ist gezeigt, dass $cos(x) : D \rightarrow D$ Kontraktion auf $D$.
-
-Damit sind alle Voraussetzung des Banachschen Fixpunktsatzes erfüllt.
-
-Nach dem Banachschen Fixpunktsatz folgt die Aussage.
