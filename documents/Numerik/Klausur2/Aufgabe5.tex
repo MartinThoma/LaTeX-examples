@@ -17,6 +17,11 @@ Da eine Quadraturformel höchstens Grad $2s=6$ (Satz 30) haben kann und es wegen
 $c_1 = 0$ nicht die Gauss-Quadratur sein kann (Satz 31), kommt nur Ordnung $p=4$
 und $p=5$ in Frage.
 
+Da nur die symmetrischen QF angeben werden sollen und symmetrische
+QF nach Satz 27 gerade Ordnung haben, ist in dieser Aufgabe 
+auch nur die QF mit Ordnung $p=4$ verlangt. Dennoch zeige ich,
+dass es auch eine QF mit Ordnung $p=5$ gibt.
+
 \subsection*{Ordnung 4}
 Es gilt $g(x) = c$ für eine Konstante $c$, da $\text{Grad}(g(x))=0$ ist. 
 Also ist \ref{a3} gleichbedeutend mit:
@@ -85,9 +90,9 @@ Wegen der Ordnungsbedingungen gilt nun:
 \Leftrightarrow b_3 &= \frac{(3 \cdot (6 - \sqrt{6}) - 20) \cdot 10 \cdot (6 - \sqrt{6})}{6\cdot (6 - \sqrt{6}) \cdot (30-(6+\sqrt{6})^2)}\\
 &= \frac{(3 \cdot (6 - \sqrt{6}) - 20) \cdot 5}{3 \cdot (30-(6+\sqrt{6})^2)}\\
 &= \frac{15 \cdot (6 - \sqrt{6}) - 100}{90-3 \cdot (6+\sqrt{6})^2}\\
-&= \frac{16-\sqrt{6}}{36} \approx 0.3764\\
-   b_2 &= \frac{16+\sqrt{6}}{36} \approx 0.5125\\
-   \stackrel{\text{Ordnungsbedinung 1}}{\Rightarrow} b_1 &= \frac{1}{9}\\
+   \Aboxed{b_3 &= \frac{16-\sqrt{6}}{36}} \approx 0.3764\\
+   \Aboxed{b_2 &= \frac{16+\sqrt{6}}{36}} \approx 0.5125\\
+   \stackrel{\text{Ordnungsbedinung 1}}{\Rightarrow} \Aboxed{b_1 &= \frac{1}{9}}\\
     \frac{1}{4} &\stackrel{?}{=} \frac{16+\sqrt{6}}{36} \cdot \left (\frac{6-\sqrt{6}}{10} \right )^3 + \frac{16-\sqrt{6}}{36} \cdot \left (\frac{6+\sqrt{6}}{10} \right)^3 \text{ \cmark}\\
     \frac{1}{5} &\stackrel{?}{=} \frac{16+\sqrt{6}}{36} \cdot \left (\frac{6-\sqrt{6}}{10} \right )^4 + \frac{16-\sqrt{6}}{36} \cdot \left (\frac{6+\sqrt{6}}{10} \right)^4 \text{ \cmark}\\
     \frac{1}{6} &\stackrel{?}{=} \frac{16+\sqrt{6}}{36} \cdot \left (\frac{6-\sqrt{6}}{10} \right )^5 + \frac{16-\sqrt{6}}{36} \cdot \left (\frac{6+\sqrt{6}}{10} \right)^5 = \frac{33}{200} \text{ \xmark}
