@@ -8,11 +8,18 @@ Zunächst ist nach der Familie von Quadraturformeln gefragt, für die gilt: ($p 
 \end{align}
 
 Nach Satz 29 sind in der Familie genau die QFs, für die gilt: \\
-Für alle Polynome $g(x)$ mit Grad $\le 0$ gilt:
+Für alle Polynome $g(x)$ mit Grad $\le m-1$ gilt:
 \begin{align}
 	 \int_0^1 M(x) \cdot g(x) \mathrm{d}x = 0 \label{a3}
 \end{align}
-Es gilt $g(x) = c$ für eine Konstante c, da der Grad von $g(x)$ $0$ ist. Also ist \ref{a3} gleichbedeutend mit:
+
+Da eine Quadraturformel höchstens Grad $2s=6$ (Satz 30) haben kann und es wegen
+$c_1 = 0$ nicht die Gauss-Quadratur sein kann (Satz 31), kommt nur Ordnung $p=4$
+und $p=5$ in Frage.
+
+\subsection*{Ordnung 4}
+Es gilt $g(x) = c$ für eine Konstante $c$, da $\text{Grad}(g(x))=0$ ist. 
+Also ist \ref{a3} gleichbedeutend mit:
 \begin{align}
 	 \int_0^1 M(x) \cdot c \mathrm{d}x &= 0 \\
 	 \Leftrightarrow c \cdot \int_0^1 M(x) \mathrm{d}x &= 0 \\
@@ -42,3 +49,46 @@ $.
 Es gibt genau eine symmetrische QF in der Familie. Begründung: \\
 Aus $c_1 = 0 $ folgt, dass $c_3 = 1$ ist. Außerdem muss $c_2 = \frac{1}{2} $ sein. Also sind die Knoten festgelegt. Da wir die Ordnung $\ge s = 3$ fordern, sind auch die Gewichte eindeutig. \\
 Es handelt sich um die aus der Vorlesung bekannte Simpsonregel.
+
+\subsection*{Ordnung 5}
+Es gilt $g(x) = ax+c$ für Konstanten $a \neq 0, c$, da $\text{Grad}(g(x))=1$ ist. 
+Also ist \ref{a3} gleichbedeutend mit:
+\begin{align}
+	 \int_0^1 M(x) \cdot (ax+c) \mathrm{d}x &= 0 \\
+    \Leftrightarrow a \int_0^1 x M(x) \mathrm{d}x + c \int_0^1 M(x) \mathrm{d}x &= 0 \\
+    \Leftrightarrow a \int_0^1 x (x-c_1)(x-c_2)(x-c_3) \mathrm{d}x + c \int_0^1 (x-c_1)(x-c_2)(x-c_3) \mathrm{d}x &= 0 \\
+    \stackrel{c_1=0}{\Leftrightarrow} a \int_0^1 x^2(x-c_2)(x-c_3) \mathrm{d}x + c \int_0^1 x(x-c_2)(x-c_3) \mathrm{d}x &= 0 \\
+    \Leftrightarrow a \left (\frac{c_2 c_3}{3}-\frac{c_2}{4}-\frac{c_3}{4}+\frac{1}{5} \right ) + c \left ( \frac{c_2 c_3}{2}-\frac{c_2}{3}-\frac{c_3}{3}+\frac{1}{4} \right ) &= 0 \\
+    \Leftrightarrow \left (\frac{c_2 c_3}{3}-\frac{c_2}{4}-\frac{c_3}{4}+\frac{1}{5} \right ) + \underbrace{\frac{c}{a}}_{=: d} \left ( \frac{c_2 c_3}{2}-\frac{c_2}{3}-\frac{c_3}{3}+\frac{1}{4} \right ) &= 0
+\end{align}
+
+Nun habe ich \href{http://www.wolframalpha.com/input/?i=(1%2F5+-+c%2F4+%2B+(b+(-3+%2B+4+c))%2F12)%2B+d*(3+-+4+c+%2B+b+(-4+%2B+6+c))%2F12%3D0}{Wolfram|Alpha} lösen lassen:
+\begin{align}
+    c_2 &= \frac{6-\sqrt{6}}{10} \approx 0.355\\
+    c_3 &= \frac{6+\sqrt{6}}{10} \approx 0.845
+\end{align}
+
+Wegen der Ordnungsbedingungen gilt nun:
+\begin{align}
+    1 &= b_1 + b_2 + b_3\\
+    \frac{1}{2} &= b_2 \cdot \frac{6-\sqrt{6}}{10} + b_3 \cdot \frac{6+\sqrt{6}}{10}\\
+    \frac{1}{3} &= b_2 \cdot \left (\frac{6-\sqrt{6}}{10} \right )^2 + b_3 \cdot \left (\frac{6+\sqrt{6}}{10} \right )^2\\
+    \Leftrightarrow \frac{1}{3} - b_3 \cdot \left (\frac{6+\sqrt{6}}{10} \right )^2 &= b_2 \cdot \left (\frac{6-\sqrt{6}}{10} \right )^2\\
+    \Leftrightarrow \frac{\frac{1}{3} - b_3 \cdot \left (\frac{6+\sqrt{6}}{10} \right )^2}{\left (\frac{6-\sqrt{6}}{10} \right )^2} &= b_2\\
+    \Leftrightarrow b_2 &= \frac{100}{3 \cdot (6-\sqrt{6})^2} - b_3 \cdot \frac{(6+\sqrt{6})^2}{(6-\sqrt{6})^2}\\
+    \Rightarrow \frac{1}{2} &= \left ( \frac{100}{3 \cdot (6-\sqrt{6})^2} - b_3 \cdot \frac{(6+\sqrt{6})^2}{(6-\sqrt{6})^2} \right ) \cdot \frac{6-\sqrt{6}}{10} + b_3 \cdot \frac{6+\sqrt{6}}{10}\\
+    &= \left (\frac{10}{3 \cdot (6 - \sqrt{6})} - b_3 \cdot \frac{(6+\sqrt{6})^2}{10 \cdot (6 - \sqrt{6})} \right ) + b_3 \cdot \frac{6+\sqrt{6}}{10}\\
+    &= b_3 \cdot \left (\frac{6+\sqrt{6}}{10} - \frac{(6+\sqrt{6})^2}{10 \cdot (6 - \sqrt{6})} \right ) + \frac{10}{3 \cdot (6 - \sqrt{6})}\\
+    &= b_3 \cdot \left (\frac{30-(6+\sqrt{6})^2}{10 \cdot (6 - \sqrt{6})} \right ) + \frac{10}{3 \cdot (6 - \sqrt{6})}\\
+\Leftrightarrow \frac{1}{2} - \frac{10}{3 \cdot (6 - \sqrt{6})} &= b_3 \cdot \left (\frac{30-(6+\sqrt{6})^2}{10 \cdot (6 - \sqrt{6})} \right )\\
+\Leftrightarrow \frac{3 \cdot (6 - \sqrt{6}) - 20}{6\cdot (6 - \sqrt{6})} &= b_3 \cdot \left (\frac{30-(6+\sqrt{6})^2}{10 \cdot (6 - \sqrt{6})} \right )\\
+\Leftrightarrow b_3 &= \frac{(3 \cdot (6 - \sqrt{6}) - 20) \cdot 10 \cdot (6 - \sqrt{6})}{6\cdot (6 - \sqrt{6}) \cdot (30-(6+\sqrt{6})^2)}\\
+&= \frac{(3 \cdot (6 - \sqrt{6}) - 20) \cdot 5}{3 \cdot (30-(6+\sqrt{6})^2)}\\
+&= \frac{15 \cdot (6 - \sqrt{6}) - 100}{90-3 \cdot (6+\sqrt{6})^2}\\
+&= \frac{16-\sqrt{6}}{36} \approx 0.3764\\
+   b_2 &= \frac{16+\sqrt{6}}{36} \approx 0.5125\\
+   \stackrel{\text{Ordnungsbedinung 1}}{\Rightarrow} b_1 &= \frac{1}{9}\\
+    \frac{1}{4} &\stackrel{?}{=} \frac{16+\sqrt{6}}{36} \cdot \left (\frac{6-\sqrt{6}}{10} \right )^3 + \frac{16-\sqrt{6}}{36} \cdot \left (\frac{6+\sqrt{6}}{10} \right)^3 \text{ \cmark}\\
+    \frac{1}{5} &\stackrel{?}{=} \frac{16+\sqrt{6}}{36} \cdot \left (\frac{6-\sqrt{6}}{10} \right )^4 + \frac{16-\sqrt{6}}{36} \cdot \left (\frac{6+\sqrt{6}}{10} \right)^4 \text{ \cmark}\\
+    \frac{1}{6} &\stackrel{?}{=} \frac{16+\sqrt{6}}{36} \cdot \left (\frac{6-\sqrt{6}}{10} \right )^5 + \frac{16-\sqrt{6}}{36} \cdot \left (\frac{6+\sqrt{6}}{10} \right)^5 = \frac{33}{200} \text{ \xmark}
+\end{align}
