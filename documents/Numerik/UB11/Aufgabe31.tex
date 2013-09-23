@@ -1,0 +1,58 @@
+\section*{Aufgabe 31}
+\subsection*{Gesucht:}
+Eine Quadraturformel maximaler Ordnung mit:
+\begin{align}
+    s   &= 3\\
+    c_1 &= 0\\
+    c_3 &= 1\\
+\end{align}
+
+\subsection*{Lösung:}
+
+Nach Satz 28 können Ordnungen $\geq s = 3$ erreicht werden.
+
+Die Ordnung kann nach Satz 31 höchstens $2s = 6$ sein. Da $c_1 = 0$
+ist, kann es jedoch keine Gauß-Quadraturformel sein. Also kann
+die Ordnung höchstens $5$ sein.
+
+\paragraph*{Ordnung 5}
+
+Nutze Satz 29:
+
+\begin{align}
+    M(x) &= (x-c_1) (x-c_2) (x-c_3)\\
+      &= x (x-c_2) (x-1)\\
+      &= (x^2- x) (x-c_2)\\
+      &= x^3 - (1+c_2)x^2 + c_2 x\\
+    \int_0^1 M(x) \cdot g(x) \mathrm{d} x &\stackrel{!}{=} 0
+\end{align}
+
+Da wir Ordnung $5 = s + 2$ erreichen wollen, muss $g$ ein beliebiges
+Polynom vom Grad $\leq 2-1 = 1$ sein. Also:
+\begin{align}
+    g(x) &= ax + b\\
+    M(x) \cdot g(x) &= ax^4 + (b-a-ac_2)x^3 + (ac_2-bc_2-b)x^2 + b c_2 x\\
+    \int_0^1 M(x) g(x) \mathrm{d} x &= \frac{a}{5} + \frac{b-a-ac_2}{4} + \frac{ac_2 - bc_2-b}{3} + \frac{b c_2}{2}\\
+    &= \frac{a c_2}{12}-\frac{a}{20}+\frac{b c_2}{6}-\frac{b}{12}\\
+    0 &\stackrel{!}{=}\frac{a c_2}{12}-\frac{a}{20}+\frac{b c_2}{6}-\frac{b}{12}\\
+    \Leftrightarrow 0 &\stackrel{!}{=} 5 a c_2 - 3a + 10 b c_2 - 5 b\\
+    \Leftrightarrow -5 a c_2 - 10 b c_2&\stackrel{!}{=}  - 3a - 5 b\\
+    \Leftrightarrow 5 a c_2 + 10 b c_2&\stackrel{!}{=}  3a + 5 b\\
+    \Leftrightarrow c_2(5 a + 10 b)&\stackrel{!}{=}  3a + 5 b\\
+    \Leftrightarrow c_2 &\stackrel{!}{=}  \frac{3a + 5 b}{5 a + 10 b}
+\end{align}
+
+Offensichtlich gibt es kein $c_2$, dass diese Bedingung für jedes $a,b \in \mathbb{R}$ 
+erfüllt. Daher kann es keine Quadraturformel der Ordnung $5$ mit den Knoten
+$0$ und $1$ geben.
+
+\paragraph*{Ordnung 4}
+Die Simpson-Regel erfüllt offensichtlich alle Bedinungen und hat
+Ordnung 5:
+
+\begin{align}
+    c_2 &= \nicefrac{1}{2}\\
+    b_1 &= \nicefrac{1}{6}\\
+    b_2 &= \nicefrac{4}{6}\\
+    b_3 &= \nicefrac{1}{6}
+\end{align}
