@@ -15,9 +15,13 @@ Die Ordnung kann nach Satz 31 höchstens $2s = 6$ sein. Da $c_1 = 0$
 ist, kann es jedoch keine Gauß-Quadraturformel sein. Also kann
 die Ordnung höchstens $5$ sein.
 
-\paragraph*{Ordnung 5}
+\subsubsection*{Ordnung 5}
 
-Nutze Satz 29:
+Es gibt mindestens zwei Möglichkeiten, zu zeigen, dass es keine
+QF der Ordnung 5 mit den Knoten $c_1 = 0$ und $c_3 = 1$ gibt:
+Mit hilfe von Satz 29 oder über die Ordnungsbedingungen.
+
+\paragraph*{Mit Satz 29}
 
 \begin{align}
     M(x) &= (x-c_1) (x-c_2) (x-c_3)\\
@@ -46,7 +50,35 @@ Offensichtlich gibt es kein $c_2$, dass diese Bedingung für jedes $a,b \in \mat
 erfüllt. Daher kann es keine Quadraturformel der Ordnung $5$ mit den Knoten
 $0$ und $1$ geben.
 
-\paragraph*{Ordnung 4}
+\paragraph*{Mit Ordnungsbedingungen}
+Wir kennen $c_1 = 0$ und $c_3=1$, was die Ordnungsbedingungen
+sehr vereinfacht:
+\begin{align}
+    1 &\stackrel{!}{=} b_1 + b_2 + b_3\\
+    \nicefrac{1}{2} &\stackrel{!}{=} b_2 \cdot c_2 + b_3 \label{eq:bed2}\\
+    \nicefrac{1}{3} &\stackrel{!}{=} b_2 \cdot c_2^2 + b_3 \label{eq:bed3}\\
+    \nicefrac{1}{4} &\stackrel{!}{=} b_2 \cdot c_2^3 + b_3\\
+    \nicefrac{1}{5} &\stackrel{!}{=} b_2 \cdot c_2^4 + b_3
+\end{align}
+
+Aus \ref{eq:bed2} folgt:
+\begin{align}
+    c_2 &= \frac{\nicefrac{1}{2} - b_3}{b_2}
+\end{align}
+
+Und damit:
+\begin{align}
+    \nicefrac{1}{3} &\stackrel{!}{=} b_2 \cdot \left (\frac{\nicefrac{1}{2} - b_3}{b_2} \right )^2 + b_3\\
+                &= \frac{(\nicefrac{1}{2} - b_3)^2}{b_2} + b_3\\
+\Leftrightarrow \frac{1}{3} b_2 - b_2 b_3&= (\nicefrac{1}{2} - b_3)^2\\
+\Leftrightarrow b_2 (\frac{1}{3} - b_3) &= (\nicefrac{1}{2} - b_3)^2\\
+\Leftrightarrow b_2  &= \frac{(\nicefrac{1}{2} - b_3)^2}{\frac{1}{3} - b_3}
+\end{align}
+
+Nun könnte man das ganze in die 4. Ordnungsbedinung einsetzen \dots aber ich
+glaube nicht, dass das schön wird. Mache das, wer will. 
+
+\subsubsection*{Ordnung 4}
 Die Simpson-Regel erfüllt offensichtlich alle Bedinungen und hat
 Ordnung 5:
 
@@ -56,3 +88,6 @@ Ordnung 5:
     b_2 &= \nicefrac{4}{6}\\
     b_3 &= \nicefrac{1}{6}
 \end{align}
+
+Dass die Simpson-Regel Ordnung 4 hat, lässt sich schnell über
+die Ordnungsbedingungen zeigen. 
