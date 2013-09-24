@@ -1,7 +1,7 @@
 \section*{Aufgabe 1}
 \subsection*{Teilaufgabe a)}
 
-\textbf{Gegeben:}
+\paragraph{Gegeben:}
 
 \[A := \begin{pmatrix}
 4 & 2 & 8\\
@@ -9,9 +9,10 @@
 8 & 8 & 29
 \end{pmatrix}\]
 
-\textbf{Aufgabe:} Cholesky-Zerlegung $A = L \cdot L^T$ berechnen
+\paragraph{Aufgabe:} Cholesky-Zerlegung $A = \overline{L} \cdot \overline{L}^T$ berechnen
 
-\textbf{Rechenweg:}
+\paragraph{Rechenweg:}
+Entweder mit dem Algorithmus:
 \begin{algorithm}[H]
     \begin{algorithmic}
         \Function{Cholesky}{$A \in \mathbb{R}^{n \times n}$}
@@ -29,9 +30,17 @@
 \label{alg:seq1}
 \end{algorithm}
 
-\textbf{Lösung:}
+oder über die LR-Zerlegung:
+\begin{align}
+    A &= L\cdot R\\
+      &= L\cdot(D\cdot L^T)\\
+      &= L\cdot(D^\frac{1}{2} \cdot D^\frac{1}{2})\cdot L^T\\
+      &= \underbrace{(L\cdot D^\frac{1}{2})}_{=: \overline{L}} \cdot (D^\frac{1}{2} \cdot L^T)
+\end{align}
+
+\paragraph{Lösung:}
 $
-L =
+\overline{L} =
 \begin{pmatrix}
 2 & 0 & 0 \\
 1 & 2 & 0 \\
