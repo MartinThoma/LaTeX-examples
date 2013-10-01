@@ -1,0 +1,48 @@
+\documentclass[tikz]{standalone}
+\usepackage{forest}
+\makeatletter
+\pgfmathdeclarefunction{strrepeat}{2}{%
+  \begingroup
+    \pgfmathint{#2}\pgfmath@count\pgfmathresult
+    \let\pgfmathresult\pgfutil@empty
+    \pgfutil@loop
+    \ifnum\pgfmath@count>0\relax
+      \expandafter\def\expandafter\pgfmathresult\expandafter{\pgfmathresult#1}%
+      \advance\pgfmath@count-1\relax
+    \pgfutil@repeat
+    \pgfmath@smuggleone\pgfmathresult
+  \endgroup}
+\makeatother
+\tikzset{
+  Stern Brocot at/.style={at/.pgfmath={
+      strcat("([rotate around=180:(!", strrepeat("#1",\SBLevel),")] !",
+                                       strrepeat("#1",\SBLevel-1),"2)")}},
+  Stern Brocot at*/.style n args={3}{
+    at/.pgfmath={strcat("(!",strrepeat("#1",#2),"-| SB@#3)")},
+    append after command/.expanded={\ifnum#2<\SBLevel(\noexpand\tikzlastnode)
+      edge[densely dotted] (SB@#3@\the\numexpr\SBLLoop+1\relax)\fi}}}
+\begin{document}
+\begin{forest}
+  Stern Brocot*/.style n args={2}{
+    content=$\frac{#1}{#2}$,
+    edge=densely dotted,
+    if={level()<\SBLevel}{append={[,Stern Brocot*={#1}{#2}]}}{}},
+  Stern Brocot/.style n args={5}{
+    /utils/exec=\edef\SBLevel{#5},@Stern Brocot={#1}{#2}{#3}{#4}},
+  @Stern Brocot/.style n args={4}{
+    /utils/exec=\edef\SBTop{\number\numexpr#1+#3\relax}%
+                \edef\SBBottom{\number\numexpr#2+#4\relax},
+    content/.expanded=$\frac{\SBTop}{\SBBottom}$,
+    if/.expanded={level()<\SBLevel}{% true
+      append={[,@Stern Brocot={#1}{#2}{\SBTop}{\SBBottom}]},
+      append={[,Stern Brocot*={\SBTop}{\SBBottom}]},
+      append={[,@Stern Brocot={\SBTop}{\SBBottom}{#3}{#4}]}
+    }{}}% false (empty)
+[,Stern Brocot={0}{1}{1}{0}{4}]
+%
+\coordinate[Stern Brocot at=1] (SB@left) coordinate[Stern Brocot at=3] (SB@right);
+\foreach \SBLLoop in {\SBLevel, ..., 0}
+  \path node[Stern Brocot at*={1}{\SBLLoop}{left}]  (SB@left@\SBLLoop)  {$\frac01$}
+        node[Stern Brocot at*={3}{\SBLLoop}{right}] (SB@right@\SBLLoop) {$\frac10$};
+\end{forest}
+\end{document}
