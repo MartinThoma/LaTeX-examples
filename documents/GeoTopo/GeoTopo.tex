@@ -1,0 +1,48 @@
+\documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
+\usepackage{amsmath,amssymb}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
+\usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks]{hyperref}
+\usepackage{makeidx} % index
+\usepackage{enumerate}
+\usepackage{braket} % needed for \Set
+\usepackage{csquotes}
+\usepackage{parskip}
+
+\usepackage{shortcuts}
+
+\author{Siehe \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents}{GitHub}}
+\title{Geometrie und Topologie}
+\makeindex
+
+\hypersetup{ 
+  pdfauthor   = {Siehe GitHub}, 
+  pdfkeywords = {Geometrie, Topologie}, 
+  pdftitle    = {Geometrie und Topologie} 
+} 
+
+\begin{document}
+\maketitle
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+%\chapter{Inhaltsverzeichnis}
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+\tableofcontents
+
+\chapter*{Vorwort}
+Dieses Skript wird/wurde im Wintersemester 2013/2014 geschrieben.
+Es beinhaltet Vorlesungsnotizen von Studenten zur Vorlesung von
+Prof. Dr. Herrlich.
+
+Es darf jeder gerne Verbesserungen einbringen!
+\input{Kapitel1}
+
+\appendix
+
+\renewcommand{\indexname}{Stichwortverzeichnis}
+\addcontentsline{toc}{chapter}{Stichwortverzeichnis}
+\printindex
+
+\end{document}
