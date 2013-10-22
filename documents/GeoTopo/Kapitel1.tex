@@ -34,7 +34,7 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind.
               $U \subseteq \mdr^n$ offen $\gdw$ für jedes $x \in U$ 
               gibt es $r > 0$, sodass $B_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U$
         \item Allgemeiner: $(X, d)$ metrischer Raum
-        \item $X$ Menge, $\fT = \Set{\emptyset, X}$ heißt \enquote{triviale Menge} \index{Menge!triviale}
+        \item $X$ Menge, $\fT = \Set{\emptyset, X}$ heißt \enquote{triviale Topologie} \index{Topologie!triviale}
         \item $X$ Menge, $\fT = \powerset{X}$ heißt \enquote{diskrete Topologie} \index{Topologie!diskrete}
         \item $X :=\mdr, \fT_Z := \Set{U \subseteq \mdr | \mdr \setminus U \text{ endlich}} \cup \Set{\emptyset}$ heißt \enquote{Zariski-Topologie} \index{Topologie!Zariski}\\
               Beobachtung: $U \in \fT_Z \gdw \exists f \in \mdr[X]$, sodass $\mdr \setminus U = V(f) = \Set{x \in \mdr | f(x) = 0}$
@@ -54,8 +54,8 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind.
 \begin{definition}
     Sei $(X, \fT)$ ein topologischer Raum, $M \subseteq X$ eine Teilmenge.
     \begin{enumerate}[a)]
-        \item $M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x}$ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \index{Inneres} \index{Kern!offener}
-        \item $\displaystyle \overline{M} := \bigcup_{\stackrel{M \subseteq A}{A \text{ abgeschlossen}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \index{Abschluss}
+        \item $\displaystyle M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x} = \bigcup_{\stackrel{U \subseteq M} {U \in \fT}} U $ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \index{Inneres} \index{Kern!offener}
+        \item $\displaystyle \overline{M} := \bigcap_{\stackrel{M \subseteq A}{A \text{ abgeschlossen}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \index{Abschluss}
         \item $\partial M := \overline{M} \setminus M^\circ$ heißt \textbf{Rand} von $M$. \index{Rand}
         \item $M$ heißt \textbf{dicht} in $X$, wenn $\overline{M} = X$ ist. \index{dicht}
     \end{enumerate}
