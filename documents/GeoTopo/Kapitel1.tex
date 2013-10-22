@@ -1,6 +1,6 @@
 \chapter{Topologische Grundbegriffe}
 \section{Topologische Räume}
-\begin{definition} \index{Topologischer Raum} \index{offen}
+\begin{definition} \index{Topologischer Raum} \index{offen} \index{abgeschlossen}
     Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
     aus einer Menge $X$ und $\fT \subseteq \powerset{X}$ mit
     folgenden Eigenschaften
@@ -11,7 +11,12 @@
               so ist $\displaystyle \bigcup_{i \in I} U_i \in \fT$
     \end{enumerate}
     Die Elemente von $\fT$ heißen \textbf{offene Teilmengen} von $X$. 
+
+    $A \setminus X$ heißt \textbf{abgeschlossen}, wenn $X \setminus A$ offen ist.
+
 \end{definition}
+
+Es gibt auch Mengen, die weder abgeschlossen, noch offen sind.
 
 \begin{beispieleX}
     \begin{enumerate}[1)]
