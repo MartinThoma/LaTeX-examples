@@ -50,3 +50,22 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind.
         \item $M$ heißt \textbf{dicht} in $X$, wenn $\overline{M} = X$ ist. \index{dicht}
     \end{enumerate}
 \end{definition}
+
+\begin{beispieleX}
+    \begin{enumerate}[1)]
+        \item $X = \mdr$ mit euklidischer Topologie, $M = Q$. \\
+              $M^\circ = \emptyset, \overline{M} = \mdr$
+        \item $X = \mdr$, \dots\\
+              $M = (a, b) \Rightarrow \overline{M} = [a, b]$
+        \item $X = \mdr, \fT = \fT_Z$ \\
+              $M = (a, b) \Rightarrow \overline{M} = \mdr$
+    \end{enumerate}
+\end{beispieleX}
+
+\begin{definition} \index{Topologie!Spur-} \index{Teilraum}
+    Sei $(X, \fT)$ ein topologischer Raum, $Y \subseteq X$.
+
+    $\fT_Y = \Set{U \cap Y | U \in \fT}$ ist Topologie auf $Y$.
+    $\fT_Y$ heißt \textbf{Spurtopologie}.
+    $(Y, \fT_Y)$ heißt \textbf{Teilraum} von $(X, \fT)$.
+\end{definition}
