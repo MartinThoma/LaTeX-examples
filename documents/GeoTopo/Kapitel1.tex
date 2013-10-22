@@ -1,4 +1,14 @@
 \chapter{Topologische Grundbegriffe}
+\section{Vorgeplänkel}
+    \begin{tabular}{lllll}
+    Die Kugeloberfläche $S^2$: &  lässt sich zu:          & oder:& verformen: \\
+    \input{figures/s2.tex}     & \input{figures/cube.tex} & TODO & \input{figures/pyramid.tex}
+    \end{tabular}
+
+    aber nicht zum $\mdr^2$ oder zu einem Rhombus
+
+    \input{figures/torus.tex}
+
 \section{Topologische Räume}
 \begin{definition} \index{Topologischer Raum} \index{offen} \index{abgeschlossen}
     Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
@@ -18,7 +28,7 @@
 
 Es gibt auch Mengen, die weder abgeschlossen, noch offen sind.
 
-\begin{beispieleX}
+\begin{beispiel}
     \begin{enumerate}[1)]
         \item $X = \mdr^n$ mit der euklidischen Metrik.\\
               $U \subseteq \mdr^n$ offen $\gdw$ für jedes $x \in U$ 
@@ -32,7 +42,7 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind.
         \item $X = \Set{0,1}, \fT = \Set{\emptyset, \Set{0,1}, \Set{0}}$\\
               abgeschlossene Mengen: $\emptyset, \Set{0,1}, \Set{1}$
     \end{enumerate}
-\end{beispieleX}
+\end{beispiel}
 
 \begin{definition} \index{Umgebung}
     Sei $(X, \fT)$ ein topologischer Raum, $x \in X$.
@@ -49,4 +59,45 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind.
         \item $\partial M := \overline{M} \setminus M^\circ$ heißt \textbf{Rand} von $M$. \index{Rand}
         \item $M$ heißt \textbf{dicht} in $X$, wenn $\overline{M} = X$ ist. \index{dicht}
     \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+    \begin{enumerate}[1)]
+        \item $X = \mdr$ mit endlicher Topologie\\
+              $M = \mdq \Rightarrow \overline{M} = \mdr, \;\;\; M^\circ = \emptyset$
+        \item $X = \mdr$, $M=(a,b) \Rightarrow \overline{M} = [a,b]$
+        \item $X = \mdr, \fT = \fT_Z$\\
+              $M = (a,b) \Rightarrow \overline{M} = \mdr$
+    \end{enumerate}
+\end{beispiel}
+
+\begin{definition} \index{Basis} \index{Subbasis}
+    Sei $(X, \fT)$ ein topologischer Raum.
+    \begin{enumerate}[a)]
+        \item $B \subseteq \fT$ heißt \textbf{Basis} der Topologie $\fT$,
+              wenn jedes $U \in \fT$ Vereinigung von Elementen aus $B$
+              ist.
+        \item $B \subseteq \fT$ heißt \textbf{Subbasis}, wenn jedes
+              $U \in \fT$ Vereinigung von endlich vielen Durchschnitten
+              von Elementen aus $B$ ist.
+    \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+    $X = \mdr^n$ heißt euklidische Topologie und
+    \[B = \Set{B_r(x) | r \in \mdq_{> 0}, x \in \mdq^n}\]
+    ist eine Basis.
+\end{beispiel}
+
+\begin{bemerkung}
+    Sei $X$ eine Menge und $B \subseteq \powerset{X}$. Dann gibt es
+    genau eine Topologie $\fT$ auf $X$, für die $B$ Subbasis ist.
+\end{bemerkung}
+
+\begin{definition} \index{Spurtopologie} \index{Teilraum}
+    Sei $(X, \fT)$ ein topologischer Raum, $Y \subseteq X$.\\
+    $\fT_Y := \Set{U \cap Y | U \in \fT}$ ist eine Topologie auf $Y$.
+
+    $\fT$ heiß \textbf{Spurtopologie} und $(Y, \fT_Y)$ heißt ein 
+    \textbf{Teilraum} von $(X, \fT)$
 \end{definition}

@@ -1,0 +1,51 @@
+% Source: http://tex.stackexchange.com/a/12069/5645
+\begin{tikzpicture}[scale=0.5]
+   \clip (-3,-3) rectangle (3,3);
+   \coordinate (tf) at (0,0);
+   \coordinate (bf) at (0,-3);
+   \coordinate (tr) at (15:2.5cm);
+   \coordinate (tl) at (165:2.5cm);
+
+   % You can change the perspective by playing with the 5, 5, 15:
+   \coordinate (fr) at ($ (tf)!5!(tr) $);
+   \coordinate (fl) at ($ (tf)!5!(tl) $);
+   \coordinate (fb) at ($ (tf)!15!(bf) $);
+
+   \path[name path=brpath] (bf) -- (fr);
+   \path[name path=rbpath] (tr) -- (fb);
+   \path[name path=blpath] (bf) -- (fl);
+   \path[name path=lbpath] (tl) -- (fb);
+   \path[name path=trpath] (tl) -- (fr);
+   \path[name path=tlpath] (tr) -- (fl);
+
+   \draw[name intersections={of=brpath and rbpath}] (intersection-1)coordinate (br){}; 
+   \draw[name intersections={of=blpath and lbpath}] (intersection-1)coordinate (bl){}; 
+   \draw[name intersections={of=trpath and tlpath}] (intersection-1)coordinate (tb){}; 
+
+   \shade[right color=gray!10, left color=black!50, shading angle=105] (tf) -- (bf) -- (bl) -- (tl) -- cycle;
+   \shade[left color=gray!10, right color=black!50, shading angle=75] (tf) -- (bf) -- (br) -- (tr) -- cycle;
+
+   \begin{scope}
+      \clip (tf) -- (tr) -- (tb) -- (tl) -- cycle;
+      \shade[inner color = gray!5, outer color=black!50, shading=radial] (tf) ellipse (3cm and 1.5cm);
+   \end{scope}
+
+   \draw (tf) -- (bf);
+   \draw (tf) -- (tr);
+   \draw (tf) -- (tl);
+   \draw (tr) -- (br);
+   \draw (bf) -- (br);
+   \draw (tl) -- (bl);
+   \draw (bf) -- (bl);
+   \draw (tb) -- (tr);
+   \draw (tb) -- (tl);
+
+   %set the sizes of the little cubes:
+   \def\tone{.4}\def\ttwo{.75}\def\fone{.36}\def\ftwo{.70}
+   \draw ($ (bf)!\tone!(br) $) -- ($ (tf)!\tone!(tr) $) -- ($ (tl)!\tone!(tb) $);
+   \draw ($ (bf)!\ttwo!(br) $) -- ($ (tf)!\ttwo!(tr) $) -- ($ (tl)!\ttwo!(tb) $);
+   \draw ($ (bf)!\tone!(bl) $) -- ($ (tf)!\tone!(tl) $) -- ($ (tr)!\tone!(tb) $);
+   \draw ($ (bf)!\ttwo!(bl) $) -- ($ (tf)!\ttwo!(tl) $) -- ($ (tr)!\ttwo!(tb) $);
+   \draw ($ (tl)!\fone!(bl) $) -- ($ (tf)!\fone!(bf) $) -- ($ (tr)!\fone!(br) $);
+   \draw ($ (tl)!\ftwo!(bl) $) -- ($ (tf)!\ftwo!(bf) $) -- ($ (tr)!\ftwo!(br) $);
+\end{tikzpicture}
