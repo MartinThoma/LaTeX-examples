@@ -1,11 +1,12 @@
 \documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
+\usepackage{etoolbox}
 \usepackage{amsmath,amssymb}
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
-\usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks]{hyperref}
-\usepackage{makeidx} % index
+\usepackage{makeidx} % for automatically generation of an index
+\usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
 \usepackage{enumerate}
 \usepackage{braket} % needed for \Set
 \usepackage{csquotes}
@@ -27,6 +28,24 @@
   pdfkeywords = {Geometrie, Topologie}, 
   pdftitle    = {Geometrie und Topologie} 
 } 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% make the index link to the correct part of the page               %
+% http://tex.stackexchange.com/q/74493/5645                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{indexanchor}
+\newcommand*{\xindex}[1]{%
+  \stepcounter{indexanchor}% make anchor unique
+  \def\theindexterm{#1}%
+  \edef\doindexentry{\noexpand\index
+    {\expandonce\theindexterm|indexanchor{index-\theindexanchor}}}%
+  \raisebox{\baselineskip}{\hypertarget{index-\theindexanchor}%
+    {\doindexentry}}%
+}
+\newcommand*{\indexanchor}[2]{\hyperlink{#1}{#2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeindex
 
 \begin{document}
 \maketitle
