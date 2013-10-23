@@ -14,6 +14,18 @@ Den Verbesserungsvorschlag kann man
 
 Ich werde dann versuchen die Verbesserungsvorschläge zeitnah einzuarbeiten.
 
+Zeichnungen
+===========
+Das erstellen der Zeichnungen ist sehr zeitaufwendig. Das ist der 
+Grund, warum manchmal nur ein "TODO" im Dokument steht.
+
+Ihr könnt mir gerne Zeichnungen schicken (entweder schön auf Papier
+Zeichnen und abfotographieren / einscannen oder schon mit Inscape /
+Gimp / ... oder sogar mit TikZ erstellen). 
+
+Akzeptable Formate sind: .jpg, .pdf, .svg, .png, .gif, .tex, .sketch
+Alles andere kann ich vermutlich nicht einbinden.
+
 
 Dokument erzeugen
 =================
