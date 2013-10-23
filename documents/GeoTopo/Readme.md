@@ -1,9 +1,9 @@
 Dies ist ein **inoffizielles, von Studenten erstelltes Skript**
 zur Vorlesung "Einführung in Geometrie und Topologie" am KIT bei
 Herrn Prof. Dr. Herrlich (WS 2013/2014). Da es von Studenten erstellt
-wird, die die Inhalte noch lernen, sind sehr Wahrscheinlich einige
-Fehler im Skript, die auf Übertragungsfehler, Tippfehler und
-Verständnisprobleme hinweisen.
+wird, die die Inhalte noch lernen, sind sehr wahrscheinlich einige
+Fehler im Skript. Das können Übertragungsfehler, Tippfehler oder
+Verständnisprobleme sein.
 
 Verbesserungsvorschläge (auch wenn es nur einzelne Textsetzungsprobleme oder 
 Rechtschreibfehler sind) bitte immer direkt melden oder verbessern!
@@ -17,13 +17,14 @@ Ich werde dann versuchen die Verbesserungsvorschläge zeitnah einzuarbeiten.
 
 Dokument erzeugen
 =================
-Zum erzeugen des Dokuments wird `sketch` und LaTeX sowie makeindex
-benötigt.
+Zum erzeugen des Dokuments wird `sketch` und LaTeX benötigt.
+
+LaTeX installiert man so: [Link](http://martin-thoma.com/how-to-install-the-latest-latex-version/)
 
 Rechtliches
 ===========
-Die Autoren kann man über Git ermitteln. Das meiste was ich schreibe
-ist der Tafelanschrieb der Vorlesung; eventuell noch mit ein paar
+Die Autoren kann man über Git ermitteln. Ich schreibe meist nur den
+Tafelanschrieb der Vorlesung ab; eventuell noch mit ein paar
 Notizen meinerseits. Wenn mir Verbesserungsvorschläge per Email 
 geschickt werden, ist der Autor sowie das Datum der Email in der 
 Commit-Nachricht von Git zu sehen.
