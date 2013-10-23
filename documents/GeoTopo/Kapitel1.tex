@@ -80,24 +80,24 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
 \begin{definition} \xindex{Basis} \xindex{Subbasis}
     Sei $(X, \fT)$ ein topologischer Raum.
     \begin{enumerate}[a)]
-        \item $B \subseteq \fT$ heißt \textbf{Basis} der Topologie $\fT$,
-              wenn jedes $U \in \fT$ Vereinigung von Elementen aus $B$
+        \item $\fB \subseteq \fT$ heißt \textbf{Basis} der Topologie $\fT$,
+              wenn jedes $U \in \fT$ Vereinigung von Elementen aus $\fB$
               ist.
-        \item $B \subseteq \fT$ heißt \textbf{Subbasis}, wenn jedes
+        \item $\fB \subseteq \fT$ heißt \textbf{Subbasis}, wenn jedes
               $U \in \fT$ Vereinigung von endlich vielen Durchschnitten
-              von Elementen aus $B$ ist.
+              von Elementen aus $\fB$ ist.
     \end{enumerate}
 \end{definition}
 
 \begin{beispiel}
-    $X = \mdr^n$ mit euklidischer Topologie und
-    \[B = \Set{B_r(x) | r \in \mdq_{> 0}, x \in \mdq^n}\]
-    ist eine Basis.
+    Gegeben sei $X = \mdr^n$ mit euklidischer Topologie $\fT$. Dann ist
+    \[\fB = \Set{B_r(x) | r \in \mdq_{> 0}, x \in \mdq^n}\]
+    ist eine abzählbare Basis von $\fT$.
 \end{beispiel}
 
 \begin{bemerkung}
-    Sei $X$ eine Menge und $B \subseteq \powerset{X}$. Dann gibt es
-    genau eine Topologie $\fT$ auf $X$, für die $B$ Subbasis ist.
+    Sei $X$ eine Menge und $\fB \subseteq \powerset{X}$. Dann gibt es
+    genau eine Topologie $\fT$ auf $X$, für die $\fB$ Subbasis ist.
 \end{bemerkung}
 
 \begin{definition} \xindex{Spurtopologie} \xindex{Teilraum}
