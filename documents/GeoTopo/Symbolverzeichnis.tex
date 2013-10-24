@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begriffslexikon zur Beschreibung des Produkts						 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newglossaryentry{sortierschluessel}
+%{
+%  name=Sortierschlüssel,
+%  description={ein Schlüssel, anhand dessen diese Einträge sortiert werden}
+%}
+%\newacronym{abc}{Blub}{Bananarama}
+
+\newglossaryentry{Abschluss}
+{
+  name={\ensuremath{\overline{M}}},
+  description={Abschluss der Menge $M$},
+  sort=Abschluss
+}
+
+\newglossaryentry{Rand}
+{
+  name={\ensuremath{\partial M}},
+  description={Rand der Menge $M$},
+  sort=Rand
+}
+
+\newglossaryentry{Inneres}
+{
+  name={\ensuremath{M^\circ}},
+  description={Inneres der Menge $M$},
+  sort=Inneres
+}
+
+\newglossaryentry{Kreuzprodukt}
+{
+  name={\ensuremath{A \times B}},
+  description={Kreuzprodukt zweier Mengen},
+  sort=Kreuzprodukt
+}
+\newglossaryentry{subseteq}
+{
+  name={\ensuremath{A \subseteq B}},
+  description={Teilmengenbeziehung},
+  sort=subseteq
+}
+\newglossaryentry{subsetneq}
+{
+  name={\ensuremath{A \subsetneq B}},
+  description={echte Teilmengenbeziehung},
+  sort=subsetneq
+}
+
+% Setze den richtigen Namen für das Glossar
+\renewcommand*{\glossaryname}{\glossarName}
+\deftranslation{Glossary}{\glossarName}
+
+% Drucke das gesamte Glossar
+\glsaddall
+\printglossaries
+
+% Trage das Glossar in das Inhaltsverzeichnis ein
+%\stepcounter{section}
+%\addcontentsline{toc}{section}{\numberline {\thesection} \glossarName}

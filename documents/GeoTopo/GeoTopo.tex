@@ -7,6 +7,7 @@
 \usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
 \usepackage{makeidx} % for automatically generation of an index
 \usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
+\usepackage[xindy,toc]{glossaries} % for symbol table, has to be after hyperref
 \usepackage{enumerate}
 \usepackage{braket} % needed for \Set
 \usepackage{csquotes}
@@ -20,8 +21,12 @@
 
 \usepackage{shortcuts}
 
+% Setze den richtigen Namen für das Glossar
+\newcommand{\glossarName}{Symbolvereichnis}
+
 \author{Siehe \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents}{GitHub}}
 \title{Geometrie und Topologie}
+\makeglossaries
 \makeindex
 
 \hypersetup{ 
@@ -67,9 +72,9 @@ Es darf jeder gerne Verbesserungen einbringen!
 \input{Kapitel1}
 
 \appendix
+\input{Symbolverzeichnis} 
 
 \renewcommand{\indexname}{Stichwortverzeichnis}
 \addcontentsline{toc}{chapter}{Stichwortverzeichnis}
 \printindex
-
 \end{document}
