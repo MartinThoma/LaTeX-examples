@@ -15,7 +15,7 @@
     %\end{figure}
 
 \section{Topologische Räume}
-\begin{definition} \xindex{Topologischer Raum} \xindex{offen} \xindex{abgeschlossen}
+\begin{definition} \xindex{Raum!topologischer} \xindex{offen} \xindex{abgeschlossen}
     Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
     aus einer Menge $X$ und $\fT \subseteq \powerset{X}$ mit
     folgenden Eigenschaften
@@ -111,8 +111,75 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 24.10.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}
+\begin{definition} \index{Produkttopologie}
     Seien $X_1, X_2$ topologische Räume.\\
     $U \subseteq X_1 \times X_2$ sei offen, wenn es zu jedem $x = (x_1, x_2) \in U$
     Umgebungen $U_i$ um $x_i$  mit $i=1,2$ gibt, sodass $U_1 \times U_2 \subseteq U$
+    gilt.
+    \[\fT = \Set{U \subseteq X_1 \times X_2 | U \text{ offen}}\]
+    ist eine Topologie auf $X_1 \times X_2$. Sie heißt \textbf{Produkttopologie}.
+    \[\fB = \Set{U_1 \times U_2 | U_i \text{ offen in } X_i, i=1,2}\]
+    ist eine Basis von $\fT$.
 \end{definition}
+
+\begin{beispiel}
+    \begin{enumerate}[1)]
+        \item $X_1 = X_2 = \mdr$ mit euklidischer Topologie.
+        \item $X_1 = X_2 = \mdr$ mit Zariski-Topologie.
+              $\fT$ Produkttopologie auf $\mdr^2$: $U_1 \times U_2$
+              $\Rightarrow$ Die Produkttopologie auf $\mdr \times \mdr = \mdr^2$
+              stimmt mit der euklidischen Topologie auf $\mdr^2$ überein.\\
+              \todo{Bild einfügen}
+    \end{enumerate}
+\end{beispiel}
+
+\begin{definition} \index{Quotiententopologie}
+    Sei $X$ topologischer Raum, $\sim$ eine Äquivalenzrelation auf $X$,
+    $\overline{X} = X /  \sim$ sei die Menge der Äquivalenzklassen,
+    $\pi: x \rightarrow \overline{x}, \;\;\; x \mapsto [x]_\sim$,
+    $U \subseteq \overline{X}$ heißt offen, wenn $\pi^{-1} (U) \subseteq X$
+    offen ist. Dadurch wird eine Topologie auf $\overline{X}$ definiert.
+    Diese Topologie heißt \textbf{Quotiententopologie}.
+\end{definition}
+
+\begin{beispiel}
+    $X = \mdr, a \sim b \Leftrightarrow a-b \in \mdz$
+    
+    \input{figures/number-ray-circle-topology}
+
+    $0 \sim 1$, d.~h. $[0] = [1]$
+    \begin{align*}
+        (x_1, y_1) \sim (x_2, y_2) \Leftrightarrow &x_1 - x_2 \in \mdz\\
+                                                   &y_1 - y_2 \in \mdz
+    \end{align*}
+    $X / \sim$ ist ein Torus.
+\end{beispiel}
+
+\begin{beispiel}
+    \begin{align*}
+        X= \mdr^{n-1} \setminus \Set{0}, x \sim y &\gdw \lambda \in \mdr^\times \text{ mit } y = \lambda x\\
+            &\gdw x \text{ und } y \text{ liegen auf der gleichen Ursprungsgerade}
+    \end{align*}
+    \[\overline{X} = \mathbb{P}^n(\mdr)\]
+    Also für $n=1$:
+
+    \input{figures/ursprungsgeraden}
+\end{beispiel}
+
+\todo[inline]{TODO: Es fehlt noch ca. eine Seite}
+
+\section{Metrische Räume}
+\begin{definition} \index{Metrik}
+    Sei $X$ eine Menge. Eine Abbildung $d:X\times X \rightarrow \mdr$
+    heißt \textbf{Metrik}, wenn gilt:
+    \begin{enumerate}[(i)]
+        \item $\forall x, y \in X: d(x,y) \geq 0$
+        \item $d(x,y) = 0 \gdw x = y$
+        \item $d(x,y) = d(y,x)$
+        \item $d(x,z) \leq d(x,y) + d(x+z)$
+    \end{enumerate}
+
+    Das Paar $(X, d)$ heißt ein \textbf{metrischer Raum} \index{Raum!metrischer}
+\end{definition}
+
+\todo[inline]{TODO: Es fehlten noch ca. 2 Seiten}

@@ -1,0 +1,37 @@
+\tikzset{
+    point/.style={
+        thick,
+        draw=gray,
+        cross out,
+        inner sep=0pt,
+        minimum width=4pt,
+        minimum height=4pt,
+    },
+}
+\begin{tikzpicture}
+  
+  \draw[->] (-1.5,0) -- (5.5,0) node [below] {$\mathbb{R}$};
+
+  \foreach \x in {-1,...,5}
+    \draw (\x,0.1) -- (\x,-0.1) node [below] {\x};
+
+  \foreach \x in {-1,...,4} {
+    \draw[red] (\x+0.6,0.01) -- (\x+0.6,-0.14) node [below] {};
+    \draw[red] (\x+1.2,0.01) -- (\x+1.2,-0.14) node [below] {};
+    \draw[red] (\x+0.6,-0.07) -- (\x+1.2,-0.07) node [below] {};
+    }
+
+    \begin{scope}[shift={(0,-2)}]
+        \draw[thick] (0cm,0cm) circle(1cm);
+        \draw[thick, red] ([shift={(216:1cm)}]-0.0,0) arc (216:-72:1cm);
+        \draw (0:1cm) node[point, label={[right]{$0$}}] {};
+        \path node[point, blue, label={[blue,above]{$\overline{a}$}}] (posU) at (-252:1cm) {};
+        \path node[label={[red,left]{$U$}}] at (30:1cm) {};
+    \end{scope}
+    \draw (3.7cm,0cm) node[point, blue, label={[blue,above]{$a$}}] (posA) {};
+    \draw (0.7cm,0cm) node[point, blue, label={[blue,above]{$\pi^{-1}(u)$}}] {};
+    \draw[dashed, blue, thick] plot [smooth] coordinates{(posU) (0.2,-0.8) (2.5,-1) (posA)};
+
+    \draw[blue, dashed, thick] (3.7cm,0cm) arc (0:180:1.5 and 0.5);
+
+\end{tikzpicture}
