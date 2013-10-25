@@ -8,44 +8,65 @@
 %}
 %\newacronym{abc}{Blub}{Bananarama}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mengenoperationen                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newglossaryentry{Abschluss}
 {
   name={\ensuremath{\overline{M}}},
   description={Abschluss der Menge $M$},
-  sort=Abschluss
+  sort=MengenoperationFAbschluss
 }
 
 \newglossaryentry{Rand}
 {
   name={\ensuremath{\partial M}},
   description={Rand der Menge $M$},
-  sort=Rand
+  sort=MengenoperationFRand
 }
 
 \newglossaryentry{Inneres}
 {
   name={\ensuremath{M^\circ}},
   description={Inneres der Menge $M$},
-  sort=Inneres
+  sort=MengenoperationFInneres
 }
 
 \newglossaryentry{Kreuzprodukt}
 {
   name={\ensuremath{A \times B}},
   description={Kreuzprodukt zweier Mengen},
-  sort=Kreuzprodukt
+  sort=MengenoperationNKreuzprodukt
 }
 \newglossaryentry{subseteq}
 {
   name={\ensuremath{A \subseteq B}},
   description={Teilmengenbeziehung},
-  sort=subseteq
+  sort=MengenoperationNSubseteq
 }
 \newglossaryentry{subsetneq}
 {
   name={\ensuremath{A \subsetneq B}},
   description={echte Teilmengenbeziehung},
-  sort=subsetneq
+  sort=MengenoperationNSubsetneq
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zahlenmengen                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossaryentry{Z}
+{
+  name={\ensuremath{\mdz}},
+  description={Ganze Zahlen},
+  sort=KoerperAZ
+}
+
+\newglossaryentry{Q}
+{
+  name={\ensuremath{\mdq}},
+  description={Rationale Zahlen},
+  sort=KoerperBQ
 }
 
 \newglossaryentry{R}
@@ -55,26 +76,37 @@
   sort=KoerperR
 }
 
-\newglossaryentry{Q}
+\newglossaryentry{Rplus}
 {
-  name={\ensuremath{\mdq}},
-  description={Rationale Zahlen},
-  sort=KoerperQ
-}
-
-\newglossaryentry{Z}
-{
-  name={\ensuremath{\mdz}},
-  description={Ganze Zahlen},
-  sort=KoerperZ
+  name={\ensuremath{\mdr^+}},
+  description={Echt positive reele Zahlen},
+  sort=KoerperRplus
 }
 
 \newglossaryentry{Einheitengruppe}
 {
   name={\ensuremath{\mdr^\times}},
   description={Multiplikative Einheitengruppe von $\mdr$},
-  sort=GruppeEinheiten
+  sort=KoerperREinheiten
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fraktale Symbole                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossaryentry{fB}
+{
+  name={\ensuremath{\fB}},
+  description={Basis einer Topologie},
+  sort=fB
+}
+
+\newglossaryentry{fT}
+{
+  name={\ensuremath{\fT}},
+  description={Topologie},
+  sort=fT
+}
+
 
 % Setze den richtigen Namen für das Glossar
 \renewcommand*{\glossaryname}{\glossarName}

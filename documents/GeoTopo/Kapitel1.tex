@@ -2,7 +2,7 @@
 \section{Vorgeplänkel}
     \begin{tabular}{lllll}
     Die Kugeloberfläche $S^2$: &  lässt sich zu:          & oder:& verformen: \\
-    \input{figures/s2.tex}     & \input{figures/cube.tex} & TODO & \input{figures/pyramid.tex}
+    \input{figures/s2.tex}     & \input{figures/cube.tex} & \todo[inline]{Bild} & \input{figures/pyramid.tex}
     \end{tabular}
 
     aber nicht zum $\mdr^2$ oder zu einem Torus:
@@ -111,7 +111,7 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 24.10.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition} \index{Produkttopologie}
+\begin{definition} \xindex{Produkttopologie}
     Seien $X_1, X_2$ topologische Räume.\\
     $U \subseteq X_1 \times X_2$ sei offen, wenn es zu jedem $x = (x_1, x_2) \in U$
     Umgebungen $U_i$ um $x_i$  mit $i=1,2$ gibt, sodass $U_1 \times U_2 \subseteq U$
@@ -133,7 +133,7 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
     \end{enumerate}
 \end{beispiel}
 
-\begin{definition} \index{Quotiententopologie}
+\begin{definition} \xindex{Quotiententopologie}
     Sei $X$ topologischer Raum, $\sim$ eine Äquivalenzrelation auf $X$,
     $\overline{X} = X /  \sim$ sei die Menge der Äquivalenzklassen,
     $\pi: x \rightarrow \overline{x}, \;\;\; x \mapsto [x]_\sim$,
@@ -166,10 +166,8 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
     \input{figures/ursprungsgeraden}
 \end{beispiel}
 
-\todo[inline]{TODO: Es fehlt noch ca. eine Seite}
-
 \section{Metrische Räume}
-\begin{definition} \index{Metrik}
+\begin{definition} \xindex{Metrik} \xindex{Raum!metrischer}
     Sei $X$ eine Menge. Eine Abbildung $d:X\times X \rightarrow \mdr$
     heißt \textbf{Metrik}, wenn gilt:
     \begin{enumerate}[(i)]
@@ -179,7 +177,67 @@ Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
         \item $d(x,z) \leq d(x,y) + d(x+z)$
     \end{enumerate}
 
-    Das Paar $(X, d)$ heißt ein \textbf{metrischer Raum} \index{Raum!metrischer}
+    Das Paar $(X, d)$ heißt ein \textbf{metrischer Raum}.
 \end{definition}
 
-\todo[inline]{TODO: Es fehlten noch ca. 2 Seiten}
+\begin{bemerkung}
+    Sei $(X, d)$ ein metrischer Raum und
+    \[\fB_r(x) := \Set{y \in X | d(x,y) < r} \text{ für } x \in X, r \in \mdr^+\]
+    $\fB$ ist Basis einer Topologie auf $X$.
+\end{bemerkung}
+
+\begin{beispiel}
+    Sei $V$ ein euklidischer oder hermiteischer Vektorraum mit Skalarprodukt
+    $\langle \cdot \rangle$.
+    Dann wird $V$ durch $d(x,y) := \sqrt{\langle x-y, x-y \rangle}$ zum metrischen Raum.
+\end{beispiel}
+
+\begin{beispiel}[diskrete Metrik] \xindex{Metrik!diskrete} \xindex{Topologie!diskrete}
+    Sei $X$ eine Menge. Dann heißt
+    \[d(x,y) = \begin{cases}
+    0: & \text{, falls } x=y\\
+    1: & \text{, falls } x \neq y
+    \end{cases}\]
+    die \textbf{diskrete Metrik}. Die Metrik $d$ induziert die 
+    \textbf{diskrete Topologie}.
+\end{beispiel}
+
+\begin{beispiel}
+    $X = \mdr^2$ und $d\left ((x_1, y_1), (x_2, y_2)\right ) := \max{\|x_1 - x_2\|, \|y_1 - y_2\|}$
+    ist Metrik.
+
+    \todo[inline]{Bild von $\fB_r(0)$ erstellen und einfügen (Quadrat der Seitenlänge $2r$)}
+
+    \emph{Beobachtung:} $d$ erzeugt die eukldische Topologie.
+
+    \todo[inline]{Bild von Quadrat in Kreis in Quadrat ... erstellen und einfügen.}
+\end{beispiel}
+
+\begin{beispiel}[SNCF-Metrik] \xindex{Metrik!SNCF}
+    $X = \mdr^2$ \footnote{Diese Metrik wird auch \enquote{\href{https://de.wikipedia.org/wiki/Franz\%C3\%B6sische_Eisenbahnmetrik}{französische Eisenbahnmetrik}} genannt.}
+
+    \input{figures/sncf-metrik}
+\end{beispiel}
+
+\begin{definition} \xindex{Raum!hausdorffscher}
+    Ein topologischer Raum $X$ heißt \textbf{Hausdorffsch}, wenn es
+    für je zwei Punkte $x \neq y$ in $X$ Umgebungen $U_x$ um $x$
+    und $U_y$ um $y$ gibt, sodass $U_x \cap U_y = \emptyset$.
+\end{definition}
+
+\begin{bemerkung}
+    Metrische Räume sind hausdorffsch, da 
+    \[d(x,y) > 0 \Rightarrow \exists \varepsilon: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
+    Ein Beispiel für einen topologischen Raum, der nicht hausdorfsch ist,
+    ist $(\mdr, \fT_Z)$.
+\end{bemerkung}
+
+\begin{bemerkung}
+    Seien $X, X_1, X_2$ Hausdorff-Räume.
+    \begin{enumerate}[a)]
+        \item Jeder Teilraum um $X$ ist Hausdorffsch.
+        \item $X_1 \times X_2$ ist Hausdorffsch.
+    \end{enumerate}
+\end{bemerkung}
+
+\todo[inline]{TODO: Es fehlt eine \enquote{Beweisskizze}, die den $\mdr^2$ darstellt sowie zwei Punkte $(x_1, y_1)$ und $(x_2, y_2)$ sowie ihre (disjunkten) Umgebungen bzgl. der $X_1$-Achse.}
