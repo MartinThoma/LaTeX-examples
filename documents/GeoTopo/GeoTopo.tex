@@ -7,7 +7,7 @@
 \usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
 \usepackage{makeidx} % for automatically generation of an index
 \usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
-\usepackage[xindy,toc]{glossaries} % for symbol table, has to be after hyperref
+\usepackage[xindy,toc,nonumberlist]{glossaries} % for symbol table, has to be after hyperref
 \usepackage{enumerate}
 \usepackage{braket} % needed for \Set
 \usepackage{csquotes}
@@ -20,14 +20,11 @@
 \usepackage{tikz-3dplot}
 \usepackage{tkz-fct}
 \usetikzlibrary{3d,calc,intersections,er,arrows,positioning,shapes.misc}
-\newcommand{\inputTikZ}[2]{%  
-     \scalebox{#1}{\input{#2}}  
-}
-
 \usepackage{shortcuts}
 
-% Setze den richtigen Namen für das Glossar
+% Setze den richtigen Namen für das Glossar und das Stichwortverzeichnis
 \newcommand{\glossarName}{Symbolvereichnis}
+\renewcommand{\indexname}{Stichwortverzeichnis}
 
 \author{Siehe \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents}{GitHub}}
 \title{Geometrie und Topologie}
@@ -40,22 +37,6 @@
   pdftitle    = {Geometrie und Topologie} 
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% make the index link to the correct part of the page               %
-% http://tex.stackexchange.com/q/74493/5645                         %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcounter{indexanchor}
-\newcommand*{\xindex}[1]{%
-  \stepcounter{indexanchor}% make anchor unique
-  \def\theindexterm{#1}%
-  \edef\doindexentry{\noexpand\index
-    {\expandonce\theindexterm|indexanchor{index-\theindexanchor}}}%
-  \raisebox{\baselineskip}{\hypertarget{index-\theindexanchor}%
-    {\doindexentry}}%
-}
-\newcommand*{\indexanchor}[2]{\hyperlink{#1}{#2}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \makeindex
 
 \usepackage{microtype}
@@ -65,8 +46,6 @@
 \setcounter{page}{1}
 \maketitle
 \input{Vorwort}
-\renewcommand{\thechapter}{\Roman{chapter}}
-\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 \tableofcontents
 
 \pagenumbering{arabic}
@@ -76,7 +55,6 @@
 \appendix
 \input{Symbolverzeichnis} 
 
-\renewcommand{\indexname}{Stichwortverzeichnis}
 \addcontentsline{toc}{chapter}{Stichwortverzeichnis}
 \printindex
 \end{document}

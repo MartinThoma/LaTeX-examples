@@ -1,3 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% make the index link to the correct part of the page               %
+% http://tex.stackexchange.com/q/74493/5645                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{indexanchor}
+\newcommand*{\xindex}[1]{%
+  \stepcounter{indexanchor}% make anchor unique
+  \def\theindexterm{#1}%
+  \edef\doindexentry{\noexpand\index
+    {\expandonce\theindexterm|indexanchor{index-\theindexanchor}}}%
+  \raisebox{\baselineskip}{\hypertarget{index-\theindexanchor}%
+    {\doindexentry}}%
+}
+\newcommand*{\indexanchor}[2]{\hyperlink{#1}{#2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \theoremstyle{break}
 \setlength\theoremindent{0.7cm}
 \theoremheaderfont{\kern-0.7cm\normalfont\bfseries} 
