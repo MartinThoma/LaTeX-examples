@@ -1,18 +1,35 @@
 \chapter{Topologische Grundbegriffe}
 \section{Vorgeplänkel}
-    \begin{tabular}{lllll}
-    Die Kugeloberfläche $S^2$: &  lässt sich zu:          & oder:& verformen: \\
-    \input{figures/s2.tex}     & \input{figures/cube.tex} & \todo[inline]{Bild} & \input{figures/pyramid.tex}
-    \end{tabular}
+    Die Kugeloberfläche $S^2$ lässt sich zur Würfeloberfläche oder
+    der oberfläche einer Pyramide verformen, aber nicht zum $\mdr^2$
+    oder zu einem Torus.
 
-    aber nicht zum $\mdr^2$ oder zu einem Torus:
+    \begin{figure}[ht]
+        \centering
+        \subfigure[$S^2$]{
+            \input{figures/s2.tex}
+            \label{fig:s2}
+        }%
+        \subfigure[Würfel]{
+            \input{figures/cube.tex}
+            \label{fig:cube}
+        }%
+        \subfigure[Pyramide]{
+            \input{figures/pyramid.tex}
+            \label{fig:pyramide}
+        }
 
-    \input{figures/torus.tex}
-    %\begin{figure}[h]
-    %    \centering
-    %    \includegraphics*[width=5cm, keepaspectratio]{figures/Torus.png}
-    %    %\caption[Torus]{\href{https://commons.wikimedia.org/wiki/File:Torus.png}{Wikipedia Commons}: LucasVB; \emph{\enquote{Torus}}; 01.10.2006} 
-    %\end{figure}
+        \subfigure[$\mdr^2$]{
+            \input{figures/plane-r2.tex}
+            \label{fig:pyramide}
+        }%
+        \subfigure[Torus]{
+            \input{figures/torus.tex}
+            \label{fig:torus}
+        }
+        \label{Formen}
+        \caption{Beispiele für verschiedene Formen}
+    \end{figure}
 
 \section{Topologische Räume}
 \begin{definition} \xindex{Raum!topologischer} \xindex{offen} \xindex{abgeschlossen}
@@ -32,6 +49,7 @@
 \end{definition}
 
 Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
+Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{beispiel}
     \begin{enumerate}[1)]

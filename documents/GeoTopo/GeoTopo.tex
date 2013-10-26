@@ -11,11 +11,13 @@
 \usepackage{enumerate}
 \usepackage{braket} % needed for \Set
 \usepackage{csquotes}
+\usepackage{subfigure}
 \usepackage{parskip}
 \usepackage{pst-solides3d}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{pgfplots}
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
 \usepackage{tkz-fct}
 \usetikzlibrary{3d,calc,intersections,er,arrows,positioning,shapes.misc}
 \newcommand{\inputTikZ}[2]{%  
@@ -59,14 +61,16 @@
 \usepackage{microtype}
 
 \begin{document}
+\pagenumbering{roman}
+\setcounter{page}{1}
 \maketitle
-
+\input{Vorwort}
 \renewcommand{\thechapter}{\Roman{chapter}}
-%\chapter{Inhaltsverzeichnis}
 \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 \tableofcontents
 
-\input{Vorwort}
+\pagenumbering{arabic}
+\setcounter{page}{1}
 \input{Kapitel1}
 
 \appendix
