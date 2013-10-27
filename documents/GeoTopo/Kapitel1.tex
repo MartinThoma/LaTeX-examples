@@ -169,7 +169,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{definition} \xindex{Quotiententopologie}
     Sei $X$ topologischer Raum, $\sim$ eine Äquivalenzrelation auf $X$,
-    $\overline{X} = X /  \sim$ sei die Menge der Äquivalenzklassen,
+    $\overline{X} = X /_\sim$ sei die Menge der Äquivalenzklassen,
     $\pi: x \rightarrow \overline{x}, \;\;\; x \mapsto [x]_\sim$,
     $U \subseteq \overline{X}$ heißt offen, wenn $\pi^{-1} (U) \subseteq X$
     offen ist. Dadurch wird eine Topologie auf $\overline{X}$ definiert.
@@ -282,6 +282,11 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
         \item Jeder Teilraum um $X$ ist Hausdorffsch.
         \item $X_1 \times X_2$ ist Hausdorffsch.
     \end{enumerate}
+    \begin{figure}[htp]
+        \centering
+        \input{figures/topology-metric-hausdorff}
+        \caption{Wenn $X_1, X_2$ hausdorffsch sind, dann auch $X_1 \times X_2$}
+    \end{figure}
 \end{bemerkung}
 
-\todo[inline]{TODO: Es fehlt eine \enquote{Beweisskizze}, die den $\mdr^2$ darstellt sowie zwei Punkte $(x_1, y_1)$ und $(x_2, y_2)$ sowie ihre (disjunkten) Umgebungen bzgl. der $X_1$-Achse.}
+
