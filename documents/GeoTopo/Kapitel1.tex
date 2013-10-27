@@ -182,16 +182,19 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \input{figures/number-ray-circle-topology}
 
     $0 \sim 1$, d.~h. $[0] = [1]$
-    \begin{align*}
-        (x_1, y_1) \sim (x_2, y_2) \Leftrightarrow &x_1 - x_2 \in \mdz\\
-                                                   &y_1 - y_2 \in \mdz
-    \end{align*}
-    $X / \sim$ ist ein Torus.
 \end{beispiel}
 
 \begin{beispiel}
     \begin{align*}
-        X= \mdr^{n-1} \setminus \Set{0}, x \sim y &\gdw \lambda \in \mdr^\times \text{ mit } y = \lambda x\\
+        X = \mdr^2, (x_1, y_1) \sim (x_2, y_2) \Leftrightarrow &x_1 - x_2 \in \mdz\\
+                                                   &y_1 - y_2 \in \mdz
+    \end{align*}
+    $X /_\sim$ ist ein Torus.
+\end{beispiel}
+
+\begin{beispiel}
+    \begin{align*}
+        X= \mdr^{n-1} \setminus \Set{0}, x \sim y &\gdw \exists \lambda \in \mdr^\times \text{ mit } y = \lambda x\\
             &\gdw x \text{ und } y \text{ liegen auf der gleichen Ursprungsgerade}
     \end{align*}
     \[\overline{X} = \mathbb{P}^n(\mdr)\]
