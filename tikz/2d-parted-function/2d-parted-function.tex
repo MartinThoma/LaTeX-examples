@@ -6,7 +6,7 @@
 \begin{document}
 \begin{tikzpicture}
     \begin{axis}[
-    legend pos=south west,
+        legend pos=south west,
         axis x line=middle,
         axis y line=middle,
         grid = major,
@@ -18,15 +18,14 @@
         ymin=-0.25,     % start the diagram at this y-coordinate
         ymax= 2.25,   % end   the diagram at this y-coordinate
         axis background/.style={fill=white},
-        xlabel=x,
-        ylabel=y,
+        xlabel=$x$,
+        ylabel=$y$,
         %xticklabels={-2,-1.6,...,7},
         %yticklabels={-8,-7,...,8},
         tick align=outside,
         minor tick num=-3,
         enlargelimits=true,
         tension=0.08]
-      % plot the stirling-formulae
       \addplot[domain=0:1, red, thick,samples=20] {0.5*x*x}; 
       \addplot[domain=1:2, green, thick,samples=20] {x-0.5}; 
       \addplot[domain=2:3, blue, thick,samples=500] {-0.5*(x-2)*(x-2)+x-0.5}; 
