@@ -137,27 +137,34 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     Umgebungen $U_i$ um $x_i$  mit $i=1,2$ gibt, sodass $U_1 \times U_2 \subseteq U$
     gilt.
 
-    \begin{figure}[htp]
-        \centering
-        \input{figures/neighbourhood-topology}
-        \caption{Zu $x=(x_1, x_2)$ gibt es Umgebungen $U_1, U_2$ mit $U_1 \times U_2 \subseteq U$}
-    \end{figure}
-
     $\fT = \Set{U \subseteq X_1 \times X_2 | U \text{ offen}}$
     ist eine Topologie auf $X_1 \times X_2$. Sie heißt \textbf{Produkttopologie}.
     $\fB = \Set{U_1 \times U_2 | U_i \text{ offen in } X_i, i=1,2}$
     ist eine Basis von $\fT$.
 \end{definition}
 
+\begin{figure}[htp]
+    \centering
+    \input{figures/neighbourhood-topology}
+    \caption{Zu $x=(x_1, x_2)$ gibt es Umgebungen $U_1, U_2$ mit $U_1 \times U_2 \subseteq U$}
+\end{figure}
+
 \begin{beispiel}
     \begin{enumerate}[1)]
-        \item $X_1 = X_2 = \mdr$ mit euklidischer Topologie.
-        \item $X_1 = X_2 = \mdr$ mit Zariski-Topologie.
-              $\fT$ Produkttopologie auf $\mdr^2$: $U_1 \times U_2$
+        \item $X_1 = X_2 = \mdr$ mit euklidischer Topologie.\\
               $\Rightarrow$ Die Produkttopologie auf $\mdr \times \mdr = \mdr^2$
-              stimmt mit der euklidischen Topologie auf $\mdr^2$ überein.\\
-              \todo{Bild einfügen}
+              stimmt mit der euklidischen Topologie auf $\mdr^2$ überein.
+        \item $X_1 = X_2 = \mdr$ mit Zariski-Topologie.
+              $\fT$ Produkttopologie auf $\mdr^2$: $U_1 \times U_2$\\
+              (Siehe Abb. \ref{fig:zariski-topologie})
     \end{enumerate}
+
+    \begin{figure}[htp]
+        \centering
+        \input{figures/zariski-topology}
+        \caption{Zariski-Topologie auf $\mdr^2$}
+        \label{fig:zariski-topologie}
+    \end{figure}
 \end{beispiel}
 
 \begin{definition} \xindex{Quotiententopologie}
@@ -188,8 +195,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
             &\gdw x \text{ und } y \text{ liegen auf der gleichen Ursprungsgerade}
     \end{align*}
     \[\overline{X} = \mathbb{P}^n(\mdr)\]
-    Also für $n=1$:
-
+    Also für $n=1$:\nopagebreak\\
     \input{figures/ursprungsgeraden}
 \end{beispiel}
 
@@ -215,33 +221,44 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{beispiel}
     Sei $V$ ein euklidischer oder hermiteischer Vektorraum mit Skalarprodukt
-    $\langle \cdot \rangle$.
+    $\langle \cdot , \cdot \rangle$.
     Dann wird $V$ durch $d(x,y) := \sqrt{\langle x-y, x-y \rangle}$ zum metrischen Raum.
 \end{beispiel}
 
 \begin{beispiel}[diskrete Metrik] \xindex{Metrik!diskrete} \xindex{Topologie!diskrete}
     Sei $X$ eine Menge. Dann heißt
     \[d(x,y) = \begin{cases}
-    0: & \text{, falls } x=y\\
-    1: & \text{, falls } x \neq y
+    0 & \text{falls } x=y\\
+    1 & \text{falls } x \neq y
     \end{cases}\]
     die \textbf{diskrete Metrik}. Die Metrik $d$ induziert die 
     \textbf{diskrete Topologie}.
 \end{beispiel}
 
 \begin{beispiel}
-    $X = \mdr^2$ und $d\left ((x_1, y_1), (x_2, y_2)\right ) := \max{\|x_1 - x_2\|, \|y_1 - y_2\|}$
+    $X = \mdr^2$ und $d\left ((x_1, y_1), (x_2, y_2)\right ) := \max(\|x_1 - x_2\|, \|y_1 - y_2\|)$
     ist Metrik.
-
-    \todo[inline]{Bild von $\fB_r(0)$ erstellen und einfügen (Quadrat der Seitenlänge $2r$)}
 
     \emph{Beobachtung:} $d$ erzeugt die eukldische Topologie.
 
-    \todo[inline]{Bild von Quadrat in Kreis in Quadrat ... erstellen und einfügen.}
+    \begin{figure}[ht]
+        \centering
+        \subfigure[$\fB_r(0)$]{
+            \input{figures/open-square}
+            \label{fig:open-square}
+        }%
+        \subfigure[Euklidische Topologie]{
+            \input{figures/quadrat-in-kreis-in-dots}
+            \label{fig:quadrat-in-kreis-in-dots}
+        }%
+        \label{Formen}
+        \caption{Veranschaulichungen zur Metrik $d$}
+    \end{figure}
+
 \end{beispiel}
 
-\begin{beispiel}[SNCF-Metrik] \xindex{Metrik!SNCF}
-    $X = \mdr^2$ \footnote{Diese Metrik wird auch \enquote{\href{https://de.wikipedia.org/wiki/Franz\%C3\%B6sische_Eisenbahnmetrik}{französische Eisenbahnmetrik}} genannt.}
+\begin{beispiel}[SNCF-Metrik\footnote{Diese Metrik wird auch \enquote{\href{https://de.wikipedia.org/wiki/Franz\%C3\%B6sische_Eisenbahnmetrik}{französische Eisenbahnmetrik}} genannt.}] \xindex{Metrik!SNCF}
+    $X = \mdr^2$ 
 
     \input{figures/sncf-metrik}
 \end{beispiel}

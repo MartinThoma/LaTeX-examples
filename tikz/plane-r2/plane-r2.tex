@@ -1,0 +1,27 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+\begin{document}
+\tdplotsetmaincoords{110}{50}
+\begin{tikzpicture}
+		[tdplot_main_coords,
+			cube/.style={very thick,black},
+			grid/.style={very thin,gray},
+			axis/.style={->,blue,thick}]
+
+	%draw a grid in the x-y plane
+	\foreach \x in {-0.5,0,...,2.5}
+		\foreach \y in {-0.5,0,...,2.5}
+		{
+			\draw[grid] (\x,-0.5) -- (\x,2.5);
+			\draw[grid] (-0.5,\y) -- (2.5,\y);
+		}
+			
+
+	%draw the axes
+	\draw[axis] (-1,0,0) -- (3,0,0) node[anchor=west]{$y$};
+	\draw[axis] (0,-1,0) -- (0,3,0) node[anchor=west]{$x$};
+	
+\end{tikzpicture}
+\end{document}
