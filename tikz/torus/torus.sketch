@@ -1,0 +1,10 @@
+def torus {
+    def n_segs 40
+    sweep [draw=black, fill=lightgray, fill opacity=0.75] {n_segs, rotate(360/n_segs, (0,0,0), [0,1,0])}
+        sweep {n_segs, rotate(360/n_segs, (1.5,0,0), [0,0,1])}
+        (2,0,0)
+}
+
+put { view((10,4,2)) } {{torus}}
+
+global { language tikz }
