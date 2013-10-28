@@ -20,6 +20,7 @@
 
 \newframedtheorem{satz}{Satz}[chapter]
 \newframedtheorem{lemma}[satz]{Lemma}
+\newtheorem{korollar}[satz]{Korollar}
 \newtheorem{plaindefinition}{Definition}
 \newenvironment{definition}{\begin{plaindefinition}}{\end{plaindefinition}}
 \newenvironment{definition*}{\begin{plaindefinition*}}{\end{plaindefinition*}}
@@ -28,6 +29,8 @@
 
 \def\fB{\mathfrak{B}}%Für Basis
 \def\fT{\mathfrak{T}}%Für Topologie
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
 \newcommand{\powerset}[1]{\mathcal{P}(#1)}
 \def\mdr{\ensuremath{\mathbb{R}}}
 \def\mdq{\ensuremath{\mathbb{Q}}}

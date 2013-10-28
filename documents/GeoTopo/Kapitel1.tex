@@ -53,6 +53,16 @@
 Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
 Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
+\begin{korollar}[Mengen, die offen und abgeschlossen sind, existieren]
+    Betrachte $\emptyset$ und $X$ mit der \enquote{trivialen Topologie}
+    \xindex{Topologie!triviale} $\fT = \Set{\emptyset, X}$.
+
+    Es gilt: $X \in \fT$ und $\emptyset \in \fT$, d.~h. $X$ und $\emptyset$
+    sind offen. Außerdem $X^C = X \setminus X = \emptyset \in \fT$
+    und $X \setminus \emptyset = X \in \fT$, d.~h. $X$ und $\emptyset$
+    sind als Komplement offener Mengen abgeschlossen.$\qedwhite$
+\end{korollar}
+
 \begin{beispiel}
     \begin{enumerate}[1)]
         \item $X = \mdr^n$ mit der euklidischen Metrik.\\ \xindex{Topologie!euklidische}
@@ -60,7 +70,6 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
               gibt es $r > 0$, sodass $B_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U$\\
               Also: $\fT = \Set{M \subseteq X | M \text{ ist offene Kugel}}$
         \item Allgemeiner: $(X, d)$ metrischer Raum
-        \item $X$ Menge, $\fT = \Set{\emptyset, X}$ heißt \enquote{triviale Topologie} \xindex{Topologie!triviale}
         \item $X$ Menge, $\fT = \powerset{X}$ heißt \enquote{diskrete Topologie} \xindex{Topologie!diskrete}
         \item $X :=\mdr, \fT_Z := \Set{U \subseteq \mdr | \mdr \setminus U \text{ endlich}} \cup \Set{\emptyset}$ heißt \enquote{Zariski-Topologie} \xindex{Topologie!Zariski}\\
               Beobachtung: $U \in \fT_Z \gdw \exists f \in \mdr[X]$, sodass $\mdr \setminus U = V(f) = \Set{x \in \mdr | f(x) = 0}$
