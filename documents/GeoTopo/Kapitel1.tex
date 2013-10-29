@@ -55,7 +55,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{korollar}[Mengen, die offen und abgeschlossen sind, existieren]
     Betrachte $\emptyset$ und $X$ mit der \enquote{trivialen Topologie}
-    \xindex{Topologie!triviale} $\fT = \Set{\emptyset, X}$.
+    \xindex{Topologie!triviale} $\fT_\text{triv} = \Set{\emptyset, X}$.
 
     Es gilt: $X \in \fT$ und $\emptyset \in \fT$, d.~h. $X$ und $\emptyset$
     sind offen. Außerdem $X^C = X \setminus X = \emptyset \in \fT$
@@ -362,6 +362,80 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     $\fB_\delta(x) \subseteq f^{-1} (U)$
     $\Rightarrow f(\fB_\delta(x)) \subseteq U$
     $\Rightarrow \Set{y \in X | d_X(x,y) < \delta} \Rightarrow$ Beh.
+
+    \enquote{$\Leftarrow$}: Sei $U \subseteq Y$ offen, $X \in f^{-1}(U)$.
+    Dann gibt es $\varepsilon > 0$, sodass $\fB_\varepsilon(f(x)) \subseteq U$
+    $\stackrel{\text{Vor.}}{\Rightarrow}$ Es gibt $\delta > 0$, sodass
+    $f(\fB_\delta(x) \subseteq \fB_\varepsilon (f(x)))$
+    $\Rightarrow \fB_\delta(x) \subseteq f^{-1}(\fB_\varepsilon(f(x))) \subseteq f^{-1}(U)$
     $\qed$
 \end{beweis}
 
+\begin{bemerkung}
+    Eine Ableitung $f: X \rightarrow Y$ von topologischen Räumen ist
+    genau dann stetig, wenn für jede abgeschlossene Teilmenge $A \subseteq Y$
+    gilt: $f^{-1}(A) \subseteq X$ ist abgeschlossen.
+\end{bemerkung}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item Für jeden topologischen Raum $X$ gilt: $\text{Id}_X : X \rightarrow X$
+              ist Homöomorphismus.
+        \item Ist $Y$ trivialer topologischer Raum, d.h. $\fT = \fT_\text{triv}$,
+              so ist jede Abbildung $f:X \rightarrow Y$ stetig.
+        \item Ist $X$ diskreter topologischer Raum, so ist $f:X \rightarrow Y$
+              stetig für jeden topologischen Raum $Y$ und jede Abbildung $f$.
+        \item Sei $X = [0, 1), Y = S^1 = \Set{z \in \mdc | \|z\| = 1}$
+              und $f(t) = e^{2 \pi i t}$
+              \todo[inline]{Bild mit Kreis und Zahlenstrahl von 0 bis 1 einfügen}
+              Die Umkehrabbildung $g$ ist nicht stetig, da $g^{-1}(U)$
+              nicht offen ist (vgl. Bild TODO)
+    \end{enumerate}
+\end{beispiel}
+
+\begin{korollar}
+    Seien $X, Y, Z$ topologische Räume, $f:X \rightarrow Y$ und 
+    $g:Y \rightarrow Z$ stetige Abbildungen.
+
+    Dann ist $g \circ f: X \rightarrow Z$ stetig.
+
+    \centerline{
+        \begin{xy}
+          \xymatrix{
+              X \ar[rr]^f \ar[rd]_{g \circ f}  &     &  Y \ar[dl]^g  \\
+                                               &  Z  &
+          }
+        \end{xy}
+    }
+\end{korollar}
+
+\begin{beweis}
+    Sei $U \subseteq Z$ offen $\Rightarrow (g \circ f)^{-1} (U) = f^{-1} (g^{-1}(U))$.
+    $g^{-1}(U)$ ist offen in $Y$ weil $g$ stetig ist, $f^{-1}(g^{-1}(U))$
+    ist offen in $X$, weil $f$ stetig ist. $\qed$
+\end{beweis}
+
+\begin{bemerkung}
+    Für jeden topologischen Raum ist $\text{Homöo}(X) := \Set{f: X \rightarrow X | f \text{ ist Homöomorphismus}}$
+    eine Gruppe.
+\end{bemerkung}
+
+\begin{bemerkung}
+    \begin{enumerate}[label=\alph*]
+        \item Jede Isometrie $f:X \rightarrow Y$ zwischen metrischen 
+              Räumen ist ein Homöomorphismus.
+        \item $\text{Isom}(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
+              Untergruppe von $\text{Homöo}(X)$ für jeden metrischen
+              Raum $X$.
+    \end{enumerate}
+\end{bemerkung}
+
+\begin{korollar}
+    Seien $X, Y$ topologische Räume. $\pi_X: X \times Y \rightarrow X$
+    und $\pi_Y: X \times Y \rightarrow Y$ die Projektionen 
+    \[(x,y) \mapsto x \;\;\;(x,y) \mapsto y\]
+    Wird $X \times Y$ mit der Produkttopologie versehen, so sind $\pi_X$
+    und $\pi_Y$ stetig.
+\end{korollar}
+
+\todo[inline]{Es fehlt noch ca. eine Seite}

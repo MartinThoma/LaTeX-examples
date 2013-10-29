@@ -110,12 +110,44 @@
   sort=KoerperREinheiten
 }
 
-\newglossaryentry{Projektion}
+\newglossaryentry{Komplexe Zahlen}
+{
+  name={\ensuremath{\mdc}},
+  description={Komplexe Zahlen},
+  sort=KoerperSComplexeZahlen
+}
+
+\newglossaryentry{Projektiver Raum}
 {
   name={\ensuremath{\mathbb{P}}},
-  description={Projektion},
+  description={Projektiver Raum},
   sort=KoerperXProjektion
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fraktale Symbole                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossaryentry{fB}
+{
+  name={\ensuremath{\fB}},
+  description={Basis einer Topologie},
+  sort=fB
+}
+
+\newglossaryentry{Epsilonumgebung}
+{
+  name={\ensuremath{\fB_\delta(x)}},
+  description={$\delta$-Kugel um $x$},
+  sort=fBr
+}
+
+\newglossaryentry{fT}
+{
+  name={\ensuremath{\fT}},
+  description={Topologie},
+  sort=fT
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sonstiges                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -153,30 +185,20 @@
   description={Betrag von $x$},
   sort=ZZZNormBetrag
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Fraktale Symbole                                                  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newglossaryentry{fB}
+
+\newglossaryentry{Sphaere}
 {
-  name={\ensuremath{\fB}},
-  description={Basis einer Topologie},
-  sort=fB
+  name={\ensuremath{S^n}},
+  description={Sphäre},
+  sort=ZZZSphaere
 }
 
-\newglossaryentry{Epsilonumgebung}
+\newglossaryentry{Projektion}
 {
-  name={\ensuremath{\fB_\varepsilon(x)}},
-  description={Offene Kugel mit Radius $\varepsilon$ um $x$ ($\varepsilon$-Umgebung)},
-  sort=fBr
+  name={\ensuremath{\pi_X}},
+  description={Projektion auf X},
+  sort=ZZZProjektion
 }
-
-\newglossaryentry{fT}
-{
-  name={\ensuremath{\fT}},
-  description={Topologie},
-  sort=fT
-}
-
 
 % Setze den richtigen Namen für das Glossar
 \renewcommand*{\glossaryname}{\glossarName}
