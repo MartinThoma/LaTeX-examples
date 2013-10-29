@@ -13,6 +13,8 @@
 }
 \newcommand*{\indexanchor}[2]{\hyperlink{#1}{#2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define theorems                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \theoremstyle{break}
 \setlength\theoremindent{0.7cm}
 \theoremheaderfont{\kern-0.7cm\normalfont\bfseries} 
@@ -26,6 +28,9 @@
 \newenvironment{definition*}{\begin{plaindefinition*}}{\end{plaindefinition*}}
 \newtheorem{beispiel}{Beispiel}
 \newtheorem{bemerkung}{Bemerkung}
+\theoremstyle{nonumberplain}
+\newtheorem{beweis}{Beweis:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\fB{\mathfrak{B}}%Für Basis
 \def\fT{\mathfrak{T}}%Für Topologie
@@ -35,4 +40,5 @@
 \def\mdr{\ensuremath{\mathbb{R}}}
 \def\mdq{\ensuremath{\mathbb{Q}}}
 \def\mdz{\ensuremath{\mathbb{Z}}}
+\def\mdn{\ensuremath{\mathbb{N}}}
 \def\gdw{\ensuremath{\Leftrightarrow}}

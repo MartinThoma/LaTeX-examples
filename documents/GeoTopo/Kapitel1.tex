@@ -38,7 +38,7 @@
     Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
     aus einer Menge $X$ und $\fT \subseteq \powerset{X}$ mit
     folgenden Eigenschaften
-    \begin{enumerate}[(i)]
+    \begin{enumerate}[label=(\roman*)]
         \item $\emptyset, X \in \fT$
         \item Sind $U_1, U_2 \in \fT$, so ist $U_1 \cap U_2 \in \fT$
         \item Ist $I$ eine Menge und $U_i \in \fT$ für jedes $i \in I$,
@@ -64,7 +64,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{korollar}
 
 \begin{beispiel}
-    \begin{enumerate}[1)]
+    \begin{enumerate}[label=\arabic*)]
         \item $X = \mdr^n$ mit der euklidischen Metrik.\\ \xindex{Topologie!euklidische}
               $U \subseteq \mdr^n$ offen $\gdw$ für jedes $x \in U$ 
               gibt es $r > 0$, sodass $B_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U$\\
@@ -72,7 +72,11 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
         \item Allgemeiner: $(X, d)$ metrischer Raum
         \item $X$ Menge, $\fT = \powerset{X}$ heißt \enquote{diskrete Topologie} \xindex{Topologie!diskrete}
         \item $X :=\mdr, \fT_Z := \Set{U \subseteq \mdr | \mdr \setminus U \text{ endlich}} \cup \Set{\emptyset}$ heißt \enquote{Zariski-Topologie} \xindex{Topologie!Zariski}\\
-              Beobachtung: $U \in \fT_Z \gdw \exists f \in \mdr[X]$, sodass $\mdr \setminus U = V(f) = \Set{x \in \mdr | f(x) = 0}$
+              Beobachtungen: 
+            \begin{itemize}
+                \item $U \in \fT_Z \gdw \exists f \in \mdr[X]$, sodass $\mdr \setminus U = V(f) = \Set{x \in \mdr | f(x) = 0}$
+                \item Es gibt keine disjunkten offenen Mengen in $\fT_Z$
+            \end{itemize}
         \item $X := \mdr^n, \fT_Z = \{U \subseteq \mdr^n | \text{Es gibt Polynome } f_1, \dots, f_r \in \mdr[X_1, \dots, X_n] \text{ sodass }\\\mdr^n \setminus U = V(f_1, \dots, f_r)\}$
         \item $X = \Set{0,1}, \fT = \Set{\emptyset, \Set{0,1}, \Set{0}}$\\
               abgeschlossene Mengen: $\emptyset, \Set{0,1}, \Set{1}$
@@ -88,7 +92,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{definition}
     Sei $(X, \fT)$ ein topologischer Raum, $M \subseteq X$ eine Teilmenge.
-    \begin{enumerate}[a)]
+    \begin{enumerate}[label=\alph*)]
         \item $\displaystyle M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x} = \bigcup_{\stackrel{U \subseteq M} {U \in \fT}} U $ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \xindex{Inneres} \xindex{Kern!offener}
         \item $\displaystyle \overline{M} := \bigcap_{\stackrel{M \subseteq A}{A \text{ abgeschlossen}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \xindex{Abschluss}
         \item $\partial M := \overline{M} \setminus M^\circ$ heißt \textbf{Rand} von $M$. \xindex{Rand}
@@ -97,7 +101,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{definition}
 
 \begin{beispiel}
-    \begin{enumerate}[1)]
+    \begin{enumerate}[label=\arabic*)]
         \item $X = \mdr$ mit euklidischer Topologie\\
               $M = \mdq \Rightarrow \overline{M} = \mdr, \;\;\; M^\circ = \emptyset$
         \item $X = \mdr$, $M=(a,b) \Rightarrow \overline{M} = [a,b]$
@@ -108,7 +112,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{definition} \xindex{Basis} \xindex{Subbasis}
     Sei $(X, \fT)$ ein topologischer Raum.
-    \begin{enumerate}[a)]
+    \begin{enumerate}[label=\alph*)]
         \item $\fB \subseteq \fT$ heißt \textbf{Basis} der Topologie $\fT$,
               wenn jedes $U \in \fT$ Vereinigung von Elementen aus $\fB$
               ist.
@@ -159,7 +163,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{figure}
 
 \begin{beispiel}
-    \begin{enumerate}[1)]
+    \begin{enumerate}[label=\arabic*)]
         \item $X_1 = X_2 = \mdr$ mit euklidischer Topologie.\\
               $\Rightarrow$ Die Produkttopologie auf $\mdr \times \mdr = \mdr^2$
               stimmt mit der euklidischen Topologie auf $\mdr^2$ überein.
@@ -215,7 +219,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \begin{definition} \xindex{Metrik} \xindex{Raum!metrischer}
     Sei $X$ eine Menge. Eine Abbildung $d:X\times X \rightarrow \mdr$
     heißt \textbf{Metrik}, wenn gilt:
-    \begin{enumerate}[(i)]
+    \begin{enumerate}[label=(\roman*)]
         \item $\forall x, y \in X: d(x,y) \geq 0$
         \item $d(x,y) = 0 \gdw x = y$
         \item $d(x,y) = d(y,x)$
@@ -290,7 +294,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{bemerkung}
     Seien $X, X_1, X_2$ Hausdorff-Räume.
-    \begin{enumerate}[a)]
+    \begin{enumerate}[label=\alph*)]
         \item Jeder Teilraum um $X$ ist Hausdorffsch.
         \item $X_1 \times X_2$ ist Hausdorffsch.
     \end{enumerate}
@@ -301,4 +305,63 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \end{figure}
 \end{bemerkung}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 24.10.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition} \xindex{Grenzwert} \xindex{Limes}
+    Sei $X$ ein topologischer Raum und $(x)_{n \in \mdn}$ eine Folge
+    in $X$. $x \in X$ heißt \textbf{Grenzwert} oder \textbf{Limes}
+    von $(x_n)$, wenn es für jede Umgebung $U$ von $x$ ein $n_0$ gibt,
+    sodass $x_n \in U$ für alle $n \geq n_0$.
+\end{definition}
+
+\begin{korollar}
+    Ist $X$ hausdorffsch, so hat jede Folge in $X$ höchstens einen
+    Grenzwert.
+\end{korollar}
+
+\begin{beweis}
+    \underline{Annahme}: $x$ und $y$ mit $x \neq y$ sind Grenzwerte der Folge $(x_n)$.
+
+    Nach Voraussetzung gibt es Umgebungen $U_x$ von $x$ und $U_y$
+    von $y$ mit $U_x \cap U_y = \emptyset$. Nach Annahme gibt es
+    $n_0$ mit $x_n \in U_x \cap U_y$ für alle $n \geq n_0$
+    $\Rightarrow$ Widerspruch   $\qed$
+\end{beweis}
+
+\section{Stetigkeit}
+\begin{definition} \xindex{stetig} \xindex{Homöomorphismus}
+    Seien $X, Y$ topologische Räume und $f:X \rightarrow Y$ eine Abbildung.
+
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+        \item $f$ heißt \textbf{stetig}, wenn für jedes offene 
+              $U \subseteq Y$ auch $f^{-1} (U) \subseteq X$ offen ist. \label{def:stetigkeit}
+        \item $f$ heißt \textbf{Homöomorphismus}, wenn es eine 
+              stetige Abbildung  $g: Y \rightarrow X$ gibt, sodass
+              $g \circ f = \text{id}_X$ und $f \circ g = \text{id}_Y$.
+    \end{enumerate}
+\end{definition}
+
+\begin{korollar}
+    % Im Grunde wird die Äquivalenz von Stetigkeit im Sinne der 
+    % Analysis und Topologie auf metrischen Räumen gezeigt.
+    Seien $X, Y$ metrische Räume und $f: X \rightarrow Y$ eine Abbildung.
+
+    Dann gilt: $f$ ist stetig $\gdw$ zu jedem $x \in X$ und jedem
+    $\varepsilon > 0$ gibt es $\delta(x, \varepsilon) > 0$, sodass für
+    alle $y \in X$ mit $d(x,y) < \delta $ gilt 
+    $d_Y(f(x), f(y)) < \varepsilon$.
+\end{korollar}
+
+\begin{beweis}
+    \enquote{$\Rightarrow$}: Sei $x \in X, \varepsilon > 0$ gegeben.
+    Sei $U := \fB_\varepsilon(f(x))$.  Dann ist $U$ offen in $Y$.
+    $\stackrel{\ref{def:stetigkeit}}{\Rightarrow} f^{-1}(U)$  ist 
+    offen in $X$. Dann ist $x \in f^{-1}(U)$.
+    $\Rightarrow \exists \delta > 0$, sodass 
+    $\fB_\delta(x) \subseteq f^{-1} (U)$
+    $\Rightarrow f(\fB_\delta(x)) \subseteq U$
+    $\Rightarrow \Set{y \in X | d_X(x,y) < \delta} \Rightarrow$ Beh.
+    $\qed$
+\end{beweis}
 
