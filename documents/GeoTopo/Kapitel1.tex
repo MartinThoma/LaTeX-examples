@@ -78,7 +78,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
                 \item Es gibt keine disjunkten offenen Mengen in $\fT_Z$
             \end{itemize}
         \item $X := \mdr^n, \fT_Z = \{U \subseteq \mdr^n | \text{Es gibt Polynome } f_1, \dots, f_r \in \mdr[X_1, \dots, X_n] \text{ sodass }\\\mdr^n \setminus U = V(f_1, \dots, f_r)\}$
-        \item $X = \Set{0,1}, \fT = \Set{\emptyset, \Set{0,1}, \Set{0}}$\\
+        \item $X := \Set{0,1}, \fT = \Set{\emptyset, \Set{0,1}, \Set{0}}$ heißt \enquote{Sierpińskiraum}.\xindex{Sierpińskiraum}\\
               abgeschlossene Mengen: $\emptyset, \Set{0,1}, \Set{1}$
     \end{enumerate}
 \end{beispiel}
@@ -280,12 +280,12 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{beispiel}
 
 \begin{definition} \xindex{Raum!hausdorffscher}
-    Ein topologischer Raum $X$ heißt \textbf{Hausdorffsch}, wenn es
+    Ein topologischer Raum $X$ heißt \textbf{hausdorffsch}, wenn es
     für je zwei Punkte $x \neq y$ in $X$ Umgebungen $U_x$ um $x$
     und $U_y$ um $y$ gibt, sodass $U_x \cap U_y = \emptyset$.
 \end{definition}
 
-\begin{bemerkung}
+\begin{bemerkung}[Trennungseigenschaft]
     Metrische Räume sind hausdorffsch, da 
     \[d(x,y) > 0 \Rightarrow \exists \varepsilon: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
     Ein Beispiel für einen topologischen Raum, der nicht hausdorfsch ist,
@@ -438,4 +438,54 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     und $\pi_Y$ stetig.
 \end{korollar}
 
-\todo[inline]{Es fehlt noch ca. eine Seite}
+\begin{beweis}
+    Sei $U \subseteq X$ offen $\Rightarrow \pi_x^{-1} (U) = U \times Y$ 
+    ist offen in $X \times Y$. $\qed$
+\end{beweis}
+
+\begin{korollar}
+    Sei $X$ ein topologischer Raum, $\sim$ eine Äquivalenzrelation auf
+    $X$, $\overline{X} = X /_\sim$ der Bahnenraum versehen mit der
+    Quotiententopologie, $\pi:X \rightarrow \overline{X}$, $x \mapsto [x]_\sim$.
+
+    Dann ist $\pi$ stetig.
+\end{korollar}
+
+\begin{beweis}
+    Nach Definition ist $U \subseteq \overline{X}$ offen $\gdw \pi^{-1}(U) \subseteq X$ offen
+\end{beweis}
+
+\emph{Beobachtung:} Die Quotiententopologie ist die feinste Topologie,
+sodass $\pi$ stetig wird.
+
+\begin{beispiel}[Stereographische Projektion] \xindex{Projektion!stereographische}
+    $\mdr^n$ und $S^n \setminus \Set{P}$ sind homöomorph für
+    beliebiges $P \in S^n$
+
+    \begin{align*}
+        S^n &= \Set{x \in \mdr^{n+1} | \|x\| = 1}\\
+            &= \Set{x \in \mdr^{n+1} | \sum_{i=1}^{n+1} x_i^2}
+    \end{align*}
+    
+    Sei ohne Einschränkung $P = \begin{pmatrix}0\\ \vdots\\ 1\end{pmatrix}$.
+
+    \begin{align*}
+        f: &S^n \setminus \Set{P} \rightarrow \mdr^n\\
+        Q  &\mapsto \overline{L_Q \cap H}^\text{genau ein Punkt}
+    \end{align*}
+
+    wobei $\mdr^n = H = \Set{\begin{pmatrix}x_1\\ \vdots \\ x_{n+1}\end{pmatrix} \in \mdr^{n+1} | x_{n+1} = 0}$
+    und $L_Q$ die Gerade in $\mdr^{n+1}$ durch $P$ und $Q$ ist.
+
+    \todo[inline]{Bild einer Kugel einfügen, die von einer Ebene $H$ 
+            geschnitten wird. $P$ ist ganz oben, ein beliebiger Punkt 
+            Q ist mit dabei und die Gerade PQ schneidet die Ebene.}
+
+    Sei $Q = \begin{pmatrix}x_1\\ \vdots \\ x_{n+1}\end{pmatrix}$, so
+    ist $x_{n+1} < 1$, also ist $L_Q$ nicht parallel zu $H$. Also
+    schneiden sich $L_Q$ und $H$ in genau einem Punkt.
+
+    Es gilt: $f$ ist bijektiv und die Umkehrabbildung ist ebenfalls
+    stetig.    
+\end{beispiel}
+
