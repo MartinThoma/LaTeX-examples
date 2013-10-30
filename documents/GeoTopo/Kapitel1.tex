@@ -387,9 +387,15 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
               stetig für jeden topologischen Raum $Y$ und jede Abbildung $f$.
         \item Sei $X = [0, 1), Y = S^1 = \Set{z \in \mdc | \|z\| = 1}$
               und $f(t) = e^{2 \pi i t}$
-              \todo[inline]{Bild mit Kreis und Zahlenstrahl von 0 bis 1 einfügen}
+              \begin{figure}
+                \centering
+                \input{figures/topology-continuous-mapping}
+                \caption{Beispiel einer stetigen Funktion $f$, deren 
+                         Umkehrabbildung $g$ nicht steitg ist.}
+                \label{fig:nicht-stetige-umkehrabbildung}
+              \end{figure}
               Die Umkehrabbildung $g$ ist nicht stetig, da $g^{-1}(U)$
-              nicht offen ist (vgl. Bild TODO)
+              nicht offen ist (vgl. Abb. \ref{fig:nicht-stetige-umkehrabbildung})
     \end{enumerate}
 \end{beispiel}
 
@@ -416,12 +422,10 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{beweis}
 
 \begin{bemerkung}
-    Für jeden topologischen Raum ist $\text{Homöo}(X) := \Set{f: X \rightarrow X | f \text{ ist Homöomorphismus}}$
-    eine Gruppe.
-\end{bemerkung}
-
-\begin{bemerkung}
-    \begin{enumerate}[label=\alph*]
+    \begin{enumerate}[label=\alph*)]
+        \item Für jeden topologischen Raum ist 
+              $\text{Homöo}(X) := \Set{f: X \rightarrow X | f \text{ ist Homöomorphismus}}$
+              eine Gruppe.
         \item Jede Isometrie $f:X \rightarrow Y$ zwischen metrischen 
               Räumen ist ein Homöomorphismus.
         \item $\text{Isom}(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
@@ -452,7 +456,9 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{korollar}
 
 \begin{beweis}
-    Nach Definition ist $U \subseteq \overline{X}$ offen $\gdw \pi^{-1}(U) \subseteq X$ offen
+    Nach Definition ist 
+    $U \subseteq \overline{X}$ offen $\gdw \pi^{-1}(U) \subseteq X$ 
+    offen. $\qed$
 \end{beweis}
 
 \emph{Beobachtung:} Die Quotiententopologie ist die feinste Topologie,
