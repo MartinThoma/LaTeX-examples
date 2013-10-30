@@ -459,31 +459,33 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 sodass $\pi$ stetig wird.
 
 \begin{beispiel}[Stereographische Projektion] \xindex{Projektion!stereographische}
-    $\mdr^n$ und $S^n \setminus \Set{P}$ sind homöomorph für
-    beliebiges $P \in S^n$
+    $\mdr^n$ und $S^n \setminus \Set{N}$ sind homöomorph für
+    beliebiges $N \in S^n$
 
     \begin{align*}
         S^n &= \Set{x \in \mdr^{n+1} | \|x\| = 1}\\
             &= \Set{x \in \mdr^{n+1} | \sum_{i=1}^{n+1} x_i^2}
     \end{align*}
     
-    Sei ohne Einschränkung $P = \begin{pmatrix}0\\ \vdots\\ 1\end{pmatrix}$.
+    Sei ohne Einschränkung $N = \begin{pmatrix}0\\ \vdots\\ 1\end{pmatrix}$.
 
     \begin{align*}
-        f: &S^n \setminus \Set{P} \rightarrow \mdr^n\\
-        Q  &\mapsto \overline{L_Q \cap H}^\text{genau ein Punkt}
+        f: &S^n \setminus \Set{N} \rightarrow \mdr^n\\
+        P  &\mapsto \overbrace{L_P \cap H}^\text{genau ein Punkt}
     \end{align*}
 
     wobei $\mdr^n = H = \Set{\begin{pmatrix}x_1\\ \vdots \\ x_{n+1}\end{pmatrix} \in \mdr^{n+1} | x_{n+1} = 0}$
-    und $L_Q$ die Gerade in $\mdr^{n+1}$ durch $P$ und $Q$ ist.
+    und $L_P$ die Gerade in $\mdr^{n+1}$ durch $N$ und $P$ ist.
 
-    \todo[inline]{Bild einer Kugel einfügen, die von einer Ebene $H$ 
-            geschnitten wird. $P$ ist ganz oben, ein beliebiger Punkt 
-            Q ist mit dabei und die Gerade PQ schneidet die Ebene.}
+    \begin{figure}[htp]
+        \centering
+        \input{figures/stereographic-projection}
+        \caption{Visualisierung der sphärischen Projektion\\Bildquelle: \href{http://texample.net/tikz/examples/map-projections/}{texample.net/tikz/examples/map-projections}}
+    \end{figure}
 
-    Sei $Q = \begin{pmatrix}x_1\\ \vdots \\ x_{n+1}\end{pmatrix}$, so
-    ist $x_{n+1} < 1$, also ist $L_Q$ nicht parallel zu $H$. Also
-    schneiden sich $L_Q$ und $H$ in genau einem Punkt.
+    Sei $P = \begin{pmatrix}x_1\\ \vdots \\ x_{n+1}\end{pmatrix}$, so
+    ist $x_{n+1} < 1$, also ist $L_P$ nicht parallel zu $H$. Also
+    schneiden sich $L_P$ und $H$ in genau einem Punkt $\hat{P}$.
 
     Es gilt: $f$ ist bijektiv und die Umkehrabbildung ist ebenfalls
     stetig.    

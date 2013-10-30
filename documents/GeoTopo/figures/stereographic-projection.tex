@@ -1,0 +1,97 @@
+%% helper macros
+\begin{tikzpicture} % CENT
+\newcommand\pgfmathsinandcos[3]{%
+  \pgfmathsetmacro#1{sin(#3)}%
+  \pgfmathsetmacro#2{cos(#3)}%
+}
+\newcommand\LongitudePlane[3][current plane]{%
+  \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+  \pgfmathsinandcos\sint\cost{#3} % azimuth
+  \tikzset{#1/.estyle={cm={\cost,\sint*\sinEl,0,\cosEl,(0,0)}}}
+}
+\newcommand\LatitudePlane[3][current plane]{%
+  \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+  \pgfmathsinandcos\sint\cost{#3} % latitude
+  \pgfmathsetmacro\yshift{\cosEl*\sint}
+  \tikzset{#1/.estyle={cm={\cost,0,0,\cost*\sinEl,(0,\yshift)}}} %
+}
+\newcommand\DrawLongitudeCircle[2][1]{
+  \LongitudePlane{\angEl}{#2}
+  \tikzset{current plane/.prefix style={scale=#1}}
+   % angle of "visibility"
+  \pgfmathsetmacro\angVis{atan(sin(#2)*cos(\angEl)/sin(\angEl))} %
+  \draw[current plane] (\angVis:1) arc (\angVis:\angVis+180:1);
+  \draw[current plane,dashed] (\angVis-180:1) arc (\angVis-180:\angVis:1);
+}
+\newcommand\DrawLatitudeCircle[2][1]{
+  \LatitudePlane{\angEl}{#2}
+  \tikzset{current plane/.prefix style={scale=#1}}
+  \pgfmathsetmacro\sinVis{sin(#2)/cos(#2)*sin(\angEl)/cos(\angEl)}
+  % angle of "visibility"
+  \pgfmathsetmacro\angVis{asin(min(1,max(\sinVis,-1)))}
+  \draw[current plane] (\angVis:1) arc (\angVis:-\angVis-180:1);
+  \draw[current plane,dashed] (180-\angVis:1) arc (180-\angVis:\angVis:1);
+}
+
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
+%% some definitions
+
+\def\R{2.5} % sphere radius
+\def\angEl{35} % elevation angle
+\def\angAz{-105} % azimuth angle
+\def\angPhi{-40} % longitude of point P
+\def\angBeta{19} % latitude of point P
+
+%% working planes
+
+\pgfmathsetmacro\H{\R*cos(\angEl)} % distance to north pole
+\tikzset{xyplane/.estyle={cm={cos(\angAz),sin(\angAz)*sin(\angEl),-sin(\angAz),
+                              cos(\angAz)*sin(\angEl),(0,-\H)}}}
+\LongitudePlane[xzplane]{\angEl}{\angAz}
+\LongitudePlane[pzplane]{\angEl}{\angPhi}
+\LatitudePlane[equator]{\angEl}{0}
+
+%% draw xyplane and sphere
+
+\draw[xyplane] (-2*\R,-2*\R) rectangle (2.2*\R,2.8*\R);
+\fill[ball color=white] (0,0) circle (\R); % 3D lighting effect
+\draw (0,0) circle (\R);
+
+%% characteristic points
+
+\coordinate (O) at (0,0);
+\coordinate[mark coordinate] (N) at (0,\H);
+\coordinate[mark coordinate] (S) at (0,-\H);
+\path[pzplane] (\angBeta:\R) coordinate[mark coordinate] (P);
+\path[pzplane] (\R,0) coordinate (PE);
+\path[xzplane] (\R,0) coordinate (XE);
+\path (PE) ++(0,-\H) coordinate (Paux); % to aid Phat calculation
+\coordinate[mark coordinate] (Phat) at (intersection cs: first line={(N)--(P)},
+                                        second line={(S)--(Paux)});
+
+%% draw meridians and latitude circles
+
+\DrawLatitudeCircle[\R]{0} % equator
+\DrawLongitudeCircle[\R]{\angAz} % xzplane
+\DrawLongitudeCircle[\R]{\angAz+90} % yzplane
+\DrawLongitudeCircle[\R]{\angPhi} % pzplane
+
+%% draw xyz coordinate system
+
+\draw[xyplane,<->] (1.8*\R,0) node[below] {$x$} -- (0,0) -- (0,2.4*\R)
+    node[right] {$y$};
+\draw[->] (0,-\H) -- (0,1.6*\R) node[above] {$z$};
+
+%% draw lines and put labels
+
+\draw[blue,dashed] (P) -- (N) +(0.3ex,0.6ex) node[above left,black] {$\mathbf{N}$};
+\draw[blue] (P) -- (Phat) node[above right,black] {$\mathbf{\hat{P}}$};
+\path (S) +(0.4ex,-0.4ex) node[below] {$\mathbf{0}$};
+\draw (P) node[above right] {$\mathbf{P}$};
+\end{tikzpicture}
