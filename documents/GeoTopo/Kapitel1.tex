@@ -354,19 +354,20 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{korollar}
 
 \begin{beweis}
-    \enquote{$\Rightarrow$}: Sei $x \in X, \varepsilon > 0$ gegeben.
-    Sei $U := \fB_\varepsilon(f(x))$.  Dann ist $U$ offen in $Y$.
+    \enquote{$\Rightarrow$}: Sei $x \in X, \varepsilon > 0$ gegeben
+    und $U := \fB_\varepsilon(f(x))$.\\
+    Dann ist $U$ offen in $Y$.\\
     $\stackrel{\ref{def:stetigkeit}}{\Rightarrow} f^{-1}(U)$  ist 
-    offen in $X$. Dann ist $x \in f^{-1}(U)$.
+    offen in $X$. Dann ist $x \in f^{-1}(U)$.\\
     $\Rightarrow \exists \delta > 0$, sodass 
-    $\fB_\delta(x) \subseteq f^{-1} (U)$
-    $\Rightarrow f(\fB_\delta(x)) \subseteq U$
+    $\fB_\delta(x) \subseteq f^{-1} (U)$\\
+    $\Rightarrow f(\fB_\delta(x)) \subseteq U$\\
     $\Rightarrow \Set{y \in X | d_X(x,y) < \delta} \Rightarrow$ Beh.
 
-    \enquote{$\Leftarrow$}: Sei $U \subseteq Y$ offen, $X \in f^{-1}(U)$.
-    Dann gibt es $\varepsilon > 0$, sodass $\fB_\varepsilon(f(x)) \subseteq U$
+    \enquote{$\Leftarrow$}: Sei $U \subseteq Y$ offen, $X \in f^{-1}(U)$.\\
+    Dann gibt es $\varepsilon > 0$, sodass $\fB_\varepsilon(f(x)) \subseteq U$\\
     $\stackrel{\text{Vor.}}{\Rightarrow}$ Es gibt $\delta > 0$, sodass
-    $f(\fB_\delta(x) \subseteq \fB_\varepsilon (f(x)))$
+    $f(\fB_\delta(x)) \subseteq \fB_\varepsilon (f(x)))$\\
     $\Rightarrow \fB_\delta(x) \subseteq f^{-1}(\fB_\varepsilon(f(x))) \subseteq f^{-1}(U)$
     $\qed$
 \end{beweis}
