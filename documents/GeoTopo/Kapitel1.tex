@@ -474,7 +474,7 @@ sodass $\pi$ stetig wird.
             &= \Set{x \in \mdr^{n+1} | \sum_{i=1}^{n+1} x_i^2}
     \end{align*}
     
-    Sei ohne Einschränkung $N = \begin{pmatrix}0\\ \vdots\\ 1\end{pmatrix}$.
+    \OE{} sei $N = \begin{pmatrix}0\\ \vdots\\ 1\end{pmatrix}$.
 
     \begin{align*}
         f: &S^n \setminus \Set{N} \rightarrow \mdr^n\\
@@ -498,3 +498,171 @@ sodass $\pi$ stetig wird.
     stetig.    
 \end{beispiel}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 31.10.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Zusammenhang}\index{Zusammenhang|(}
+\begin{definition}\xindex{zusammenhängend}
+    Ein Raum $X$ heißt \textbf{zusammenhängend}, wenn es keine offenen
+    nichtleeren Teilmengen $U_1, U_2$ von $X$ gibt mit $U_1 \cap U_2 = \emptyset$
+    und $U_1 \cup U_2 = X$.
+\end{definition}
+
+\begin{bemerkung}
+    $X$ ist zusammenhängend $\gdw$ Es gibt keine nichtleeren abgeschlossenen
+    Teilmengen $A_1, A_2$ mit $A_1 \cap A_2 = \emptyset$ und $A_1 \cup A_2 = X$.
+\end{bemerkung}
+
+\begin{bemerkung}
+    Eine Teilmenge $Y \subseteq X$ heißt zusammenhängend, wenn $Y$
+    als topologischer Raum mit der Teilraumtopologie zusammenhängend ist.
+\end{bemerkung}
+
+\begin{beispiel}
+    $\mdr^n$ ist mit der euklidischen Topologie zusammenhängend,
+    denn:
+
+    Angenommen, $\mdr^n = U_1 \cup U_2$ mit $U_i$ offen, $U_i \neq \emptyset$
+    und $U_1 \cap U_2 = \emptyset$ existiert.
+
+    Sei $x \in U_1, y \in U_2$ und $[x,y]$ die Strecke zwischen $x$
+    und $y$. Dann ist $U_1 \cap [x,y]$ die Vereinigung von offenen
+    Intervallen. Dann gibt es $z \in [x,y]$ mit $z \in \partial (U_1 \cap [x,y])$,
+    aber $z \notin U_1 \Rightarrow z \in U_2$. In jeder Umgebung von 
+    $z$ liegt ein Punkt von $U_1 \Rightarrow$ Widerspruch zu $U_2$ offen.
+\end{beispiel}
+
+\begin{beispiel}[Zusammenhang von Räumen]
+    \begin{enumerate}
+        \item $\mdr \setminus \Set{0}$ ist nicht zusammenhängend, denn
+              $\mdr \setminus \Set{0} = \mdr_{< 0} \cup \mdr_{> 0}$
+        \item $\mdr^2 \setminus \Set{0}$ ist zusammenhängend.
+        \item $\mdq \subsetneq \mdr$ ist nicht zusammenhängend, da 
+    \[(\mdq \cap \mdr_{< \sqrt{2}}) \cup (\mdq \cap \mdr_{> \sqrt{2}}) = \mdq\]
+        \item $\Set{x}$ ist zusammenhängedn für jedes $x \in X$, wobei $X$ ein 
+              topologischer Raum ist.
+        \item $\mdr$ mit Zariski-Topologie ist zusammenhängend\xindex{Topologie!Zariski}
+    \end{enumerate}
+\end{beispiel}
+
+\begin{korollar}\label{zusammenhangAbschluss}
+    Sei $X$ ein topologischer Raum, $A \subseteq X$ zusammenhängend.
+    Dann ist auch $\overline{A}$ zusammenhängend.
+\end{korollar}
+
+\begin{beweis}
+    Angenommen $\overline{A} = A_1 \cup A_2, A_i$ abgeschlossen, $\neq \emptyset$,
+    $A_1 \cap A_2 = \emptyset$
+    \begin{align*}
+        &\Rightarrow A = \underbrace{\underbrace{(A \cap A_1)}_\text{abgeschlossen} \cup \underbrace{(A \cap A_2)}_\text{abgeschlossen}}_\text{disjunkt}\\
+    \end{align*}
+
+    Wäre $A \cap A_1 = \emptyset$
+    \begin{align*}
+        &\Rightarrow A \subseteq A_2\\
+        &\Rightarrow \overline{A} \subseteq A_2\\
+        &\Rightarrow A_1 = \emptyset
+        &\Rightarrow \text{Widerspruch}
+    \end{align*}
+    $\qed$
+\end{beweis}
+
+\begin{korollar}\label{zusammenhangVereinigung}
+    Sei $X$ topologischer Raum, $A, B \subseteq X$ zusammenhängend.
+
+    Ist $A \cap B \neq \emptyset$, dann ist $A \cup B$ zusammenhängend.
+\end{korollar}
+
+\begin{beweis}
+    Sei $A \cup B = U_1 \cup U_2, U_i \neq \emptyset$ offen, disjunkt
+    \begin{align*}
+        &\stackrel{\text{\OE}}{\Rightarrow} A = (A \cap U_1) \cup (A \cap U_2) \text{ offen, disjunkt}\\
+        &\stackrel{A \text{ zhgd.}}{\Rightarrow} A \cap U_1 = \emptyset\\
+        &\stackrel{A \cap B \neq \emptyset}{\Rightarrow} U_1 \subseteq B\\
+        &B = \underbrace{(B \cap U_1)}_{= U_1} \cup \underbrace{(B \cap U_2)}_{= \emptyset} \text{ ist unerlaubte Zerlegung}
+    \end{align*}
+    $\qed$
+\end{beweis}
+
+\begin{definition}\xindex{Zusammenhangskomponente}
+    Sei $X$ ein topologischer Raum.
+    
+    Für $x \in X$ sei 
+    \[Z(x) := \bigcup_{\substack{A \subseteq X \text{zhgd.}\\ X \in A}} A\]
+
+     $Z(x)$ heißt \textbf{Zusammenhangskomponente}.
+\end{definition}
+
+\begin{korollar}
+    Sei $X$ ein topologischer Raum. Dann gilt:
+    \begin{enumerate}[label=\alph*)]
+        \item $Z(X)$ ist die größte zusammehängede Teilmenge von $X$,
+              die $x$ enthält.
+        \item $Z(X)$ ist abgeschlossen.
+        \item $X$ ist disjunkte Vereinigung von Zusammenhangskomponenten.
+    \end{enumerate}
+\end{korollar}
+
+\begin{beweis}
+    \begin{enumerate}[label=\alph*)]
+        \item Sei $Z(x) = A_1 \cup A_2$ mit $A_i \neq \emptyset$ abgeschlossen,
+              disjunkt.
+
+            \OE{} sei $x \in A_1$ und $y \in A_2$. $y$ liegt in einer zusammehängenden
+            Teilmenge $A$, die auch $x$ enthält.
+            $\Rightarrow A = \underbrace{(A \cap A_1)}_{\ni x} \cup \underbrace{(A \cap A_2)}_{\ni y}$
+            ist unerlaubte Zerlegung.
+        \item Nach Korollar \ref{zusammenhangAbschluss} ist $\overline{Z(x)}$
+              zusammenhängend $\Rightarrow \overline{Z(x)} \subseteq Z(x)$
+              $\Rightarrow Z(x) = \overline{Z(x}$
+        \item Ist $Z(y) \cap Z(x) \neq \emptyset \stackrel{\ref{zusammenhangVereinigung}}{\Rightarrow} Z(y) \cup Z(x)$
+              ist zusammenhängend. \\
+              \begin{align*}
+                \Rightarrow Z(x) \cup Z(y) &\subseteq Z(x) \Rightarrow Z(y) \subseteq Z(x)\\
+                                           &\subseteq Z(y) \Rightarrow Z(x) \subseteq Z(y)
+              \end{align*} 
+    \end{enumerate}
+
+    $\qed$
+\end{beweis}
+
+\begin{korollar}
+    Sei $f:X \rightarrow Y$ stetig. Ist $A \subseteq X$ zusammenhängend,
+    so ist $f(A) \subseteq y$ zusammenhängend.
+\end{korollar}
+
+\begin{beweis}
+    Sei $f(A) = U_1 \cup U_2, U_i \neq \emptyset,$ offen, disjunkt.
+
+    $\Rightarrow f^{-1} (f(A)) = f^{-1}(U_1) \cup f^{-1}(U_2)$
+
+    $\Rightarrow A = \underbrace{(A \cap f^{-1}(U_1))}_{\neq \emptyset} \cup \underbrace{(A \cap f^{-1}(U_2))}_{\neq \emptyset} \qed$
+\end{beweis}\index{Zusammenhang|)}
+
+\section{Kompaktheit}
+\begin{definition}\xindex{kompakt}
+    Ein topologischer Raum $X$ heißt \textbf{kompakt}, wenn jede
+    offene Überdeckung von $X$ eine endliche Teilüberdeckung besitzt.
+
+    \[\mathfrak{U} = \Set{U_i}_{i \in I},\;\;\;U_i \text{ offen in } X,\;\;\;\bigcup_{i \in I} U_i = X\]
+    
+\end{definition}
+
+\begin{definition}\xindex{Ueberdeckung@""Uberdeckung}
+    Sei $X$ eine Menge und $T \subseteq \powerset{X}$.
+
+    $T$ heißt eine \textbf{Überdeckung} von $X$, wenn gilt:
+    \[\forall x \in X: \exists M \in T: x \in M\]
+\end{definition}
+
+\begin{korollar}
+    $I = [0, 1]$ ist kompakt bezüglich der euklidischen Topologie.
+\end{korollar}
+
+\begin{beweis}
+    Sei $(U_i)_{i \in J}$ eine offene Überdeckung von $I$.
+
+    Es gibt ein $\delta > 0$, sodass jedes Teilintervall von $I$
+    in einem der $U_i$ enthalten ist. Dann überdecken endlich viele
+    ... \todo{das haben wir nicht mehr geschafft}
+\end{beweis}
