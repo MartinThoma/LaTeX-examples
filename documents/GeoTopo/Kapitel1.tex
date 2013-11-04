@@ -23,7 +23,7 @@
 
         \subfigure[$\mdr^2$]{
             \input{figures/plane-r2.tex}
-            \label{fig:pyramide}
+            \label{fig:plane-r2}
         }%
         \subfigure[Torus]{
             \input{figures/torus.tex} \xindex{Torus}
@@ -60,14 +60,16 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     Es gilt: $X \in \fT$ und $\emptyset \in \fT$, d.~h. $X$ und $\emptyset$
     sind offen. Außerdem $X^C = X \setminus X = \emptyset \in \fT$
     und $X \setminus \emptyset = X \in \fT$, d.~h. $X$ und $\emptyset$
-    sind als Komplement offener Mengen abgeschlossen.$\qedwhite$
+    sind als Komplement offener Mengen abgeschlossen.$\qed$
 \end{korollar}
 
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*)]
-        \item $X = \mdr^n$ mit der euklidischen Metrik.\\ \xindex{Topologie!euklidische}
-              $U \subseteq \mdr^n$ offen $\gdw$ für jedes $x \in U$ 
-              gibt es $r > 0$, sodass $B_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U$\\
+        \item $X = \mdr^n$ mit der euklidischen Metrik. \xindex{Topologie!euklidische}
+              \begin{align*}
+                U \subseteq \mdr^n \text{ offen} \gdw &\text{ für jedes } x \in U \text{ gibt es } r > 0,\\
+                                                      &\text{ sodass } \fB_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U
+              \end{align*}
               Also: $\fT = \Set{M \subseteq X | M \text{ ist offene Kugel}}$
         \item Allgemeiner: $(X, d)$ metrischer Raum
         \item $X$ Menge, $\fT = \powerset{X}$ heißt \enquote{diskrete Topologie} \xindex{Topologie!diskrete}
@@ -183,10 +185,11 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \begin{definition} \xindex{Quotiententopologie}
     Sei $X$ topologischer Raum, $\sim$ eine Äquivalenzrelation auf $X$,
     $\overline{X} = X /_\sim$ sei die Menge der Äquivalenzklassen,
-    $\pi: x \rightarrow \overline{x}, \;\;\; x \mapsto [x]_\sim$,
-    $U \subseteq \overline{X}$ heißt offen, wenn $\pi^{-1} (U) \subseteq X$
-    offen ist. Dadurch wird eine Topologie auf $\overline{X}$ definiert.
-    Diese Topologie heißt \textbf{Quotiententopologie}.
+    $\pi: x \rightarrow \overline{x}, \;\;\; x \mapsto [x]_\sim$.
+
+    \[\fT_{\overline{X}} := \Set{U \subseteq \overline{X} | \pi^{-1}(U) \in \fT_X}\]
+
+    $(\overline{X}, \fT_{\overline{X}})$ heißt \textbf{Quotiententopologie}.
 \end{definition}
 
 \begin{beispiel}
@@ -217,13 +220,13 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \section{Metrische Räume}
 \begin{definition} \xindex{Metrik} \xindex{Raum!metrischer}
-    Sei $X$ eine Menge. Eine Abbildung $d:X\times X \rightarrow \mdr$
+    Sei $X$ eine Menge. Eine Abbildung $d:X\times X \rightarrow \mdr_0^+$
     heißt \textbf{Metrik}, wenn gilt:
+
     \begin{enumerate}[label=(\roman*)]
-        \item $\forall x, y \in X: d(x,y) \geq 0$
-        \item $d(x,y) = 0 \gdw x = y$
-        \item $d(x,y) = d(y,x)$
-        \item $d(x,z) \leq d(x,y) + d(x+z)$
+        \item Definitheit:         \tabto{4cm} $d(x,y) = 0 \gdw x = y$
+        \item Symmetrie:           \tabto{4cm} $d(x,y) = d(y,x)$
+        \item Dreiecksungleichung: \tabto{4cm} $d(x,z) \leq d(x,y) + d(x+z)$
     \end{enumerate}
 
     Das Paar $(X, d)$ heißt ein \textbf{metrischer Raum}.
@@ -267,7 +270,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
             \input{figures/quadrat-in-kreis-in-dots}
             \label{fig:quadrat-in-kreis-in-dots}
         }%
-        \label{Formen}
+        \label{fig:metrik}
         \caption{Veranschaulichungen zur Metrik $d$}
     \end{figure}
 
