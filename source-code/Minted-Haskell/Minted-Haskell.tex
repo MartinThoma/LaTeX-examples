@@ -1,0 +1,34 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb} % needed for math
+\usepackage{amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2cm]{geometry} %layout
+\usepackage{minted} % needed for the inclusion of source code
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Martin Thoma, Tutorium 4}
+\rhead{Programmierparadigmen, Blatt 1}
+
+\begin{document}
+\renewcommand{\theFancyVerbLine}{
+  \sffamily\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize\arabic{FancyVerbLine}}}
+\inputminted[linenos,
+               numbersep=7pt,
+               gobble=0,
+               frame=lines,
+               framesep=2mm,
+				label=Arithmetik.hs,
+				fontsize=\footnotesize, tabsize=4]{haskell}{Arithmetik.hs}
+\clearpage
+\inputminted[linenos,
+               numbersep=7pt,
+               gobble=0,
+               frame=lines,
+               framesep=2mm,
+				label=ColorClassification.java,
+				fontsize=\footnotesize, tabsize=4]{haskell}{Sort.hs}
+
+\end{document}

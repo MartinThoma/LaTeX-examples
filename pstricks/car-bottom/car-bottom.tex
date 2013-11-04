@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{pst-solides3d}   
+\begin{document}
+\begin{pspicture}(-4,-2)(3,3)
+    \psset{viewpoint=80 -60 50,Decran=50}
+    \psSolid[object=cylindre,h=1,r=1,action=draw*,mode=4,fillcolor=green!20,RotX=90] (+5,+3,0) % Rad vorne rechts
+    \psSolid[object=cylindre,h=1,r=1,action=draw*,mode=4,fillcolor=green!20,RotX=90] (-5,+3,0) % Rad hinten rechts
+    \psSolid[object=parallelepiped,a=12,b=3,c=2,action=draw*,fillcolor=yellow!20](0,0,0) % body
+    \psSolid[object=cylindre,h=1,r=1,action=draw*,mode=4,fillcolor=green!20,RotX=90] (+5,-3,0) % Rad vorne links
+    \psSolid[object=cylindre,h=1,r=1,action=draw*,mode=4,fillcolor=green!20,RotX=90] (-5,-3,0) % Rad hinten links
+    \psSolid[object=cylindre,h=6,r=0.1,action=draw*,mode=4,fillcolor=gray!20,RotX=90] (-5,+3,0) % axis back
+    \psSolid[object=cylindre,h=6,r=0.1,action=draw*,mode=4,fillcolor=gray!20,RotX=90] (+5,+3,0) % axis front
+    %\axesIIID[showOrigin=false](1,1,1)(3,2,2.5)
+\end{pspicture}  
+\end{document}
