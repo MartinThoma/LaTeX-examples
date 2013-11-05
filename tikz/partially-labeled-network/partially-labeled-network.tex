@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\pgfdeclareimage{user}{user}
+\pgfdeclareimage{schwarz}{user-schwarz}
+\pgfdeclareimage{rot}{user-rot}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=2]
+    \node[text width=2.2cm,align=center] (a) at (0,1) {\pgfuseimage{user}\newline Anna};
+    \node[text width=2.2cm,align=center] (b) at (5,1) {\pgfuseimage{schwarz}\newline Berta};
+    \node[text width=2.2cm,align=center] (c) at (8,0) {\pgfuseimage{rot}\newline Charlie};
+    \node[text width=2.2cm,align=center] (d) at (9,2) {\pgfuseimage{user}\newline Doris};
+    \node[text width=2.2cm,align=center] (e) at (4,3) {\pgfuseimage{schwarz}\newline Erich};
+    \node[text width=2.2cm,align=center] (f) at (6,3) {\pgfuseimage{rot}\newline Fritz};
+    \node[text width=2.2cm,align=center] (g) at (7,4) {\pgfuseimage{user}\newline Gerd};
+
+    \draw (a) -- (b);
+    \draw (a) -- (e);
+    \draw (b) -- (e);
+    \draw (b) -- (f);
+    \draw (b) -- (c);
+    \draw (c) -- (d);
+    \draw (e) -- (f);
+    \draw (e) -- (g);
+    \draw (f) -- (g);
+\end{tikzpicture}
+\end{preview}
+\end{document}
