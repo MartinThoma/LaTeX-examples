@@ -45,7 +45,40 @@ Now there is finite set of points $x_1, \dots, x_n$ such that
 \section{Minimal distance to a constant function}
 Let $f(x) = c$ with $c \in \mdr$ be a function. 
 
-\todo[inline]{add image}
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            legend pos=north west,
+            axis x line=middle,
+            axis y line=middle,
+            grid = major,
+            width=0.8\linewidth,
+            height=8cm,
+            grid style={dashed, gray!30},
+            xmin=-5, % start the diagram at this x-coordinate
+            xmax= 5, % end   the diagram at this x-coordinate
+            ymin= 0, % start the diagram at this y-coordinate
+            ymax= 3, % end   the diagram at this y-coordinate
+            axis background/.style={fill=white},
+            xlabel=$x$,
+            ylabel=$y$,
+            tick align=outside,
+            minor tick num=-3,
+            enlargelimits=true,
+            tension=0.08]
+          \addplot[domain=-5:5, thick,samples=50, red] {1};
+          \addplot[domain=-5:5, thick,samples=50, green] {2};
+          \addplot[domain=-5:5, thick,samples=50, blue] {3};
+          \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
+          \draw[thick, dashed] (axis cs:2,0) -- (axis cs:2,3);
+          \addlegendentry{$f(x)=1$}
+          \addlegendentry{$g(x)=2$}
+          \addlegendentry{$h(x)=3$}
+        \end{axis} 
+    \end{tikzpicture}
+    \caption{3 constant functions}
+\end{figure}
 
 Then $(x_P,f(x_P))$ has
 minimal distance to $P$. Every other point has higher distance.
@@ -54,7 +87,37 @@ minimal distance to $P$. Every other point has higher distance.
 Let $f(x) = m \cdot x + t$ with $m \in \mdr \setminus \Set{0}$ and 
 $t \in \mdr$ be a function.
 
-\todo[inline]{add image}
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            legend pos=north east,
+            axis x line=middle,
+            axis y line=middle,
+            grid = major,
+            width=0.8\linewidth,
+            height=8cm,
+            grid style={dashed, gray!30},
+            xmin= 0, % start the diagram at this x-coordinate
+            xmax= 5, % end   the diagram at this x-coordinate
+            ymin= 0, % start the diagram at this y-coordinate
+            ymax= 3, % end   the diagram at this y-coordinate
+            axis background/.style={fill=white},
+            xlabel=$x$,
+            ylabel=$y$,
+            tick align=outside,
+            minor tick num=-3,
+            enlargelimits=true,
+            tension=0.08]
+          \addplot[domain=-5:5, thick,samples=50, red] {0.5*x};
+          \addplot[domain=-5:5, thick,samples=50, blue] {-2*x+6};
+          \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
+          \addlegendentry{$f(x)=\frac{1}{2}x$}
+          \addlegendentry{$g(x)=-2x+6$}
+        \end{axis} 
+    \end{tikzpicture}
+    \caption{The shortest distance of $P$ to $f$ can be calculated by using the perpendicular}
+\end{figure}
 
 Now you can drop a perpendicular through $P$ on $f(x)$. The slope $f_\bot$
 of the perpendicular is $- \frac{1}{m}$. Then:
@@ -70,6 +133,7 @@ of the perpendicular is $- \frac{1}{m}$. Then:
 \end{align}
 
 There is only one point with minimal distance.
+\clearpage
 
 \section{Minimal distance to a quadratic function}
 Let $f(x) = a \cdot x^2 + b \cdot x + c$ with $a \in \mdr \setminus \Set{0}$ and 
@@ -126,47 +190,58 @@ But can there be three points?
 
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}
-    \begin{axis}[
-        legend pos=north west,
-        axis x line=middle,
-        axis y line=middle,
-        grid = major,
-        width=0.8\linewidth,
-        height=8cm,
-        grid style={dashed, gray!30},
-        xmin=-0.7,     % start the diagram at this x-coordinate
-        xmax= 0.7,    % end   the diagram at this x-coordinate
-        ymin=-0.25,     % start the diagram at this y-coordinate
-        ymax= 0.5,   % end   the diagram at this y-coordinate
-        axis background/.style={fill=white},
-        xlabel=$x$,
-        ylabel=$y$,
-        %xticklabels={-2,-1.6,...,7},
-        %yticklabels={-8,-7,...,8},
-        tick align=outside,
-        minor tick num=-3,
-        enlargelimits=true,
-        tension=0.08]
-      \addplot[domain=-0.7:0.7, thick,samples=50, orange] {x*x};
-      \draw (axis cs:0,0.5) circle[radius=0.5];
-      \draw[red, thick] (axis cs:0,0.5) -- (axis cs:0.101,0.0102);
-      \draw[red, thick] (axis cs:0,0.5) -- (axis cs:-0.101,0.0102);
-      \draw[red, thick] (axis cs:0,0.5) -- (axis cs:0,0);
-      \addlegendentry{$f(x)=x^2$}
-    \end{axis} 
-\end{tikzpicture}
+    \begin{tikzpicture}
+        \begin{axis}[
+            legend pos=north west,
+            axis x line=middle,
+            axis y line=middle,
+            grid = major,
+            width=0.8\linewidth,
+            height=8cm,
+            grid style={dashed, gray!30},
+            xmin=-0.7,     % start the diagram at this x-coordinate
+            xmax= 0.7,    % end   the diagram at this x-coordinate
+            ymin=-0.25,     % start the diagram at this y-coordinate
+            ymax= 0.5,   % end   the diagram at this y-coordinate
+            axis background/.style={fill=white},
+            xlabel=$x$,
+            ylabel=$y$,
+            %xticklabels={-2,-1.6,...,7},
+            %yticklabels={-8,-7,...,8},
+            tick align=outside,
+            minor tick num=-3,
+            enlargelimits=true,
+            tension=0.08]
+          \addplot[domain=-0.7:0.7, thick,samples=50, orange] {x*x};
+          \draw (axis cs:0,0.5) circle[radius=0.5];
+          \draw[red, thick] (axis cs:0,0.5) -- (axis cs:0.101,0.0102);
+          \draw[red, thick] (axis cs:0,0.5) -- (axis cs:-0.101,0.0102);
+          \draw[red, thick] (axis cs:0,0.5) -- (axis cs:0,0);
+          \addlegendentry{$f(x)=x^2$}
+        \end{axis} 
+    \end{tikzpicture}
     \caption{3 points with minimal distance?}
-    \todo[inline]{Is this possible?}
+    \todo[inline]{Is this possible? http://math.stackexchange.com/q/553097/6876}
 \end{figure}
 
 \subsection{Calculate points with minimal distance}
 \todo[inline]{Write this}
 
 \section{Minimal distance to a cubic function}
+Let $f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$ with $a \in \mdr \setminus \Set{0}$ and 
+$b, c, d \in \mdr$ be a function.
+
 \subsection{Number of points with minimal distance}
 \todo[inline]{Write this}
 
+\subsection{Special points}
+\todo[inline]{Write this}
+
+\subsection{Voronoi}
+
+For $b^2 \geq 3ac$
+
+\todo[inline]{Write this}
 \subsection{Calculate points with minimal distance}
 \todo[inline]{Write this}
 \end{document}
