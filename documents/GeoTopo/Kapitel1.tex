@@ -701,7 +701,7 @@ $\qed$
     \begin{figure}[htp]
         \centering
         \input{figures/neighbourhood-topology-open}
-        \caption{\todo[inline]{Beschreibung}}
+        \caption{Die blaue Umgebung ist Schnitt vieler Umgebungen}
     \end{figure}
 
     Die offenen Mengen $U_{x_0, y} \times V_{x_0, y}$ für festes $x_0$
@@ -712,7 +712,7 @@ $\qed$
     Sei ${\color{blue} U_{x_0}} := \bigcap_{i=1}^{m(x)} U_{x_0, y_i}$.
     Da $X$ kompakt ist, gibt es $x_1, \dots, x_n \in X$ mit 
     $\bigcup_{j=1}^n U_{x_j} = X \Rightarrow \bigcup_{j=1}^k \bigcup_{i=1}^{m(x_j)} \underbrace{\left ( U_{x_j, y_i} \times V_{x_j, y_i} \right)}_{\text{Ein grün-oranges Kästchen}} \supseteq X \times Y$\\
-    $\Rightarrow U_j U_i W_i (x_j, y_i) = X \times Y \qed$
+    $\Rightarrow \bigcup_j \bigcup_i W_i (x_j, y_i) = X \times Y \qed$
 \end{beweis}
 
 \begin{korollar}\label{hausdorffraumKompakteTeilmengeAbgeschlossen}
@@ -721,7 +721,7 @@ $\qed$
 \end{korollar}
 
 \begin{beweis}
-    \underline{z.~Z.: Komplement ist offen}
+    \underline{z.~Z.:} Komplement ist offen
 
     Ist $X = K$, so ist $K$ abgeschlossen in $X$. Andernfalls sei 
     $y \in X \setminus K$. Für jedes $x \in K$ seien $U_x$ bzw. $V_y$
@@ -736,8 +736,8 @@ $\qed$
     sodass $\bigcup_{i=1}^m U_{x_i} \supseteq K$.
 
     \begin{align*}
-        &\text{Sei } V := \bigcap_{i=1}^n V_{x_i}
-        &\Rightarrow V \cap (\bigcup_{i=1}^n U_{x_i} = \emptyset)\\
+        &\text{Sei } V := \bigcap_{i=1}^n V_{x_i}\\
+        &\Rightarrow V \cap \left (\bigcup_{i=1}^n U_{x_i} \right) = \emptyset \\
         &\Rightarrow V \cap K = \emptyset\\
         &\Rightarrow V \text{ ist Überdeckung von } y\text{, die ganz in } X \setminus K \text{ enthalten ist}.\\
         &\Rightarrow X \setminus K \text{ ist offen}\\
@@ -762,10 +762,10 @@ $\qed$
     Es gilt: $f(f^{-1}(V)) = V \cap f(X) \qed$
 \end{beweis}
 
-\begin{korollar}[Heine-Borel]
+\begin{satz}[Heine-Borel]
     Eine Teilmenge von $\mdr^n$ oder $\mdc^n$ ist genau dann kompakt,
     wenn sie beschränkt und abgeschlossen ist.
-\end{korollar}
+\end{satz}
 
 \begin{beweis}
     \enquote{$\Rightarrow$}: Sei $K \subseteq \mdr^n$ (oder $\mdc^n$)
