@@ -1,0 +1,57 @@
+\subsection{Brücke}
+\begin{frame}{Brücke}{Bridge}
+	\begin{block}{Definition: Brücke}
+		Eine Kante $e \in E$ eines Graphen $G(V,E)$ heißt Brücke \\
+		$: \Leftrightarrow$ Durch das Entfernen von e zerfällt G in mehr zusammenhängende Teilgraphen,
+		als G bereits hat. \\
+		$: \Leftrightarrow$ Sie ist in keinem Zyklus enthalten
+	\end{block}
+
+	\begin{figure}
+		\begin{tikzpicture}[scale=1.8, auto,swap]
+			% Draw a 7,11 network
+			% First we draw the vertices
+			\foreach \pos/\name in {{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
+				                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f}, 
+									{(4,2)/g}, {(5,2)/h}, {(4,0)/i},
+									{(5,0)/j}}
+				\node[vertex] (\name) at \pos {$\name$};
+			% Connect vertices with edges
+			\foreach \source/ \dest /\pos in {a/b/,b/c/,c/d/,d/a/,
+										d/e/,e/c/,
+										e/f/,
+										f/g/, f/i/,
+										g/h/, h/j/, j/i/, i/g/}
+				\path (\source) edge [\pos] node {} (\dest);
+			\begin{pgfonlayer}{background} \path<+->[selected edge] (e.center) -- (f.center); \end{pgfonlayer}
+		\end{tikzpicture}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Wozu?}
+	\begin{itemize}
+		\item Relevanz: Brücken und Artikulationspunkte (später) sind Teile des Graphen, die für die Kommunikation im Graphen unabdingbar sind. \\
+	\end{itemize}
+	Wir wollen Artikulationspunkte und Brücken auch algorithmisch finden. \\ $\Rightarrow$ Lösung: Tiefensuche \\
+	\pause
+	Komplexität: $\mathcal{O}(|V| + |E|)$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Wie findet man Brücken?}
+	\begin{itemize}
+		\item Algorithmus von Tarjan in $\mathcal{O}(|V| + |E|)$
+		\item Zweiter, tollerer Algorithmus:
+			\begin{itemize}
+				\item Gehe mit Tiefensuche durch Graph, nummeriere Knoten $v \in V$ mit $N(v)$
+				\item Merke für jeden Knoten $v \in V$ folgendes $L(v)$:\\
+					% Oh how passionately I hate latex.
+					 $ L(v) := \min\{ N(c) $ ~\\ $ \mid c \in V \wedge \text{c erreichbar von v durch max. eine Rückwärtskante} \} $
+				\item Baumkante $(p,c) \in E$  mit $p,c \in V$ ist nun Brücke gdw. $L(c) > N(p)$
+			\end{itemize}
+	\end{itemize}
+%	<Tafelbeispiel>
+
+\end{frame}
+

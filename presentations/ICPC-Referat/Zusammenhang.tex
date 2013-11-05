@@ -1,0 +1,70 @@
+\subsection{Zusammenhang von Graphen: Was ist das?}
+\begin{frame}{Zusammenhang von Graphen}{Connectivity}
+	\begin{block}{Streng zusammenhängender Graph}
+		Ein streng zusammenhängender Graph ist ein gerichteter Graph, 
+		in dem jeder Knoten von jedem erreichbar ist.
+	\end{block}
+	\begin{figure}
+		\begin{tikzpicture}[->,scale=1.8, auto,swap]
+			% Draw a 7,11 network
+			% First we draw the vertices
+			\foreach \pos/\name in {{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
+				                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f},
+									{(3,2)/g}, {(2,0)/h}}
+				\node[vertex] (\name) at \pos {$\name$};
+			% Connect vertices with edges and draw weights
+			\foreach \source/ \dest /\pos in {a/b/,b/c/,c/d/,d/a/,
+										c/e/bend left, d/e/,e/c/, f/g/,
+										g/f/bend left, d/h/}
+				\path (\source) edge [\pos] node {} (\dest);
+		\end{tikzpicture}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Zusammenhang von Graphen}{Connectivity}
+	\begin{block}{Zusammenhangskomponente}
+		Eine Zusammenhangskomponente ist ein maximaler Subgraph S 
+		eines gerichteten Graphen, wobei S streng zusammenhängend ist.
+		% Muss dieser Subgraph maximal sein?
+	\end{block}
+	\begin{figure}
+		\begin{tikzpicture}[->,scale=1.8, auto,swap]
+			% Draw a 7,11 network
+			% First we draw the vertices
+			\foreach \pos/\name in {{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
+				                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f},
+									{(3,2)/g}, {(2,0)/h}}
+				\node[vertex] (\name) at \pos {$\name$};
+			% Connect vertices with edges
+			\foreach \source/ \dest /\pos in {a/b/,b/c/,c/d/,d/a/,
+										c/e/bend left, d/e/,e/c/, f/g/,
+										g/f/bend left, d/h/}
+				\path (\source) edge [\pos] node {} (\dest);
+
+			% colorize the vertices
+			\foreach \vertex in {a,b,c,d,e}
+				\path node[selected vertex] at (\vertex) {$\vertex$};
+
+			\foreach \vertex in {f,g}
+				\path node[blue vertex] at (\vertex) {$\vertex$};
+
+			\foreach \vertex in {h}
+				\path node[yellow vertex] at (\vertex) {$\vertex$};
+		\end{tikzpicture}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Elementare Eigenschaften}
+	\begin{block}{}
+		    Die Knotenmengen verschiedener SCCs sind disjunkt.
+	\end{block}
+
+	\begin{block}{}
+		    SCCs bilden Zyklen.
+	\end{block}
+
+	\begin{block}{}
+		    Die Vereinigung aller Knoten aller SCCs ergibt alle Knoten
+			des ursprünglichen Graphen.
+	\end{block}
+\end{frame}

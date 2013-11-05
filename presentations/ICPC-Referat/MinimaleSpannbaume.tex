@@ -1,0 +1,43 @@
+\section{Minimale Spannbäume}
+
+\subsection{Wozu minimale Spannbäume?}
+\begin{frame}{Wozu?}{Why?}
+	\only<1>{\includegraphics[scale=0.35]{Material/minSpannbaum_1.png}}
+	\only<2>{\includegraphics[scale=0.35]{Material/minSpannbaum_2.png}}
+	\only<3>{\includegraphics[scale=0.35]{Material/minSpannbaum_3.png}}
+	\only<4>{\includegraphics[scale=0.35]{Material/minSpannbaum_4.png}}
+	\only<5>{\includegraphics[scale=0.35]{Material/minSpannbaum_5.png}}
+\end{frame}
+
+\subsection{Was ist ein minimaler Spannbaum?}
+\begin{frame}{Definition}
+Minimale Spannbäume sind Teilgraphen, sodass ...
+	\begin{itemize}
+		\item ... alle Knoten erreichbar sind \pause
+		\item ... die Summe der Kantengewichte minimal ist \pause
+		\item ... kein Zyklus im Graph enthalten ist ($\Rightarrow$ Baum).
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Definition}
+	Sei	$G = (V, E) $ mit Kostenfunktion $w: E \rightarrow \mathbb{R}$
+	\vspace{10 mm}
+	
+	$MST = (V, T)$ ist Spannbaum von G, wenn
+	\begin{itemize}
+		\item $T \subseteq E$ bzw.
+		\item $ \forall u, v \in V: \exists$ Pfad von $u$ nach $v$
+		\item $W(T) := \displaystyle\sum\limits_{(u, v) \in T} w(u, v)$ minimal ist.
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Eindeutigkeit von Spannbäumen}{Ambiguity of minimal spanning trees}
+	Ist dieser Spannbaum eindeutig? \only<2>{Nein}
+	\only<1>{\includegraphics[scale=0.35]{Material/minSpannbaum_5.png}}
+	\only<2>{\includegraphics[scale=0.35]{Material/minSpannbaum_amb.png}}
+\end{frame}
+
+\input{PrimsAlgorithm}     % Algorithmus von Prim
+
+\input{KruskalsAlgorithm}  % Algorithmus von Kruskal

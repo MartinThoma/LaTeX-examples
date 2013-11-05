@@ -1,0 +1,210 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+
+% use KIT-Theme
+% see http://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen
+%\usetheme{Frankfurt} % see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+\InputIfFileExists{templates/beamerthemekit.sty}{\usepackage{templates/beamerthemekit}}{\usetheme{Frankfurt}}
+\usefonttheme{professionalfonts}
+
+
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{wrapfig}        % see http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage{verbatim}
+\usepackage{relsize}
+\usepackage{subfigure}
+
+% http://en.wikibooks.org/wiki/LaTeX/Algorithms_and_Pseudocode
+% http://tex.stackexchange.com/questions/1375/what-is-a-good-package-for-displaying-algorithms
+% http://tex.stackexchange.com/questions/26539/beamer-and-pseudocode
+% http://www.jkrieger.de/tools/latex/informatik.html
+% http://ctan.mackichan.com/macros/latex/contrib/algorithmicx/algorithmicx.pdf
+% http://ctan.mackichan.com/macros/latex/contrib/algorithms/algorithms.pdf
+% http://www.cs.brown.edu/system/software/latex/doc/algodoc.pdf
+% http://www.cs.utexas.edu/~shan/doc/algorithms.pdf
+\usepackage{algorithm,algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,shadows,calc}
+\usepackage{tkz-berge}
+\usepackage{xcolor}
+\makeatletter
+
+% to change colors
+\newcommand{\fillcol}{green!20}
+\newcommand{\bordercol}{black}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% code from Andrew Stacey (with small adjustment to the border color)
+% http://tex.stackexchange.com/questions/51582/background-coloring-with-overlay-specification-in-algorithm2e-beamer-package
+\newcounter{jumping}
+\resetcounteronoverlays{jumping}
+
+\def\jump@setbb#1#2#3{%
+  \@ifundefined{jump@#1@maxbb}{%
+    \expandafter\gdef\csname jump@#1@maxbb\endcsname{#3}%
+  }{%
+    \csname jump@#1@maxbb\endcsname
+    \pgf@xa=\pgf@x
+    \pgf@ya=\pgf@y
+    #3
+    \pgfmathsetlength\pgf@x{max(\pgf@x,\pgf@xa)}%
+    \pgfmathsetlength\pgf@y{max(\pgf@y,\pgf@ya)}%
+    \expandafter\xdef\csname jump@#1@maxbb\endcsname{\noexpand\pgfpoint{\the\pgf@x}{\the\pgf@y}}%
+  }
+  \@ifundefined{jump@#1@minbb}{%
+    \expandafter\gdef\csname jump@#1@minbb\endcsname{#2}%
+  }{%
+    \csname jump@#1@minbb\endcsname
+    \pgf@xa=\pgf@x
+    \pgf@ya=\pgf@y
+    #2
+    \pgfmathsetlength\pgf@x{min(\pgf@x,\pgf@xa)}%
+    \pgfmathsetlength\pgf@y{min(\pgf@y,\pgf@ya)}%
+    \expandafter\xdef\csname jump@#1@minbb\endcsname{\noexpand\pgfpoint{\the\pgf@x}{\the\pgf@y}}%
+  }
+}
+
+\tikzset{%
+  remember picture with id/.style={%
+    remember picture,
+    overlay,
+    draw=\bordercol,
+    save picture id=#1,
+  },
+  save picture id/.code={%
+    \edef\pgf@temp{#1}%
+    \immediate\write\pgfutil@auxout{%
+      \noexpand\savepointas{\pgf@temp}{\pgfpictureid}}%
+  },
+  if picture id/.code args={#1#2#3}{%
+    \@ifundefined{save@pt@#1}{%
+      \pgfkeysalso{#3}%
+    }{
+      \pgfkeysalso{#2}%
+    }
+  },
+  onslide/.code args={<#1>#2}{%
+    \only<#1>{\pgfkeysalso{#2}}%
+  },
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}%
+  },
+  stop jumping/.style={
+    execute at end picture={%
+      \stepcounter{jumping}%
+      \immediate\write\pgfutil@auxout{%
+        \noexpand\jump@setbb{\the\value{jumping}}{\noexpand\pgfpoint{\the\pgf@picminx}{\the\pgf@picminy}}{\noexpand\pgfpoint{\the\pgf@picmaxx}{\the\pgf@picmaxy}}
+      },
+      \csname jump@\the\value{jumping}@maxbb\endcsname
+      \path (\the\pgf@x,\the\pgf@y);
+      \csname jump@\the\value{jumping}@minbb\endcsname
+      \path (\the\pgf@x,\the\pgf@y);
+    },
+  }
+}
+
+
+\def\savepointas#1#2{%
+  \expandafter\gdef\csname save@pt@#1\endcsname{#2}%
+}
+
+\def\tmk@labeldef#1,#2\@nil{%
+  \def\tmk@label{#1}%
+  \def\tmk@def{#2}%
+}
+
+\tikzdeclarecoordinatesystem{pic}{%
+  \pgfutil@in@,{#1}%
+  \ifpgfutil@in@%
+    \tmk@labeldef#1\@nil
+  \else
+    \tmk@labeldef#1,\pgfpointorigin\@nil
+  \fi
+  \@ifundefined{save@pt@\tmk@label}{%
+    \tikz@scan@one@point\pgfutil@firstofone\tmk@def
+  }{%
+  \pgfsys@getposition{\csname save@pt@\tmk@label\endcsname}\save@orig@pic%
+  \pgfsys@getposition{\pgfpictureid}\save@this@pic%
+  \pgf@process{\pgfpointorigin\save@this@pic}%
+  \pgf@xa=\pgf@x
+  \pgf@ya=\pgf@y
+  \pgf@process{\pgfpointorigin\save@orig@pic}%
+  \advance\pgf@x by -\pgf@xa
+  \advance\pgf@y by -\pgf@ya
+  }%
+}
+\newcommand\tikzmark[2][]{%
+\tikz[remember picture with id=#2] #1;}
+\makeatother
+
+\resetcounteronoverlays{algocf}
+
+\newcommand<>{\boxto}[1]{%
+\only#2{\tikz[remember picture with id=#1]
+\draw[line width=1pt,fill=\fillcol,rectangle,rounded corners]
+(pic cs:#1) ++(5.2,-.1) rectangle (-0.4,0)
+;\tikz\node [anchor=base] (#1){};}% <= insertion to store the anchor to be used as based for the annotation
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define some styles for graphs
+\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{blue vertex} = [vertex, fill=blue!24]
+\tikzstyle{yellow vertex} = [vertex, fill=yellow!24]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{weight} = [font=\small]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
+
+\hypersetup{pdftitle={Graphentheorie II}}
+\beamertemplatenavigationsymbolsempty
+
+\newcommand\InsertToC[1][]{
+  \begin{frame}{Outline}
+    \tableofcontents[subsectionstyle=show/show/show, subsubsectionstyle=show/show/show, #1]
+  \end{frame}
+}
+
+\begin{document}
+\title{Graphentheorie II}   
+\author{Tobias Sturm, Martin Thoma, Max Wagner, Thomas Krings} 
+\date{\today} 
+\subject{Graphentheorie-Referat fur ICPC}
+
+\frame{\titlepage} 
+
+\frame{
+	\frametitle{Inhaltsverzeichnis}
+	\setcounter{tocdepth}{1}
+	\tableofcontents
+	\setcounter{tocdepth}{2}
+}
+
+\AtBeginSection[]{
+	\InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+}
+
+\input{MinimaleSpannbaume} % Minimale Spannbäume
+\input{SCC}                % Starke zusammenhangskomponenten
+\input{GraphColoring}      % Färbung von Graphen
+\input{Kreise}             % Euler- und Hamilton-Kreise
+
+\section{Abspann}
+\subsection{Abspann}
+
+\begin{frame}{}
+Vielen Dank für eure Aufmerksamkeit!
+\end{frame}
+\input{Literatur}          % Quellen und weitere Infos
+\input{Quellen}
+
+\end{document}

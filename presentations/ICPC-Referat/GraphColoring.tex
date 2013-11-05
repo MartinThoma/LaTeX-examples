@@ -1,0 +1,37 @@
+\section{Färbung von Graphen}
+\subsection{}
+\begin{frame}{Färbung von Graphen}{Graph coloring}
+	\begin{block}{Problem COLOR}
+		Gegeben sei ein Graph $G = (V, E)$ und ein Parameter $K \in \mathbb{N}$.
+		Frage: Gibt es eine Knotenfärbung von $G$ mit höchstens $K$ Farben, 
+		so dass je zwei adjazente Knoten verschiedene Farben besitzen?
+	\end{block}
+	\begin{itemize}
+		\item Ist für 2 Farben entscheidbar (bipartite Graphen)
+		\item Für 3 Farben schon $\mathcal{NP}$-vollständig \\
+			(Sogar $\mathcal{NP}$-schwer einen 3-färbbaren Graphen mit 4 Farben zu färben)
+		\item Für 4 Farben für planare Graphen bewiesenermaßen immer möglich
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{2-COLOR}{Bipartite Graphen}
+	Problem: Gegeben Graph $G=(V, E)$. Ist dieser eine Ja-Instanz von 2-COLOR?
+
+	Lösungsansatz:
+	\begin{itemize}
+		\item Tiefensuche
+		\item Wechsle Farbe nach jedem Knoten
+		\item Bei Konflikten breche ab und antworte "Nein"
+	\end{itemize}
+	Läuft die Tiefensuche ohne abzubrechen durch, ist der Graph bipartit. Aus dem Algorithmus folgt bereits eine gültige Färbung.
+\end{frame}
+
+\begin{frame}{3-COLOR}
+	Auch hier: Ist Graph $G = (V,E)$ mit 3 Farben färbbar? \\
+	Achtung: Problem ist $\mathcal{NP}$-Vollständig.
+	\\
+	Das heißt es ist kein effizienter Algorithmus bekannt, Laufzeit zur Lösung steigt i.A. exponentiell. \\
+	Brute-force für kleine Instanzen des Problems praktikabel. \\
+	Für größere Instanzen bietet sich Transformation zu $\mathcal{SAT}$ und Lösung per SAT-Solver an.
+
+\end{frame}

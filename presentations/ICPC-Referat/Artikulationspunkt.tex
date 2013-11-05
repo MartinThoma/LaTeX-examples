@@ -1,0 +1,53 @@
+\subsection{Artikulationspunkt}
+\begin{frame}{Artikulationspunkt}{Articulation vertex or cut vertices}
+	\begin{block}{Definition: Artikulationspunkt (auch "Gelenkpunkt" genannt)}
+		Ein Knoten $v \in V$ eines Graphen $G(V,E)$ heißt Artikulationspunkt
+		$: \Leftrightarrow$ Durch das Entfernen von v zerfällt G in mehr zusammenhängende Teilgraphen,
+		als G bereits hat.
+	\end{block}
+	\begin{figure}
+		\begin{tikzpicture}[scale=1.8, auto,swap]
+			% Draw a 7,11 network
+			% First we draw the vertices
+			\foreach \pos/\name in {{(0,0)/a}, {(1,0)/b}, {(2,0)/c},
+									{(3,0)/d}, {(2.5,0.7)/e}}
+				\node[vertex] (\name) at \pos {$\name$};
+			% Connect vertices with edges and draw weights
+			\foreach \source/ \dest /\pos in {a/b/,b/c/,c/d/,c/e/,d/e/}
+				\path (\source) edge [\pos] node {} (\dest);
+		\end{tikzpicture}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Algorithmus}
+	Fast wie für Brücken. Unterschiede: 
+	\begin{itemize}
+		\item $L(v)$ hier anders definiert: bei Rückwärtskanten erst nach mindestens einer Baumkante
+		\item Hier vergleichen wir für alle $v \in V$ $L(v)$ und $N(v)$: \\
+	$v$ ist Art.-punkt $\Leftrightarrow L(v) = N(v)$
+	\end{itemize}
+	\begin{figure}
+		\begin{tikzpicture}[scale=1.8, auto,swap]
+			% Draw a 7,11 network
+			% First we draw the vertices
+			\foreach \pos/\name in {{(0,0)/a}, {(1,0)/b}, {(2,0)/c},
+									{(3,0)/d}, {(2.5,0.7)/e}}
+				\node[vertex] (\name) at \pos {$\name$};
+			% Connect vertices with edges and draw weights
+			\foreach \source/ \dest /\pos in {a/b/,b/c/,c/d/,c/e/,d/e/}
+				\path (\source) edge [\pos] node {} (\dest);
+		\end{tikzpicture}
+	\end{figure}
+%	\begin{figure}
+%		\begin{tikzpicture}[scale=1.8, auto, swap]
+%			\foreach \pos/\name in {{(0.5,1.5)/e}, {(1,1)/c}, {(1.5,0.5)/d}, {(0.5,0.5)/b}, {(0,0)/a}}
+%				\node[vertex] (\name) at \pos {$\name$};
+%			% Connect vertices with edges and draw weights
+%			\foreach \source/ \dest /\pos in {a/b/,b/c/,d/c/,e/c/,d/e/}
+%				\path (\source) edge [\pos] node {} (\dest);
+%		\end{tikzpicture}
+%	\end{figure}
+%	<Beispiel eines Algorithmus-Durchlaufs>
+\end{frame}
