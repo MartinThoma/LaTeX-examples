@@ -1,0 +1,277 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{../templates/myStyle}
+
+\begin{document}
+\title{\titleText}
+\subtitle{JUnit, Vererbung, toString(), Interfaces}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+\section{Einleitung}
+\subsection{Quiz}
+\begin{frame}{Quiz: Vererbung}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Animal.java, frame=lines]{java}{Animal.java}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Jungle.java, frame=lines]{java}{Jungle.java}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Tiger.java, frame=lines]{java}{Tiger.java}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Cat.java, frame=lines]{java}{Cat.java}
+        \begin{itemize}
+            \item Gibt es einen Compiler-Fehler?
+            \item Gibt es einen Laufzeit-Fehler?
+            \item Gibt es eine Ausgabe? Welche?
+        \end{itemize}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Quiz: Antwort}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Animal.java, frame=lines]{java}{Animal.java}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Jungle.java, frame=lines]{java}{Jungle.java}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Tiger.java, frame=lines]{java}{Tiger.java}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Cat.java, frame=lines]{java}{Cat.java}
+        \begin{itemize}
+            \item null
+            \item Cat:null
+            \item Cat:null
+            \item null
+            \item null
+        \end{itemize}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Erklärung}
+    \begin{itemize}
+        \item Zeile 2 und 3: \myCode{sound} im Konstruktor von \myCode{Cat} ist eine 
+              lokale Variable, kein Attribut
+        \item In Java werden nur Methoden vererbt
+            \begin{itemize}
+                \item Klassen: Signatur und Implementierung
+                \item Interfaces: Nur Signatur
+            \end{itemize}
+    \end{itemize}
+
+    Mehr dazu später
+\end{frame}
+
+\section{JUnit}
+\subsection{Allgemeines}
+\begin{frame}{JUnit: Allgemeines}
+    JUnit \dots
+    \begin{itemize}[<+->]
+        \item ist ein Java-Paket
+        \item ist ein Framework zum Testen von  Java-Programmen
+        \item ist SEHR verbreitet
+        \item dient der Erstellung von Unit-Tests
+        \item wurde von Erich Gamma und Kent Beck erstellt
+    \end{itemize}
+\end{frame}
+
+\subsection{Beispiel}
+\begin{frame}{JUnit: Beispiel}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=LevenshteinCompilationTest.java, frame=lines]{java}{LevenshteinCompilationTest.java}
+\end{frame}
+
+\framedgraphic{Eclipse: JUnit}{Eclipse-JUnit-new-test.png}
+\framedgraphic{Eclipse: JUnit}{Eclipse-JUnit-project-explorer.png}
+\framedgraphic{Eclipse: JUnit}{Eclipse-JUnit-execution-button.png}
+\framedgraphic{Eclipse: JUnit}{Eclipse-JUnit-execution-result.png}
+\framedgraphic{Eclipse: JUnit}{Eclipse-JUnit-detailed-results.png}
+\framedgraphic{Eclipse: JUnit}{Eclipse-JUnit-new-filter-trace.png}
+
+\subsection{Fehler}
+\begin{frame}{JUnit: Fehler}
+    \begin{alertblock}{Fehler}
+        The import org.junit cannot be resolved
+    \end{alertblock}
+    \begin{block}{Lösung}
+        \begin{itemize}
+            \item \href{https://github.com/KentBeck/junit/downloads}{Hier} junit-4.11.jar mit Hamcrest herunterladen
+            \item \menu{Project > Properties > Java Build Path > Libraries > Add External JARs...}
+            \item \texttt{junit-4.11.jar} auswählen
+            \item Auf OK klicken
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Vererbung}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    Vererbung \dots
+    \begin{itemize}[<+->]
+        \item ist ein Schlüsselelement der OOP
+        \item ist in Java eingeschränkt: Eine Klasse erbt in Java
+              von genau einer anderen Klasse
+            \begin{itemize}
+              \item alle Klassen erben von \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html}{Object}
+            \end{itemize}
+        \item dient der Spezialisierung
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+    Wo kann Vererbung nützlich sein?
+    \begin{itemize}[<+->]
+        \item Oberklasse Liste, Unterklassen SinglyLinkedList und 
+              DoubleLinkedList
+          \begin{itemize}
+            \item \myCode{contains()} ist gleich
+            \item \myCode{append()} ist unterschiedlich
+            \item \myCode{remove()} ist unterschiedlich
+          \end{itemize}
+        \item Oberklasse Animal, Unterklassen Säugetier, Tiger, Schlange, Bär, \dots
+        \item Brettspiele: 
+            \begin{itemize}
+                \item Klasse Spielbrett; Unterklassen: Schachbrett, Dame-Brett, Mensch-ärgere-dich-nicht
+                \item Klasse Spielfigur; Unterklassen: Bauer, Dame, Springer, Turm
+                \item Klasse Spiellogik; Unterklassen: DameLogik, SchachLogik
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\framedgraphic{Beispiel}{Klassendiagramm.pdf}
+
+\begin{frame}{Vererbung: Beispiel in Java}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Animal.java, frame=lines]{java}{Animal.java}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Jungle.java, frame=lines]{java}{Jungle.java}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Tiger.java, frame=lines]{java}{Tiger.java}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Cat.java, frame=lines]{java}{Cat.java}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Allgemeines}
+    \begin{block}{\href{http://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html\#jls-8.4.8}{JLS 8.4.8}}
+    A class C inherits from its direct superclass and direct 
+    superinterfaces all abstract and non-abstract methods of the 
+    superclass and superinterfaces that are public, protected, or 
+    declared with default access in the same package as C, and are 
+    neither overridden (§8.4.8.1) nor hidden (§8.4.8.2) by a 
+    declaration in the class.
+    \end{block}
+\end{frame}
+
+\section{toString()}
+\subsection{Allgemeines}
+\begin{frame}{toString()}
+    \begin{itemize}[<+->]
+        \item Jedes Objekt hat eine Methode \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#toString()}{toString()}
+        \item Diese wird von \myCode{Object} vererbt
+        \item und \st{kann} sollte überschrieben werden
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Information aus den Javadoc}
+    Wie sollte toString() aussehen?
+    \begin{itemize}
+        \item Eine kurze textuelle Repräsentation des Objekts
+        \item Soll von Menschen gelesen werden
+        \item Per Standard: \myCode{getClass().getName() + '@' + Integer.toHexString(hashCode())}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, label=Node.java, frame=lines]{java}{Node.java}
+\end{frame}
+
+\section{Interfaces}
+\subsection{Allgemeines}
+\begin{frame}{Interfaces: Allgemeines}
+    \begin{itemize}[<+->]
+        \item auf Deutsch: Schnittstelle
+        \item es werden nur Methodensignaturen vererbt
+        \item die Implementierung muss komplett selbst durchgeführt werden!
+        \item wird wie Klassen in einer eigenen "`MeinInterface.java"' Datei gespeichert
+    \end{itemize}
+    \pause[\thebeamerpauses]
+    \begin{block}{Namenskonvention}
+        Der Name einer Schnittstelle endet oft mit -able.
+    \end{block}
+\end{frame}
+
+\subsection{Beispiel}
+\begin{frame}{Interfaces: Beispiel}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=Bicycle.java, frame=lines]{java}{Bicycle.java}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=ACMEBicycle.java, frame=lines]{java}{ACMEBicycle.java}
+    \small{Quelle: \href{http://docs.oracle.com/javase/tutorial/java/concepts/interface.html}{docs.oracle.com}: What Is an Interface?}\\
+    Weitere Informationen: \href{http://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html}{docs.oracle.com}: Interfaces
+\end{frame}
+
+\subsection{Real World Examples}
+\begin{frame}{Real World Examples}
+    \begin{itemize}
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html}{Comperable}: Vergleichen mit \myCode{<}
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/List.html}{List}: Viele Listenoperationen
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html}{Iterable}: foreach
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html}{Serializable}: Speichern / verschicken übers Netzwerk
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html}{Runnable}: Multithreading
+    \end{itemize}
+\end{frame}
+
+\subsection{Weitere Informationen}
+\begin{frame}{Interfaces: Weitere Informationen}
+    \begin{itemize}
+        \item \href{http://docs.oracle.com/javase/specs/jls/se7/html/jls-9.html}{JLS 7}
+        \item \href{http://openbook.galileodesign.de/javainsel5/javainsel06_010.htm}{Galileo openbook}
+    \end{itemize}
+\end{frame}
+
+\section{Nachbesprechung ÜB 3}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    Lösungen sind \href{https://github.com/MartinThoma/prog-ws1213/tree/master/Blatt-03}{hier} zu finden.
+\end{frame}
+\begin{frame}{Allgemeines}
+    \begin{itemize}[<+->]
+        \item \myCode{\href{http://docs.oracle.com/javase/7/docs/api/java/lang/String.html\#charAt(int)}{char charAt(int index)}}: 
+              Returns the char value at the specified index.
+        \item \myCode{\href{http://docs.oracle.com/javase/7/docs/api/java/lang/String.html\#matches(java.lang.String)}{public boolean matches(String regex)}}
+              Tells whether or not this string matches the given regular expression.
+        \item \myCode{\href{http://docs.oracle.com/javase/7/docs/api/java/lang/String.html\#substring(int, int)}{String substring(int beginIndex,
+               int endIndex)}} Returns a new string that is a substring of this string. 
+    \end{itemize}
+    \pause[\thebeamerpauses]
+    \begin{block}{Eclipse-Tipp}
+        Wenn Eclipse euch im Projektordner einen Fehler anzeigt, aber
+        keine Datei fehlerhaft ist, solltet ihr mal einen 
+        Blick in \menu{Window > Show View > Problem} werfen.
+    \end{block}
+\end{frame}
+
+\section{Abspann}
+\subsection{Kommende Tutorien}
+\begin{frame}{Kommende Tutorien}
+  \begin{itemize}
+    \item[5.] 17.12.2012: Generics?, Video "`Library"' zeigen
+    \item[-] 24.12.2012: Heiligabend - \href{http://www.fmc.uni-karlsruhe.de/faq/wann-sind-die-weihnachtsferien}{Kein Tutorium}
+    \item[-] 31.12.2012: Silvester - Kein Tutorium
+    \item[4.] 07.01.2013
+    \item[3.] 14.01.2013
+    \item[2.] 21.01.2013
+    \item[1.] 28.01.2013: Abschlussprüfunsvorbereitung
+    \item[0.] 04.02.2013: Abschlussprüfunsvorbereitung
+    \item[-] 10.02.2013: Ende der Vorlesungszeit des WS 2012/2013 (\href{http://www.kit.edu/studieren/2873.php}{Quelle})
+  \end{itemize}
+\end{frame}
+
+\framedgraphic{Beware of physicist fathers}{../images/Beware-of-physicist-fathers.png}
+
+\end{document}

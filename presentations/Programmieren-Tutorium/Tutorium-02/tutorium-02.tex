@@ -1,0 +1,276 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+
+% use KIT-Theme
+% see http://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen
+%\usetheme{Frankfurt} % see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html as fallback
+\InputIfFileExists{../templates/beamerthemekit.sty}{\usepackage{../templates/beamerthemekit}}{\usetheme{Frankfurt}}
+\usefonttheme{professionalfonts}
+
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{wrapfig}        % see http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{verbatim}
+\usepackage{relsize}
+\usepackage{subfigure}
+\usepackage{algorithm,algpseudocode}
+\usepackage{minted}         % needed for the inclusion of source code
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{wrapfig}
+\usepackage{../templates/myStyle}
+
+\newcommand\tutor{Martin Thoma}
+\newcommand\tutNR{10}
+\newcommand\titleText{Programmieren-Tutorium Nr. \tutNR{} bei \tutor}
+\institute{Fakultät für Informatik}
+
+\hypersetup{pdftitle={\titleText}}
+\beamertemplatenavigationsymbolsempty
+
+\newcommand\InsertToC[1][]{
+  \begin{frame}{Outline}
+    \tableofcontents[subsectionstyle=show/show/show, subsubsectionstyle=show/show/show, #1]
+  \end{frame}
+}
+
+\begin{document}
+\title{\titleText}
+\subtitle{TODO: Subtitle setzen!}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{Einleitung}
+\subsection{Quiz}
+\begin{frame}{Quiz}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Bool.java, fontsize=\tiny]{java}{Bool.java}
+    \begin{itemize}
+        \item Was ist die Ausgabe?
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+    \end{itemize}
+\end{frame}
+
+\subsection{Compiler-Fehler}
+\begin{frame}{Compiler-Fehler}
+    \begin{itemize}[<+->]
+        \item Treten bei "`offensichtlichen"' Fehlern auf
+        \item Eclipse beschwert sich: \includegraphics{eclipse-icon.png}.\\
+            Häufige Fehler:
+            \begin{itemize}
+                \item \myCode{[foo] cannot be resolved to a type}: Klassenname nicht definiert? Falsch geschrieben?
+                \item \myCode{[foo] cannot be resolved}: Die Variable \myCode{foo} wurde nicht deklariert
+            \end{itemize}
+        \item Es kann kein gülter Java Byte-Code erstellt werden
+    \end{itemize}
+\end{frame}
+
+\subsection{Syntax-Fehler}
+\begin{frame}{Syntax-Fehler}
+    \begin{itemize}[<+->]
+        \item Eclipse beschwert sich: \includegraphics{syntax-error.png}
+        \item Eine Klasse von Compiler-Fehlern
+    \end{itemize}
+\end{frame}
+
+\subsection{Laufzeit-Fehler}
+\begin{frame}{Laufzeit-Fehler}
+    \begin{itemize}[<+->]
+        \item Schwer(er) zu finden
+        \item Gültiger Byte-Code kann erzeugt werden
+        \item Muss nicht immer auftreten
+        \item Eclipse beschwert sich nicht
+    \end{itemize}
+\end{frame}
+
+\subsection{Quiz}
+\begin{frame}{Quiz}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Bool.java, fontsize=\tiny]{java}{Bool-02.java}
+    \begin{itemize}
+        \item Was ist die Ausgabe?
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+    \end{itemize}
+\end{frame}
+
+\subsection{Java vs. JavaScript}
+\begin{frame}{Java vs. JavaScript}
+    \begin{tabularx}{\textwidth}{X|X}
+        Java                & JavaScript \\
+        \hline
+        \hline
+        Keine Scriptsprache & Definitiv Scriptsprache\\
+        statisch typisiert  & dynamisch typisiert\\
+        Klassen             & Prototypen\\
+        Blockbasiertes Scoping & Funktionsbasiertes Scoping\\
+        \dots               & \dots
+    \end{tabularx}
+\end{frame}
+
+\subsection{Java vs. JavaScript}
+\begin{frame}{Java vs. JavaScript}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=comparisons.js, fontsize=\tiny]{javascript}{comparisons.js}
+\end{frame}
+
+\subsection{Snake}
+\begin{frame}{Snake}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=comparisons.js, fontsize=\tiny,firstline=9,firstnumber=9]{javascript}{index.htm}
+\end{frame}
+
+\section{Wiederholung}
+\subsection{String erzeugen}
+\begin{frame}{String erzeugen}
+  \myCode{String} ist eine Java-Klasse, aber \dots:
+  \inputminted[linenos, numbersep=5pt, tabsize=4]{java}{String-01.java}
+\end{frame}
+
+\subsection{String konkatenieren}
+\begin{frame}{String konkatenieren}
+  String ist kein primitiver Datentyp! Trotzdem kann man "`rechnen"':
+  \inputminted[linenos, numbersep=5pt, tabsize=4]{java}{String-02.java}
+\end{frame}
+
+\subsection{String und Escape-Zeichen}
+\begin{frame}{String und Escape-Zeichen}
+  String mit Inhalt \myCode{Hallo "Welt"'}:
+  \inputminted[linenos, numbersep=5pt, tabsize=4]{java}{String-03.java}
+  \vspace{6 mm}
+  \visible<2->{
+        String mit Zeilenumbruch:
+        \inputminted[linenos, numbersep=5pt, tabsize=4]{java}{String-04.java}
+   }
+  \vspace{6 mm}
+  \visible<3->{
+        String mit Inhalt \myCode{Hallo \textbackslash{} Welt}:
+        \inputminted[linenos, numbersep=5pt, tabsize=4]{java}{String-05.java}
+   }
+\end{frame}
+
+\subsection{Methoden}
+\begin{frame}{Methoden}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Shark.java, fontsize=\tiny]{java}{Shark.java}
+    {\tiny Quelle: \href{http://kit.trvx.org/build/tutorial-02.html\#/7}{kit.trvx.org}}
+    \newline
+    \newline
+    Wie kann man Erik auffordern zu essen?
+\end{frame}
+
+\subsection{Konstruktoren}
+\begin{frame}{Konstruktoren}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Shark.java, fontsize=\tiny]{java}{Shark-constructor.java}
+    {\tiny Quelle: \href{http://kit.trvx.org/build/tutorial-02.html\#/8}{kit.trvx.org}}
+    \newline
+    \newline
+    \begin{itemize}
+        \item Was ist die Konstruktorsignatur?
+        \item Was ist shadowing und warum benutzt man 'this'?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Konstruktoren}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Shark.java, fontsize=\tiny]{java}{Shark-constructor.java}
+    {\tiny Quelle: \href{http://kit.trvx.org/build/tutorial-02.html\#/8}{kit.trvx.org}}
+    \newline
+    \newline
+    \begin{itemize}
+        \item Konstruktorsignatur $\rightarrow$ \myCode{public Shark(int size)}
+        \item Shadowing und 'this' $\rightarrow$ Variable \myCode{size} verbirgt das Attribut \myCode{size}
+              $\Rightarrow$ das Attribut wird über \myCode{this.size aufgerufen}
+    \end{itemize}
+\end{frame}
+
+\subsection{static}
+\begin{frame}{static}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Math.java, fontsize=\tiny]{java}{Math.java}
+    {\tiny Quelle: \href{http://www.docjar.com/html/api/java/lang/Math.java.html}{docjar.com}}
+    \newline
+    \newline
+  \visible<2->{
+     \inputminted[linenos, numbersep=5pt, tabsize=4, frame=leftline, fontsize=\tiny]{java}{static-01.java}
+   }
+\end{frame}
+
+\section{Werbeblock}
+\subsection{Bundeswettbewerb Informatik}
+\begin{frame}{Bundeswettbewerb Informatik}
+    \begin{itemize}[<+->]
+        \item Unbedingt Teilnehmen:
+          \begin{itemize}
+             \item Spielerische Einführung ins Lösen algorithmischer Probleme
+             \item Sehr lehrreich
+             \item Preise (Sachpreise, Fahrt zur Endrunde, Geld, Studienstiftung)
+             \item Kontakte
+          \end{itemize}
+        \item "`Insider-Hinweise"' auf \href{http://martin-thoma.com/bundeswettbewerb-informatik/}{martin-thoma.com}
+        \item Offizielles und Aufgaben unter \href{http://www.bundeswettbewerb-informatik.de/}{bundeswettbewerb-informatik.de}
+    \end{itemize}
+\end{frame}
+
+\section{Praxis}
+\subsection{Aufgabe 1a)}
+\begin{frame}{Aufgabe 1a)}
+    Entwerfen Sie eine Klasse Baby mit den Attributen Name, Gewicht, 
+    Größe und Lautstärke (eventuell fallen Ihnen weitere sinnvolle 
+    Attribute ein).
+\end{frame}
+
+\subsection{Aufgabe 1a) - Lösung}
+\begin{frame}{Aufgabe 1a) - Lösung}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Baby.java, fontsize=\tiny]{java}{Baby.java}
+\end{frame}
+
+\subsection{Aufgabe 1b)}
+\begin{frame}{Aufgabe 1b)}
+    Schreiben Sie einen Konstruktor für ihre Baby-Klasse. Der Name
+    soll nicht in den Konstruktur.
+\end{frame}
+
+\subsection{Aufgabe 1b) - Lösung}
+\begin{frame}{Aufgabe 1b) - Lösung}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Baby.java, fontsize=\tiny]{java}{Baby-02.java}
+\end{frame}
+
+\subsection{Aufgabe 1c)}
+\begin{frame}{Aufgabe 1c)}
+    Schreiben Sie eine \texttt{main}-Methode und instanzieren Sie Babies.
+\end{frame}
+
+\subsection{Aufgabe 1d)}
+\begin{frame}{Aufgabe 1d)}
+    Erweitern Sie die Klasse \texttt{Baby} um ein Attribut "`Geschlecht"'.\\
+
+    Jedes Mädchen ohne Taufe ({\tiny also ohne weitere Namenszuweisung}) 
+    soll  bei der Geburt ({\tiny also der Objekterstellung}) den Namen "`Anna"'
+    bekommen, jeder Junge den Namen "`Bob"'.
+\end{frame}
+
+\section{Abspann}
+\subsection{Kontrolle}
+\begin{frame}{Kontrolle}
+    Habt ihr \dots
+    \begin{itemize}
+        \item[\dots] den Disclaimer abgegeben? {\tiny Deadline: Freitag, 02. November 2012}
+        \item[\dots] euch für die Klausur angemeldet? {\tiny vernünftige Deadline: Noch dieses Jahr!}
+        \item[\dots] das Übungsblatt angefangen? {\tiny Deadline: Montag, 05. November 2012, 13 Uhr}
+    \end{itemize}
+\end{frame}
+\framedgraphic{Vielen Dank für eure Aufmerksamkeit!}{../images/hello-world-cartoon.jpg}
+
+\end{document}

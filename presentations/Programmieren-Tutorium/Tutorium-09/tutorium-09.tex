@@ -1,0 +1,334 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{../templates/myStyle}
+
+\begin{document}
+\title{\titleText}
+\subtitle{Polymorphismus, Generics, Libraries}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{Einleitung}
+\subsection{Quiz}
+\begin{frame}{Quiz: Vererbung II}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Animal.java, frame=lines]{java}{Animal.java}
+        \vspace{1cm}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Jungle.java, frame=lines]{java}{Jungle.java}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Cat.java, frame=lines]{java}{Cat.java}
+        \begin{itemize}
+            \item Gibt es einen Compiler-Fehler?
+            \item Gibt es einen Laufzeit-Fehler?
+            \item Gibt es eine Ausgabe? Welche?
+        \end{itemize}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Quiz: Antwort}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Animal.java, frame=lines]{java}{Animal.java}
+        \vspace{1cm}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Jungle.java, frame=lines]{java}{Jungle.java}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Cat.java, frame=lines]{java}{Cat.java}
+        \begin{itemize}
+            \item Compiler-Fehler
+            \item The method getCatSound() is undefined for the type Animal
+            \item Thema: "`Polymorphismus"'
+        \end{itemize}
+    \end{minipage}
+\end{frame}
+
+\section{Polymorphismus}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    Motivation
+    \begin{itemize}
+        \item Eine Unterklasse kann alles, was die Oberklasse kann
+        \item[$\rightarrow$] sie hat die gleichen Methoden, wenn auch eventuell überschrieben
+        \item Eventuell ist uns die konkrete Klasse egal
+        \item oder wir benötigen einen Kontainter für viele verschiedene 
+              Objekte mit einer gemeinsamen Oberklasse
+    \end{itemize}
+
+    Was ist "`Polymorphismus'"?
+    \begin{itemize}
+        \item \myCode{Animal felix = new Cat();}
+        \item \myCode{Animal[] zoo = new Animal[10];}\\
+              \myCode{zoo[0] = felix;}
+    \end{itemize}
+\end{frame}
+
+\subsection{Beispiel}
+\begin{frame}{Beispiel}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{LateBinding.java}
+\end{frame}
+
+\subsection{Wann wird Polymorphismus verwendet?}
+\begin{frame}{Wann wird Polymorphismus verwendet?}
+    \begin{itemize}[<+->]
+        \item Man Benötigt eigentlich nur bestimmte Methoden (ein Interface)
+              \begin{itemize}[<+->]
+                \item Wenn ihr später aus einer LinkedList eine ArrayList macht, müsst ihr nur eine Zeile ändern!
+                \item[$\Rightarrow$] \myCode{List myList = new LinkedList();} anstelle von \myCode{LinkedList myList = new LinkedList();} schreiben
+              \end{itemize}
+        \item Man weiß zur Compile-Zeit die exakten Klassen noch nicht
+        \item Bei den Abschlussaufgaben
+    \end{itemize}
+\end{frame}
+
+\section{Generics}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    \begin{itemize}
+        \item Problem: Man schreibt genau eine verkettete Listen-Klasse
+              für genau eine Klasse (z.B. "`Bike"'), obwohl
+              die Logik (hinzufügen, entfernen, suchen) von der 
+              Klasse unabhängig ist
+        \item Lösung: Generics
+    \end{itemize}
+\end{frame}
+
+\subsection{Verwendung}
+\begin{frame}{Verwendung}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{Generics-singleLines.java}
+    \begin{block}{Hinweis}
+        Ihr könnt den "`Generic-Parameter"' wie eine Variable für die
+        Bezeichnung einer Klasse verwenden.
+    \end{block}
+\end{frame}
+
+\subsection{Praxis}
+\begin{frame}{Praxis}
+    \begin{block}{Arbeitsauftrag}
+        Programmiert die Einfach-verkettete Liste um, sodass sie 
+        nirgends mehr "`Bike"' sondern nur noch Generics verwendet.
+    \end{block}{Arbeitsauftrag}
+
+    \begin{exampleblock}{Hinweis}
+        \begin{itemize}
+          \item URL für die Bike-Version: \href{http://goo.gl/RoiBC}{http://goo.gl/RoiBC}
+          \item Wer nur Zettel und Papier hat, implementiert die "`Node.java"' 
+                komplett neu und "`SinglyLinkedList.java"' mindestens mit "`add()"'
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Praxis: Node}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{SinglyLinkedList-Result/Node.java}
+\end{frame}
+
+\begin{frame}{Praxis: SinglyLinkedList}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, firstnumber=1, firstline=1, lastline=13]{java}{SinglyLinkedList-Result/SinglyLinkedList.java}
+\end{frame}
+
+\subsection{Blog-Artikel}
+\begin{frame}{Man kanns auch übertreiben}
+    Siehe Blog-Artikel "`\href{http://martin-thoma.com/java-generics/}{Java Generics}"'
+\end{frame}
+
+\subsection{Besonderheit}
+\begin{frame}{Besonderheit: ?}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstnumber=1, firstline=1, lastline=1]{java}{SingleLines.java}
+    Bedeutet:
+    \begin{itemize}[<+->]
+        \item Die Liste erwartet Objekte, deren Klasse \myCode{HasWord} erweitern
+        \item[$\rightarrow$] \myCode{HasWord} oder Kinder
+        \item \myCode{?} wird "`bounded wildcard"' genannt
+        \item \href{http://stackoverflow.com/a/3009779/562769}{SO 1} und \href{http://stackoverflow.com/a/1840022/562769}{SO 2}
+    \end{itemize}
+\end{frame}
+
+\subsection{Quiz}
+\begin{frame}{Quiz}
+    \begin{block}{Hinweis}
+        Das folgende Quiz stammt von \href{http://www.grayman.de/quiz/java-generics-en.quiz}{www.grayman.de}.
+        Danke für die Erlaubnis, es in meine Folien einbinden zu
+        dürfen!
+    \end{block}
+\end{frame}
+
+\begin{frame}{Quiz}
+    \begin{block}{Frage}
+        Mit Generics hat der Compiler mehr Typ-Informationen. Explizite
+        Casts müssen als nicht so of benutzt werden.
+
+        Welche Bedeutung für die Laufzeit haben Generics?
+    \end{block}
+    
+    \begin{overprint}
+    \onslide<1>
+    \begin{itemize}
+        \item Der Compiler kann mit Generics den Code besser für
+              Typen optimieren. Das, und das Wegfallen der Casts sind
+              Gründe warum der kompilierte Code mit Generics
+              \textbf{schneller} läuft als ohne
+        \item Generics haben \textbf{keinen Einfluss} auf die Laufzeit
+        \item Die erhöhte Flexibilität und Typsicherheit bedeutet, 
+              dass der Compiler für jeden konkreten Typen Code aus
+              dem generischen Code erstellen mus. Das bedeutet,
+              die Programme sind \textbf{etwas langsamer}
+    \end{itemize}
+    \onslide<2>
+        Die Java Virtual Machine und der kompilierte Byte-Code sind
+        unabhängig von Generics. Der kompilierte Byte-Code mit Generics
+        unterscheidet sich nicht von Byte-Code ohne Generics. Generics
+        haben also \textbf{keinen Einfluss} auf die Laufzeit von Java-Programmen.
+    \end{overprint}
+\end{frame}
+
+\begin{frame}{Quiz}
+    \begin{block}{Frage}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Basket.java}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny,]{java}{Fruit.java}
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=In main, frame=lines]{java}{Generics-quiz-main.java}
+    \end{minipage}
+    \end{block}
+
+    \begin{overprint}
+    \onslide<1>
+    \begin{itemize}
+        \item Der source code ist OK. Es gibt weder Compiler-, noch Laufzeitfehler
+        \item Compiler-Fehler in Zeile 2
+        \item Compiler-Fehler in Zeile 3
+    \end{itemize}
+    \onslide<2>
+        \begin{itemize}
+            \item Zeile 2 ist ok
+            \item Zeile 3 verursacht einen Laufzeitfehler
+            \item Der Rückgabewert der Methode \myCode{getElement} 
+                 in \myCode{Basket<Fruit>} ist \myCode{Fruit}. 
+                 Man kann eine \myCode{Fruit}-Variable 
+                 keiner \myCode{Apple}-Variable ohne cast zuweisen.
+        \end{itemize}
+    \end{overprint}
+\end{frame}
+
+\begin{frame}{Quiz}
+    \begin{block}{Frage}
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=In main, frame=lines]{java}{Generics-quiz-main2.java}
+    \end{block}
+
+    \begin{overprint}
+    \onslide<1>
+    \begin{itemize}
+        \item Es gibt weder Laufzeit-, noch Compiler-Fehler
+        \item Compiler-Fehler in Zeile 2
+        \item Compiler-Fehler in Zeile 3
+        \item Eine \myCode{ClassCastException} tritt in Zeile 3 auf
+    \end{itemize}
+    \onslide<2>
+        \begin{itemize}
+            \item Sowohl \myCode{Apple} als auch \myCode{Orange} sind
+                  \myCode{Fruit} und können in \myCode{Basket<Fruit>}
+                  landen
+            \item[$\rightarrow$] Der Cast in Zeile 3 ist nötig
+            \item Die JVN überprüft während der Laufzeit den Cast in Zeile 3
+            \item[$\rightarrow$] Ein \myCode{ClassCastException} wird geworfen, da \myCode{Apple} keine \myCode{Orange} ist
+        \end{itemize}
+    \end{overprint}
+\end{frame}
+
+\begin{frame}{Quiz}
+    \begin{block}{Frage}
+        Welche der folgenden Zeilen kann ohne Compiler-Fehler kompilieren?
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Question04.java}
+    \end{block}
+
+    \visible<2>{
+        \begin{itemize}
+            \item Generische Klassen können ohne spezifizierten Typ genutzt werden.
+        Allerdings sollte man das nicht machen und Eclipse warnt auch davor.
+            \item Korrekt sind: 1, 2, 3, 6
+            \item Grundsätzlich gilt: Rechts vom \myCode{=} darf man genauer sein als links
+        \end{itemize}
+    }
+\end{frame}
+
+\begin{frame}{Quiz}
+    \begin{block}{Frage}
+        \begin{minipage}[b]{0.45\linewidth}
+            \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=SourceA.java, frame=lines]{java}{SourceA.java}
+            \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=SourceB.java, frame=lines]{java}{SourceB.java}
+        \end{minipage}
+        \hspace{0.5cm}
+        \begin{minipage}[b]{0.45\linewidth}
+            \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=SourceC.java, frame=lines]{java}{SourceC.java}
+            Which of the following statements are true?
+        \end{minipage}
+    \end{block}
+
+    \begin{overprint}
+    \onslide<1>
+    \begin{enumerate}[(a)]
+        \item SourceA kompiliert nicht
+        \item SourceB kompiliert mit warning(s). Es gibt keine
+              Laufzeit-Fehler
+        \item SourceC kompiliert mit warning(s). Es gibt eine
+              \myCode{ClassCastException} zur Laufzeit
+    \end{enumerate}
+    \onslide<2>
+        \begin{itemize}
+            \item (a) und (b) sind richtig.
+            \item Der Compiler kennt nicht den Typ von Elementen in b5
+            \item[$\rightarrow$] Er kann nicht garantieren, dass ein
+                  Apfel in b5 eingefügt werden kann
+            \item Da \myCode{b5.setElement(..)} nicht erlaubt ist, kompiliert es nicht
+            \item SourceB wird so behandelt, als ob es pre-Java 1.5 Code wäre
+        \end{itemize}
+    \end{overprint}
+\end{frame}
+
+\begin{frame}{Frage}
+    Sollen wir die restlichen 9 Fragen auf \href{http://www.grayman.de/quiz/java-generics-en.quiz}{grayman.de} machen?
+\end{frame}
+
+\section{Einschub: Libraries}
+\subsection{Warum heißen Bibliotheken so?}
+\begin{frame}{Einschub: Libaries}
+    Warum heißen Programmbibliotheken "`Bibliotheken"'?
+
+
+    $\rightarrow$ \href{http://www.rrze.uni-erlangen.de/wir-ueber-uns/publikationen/das-rrze-der-film.shtml}{Video `"RRZE1973-MPEG-1.mpg'" der Uni Erlangen}
+\end{frame}
+
+\section{Abspann}
+\subsection{Kommende Tutorien}
+\begin{frame}{Kommende Tutorien}
+  \begin{itemize}
+    \item[-] 24.12.2012: Heiligabend - \href{http://www.fmc.uni-karlsruhe.de/faq/wann-sind-die-weihnachtsferien}{Kein Tutorium}
+    \item[-] 31.12.2012: Silvester - Kein Tutorium
+    \item[4.] 07.01.2013
+    \item[3.] 14.01.2013
+    \item[2.] 21.01.2013
+    \item[1.] 28.01.2013: Abschlussprüfunsvorbereitung
+    \item[0.] 04.02.2013: Abschlussprüfunsvorbereitung
+    \item[-] 10.02.2013: Ende der Vorlesungszeit des WS 2012/2013 (\href{http://www.kit.edu/studieren/2873.php}{Quelle})
+  \end{itemize}
+\end{frame}
+
+\framedgraphic{Frohe Weihnachten!}{../images/xkcd-incident.png}
+
+\end{document}

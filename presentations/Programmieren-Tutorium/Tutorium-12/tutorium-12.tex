@@ -1,0 +1,412 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{../templates/myStyle}
+
+\begin{document}
+\title{\titleText}
+\subtitle{Überladung, Bindung, List, Dictionarys}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{Einleitung}
+\subsection{Quiz}
+\begin{frame}{Quiz}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny,frame=lines,label=Main.java]{java}{QuizMain.java}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{CrazyDataStructure.java}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{ListLike.java}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{ArrayListLike.java}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Alles klappt
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quiz: Antwort}
+    \begin{block}{Antwort}
+        Alles klappt. Da ArrayListLike von ListLike erbt, erbt die
+        Klasse natürlich auch die Methoden. Insbesondere erbt sie
+        die Methoden, die CrazyDataStructure erwartet. Also
+        implementiert auch ArrayListLike das Interface ListLike,
+        obwohl es nicht explizit dort steht.
+    \end{block}
+\end{frame}
+
+\section{Überladung}
+\subsection{Musterlösung}
+\begin{frame}{Musterlösung}
+    Eine Musterlösung zu Blatt 5 ist 
+    \href{https://github.com/MartinThoma/prog-ws1213/tree/master/Blatt-05/tutor-solution/Blatt5/src/mediabib}{hier}.
+\end{frame}
+
+\begin{frame}{Überladung}
+    \begin{exampleblock}{Allgemein}
+        \begin{enumerate}[<+->]
+            \item \myCode{void myFunction(int a);} und \myCode{void myFunction();}
+            \item \myCode{int myFunction();} und \myCode{double myFunction();}
+            \begin{itemize}
+                \item Geht in Java nicht
+                \item Funktioniert aber in Perl und Haskell (\href{http://stackoverflow.com/a/442291/562769}{Quelle})
+            \end{itemize}
+            \item \myCode{void myFunction();} und \myCode{int myFunction(int a);}
+            \item \myCode{void myFunction(String a);} und \myCode{void myFunction(int a);}
+            \item \myCode{void myFunction(String a);} und \myCode{void myFunction(int a, int b);}
+            \item \myCode{void myFunction(String a, int b);} und \myCode{void myFunction(int b, String a);}
+        \end{enumerate}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Überladung}
+    So was geht nicht:
+    \begin{itemize}[<+->]
+        \item \myCode{void myFunction(int a, int b);} und \myCode{void myFunction(int b, int a);}
+        \item \myCode{void myFunction(String a, int b);} und \myCode{void myFunction(String b, int a);}
+        \item[$\Rightarrow$] Für den Compiler ist der Bezeichner "`a"' bzw. "`b"' in der Signatur egal\\
+              Dort sind nur der Rückgabewert, der Name der Methode und die Parameter-Typen und deren Reihenfolge wichtig\\
+              In Java nicht mal der Rückgabewert
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Überladung}
+    \begin{block}{\href{http://docs.oracle.com/javase/specs/jls/se7/jls7.pdf}{Java Language Specification}, 8.4.2}
+        Two methods have the same signature if they have the same name and argument types.
+    \end{block}
+
+    Beispiele:
+    \begin{itemize}
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html\#signum(double)}{Math.signum(double)},
+              \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html\#signum(float)}{Math.signum(float)}
+        \item PrintStream:
+              \href{http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html\#println()}{println();}, 
+              \href{http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html\#println(boolean)}{println(boolean);},
+              \href{http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html\#println(char)}{println(char);} \dots
+        \item Interface List: 
+              \href{http://docs.oracle.com/javase/7/docs/api/java/util/List.html\#toArray()}{Object[] toArray();},
+              \href{http://docs.oracle.com/javase/7/docs/api/java/util/List.html\#toArray(T[])}{<T> T[] toArray(T[] a)}
+    \end{itemize}
+\end{frame}
+
+\section{Bindung}
+\subsection{Allgemeines}
+\framedgraphic{Bindung}{Bindung.png}
+
+\begin{frame}{"`Early Binding"' und "`Late Binding"'}
+    Bindung kann für jeweils ein Objekt zu zwei Zeitpunkten stattfinden:
+    \begin{block}{Early binding, static binding, compile-time-binding}
+        References are resolved at compile time:
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=5, lastline=7]{java}{singleLines.java}
+    \end{block}
+
+    \begin{block}{Late binding, dynamic binding, run-time-binding}
+        References are resolved at run time:
+        \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=9, lastline=13]{java}{singleLines.java}
+    \end{block}
+    {\tiny Quelle: \href{http://stackoverflow.com/a/640990/562769}{StackOverflow}}
+\end{frame}
+
+\begin{frame}{Weitere}
+    \begin{itemize}
+        \item \href{http://en.wikipedia.org/wiki/Loose_coupling}{Loose coupling} (Lose Kopplung)
+        \item Loose binding - nicht weit verbreitet, vermutlich falscher Begriff
+        \item \href{http://en.wikipedia.org/wiki/Dynamic_dispatch}{Dynamic dispatch}: 
+              Laut Wikipedia das gleiche wie "`dynamic binding"'.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{"`Dynamic Binding"' und "`Dynamic dispatch"'}
+    \begin{itemize}
+        \item \href{http://en.wikipedia.org/wiki/Dynamic_dispatch\#Single_and_multiple_dispatch}{Single and multiple dispatch} - Java unterstützt nur single dispatch
+        \item \href{http://stackoverflow.com/questions/533330/dynamic-dispatch-and-binding}{Are dynamic dispatch and dynamic binding the same thing?} - No.
+        \item Aber: Late binding and dynamic single dispatch are, for all intents and purposes, the same. (\href{http://stackoverflow.com/a/9470993/562769}{Quelle})
+        \item Paper "`\href{http://homepages.mcs.vuw.ac.nz/~alex/files/MuscheviciPotaninTemperoNobleOOPSLA2008.pdf}{Multiple Dispatch in Practice}"'
+    \end{itemize}
+\end{frame}
+
+\section{Nachbesprechung}
+\subsection{Polymorphismus nutzen}
+\begin{frame}{Polymorphismus}
+    \begin{itemize}
+         \item Was ihr schreibt:
+               \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=1, lastline=1]{java}{singleLines.java}
+         \item Besser wäre:
+               \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=2, lastline=2]{java}{singleLines.java}
+         \item Nicht vergessen:
+               \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=3, lastline=3]{java}{singleLines.java}
+    \end{itemize}
+
+    Warum ist Polymorphismus toll?
+    \begin{itemize}
+        \item siehe \href{http://www.artima.com/objectsandjava/webuscript/PolymorphismInterfaces1.html}{Polymorphism and Interfaces}
+        \item siehe 9. Tutorium
+    \end{itemize}
+\end{frame}
+
+\subsection{Interne Comparatoren}
+\begin{frame}{Interne Comparatoren}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{InternalComparator.java}
+    {\tiny \href{http://martin-thoma.com/how-to-sort-with-java/\#Internal_anonymous_Comparator}{Quelle}}
+\end{frame}
+
+\subsection{switch und String}
+\begin{frame}{switch und String}
+    \begin{itemize}[<+->]
+        \item Erst mit Java SE 7 kann man \myCode{switch} auf eine Variable vom Typ \myCode{String} anwenden
+        \item \dots 16 Jahre nach dem Feature Request! (\href{http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=1223179}{Quelle})
+        \item Vorher: \myCode{Cannot switch on a value of type String.}\\
+                \myCode{Only int values or enum constants are permitted}
+        \item Problem: Strings sind Objekte
+        \item Java-Puzzle: \myCode{new String("{}abc") != "{}abc";}
+        \item Java verwendet \myCode{.equals()} (\href{http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html}{Quelle})
+        \item \href{http://stackoverflow.com/a/338230/562769}{Mehr infos}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{switch und String}
+    Früher hat man einen Enum verwendet:
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small]{java}{Switch.java}
+\end{frame}
+
+\subsection{Annotationen}
+\begin{frame}{Quiz}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, frame=lines, label=Person.java]{java}{PersonQuiz.java}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{AnnotationQuiz.java}
+\end{frame}
+
+\begin{frame}{Quiz: Antwort}
+    \begin{block}{Compiler-Fehler}
+        Exception in thread "main" java.lang.Error: \\
+        Unresolved compilation problem: \\
+        The method shout() of type Person must override or implement a supertype method\\
+        at Person.shout(Person.java:12)\\
+        at Main.main(Main.java:4)
+    \end{block}
+\end{frame}
+
+\begin{frame}{@Override-Annotation}
+    Die Annotation \myCode{@Override} \dots
+    \begin{itemize}[<+->]
+        \item Sollte verwendet werden, damit der Compiler euch warnen
+              kann, wenn ihr nichts überschreibt 
+        \item[$\Rightarrow$] Tippfehler werden unwahrscheinlicher
+        \item Anderen ist klar, dass euch klar war, dass ihr etwas
+              überschreibt
+        \item Code ist leichter verständlich
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{@author-Annotation}
+    \begin{itemize}
+        \item Für die Klausur bitte \myCode{@author} verwenden
+        \item und euren korrekten Namen angeben
+        \item In Eclipse: \menu{Window > Preferences > Java > Code Style > Code Templates > Comments > Types}
+              und dort \myCode{\$\{user\}} durch euren Namen ersetzen
+    \end{itemize}
+\end{frame}
+
+\subsection{Aufbau einer Klasse}
+\begin{frame}{Aufbau einer Klasse}
+    Folgender Aufbau ist Konvention und sollte eingehalten werden:
+    \begin{enumerate}
+        \item Class/interface documentation comment (/**...*/)
+        \item class or interface statement
+        \item Class/interface implementation comment (/*...*/), if necessary
+        \item Class (static) variables
+        \item \textbf{Instance variables}
+        \item \textbf{Constructors}
+        \item \textbf{Methods}
+    \end{enumerate}
+    Quelle: \href{http://www.oracle.com/technetwork/java/codeconventions-150003.pdf}{Oracle Coding Convetions}, 3.1.3
+\end{frame}
+
+\section{Java API: List}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    Es gibt in \myCode{java.utils.*}
+    \begin{itemize}[<+->]
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/List.html}{Interface List<E>}
+        \begin{itemize}
+            \item \myCode{add(E e)}, \myCode{contains(Object o)}, \myCode{get(int index)}, \myCode{remove(Object o)}
+        \end{itemize}
+
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html}{Class ArrayList<E>}
+        \begin{itemize}
+            \item Stärken: get, add $\in \mathcal{O}(1)$ - add nur amortisiert!
+            \item Schwächen: remove $\in \mathcal{O}(n)$
+        \end{itemize}
+
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html}{Class LinkedList<E>}
+        \begin{itemize}
+            \item Stärken: add $\in \mathcal{O}(1)$
+            \item Schwächen: get, remove $\in \mathcal{O}(n)$, Speicherplatz
+        \end{itemize}
+        \item[$\Rightarrow$] LinkedList nur dann, wenn ihr add sehr häufig nutzt
+    \end{itemize}
+
+    Siehe: \href{http://stackoverflow.com/q/322715/562769}{When to use LinkedList<> over ArrayList<>?}
+\end{frame}
+
+\begin{frame}{List: Beispiel}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{ListExample.java}
+\end{frame}
+
+\begin{frame}{Ausgabe}
+    \begin{itemize}
+        \item myList: [41, 35, 9, 51, 35]
+        \item anotherList: [2, 51, 64, 58, 57]
+        \item combined: [2, 9, 35, 35, 41, 51, 51, 57, 58, 64]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{ArrayList vs. Vector}
+    \begin{itemize}
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html}{ArrayList} und \href{http://docs.oracle.com/javase/7/docs/api/java/util/Vector.html}{Vector} sind praktisch identisch
+        \item Einziger Unterschied: Vector ist synchronized
+        \item[$\Rightarrow$] In Single-Thread-Anwendungen immer ArrayList verwenden
+        \item[$\Rightarrow$] Für die Abschlussaufgabe auf keinen Fall Vektor verwenden
+        \item Vector war bei mir mehr als $2 \times$ so langsam wie ArrayList ($\rightarrow$ \href{http://martin-thoma.com/matrix-multiplication-python-java-cpp/\#Java}{Performance of Matrix multiplication in Python, Java and C++})
+    \end{itemize}
+\end{frame}
+
+\section{Dictionary}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    \begin{itemize}[<+->]
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/Dictionary.html}{Dictionary} 
+              is obsolete. New implementations should implement the 
+              \href{http://docs.oracle.com/javase/7/docs/api/java/util/Map.html}{Map} 
+              interface, rather than extending Dictionary.
+        \item Telefonbuch-Anwendungsfälle
+            \begin{itemize}
+                \item Schlüssel wird auf Wert abgebildet
+                \item Beides sind Objekte
+                \item Schlüssel ist eindeutig, Wert darfs mehrfach geben (sowohl identisch als auch gleich sind ok)
+            \end{itemize}
+        \item Interface Map links vom \myCode{=}
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html}{HashMap}: 
+            \begin{itemize}
+                \item makes no guarantees as to the order of the map
+                \item $\mathcal{O}(1)$ für \myCode{get} und \myCode{put}
+            \end{itemize}
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html}{TreeMap}: 
+            \begin{itemize}
+                \item sorted according to the natural ordering of its keys
+                \item $\mathcal{O}(\log n)$ für \myCode{containsKey}, \myCode{get}, \myCode{put} und \myCode{remove}
+            \end{itemize}
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/LinkedHashMap.html}{LinkedHashMap}:
+            \begin{itemize}
+                \item predictable iteration order (usually insertion-order)
+                \item $\mathcal{O}(1)$ für \myCode{add} und \myCode{remove}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{Beispiele}
+\begin{frame}{Beispiel 1}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small]{java}{MapSimple.java}
+http://stackoverflow.com/questions/2889777/difference-between-hashmap-linkedhashmap-and-sortedmap-in-java
+\end{frame}
+
+\begin{frame}{Beispiel 2.1}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, frame=lines,label=Person.java]{java}{Person.java}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, frame=lines,label=TelephoneNumber.java]{java}{TelephoneNumber.java}
+\end{frame}
+
+\begin{frame}{Beispiel 2.2}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{MapSimple2.java}
+\end{frame}
+
+\begin{frame}{Beispiel 2.3: Durch Map iterieren}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=15, lastline=20]{java}{singleLines.java}
+\end{frame}
+
+\section{Swing}
+\subsection{Basics}
+\begin{frame}{Basics: Ein Fenster}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Swing1.java}
+\end{frame}
+\framedgraphic{Basics: Ein Fenster}{java-swing-jpanel.png}
+
+\subsection{ActionListener}
+\begin{frame}{ActionListener}
+    ActionLister sind \dots
+    \begin{itemize}[<+->]
+        \item ein weit verbreitetes Konzept
+        \item Objekte, die auf bestimmte Aktionen warten und 
+        \begin{itemize}
+            \item dann was machen
+            \item die Aktion "`delegieren"'
+        \end{itemize}
+        \item das \href{http://docs.oracle.com/javase/7/docs/api/java/awt/event/ActionListener.html}{Interface ActionListener}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{ActionListener}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Swing2.java}
+    {\tiny \href{http://martin-thoma.com/how-to-use-swing/}{complete source}}
+\end{frame}
+
+
+
+\section{Abspann}
+\subsection{Kommende Tutorien}
+\begin{frame}{Kommende Tutorien: Themen?}
+  \begin{itemize}
+    \item \href{http://zetcode.com/tutorials/javagamestutorial/}{Snake}
+    \item Space Invaders
+    \item Breakout
+    \item Tetris
+    \item Minesweeper
+    \item Sokoban
+    \item Swing (Fenster in Java)
+    \item Port-Scanner
+    \item Multiprocessing (Matrix-Multiplikation auf mehreren Kernen)
+    \item Web-Crawler
+    \item PageRank auf reale Daten anwenden
+    \item Chat
+    \item[$\Rightarrow$] Bitte auf \href{http://www.doodle.com/drn5f9i94zedws5n}{Doodle} wählen!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Disclaimer}
+    Bei wem steht noch \dots
+    \begin{itemize}
+        \item Einverständniserklärung nicht im Praktomaten registriert
+        \item Prüfungsanmeldung nicht im Praktomaten registriert
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mathe-Studenten}
+    \begin{itemize}
+        \item Was der Prof. über den Verteilger geschrieben hat war Unfug.
+        \item Zulassungsbescheinigung über Studienbüro (blauer Schein)
+        \item Vermutlich kein Übungsschein
+        \item Nur für die Klausur
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kommende Tutorien}
+  \begin{itemize}
+    \item[2.] 21.01.2013
+    \item[1.] 28.01.2013: Abschlussprüfunsvorbereitung
+    \item[-] 28.01.2013: Ausgabetermin für Teil 1
+    \item[0.] 04.02.2013: Abschlussprüfunsvorbereitung
+    \item[-] 10.02.2013: Ende der Vorlesungszeit des WS 2012/2013 (\href{http://www.kit.edu/studieren/2873.php}{Quelle})
+  \end{itemize}
+\end{frame}
+
+\framedgraphic{Vielen Dank für eure Aufmerksamkeit!}{../images/geekandpoke-2009-10-naming-conventions.jpg}
+
+\end{document}

@@ -1,0 +1,159 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{../templates/myStyle}
+
+\begin{document}
+\title{\titleText}
+\subtitle{Five-in-A-Row, Multithreading}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{Einleitung}
+\subsection{Quiz}
+\begin{frame}{Quiz}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{QuizMain.java}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{QuizSum.java}
+        \vspace{3.5cm}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Quiz: Race-Condition}
+    \begin{itemize}[<+->]
+        \item \myCode{bigSum++;} ist nicht atomar:
+        \item[] 3 Operationen: Wert holen, Wert erhöhen, Wert schreiben
+        \item[$\Rightarrow$] Ergebnis ist zufällig
+        \item Alles im Bereich $[BIG\_NR, 50 \cdot BIG\_NR]$ ist möglich:
+            \begin{enumerate}
+                \item Thread 1 holt sich den Wert von \texttt{bigSum}
+                \item Thread 2 - 50 laufen durch
+                \item Thread 1 erhöht den zuvor geholten Wert um 1
+                \item Thread 1 überschreibt \texttt{bigSum} mit 2
+                \item Thread 1 läuft durch
+            \end{enumerate}
+        \item Sind kleinere Werte möglich?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quiz: Race-Condition}
+    Sind kleinere Werte als \texttt{BIG\_NR} für \texttt{bigSum} möglich?
+    \begin{enumerate}[<+->]
+        \item[] Ja:
+        \item Thread 1 holt sich den Wert von \texttt{bigSum}
+        \item Thread 2 holt sich den Wert von \texttt{bigSum}
+        \item Thread 3 - 50 laufen durch
+        \item Thread 2 läuft bis 1 vorm Ende durch
+        \item Thread 1 erhöht Wert im Register von 0 auf 1 und schreibt 1
+        \item Thread 2 hohlt sich die 1 aus \texttt{bigSum}
+        \item Thread 1 läuft durch
+        \item Thread 2 erhöht Wert im Register von 1 auf 2 und schreibt 2
+        \item[$\Rightarrow$] Alle Werte in $[2, 50 \cdot BIG\_NR]$ sind möglich!
+        \item[] Wie löst man das Problem?
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Quiz}
+    Wie löst man das Problem:?
+    
+    Mit
+    \href{http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html}{AtomicLong}
+    aus 
+    \href{http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html}{java.util.concurrent}
+\end{frame}
+
+\begin{frame}{Quiz}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{AnswerMain.java}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{AnswerSum.java}
+        \vspace{3.5cm}
+    \end{minipage}
+\end{frame}
+
+\section{Abschlussaufgaben}
+\subsection{Abschlussaufgaben}
+\begin{frame}{Abschlussaufgaben}
+    \begin{itemize}
+        \item Herangehensweise
+            \begin{itemize}
+                \item Genau lesen
+                \item Frühzeitig lösen, viel Testen (Am besten schon heute!)
+                \item Bei Unklarheiten frühzeitig fragen!
+            \end{itemize}
+        \item Ausgabe
+            \begin{itemize}
+                \item Genau die erwartete Ausgabe liefern
+                \item An \myCode{toString()} denken
+            \end{itemize}
+        \item Trennung von Logik und Shell
+            \begin{itemize}
+                \item Siehe \href{https://github.com/MartinThoma/prog-ws1213/tree/master/Blatt-05.5}{Lösung zur Aufgabe 5.5}
+            \end{itemize}
+        \item Code
+            \begin{itemize}
+                \item \myCode{equals()}, \myCode{compareTo()} nutzen wenn sinnvoll
+                \item Exceptions einbauen, sollte der Nutzer aber nie sehen!
+                \item Gute JavaDoc!
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Abschlussaufgaben}
+    Bepunktung:
+    \begin{itemize}
+        \item Punkte für Funktionalität
+        \item Punkte für Programmier-Stil
+        \item Nicht unbedingt gleich gewichtet
+    \end{itemize}
+\end{frame}
+
+% http://www.tutorialspoint.com/java/java_multithreading.htm
+%TODO David Kulicke - Nr. 13
+
+\section{Spiele}
+\subsection{Spiele}
+\begin{frame}{Spiele}
+  Anleitung für Snake, Tetris, Sokuban, Breakout \dots ist \href{http://zetcode.com/tutorials/javagamestutorial/}{hier}.
+\end{frame}
+
+\section{Multithreading}
+\subsection{Multithreading}
+\begin{frame}{Multithreading}
+    \begin{itemize}
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html}{Runnable}
+        \item \href{http://www.vogella.com/articles/JavaConcurrency/article.html}{Java Concurrency (Multithreading) - Tutorial}
+        \item \href{http://www.tutorialspoint.com/java/java_multithreading.htm}{Java - Multithreading}
+    \end{itemize}
+\end{frame}
+
+\section{Abspann}
+\subsection{Kommende Tutorien}
+\begin{frame}{Kommende Tutorien}
+  \begin{itemize}
+    \item[1.] 28.01.2013: Abschlussprüfunsvorbereitung
+    \item[0.] 04.02.2013: Abschlussprüfunsvorbereitung
+    \item[-] 10.02.2013: Ende der Vorlesungszeit des WS 2012/2013 (\href{http://www.kit.edu/studieren/2873.php}{Quelle})
+  \end{itemize}
+\end{frame}
+
+\framedgraphic{Vielen Dank für eure Aufmerksamkeit!}{../images/Teach-yourself-C++-in-21-days.png}
+
+\end{document}

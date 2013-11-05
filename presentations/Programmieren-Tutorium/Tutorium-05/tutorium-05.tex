@@ -1,0 +1,280 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+
+% use KIT-Theme
+% see http://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen
+%\usetheme{Frankfurt} % see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html as fallback
+\InputIfFileExists{../templates/beamerthemekit.sty}{\usepackage{../templates/beamerthemekit}}{\usetheme{Frankfurt}}
+\usefonttheme{professionalfonts}
+
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{wrapfig}        % see http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{verbatim}
+\usepackage{relsize}
+\usepackage{subfigure}
+\usepackage{algorithm,algpseudocode}
+\usepackage{minted}         % needed for the inclusion of source code
+\usepackage{menukeys}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{../templates/myStyle}
+
+\newcommand\tutor{Martin Thoma}
+\newcommand\tutNR{10}
+\newcommand\titleText{Programmieren-Tutorium Nr. \tutNR{} bei \tutor}
+\institute{Fakultät für Informatik}
+
+\hypersetup{pdftitle={\titleText}}
+\beamertemplatenavigationsymbolsempty
+
+\newcommand\InsertToC[1][]{
+  \begin{frame}{Outline}
+    \tableofcontents[subsectionstyle=show/show/show, subsubsectionstyle=show/show/show, #1]
+  \end{frame}
+}
+
+\begin{document}
+\title{\titleText}
+\subtitle{Coding Style, Arrays}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+\section{Einleitung}
+\subsection{Quiz}
+\begin{frame}{Quiz}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=QuizArray.java, frame=lines]{java}{QuizArray.java}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Gibt es eine Ausgabe? Welche?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quiz: Antwort}
+    \begin{block}{Quelltext}
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{QuizArray.java}
+    \end{block}
+
+    \begin{block}{Ausgabe}
+        myArray1:  geh  du alter sack\\
+        myArray2:  geh  du alter sack 
+    \end{block}
+\end{frame}
+
+\begin{frame}{Shallow copy und deep copy}
+    \includegraphics*[height=5cm,angle=-90]{so-obj1.pdf}
+
+    \begin{minipage}[b]{0.45\linewidth}
+    \begin{figure}[htb]
+        \includegraphics*[height=5cm,angle=-90]{so-obj1-shallow-copy.pdf}
+        \caption{shallow copy}
+        \label{UploadForm}
+    \end{figure}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+    \begin{figure}[htb]
+        \includegraphics*[height=5cm,angle=-90]{so-obj1-deep-copy.pdf}
+        \caption{deep copy}
+        \label{UploadForm}
+    \end{figure}
+    \end{minipage}
+
+    \tiny{Weitere infos auf \href{http://stackoverflow.com/a/9835954/562769}{stackoverflow.com}}
+\end{frame}
+
+\begin{frame}{Shallow copy und deep copy}
+    \begin{itemize}
+        \item Java macht standardmäßig eine "`shallow copy"'
+        \item Wenn ihr eine "`deep copy"' wollt, müsst ihr das selbst machen
+    \end{itemize}
+    \begin{alertblock}{Lehre aus dem Quiz}
+        Beim kopieren von Objekten (alles außer \myCode{boolean}, \myCode{byte},
+        \myCode{int}, \myCode{long}, \myCode{float}, \myCode{double} -
+        oder einfacher, alles was mit einem Großbuchstaben beginnt) 
+        ist Vorsicht geboten.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Shallow copy und deep copy}
+    Deep copy sieht im Beispiel so aus:
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=QuizArray.java, frame=lines]{java}{QuizArray-solution.java}
+\end{frame}
+
+\section{Coding Style}
+\subsection{Magic Numbers}
+\begin{frame}{Magic Numbers}
+    \begin{alertblock}{Definition: Magic numbers}
+        Unique values with unexplained meaning or multiple occurrences 
+        which could (preferably) be replaced with named constants.
+    \end{alertblock}
+
+    Warum sind Konstanten besser als magic numbers?
+    \begin{itemize}
+        \item Code wird lesbarer
+        \item Code wird leichter erweiterbar
+        \item Kein (nennenswerter) Geschwindigkeits- oder Speicherplatznachteil
+    \end{itemize}
+
+    \begin{block}{Faustregel}
+        Alle Zahlen, bis auf \myCode{0}, \myCode{1} und \myCode{-1}
+        sollten mittels Konstanten verwendet werden.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Magic Numbers: Beispiel mit magic numbers}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{ConnectFourGame-bad.java}
+\end{frame}
+
+\begin{frame}{Magic Numbers: Beispiel mit magic Konstanten}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{ConnectFourGame.java}
+\end{frame}
+
+\section{Praxis}
+\subsection{Durchschnitt}
+\begin{frame}{Durchschnitt: Aufgabe}
+    Schreiben Sie eine Methode \myCode{float getAverage(int[] numbers) \{ \dots \}},
+    die den Durchschnitt der Zahlen im Array \myCode{numbers} berechnet.
+\end{frame}
+
+\begin{frame}{Durchschnitt: Lösung}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{AverageCalculation.java}
+\end{frame}
+
+\subsection{Flughafenkürzel}
+\begin{frame}{Flughafenkürzel: Aufgabe}
+    Wir haben ein Array mit IATA-Codes (Flughafenkürzel) gegeben und 
+    möchten den Inhalt auf der Konsole ausgeben.
+\end{frame}
+
+\begin{frame}{Flughafenkürzel: Lösung}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{IataCode.java}
+\end{frame}
+
+\begin{frame}{Flughafenkürzel: Ausgabe}
+    Kein Compiler- oder Laufzeitfehler, obwohl \myCode{iataCodes[3]}
+    nicht initialisiert ist!
+
+    \begin{block}{Ausgabe}
+    MUC\\
+    BER\\
+    AGB\\
+    null
+    \end{block}
+\end{frame}
+
+\begin{frame}{Flughafenkürzel: Umgekehrte Reihenfolge}
+    Modifiziere das Programm so, dass die Kürzel in umgekehrter 
+    Reihenfolge ausgegeben werden.
+    \begin{block}{Lösung von vorhin}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{IataCode.java}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Flughafenkürzel: Umgekehrte Reihenfolge - Lösung}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{IataCode-2.java}
+\end{frame}
+
+\begin{frame}{Flughafenkürzel: Jumping}
+    Modifiziere das Programm so, dass nur jedes dritte Element 
+    ausgegeben wird.
+    \begin{block}{Lösung von vorhin}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{IataCode.java}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Flughafenkürzel: Jumping - Lösung}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{IataCode-3.java}
+\end{frame}
+
+\subsection{Praxis: Bilder}
+\begin{frame}{Praxis: Bilder}
+    Gegeben ist ein Schwarz-Weiß Bild \myCode{int[][] image}.
+    \begin{enumerate}
+        \item Was repräsentiert \myCode{image[2][42]}?
+        \item Schreiben Sie eine Methode, die die durchschnittliche
+              Farbe von \myCode{image} berechnet und zurückgibt.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Praxis: Bilder - Lösung}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Bilder.java}
+
+    Mögliche Probleme:
+    \begin{itemize}
+        \item Ein \myCode{int} für \myCode{sum} ist eventuell zu klein
+        \item 255 Grauwerte, \myCode{int} hat maximalwert von 2.147.483.64
+        \item[$\Rightarrow$] $\frac{2147483647}{255} \approx 8.4 \cdot 10^6$
+        \item[$\Rightarrow$] maximal 8.4 Millionen Pixel
+        \item[$\Rightarrow$] $\sqrt{8.4 \cdot 10^6} \approx 2900$
+        \item[$\Rightarrow$] maximale Auflösung von $2900 \times 2900$ Pixel
+        \item Eventuell \myCode{int[][] image = new int[0][0];}
+    \end{itemize}
+\end{frame}
+
+\subsection{Praxis: Sieb des Erasthostenes}
+\begin{frame}{Praxis: Sieb des Erasthostenes}
+    Implementieren Sie das Sieb des Erasthostenes.
+\end{frame}
+
+\section{Allgemeine Hinweise zu ÜB}
+\subsection{Praktomat}
+\begin{frame}{Praktomat}
+    \begin{itemize}
+        \item Fragen frühzeitig stellen!
+        \item Wenn ihr Pakete verwendet, am Anfang eurer Dateien 
+              also \myCode{package AB\_2;} oder ähnliches steht,
+              müsst ihr die korrekte Ordnerstruktur in den Praktomat 
+              hochladen
+        \item In Eclipse im Fenster "`Navigation"' den Ordner "`src"'
+              auswählen
+        \item \menu{File > Export\dots > File system}
+        \item Zip-Datei aus dem exportiertem src-Ordner erstellen
+        \item Zip-Datei hochladen
+    \end{itemize}
+\end{frame}
+
+\framedgraphic{Projekt mit Eclipse exportieren}{eclipse-export-project.png}
+
+\begin{frame}{Allgemeines}
+    \begin{itemize}
+        \item Eclipse-Warnungen beherzigen und die Ursache dafür beseitigen
+        \item Formattieren: \keys{Strg + A} und \keys{Strg + \shift + F}
+        \item Encoding: \menu{Project > Properties > Ressource > Text file encoding > UTF-8}
+    \end{itemize}
+\end{frame}
+
+\section{Hinweise zum ÜB 3}
+\subsection{ÜB 3}
+\begin{frame}{ÜB 3}
+    \begin{itemize}
+        \item A1:
+        \begin{itemize}
+            \item Pro Aufgabe jeweils eine Textdatei(\myCode{A1.txt}, \myCode{B1.txt})
+            \item Schaut euch meinen Artikel \href{http://martin-thoma.com/java-puzzle-1-pre-and-postincrement/}{Java Puzzle \#1: Pre- and Postincrement} an
+        \end{itemize}
+        \item A2: Buchstaben "`d"' und "`f"' nicht verwenden
+    \end{itemize}
+\end{frame}
+
+\section{Abspann}
+\subsection{Comic}
+\framedgraphic{Abgaben um 11:55 Uhr}{ub-2-abgabge.png}
+\framedgraphic{Vielen Dank für eure Aufmerksamkeit!}{../images/geekandpoke-2010-01-commenting.jpg}
+
+\end{document}

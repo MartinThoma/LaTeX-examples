@@ -1,0 +1,47 @@
+<!-- Source: http://codegolf.stackexchange.com/a/4518/5240 -->
+<html>
+  <head>
+    <title>Snake</title>
+  </head>
+  <body>
+<pre id="x" style="line-height: 1"></pre>
+<script>
+c = 0;
+a = b = d = -1;
+e = [f = [20, 7],
+    [20, 8]
+];
+
+i = Math.random;~
+
+function n() {
+    if (c && (87 == a || 83 == a)) c = 0, d = 87 == a ? -1 : 1;
+    if (d && (65 == a || 68 == a)) d = 0, c = 65 == a ? -1 : 1;
+    p([j = e[0][0] + c, k = e[0][1] + d]) 
+    || !j || 39 == j || !k 
+    || 10 == k ? b += " | GAME OVER" 
+        : (e.unshift([j, k]), p(f) 
+            ? (f = [1 + 38 * i() | 0, 1 + 9 * i() | 0], b++) 
+            : e.pop());
+    for (m = h = ""; 11 > h; h++) {
+        for (g = 0; 40 > g; g++) l = g + "," + h, m += !g 
+            || 39 == g || !h 
+            || 10 == h ? "X" 
+                : e[0] == l ? "O" 
+                    : p(l) ? "*" : f == l ? "%" : " ";
+        m += "\n"
+    }
+    x.innerHTML = m + b;
+    !b.sup && setTimeout(n, 99)
+}();
+
+onkeydown = function (o) {
+    a = o.keyCode
+};
+
+function p(o) {
+    return e.join(p).indexOf(p + o) + 1
+}
+</script>
+</body>
+</html>

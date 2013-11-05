@@ -1,0 +1,455 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{../templates/myStyle}
+
+\begin{document}
+\title{\titleText}
+\subtitle{Sortieren, equals(), hashCode(), abstrakte Klassen, finale Klassen}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+\section{Einleitung}
+\subsection{Quiz}
+\begin{frame}{Quiz}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{QuizMain.java}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Gibt es eine Ausgabe? Welche?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quiz: Antwort}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, firstnumber=7, firstline=7, lastline=19, ]{java}{QuizMain.java}
+    \begin{block}{Compiler-Fehler}
+        {\small
+        Exception in thread "main" java.lang.Error: Unresolved compilation problem:\\
+        Bound mismatch: The generic method \myCode{sort(List<T>)} of 
+        type Collections is not applicable for the arguments 
+        (\myCode{List<List<String$>>$}).\\
+        The inferred type \myCode{List<String>} is not a valid substitute for 
+        the bounded parameter \myCode{<T extends Comparable<? super T$>>$}\\
+        at Main.main(Main.java:18)}
+    \end{block}
+\end{frame}
+
+\subsection{Altes Übungsblatt}
+\begin{frame}{Altes Übungsblatt}
+   \href{http://stackoverflow.com/q/14200941/562769}{Does it make sense to implement clone(), equals() or hashCode() for an abstract class?}
+
+    \begin{block}{Answer}
+        I wouldn't implement clone().
+
+        But it makes sense to implement \myCode{equals()}, 
+        \myCode{hashCode()}, and 
+        \myCode{toString()} to provide the default behavior for all subclasses. 
+        Children can choose to use it if they add no new class 
+        members or supplement as needed.
+    \end{block}
+\end{frame}
+
+\subsection{Generics}
+\begin{frame}{Generics}
+   \begin{block}{Übungsleiter}
+        generics werden wir für die Abschlussaufgaben vermeiden.
+    \end{block}
+\end{frame}
+
+\section{equals()}
+\subsection{instanceof vs. getClass()}
+\begin{frame}{instanceof vs. getClass()}
+    \begin{itemize}[<+->]
+        \item instanceof akzeptiert auf Untertypen:
+              \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, firstline=8, lastline=15]{java}{singleLines.java}
+        \item getClass nicht:
+              \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny, firstline=17, lastline=18]{java}{singleLines.java}
+        \item[$\Rightarrow$] Bei \myCode{equals()} eher \myCode{getClass} verwenden
+        \item \href{http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html\#jls-15.20.2}{instanceof} funktioniert auch mit \myCode{null}
+        \item \myCode{null.getClass()} gibt \myCode{NullPointerException} nicht
+        \item[$\Rightarrow$] zuerst auf \myCode{null} überprüfen
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{instanceof vs. getClass()}
+    Aber \dots
+    \begin{itemize}
+        \item \href{http://stackoverflow.com/q/596462/562769}{Sehr viele} ziehen \myCode{instanceof} in \myCode{equals()} der \myCode{getClass()}
+              Variante vor
+        \item Es gibt Argumente für beides
+        \begin{itemize}
+            \item pro-instanceof: Debug-Klassen
+            \item pro-instanceof: \href{http://en.wikipedia.org/wiki/Liskov_substitution_principle}{Liskov substitution principle}
+            \item pro-getClass(): Die Klassen stimmen wirklich überein
+        \end{itemize}
+        \item Achtung: Andere Semantik!
+    \end{itemize}
+\end{frame}
+
+\section{Sortieren}
+\subsection{Was kann man sortieren?}
+\begin{frame}{Was kann man sortieren?}
+    \begin{itemize}
+        \item Zahlen
+        \item Wörter
+        \item Länder nach Anzahl der Einwohner
+        \item Spielkarten
+        \item \dots
+    \end{itemize}
+\end{frame}
+
+\subsection{Was braucht man?}
+\begin{frame}{Was braucht man?}
+    Totale Ordnungsrelation $\preceq$ auf einer Menge $C$:
+    \begin{itemize}
+        \item Totalität: $\forall x, y \in C: x \preceq y \lor y \preceq x$
+        \item Antisymmetrie: $\forall x,y \in C: x \preceq y \land y \preceq x \Rightarrow x = y$
+        \item Transitivität: $\forall x,y,z \in C: x \preceq y \land y \preceq z \Rightarrow x \preceq z$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Wo ist das nicht gegeben?}
+    \begin{itemize}
+        \visible<1->{\item Totalität: $\forall x, y \in C: x \preceq y \lor y \preceq x$?}
+        \visible<2->{\item[$\Rightarrow$] Menge $\mathbb{C}$, Relation $\leq$: $i$ und $1$ stehen nicht in Relation!}
+        \visible<2->{\item[$\Rightarrow$] Menge $\mathcal{P}(\Set{1,2,3})$, Relation $\subseteq$: $\Set{1}$ und $\Set{2}$ stehen nicht in Relation!}
+        \visible<3->{\item Antisymmetrie: $\forall x,y \in C: x \preceq y \land y \preceq x \Rightarrow x = y$?}
+        \visible<4->{\item[$\Rightarrow$] Menge $\mathbb{R}$, Relation $\preceq: x \preceq y \Leftrightarrow x,y \in \mathbb{R}$ (vgl. \href{http://math.stackexchange.com/q/276907/6876}{SO})}
+        \visible<5->{\item Transitivität: $\forall x,y,z \in C: x \preceq y \land y \preceq z \Rightarrow x \preceq z$?}
+        \visible<6->{\item[$\Rightarrow$] ?}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hilfe, ich komme mit Relationen nicht zurecht!}
+    Don't Panic!
+
+    \begin{itemize}
+        \item Meist vergleicht man indirekt Zahlen
+        \item[$\rightarrow$] Bei \myCode{double} und \myCode{float} den Epsilon-Vergleich machen!
+        \item Sonst vergleicht man Strings
+        \item[$\rightarrow$] \myCode{myString.compareTo(myOtherString)}
+        \item Die JavaDoc von \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html\#compareTo\%28T\%29}{compareTo(other)} 
+              sind weniger mathematisch formuliert
+    \end{itemize}
+\end{frame}
+
+\subsection{Wie sortiert man?}
+\begin{frame}{Wie sortiert man?}
+    Vergleichsbasierte Sortieralgorithmen:
+    \begin{itemize}
+        \item Selectionsort
+        \item Bubblesort
+        \item Quicksort
+        \item \dots
+    \end{itemize}
+
+    Nicht vergleichsbasierte Algorithmen:
+    \begin{itemize}
+        \item Radixsort
+        \item Countingsort
+    \end{itemize}
+
+    Implementierungen und Vergleiche dieser und weiterer Algorithmen sind 
+    \href{http://martin-thoma.com/ubersicht-uber-sortieralgorithmen/}{hier}
+    zu finden.
+
+    \begin{block}{Info am Rande}
+        Collections.sort() verwendet Mergesort-Variante (vermutlich Timsort)
+    \end{block}
+\end{frame}
+
+\subsection{Sortieren in Java}
+\begin{frame}{Sortieren in Java: Arrays}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{Main-Arrays-sort.java}
+\end{frame}
+
+\begin{frame}{Sortieren in Java: Collections}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{Main-Collection-sort.java}
+\end{frame}
+
+\begin{frame}{Sortieren in Java: Comparator}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{PopulationDensityComperator.java}
+\end{frame}
+
+\begin{frame}{Sortieren in Java: Comparator benutzen}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{ComparatorMain.java}
+\end{frame}
+
+\section{hashCode()}
+\subsection{Allgemeines}
+\begin{frame}{Vier Gewinnt}
+    \begin{block}{Frage}
+        Wie viele Situationen gibt es auf einem $7 \times 6$-Feld
+        bei "`4 Gewinnt"'?
+    \end{block}
+
+    \begin{itemize}[<+->]
+        \item maximal: $3^{7 \cdot 6} = 3^{42} = 109418989131512359209 \approx 109 \cdot 10^{18}$
+        \item minimal: schwer zu sagen
+        \item Idee: Brute-Force 
+        \begin{itemize}
+            \item Alle möglichen Spielentscheidungen durchgehen
+            \item Kommt man auf eine bereits bekannte Situation, ist es keine neue
+            \item Man muss also alte Situationen speichern (z.B. ein \myCode{char[42]} pro Spielsituation)
+            \item Man muss eine alte Situationen finden können
+            \item Vermutung: min. $20\,000\,000$ Spielsituationen
+            \item[$\Rightarrow$] lineare Suche nach bekannten Situationen dauert zu lange
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Vier Gewinnt: Hashing}
+    \begin{block}{Frage}
+        Wie kann ich schnell eine Spielsituation speichern und wieder
+        finden?
+    \end{block}
+
+    Antwort: Hash-Funktion mit linearer Sondierung!
+
+    \pause
+
+    \begin{itemize}[<+->]
+        \item Ich will eine Funktion: $h: \text{Spielsituationen} \rightarrow \text{Array-Index}$
+        \item Die Spiel-Situation kann ich als Zahl $x$ auffassen mit $0 \leq x \leq 110 \cdot 10^{18}$
+        \item Für den Array-Index $i$ gilt: $0 \leq i \le 20\,000\,000$
+        \item $h$ ist also nicht injektiv
+        \item Sobald der Array voll ist, können wir aufhören
+        \item Falls $h(x)$ ein Array-Index ist, der bereits belegt ist, aber der Array nicht voll ist, müssen wir
+              die nächste freie Stelle suchen.\\
+              Dazu gehen wir einfach auf $(h(x) + 1) \% 20\,000\,000$
+        \item[$\Rightarrow$] wird "`lineares Sondieren genannt"'
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Vier Gewinnt: hash-Funktion}
+    \begin{block}{Frage}
+        Wie sieht eine gute hash-Funktion aus?
+    \end{block}
+
+    \begin{itemize}[<+->]
+        \item Sie sollte surjektiv sein
+        \item Sie sollte gleichmäßig auf die Bildmenge abbilden
+        \item Vorschlag: \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{c}{vierGewinnt.c}
+        \item Beispiel-Code ist auf \href{https://github.com/MartinThoma/connect-four/blob/master/C/connectfour.c}{GitHub}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hashing: Allgemein}
+    \begin{block}{Frage}
+        Was ist nun eine Hash-Funktion im Allgemeinen?
+    \end{block}
+
+    \begin{block}{Antwort}
+        Eine Hash-Funktion $h$ bildet von einem sehr großem 
+        Definitionsbereich auf einen deutlich kleineren Wertebereich
+        ab.
+    \end{block}
+    
+    \pause
+
+    \begin{itemize}[<+->]
+        \item Meist ist der Wertebereich ein \myCode{int}, also $[-2147483648, 2147483647] = [-2^{31},2^{31}-1] \approx [-2 \cdot 10^9, 2 \cdot 10^9]$
+        \item Der Definitionsbereich kann alles mögliche sein
+        \item Normalerweise ist es nicht möglich, eine injektive Funktion zu finden
+    \end{itemize}
+\end{frame}
+
+\subsection{hashCode() in Java}
+\begin{frame}{hashCode() in Java}
+    \begin{block}{Signatur}
+        \myCode{public int hashCode()}
+    \end{block}
+
+    \pause
+
+    \begin{block}{Bedingung 1}
+        Whenever it is invoked on the same object more than once 
+        during an execution of a Java application, the hashCode 
+        method \textbf{must consistently return the same integer}, 
+        provided no information used in equals comparisons on the 
+        object is modified. This integer need not remain consistent 
+        from one execution of an application to another execution of 
+        the same application.
+    \end{block}
+    {\tiny source: \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#hashCode()}{JavaDoc}}
+\end{frame}
+
+\begin{frame}{hashCode() in Java}
+    \begin{block}{Bedingung 2}
+        If two objects are equal according to the equals(Object) 
+        method, then calling the hashCode method on each of the two 
+        objects \textbf{must} produce the same integer result.
+    \end{block}
+    {\tiny source: \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#hashCode()}{JavaDoc}}
+
+    \pause
+
+    \begin{block}{Klarstellung 1}
+        Es muss gelten:\\
+        $A.equals(B) \Rightarrow A.hashCode() == B.hashCode()$\\
+        Aber nicht:\\
+        $A.hashCode() == B.hashCode() \Rightarrow A.equals(B)$\\
+        Das ist meist auch nicht möglich. Beispiel:\\
+        Eine Klasse mit einem \myCode{double} als Rückgabewert.
+    \end{block}
+\end{frame}
+
+\begin{frame}{hashCode() in Java}
+    \begin{block}{Klarstellung 2}
+        It is \textbf{not required} that if two objects are unequal according 
+        to the equals(java.lang.Object) method, then calling the 
+        hashCode method on each of the two objects must produce 
+        distinct integer results.\\
+        However, the programmer should be 
+        aware that producing distinct integer results for unequal 
+        objects may improve the performance of hash tables.
+    \end{block}
+    {\tiny source: \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#hashCode()}{JavaDoc}}
+\end{frame}
+
+\begin{frame}{hashCode(): Quiz}
+    Ist das eine korrekte Hash-Funktion?
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Country-hashCode.java}
+\end{frame}
+
+\begin{frame}{hashCode(): Antwort}
+    \begin{itemize}[<+->]
+        \item Ja, ist nach \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#hashCode()}{JavaDoc} eine korrekte
+              Hash-Funktion
+        \item Aber: Es ist die wohl schlechteste korrekte Hash-Funktion
+        \item Sogar praktisch nutzlos
+        \item \alert<5>{NIEMALS} so machen!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{hashCode(): Set}
+    \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#equals(java.lang.Object)}{hashCode()} und \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#equals(java.lang.Object)}{equals()} sind für \href{http://docs.oracle.com/javase/7/docs/api/java/util/Set.html}{Set} wichtig.
+\end{frame}
+
+\section{Interface}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    War Thema in Tutorium Nr. 8
+\end{frame}
+
+\section{abstract}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    \begin{block}{docs.oracle.com Tutorial}
+        Eine abstrakte Klasse ist eine Klasse mit dem \myCode{abstract}-Schlüsselwort.
+        Sie kann abstrakte Methoden beinhalten.\\
+        Abstrakte Klassen können nicht instanziiert werden, aber man kann
+        Unterklassen bilden.
+    \end{block}
+
+    Abstrakte Klassen 
+    \begin{itemize}[<+->]
+        \item \dots müssen keine abstrakten Methoden beinhalten\\
+              {\tiny Quelle: \href{http://stackoverflow.com/q/4811678/562769}{Defining an abstract class without any abstract methods}}
+        \item \dots sollten eine abstrakte Methode beinhalten\\
+              {\tiny Quelle: \href{http://stackoverflow.com/q/2283399/562769}{Should an abstract class have at least one abstract method?}}
+        \item \dots können Konstruktoren haben\\
+              {\tiny Quelle: \href{http://stackoverflow.com/q/7644342/562769}{Abstract class is using it's own abstract method?}}
+        \item \dots können konkret impementierte Methoden haben\\
+              {\tiny Quelle: \href{http://answers.yahoo.com/question/index?qid=20111207141904AABXAvh}{Can an abstract class have concrete(non-abstract method) methods?}}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+    \begin{block}{What are practical examples of abstract classes in java?}
+        \begin{itemize}
+            \item \href{http://stackoverflow.com/a/1509826/562769}{StackOverflow}
+            \item FileParser, CameraFileParser
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Abstract Classes vs Interfaces}
+\begin{frame}{Abstract Classes vs Interfaces}
+    Abstrakte Klassen können \dots
+    \begin{itemize}
+        \item Attribute haben, die nicht \myCode{static} und \myCode{final} sind
+        \item Implementierte Methoden haben
+    \end{itemize}
+
+    \begin{block}{Wenn nutze ich Interfaces?}
+        Wenn ich nur abstrakte Methoden habe
+    \end{block}
+\end{frame}
+
+
+
+\subsection{Literatur}
+\begin{frame}{Literatur}
+    \begin{itemize}
+        \item docs.oracle.com Tutorial: \href{http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html}{Abstract Methods and Classes}
+        \item codestyle.org: \href{http://www.codestyle.org/java/faq-Abstract.shtml}{Java abstract classes FAQ}
+        \item openbook.galileodesign.de: \href{http://openbook.galileodesign.de/javainsel5/javainsel06_009.htm\#Rxx747java06009040001EA1F04F100}{Abstrakte Klassen und abstrakte Methoden}
+    \end{itemize}
+\end{frame}
+
+\section{final}
+\subsection{Allgemeines}
+\begin{frame}{Allgemeines}
+    \begin{itemize}
+        \item Finale Klassen können keine Unterklassen haben
+        \item Beispiel: \myCode{String}, \myCode{StringBuffer}, \myCode{StringBuilder}, \myCode{Math}:
+        \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, firstnumber=1, firstline=1, lastline=6]{java}{singleLines.java}
+    \end{itemize}
+\end{frame}
+
+\subsection{Literatur}
+\begin{frame}{Literatur}
+    \begin{itemize}
+        \item docs.oracle.com Tutorial: \href{http://docs.oracle.com/javase/tutorial/java/IandI/final.html}{Writing Final Classes and Methods}
+        \item openbook.galileodesign.de: \href{http://openbook.galileodesign.de/javainsel5/javainsel06_006.htm\#Rxx747java06006040001E71F019239}{Finale Klassen}
+    \end{itemize}
+\end{frame}
+
+%\section{Tipp}
+%\subsection{Java API-Code anschauen}
+%\begin{frame}{Java API-Code anschauen}
+%    \begin{itemize}
+%        \item In Eclipse gehen
+%        \item Eine Funktion der Java API-Klasse, die ihr nutzen wollt, hinschreiben
+%        \item \menukeys{Strg} + Rechtsklick auf die Funktion
+%    \end{itemize}
+%\end{frame}
+
+
+\section{Abspann}
+\subsection{Klausuranmeldung}
+\begin{frame}{Klausuranmeldung}
+    \begin{itemize}
+        \item Anmeldebeginn: 28.1.
+        \item Anmeldeschluss / Abmeldeschluss: 28.2.
+        \item Ausgabetermin für Teil 1: 28.1.
+        \item Ausgabetermin für Teil 2: 11.2.
+        \item Abgabefrist für Teil 1: 11.3.
+        \item Abgabefrist für Teil 2: 25.3.
+    \end{itemize}
+\end{frame}
+
+\subsection{Kommende Tutorien}
+\begin{frame}{Kommende Tutorien}
+  \begin{itemize}
+    \item[3.] 14.01.2013
+    \item[2.] 21.01.2013
+    \item[1.] 28.01.2013: Abschlussprüfunsvorbereitung
+    \item[-] 28.01.2013: Ausgabetermin für Teil 1
+    \item[0.] 04.02.2013: Abschlussprüfunsvorbereitung
+    \item[-] 10.02.2013: Ende der Vorlesungszeit des WS 2012/2013 (\href{http://www.kit.edu/studieren/2873.php}{Quelle})
+  \end{itemize}
+\end{frame}
+
+\framedgraphic{Vielen Dank für eure Aufmerksamkeit!}{../images/geekandpoke-user-too-dumb.jpg}
+
+\end{document}

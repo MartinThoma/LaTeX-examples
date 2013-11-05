@@ -1,0 +1,27 @@
+Compiled from "SimpleLoop.java"
+public class SimpleLoop extends java.lang.Object{
+public SimpleLoop();
+  Code:
+   0:	aload_0
+   1:	invokespecial	#1; //Method java/lang/Object."<init>":()V
+   4:	return
+
+public static void main(java.lang.String[]);
+  Code:
+   0:	bipush	-5
+   2:	istore_1    /* Speichere einen int-Wert in das Array der lokalen Variablen */
+   3:	iload_1     /* Lade den int-Wert einer lokalen Variablen auf den Operandenstapel */
+   4:	bipush	15  /* lege 15 auf den Operandenstapel */
+   6:	if_icmpge	46  /* if_icmpge pops the top two ints off the stack 
+        and compares them. If value2 is greater than or equal to value1, 
+        execution branches to the address (pc + branchoffset), where pc 
+        is the address of the if_icmpge opcode in the bytecode and branchoffset 
+        is a 16-bit signed integer parameter following the if_icmpge opcode in 
+        the bytecode. If value2 is less than value1, execution continues at the 
+        next instruction.*/
+   9-37:	/* String erstellen, i*i berechnen, String ausgeben */
+   40:	iinc	1, 1 /* iinc <varnum> <n> increments the int held in the local variable <varnum> by <n> */
+   43:	goto	3
+   46:	return
+
+}

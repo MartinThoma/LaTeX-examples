@@ -1,0 +1,542 @@
+\documentclass[usepdftitle=false,hyperref={pdfpagelabels=false}]{beamer}
+
+% use KIT-Theme
+% see http://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen
+%\usetheme{Frankfurt} % see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html as fallback
+\InputIfFileExists{../templates/beamerthemekit.sty}{\usepackage{../templates/beamerthemekit}}{\usetheme{Frankfurt}}
+\usefonttheme{professionalfonts}
+
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{wrapfig}        % see http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{verbatim}
+\usepackage{relsize}
+\usepackage{subfigure}
+\usepackage{algorithm,algpseudocode}
+\usepackage{minted}         % needed for the inclusion of source code
+\usepackage{xcolor}
+\usepackage{menukeys}
+\usepackage{wasysym}
+\usepackage{braket} % needed for \Set
+\usepackage{tikz}
+% w/o following space!
+\newcommand{\quem}{\tikz[baseline=(wi.base)]{\node[fill=black,rotate=45,inner sep=1.5mm] {};%
+\node[ font=\color{white}] (wi) {?};}}
+\usepackage{../templates/myStyle}
+
+\newcommand\tutor{Martin Thoma}
+\newcommand\tutNR{10}
+\newcommand\titleText{Programmieren-Tutorium Nr. \tutNR{} bei \tutor}
+\institute{Fakultät für Informatik}
+
+\hypersetup{pdftitle={\titleText}}
+\beamertemplatenavigationsymbolsempty
+
+\newcommand\InsertToC[1][]{
+  \begin{frame}{Outline}
+    \tableofcontents[subsectionstyle=show/show/show, subsubsectionstyle=show/show/show, #1]
+  \end{frame}
+}
+
+\begin{document}
+\title{\titleText}
+\subtitle{Javadoc, Bytecode}
+\author{\tutor}
+\date{\today}
+\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+\section{Einleitung}
+\subsection{Quiz: Teil 1}
+\begin{frame}{Quiz: Teil 1}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=Quiz.java, frame=lines]{java}{Quiz-float-1.java}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Gibt es eine Ausgabe? Welche?
+    \end{itemize}
+\end{frame}
+
+\subsection{Quiz: Teil 2}
+\begin{frame}{Quiz: Teil 2}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=Quiz.java, frame=lines]{java}{Quiz-float-2.java}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Gibt es eine Ausgabe? Welche?
+    \end{itemize}
+\end{frame}
+
+\subsection{Quiz: Teil 3}
+\begin{frame}{Quiz: Teil 3}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=Quiz.java, frame=lines]{java}{Quiz-float-3.java}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Gibt es eine Ausgabe? Welche?
+    \end{itemize}
+\end{frame}
+
+\section{Nachbesprechung: 1. ÜB}
+\subsection{Gleitkomma vs. Ganzzahl}
+\begin{frame}{Gleitkomma vs. Ganzzahl}
+    Welche Vorteile bieten Ganzzahl-Variablen im Vergleich zu
+    Gleitkomma-Variablen?
+    \begin{itemize}[<+->]
+        \item \textbf{Speicherplatz}? \onslide<4->{Nein, vgl. \myCode{long} und \myCode{float}}
+        \item \textbf{Geschwindigkeit}? \onslide<5->{Kommt drauf an: Wenn keine weitere Umrechnung nötig ist und die Gleitkommazahl nicht kleiner ist, eher ja.}
+        \item \textbf{Genauigkeit}? \onslide<6->{Ja.\\
+        Beispiel: $(0,1)_{10} = (0,0\overline{0011})_2$\\
+        vgl. Java-Puzzle}
+    \end{itemize}
+\end{frame}
+
+\subsection{Variablennamen}
+\begin{frame}{Variablennamen}
+    Bitte nur alphanumerische Zeichen für Namen (Pakete, Methoden, Variablen, \dots).\\
+    Soll heißen:
+    \begin{itemize}[<+->]
+        \item abcdefghijklmnopqrstuvwxyz sind erlaubt
+        \item ABCDEFGHIJKLMNOPQRSTUVWXYZ sind erlaubt
+        \item 0123456789 sind erlaubt
+        \item Unterstrich - also "`\_"' ist nur in Kostanten erlaubt
+        \item Der Rest ist verboten und gibt Punktabzug! Keine Umlaute!
+    \end{itemize}
+\end{frame}
+
+\subsection{Kommentare}
+\begin{frame}{Kommentare}
+    \begin{block}{Regel}
+        Kommentiert, was ihr macht. \\
+        Nicht wie ihr es macht.
+    \end{block}
+
+    \begin{itemize}[<+->]
+        \item Gut zu kommentieren ist schwer
+        \item Viel (fremden) Code ansehen hilft
+        \item Eigenen Code nach Jahren ansehen hilft
+        \item JEDER Kommentar ist für Java-Entwickler gedacht
+        \item[$\Rightarrow$] Kommentare à la "`Methode"' oder 
+              "`Methodensignatur"' sind nutzlos!\\
+        \item Javadoc-Kommentare sind für Entwickler, die nichts von 
+              eurem Code sehen können, ihn aber dennoch nutzen wollen
+    \end{itemize}
+\end{frame}
+
+\subsection{Kommentare: Beispiel 1}
+\begin{frame}{Kommentare: Beispiel 1}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Kommentare-1.java}
+
+    \only<2->{
+        \begin{itemize}
+            \item An sich gute Kommentare
+            \item Wäre besser als Javadoc direkt über der Methode
+        \end{itemize}
+    }
+\end{frame}
+
+\subsection{Kommentare: Beispiel 2}
+\begin{frame}{Kommentare: Beispiel 2}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small]{java}{Kommentare-2.java}
+\end{frame}
+
+\begin{frame}{Kommentare: Beispiel 2}
+    \begin{itemize}
+        \item Zeile 1 \& 2 bieten einem Entwickler nicht mehr Informationen 
+              $\Rightarrow$ nutzlos
+        \item Sonst okay
+        \item Bitte nicht \myCode{chainwheel0}, sondern \myCode{chainwheel}
+              und später \myCode{this}-Operator nutzen\\
+              Gibt in Zukunft -0,5 Punkte
+        \item Gute Zeilenlänge \smiley
+    \end{itemize}
+\end{frame}
+
+\subsection{Kommentare: Beispiel 3}
+\begin{frame}{Kommentare: Beispiel 3}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Kommentare-3.java}
+    \only<2->{
+        \begin{itemize}
+            \item Javadoc ist okay
+            \item "`Methodensignatur"'-Kommentar in Z. 5 ist nutzlos
+            \item Kommentare in Z. 7 - 9 sind nutzlos
+            \item Z. 8 ist arg lang $\rightarrow$ den Kommentar hätte
+                  man einfach über die Zeile schreiben können.
+        \end{itemize}
+    }
+\end{frame}
+
+\subsection{Namenskonventionen für booleans}
+\begin{frame}{Namenskonventionen für booleans}
+    \begin{block}{Regel}
+        Der Präfix "`is"' sollte für boolesche Variablen und Methoden
+        mit dem Rückgabewert \myCode{boolean} genutzt werden.
+    \end{block}
+
+    \onslide<2->{
+        \begin{exampleblock}{Beispiele}
+            isSet, isVisible, isFinished, isFound, isOpen
+        \end{exampleblock}
+    }
+
+    \onslide<3->{
+        Auch okay sind "`has"', "`should"' oder ähnliche Präfixe.
+    }
+
+    \onslide<4->{
+        \begin{exampleblock}{Beispiele}
+            \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=1, lastline=3]{java}{singleLines.java}
+        \end{exampleblock}
+    }
+\end{frame}
+
+\subsection{booleans: Positiv- und Negativbeispiel}
+\begin{frame}{booleans: Positiv- und Negativbeispiel}
+    \begin{exampleblock}{Negativbeispiel: So nicht!}
+            \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=5, lastline=6]{java}{singleLines.java}
+    \end{exampleblock}
+
+    \onslide<2->{
+        \begin{exampleblock}{Positivbeispiel: Aber so}
+                \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=8, lastline=9]{java}{singleLines.java}
+        \end{exampleblock}
+    }
+
+    \onslide<3->{
+        In Zukunft: -0,5 Punkte
+    }
+\end{frame}
+
+\subsection{Boolean: Was ist mit Gettern/Settern?}
+\begin{frame}{Boolean: Was ist mit Gettern/Settern?}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, firstline=11, lastline=17]{java}{singleLines.java}
+    \begin{block}{Hinweis}
+    Es ist okay, wenn ein Attribut genauso heißt wie eine Methode
+    \end{block}
+\end{frame}
+
+\subsection{Kombinatorik}
+\begin{frame}{Kombinatorik}
+    Wenn man 3 Gänge vorne und 7 hinten hat, wie viele Gänge gibt es?
+    \vspace{1.0cm}
+    \onslide<2->{
+        \textbf{Antwort:} $3 \cdot 7 = 21$\\
+    }
+    \vspace{0.5cm}
+    \onslide<3->{\textbf{Erklärung}:
+        Sei $\Set{a, b, c}$ die Menge der vorderen Gänge und
+        $\Set{1, 2, 3, 4, 5, 6, 7}$ die Menge der hinteren Gänge.\\
+    }
+    \vspace{0.2cm}
+    \onslide<4->{
+        Dann gibt es folgende Kombinationen:\\
+        a1, a2, a3, a4, a5, a6, a7\\
+        b1, b2, b3, b4, b5, b6, b7\\
+        c1, c2, c3, c4, c5, c6, c7
+    }
+
+\end{frame}
+
+\subsection{Formatierung}
+\begin{frame}{Formatierung}
+    Mit Eclipse:
+    \begin{itemize}
+        \item Alles markieren: \keys{\ctrl+A}
+        \item Formatieren: \keys{\ctrl+\shift+F}
+    \end{itemize}
+    Falsche Formatierung gibt in Zukunft pro Fehler -0,5 Punkte.\\
+    Auch Folgefehler geben Punktabzug!
+\end{frame}
+
+\subsection{Aussagekräftige Variablen!}
+\begin{frame}{Aussagekräftige Variablen!}
+    In Zukunft:
+        -1 P. bis -5 P. für Variablennamen wie "`Kr"' für Kettenräder oder 
+        "`Pr"' für Preis!
+\end{frame}
+
+\subsection{Quiz}
+\begin{frame}{Quiz}
+    \begin{table}[ht]
+    \begin{tabular}{p{0.4\linewidth}l}
+    \begin{minipage}[b]{0.8\linewidth}\centering
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Baby.java, frame=lines]{java}{Static-Quiz-Baby.java}
+    \end{minipage}
+    &
+    \begin{minipage}[b]{0.5\linewidth}
+    \centering
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=World.java, frame=lines]{java}{Static-Quiz-World.java}
+    \end{minipage}
+    \end{tabular}
+    \end{table}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Gibt es eine Ausgabe? Welche?
+    \end{itemize}
+\end{frame}
+
+\subsection{Quiz: Antwort}
+\begin{frame}{Quiz: Antwort}
+    Ausgabe:
+    \begin{itemize}
+      \item Alice: 56
+      \item Bob: 56
+    \end{itemize}
+    \vspace{0.5cm}
+    Warum?
+    \begin{itemize}[<+->]
+      \item \myCode{static} macht ein Attribut zu einem "`\textbf{Klassenattribut}"'
+      \item Das Attribut gehört dann nicht mehr den einzelnen Objekten
+      \item Und sollte auch nicht über Objecte aufgerufen werden!
+      \item Schlecht: \myCode{alice.size;}
+      \item Auch schlecht: \myCode{alice.getSize();}
+      \item Besser: \myCode{Baby.size;} oder \myCode{Baby.getSize();}
+      \item In Zukunft: min. -2 P. für falsche \myCode{static}-Verwendung
+    \end{itemize}
+\end{frame}
+
+\section{Exkurs}
+\subsection{Exkurs: Bytecode}
+\begin{frame}{Exkurs: Bytecode}
+    \begin{alertblock}{Hinweis}
+        Das folgende ist nicht Prüfungsrelevant!\\
+        Also zurücklehnen und genießen :-)
+    \end{alertblock}
+
+    \vspace{1cm}
+    Mit dem Befehl
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, firstline=1, lastline=1]{bash}{bash.sh}
+    könnt ihr euch den Java-Bytecode ansehen.
+\end{frame}
+
+\begin{frame}{Exkurs: SimpleLoop Java Code}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, label=SimpleLoop.java, frame=lines]{java}{SimpleLoop.java}
+\end{frame}
+
+\begin{frame}{Bytecode von SimpleLoop.java}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Bytecode.txt}
+\end{frame}
+\begin{frame}{Bytecode von SimpleLoop.java: Anfang}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, firstline=1, lastline=7, fontsize=\tiny]{java}{Bytecode.txt}
+    \begin{itemize}
+        \item \textbf{aload\_0}: Lade eine Objektreferenz aus dem Array der lokalen Variablen auf den Operandenstapel. (\href{http://www.javaseiten.de/jvmisa.html\#aload\_0}{Quelle})
+        \item \textbf{iload\_1}: Lade den int-Wert einer lokalen Variablen auf den Operandenstapel. (\href{http://www.javaseiten.de/jvmisi.html\#iload_1}{Quelle})
+        \item \textbf{invokespecial [method-spec]}: invoke method belonging to a specific class (\href{https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--33.html}{Quelle})
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bytecode von SimpleLoop.java: Ende}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, firstline=9, lastline=32, fontsize=\tiny]{java}{Bytecode.txt}
+\end{frame}
+
+\begin{frame}{Interessanter Teil des Bytecodes}
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\tiny]{java}{Bytecode-interessant.txt}
+\end{frame}
+
+\subsection{Javadoc}
+\framedgraphic{Offizielle \href{http://docs.oracle.com/javase/6/docs/api/}{Java 6 API} Javadoc}{java-6-javadoc.png}
+\framedgraphic{Offizielle \href{http://docs.oracle.com/javase/7/docs/api/}{Java 7 API} Javadoc}{java-7-javadoc.png}
+
+\subsection{Javadoc erzeugen}
+\begin{frame}{Javadoc erzeugen}
+    \begin{itemize}
+        \item Order erstellen, in dem die Javadoc landen soll
+        \item In den Ordner mit euren Quelldateien wechseln
+        \item Befehl \myCode{javadoc -d ../pfad/zum/javadoc/ordner/ *}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Javadoc erzeugen}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, firstline=1, lastline=30, fontsize=\tiny]{console}{javadoc.sh-session}
+\end{frame}
+\begin{frame}{Javadoc erzeugen}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, firstline=31, firstnumber=31, lastline=59, fontsize=\tiny]{console}{javadoc.sh-session}
+\end{frame}
+\begin{frame}{Javadoc erzeugen}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, firstline=60, firstnumber=60, lastline=82, fontsize=\tiny]{console}{javadoc.sh-session}
+\end{frame}
+\begin{frame}{Javadoc: Codierung}
+    \begin{itemize}[<+->]
+        \item \quem{} ist ein sicheres Zeichen, dass was bei der 
+              Zeichenkodierung schief ging.
+        \item Bitte verwendet \textbf{immer} UTF-8!
+        \item Eclipse: \menu{Window > Preferences > General > Workspace > Text file encoding > UTF-8}
+    \end{itemize}
+\end{frame}
+
+\section{Dies und Das}
+\subsection{Konvention: Leerzeichen}
+\begin{frame}{Konvention: Leerzeichen}
+Keine Whitespaces nach
+    \begin{itemize}
+        \item ~ (Bitweises Komplement)
+        \item ! (Logisches Komplement)
+        \item ++ (Präfix-Inkrementierung, z.B. ++i;)
+        \item -- (Präfix-Dekrementierung, z.B. --i;)
+        \item . (Punkt)
+        \item - (Unäres Minus, z.B. -5)
+        \item + (Unäres Plus, z.B. +4)
+    \end{itemize}
+    Und
+    \begin{itemize}
+        \item Exakt eines vor und nach "`="'
+        \item Um Operatoren herum:
+    \end{itemize}
+
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=20, lastline=24]{java}{singleLines.java}
+\end{frame}
+
+\subsection{Mehrdimensionale Arrays}
+\begin{frame}{Mehrdimensionale Arrays}
+    Vorstellung:
+    \begin{itemize}
+        \item 1D: Vektor, Liste
+        \item 2D: Matrix, Tabelle
+        \item 3D: Quader
+        \item 4D: Hyperwürfel (falls quadratisch)
+    \end{itemize}
+
+    \inputminted[linenos=false, numbersep=5pt, tabsize=4, fontsize=\small, firstline=26, lastline=33]{java}{singleLines.java}
+\end{frame}
+
+\subsection{Wrap-Up: Was ihr können solltet}
+\begin{frame}{Wrap-Up: Das Programmierer $1 \cdot 1$}
+    \textbf{Was ihr können solltet}:
+    \begin{itemize}
+        \item \textbf{Einfache Probleme modellieren}:\\
+              Welche Klassen / Methoden brauche ich?
+        \item \textbf{Konstrollstrukturen}:
+          \begin{itemize}
+            \item \myCode{if (<Bedingung>) \{ \dots \}} 
+            \item \myCode{while (<Bedingung>) \{ \dots \}}
+            \item \myCode{for (<Initialisierung>, <Bedingung>, <Update>) \{\dots\}}
+            \item \myCode{switch (<Variable>) \{case <Wert>:\}}
+          \end{itemize}
+        \item \textbf{Arrays}: 1D- und 2D
+        \item \textbf{Kommentare}
+        \item \textbf{Koventionen}: Javadoc, Leerzeichen-Setzung
+        \item \textbf{Debuggen}: Einfache Fehler in eurem Code finden
+    \end{itemize}
+
+    \textbf{Was ihr hier noch lernt}:
+    \begin{itemize}
+        \item Verwendung der Java Standardbibliothek
+        \item Eingabe von Daten
+    \end{itemize}
+\end{frame}
+
+\subsection{Quiz: For-Schleifen}
+\begin{frame}{Quiz: For-Schleifen (1/2)}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=QuizFor.java, frame=lines]{java}{QuizFor.java}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Gibt es eine Ausgabe? Welche?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quiz: For-Schleifen (1/2) - Antwort}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=QuizFor.java, frame=lines]{java}{QuizFor.java}
+    Ausgabe: \myCode{end}, da die Bedingung auch am Anfang überprüft wird
+\end{frame}
+
+\begin{frame}{Quiz: For-Schleifen (2/2)}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=QuizFor.java, frame=lines]{java}{QuizFor-2.java}
+    \begin{itemize}
+        \item Gibt es einen Compiler-Fehler?
+        \item Gibt es einen Laufzeit-Fehler?
+        \item Gibt es eine Ausgabe? Welche?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quiz: For-Schleifen (2/2) - Antwort}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\small, label=QuizFor.java, frame=lines]{java}{QuizFor-2.java}
+    Ausgabe: Endlosschleife\\
+        \myCode{0 bottles of beer}\\
+        \myCode{1 bottles of beer}\\
+        \myCode{2 bottles of beer}\\
+        \vdots
+\end{frame}
+
+\section{Hinweise zum ÜB 2}
+\subsection{Allgemeine Hinweise}
+\begin{frame}{Allgemeine Hinweise}
+    \begin{alertblock}{Hinweise}
+        \begin{itemize}[<+->]
+            \item Auf \href{http://baldur.iti.kit.edu/programmieren/}{offizieller Lösung} aufbauen (Verpflichtend!)
+            \item Auf Leerzeichen, gute Variablennamen und Konventionen achten
+            \item Wird eine Bedinung von einem Setter-Parameter nicht eingehalten, schreibt ihr den Wert nicht
+            \begin{itemize}
+                \item Stattdessen: Fehlermeldung per \myCode{System.out.println("dies und das ist falsch");} ausgeben
+                \item Das ist nur eine Hilfslösung, weil ich noch keine Exceptions hattet
+                \item Später: (Fast) immer Exceptions!
+            \end{itemize}
+            \item Genauigkeit:
+            \begin{itemize}
+                \item Positiv bedeutet: $> 0$
+                \item Negativ bedeutet: $< 0$
+                \item nicht-negativ bedeutet: $\geq 0$
+            \end{itemize}
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\subsection{Wie werde ich besser?}
+\begin{frame}{Wie werde ich besser?}
+    \begin{itemize}
+        \item \href{http://projecteuler.net/}{ProjectEuler.net}: 
+              401 Aufgaben jeder Schwierigkeitsstufe
+        \item Anderen Code anschauen
+        \item Probleme am PC lösen
+    \end{itemize}
+\end{frame}
+
+\section{Praxis}
+\subsection{ProjectEuler 28: Aufgabe}
+\framedgraphic{ProjectEuler 28: Aufgabe}{euler-28.png}
+
+\begin{frame}{ProjectEuler 28: Lösung mit Aufbau der Spirale}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Euler28.java, frame=lines]{java}{Euler28.java}
+\end{frame}
+
+\begin{frame}{ProjectEuler 28: Lösung ohne Aufbau der Spirale}
+    \inputminted[linenos=true, numbersep=5pt, tabsize=4, fontsize=\tiny, label=Euler28.java, frame=lines]{java}{Euler28-fast.java}
+\end{frame}
+
+\section{Abspann}
+\subsection{Kommende Tutorien}
+\begin{frame}{Kommende Tutorien}
+  \begin{itemize}
+    \item[10.] 12.11.2012
+    \item[9.] 19.11.2012
+    \item[8.] 26.11.2012
+    \item[7.] 03.12.2012
+    \item[6.] 10.12.2012
+    \item[5.] 17.12.2012: Video "`Library"' zeigen
+    \item[-] 24.12.2012: Heiligabend - \href{http://www.fmc.uni-karlsruhe.de/faq/wann-sind-die-weihnachtsferien}{Kein Tutorium}
+    \item[-] 31.12.2012: Silvester - Kein Tutorium
+    \item[4.] 07.01.2013
+    \item[3.] 14.01.2013
+    \item[2.] 21.01.2013
+    \item[1.] 28.01.2013: Abschlussprüfunsvorbereitung
+    \item[0.] 04.02.2013: Abschlussprüfunsvorbereitung
+    \item[-] 10.02.2013: Ende der Vorlesungszeit des WS 2012/2013 (\href{http://www.kit.edu/studieren/2873.php}{Quelle})
+  \end{itemize}
+\end{frame}
+
+\subsection{Comic}
+\framedgraphic{Vielen Dank für eure Aufmerksamkeit!}{../images/xkcd-good_code.png}
+
+\end{document}
