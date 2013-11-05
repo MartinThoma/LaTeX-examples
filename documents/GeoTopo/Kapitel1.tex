@@ -1,38 +1,4 @@
 \chapter{Topologische Grundbegriffe}
-\section{Vorgeplänkel}
-    Die Kugeloberfläche $S^2$ lässt sich durch strecken, stauchen
-    und umformen zur Würfeloberfläche oder
-    der Oberfläche einer Pyramide verformen, aber nicht zum $\mdr^2$
-    oder zu einem Torus. Für den $\mdr^2$ müsste man die Oberfläche
-    unendlich ausdehnen und für einen Torus müsste man ein Loch machen.
-
-    \begin{figure}[ht]
-        \centering
-        \subfigure[$S^2$]{
-            \input{figures/s2.tex}
-            \label{fig:s2}
-        }%
-        \subfigure[Würfel]{
-            \input{figures/cube.tex}
-            \label{fig:cube}
-        }%
-        \subfigure[Pyramide]{
-            \input{figures/pyramid.tex}
-            \label{fig:pyramide}
-        }
-
-        \subfigure[$\mdr^2$]{
-            \input{figures/plane-r2.tex}
-            \label{fig:plane-r2}
-        }%
-        \subfigure[Torus]{
-            \input{figures/torus.tex} \xindex{Torus}
-            \label{fig:torus}
-        }
-        \label{Formen}
-        \caption{Beispiele für verschiedene Formen}
-    \end{figure}
-
 \section{Topologische Räume}
 \begin{definition} \xindex{Raum!topologischer} \xindex{offen} \xindex{abgeschlossen}
     Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
@@ -658,16 +624,173 @@ sodass $\pi$ stetig wird.
     \[\forall x \in X: \exists M \in T: x \in M\]
 \end{definition}
 
-\begin{korollar}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 05.11.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{korollar}\label{abgeschlossen01IstKompakt}
     $I = [0, 1]$ ist kompakt bezüglich der euklidischen Topologie.
 \end{korollar}
 
 \begin{beweis}
+\todo{Der Beweis ist komisch. Das würde ich gerne mit jemanden durchsprechen.}
     Sei $(U_i)_{i \in J}$ eine offene Überdeckung von $I$.
 
-    Es gibt ein $\delta > 0$, sodass jedes Teilintervall von $I$
-    in einem der $U_i$ enthalten ist. Dann überdecken endlich viele
-    ... \todo{das haben wir nicht mehr geschafft}
+\underline{z.~Z.}: Es gibt ein $\delta > 0$, sodass jedes Teilintervall
+    der Länge $\delta$ von $I$ in einem der $U_i$ enthalten ist. 
+
+Angenommen, es gibt kein solches $\delta$. Dann gibt es für jedes 
+$n \in \mdn$ ein Intervall $I_n \subseteq [0,1]$ der Länge $\nicefrac{1}{n}$
+sodass $I_n \not\subseteq U_i$ für alle $i \in I$.
+
+Sei $x_n$ der Mittelpunkt von $I_n$. Die Folge $(x_n)$ hat einen 
+Häufungspunkt $x \in [0,1]$. Dann gibt es $i \in I$ mit $x \in U_i$.
+Da $U_i$ offen ist, gibt es ein $\varepsilon > 0$, sodass $(x - \varepsilon, x + \varepsilon) \subseteq U_i$.
+Dann gibt es $n$ mit $\nicefrac{1}{n} < \nicefrac{\varepsilon}{2}$ und
+$|x - x_n| < \nicefrac{\varepsilon}{2}$, also $I_n \subseteq (x - \varepsilon, x + \varepsilon) \subseteq U_i$
+
+$\Rightarrow$ Widerspruch 
+
+Dann überdecke $[0,1]$ mit endlich vielen Intervallen $I_1, \dots, I_d$
+der Länge $\delta$. Jedes $I_j$ ist in $U_{ij}$ enthalten.
+
+$\Rightarrow U_{j_1}, \dots, U_{j_d}$ ist endliche Teilüberdeckung von $U$
+$\qed$
+\end{beweis}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item $\mdr$ ist nicht kompakt
+        \item $(0,1)$ ist nicht kompakt\\
+              $U_n = (\nicefrac{1}{n}, 1-\nicefrac{1}{n}) \Rightarrow \bigcup_{n \in \mdn} U_n = (0,1)$
+        \item $\mdr$ mit der Zariski-Topologie ist kompakt und jede 
+              Teilmenge von $\mdr$ ist es auch.\xindex{Topologie!Zariski}
+    \end{enumerate}
+\end{beispiel}
+
+\begin{korollar}\label{abgeschlossenInKomaktIstKompakt}
+    Sei $X$ kompakter Raum, $A \subseteq X$ abgeschlossen. Dann ist
+    $A$ kompakt.
+\end{korollar}
+
+\begin{beweis}
+    Sei $(V_i)_{i \in I}$ offene Teilmenge $U_i \subseteq X$ mit
+    $V_i = U_i \cap A$\\
+    \begin{align*}
+        &\Rightarrow A \subseteq \bigcup_{i \in I} U_i\\
+        &\Rightarrow \mathfrak{U} = \Set{U_i | i \in I} \cup \Set{X \setminus A} \text{ ist offene Überdeckung von } X\\
+        &\stackrel{X \text{ kompakt}}{\Rightarrow} \text{ es gibt } i_1, \dots, i_n \in I\text{, sodass }\bigcup_{j=1}^n U_{i_j} \cup (X \setminus A) = X\\
+        &\Rightarrow \left (\bigcup_{j=1}^n U_{i_j} \cup (X \setminus A)\right ) \cap A = A\\
+        &\Rightarrow \bigcup_{j=1}^n \underbrace{(U_{i_j} \cap A)}_{= V_{i_j}} \cup \underbrace{((X \setminus A) \cap A)}_{= \emptyset}\\
+        &\Rightarrow V_{i_1}, \dots, V_{i_n} \text{ Überdecken } A
+    \end{align*}
+    $\qed$
+\end{beweis}
+
+\begin{korollar}\label{kompaktTimesKompaktIstKompakt}
+    Seien $X, Y$ kompakte topologische Räume. Dann ist $X \times Y$
+    mit der Produkttopologie kompakt.
+\end{korollar}
+
+\begin{beweis}
+    Sei $(W_i)_{i \in I}$ eine offene Überdeckung von $X \times Y$.
+    Für jedes $(x,y) \in X \times Y$ gibt es offene Teilmengen
+    $U_{x,y}$ von $X$ und $V_{x,y}$ von $Y$ sowie ein $i \in I$, sodass
+    $U_{x,y} \times V_{x,y} \subseteq W_i$.
+
+    \begin{figure}[htp]
+        \centering
+        \input{figures/neighbourhood-topology-open}
+        \caption{\todo[inline]{Beschreibung}}
+    \end{figure}
+
+    Die offenen Mengen $U_{x_0, y} \times V_{x_0, y}$ für festes $x_0$
+    und alle $y \in Y$ überdecken $\Set{x_0} \times y$. Da $Y$ kompakt
+    ist, ist auch $\Set{x_0} \times Y$ kompakt. Also gibt es 
+    $y_1, \dots, y_{m(x_0)}$ mit 
+    $\bigcup_{i=1}^{m(x_0)} U_{x_0, y_i} \times V_{x_0, y_i} \supseteq \Set{x_0} \times Y$
+    Sei ${\color{blue} U_{x_0}} := \bigcap_{i=1}^{m(x)} U_{x_0, y_i}$.
+    Da $X$ kompakt ist, gibt es $x_1, \dots, x_n \in X$ mit 
+    $\bigcup_{j=1}^n U_{x_j} = X \Rightarrow \bigcup_{j=1}^k \bigcup_{i=1}^{m(x_j)} \underbrace{\left ( U_{x_j, y_i} \times V_{x_j, y_i} \right)}_{\text{Ein grün-oranges Kästchen}} \supseteq X \times Y$\\
+    $\Rightarrow U_j U_i W_i (x_j, y_i) = X \times Y \qed$
+\end{beweis}
+
+\begin{korollar}\label{hausdorffraumKompakteTeilmengeAbgeschlossen}
+    Sei $X$ ein Hausdorffraum und $K \subseteq X$ kompakt.
+    Dann ist $K$ abgeschlossen.
+\end{korollar}
+
+\begin{beweis}
+    \underline{z.~Z.: Komplement ist offen}
+
+    Ist $X = K$, so ist $K$ abgeschlossen in $X$. Andernfalls sei 
+    $y \in X \setminus K$. Für jedes $x \in K$ seien $U_x$ bzw. $V_y$
+    Umgebungen von $x$ bzw. von $y$, sodass $U_x \cap V_x = \emptyset$.
+
+    \begin{figure}[htp]
+        \centering
+        \input{figures/topology-1}
+    \end{figure}
+
+    Da $K$ kompakt ist, gibt es endlich viele $x_1, \dots, x_n \in K$,
+    sodass $\bigcup_{i=1}^m U_{x_i} \supseteq K$.
+
+    \begin{align*}
+        &\text{Sei } V := \bigcap_{i=1}^n V_{x_i}
+        &\Rightarrow V \cap (\bigcup_{i=1}^n U_{x_i} = \emptyset)\\
+        &\Rightarrow V \cap K = \emptyset\\
+        &\Rightarrow V \text{ ist Überdeckung von } y\text{, die ganz in } X \setminus K \text{ enthalten ist}.\\
+        &\Rightarrow X \setminus K \text{ ist offen}\\
+        &\Rightarrow K \text{ ist abgeschlossen} \qed
+    \end{align*}
+\end{beweis}
+
+\begin{korollar}
+    Seien $X, Y$ topologische Räume, $f: X \rightarrow Y$ stetig.
+    Ist $K \subseteq X$ kompakt, so ist $f(K) \subseteq Y$ kompakt.
+\end{korollar}
+
+\begin{beweis}
+    Sei $(V_i)_{i \in I}$ offene Überdeckung von $f(K)$
+    $\Rightarrow (f^{-1}(V_i))_{i \in I}$ ist offene Überdeckung von $K$\\
+    $\stackrel{\text{Kompakt}}{\Rightarrow}$ es gibt $i_1, \dots, i_n$, 
+    sodass $f^{-1}(V_{i_1}), \dots, f^{-1}(V_{i_n})$ Überdeckung von
+    $K$ ist.\\
+    $\Rightarrow f(f^{-1}( V_{i_1})), \dots, f(f^{-1}(V_{i_n}))$ 
+    überdecken $f(K)$.
+
+    Es gilt: $f(f^{-1}(V)) = V \cap f(X) \qed$
+\end{beweis}
+
+\begin{korollar}[Heine-Borel]
+    Eine Teilmenge von $\mdr^n$ oder $\mdc^n$ ist genau dann kompakt,
+    wenn sie beschränkt und abgeschlossen ist.
+\end{korollar}
+
+\begin{beweis}
+    \enquote{$\Rightarrow$}: Sei $K \subseteq \mdr^n$ (oder $\mdc^n$)
+    kompakt.
+
+    Da $\mdr^n$ und $\mdc^n$ hausdorffsch sind, ist $K$ nach Korollar
+    \ref{hausdorffraumKompakteTeilmengeAbgeschlossen} abgeschlossen.
+    Nach Voraussetzung kann $K$ mit endlich vielen offenen Kugeln von 
+    Radien 1 überdeckt werden $\Rightarrow K$ ist beschränkt.
+
+    \enquote{$\Leftarrow$} Sei $A \subseteq \mdr^n$ (oder $\mdc^n$)
+    beschränkt und abgeschlossen.
+
+    Dann gibt es einen Würfel $W = \underbrace{[-N, N] \times \dots \times [-N, N]}_{n \text{ mal}}$
+    mit $A \subseteq W$ bzw. \enquote{Polyzylinder}\xindex{Polyzylinder}
+    $Z = \Set{(z_1, \dots, z_n) \in \mdc^n | z_i \leq N \text{ für } i= 1, \dots, n}$
+
+    Nach Korollar \ref{kompaktTimesKompaktIstKompakt} und Korollar
+    \ref{abgeschlossen01IstKompakt} ist $W$ kompakt, also ist $A$
+    nach Korollar \ref{abgeschlossenInKomaktIstKompakt} auch kompakt.
+    Genauso ist $Z$ kompakt, weil 
+    \[\Set{z \in \mdc | |z| \leq 1}\]
+    homöomorph zu
+    \[\Set{(x,y) \in \mdr^2 | \|(x,y)\| \leq 1}\]
+    ist. $\qed$
 \end{beweis}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
