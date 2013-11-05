@@ -13,6 +13,21 @@
 }
 \newcommand*{\indexanchor}[2]{\hyperlink{#1}{#2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Aufgaben-Environment                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{aufgabe}
+\newenvironment{aufgabe}[1][]{\refstepcounter{aufgabe}%
+  \ifthenelse{\isempty{#1}}%
+    {\subsection*{Aufgabe~\theaufgabe}}% if #1 is empty
+    {\subsection*{Aufgabe~\theaufgabe~(#1)}}% if #1 is not empty
+    \begin{adjustwidth}{1cm}{}}%
+    {\end{adjustwidth}}
+
+\newenvironment{solution}[1][]{%
+    \subsection*{Lösung zu Aufgabe~#1}%
+    \begin{adjustwidth}{1cm}{}}%
+    {\end{adjustwidth}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define theorems                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \theoremstyle{break}
