@@ -254,7 +254,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     und $U_y$ um $y$ gibt, sodass $U_x \cap U_y = \emptyset$.
 \end{definition}
 
-\begin{bemerkung}[Trennungseigenschaft]
+\begin{bemerkung}[Trennungseigenschaft]\label{Trennungseigenschaft}
     Metrische Räume sind hausdorffsch, da 
     \[d(x,y) > 0 \Rightarrow \exists \varepsilon: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
     Ein Beispiel für einen topologischen Raum, der nicht hausdorfsch ist,
@@ -487,22 +487,23 @@ sodass $\pi$ stetig wird.
     als topologischer Raum mit der Teilraumtopologie zusammenhängend ist.
 \end{bemerkung}
 
-\begin{beispiel}
-    $\mdr^n$ ist mit der euklidischen Topologie zusammenhängend,
-    denn:
-
-    Angenommen, $\mdr^n = U_1 \cup U_2$ mit $U_i$ offen, $U_i \neq \emptyset$
-    und $U_1 \cap U_2 = \emptyset$ existiert.
-
-    Sei $x \in U_1, y \in U_2$ und $[x,y]$ die Strecke zwischen $x$
-    und $y$. Dann ist $U_1 \cap [x,y]$ die Vereinigung von offenen
-    Intervallen. Dann gibt es $z \in [x,y]$ mit $z \in \partial (U_1 \cap [x,y])$,
-    aber $z \notin U_1 \Rightarrow z \in U_2$. In jeder Umgebung von 
-    $z$ liegt ein Punkt von $U_1 \Rightarrow$ Widerspruch zu $U_2$ offen.
-\end{beispiel}
+%\begin{beispiel}
+%
+%\end{beispiel}
 
 \begin{beispiel}[Zusammenhang von Räumen]
     \begin{enumerate}
+        \item $\mdr^n$ ist mit der euklidischen Topologie zusammenhängend,
+            denn:
+
+            Angenommen, $\mdr^n = U_1 \cup U_2$ mit $U_i$ offen, $U_i \neq \emptyset$
+            und $U_1 \cap U_2 = \emptyset$ existiert.
+
+            Sei $x \in U_1, y \in U_2$ und $[x,y]$ die Strecke zwischen $x$
+            und $y$. Dann ist $U_1 \cap [x,y]$ die Vereinigung von offenen
+            Intervallen. Dann gibt es $z \in [x,y]$ mit $z \in \partial (U_1 \cap [x,y])$,
+            aber $z \notin U_1 \Rightarrow z \in U_2$. In jeder Umgebung von 
+            $z$ liegt ein Punkt von $U_1 \Rightarrow$ Widerspruch zu $U_2$ offen.
         \item $\mdr \setminus \Set{0}$ ist nicht zusammenhängend, denn
               $\mdr \setminus \Set{0} = \mdr_{< 0} \cup \mdr_{> 0}$
         \item $\mdr^2 \setminus \Set{0}$ ist zusammenhängend.
@@ -660,8 +661,8 @@ $\qed$
 
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*)]
-        \item $\mdr$ ist nicht kompakt
-        \item $(0,1)$ ist nicht kompakt\\
+        \item $\mdr$ ist nicht kompakt.
+        \item $(0,1)$ ist nicht kompakt.\\
               $U_n = (\nicefrac{1}{n}, 1-\nicefrac{1}{n}) \Rightarrow \bigcup_{n \in \mdn} U_n = (0,1)$
         \item $\mdr$ mit der Zariski-Topologie ist kompakt und jede 
               Teilmenge von $\mdr$ ist es auch.\xindex{Topologie!Zariski}

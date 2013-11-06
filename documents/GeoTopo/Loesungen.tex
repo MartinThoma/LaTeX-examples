@@ -1,7 +1,27 @@
 \chapter*{Lösungen der Übungsaufgaben}
 \addcontentsline{toc}{chapter}{Lösungen der Übungsaufgaben}
 \begin{solution}[\ref{ub:aufg1}]
-    \todo[inline]{Lösung schreiben}
+    \textbf{Teilaufgabe a)} Es gilt:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\emptyset, X \in \fT_X$.
+        \item $\fT_X$ ist offensichtlich unter Durchschnitten abgeschlossen,
+              d.~h. es gilt für alle $U_1, U_2 \in \fT_X: U_1 \cap U_2 \in \fT_X$.
+        \item Auch unter beliebigen Vereinigungen ist $\fT_X$ abgeschlossen,
+              d.~h. es gilt für eine beliebige Indexmenge $I$ und alle
+              $U_i \in \fT_X$ für alle $i \in I: \bigcup_{i \in I} U_i \in \fT_X$
+    \end{enumerate}
+
+    Also ist $(X, \fT_X)$ ein topologischer Raum.
+
+    \textbf{Teilaufgabe b)} Wähle $x=1, y=0$. Dann gilt $x \neq y$
+    und die einzige Umgebung von $x$ ist $X$. Da $y=0 \in X$ können
+    also $x$ und $y$ nicht durch offene Mengen getrennt werden.
+    $(X, \fT_X)$ ist also nicht hausdorffsch.
+
+    \textbf{Teilaufgabe c)} Nach Bemerkung \ref{Trennungseigenschaft}
+    sind metrische Räume hausdorffsch. Da $(X, \fT_X)$ nach (b) nicht 
+    hausdorffsch ist, liefert die Kontraposition der Trennungseigenschaft,
+    dass $(X, \fT_X)$ kein metrischer Raum sein kann.
 \end{solution}
 
 \begin{solution}[\ref{ub:aufg4}]
