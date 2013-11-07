@@ -675,8 +675,8 @@ $\qed$
 \end{korollar}
 
 \begin{beweis}
-    Sei $(V_i)_{i \in I}$ offene Teilmenge $U_i \subseteq X$ mit
-    $V_i = U_i \cap A$\\
+    Sei $(V_{i})_{i \in I}$ offene Überdeckung von A.\\
+    Dann gibt es für jedes $i \in I$ eine offene Teilmenge $U_{i} \subseteq X$ mit $V_{i}=U_{i} \cap A$.
     \begin{align*}
         &\Rightarrow A \subseteq \bigcup_{i \in I} U_i\\
         &\Rightarrow \mathfrak{U} = \Set{U_i | i \in I} \cup \Set{X \setminus A} \text{ ist offene Überdeckung von } X\\
@@ -709,7 +709,8 @@ $\qed$
     und alle $y \in Y$ überdecken $\Set{x_0} \times y$. Da $Y$ kompakt
     ist, ist auch $\Set{x_0} \times Y$ kompakt. Also gibt es 
     $y_1, \dots, y_{m(x_0)}$ mit 
-    $\bigcup_{i=1}^{m(x_0)} U_{x_0, y_i} \times V_{x_0, y_i} \supseteq \Set{x_0} \times Y$
+    $\bigcup_{i=1}^{m(x_0)} U_{x_0, y_i} \times V_{x_0, y_i} \supseteq \Set{x_0} \times Y$.
+
     Sei ${\color{blue} U_{x_0}} := \bigcap_{i=1}^{m(x)} U_{x_0, y_i}$.
     Da $X$ kompakt ist, gibt es $x_1, \dots, x_n \in X$ mit 
     $\bigcup_{j=1}^n U_{x_j} = X \Rightarrow \bigcup_{j=1}^k \bigcup_{i=1}^{m(x_j)} \underbrace{\left ( U_{x_j, y_i} \times V_{x_j, y_i} \right)}_{\text{Ein grün-oranges Kästchen}} \supseteq X \times Y$\\
