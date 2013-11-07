@@ -879,7 +879,71 @@ $\qed$
     
     \input{figures/hilbert-curve}
 
-\todo[inline]{Noch ca. 2 Seiten zu schreiben}
+\begin{definition}\xindex{Jordankurve}\xindex{Jordankurve!geschlossene}
+    Sei $X$ ein topologischer Raum. Eine (geschlossene)
+    \textbf{Jordankurve} in $X$ ist ein Homöomorphismus 
+    $\gamma: [0, 1] \rightarrow C \subseteq X$
+    ($\gamma: S^1 \rightarrow C \subseteq X$)
+\end{definition}
+
+\begin{satz}{Jordanscher Kurvensatz}
+    Ist $C=\gamma([0,1])$ eine geschlossene Jordankurve in $\mdr^2$,
+    so hat $\mdr^2 \setminus C$ genau zwei Zusammenhangskomponenten,
+    von denen eine beschränkt ist und eine unbeschränkt.
+\end{satz}
+
+\todo[inline]{Bild}
+
+\begin{beweis}
+    ist technisch mühsam und wird daher hier nicht geführt.\todo{Verweis auf Literatur}
+    Idee: Ersetze Weg $C$ durch Polygonzug.
+\end{beweis}
+
+\begin{definition}\xindex{Knoten}
+    Eine geschlossene Jordankurve in $\mdr^3$ heißt \textbf{Knoten}.
+\end{definition}
+
+\begin{beispiel}
+    \todo[inline]{unknot, trefoil knot, ...}
+\end{beispiel}
+
+\begin{definition}\xindex{Knoten!äquivalente}\xindex{Isotopie}
+    Zwei Knoten $\gamma_1, \gamma_2: S^1 \rightarrow \mdr^3$ heißen
+    \textbf{äquivalent}, wenn es eine stetige Abbildung
+    $H: S^1 \times [0,1] \Rightarrow \mdr^3$ gibt mit 
+    $H(z,0) = \gamma_1(z), H(z,1) = \gamma_2(z)$ und für jedes
+    feste $t \in [0,1]$ ist $H_z: S^1 \rightarrow \mdr^2, z \mapsto H(z,t)$
+    ein Knoten. Die Abbildung $H$ heißt \textbf{Isotopie} zwischen
+    $\gamma_1$ und $\gamma_2$.
+\end{definition}
+
+\begin{definition}\xindex{Knotendiagramm}
+    Ein \textbf{Knotendiagramm} eines Knotens $\gamma$ ist eine 
+    Projektion $\pi: \mdr^3 \rightarrow E$ auf eine Ebene $E$, sodass
+    $|(\pi|C)^{-1}(x)| \leq 2$ für jedes $x \in D$.
+
+    Ist $(\pi|C)^{-1}(x) = \Set{y_1, y_2}$, so \textbf{liegt $y_1$ über $y_2$},
+    wenn $(y_1-x) = \lambda (y_2 - x)$ für ein $\lambda > 1$ ist.
+\end{definition}
+
+\begin{satz}{Reidemeister}
+    Zwei endliche Knotendiagramme gehören genau dann zu äquivalenten
+    Knoten, wenn sie durch endlich viele \enquote{Reidemeister-Züge}
+    in einander überführt werden können.
+\end{satz}
+
+\todo[inline]{Reidemeister-Züge $\Omega_1$, $\Omega_2$, $\Omega_3$}
+
+\begin{beweis}
+    Durch sorgfältige Fallunterscheidung.\todo{Literaturverweis}
+\end{beweis}
+
+\begin{definition}\xindex{Färbbarkeit}
+    Ein Knotendiagramm heißt \textbf{färbbar}, wenn jeder
+    Bogen von $D$ so mit einer Farbe gefärbt werden kann, dass
+    an jeder Kreuzung eine oder 3 Farben auftreten und alle 3 
+    Farben auftreten.
+\end{definition}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel1-UB}
