@@ -794,5 +794,90 @@ $\qed$
     ist. $\qed$
 \end{beweis}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 07.11.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wege und Knoten}
+\begin{definition}\xindex{Weg}\xindex{Weg!geschlossener}\xindex{Weg!einfacher}
+    Sei $X$ ein topologischer Raum. 
+    \begin{enumerate}[label=\alph*)]
+        \item Ein \textbf{Weg} in $X$ ist eine stetige Abbildung $\gamma:[0,1] \rightarrow X$.
+        \item $\gamma$ heißt \textbf{geschlossen}, wenn $\gamma(1) = \gamma(0)$ gilt.
+        \item $\gamma$ heißt \textbf{einfach}, wenn $\gamma|_{[0,1]}$ 
+              injektiv ist.
+    \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+    Ist $X$ diskret, so ist jeder Weg konstant, d.~h. von der Form
+    \[\forall x \in [0,1]: \gamma(x) = c, \;\;\; c \in X\]
+    Denn $\gamma([0,1])$ ist zusammenhängend für jeden Weg $\gamma$.
+\end{beispiel}
+
+\begin{definition}\xindex{Wegzusammenhang}
+    Ein topologischer Raum $X$ heißt \textbf{wegzusammenhängend},
+    wenn es zu je zwei Punkten $x,y \in X$ einen Weg $\gamma:[0,1] \rightarrow X$
+    gibt mit $\gamma(0)=x$ und $\gamma(1)=y$.
+\end{definition}
+
+\begin{korollar}
+    Sei $X$ ein topologischer Raum.
+
+    \begin{enumerate}[label=(\roman*)]
+        \item $X$ ist wegzusammenhängend $\Rightarrow X$ ist zusammenhängend
+        \item $X$ ist wegzusammenhängend $\not\Leftarrow X$ ist zusammenhängend
+    \end{enumerate}
+\end{korollar}
+
+\begin{beweis}~\\
+    \begin{enumerate}[label=(\roman*)]
+    \item Sei $X$ ein wegzusammenhängender topologischer Raum, $A_1, A_2$
+    nichtleere, disjunkte, abgeschlossene Teilmengen von $X$ mit
+    $A_1 \cup A_2 = X$. Sei $x \in A_1, y \in A_2, \gamma:[0,1] \rightarrow X$
+    ein Weg von $x$ nach $y$.
+
+    \todo[inline]{Bild eines topologischen Raumes, der in zwei Teile $A_1, A_2$ geteilt wird}
+
+    Dann ist $C:= \gamma([0,1]) \subseteq X$ zusammenhängend, weil 
+    $\gamma$ stetig ist.
+    \[C = \underbrace{(C \cap A_1)}_{\ni x} \cup \underbrace{(C \cap A_2)}_{\ni y}\]
+    ist Zerlegung in nichtleere, disjunkte, abgeschlossene Teilmengen
+    $\Rightarrow$ Widerspruch 
+
+    \item Sei $X = \Set{(x,y) \in \mdr^2| x^2 + y^2 = 1 \lor y = 1 +2\cdot e^{-\frac{1}{10} x}}$
+        Abbildung \ref{fig:topology-spiral} veranschaulicht diesen Raum.
+
+        \begin{figure}[htp]
+            \centering
+            \input{figures/topology-spiral}
+            \caption{Eine Kreislinie in der Mitte sowie eine Endlosspirale, 
+                die sich immer weiter dem Kreis annähert. $X$ ist
+                zusammenhängend, jedoch nicht wegzusammenhängend.}
+            \label{fig:topology-spiral}
+        \end{figure}
+
+          Sei $U_1 \cup U_2 = X, U_1 \neq U_2 = \emptyset, U_i$ offen.
+          $X = C \cup S$. Dann ist $C \subseteq U_1$ oder $C \subseteq U_2$,
+          weil $C$ und $S$ zusammenhängend sind.
+
+          Also ist $C = U_1$ und $S = U_2$ (oder umgekehrt).
+
+          Sei $\gamma \in C = U_1, \varepsilon > 0$ und $\fB_\varepsilon (y) \subseteq U_1$
+          eine Umgebung von $y$, die in $U_1$ enthalten ist.
+
+          Aber: $\fB_\varepsilon(y) \cap S \neq \emptyset \Rightarrow$
+          Widerspruch 
+$\qed$
+    \end{enumerate}
+\end{beweis}
+
+\textbf{Achtung:} Es gibt stetige, surjektive Abbildungen 
+    $[0,1] \rightarrow [0,1] \times [0,1]$. Ein Beispiel ist die
+    in Abbildung \ref{fig:hilbert-curve} dargestellte Hilbert-Kurve.
+    
+    \input{figures/hilbert-curve}
+
+\todo[inline]{Noch ca. 2 Seiten zu schreiben}
+
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel1-UB}

@@ -1,0 +1,6 @@
+% Thanks to Jake: http://tex.stackexchange.com/a/142815/5645
+\begin{tikzpicture}
+    \draw (0,0) circle [radius=1];
+    \draw [domain=1:18.8,variable=\t,smooth,samples=200,->,>=stealth']
+        plot ({\t r}: {1+2*exp(-0.1*\t)});
+\end{tikzpicture}
