@@ -846,16 +846,23 @@ $\qed$
     ist Zerlegung in nichtleere, disjunkte, abgeschlossene Teilmengen
     $\Rightarrow$ Widerspruch 
 
-    \item Sei $X = \Set{(x,y) \in \mdr^2| x^2 + y^2 = 1 \lor y = 1 +2\cdot e^{-\frac{1}{10} x}}$
+    \item Sei $X = \Set{(x,y) \in \mdr^2| x^2 + y^2 = 1 \lor y = 1 +2\cdot e^{-\frac{1}{10} x}}$.
+
         Abbildung \ref{fig:topology-spiral} veranschaulicht diesen Raum.
 
         \begin{figure}[htp]
             \centering
-            \input{figures/topology-spiral}
-            \caption{Eine Kreislinie in der Mitte sowie eine Endlosspirale, 
-                die sich immer weiter dem Kreis annähert. $X$ ist
-                zusammenhängend, jedoch nicht wegzusammenhängend.}
-            \label{fig:topology-spiral}
+            \subfloat[Spirale $S$ mit Kreis $C$]{
+                \input{figures/topology-spiral}
+                \label{fig:topology-spiral}
+            }%
+            \subfloat[Sinus]{
+                \input{figures/topology-sinx.tex}
+                \label{fig:sinx}
+            }%
+
+            \caption{Beispiele für Räume, die zusammenhängend, aber nicht wegzusammenhängend sind.}
+            \label{fig:zusammenhang-beispiele}
         \end{figure}
 
           Sei $U_1 \cup U_2 = X, U_1 \neq U_2 = \emptyset, U_i$ offen.
@@ -910,7 +917,7 @@ $\qed$
 \end{definition}
 
 \begin{beispiel}
-    \xindex{Kleeblattknoten}\xindex{Achterknoten}\xindex{Knoten!Trivialer}
+    \xindex{Kleeblattknoten}\xindex{Achterknoten}\xindex{Knoten!trivialer}
     \begin{figure}[htp]
         \centering
         \subfloat[Trivialer Knoten]{
