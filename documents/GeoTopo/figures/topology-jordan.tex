@@ -1,0 +1,46 @@
+% Code from Christian Feuersänger
+% http://tex.stackexchange.com/questions/54794/using-a-pgfplots-style-legend-in-a-plain-old-tikzpicture#54834
+% argument #1: any options
+\newenvironment{customlegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \csname pgfplots@init@cleared@structures\endcsname
+    \pgfplotsset{#1}%
+}{%
+    % draws the legend:
+    \csname pgfplots@createlegend\endcsname
+    \endgroup
+}%
+
+% makes \addlegendimage available (typically only available within an
+% axis environment):
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+%%--------------------------------
+
+% definition to insert numbers
+\pgfkeys{/pgfplots/number in legend/.style={%
+        /pgfplots/legend image code/.code={%
+            \node at (0.295,-0.0225){#1};
+        },%
+    },
+}
+\begin{tikzpicture}
+    \draw[draw=white,pattern=north west lines, pattern color=blue] (-1.5,-1.5) rectangle (1.5,1.5);
+    \draw[fill=white] (0cm,0cm) circle(1cm);
+    \draw[fill=white,thick,pattern=dots, pattern color=red] (0cm,0cm) circle(1cm);
+
+    \begin{customlegend}[
+    legend entries={ % <= in the following there are the entries
+    au{\ss}en,
+    innen,
+    Jordankurve
+    },
+    legend style={at={(4.5,1.5)},font=\footnotesize}] % <= to define position and font legend
+    % the following are the "images" and numbers in the legend
+        \addlegendimage{area legend,pattern=north west lines, pattern color=blue,draw=white}
+        \addlegendimage{area legend,pattern=dots, pattern color=red,draw=white}
+        \addlegendimage{thick}
+    \end{customlegend}
+\end{tikzpicture}

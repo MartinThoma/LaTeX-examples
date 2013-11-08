@@ -228,11 +228,11 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
     \begin{figure}[ht]
         \centering
-        \subfigure[$\fB_r(0)$]{
+        \subfloat[$\fB_r(0)$]{
             \input{figures/open-square}
             \label{fig:open-square}
         }%
-        \subfigure[Euklidische Topologie]{
+        \subfloat[Euklidische Topologie]{
             \input{figures/quadrat-in-kreis-in-dots}
             \label{fig:quadrat-in-kreis-in-dots}
         }%
@@ -886,16 +886,22 @@ $\qed$
     ($\gamma: S^1 \rightarrow C \subseteq X$)
 \end{definition}
 
-\begin{satz}{Jordanscher Kurvensatz}
+\begin{satz}[Jordanscher Kurvensatz]
     Ist $C=\gamma([0,1])$ eine geschlossene Jordankurve in $\mdr^2$,
     so hat $\mdr^2 \setminus C$ genau zwei Zusammenhangskomponenten,
     von denen eine beschränkt ist und eine unbeschränkt.
 \end{satz}
 
-\todo[inline]{Bild}
+\begin{figure}[htp]
+    \centering
+    \input{figures/topology-jordan} 
+    \label{fig:jordan-kurvensatz}
+    \caption{Die unbeschränkte Zusammenhangskomponente wird häufig inneres, die beschränkte äußeres genannt.}
+\end{figure}
 
 \begin{beweis}
-    ist technisch mühsam und wird daher hier nicht geführt.\todo{Verweis auf Literatur}
+    ist technisch mühsam und wird daher hier nicht geführt.\todo{Literatur}
+
     Idee: Ersetze Weg $C$ durch Polygonzug.
 \end{beweis}
 
@@ -904,7 +910,25 @@ $\qed$
 \end{definition}
 
 \begin{beispiel}
-    \todo[inline]{unknot, trefoil knot, ...}
+    \xindex{Kleeblattknoten}\xindex{Achterknoten}\xindex{Knoten!Trivialer}
+    \begin{figure}[htp]
+        \centering
+        \subfloat[Trivialer Knoten]{
+            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-unknot.png} 
+            \label{fig:knot-trefoil}
+        }%
+        \subfloat[Kleeblattknoten]{
+            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-trefoil-knot.png} 
+            \label{fig:knot-trefoil}
+        }%
+        \subfloat[Achterknoten]{
+            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-eight-knot.png} 
+            \label{fig:knot-trefoil}
+        }
+
+        \label{Knoten}
+        \caption{Beispiele für verschiedene Knoten}
+    \end{figure}
 \end{beispiel}
 
 \begin{definition}\xindex{Knoten!äquivalente}\xindex{Isotopie}
@@ -926,24 +950,50 @@ $\qed$
     wenn $(y_1-x) = \lambda (y_2 - x)$ für ein $\lambda > 1$ ist.
 \end{definition}
 
-\begin{satz}{Reidemeister}
+\begin{satz}[Reidemeister]
     Zwei endliche Knotendiagramme gehören genau dann zu äquivalenten
     Knoten, wenn sie durch endlich viele \enquote{Reidemeister-Züge}
     in einander überführt werden können.
 \end{satz}
 
-\todo[inline]{Reidemeister-Züge $\Omega_1$, $\Omega_2$, $\Omega_3$}
+\begin{figure}[htp]
+    \centering
+    \subfloat[$\Omega_1$]{
+        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-1.png} 
+        \label{fig:reidemeister-1}
+    }\qquad\qquad%
+    \subfloat[$\Omega_2$]{
+        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-2.png} 
+        \label{fig:reidemeister-2}
+    }
+
+    \subfloat[$\Omega_3$]{
+        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-3.png} 
+        \label{fig:reidemeister-3}
+    }
+
+    \label{fig:reidemeister-zuege}
+    \caption{Reidemeister-Züge\newline Urheber:YAMASHITA Makoto}
+\end{figure}
 
 \begin{beweis}
-    Durch sorgfältige Fallunterscheidung.\todo{Literaturverweis}
+    Durch sorgfältige Fallunterscheidung.\todo{Literatur}
 \end{beweis}
 
 \begin{definition}\xindex{Färbbarkeit}
-    Ein Knotendiagramm heißt \textbf{färbbar}, wenn jeder
-    Bogen von $D$ so mit einer Farbe gefärbt werden kann, dass
-    an jeder Kreuzung eine oder 3 Farben auftreten und alle 3 
+    Ein Knotendiagramm heißt \textbf{3-färbbar}, 
+    wenn jeder Bogen von $D$ so mit einer Farbe gefärbt werden kann, 
+    dass an jeder Kreuzung eine oder 3 Farben auftreten und alle 3 
     Farben auftreten.
 \end{definition}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[height=0.3\linewidth, keepaspectratio]{figures/tricoloring.png} 
+
+    \label{fig:reidemeister-zuege}
+    \caption{Ein 3-gefärber Kleeblattknoten}
+\end{figure}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel1-UB}
