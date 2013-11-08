@@ -3,6 +3,7 @@
 \setlength\PreviewBorder{2mm}
 
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
 \usepackage{tikz}
 \usetikzlibrary{arrows, positioning, calc}
 
@@ -24,13 +25,16 @@
         ymin=-1,      % start the diagram at this y-coordinate
         ymax= 1,      % end   the diagram at this y-coordinate
         axis background/.style={fill=white},
-        ylabel=$y$,
-        xlabel=$x$,
+        ylabel=$Y$,
+        xlabel=$X$,
         legend style={at={(0.9,0.95)}, anchor=north}
      ]
-      \addplot[domain=0.01:1, red, thick,samples=2000] {-sin(deg(1/(x)))};
-      \legend{$\sin(\frac{1}{x})$}
+      \addplot[domain=0.0105:1, red, thick,samples=2000] {-sin(deg(1/(x)))};
+      \addplot[domain=0.0105:0.011, blue, thick,samples=20] {10};
+      \addlegendentry{$\{(x, \sin(\frac{1}{x})) \in X \times Y\}$}
+      \addlegendentry{$(-1,1) \subseteq Y$}
     \end{axis} 
+      \draw[ultra thick,blue] (0,0.5) -- (0,5.9);
 \end{tikzpicture}
 \end{preview}
 \end{document}

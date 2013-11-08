@@ -1,0 +1,2049 @@
+% \iffalse meta-comment
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+----------------------------------------------------------------
+brunnian --- a style file for drawing link diagrams with TikZ/PGF
+E-mail: stacey@math.ntnu.no
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+This package defines some commands and styles useful for drawing knot and link diagrams with TikZ/PGF.
+Some are geared towards drawing very specific links (the iterated Hopf and Brunnian links) whilst others will be more generally useful for arbitrary knots and links.
+%</readme>
+%<*internal>
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+  \expandafter\begingroup
+\fi
+%</internal>
+%<*install>
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+----------------------------------------------------------------
+brunnian --- a style file for drawing link diagrams with TikZ/PGF
+E-mail: stacey@math.ntnu.no
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2011 by Andrew Stacey <stacey@math.ntnu.no>
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+Andrew Stacey.
+
+This work consists of the file  brunnian.dtx
+and the derived files           brunnian.ins,
+                                brunnain.pdf, and
+                                brunnian.sty.
+
+\endpostamble
+\usedir{tex/latex/brunnian}
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\usedir{source/latex/brunnian}
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\usedir{doc/latex/demopkg}
+\generate{
+  \file{README.txt}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+  \expandafter\endbatchfile
+\else
+  \expandafter\endgroup
+\fi
+%</internal>
+%<*package>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{brunnian}[2011/03/10 v1.0 Tikz/PGF commands for drawing knots and links]
+%</package>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{morefloats}
+\usepackage{\jobname}
+\usepackage[numbered]{hypdoc}
+\definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} 
+ 
+\usepackage{listings}
+\lstloadlanguages{[LaTeX]TeX}
+\lstset{breakatwhitespace=true,breaklines=true,language=TeX}
+ 
+\usepackage{fancyvrb}
+
+\newenvironment{example}
+  {\VerbatimEnvironment
+   \begin{VerbatimOut}[gobble=2]{example.out}}
+  {\end{VerbatimOut}
+   \begin{center}
+   \vspace{1ex}
+   \setlength{\parindent}{0pt}
+   \fbox{\begin{minipage}{.9\linewidth}
+     \lstset{breakatwhitespace=true,breaklines=true,language=TeX,basicstyle=\small}
+     \lstinputlisting[]{example.out}
+   \end{minipage}}
+
+   \fbox{\begin{minipage}{.9\linewidth}
+     \small\input{example.out}
+   \end{minipage}}
+\vspace{1ex}
+\end{center}
+}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{2860}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{1.0}{2011/03/10}{Converted to DTX file}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+% \providecommand*{\url}{\texttt}
+% \GetFileInfo{brunnian.dtx}
+% \title{The \textsf{brunnian} package}
+% \author{Andrew Stacey \\ \url{stacey@math.ntnu.no}}
+% \date{\fileversion~from \filedate}
+%
+% \maketitle
+%
+% \section{Introduction}
+%
+% This package defines some commands and styles for drawing knots and links with Ti\emph{k}Z/PGF.
+% The original motivation for the commands was to draw iterated Hopf and Brunnian links and so many of the commands are specifically for those diagrams.
+% There are also more general styles and commands that will be useful for general knot and link diagrams.
+% For example, the trefoil knot can be rendered using the following code.
+%
+% \begin{example}
+% \tikzset{every path/.style={red,line width=2pt},every node/.style={transform shape,knot crossing,inner sep=1.5pt}}
+% \begin{center}
+% \begin{tikzpicture}
+% \foreach \brk in {0,1,2} {
+% \begin{scope}[rotate=\brk * 120]
+% \node (k\brk) at (0,-1) {};
+% \end{scope}
+% }
+% \foreach \brk in {0,1,2} {
+% \pgfmathparse{int(Mod(\brk - 1,3))}
+% \edef\brl{\pgfmathresult}
+% \draw (k\brk) .. controls (k\brk.4 north west) and (k\brl.4 north east) .. (k\brl.center);
+% \draw (k\brk.center) .. controls (k\brk.16 south west) and (k\brl.16 south east) .. (k\brl);
+% }
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+%
+% \section{Usage}
+%
+% Using this package is very easy.
+% Once it is installed, simply put\\
+% \Verb+\usepackage{brunnian}+\\
+% in the preamble of your document.
+
+% This package automatically loads several other packages: \Verb+xcolor+ (with the \Verb+svgnames+ option), \Verb+tikz+, and \Verb+colorinfo+.
+% (These can be loaded before this package, though note that loading  \Verb+xcolor+ with a different set of colours will result in an error  about option clashes.)
+% It also detects whether \Verb+htlatex+ is being used and sets up PGF to produce SVG if so.
+%
+% \subsection{User Commands}
+%
+% The user interface provided by this package splits into two parts.
+% One part consists of the jigsaw pieces needed to construct  complicated link diagrams.
+% The other part consists of various Ti\emph{k}Z styles and oddments that are designed to make it easier to draw knots and links.
+% As this second part is probably more widely applicable, we shall describe it first.
+
+% \subsubsection{Knots and Links}
+%
+% This package defines four styles for paths for Ti\emph{k}Z: \Verb+knot+, \Verb+thin knot+, \Verb+thick knot+, and \Verb+string+.
+% The first three define paths which have an extra thickness set to the colour of the background meaning that they ``chop out'' part of anything that they pass over.
+% To specify a colour for one of these styles, one has to pass the option \Verb+double=colour+ rather than the colour itself.
+% This is because the styles work by using the \Verb+double+ style of Ti\emph{k}Z paths, wherein the colour of the path becomes the \emph{outside} colour.
+% As we want it to be the inside colour, we have to specify the colour differently.
+%
+% \begin{example}
+% \begin{center}
+% \begin{tikzpicture}[every path/.style={double=Red}]
+% \draw[thin knot] (-1,-1) -- (1,1);
+% \draw[thin knot] (-1,1) -- (1,-1);
+% \begin{scope}[xshift=2.5cm]
+% \draw[knot] (-1,-1) -- (1,1);
+% \draw[knot] (-1,1) -- (1,-1);
+% \end{scope}
+% \begin{scope}[xshift=5cm]
+% \draw[thick knot] (-1,-1) -- (1,1);
+% \draw[thick knot] (-1,1) -- (1,-1);
+% \end{scope}
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+% The last style, \Verb+string+, does not have this overhand but is designed to be compatible with \Verb+knot+ and so can be used whenever the overhang might get in the way.
+%
+% This package also defines some node shapes to help draw knot and link diagrams.
+% The idea with these is to place a node of the appropriate type at each crossing and then link them accordingly.
+% The node shapes are \Verb+knot crossing+, \Verb+knot over cross+, \Verb+knot under cross+, \Verb+knot vert+, \Verb+knot horiz+.
+% The \Verb+knot over cross+ and \Verb+knot under cross+ two are crossings, \Verb+knot vert+ and \Verb+knot horiz+ are for when resolving the crossings in a diagram.
+% By judicious use of the \Verb+\foreach+ command, a family of resolved link diagrams can be produced.
+%
+% \begin{example}
+% \begin{center}
+% \begin{tikzpicture}[every node/.style={draw,Red}]
+% \node[knot over cross] at (1,0) {};
+% \node[knot under cross] at (2,0) {};
+% \node[knot vert] at (3,0) {};
+% \node[knot horiz] at (4,0) {};
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+% The node \Verb+knot crossing+ is not meant to be drawn, it is an empty shape.
+% Its value is in that it defines more anchors than the usual  rectangle shape.
+% For each of the 8 main compass directions, it defines anchors at 2, 4, 8, 16, and 32 times further out.
+% This can be useful for designing curves that enter and exit the crossing gracefully at particular directions.
+% When using this node shape, the crossing itself is easiest to draw by using the \Verb+center+ anchor for the strands that form the over cross.
+%
+% \begin{example}
+% \begin{center}
+% \begin{tikzpicture}[every path/.style={string,Red}, every node/.style={transform shape, knot crossing, inner sep=1.5pt}]
+% \node[rotate=45] (tl) at (-1,1) {};
+% \node[rotate=-45] (tr) at (1,1) {};
+% \node (m) at (0,-1) {};
+% \node (b) at (0,-2) {};
+% \draw (b) .. controls (b.4 north west) and (m.4 south west) ..  (m.center);
+% \draw (b.center) .. controls (b.4 north east) and (m.4 south east) ..  (m);
+% \draw (m) .. controls (m.8 north west) and (tl.3 south west) ..  (tl.center);
+% \draw (m.center) .. controls (m.8 north east) and (tr.3 south east) ..  (tr);
+% \draw (tl.center) .. controls (tl.16 north east) and (tr.16 north  west) .. (tr);
+% \draw (b) .. controls (b.16 south east) and (tr.16 north east) ..  (tr.center);
+% \draw (b.center) .. controls (b.16 south west) and (tl.16 north west)  .. (tl);
+% \draw (tl) -- (tr.center);
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+% \subsection{Higher Order Link Diagrams}
+%
+% Many of the commands in this package were developed to draw examples of specific families of higher order links, particularly involving the Brunnian and Hopfian families.
+% These commands are built up in sections from some basic jigsaw pieces.
+%
+% \DescribeMacro{\brunnian}
+% \DescribeMacro{\outbrunnian}
+% \DescribeMacro{\midbrunnian}
+% \DescribeMacro{\hopfring}
+% \DescribeMacro{\brunniantwo}
+% \DescribeMacro{\outbrunniantwo}
+% \DescribeMacro{\hopftwo}
+% \DescribeMacro{\outhopftwo}
+% \DescribeMacro{\brunnianhopf}
+% \DescribeMacro{\hopfbrunnian}
+% Let us start with the commands that render a full diagram.
+%
+% \begin{itemize}
+% \item \cmd{\brunnian}\oarg{double}\marg{radius}\marg{number} \\
+% \cmd{\outbrunnian}\oarg{double}\marg{radius}\marg{number} \\
+% \cmd{\midbrunnian}\oarg{double}\marg{radius}\marg{number}
+%
+% This draws a Brunnian ring of radius \marg{radius} with \marg{number} components.
+% If \oarg{double} is specified (as a positive integer) then each strand is doubled by that amount.
+% The default is to draw them with the junctions pointing inwards, the second variant has them outwards whilst the third makes them balanced.
+%
+% \item \cmd{\hopfring}\marg{radius}\marg{number}
+%
+% This draws a Hopf ring of radius \marg{radius} with \marg{number} components.
+%
+% \item \cmd{\brunniantwo}\marg{radius}\marg{level2}\marg{level1} \\
+%  \cmd{\outbrunniantwo}\marg{radius}\marg{level2}\marg{level1}
+%
+% This draws a level two Brunnian ring of radius \marg{radius} with \marg{level2} level two families each of \marg{level1} components.
+% The \cmd{\outbrunniantwo} variant draws it with the main junctions pointing outwards.
+%
+% \item \cmd{\hopftwo}\marg{radius}\marg{level2}\marg{level1} \\
+%  \cmd{\outhopftwo}\marg{radius}\marg{level2}\marg{level1}
+%
+% This draws a level two Hopf ring of radius \marg{radius} with \marg{level2} level two families each of \marg{level1} components.
+% The \cmd{\outhopftwo} variant draws it with the main junctions pointing outwards.
+%
+% \item \cmd{\brunnianhopf}\marg{radius}\marg{level2}\marg{level1} \\
+%  \cmd{\hopfbrunnian}\marg{radius}\marg{level2}\marg{level1}
+%
+% These draw level two structures of radius \marg{radius} with \marg{level2} level two families each of \marg{level1} components.
+% The level two families in the first are linked by Brunnian linkages and the level one linkages are Hopfian.
+% In the second, these are the other way around.
+% \end{itemize}
+%
+% The main pieces that these diagrams are built from are \emph{linkages}.
+% By the term \emph{linkage} we mean that part of a link diagram where crossings occur.
+% For the Brunnian links, the command that generates the linkages is the \Verb+\junction+ command.
+% The Hopfian links are generated by \Verb+\hopfjunction+.
+% There are some other variants as well.
+%
+% \DescribeMacro{\junction}
+% \DescribeMacro{\flatjunction}
+% \DescribeMacro{\hopfjunction}
+% These commands all take the same arguments.
+% For example, \\
+% \cmd{\junction}\marg{level}\marg{radius}\marg{direction}\marg{clockwise}\marg{anticlockwise}\\
+% renders a Brunnian junction according to the specifications.
+% The argument \marg{level} sets the level of iteration of the linkage.
+% The \marg{radius} is the starting radius of the junction, whilst \marg{direction} determines whether it points in or out.
+% The angles \marg{clockwise} and \marg{anticlockwise} determine how far around the strands will extend on either side of the junction.
+% (It is possible that the strands will extend further than the given angles as there is a minimum which depends on the other parameters.)
+% The command \Verb+\flatjunction+ renders the same linkage but as part of a flat link diagram (that is, not one that forms a circle).
+% At the moment, \Verb+\flatjunction+ does not use the angles; in some future version it will use these as lengths.
+% Lastly, \Verb+\hopfjunction+ renders the linkages as used in the various Hopf rings.
+
+% The linkage is drawn at the bottom of the circle, obviously it can be rotated to suit.
+%
+% \begin{example}
+% \begin{center}
+% \begin{tikzpicture}
+% \colorlet{inner}{ring1}
+% \colorlet{outer}{ring2}
+% \flatjunction{2}{5}{1}{10}{100}
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+% \begin{example}
+% \begin{center}
+% \begin{tikzpicture}
+% \colorlet{inner}{ring1}
+% \colorlet{outer}{ring2}
+% \hopfjunction{3}{5}{1}{10}{20}
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+% The colours of the strands of the link are determined by colours named \Verb+innerINT+ and \Verb+outerINT+, where \Verb+INT+ is an (optional) integer.
+% On one side of the linkage, the colour of strand \(N\) is the colour specified in \Verb+innerM+ where \(M \le N\).
+% The other side uses the \Verb+outer+ colours.
+%
+%
+% \DescribeMacro{\fillin}
+% The more complicated diagrams are built from the various junction commands.
+% After all the junctions have been put in place, there are often some gaps that need to be filled in.
+% The command\\
+%  \cmd{\fillin}\marg{radius}\marg{start}\marg{end}\marg{sangle}\marg{eangle}\marg{colour} \\
+% draws the arcs which correspond to the strands numbered from \marg{start} to \marg{end} given that the radius of the main diagram is \marg{radius}.
+% The arcs are drawn from angle \marg{sangle} to \marg{eangle}, with the proviso that the \(0\) is straight down.
+%
+%
+% \DescribeMacro{\chain}
+% \DescribeMacro{\leftchain}
+% \DescribeMacro{\rightchain}
+% \DescribeMacro{\leftcornerchain}
+% \DescribeMacro{\rightcornerchain}
+% The commands \cmd{\chain}, \cmd{\leftchain}, \cmd{\rightchain}, \cmd{\leftcornerchain}, and \cmd{\rightcornerchain} all draw the components for Brunnian chain mail.
+% The drawings are designed so that superimposing them will result in a correctly rendered diagram.
+% The colour of the chain element is determined by the colour \Verb+chain+.
+%
+% \begin{example}
+% \begin{center}
+% \begin{tikzpicture}
+% \colorlet{chain}{Green}
+% \chain
+% \begin{scope}[shift={(-2,-2)}]
+% \leftchain
+% \end{scope}
+% \begin{scope}[shift={(4,-2)}]
+% \rightcornerchain
+% \end{scope}
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+%
+% \DescribeMacro{\brunnianlink}
+% \DescribeMacro{\flatbrunnianlink}
+% For the level one Brunnian structures, the pictures drawn are not the most elegant.
+% A more pleasing rendition can be obtained by using the pieces rendered by \cmd{\flatbrunnianlink}\marg{scale} and \cmd{\brunnianlink}\marg{scale}\marg{angle}.
+%
+% \begin{example}
+% \begin{center}
+% \begin{tikzpicture}
+% \pgfmathsetmacro{\brscale}{1}
+% \begin{scope}[xshift=6.5 cm]
+% \draw[knot,double=ring1] (-6.3*\brscale0,0) circle (\brscale);
+% \draw[knot,double=ring2] (-1.5*\brscale,0) circle (\brscale);
+% \foreach \brk in {5,...,3} {
+% \begin{scope}[xshift=-\brk * \brscale cm]
+% \colorlet{chain}{ring\brk}
+% \flatbrunnianlink{\brscale}
+% \end{scope}
+% }
+% \end{scope}
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+% \DescribeMacro{\brunniantwocpt}
+% \DescribeMacro{\brunniancpt}
+% \DescribeMacro{\brunniancptouter}
+% More complicated link diagrams can be built from components.
+% The command
+%
+% \cmd{\brunniantwocpt}\marg{radius}\marg{lvl2}\marg{lvl1}\marg{colour}
+%
+% renders a level two component from a Brunnian level two ring with base colour \marg{colour} (which must be one of the ring colours).
+% It is rendered as if it were part of a level two Brunnian ring of radius \marg{radius} with \marg{lvl2} components at level two and \marg{lvl1} components at level one.
+% The command \cmd{\brunniancpt} is the same but for level one Brunnian rings.
+% As this only renders one link component, its colour is specified by the colour \Verb+brunnian+.
+%
+% \DescribeMacro{\brunnianlinkage}
+% \DescribeMacro{\brunniantwoside}
+% \DescribeMacro{\dblhopftwoside}
+% \DescribeMacro{\dblhopfrctwoside}
+% \DescribeMacro{\brunnianhalftwoside}
+% \DescribeMacro{\brunnianringonetwoside}
+% These commands draw a more schematic diagram of the various linkages.
+% The \Verb+twoside+ versions draw two versions with a gap in the middle so that the gap can be filled by linking the various ends to draw different resolutions of the link diagrams. 
+% The ends of the strands in the middle are Ti\emph{k}Z coordinates with labels \((1)\) to \((8)\) running down the left-hand side and then down the right.
+% Certain lengths need to be set before this is used, namely \Verb+\brover+, \Verb+\bradj+, \Verb+\brsep+, and \Verb+\brlen+.
+% These control various aspects of how the diagram is rendered.
+%
+% \begin{example}
+% \begin{center}
+% \pgfmathsetmacro{\brover}{.25}
+% \pgfmathsetmacro{\bradj}{.05}
+% \pgfmathsetmacro{\brsep}{.25}
+% \pgfmathsetmacro{\brlen}{1}
+% \begin{tikzpicture}[every path/.style={thick knot,double=Red},every node/.style={text=black},baseline=0cm]
+% \dblhopftwoside
+% \draw[double=none,Red,line width=2pt] (1) -- (2) (3) -- (5) (4) -- (6) (7) -- (8) ;
+% \end{tikzpicture}
+% \end{center}
+% \end{example}
+%
+%
+% \subsection{Colours}
+%
+% \DescribeMacro{\resetbgcolour}
+% The method of producing the complicated iterated diagrams is to define certain blocks which can then be put together in the correct fashion.
+% The blocks corresponding to junctions (that is, where link components meet) comprise strands from several components.
+% It is possible to show only certain strands by setting the colour of the others to the background colour.
+% Such strands are not drawn.
+% Rather than attempt to discover the \emph{actual} background colour of the picture, this package believes what it is told.
+% At the begining of the document, it is told that the background is \Verb+white+.
+% The command \cmd{\resetbgcolour} takes one argument, \marg{colour}, which it then believes to be the background (for the current group).
+%
+% \subsection{Lengths}
+%
+% \DescribeMacro{\setbrstep}
+% Various aspects of the sizes of the various link diagrams are controlled by an internal parameter \cmd{\br@step}.
+% The command \cmd{\brstep}\marg{number} is \Verb+let+ to this to enable its use in the main document, but changing \cmd{\brstep} doesn't change \cmd{\br@step}.
+% The command \cmd{\setbrstep} takes one argument, \marg{number}, to which it then sets \cmd{\br@step}.
+%
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% \iffalse
+%<*package>
+% \fi
+%
+%    \begin{macrocode}
+\ProvidesPackage{brunnian}
+%    \end{macrocode}
+%
+% Test for \Verb+htlatex+ by looking for the \Verb+tex4ht+ package.
+% If found, set the \Verb+pgfsysdriver+ to the appropriate one
+%
+%    \begin{macrocode}
+\newif\ifsvg
+\@ifpackageloaded{tex4ht}{
+\svgtrue
+}{}
+\ifsvg
+\def\pgfsysdriver{pgfsys-tex4ht.def}
+\fi
+%    \end{macrocode}
+%
+% Load in required packages
+%
+%    \begin{macrocode}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{colorinfo}
+\usetikzlibrary{calc}
+%    \end{macrocode}
+%
+% Handle background colour: set the default to \Verb+white+, define a command to reset it, and at the beginning of the document, we read in the colour information needed to recognise \Verb+white+ when we see it.
+% (Not sure why that has to be at the beginning of the document and not here.)
+%
+%    \begin{macrocode}
+\xglobal\colorlet{background}{white}
+%    \end{macrocode}
+%
+% \begin{macro}{\resetbgcolour}
+% Allows for resetting the background colour.
+%    \begin{macrocode}
+\newcommand{\resetbgcolour}[1]{%
+  \xglobal\colorlet{background}{#1}
+  \colorInfo{background}
+  \edef\br@white{\colorValue}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \colorInfo{background}%
+  \edef\br@white{\colorValue}%
+}
+%    \end{macrocode}
+%
+% Now we set up the default colours for the rings.
+%
+%    \begin{macrocode}
+\xglobal\colorlet{ring1}{Red}
+\xglobal\colorlet{ring2}{Green}
+\xglobal\colorlet{ring3}{Blue}
+\xglobal\colorlet{ring4}{Orange}
+\xglobal\colorlet{ring5}{Purple}
+\xglobal\colorlet{ring6}{Chartreuse}
+\xglobal\colorlet{ring7}{Sienna}
+\xglobal\colorlet{ring8}{DeepPink}
+\xglobal\colorlet{ring9}{Gold}
+\xglobal\colorlet{ring10}{DarkViolet}
+\foreach \k in {1,2,3,4} {
+  \foreach \m in {1,2,3,4} {
+    \pgfmathparse{int(Mod(\m + \k - 2,4) + 1)}
+    \xglobal\colorlet{ring\k\m}{ring\k!50!ring\pgfmathresult}
+    \foreach \l in {1,2,3,4} {
+      \pgfmathparse{int(Mod(\l + \k - 2,4) + 1)}
+      \xglobal\colorlet{ring\k\m\l}{ring\k\m!50!ring\pgfmathresult}
+    }
+  }
+}
+%    \end{macrocode}
+%
+% Next step is to initialise the pgf layers.
+%
+%    \begin{macrocode}
+\pgfdeclarelayer{back}
+\pgfdeclarelayer{front}
+\pgfsetlayers{back,main,front}
+%    \end{macrocode}
+%
+% Now some default constants
+%
+%    \begin{macrocode}
+\pgfmathsetmacro{\br@step}{1/4}
+\pgfmathsetmacro{\br@theta}{10}
+\let\brstep=\br@step
+\edef\br@one{1}
+\edef\br@zero{0}
+%    \end{macrocode}
+% \begin{macro}{\setbrste}
+% \begin{macrocode}
+\newcommand{\setbrstep}[1]{%
+\def\br@step{#1}}
+%    \end{macrocode}
+% \end{macro}
+%
+% These define some Ti\emph{k}Z styles for use with knot and link diagrams.
+%
+%    \begin{macrocode}
+\tikzset{knot/.style={double distance=1pt,line width=2pt,background}}
+\tikzset{thin knot/.style={double distance=.5pt,line width=1pt,background}}
+\tikzset{thick knot/.style={double distance=2pt,line width=4pt,background}}
+\tikzset{string/.style={line width=1pt}}
+%    \end{macrocode}
+%
+% \begin{macro}{\getangle}
+%
+% Tells us the angles used by the junction command so we don't have to guess them later on, same parameters as the junction command (actually \cmd{\junction} should call this so we always know we do the same computation).
+%
+%    \begin{macrocode}
+\newcommand{\getangle}[5]{%
+\pgfmathsetmacro{\br@num}{int(4 ^ (#1 - 1) + .5)}
+\pgfmathsetmacro{\br@dir}{#3}
+\pgfmathsetmacro{\br@innersep}{#1 == 1 ? 4 : 0}
+\pgfmathsetmacro{\br@mr}{#2 -\br@step + (2*\br@num + .5) *\br@step * (1 - \br@dir)}
+\pgfmathsetmacro{\br@angle}{atan((6 * \br@num + 2*\br@innersep) * \br@step/\br@mr)}
+\ifx\relax#4\relax
+\pgfmathparse{ceil(\br@angle)}
+\else
+\pgfmathparse{int(#4 > \br@angle ? #4 : ceil(\br@angle))}
+\fi
+\xdef\clockangle{\pgfmathresult}
+\ifx\relax#5\relax
+\pgfmathparse{ceil(\br@angle)}
+\else
+\pgfmathparse{int(#5 > \br@angle ? #5 : ceil(\br@angle))}
+\fi
+\xdef\aclockangle{\pgfmathresult}
+\pgfmathparse{int(\clockangle + \aclockangle)}
+\xdef\totalangle{\pgfmathresult}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\junction}
+% Main junction command
+%
+%    \begin{macrocode}
+\newcommand{\junction}[5]{%
+\pgfmathsetmacro{\br@midpt}{#3}
+\pgfmathsetmacro{\br@dir}{(\br@midpt == 0 ? 1 : \br@midpt)}
+\begin{scope}[xscale=\br@dir]
+\pgfmathsetmacro{\br@num}{int(4 ^ (#1 - 1) + .5)}
+\pgfmathsetmacro{\br@innersep}{#1 == 1 ? 4 : 0}
+\pgfmathsetmacro{\br@mr}{#2 -\br@step + (2*\br@num + .5) *\br@step * (1 - \br@dir)}
+\pgfmathsetmacro{\br@angle}{atan((6 * \br@num + 2*\br@innersep) * \br@step/\br@mr)}
+\ifx\relax#4\relax
+\pgfmathsetmacro{\br@outerangle}{ceil(\br@angle)}
+\else
+\pgfmathsetmacro{\br@outerangle}{#4 > \br@angle ? #4 : ceil(\br@angle)}
+\fi
+\ifx\relax#5\relax
+\pgfmathsetmacro{\br@innerangle}{ceil(\br@angle)}
+\else
+\pgfmathsetmacro{\br@innerangle}{#5 > \br@angle ? #5 : ceil(\br@angle)}
+\fi
+\pgfmathsetmacro{\br@sin}{sin(\br@angle)}
+\pgfmathsetmacro{\br@cos}{cos(\br@angle)}
+\path (0,0) circle (2pt);
+\edef\br@itstart{1}
+\pgfmathsetmacro{\br@itend}{2*\br@num}
+\edef\br@mcolor{outer}
+\foreach \br@m in {\br@itstart,...,\br@itend} {
+\@ifundefinedcolor{outer\br@m}{%
+}{%
+\global\edef\br@mcolor{outer\br@m}
+}
+\pgfmathsetmacro{\br@inr}{\br@mr +  \br@m * \br@dir * \br@step}
+\pgfmathsetmacro{\br@outr}{\br@mr + (\br@num * 4 + 1 - \br@m) * \br@dir * \br@step}
+\pgfmathsetmacro{\br@x}{-1*\br@inr *\br@sin}
+\pgfmathsetmacro{\br@y}{-1*\br@inr *\br@cos}
+\pgfmathsetmacro{\br@xx}{-1*\br@outr *\br@sin}
+\pgfmathsetmacro{\br@yy}{-1*\br@outr *\br@cos}
+\pgfmathsetmacro{\br@r}{(6*\br@num - 2*\br@m + \br@innersep)*\br@step/2}
+\pgfmathsetmacro{\br@midr}{(\br@midpt == 0 ? (\br@inr + \br@outr)/2 + \br@r: \br@outr)}
+\colorInfo{\br@mcolor}
+\ifx\colorValue\br@white
+\else
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) to[out=-\br@angle,in=180] (0,-\br@midr) arc(-\br@dir * 90:\br@dir * 90:\br@r) to[out=180,in=-\br@angle] (\br@x,\br@y);
+\draw[knot,double=\br@mcolor] (\br@x,\br@y) arc(-90-\br@angle:-90-\br@outerangle:\br@inr);
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) arc(-90-\br@angle:-90-\br@outerangle:\br@outr);
+\fi
+}
+\edef\br@itstart{1}
+\pgfmathsetmacro{\br@itend}{2*\br@num}
+\edef\br@mcolor{inner}
+\foreach \br@m in {\br@itstart,...,\br@itend} {
+\@ifundefinedcolor{inner\br@m}{%
+}{%
+\global\edef\br@mcolor{inner\br@m}
+}
+\pgfmathsetmacro{\br@inward}{2 * (-.5 + (\br@m > \br@num))}
+\pgfmathsetmacro{\br@inr}{\br@mr + (\br@num+\br@m) * \br@dir * \br@step}
+\pgfmathsetmacro{\br@outr}{\br@mr + (3*\br@num + 1 + \br@inward * 2*\br@num - \br@m) * \br@dir * \br@step}
+\pgfmathsetmacro{\br@inmidr}{\br@inr - \br@midpt * \br@innersep * \br@step / 2 - \br@num * \br@midpt * \br@step + .5*\br@midpt * \br@step}
+\pgfmathsetmacro{\br@outmidr}{\br@outr - \br@midpt * \br@innersep * \br@step /2 + \br@inward * \br@dir * \br@innersep * \br@step/2 - \br@num * \br@midpt * \br@step + .5*\br@midpt * \br@step}
+\pgfmathsetmacro{\br@x}{\br@inr *\br@sin}
+\pgfmathsetmacro{\br@y}{-1*\br@inr *\br@cos}
+\pgfmathsetmacro{\br@xx}{\br@outr *\br@sin}
+\pgfmathsetmacro{\br@yy}{-1*\br@outr *\br@cos}
+\pgfmathsetmacro{\br@r}{(\br@num * (1 + \br@inward) - \br@inward * (\br@m - .5)) *\br@step + \br@innersep * \br@step/4}
+\colorInfo{\br@mcolor}
+\ifx\colorValue\br@white
+\else
+\begin{pgfonlayer}{front}
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) to[out=180+\br@angle,in=0] (0,-\br@outmidr) arc(\br@inward *\br@dir * 270:\br@inward *\br@dir * 90:\br@r);
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) arc(-90+\br@angle:-90+\br@innerangle:\br@outr);
+\end{pgfonlayer}
+\begin{pgfonlayer}{back}
+\draw[knot,double=\br@mcolor] (\br@x,\br@y) to[out=180+\br@angle,in=0] (0,-\br@inmidr);
+\draw[knot,double=\br@mcolor] (\br@x,\br@y) arc(-90+\br@angle:-90+\br@innerangle:\br@inr);
+\end{pgfonlayer}
+\fi
+}
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\flatjunction}
+% The flat version of \cmd{\junction}
+%
+%    \begin{macrocode}
+\newcommand{\flatjunction}[5]{%
+\begin{scope}[xscale=#3]
+\pgfmathsetmacro{\br@num}{4 ^ (#1 - 1)}
+\pgfmathsetmacro{\br@dir}{#3}
+\pgfmathsetmacro{\br@innersep}{#1 == 1 ? 4 : 0}
+\pgfmathsetmacro{\br@mr}{0}%#2 -\br@step + (2*\br@num + .5) *\br@step * (1 - \br@dir)}
+\edef\br@itstart{1}
+\pgfmathsetmacro{\br@itend}{2*\br@num}
+\edef\br@mcolor{outer}
+\foreach \br@m in {\br@itstart,...,\br@itend} {
+\@ifundefinedcolor{outer\br@m}{%
+}{%
+\global\edef\br@mcolor{outer\br@m}
+}
+\pgfmathsetmacro{\br@inr}{\br@mr +  \br@m * \br@dir * \br@step}
+\pgfmathsetmacro{\br@outr}{\br@mr + (\br@num * 4 + 1 - \br@m) * \br@dir * \br@step}
+\pgfmathsetmacro{\br@x}{-8*\br@step}
+\pgfmathsetmacro{\br@y}{-1*\br@inr}
+\pgfmathsetmacro{\br@xx}{-8*\br@step}
+\pgfmathsetmacro{\br@yy}{-1*\br@outr}
+\pgfmathsetmacro{\br@r}{(6*\br@num - 2*\br@m + \br@innersep)*\br@step/2}
+\colorInfo{\br@mcolor}
+\ifx\colorValue\br@white
+\else
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) -- ++(8*\br@step,0) arc(-90:-90:\br@outr) arc(-\br@dir * 90:\br@dir * 90:\br@r) to[out=180,in=0] (\br@x,\br@y);
+\fi
+}
+\edef\br@itstart{1}
+\pgfmathsetmacro{\br@itend}{2*\br@num}
+\edef\br@mcolor{inner}
+\foreach \br@m in {\br@itstart,...,\br@itend} {
+\@ifundefinedcolor{inner\br@m}{%
+}{%
+\global\edef\br@mcolor{inner\br@m}
+}
+\pgfmathsetmacro{\br@inward}{2 * (-.5 + (\br@m > \br@num))}
+\pgfmathsetmacro{\br@inr}{\br@mr + (\br@num+\br@m) * \br@dir * \br@step}
+\pgfmathsetmacro{\br@outr}{\br@mr + (3*\br@num + 1 + \br@inward * 2*\br@num - \br@m) * \br@dir * \br@step}
+\pgfmathsetmacro{\br@inmidr}{\br@inr - \br@dir * \br@innersep * \br@step / 2 - \br@num * \br@dir * \br@step + .5*\br@dir * \br@step}
+\pgfmathsetmacro{\br@outmidr}{\br@outr - \br@dir * \br@innersep * \br@step /2 + \br@inward * \br@dir * \br@innersep * \br@step/2 - \br@num * \br@dir * \br@step + .5*\br@dir * \br@step}
+\pgfmathsetmacro{\br@x}{8*\br@step}
+\pgfmathsetmacro{\br@y}{-1*\br@inr}
+\pgfmathsetmacro{\br@xx}{8*\br@step}
+\pgfmathsetmacro{\br@yy}{-1*\br@outr}
+\pgfmathsetmacro{\br@r}{(\br@num * (1 + \br@inward) - \br@inward * (\br@m - .5)) *\br@step + \br@innersep * \br@step/4}
+\colorInfo{\br@mcolor}
+\ifx\colorValue\br@white
+\else
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) to[out=180,in=0] (0,-\br@outmidr) arc(\br@inward *\br@dir * 270:\br@inward *\br@dir * 90:\br@r);
+\begin{pgfonlayer}{back}
+\draw[knot,double=\br@mcolor] (\br@x,\br@y) to[out=180,in=0] (0,-\br@inmidr);
+\end{pgfonlayer}
+\fi
+}
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\gethopfangle}
+% This is the Hopfian version of \cmd{\getangle}.
+%
+%    \begin{macrocode}
+\newcommand{\gethopfangle}[5]{%
+\pgfmathsetmacro{\br@num}{2 ^ (#1 - 1)}
+\pgfmathsetmacro{\br@dir}{#3}
+\pgfmathsetmacro{\br@innersep}{2}%{#1 == 1 ? 2 : 0}
+\pgfmathsetmacro{\br@mr}{#2 -\br@step + (\br@num + .5) *\br@step * (1 - \br@dir)}
+\pgfmathsetmacro{\br@angle}{atan((3 * \br@num + 2*\br@innersep) * \br@step/\br@mr)}
+\ifx\relax#4\relax
+\pgfmathparse{ceil(\br@angle)}
+\else
+\pgfmathparse{int(#4 > \br@angle ? #4 : ceil(\br@angle))}
+\fi
+\xdef\clockangle{\pgfmathresult}
+\ifx\relax#5\relax
+\pgfmathparse{ceil(\br@angle)}
+\else
+\pgfmathparse{int(#5 > \br@angle ? #5 : ceil(\br@angle))}
+\fi
+\xdef\aclockangle{\pgfmathresult}
+\pgfmathparse{int(\clockangle + \aclockangle)}
+\xdef\totalangle{\pgfmathresult}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\hopfjunction}
+% And the Hopfian version of \cmd{\junction}.
+%    \begin{macrocode}
+\newcommand{\hopfjunction}[5]{%
+\begin{scope}[xscale=#3]
+\pgfmathsetmacro{\br@num}{2 ^ (#1 - 1)}
+\pgfmathsetmacro{\br@dir}{#3}
+\pgfmathsetmacro{\br@innersep}{2}%{#1 < 3 ? 2 : 0}
+\pgfmathsetmacro{\br@mr}{#2 -\br@step + (\br@num + .5) *\br@step * (1 - \br@dir)}
+\pgfmathsetmacro{\br@angle}{atan((3 * \br@num + 2*\br@innersep) * \br@step/\br@mr)}
+\ifx\relax#4\relax
+\pgfmathsetmacro{\br@outerangle}{ceil(\br@angle)}
+\else
+\pgfmathsetmacro{\br@outerangle}{#4 > \br@angle ? #4 : ceil(\br@angle)}
+\fi
+\ifx\relax#5\relax
+\pgfmathsetmacro{\br@innerangle}{ceil(\br@angle)}
+\else
+\pgfmathsetmacro{\br@innerangle}{#5 > \br@angle ? #5 : ceil(\br@angle)}
+\fi
+\pgfmathsetmacro{\br@sin}{sin(\br@angle)}
+\pgfmathsetmacro{\br@cos}{cos(\br@angle)}
+\path (0,0) circle (2pt);
+\edef\br@itstart{1}
+\pgfmathsetmacro{\br@itend}{\br@num}
+\edef\br@mcolor{outer}
+\foreach \br@m in {\br@itstart,...,\br@itend} {
+\@ifundefinedcolor{outer\br@m}{%
+}{%
+\global\edef\br@mcolor{outer\br@m}
+}
+\pgfmathsetmacro{\br@inr}{\br@mr +  \br@m * \br@dir * \br@step}
+\pgfmathsetmacro{\br@outr}{\br@mr + (\br@num * 2 + 1 - \br@m) * \br@dir * \br@step}
+\pgfmathsetmacro{\br@x}{-1*\br@inr *\br@sin}
+\pgfmathsetmacro{\br@y}{-1*\br@inr *\br@cos}
+\pgfmathsetmacro{\br@xx}{-1*\br@outr *\br@sin}
+\pgfmathsetmacro{\br@yy}{-1*\br@outr *\br@cos}
+\pgfmathsetmacro{\br@r}{(\br@num - \br@m + \br@innersep + .5)*\br@step}
+\colorInfo{\br@mcolor}
+\ifx\colorValue\br@white
+\else
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) arc(-90-\br@angle:-90:\br@outr) arc(-\br@dir * 90:\br@dir * 90:\br@r) to[out=180,in=-\br@angle] (\br@x,\br@y);
+\draw[knot,double=\br@mcolor] (\br@x,\br@y) arc(-90-\br@angle:-90-\br@outerangle:\br@inr);
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) arc(-90-\br@angle:-90-\br@outerangle:\br@outr);
+\fi
+}
+\edef\br@itstart{1}
+\pgfmathsetmacro{\br@itend}{\br@num}
+\edef\br@mcolor{inner}
+\foreach \br@m in {\br@itstart,...,\br@itend} {
+\@ifundefinedcolor{inner\br@m}{%
+}{%
+\global\edef\br@mcolor{inner\br@m}
+}
+\pgfmathsetmacro{\br@inr}{\br@mr +  \br@m * \br@dir * \br@step}
+\pgfmathsetmacro{\br@outr}{\br@mr + (\br@num * 2 + 1 - \br@m) * \br@dir * \br@step}
+\pgfmathsetmacro{\br@x}{\br@inr *\br@sin}
+\pgfmathsetmacro{\br@y}{-1*\br@inr *\br@cos}
+\pgfmathsetmacro{\br@xx}{\br@outr *\br@sin}
+\pgfmathsetmacro{\br@yy}{-1*\br@outr *\br@cos}
+\pgfmathsetmacro{\br@r}{-(\br@num - \br@m + \br@innersep + .5)*\br@step}
+\colorInfo{\br@mcolor}
+\ifx\colorValue\br@white
+\else
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) arc(-90+\br@angle:-90:\br@outr) arc(\br@dir * 90:0:\br@r);
+\begin{pgfonlayer}{back}
+\draw[knot,double=\br@mcolor] (\br@x,\br@y) to[out=180+\br@angle,in=0] (0,-\br@outr - \br@dir * 2*\br@r) arc(-\br@dir * 90:0:\br@r);
+\end{pgfonlayer}
+\draw[knot,double=\br@mcolor] (\br@x,\br@y) arc(-90+\br@angle:-90+\br@innerangle:\br@inr);
+\draw[knot,double=\br@mcolor] (\br@xx,\br@yy) arc(-90+\br@angle:-90+\br@innerangle:\br@outr);
+\fi
+}
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \begin{macro}{\brunnian}
+% Level One: Brunnian rings of radius \#2 with \#3 components, \#1 is a "doubling" parameter  
+%    \begin{macrocode}
+\newcommand{\brunnian}[3][1]{%
+\pgfmathsetmacro{\br@n}{#3}
+\pgfmathsetmacro{\br@phi}{360/\br@n}
+\pgfmathsetmacro{\br@psi}{180/\br@n}
+\foreach \br@k in {1,...,\br@n} {
+\pgfmathparse{int(\br@k == 1 ? \br@n : \br@k - 1)}
+\edef\br@m{\pgfmathresult}
+\begin{scope}[rotate=\br@m * \br@phi]
+  \colorlet{outer}{ring\br@m}
+  \colorlet{inner}{ring\br@k}
+  \junction{#1}{#2}{1}{\br@psi}{\br@psi}
+\end{scope}
+}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\outbrunnian}
+% Level One: Outward Brunnian rings of radius \#2 with \#3 components, \#1 is a "doubling" parameter.
+% This one points outwards
+%    \begin{macrocode}
+\newcommand{\outbrunnian}[3][1]{%
+\pgfmathsetmacro{\br@n}{#3}
+\pgfmathsetmacro{\br@phi}{360/\br@n}
+\pgfmathsetmacro{\br@psi}{180/\br@n}
+\foreach \br@k in {1,...,\br@n} {
+\pgfmathparse{int(\br@k == 1 ? \br@n : \br@k - 1)}
+\edef\br@m{\pgfmathresult}
+\begin{scope}[rotate=\br@m * \br@phi]
+  \colorlet{inner}{ring\br@m}
+  \colorlet{outer}{ring\br@k}
+  \junction{#1}{#2}{-1}{\br@psi}{\br@psi}
+\end{scope}
+}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\midbrunnian}
+% Level One: Midward Brunnian rings of radius \#2 with \#3 components, \#1 is a "doubling" parameter.
+% This one is symmetrical.
+%
+%    \begin{macrocode}
+\newcommand{\midbrunnian}[3][1]{%
+\pgfmathsetmacro{\br@n}{#3}
+\pgfmathsetmacro{\br@phi}{360/\br@n}
+\pgfmathsetmacro{\br@psi}{180/\br@n}
+\foreach \br@k in {1,...,\br@n} {
+\pgfmathparse{int(\br@k == 1 ? \br@n : \br@k - 1)}
+\edef\br@m{\pgfmathresult}
+\begin{scope}[rotate=\br@m * \br@phi]
+  \colorlet{outer}{ring\br@m}
+  \colorlet{inner}{ring\br@k}
+  \junction{#1}{#2}{0}{\br@psi}{\br@psi}
+\end{scope}
+}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\brunniantwo}
+%    \begin{macrocode}
+\newcommand{\brunniantwo}[3]{%
+ \edef\br@p{#3}
+ \edef\br@q{#2}
+ \pgfmathsetmacro{\br@radius}{#1}
+ \pgfmathparse{int(mod(\br@q,2))}
+    \edef\br@qodd{\pgfmathresult}
+ \pgfmathparse{int(\br@q - 1 + \br@qodd)}
+ \edef\br@qmo{\pgfmathresult}
+ \pgfmathparse{int(\br@q == 1 ? 1 : 2)}
+ \edef\br@qtwo{\pgfmathresult}
+ \pgfmathsetmacro{\br@phi}{360/\br@p}
+ \pgfmathsetmacro{\br@psi}{180/(\br@p * (ceil(\br@q/2)+1))}
+ \foreach \br@k in {1,...,\br@p} {
+  \pgfmathparse{int(\br@k == 1 ? \br@p : \br@k - 1)}
+  \edef\br@m{\pgfmathresult}
+  \begin{scope}[rotate=\br@m * \br@phi]
+   \colorlet{outer}{ring\br@k\br@qtwo}
+   \colorlet{outer5}{ring\br@k\br@qmo}
+   \colorlet{inner}{ring\br@m\br@qmo}
+   \junction{2}{\br@radius}{-1}{\br@psi}{\br@psi}
+   \begin{scope}[rotate=\br@phi/2]
+    \foreach \br@i in {1,...,\br@q} {
+     \pgfmathsetmacro{\br@rho}{(\br@i - (1 - mod(\br@i,2))*(1 - \br@qodd) - ceil(\br@q/2)) * \br@psi}
+     \begin{scope}[rotate=\br@rho]
+      \pgfmathsetmacro{\br@mi}{mod(\br@i,2)}
+      \pgfmathsetmacro{\br@modi}{(-1)^\br@mi}
+      \pgfmathparse{int(\br@i == 1 || \br@i == \br@q - \br@qodd ? \br@i + \br@qtwo - 1 - 2*(1 - \br@qodd)*(1 - \br@mi) : \br@i + \br@modi * 2)}
+      \edef\br@j{\pgfmathresult}
+      \colorlet{outer}{ring\br@k\br@i}
+      \colorlet{inner}{ring\br@k\br@j}
+      \junction{1}{\br@radius+12 * \br@mi * \br@step}{\br@modi}{\br@psi}{\br@psi}
+     \end{scope}
+    }
+   \end{scope}
+\ifx\br@qodd\br@one
+   \fillin{\br@radius}{1}{4}{\br@psi}{(1.5 + \br@qodd/2)*\br@psi}{ring\br@k\br@qtwo}
+   \fillin{\br@radius}{1}{4}{\br@phi -\br@psi}{\br@phi - (1.5 + \br@qodd/2)*\br@psi}{ring\br@k\br@qmo}
+\fi
+   \fillin{\br@radius}{5}{12}{\br@psi}{\br@phi - \br@psi}{ring\br@k\br@qmo}
+  \end{scope}
+ }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\fillin}
+%    \begin{macrocode}
+\newcommand{\fillin}[6]{%
+\colorInfo{#6}
+\ifx\colorValue\br@white
+\else
+\pgfmathsetmacro{\br@sin}{sin(#4)};
+\pgfmathsetmacro{\br@cos}{cos(#4)}
+\foreach \br@fk in {#2,...,#3} {
+\pgfmathsetmacro{\br@r}{#1 + (\br@fk - 1) * \br@step}
+\draw[knot,double=#6] (\br@r * \br@sin, -\br@r * \br@cos) arc(-90+#4:-90+#5:\br@r);
+}
+\fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\hopfring}
+%    \begin{macrocode}
+\newcommand{\hopfring}[2]{%
+\pgfmathsetmacro{\br@n}{#2}
+\pgfmathsetmacro{\br@phi}{360/\br@n}
+\gethopfangle{1}{#1}{1}{}{}
+\pgfmathsetmacro{\br@psi}{360/\br@n - \clockangle}
+\foreach \br@k in {1,...,\br@n} {
+\pgfmathparse{int(\br@k == 1 ? \br@n : \br@k - 1)}
+\edef\br@m{\pgfmathresult}
+\begin{scope}[rotate=\br@m * \br@phi]
+  \colorlet{outer}{ring\br@m}
+  \colorlet{inner}{ring\br@k}
+  \hopfjunction{1}{#1}{1}{}{}
+\pgfmathparse{Mod(\br@k,2) == 0 ? "\noexpand\fillin{#1}{1}{2}{\clockangle}{\br@psi}{inner}" : ""}
+\begin{pgfonlayer}{back}
+    \pgfmathresult
+\end{pgfonlayer}
+\pgfmathparse{Mod(\br@k,2) == 0 ? "" : "\noexpand\fillin{#1}{1}{2}{\clockangle}{\br@psi}{inner}"}
+    \pgfmathresult
+\end{scope}
+}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\hopftwo}
+%    \begin{macrocode}
+\newcommand{\hopftwo}[3]{%
+ \edef\br@p{#3}
+ \edef\br@q{#2}
+ \pgfmathsetmacro{\br@radius}{#1}
+ \pgfmathsetmacro{\br@qodd}{mod(\br@q,2)}
+ \pgfmathparse{int(\br@q - 1 + \br@qodd)}
+ \edef\br@qmo{\pgfmathresult}
+ \pgfmathparse{int(\br@q == 1 ? 1 : 2)}
+ \edef\br@qtwo{\pgfmathresult}
+ \pgfmathsetmacro{\br@phi}{360/\br@p}
+ \pgfmathsetmacro{\br@psi}{180/(\br@p * (ceil(\br@q/2)+1))}
+ \foreach \br@k in {1,...,\br@p} {
+  \pgfmathparse{int(\br@k == 1 ? \br@p : \br@k - 1)}
+  \edef\br@m{\pgfmathresult}
+  \begin{scope}[rotate=\br@m * \br@phi]
+   \colorlet{outer}{ring\br@k\br@qtwo}
+   \colorlet{outer5}{ring\br@k\br@qmo}
+   \colorlet{inner}{ring\br@m\br@qmo}
+   \hopfjunction{2}{\br@radius}{-1}{\br@psi}{\br@psi}
+   \begin{scope}[rotate=\br@phi/2]
+    \foreach \br@i in {1,...,\br@q} {
+     \pgfmathsetmacro{\br@rho}{(\br@i - (1 - mod(\br@i,2))*(1 - \br@qodd) - ceil(\br@q/2)) * \br@psi}
+     \begin{scope}[rotate=\br@rho]
+      \pgfmathsetmacro{\br@mi}{mod(\br@i,2)}
+      \pgfmathsetmacro{\br@modi}{(-1)^\br@mi}
+      \pgfmathparse{int(\br@i == 1 || \br@i == \br@q - \br@qodd ? \br@i + \br@qtwo - 1 - 2*(1 - \br@qodd)*(1 - \br@mi) : \br@i + \br@modi * 2)}
+      \edef\br@j{\pgfmathresult}
+      \colorlet{outer}{ring\br@k\br@i}
+      \colorlet{inner}{ring\br@k\br@j}
+      \hopfjunction{1}{\br@radius+2 * \br@mi * \br@step}{\br@modi}{\br@psi}{\br@psi}
+     \end{scope}
+    }
+   \end{scope}
+   \fillin{\br@radius}{1}{2}{\br@psi}{(1.5 + \br@qodd/2)*\br@psi}{ring\br@k\br@qtwo}
+   \fillin{\br@radius}{1}{2}{\br@phi -\br@psi}{\br@phi - (1.5 + \br@qodd/2)*\br@psi}{ring\br@k\br@qmo}
+  \end{scope}
+ }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\chain}
+%    \begin{macrocode}
+\newcommand{\chain}{%
+\begin{scope}
+\begin{pgfonlayer}{back}
+\draw[knot,double=chain] (-1.1,0.7) -- ++(0,-1.8) -- ++(.3,0);
+\draw[knot,double=chain] (1.1,0.7) -- ++(0,-1.8) -- ++(-.3,0);
+\draw[knot,double=chain] (-.9,0.7) -- ++(0,-1.6) -- ++(.1,0);
+\draw[knot,double=chain] (.9,0.7) -- ++(0,-1.6) -- ++(-.1,0);
+\end{pgfonlayer}
+\begin{pgfonlayer}{front}
+\draw[knot,double=chain] (-.8,-.9) -- ++(1.6,0);
+\draw[knot,double=chain] (-.8,-1.1) -- ++(1.6,0);
+\end{pgfonlayer}
+\draw[knot,double=chain] (-1,1) circle (.4);
+\draw[background,line width=1.8mm] (-1,0.5) -- ++(0,.2);
+\draw[knot,double=chain] (-1.1,0.5) -- ++(0,.1);
+\draw[knot,double=chain] (-.9,0.5) -- ++(0,.1);
+\draw[knot,double=chain] (1,1) circle (.4);
+\draw[background,line width=1.8mm] (1,0.5) -- ++(0,.2);
+\draw[knot,double=chain] (1.1,0.5) -- ++(0,.1);
+\draw[knot,double=chain] (.9,0.5) -- ++(0,.1);
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\leftchain}
+%    \begin{macrocode}
+\newcommand{\leftchain}{%
+\begin{scope}
+\begin{pgfonlayer}{back}
+\draw[knot,double=chain] (-1.1,2.7) -- ++(0,-3.8) -- ++(.3,0);
+\draw[knot,double=chain] (1.1,0.7) -- ++(0,-1.8) -- ++(-.3,0);
+\draw[knot,double=chain] (-.9,2.7) -- ++(0,-3.6) -- ++(.1,0);
+\draw[knot,double=chain] (.9,0.7) -- ++(0,-1.6) -- ++(-.1,0);
+\end{pgfonlayer}
+\begin{pgfonlayer}{front}
+\draw[knot,double=chain] (-.8,-.9) -- ++(1.6,0);
+\draw[knot,double=chain] (-.8,-1.1) -- ++(1.6,0);
+\end{pgfonlayer}
+\draw[knot,double=chain] (-1,3) circle (.4);
+\draw[background,line width=1.8mm] (-1,2.5) -- ++(0,.2);
+\draw[knot,double=chain] (-1.1,2.5) -- ++(0,.1);
+\draw[knot,double=chain] (-.9,2.5) -- ++(0,.1);
+\draw[knot,double=chain] (1,1) circle (.4);
+\draw[background,line width=1.8mm] (1,0.5) -- ++(0,.2);
+\draw[knot,double=chain] (1.1,0.5) -- ++(0,.1);
+\draw[knot,double=chain] (.9,0.5) -- ++(0,.1);
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\rightchain}
+%    \begin{macrocode}
+\newcommand{\rightchain}{%
+\begin{scope}
+\begin{pgfonlayer}{back}
+\draw[knot,double=chain] (1.1,2.7) -- ++(0,-3.8) -- ++(-.3,0);
+\draw[knot,double=chain] (-1.1,0.7) -- ++(0,-1.8) -- ++(.3,0);
+\draw[knot,double=chain] (.9,2.7) -- ++(0,-3.6) -- ++(-.1,0);
+\draw[knot,double=chain] (-.9,0.7) -- ++(0,-1.6) -- ++(.1,0);
+\end{pgfonlayer}
+\begin{pgfonlayer}{front}
+\draw[knot,double=chain] (-.8,-.9) -- ++(1.6,0);
+\draw[knot,double=chain] (-.8,-1.1) -- ++(1.6,0);
+\end{pgfonlayer}
+\draw[knot,double=chain] (1,3) circle (.4);
+\draw[background,line width=1.8mm] (1,2.5) -- ++(0,.2);
+\draw[knot,double=chain] (1.1,2.5) -- ++(0,.1);
+\draw[knot,double=chain] (.9,2.5) -- ++(0,.1);
+\draw[knot,double=chain] (-1,1) circle (.4);
+\draw[background,line width=1.8mm] (-1,0.5) -- ++(0,.2);
+\draw[knot,double=chain] (-1.1,0.5) -- ++(0,.1);
+\draw[knot,double=chain] (-.9,0.5) -- ++(0,.1);
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\leftcornerchain}
+%    \begin{macrocode}
+\newcommand{\leftcornerchain}{%
+\begin{scope}
+\begin{pgfonlayer}{back}
+\draw[knot,double=chain] (.5,3.1) -- ++(-1.6,0) -- ++(0,-4.2) -- ++(.3,0);
+\draw[knot,double=chain] (1.1,0.7) -- ++(0,-1.8) -- ++(-.3,0);
+\draw[knot,double=chain] (.5,2.9) -- ++(-1.4,0) -- ++(0,-3.8) -- ++(.1,0);
+\draw[knot,double=chain] (.9,0.7) -- ++(0,-1.6) -- ++(-.1,0);
+\end{pgfonlayer}
+\begin{pgfonlayer}{front}
+\draw[knot,double=chain] (-.8,-.9) -- ++(1.6,0);
+\draw[knot,double=chain] (-.8,-1.1) -- ++(1.6,0);
+\end{pgfonlayer}
+\draw[knot,double=chain] (1,3) circle (.4);
+\draw[background,line width=1.8mm] (.5,3) -- ++(.2,0);
+\draw[knot,double=chain] (.5,3.1) -- ++(.1,0);
+\draw[knot,double=chain] (.5,2.9) -- ++(.1,0);
+\draw[knot,double=chain] (1,1) circle (.4);
+\draw[background,line width=1.8mm] (1,0.5) -- ++(0,.2);
+\draw[knot,double=chain] (1.1,0.5) -- ++(0,.1);
+\draw[knot,double=chain] (.9,0.5) -- ++(0,.1);
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\rightcornerchain}
+%    \begin{macrocode}
+\newcommand{\rightcornerchain}{%
+\begin{scope}
+\begin{pgfonlayer}{back}
+\draw[knot,double=chain] (-.5,3.1) -- ++(1.6,0) -- ++(0,-4.2) -- ++(-.3,0);
+\draw[knot,double=chain] (-1.1,0.7) -- ++(0,-1.8) -- ++(.3,0);
+\draw[knot,double=chain] (-.5,2.9) -- ++(1.4,0) -- ++(0,-3.8) -- ++(-.1,0);
+\draw[knot,double=chain] (-.9,0.7) -- ++(0,-1.6) -- ++(.1,0);
+\end{pgfonlayer}
+\begin{pgfonlayer}{front}
+\draw[knot,double=chain] (-.8,-.9) -- ++(1.6,0);
+\draw[knot,double=chain] (-.8,-1.1) -- ++(1.6,0);
+\end{pgfonlayer}
+\draw[knot,double=chain] (-1,3) circle (.4);
+\draw[background,line width=1.8mm] (-.5,3) -- ++(-.2,0);
+\draw[knot,double=chain] (-.5,3.1) -- ++(-.1,0);
+\draw[knot,double=chain] (-.5,2.9) -- ++(-.1,0);
+\draw[knot,double=chain] (-1,1) circle (.4);
+\draw[background,line width=1.8mm] (-1,0.5) -- ++(0,.2);
+\draw[knot,double=chain] (-1.1,0.5) -- ++(0,.1);
+\draw[knot,double=chain] (-.9,0.5) -- ++(0,.1);
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\brunnianhopf}
+%    \begin{macrocode}
+\newcommand{\brunnianhopf}[3]{%
+ \edef\br@p{#3}
+ \edef\br@q{#2}
+ \pgfmathsetmacro{\br@radius}{#1}
+ \pgfmathparse{int(mod(\br@q,2))}
+    \edef\br@qodd{\pgfmathresult}
+ \pgfmathparse{int(\br@q - 1 + \br@qodd)}
+ \edef\br@qmo{\pgfmathresult}
+ \pgfmathparse{int(\br@q == 1 ? 1 : 2)}
+ \edef\br@qtwo{\pgfmathresult}
+ \pgfmathsetmacro{\br@phi}{360/\br@p}
+ \pgfmathsetmacro{\br@psi}{180/(\br@p * (ceil(\br@q/2)+1))}
+ \foreach \br@k in {1,...,\br@p} {
+  \pgfmathparse{int(\br@k == 1 ? \br@p : \br@k - 1)}
+  \edef\br@m{\pgfmathresult}
+  \begin{scope}[rotate=\br@m * \br@phi]
+   \colorlet{outer}{ring\br@k\br@qtwo}
+   \colorlet{outer3}{ring\br@k\br@qmo}
+   \colorlet{inner}{ring\br@m\br@qmo}
+   \junction{1.5}{\br@radius}{-1}{\br@psi}{\br@psi}
+   \begin{scope}[rotate=\br@phi/2]
+    \foreach \br@i in {1,...,\br@q} {
+     \pgfmathsetmacro{\br@rho}{(\br@i - (1 - mod(\br@i,2))*(1 - \br@qodd) - ceil(\br@q/2)) * \br@psi}
+     \begin{scope}[rotate=\br@rho]
+      \pgfmathsetmacro{\br@mi}{mod(\br@i,2)}
+      \pgfmathsetmacro{\br@modi}{(-1)^\br@mi}
+      \pgfmathparse{int(\br@i == 1 || \br@i == \br@q - \br@qodd ? \br@i + \br@qtwo - 1 - 2*(1 - \br@qodd)*(1 - \br@mi) : \br@i + \br@modi * 2)}
+      \edef\br@j{\pgfmathresult}
+      \colorlet{outer}{ring\br@k\br@i}
+      \colorlet{inner}{ring\br@k\br@j}
+      \hopfjunction{1}{\br@radius+6 * \br@mi * \br@step}{\br@modi}{\br@psi}{\br@psi}
+     \end{scope}
+    }
+   \end{scope}
+\ifx\br@qodd\br@one
+   \fillin{\br@radius}{1}{2}{\br@psi}{(1.5 + \br@qodd/2)*\br@psi}{ring\br@k\br@qtwo}
+   \fillin{\br@radius}{1}{2}{\br@phi -\br@psi}{\br@phi - (1.5 + \br@qodd/2)*\br@psi}{ring\br@k\br@qmo}
+\fi
+   \fillin{\br@radius}{3}{6}{\br@psi}{\br@phi - \br@psi}{ring\br@k\br@qmo}
+  \end{scope}
+ }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\hopfbrunnian}
+%    \begin{macrocode}
+\newcommand{\hopfbrunnian}[3]{%
+ \edef\br@p{#3}
+ \edef\br@q{#2}
+ \pgfmathsetmacro{\br@radius}{#1}
+ \pgfmathparse{int(mod(\br@q,2))}
+    \edef\br@qodd{\pgfmathresult}
+ \pgfmathparse{int(\br@q - 1 + \br@qodd)}
+ \edef\br@qmo{\pgfmathresult}
+ \pgfmathparse{int(\br@q == 1 ? 1 : 2)}
+ \edef\br@qtwo{\pgfmathresult}
+ \pgfmathsetmacro{\br@phi}{360/\br@p}
+ \pgfmathsetmacro{\br@psi}{180/(\br@p * (ceil(\br@q/2)+1))}
+ \foreach \br@k in {1,...,\br@p} {
+  \pgfmathparse{int(\br@k == 1 ? \br@p : \br@k - 1)}
+  \edef\br@m{\pgfmathresult}
+  \begin{scope}[rotate=\br@m * \br@phi]
+   \colorlet{outer}{ring\br@k\br@qtwo}
+   \colorlet{inner}{ring\br@m\br@qmo}
+   \hopfjunction{3}{\br@radius}{-1}{\br@psi}{\br@psi}
+   \begin{scope}[rotate=\br@phi/2]
+    \foreach \br@i in {1,...,\br@q} {
+     \pgfmathsetmacro{\br@rho}{(\br@i - (1 - mod(\br@i,2))*(1 - \br@qodd) - ceil(\br@q/2)) * \br@psi}
+     \begin{scope}[rotate=\br@rho]
+      \pgfmathsetmacro{\br@mi}{mod(\br@i,2)}
+      \pgfmathsetmacro{\br@modi}{(-1)^\br@mi}
+      \pgfmathparse{int(\br@i == 1 || \br@i == \br@q - \br@qodd ? \br@i + \br@qtwo - 1 - 2*(1 - \br@qodd)*(1 - \br@mi) : \br@i + \br@modi * 2)}
+      \edef\br@j{\pgfmathresult}
+      \colorlet{outer}{ring\br@k\br@i}
+      \colorlet{inner}{ring\br@k\br@j}
+      \junction{1}{\br@radius+4 * \br@mi * \br@step}{\br@modi}{\br@psi}{\br@psi}
+     \end{scope}
+    }
+   \end{scope}
+\ifx\br@qodd\br@one
+   \fillin{\br@radius}{1}{4}{\br@psi}{(1.5 + \br@qodd/2)*\br@psi}{ring\br@k\br@qtwo}
+   \fillin{\br@radius}{1}{4}{\br@phi -\br@psi}{\br@phi - (1.5 + \br@qodd/2)*\br@psi}{ring\br@k\br@qmo}
+\fi
+  \end{scope}
+ }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\outerhopftwo}
+%    \begin{macrocode}
+\newcommand{\outerhopftwo}[3]{%
+ \edef\br@p{#3}
+ \edef\br@q{#2}
+ \pgfmathsetmacro{\br@radius}{#1}
+ \pgfmathsetmacro{\br@qodd}{mod(\br@q,2)}
+ \pgfmathparse{int(\br@q - 1 + \br@qodd)}
+ \edef\br@qmo{\pgfmathresult}
+ \pgfmathparse{int(\br@q == 1 ? 1 : 2)}
+ \edef\br@qtwo{\pgfmathresult}
+ \pgfmathsetmacro{\br@phi}{360/\br@p}
+ \pgfmathsetmacro{\br@psi}{180/(\br@p * (\br@q+1))}
+ \foreach \br@k in {1,...,\br@p} {
+  \pgfmathparse{int(\br@k == 1 ? \br@p : \br@k - 1)}
+  \edef\br@m{\pgfmathresult}
+  \begin{scope}[rotate=\br@m * \br@phi]
+   \colorlet{outer}{ring\br@k\br@qtwo}
+   \colorlet{outer5}{ring\br@k\br@qmo}
+   \colorlet{inner}{ring\br@m\br@qtwo}
+   \hopfjunction{2}{\br@radius}{-1}{\br@psi}{\br@psi}
+   \begin{scope}[rotate=\br@phi/2]
+    \foreach \br@i in {1,...,\br@q} {
+     \pgfmathsetmacro{\br@rho}{2*(\br@i -  (\br@q+1)/2 ) * \br@psi}
+     \begin{scope}[rotate=\br@rho]
+      \pgfmathsetmacro{\br@mi}{mod(\br@i,2)}
+      \pgfmathsetmacro{\br@modi}{(-1)^\br@mi}
+      \pgfmathparse{int(\br@i == 1 || \br@i == \br@q - \br@qodd ? \br@i + \br@qtwo - 1 - 2*(1 - \br@qodd)*(1 - \br@mi) : \br@i + \br@modi * 2)}
+      \edef\br@j{\pgfmathresult}
+      \colorlet{outer}{ring\br@k\br@i}
+      \colorlet{inner}{ring\br@k\br@j}
+      \hopfjunction{1}{\br@radius+2 * \br@step}{-1}{\br@psi}{\br@psi}
+     \end{scope}
+    }
+   \end{scope}
+   \fillin{\br@radius}{1}{2}{\br@psi}{180 - \br@psi}{ring\br@k\br@qtwo}
+  \end{scope}
+ }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\outerbrunniantwo}
+%    \begin{macrocode}
+\newcommand{\outerbrunniantwo}[3]{%
+ \edef\br@p{#3}
+ \edef\br@q{#2}
+ \pgfmathsetmacro{\br@radius}{#1}
+ \pgfmathsetmacro{\br@qodd}{mod(\br@q,2)}
+ \pgfmathparse{int(\br@q - 1 + \br@qodd)}
+ \edef\br@qmo{\pgfmathresult}
+ \pgfmathparse{int(\br@q == 1 ? 1 : 2)}
+ \edef\br@qtwo{\pgfmathresult}
+ \pgfmathsetmacro{\br@phi}{360/\br@p}
+ \pgfmathsetmacro{\br@psi}{180/(\br@p * (\br@q+1))}
+ \foreach \br@k in {1,...,\br@p} {
+  \pgfmathparse{int(\br@k == 1 ? \br@p : \br@k - 1)}
+  \edef\br@m{\pgfmathresult}
+  \begin{scope}[rotate=\br@m * \br@phi]
+   \colorlet{outer}{ring\br@k\br@qtwo}
+   \colorlet{inner}{ring\br@m\br@qtwo}
+   \junction{2}{\br@radius}{-1}{\br@psi}{\br@psi}
+   \begin{scope}[rotate=\br@phi/2]
+    \foreach \br@i in {1,...,\br@q} {
+     \pgfmathsetmacro{\br@rho}{2*(\br@i -  (\br@q+1)/2 ) * \br@psi}
+     \begin{scope}[rotate=\br@rho]
+      \pgfmathsetmacro{\br@mi}{mod(\br@i,2)}
+      \pgfmathsetmacro{\br@modi}{(-1)^\br@mi}
+      \pgfmathparse{int(\br@i == 1 || \br@i == \br@q - \br@qodd ? \br@i + \br@qtwo - 1 - 2*(1 - \br@qodd)*(1 - \br@mi) : \br@i + \br@modi * 2)}
+      \edef\br@j{\pgfmathresult}
+      \colorlet{outer}{ring\br@k\br@i}
+      \colorlet{inner}{ring\br@k\br@j}
+      \junction{1}{\br@radius+12 * \br@step}{-1}{\br@psi}{\br@psi}
+     \end{scope}
+    }
+   \end{scope}
+   \fillin{\br@radius}{1}{12}{\br@psi}{180 - \br@psi}{ring\br@k\br@qtwo}
+  \end{scope}
+ }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\pgf@sh@@knotanchor}
+%    \begin{macrocode}
+\def\pgf@sh@@knotanchor#1#2{%
+  \anchor{#2 north west}{%
+    \csname pgf@anchor@knot #1@north west\endcsname%
+    \pgf@x=#2\pgf@x%
+    \pgf@y=#2\pgf@y%
+  }%
+  \anchor{#2 north east}{%
+    \csname pgf@anchor@knot #1@north east\endcsname%
+    \pgf@x=#2\pgf@x%
+    \pgf@y=#2\pgf@y%
+  }%
+  \anchor{#2 south west}{%
+    \csname pgf@anchor@knot #1@south west\endcsname%
+    \pgf@x=#2\pgf@x%
+    \pgf@y=#2\pgf@y%
+  }%
+  \anchor{#2 south east}{%
+    \csname pgf@anchor@knot #1@south east\endcsname%
+    \pgf@x=#2\pgf@x%
+    \pgf@y=#2\pgf@y%
+  }%
+  \anchor{#2 north}{%
+    \csname pgf@anchor@knot #1@north\endcsname%
+    \pgf@x=#2\pgf@x%
+    \pgf@y=#2\pgf@y%
+  }%
+  \anchor{#2 east}{%
+    \csname pgf@anchor@knot #1@east\endcsname%
+    \pgf@x=#2\pgf@x%
+    \pgf@y=#2\pgf@y%
+  }%
+  \anchor{#2 west}{%
+    \csname pgf@anchor@knot #1@west\endcsname%
+    \pgf@x=#2\pgf@x%
+    \pgf@y=#2\pgf@y%
+  }%
+  \anchor{#2 south}{%
+    \csname pgf@anchor@knot #1@south\endcsname%
+    \pgf@x=#2\pgf@x%
+    \pgf@y=#2\pgf@y%
+  }%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\pgfdeclareshape{knot crossing}
+{
+  \inheritsavedanchors[from=circle] % this is nearly a circle
+  \inheritanchorborder[from=circle]
+  \inheritanchor[from=circle]{north}
+  \inheritanchor[from=circle]{north west}
+  \inheritanchor[from=circle]{north east}
+  \inheritanchor[from=circle]{center}
+  \inheritanchor[from=circle]{west}
+  \inheritanchor[from=circle]{east}
+  \inheritanchor[from=circle]{mid}
+  \inheritanchor[from=circle]{mid west}
+  \inheritanchor[from=circle]{mid east}
+  \inheritanchor[from=circle]{base}
+  \inheritanchor[from=circle]{base west}
+  \inheritanchor[from=circle]{base east}
+  \inheritanchor[from=circle]{south}
+  \inheritanchor[from=circle]{south west}
+  \inheritanchor[from=circle]{south east}
+  \inheritanchorborder[from=circle]
+  \pgf@sh@@knotanchor{crossing}{2}
+  \pgf@sh@@knotanchor{crossing}{3}
+  \pgf@sh@@knotanchor{crossing}{4}
+  \pgf@sh@@knotanchor{crossing}{8}
+  \pgf@sh@@knotanchor{crossing}{16}
+  \pgf@sh@@knotanchor{crossing}{32}
+  \backgroundpath{
+    \pgfutil@tempdima=\radius%
+    \pgfmathsetlength{\pgf@xb}{\pgfkeysvalueof{/pgf/outer xsep}}%  
+    \pgfmathsetlength{\pgf@yb}{\pgfkeysvalueof{/pgf/outer ysep}}%  
+    \ifdim\pgf@xb<\pgf@yb%
+      \advance\pgfutil@tempdima by-\pgf@yb%
+    \else%
+      \advance\pgfutil@tempdima by-\pgf@xb%
+    \fi%
+%    \pgfpathcircle{\centerpoint}{\pgfutil@tempdima}%
+  }
+}
+\pgfdeclareshape{knot over cross}
+{
+  \inheritsavedanchors[from=rectangle] % this is nearly a circle
+  \inheritanchorborder[from=rectangle]
+  \inheritanchor[from=rectangle]{north}
+  \inheritanchor[from=rectangle]{north west}
+  \inheritanchor[from=rectangle]{north east}
+  \inheritanchor[from=rectangle]{center}
+  \inheritanchor[from=rectangle]{west}
+  \inheritanchor[from=rectangle]{east}
+  \inheritanchor[from=rectangle]{mid}
+  \inheritanchor[from=rectangle]{mid west}
+  \inheritanchor[from=rectangle]{mid east}
+  \inheritanchor[from=rectangle]{base}
+  \inheritanchor[from=rectangle]{base west}
+  \inheritanchor[from=rectangle]{base east}
+  \inheritanchor[from=rectangle]{south}
+  \inheritanchor[from=rectangle]{south west}
+  \inheritanchor[from=rectangle]{south east}
+  \inheritanchorborder[from=rectangle]
+  \backgroundpath{
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgfpathmoveto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfqpoint{\pgf@xb}{\pgf@yb}}
+  }
+  \foregroundpath{
+% store lower right in xa/ya and upper right in xb/yb
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgfpathmoveto{\pgfqpoint{\pgf@xa}{\pgf@yb}}
+    \pgfpathlineto{\pgfqpoint{\pgf@xb}{\pgf@ya}}
+ }
+}
+\pgfdeclareshape{knot under cross}
+{
+  \inheritsavedanchors[from=rectangle] % this is nearly a circle
+  \inheritanchorborder[from=rectangle]
+  \inheritanchor[from=rectangle]{north}
+  \inheritanchor[from=rectangle]{north west}
+  \inheritanchor[from=rectangle]{north east}
+  \inheritanchor[from=rectangle]{center}
+  \inheritanchor[from=rectangle]{west}
+  \inheritanchor[from=rectangle]{east}
+  \inheritanchor[from=rectangle]{mid}
+  \inheritanchor[from=rectangle]{mid west}
+  \inheritanchor[from=rectangle]{mid east}
+  \inheritanchor[from=rectangle]{base}
+  \inheritanchor[from=rectangle]{base west}
+  \inheritanchor[from=rectangle]{base east}
+  \inheritanchor[from=rectangle]{south}
+  \inheritanchor[from=rectangle]{south west}
+  \inheritanchor[from=rectangle]{south east}
+  \inheritanchorborder[from=rectangle]
+  \backgroundpath{
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgfpathmoveto{\pgfqpoint{\pgf@xa}{\pgf@yb}}
+    \pgfpathlineto{\pgfqpoint{\pgf@xb}{\pgf@ya}}
+  }
+  \foregroundpath{
+% store lower right in xa/ya and upper right in xb/yb
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgfpathmoveto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfqpoint{\pgf@xb}{\pgf@yb}}
+ }
+}
+\pgfdeclareshape{knot vert}
+{
+  \inheritsavedanchors[from=rectangle] % this is nearly a circle
+  \inheritanchorborder[from=rectangle]
+  \inheritanchor[from=rectangle]{north}
+  \inheritanchor[from=rectangle]{north west}
+  \inheritanchor[from=rectangle]{north east}
+  \inheritanchor[from=rectangle]{center}
+  \inheritanchor[from=rectangle]{west}
+  \inheritanchor[from=rectangle]{east}
+  \inheritanchor[from=rectangle]{mid}
+  \inheritanchor[from=rectangle]{mid west}
+  \inheritanchor[from=rectangle]{mid east}
+  \inheritanchor[from=rectangle]{base}
+  \inheritanchor[from=rectangle]{base west}
+  \inheritanchor[from=rectangle]{base east}
+  \inheritanchor[from=rectangle]{south}
+  \inheritanchor[from=rectangle]{south west}
+  \inheritanchor[from=rectangle]{south east}
+  \inheritanchorborder[from=rectangle]
+  \backgroundpath{
+% store lower right in xa/ya and upper right in xb/yb
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgfpathmoveto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfqpoint{\pgf@xa}{\pgf@yb}}
+    \pgfpathmoveto{\pgfqpoint{\pgf@xb}{\pgf@yb}}
+    \pgfpathlineto{\pgfqpoint{\pgf@xb}{\pgf@ya}}
+ }
+}
+\pgfdeclareshape{knot horiz}
+{
+  \inheritsavedanchors[from=rectangle] % this is nearly a circle
+  \inheritanchorborder[from=rectangle]
+  \inheritanchor[from=rectangle]{north}
+  \inheritanchor[from=rectangle]{north west}
+  \inheritanchor[from=rectangle]{north east}
+  \inheritanchor[from=rectangle]{center}
+  \inheritanchor[from=rectangle]{west}
+  \inheritanchor[from=rectangle]{east}
+  \inheritanchor[from=rectangle]{mid}
+  \inheritanchor[from=rectangle]{mid west}
+  \inheritanchor[from=rectangle]{mid east}
+  \inheritanchor[from=rectangle]{base}
+  \inheritanchor[from=rectangle]{base west}
+  \inheritanchor[from=rectangle]{base east}
+  \inheritanchor[from=rectangle]{south}
+  \inheritanchor[from=rectangle]{south west}
+  \inheritanchor[from=rectangle]{south east}
+  \inheritanchorborder[from=rectangle]
+  \foregroundpath{
+% store lower right in xa/ya and upper right in xb/yb
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgfpathmoveto{\pgfqpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfqpoint{\pgf@xb}{\pgf@ya}}
+    \pgfpathmoveto{\pgfqpoint{\pgf@xa}{\pgf@yb}}
+    \pgfpathlineto{\pgfqpoint{\pgf@xb}{\pgf@yb}}
+ }
+}
+%    \end{macrocode}
+%
+% \begin{macro}{\flatbrunnianlink}
+%    \begin{macrocode}
+\newcommand{\flatbrunnianlink}[1]{%
+\pgfmathsetmacro{\br@scale}{#1}%
+\pgfmathsetmacro{\br@ctwenty}{cos(20)}
+\pgfmathsetmacro{\br@stwenty}{sin(20)}
+\draw[knot,double=chain] (-.5*\br@scale,0) arc(180:270:.5*\br@scale) node[coordinate] (a) {};
+\draw[knot,double=chain] (-.6*\br@scale,0) arc(180:270:.6*\br@scale) node[coordinate] (c) {};
+\begin{pgfonlayer}{front}
+\draw[knot,double=chain] (1.6*\br@scale,0) ++(-.9*\br@scale *\br@ctwenty,-.9*\br@scale *\br@stwenty) arc(0:-90:.2*\br@scale) to[out=180,in=0] (c);
+\end{pgfonlayer}
+\begin{pgfonlayer}{back}
+\draw[knot,double=chain] (-.5*\br@scale,0) arc(180:90:.5*\br@scale) node[coordinate] (b) {};
+\draw[knot,double=chain] (-.6*\br@scale,0) arc(180:90:.6*\br@scale) node[coordinate] (d) {};
+\draw[knot,double=chain] (1.6*\br@scale,0) ++(-.9*\br@scale *\br@ctwenty,-.9*\br@scale *\br@stwenty) arc(0:135:.2*\br@scale) to[out=-135,in=0] (a);
+\draw[knot,double=chain] (1.6*\br@scale,0) ++(-.9*\br@scale *\br@ctwenty,.9*\br@scale *\br@stwenty) arc(0:-135:.2*\br@scale) to[out=135,in=0] (b);
+\end{pgfonlayer}
+\begin{pgfonlayer}{front}
+\draw[knot,double=chain] (1.6*\br@scale,0) ++(-.9*\br@scale *\br@ctwenty,.9*\br@scale *\br@stwenty) arc(0:90:.2*\br@scale) to[out=180,in=0] (d);
+\end{pgfonlayer}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\brunnianlink}
+%    \begin{macrocode}
+\newcommand{\brunnianlink}[2]{%
+\pgfmathsetmacro{\br@scale}{#1}
+\pgfmathsetmacro{\br@angle}{#2}
+\begin{scope}[every path/.style={knot,double=chain}]
+\begin{scope}[rotate=-\br@angle + 5]
+\draw (0,-\br@scale) arc (90:270:2.5*\br@step);
+\draw (0,-\br@scale-\br@step) arc (90:270:1.5*\br@step);
+\draw (0,-\br@scale) arc (-90:-85:\br@scale) coordinate (a);
+\draw (0,-\br@scale-\br@step) arc (-90:-85:\br@scale+\br@step) coordinate (b);
+\draw (0,-\br@scale-4*\br@step) arc (-90:-85:\br@scale+3*\br@step) coordinate (c);
+\draw (0,-\br@scale-5*\br@step) arc (-90:-85:\br@scale+4*\br@step) coordinate (d);
+\end{scope}
+\begin{pgfonlayer}{back}
+\draw (0,-\br@scale-2*\br@step) arc(-90:-100:\br@scale+2*\br@step) coordinate (B);
+\draw (0,-\br@scale-3*\br@step) arc(-90:-100:\br@scale+3*\br@step) coordinate (C);
+\end{pgfonlayer}
+\begin{pgfonlayer}{front}
+\draw (0,-\br@scale) arc (90:-90:\br@step);
+\draw (0,-\br@scale) arc (-90:-100:\br@scale) coordinate (A);
+\draw (0,-\br@scale-3*\br@step) arc (90:-90:\br@step);
+\draw (0,-\br@scale-5*\br@step) arc (-90:-100:\br@scale+5*\br@step)coordinate (D);
+\end{pgfonlayer}
+\pgfmathsetmacro{\br@loose}{\br@angle == 180 ? 1.5 : 1}
+\draw (a) to[out=-\br@angle+10,in=170,looseness=\br@loose] (A);
+\draw (b) to[out=-\br@angle+10,in=170,looseness=\br@loose] (B);
+\draw (c) to[out=-\br@angle+10,in=170,looseness=\br@loose] (C);
+\draw (d) to[out=-\br@angle+10,in=170,looseness=\br@loose] (D);
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\brunniantwocpt}
+%    \begin{macrocode}
+\newcommand{\brunniantwocpt}[4]{%
+ \edef\br@p{#3}
+ \edef\br@q{#2}
+  \edef\br@colour{#4}
+ \pgfmathsetmacro{\br@radius}{#1}
+ \pgfmathparse{int(mod(\br@q,2))}
+    \edef\br@qodd{\pgfmathresult}
+ \pgfmathparse{int(\br@q - 1 + \br@qodd)}
+ \edef\br@qmo{\pgfmathresult}
+ \pgfmathparse{int(\br@q == 1 ? 1 : 2)}
+ \edef\br@qtwo{\pgfmathresult}
+ \pgfmathsetmacro{\br@phi}{360/\br@p}
+ \pgfmathsetmacro{\br@psi}{180/(\br@p * (ceil(\br@q/2)+1))}
+  \begin{scope}%[rotate=\br@m * \br@phi]
+   \colorlet{outer}{\br@colour\br@qtwo}
+   \colorlet{outer5}{\br@colour\br@qmo}
+   \colorlet{inner}{background}
+   \junction{2}{\br@radius}{-1}{\br@psi}{\br@psi}
+  \begin{scope}[rotate=\br@phi]
+   \colorlet{outer}{background}
+   \colorlet{outer5}{background}
+   \colorlet{inner}{\br@colour\br@qmo}
+   \junction{2}{\br@radius}{-1}{\br@psi}{\br@psi}
+  \end{scope}
+   \begin{scope}[rotate=\br@phi/2]
+    \foreach \br@i in {1,...,\br@q} {
+     \pgfmathsetmacro{\br@rho}{(\br@i - (1 - mod(\br@i,2))*(1 - \br@qodd) - ceil(\br@q/2)) * \br@psi}
+     \begin{scope}[rotate=\br@rho]
+      \pgfmathsetmacro{\br@mi}{mod(\br@i,2)}
+      \pgfmathsetmacro{\br@modi}{(-1)^\br@mi}
+      \pgfmathparse{int(\br@i == 1 || \br@i == \br@q - \br@qodd ? \br@i + \br@qtwo - 1 - 2*(1 - \br@qodd)*(1 - \br@mi) : \br@i + \br@modi * 2)}
+      \edef\br@j{\pgfmathresult}
+      \colorlet{outer}{\br@colour\br@i}
+      \colorlet{inner}{\br@colour\br@j}
+      \junction{1}{\br@radius+12 * \br@mi * \br@step}{\br@modi}{\br@psi}{\br@psi}
+     \end{scope}
+    }
+   \end{scope}
+\ifx\br@qodd\br@one
+   \fillin{\br@radius}{1}{4}{\br@psi}{(1.5 + \br@qodd/2)*\br@psi}{\br@colour\br@qtwo}
+   \fillin{\br@radius}{1}{4}{\br@phi -\br@psi}{\br@phi - (1.5 + \br@qodd/2)*\br@psi}{\br@colour\br@qmo}
+\fi
+   \fillin{\br@radius}{5}{12}{\br@psi}{\br@phi - \br@psi}{\br@colour\br@qmo}
+  \end{scope}
+ }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\brunniancpt}
+%    \begin{macrocode}
+\newcommand{\brunniancpt}[3][1]{%
+\pgfmathsetmacro{\br@n}{#3}
+\pgfmathsetmacro{\br@phi}{360/\br@n}
+\pgfmathsetmacro{\br@psi}{180/\br@n}
+  \colorlet{outer}{brunnian}
+  \colorlet{inner}{background}
+  \junction{#1}{#2}{1}{\br@psi}{\br@psi}
+\begin{scope}[rotate=-\br@phi]
+  \colorlet{inner}{brunnian}
+  \colorlet{outer}{background}
+  \junction{#1}{#2}{1}{\br@psi}{\br@psi}
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\brunniancptouter}
+%    \begin{macrocode}
+\newcommand{\brunniancptouter}[3][1]{%
+\pgfmathsetmacro{\br@n}{#3}
+\pgfmathsetmacro{\br@phi}{360/\br@n}
+\pgfmathsetmacro{\br@psi}{180/\br@n}
+  \colorlet{outer}{brunnian}
+  \colorlet{inner}{background}
+  \junction{#1}{#2}{-1}{\br@psi}{\br@psi}
+\begin{scope}[rotate=\br@phi]
+  \colorlet{inner}{brunnian}
+  \colorlet{outer}{background}
+  \junction{#1}{#2}{-1}{\br@psi}{\br@psi}
+\end{scope}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\brunnianlinkage}
+%    \begin{macrocode}
+\newcommand{\brunnianlinkage}{%
+\node (0) at (0,-\brlen) {};
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/1/1/-1,
+  2/-1/2/-1,
+  3/-1/1/-1,
+  4/1/1/1,
+  5/1/1/-1,
+  6/-1/1/1,
+  7/-1/2/1,
+  8/1/1/1
+} {
+  \coordinate (\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0);
+}
+\draw (1) -- (4);
+\draw (2) -- (7);
+\draw (3) -- (6);
+\draw (5) -- (8);
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\brunniantwoside}
+%    \begin{macrocode}
+\newcommand{\brunniantwoside}{%
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/1/1/-1,
+  2/-1/2/-1,
+  3/-1/1/-1,
+  4/1/1/1,
+  5/1/1/-1,
+  6/-1/1/1,
+  7/-1/2/1,
+  8/1/1/1
+} {
+  \coordinate (l\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (l\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0) coordinate (le\bri);
+}
+\draw (l1) -- (l4);
+\draw (l2) -- (l7);
+\draw (l3) -- (l6);
+\draw (l5) -- (l8);
+\begin{scope}[xshift=4cm]
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/1/1/-1,
+  2/-1/2/-1,
+  3/-1/1/-1,
+  4/1/1/1,
+  5/1/1/-1,
+  6/-1/1/1,
+  7/-1/2/1,
+  8/1/1/1
+} {
+  \coordinate (r\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (r\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0) coordinate (re\bri);
+}
+\draw (r1) -- (r4);
+\draw (r2) -- (r7);
+\draw (r3) -- (r6);
+\draw (r5) -- (r8);
+\end{scope}
+\draw
+ (le2) -- ++(\brsep,0) coordinate (1)
+ (le7) -- ++(\brsep,0) coordinate (4)
+ (re1) -- ++(-\brsep,0) coordinate (5)
+ (re8) -- ++(-\brsep,0) coordinate (8)
+;
+\path
+coordinate (2) at (le3)
+coordinate (3) at (le6)
+coordinate (6) at (re4)
+coordinate (7) at (re5)
+coordinate (lb) at ($(4)!.5!(8)+(0,-1)$)
+;
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\dblhopftwoside}
+%    \begin{macrocode}
+\newcommand{\dblhopftwoside}{%
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/-1/2/-1,
+  2/-1/1/-1,
+  3/1/2/-1,
+  4/1/1/-1,
+  5/-1/1/1,
+  6/-1/2/1,
+  7/1/1/1,
+  8/1/2/1
+} {
+  \coordinate (l\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (l\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0) coordinate (le\bri);
+}
+\draw (l1) -- (l6);
+\draw (l2) -- (l5);
+\draw (l3) -- (l8);
+\draw (l4) -- (l7);
+\begin{scope}[xshift=4cm]
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/-1/2/-1,
+  2/-1/1/-1,
+  3/1/2/-1,
+  4/1/1/-1,
+  5/-1/1/1,
+  6/-1/2/1,
+  7/1/1/1,
+  8/1/2/1
+} {
+  \coordinate (r\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (r\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0) coordinate (re\bri);
+}
+\draw (r1) -- (r6);
+\draw (r2) -- (r5);
+\draw (r3) -- (r8);
+\draw (r4) -- (r7);
+\end{scope}
+\draw
+ (le1) -- ++(\brsep,0) coordinate (1)
+ (le6) -- ++(\brsep,0) coordinate (4)
+ (re3) -- ++(-\brsep,0) coordinate (5)
+ (re8) -- ++(-\brsep,0) coordinate (8)
+;
+\path
+coordinate (2) at (le2)
+coordinate (3) at (le5)
+coordinate (6) at (re4)
+coordinate (7) at (re7)
+coordinate (lb) at ($(4)!.5!(8)+(0,-1)$)
+;
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\dblhopfrctwoside}
+%    \begin{macrocode}
+\newcommand{\dblhopfrctwoside}{%
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/-1/2/-1,
+  2/-1/1/-1,
+  3/1/2/-1,
+  4/1/1/-1,
+  5/-1/1/1,
+  6/-1/2/1,
+  7/1/1/1,
+  8/1/2/1
+} {
+  \coordinate (l\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (l\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0) coordinate (le\bri);
+}
+\draw (l1) -- (l6);
+\draw (l2) -- (l5);
+\draw (l3) -- (l8);
+\draw (l4) -- (l7);
+\begin{scope}[xshift=4cm]
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/-1/2/-1,
+  2/-1/1/-1,
+  3/1/2/-1,
+  4/1/1/-1,
+  5/-1/1/1,
+  6/-1/2/1,
+  7/1/1/1,
+  8/1/2/1
+} {
+  \coordinate (r\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (r\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0) coordinate (re\bri);
+}
+\draw (r1) -- (r6);
+\draw (r2) -- (r5);
+\draw (r3) -- (r8);
+\draw (r4) -- (r7);
+\end{scope}
+\draw
+ (le1) -- ++(\brsep,0) coordinate (1)
+ (le6) -- ++(\brsep,0) coordinate (4)
+ (re3) -- ++(-\brsep,0) coordinate (5)
+ (re8) -- ++(-\brsep,0) coordinate (8)
+;
+\path
+coordinate (2) at (le2)
+coordinate (3) at (le5)
+coordinate (6) at (re4)
+coordinate (7) at (re7)
+coordinate (lb) at ($(4)!.5!(8)+(0,-1)$)
+;
+\draw[double=none,Red,line width=2pt] (2) -- (3);
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\brunnianhalftwoside}
+%    \begin{macrocode}
+\newcommand{\brunnianhalftwoside}{%
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/1/1/-1,
+  2/-1/2/-1,
+  3/-1/1/-1,
+  4/1/1/1,
+  5/1/1/-1,
+  6/-1/1/1,
+  7/-1/2/1,
+  8/1/1/1
+} {
+  \coordinate (l\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (l\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0) coordinate (le\bri);
+}
+\draw (l1) -- (l4);
+\draw (l2) -- (l7);
+\draw (l3) -- (l6);
+\draw (l5) -- (l8);
+\begin{scope}[xshift=4cm]
+\foreach \bri/\brdir/\brnud/\brv in {
+  1/1/1/-1,
+  2/-1/2/-1,
+  3/-1/1/-1,
+  4/1/1/1,
+  5/1/1/-1,
+  6/-1/1/1,
+  7/-1/2/1,
+  8/1/1/1
+} {
+  \coordinate (r\bri) at (\brover * \brdir * \brnud,-\bri * \brsep + \brv * \bradj);
+  \draw (r\bri) -- ++(0,-\brv * \bradj) -- +(-\brdir * \brlen - \brover * \brdir * \brnud,0) coordinate (re\bri);
+}
+\draw (r1) -- (r4);
+\draw (r2) -- (r7);
+\draw (r3) -- (r6);
+\draw (r5) -- (r8);
+\end{scope}
+\draw
+ (le2) -- ++(\brsep,0) coordinate (1)
+ (le7) -- ++(\brsep,0) coordinate (4)
+ (re1) -- ++(-\brsep,0) coordinate (5)
+ (re8) coordinate (6)
+;
+\path
+coordinate (2) at (le3)
+coordinate (3) at (le6)
+coordinate (8) at (re4)
+coordinate (7) at (re5)
+coordinate (lb) at ($(4)!.5!(8)+(0,-1)$)
+;
+\draw[double=none,Red,line width=2pt] (6) -- (7);
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\brunnianringonetwoside}
+%    \begin{macrocode}
+\newcommand{\brunnianringonetwoside}{
+\fill[gray] (-\brlen,-.5*\brsep) rectangle (\brlen, .5*\brsep);
+\draw[double=none,Red,line width=2pt]
+ (-\brlen,-.5*\brsep)
+ ++(-\brsep,-\brsep) coordinate (1)
+ ++(-\brsep,-\brsep) coordinate (2)
+ ++(-\brsep,-\brsep) coordinate (c3) -- +(\brsep,0) coordinate (3)
+ ++(-\brsep,-\brsep) coordinate (c4) -- +(4*\brsep,0) coordinate (4)
+ (\brlen,-.5*\brsep)
+ ++(\brsep,-\brsep) coordinate (5)
+ ++(\brsep,-\brsep) coordinate (6)
+ ++(\brsep,-\brsep) coordinate (c7) -- +(-\brsep,0) coordinate (7)
+ ++(\brsep,-\brsep) coordinate (c8) -- +(-4*\brsep,0) coordinate (8)
+;
+\draw[double=none,Red,line width=2pt]
+ (1) -- ++(0,3*\brsep) -| (5)
+ (2) -- ++(0,5*\brsep) -| (6)
+ (c3) -- ++(0,7*\brsep) -| (c7)
+ (c4) -- ++(0,9*\brsep) -| (c8)
+;
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \iffalse
+%</package>
+% \fi
+%
+% \Finale
+\endinput

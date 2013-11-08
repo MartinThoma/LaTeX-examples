@@ -1,4 +1,4 @@
-SOURCE = 'sin(1divx)'
+SOURCE = topology-sinx
 DELAY = 80
 DENSITY = 300
 WIDTH = 500

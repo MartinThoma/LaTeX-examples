@@ -8,5 +8,10 @@ make:
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Stichwortverzeichnis einbinden
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Symbolverzeichnis einbinden
 
+ebook:
+	latexml --dest=$(DOKUMENT).xml $(DOKUMENT).tex
+	latexmlpost -dest=$(DOKUMENT).html $(DOKUMENT).xml
+	ebook-convert $(DOKUMENT).html $(DOKUMENT).epub --language de --no-default-epub-cover
+
 clean:
 	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg figures/torus.tex *.glg *.glo *.gls *.ist *.xdy

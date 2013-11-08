@@ -1,0 +1,25 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{brunnian}
+\usetikzlibrary{arrows}
+
+\begin{document}
+\tikzset{%
+    every path/.style={red,line width=2pt},%
+    every node/.style={transform shape,knot crossing,inner sep=1.5pt},%
+    >=triangle 60,%
+    text node/.style={rectangle,transform shape=false,black}%
+}
+
+\begin{tikzpicture}
+\foreach \brk in {0,1,2} {
+    \begin{scope}[rotate=\brk * 120]
+        \node (k\brk) at (0,-1) {};
+    \end{scope}
+}
+\draw (0,0) \foreach \brk in {0,1,2} {
+    let 
+    \n0=\brk, 
+    \n1={int(Mod(\brk+1,3))}, 
+    \n2={int(Mod(\brk+2,3))} in (k\n0) .. controls (k\n0.16 south east) and (k\n1.16 south west) .. (k\n1.center) .. controls (k\n1.4 north east) and (k\n2.4 north west) .. (k\n2)} (k2);
+\end{tikzpicture}
+\end{document}

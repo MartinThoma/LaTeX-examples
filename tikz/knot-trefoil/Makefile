@@ -1,14 +1,14 @@
-SOURCE = 'sin(1divx)'
+SOURCE = knot-trefoil
 DELAY = 80
 DENSITY = 300
-WIDTH = 500
+WIDTH = 512
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.data *.gnuplot
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.data *.gnuplot *.hd *.glo *.ins *.out *.idx
 
 gif:
 	pdfcrop $(SOURCE).pdf
