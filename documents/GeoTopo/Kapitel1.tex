@@ -47,7 +47,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
             \end{itemize}
         \item $X := \mdr^n, \fT_Z = \{U \subseteq \mdr^n | \text{Es gibt Polynome } f_1, \dots, f_r \in \mdr[X_1, \dots, X_n] \text{ sodass }\\\mdr^n \setminus U = V(f_1, \dots, f_r)\}$
         \item $X := \Set{0,1}, \fT = \Set{\emptyset, \Set{0,1}, \Set{0}}$ heißt \enquote{Sierpińskiraum}.\xindex{Sierpińskiraum}\\
-              abgeschlossene Mengen: $\emptyset, \Set{0,1}, \Set{1}$
+              $\emptyset, \Set{0,1}, \Set{1}$ sind dort alle abgeschlossenen Mengen.
     \end{enumerate}
 \end{beispiel}
 
@@ -326,7 +326,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \enquote{$\Rightarrow$}: Sei $x \in X, \varepsilon > 0$ gegeben
     und $U := \fB_\varepsilon(f(x))$.\\
     Dann ist $U$ offen in $Y$.\\
-    $\stackrel{\ref{def:stetigkeit}}{\Rightarrow} f^{-1}(U)$  ist 
+    $\xRightarrow{\ref{def:stetigkeit}} f^{-1}(U)$  ist 
     offen in $X$. Dann ist $x \in f^{-1}(U)$.\\
     $\Rightarrow \exists \delta > 0$, sodass 
     $\fB_\delta(x) \subseteq f^{-1} (U)$\\
@@ -335,7 +335,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
     \enquote{$\Leftarrow$}: Sei $U \subseteq Y$ offen, $X \in f^{-1}(U)$.\\
     Dann gibt es $\varepsilon > 0$, sodass $\fB_\varepsilon(f(x)) \subseteq U$\\
-    $\stackrel{\text{Vor.}}{\Rightarrow}$ Es gibt $\delta > 0$, sodass
+    $\xRightarrow{\text{Vor.}}$ Es gibt $\delta > 0$, sodass
     $f(\fB_\delta(x)) \subseteq \fB_\varepsilon (f(x)))$\\
     $\Rightarrow \fB_\delta(x) \subseteq f^{-1}(\fB_\varepsilon(f(x))) \subseteq f^{-1}(U)$
     $\qed$
@@ -546,9 +546,9 @@ sodass $\pi$ stetig wird.
 \begin{beweis}
     Sei $A \cup B = U_1 \cup U_2, U_i \neq \emptyset$ offen, disjunkt
     \begin{align*}
-        &\stackrel{\text{\OE}}{\Rightarrow} A = (A \cap U_1) \cup (A \cap U_2) \text{ offen, disjunkt}\\
-        &\stackrel{A \text{ zhgd.}}{\Rightarrow} A \cap U_1 = \emptyset\\
-        &\stackrel{A \cap B \neq \emptyset}{\Rightarrow} U_1 \subseteq B\\
+        &\xRightarrow{\text{\OE{}}} A = (A \cap U_1) \cup (A \cap U_2) \text{ offen, disjunkt}\\
+        &\xRightarrow{A \text{ zhgd.}} A \cap U_1 = \emptyset\\
+        &\xRightarrow{A \cap B \neq \emptyset} U_1 \subseteq B\\
         &B = \underbrace{(B \cap U_1)}_{= U_1} \cup \underbrace{(B \cap U_2)}_{= \emptyset} \text{ ist unerlaubte Zerlegung}
     \end{align*}
     $\qed$
@@ -585,7 +585,7 @@ sodass $\pi$ stetig wird.
         \item Nach Korollar \ref{zusammenhangAbschluss} ist $\overline{Z(x)}$
               zusammenhängend $\Rightarrow \overline{Z(x)} \subseteq Z(x)$
               $\Rightarrow Z(x) = \overline{Z(x}$
-        \item Ist $Z(y) \cap Z(x) \neq \emptyset \stackrel{\ref{zusammenhangVereinigung}}{\Rightarrow} Z(y) \cup Z(x)$
+        \item Ist $Z(y) \cap Z(x) \neq \emptyset \xRightarrow{\ref{zusammenhangVereinigung}} Z(y) \cup Z(x)$
               ist zusammenhängend. \\
               \begin{align*}
                 \Rightarrow Z(x) \cup Z(y) &\subseteq Z(x) \Rightarrow Z(y) \subseteq Z(x)\\
@@ -680,10 +680,10 @@ $\qed$
     \begin{align*}
         &\Rightarrow A \subseteq \bigcup_{i \in I} U_i\\
         &\Rightarrow \mathfrak{U} = \Set{U_i | i \in I} \cup \Set{X \setminus A} \text{ ist offene Überdeckung von } X\\
-        &\stackrel{X \text{ kompakt}}{\Rightarrow} \text{ es gibt } i_1, \dots, i_n \in I\text{, sodass }\bigcup_{j=1}^n U_{i_j} \cup (X \setminus A) = X\\
+        &\xRightarrow{X \text{ kompakt}} \text{ es gibt } i_1, \dots, i_n \in I\text{, sodass }\bigcup_{j=1}^n U_{i_j} \cup (X \setminus A) = X\\
         &\Rightarrow \left (\bigcup_{j=1}^n U_{i_j} \cup (X \setminus A)\right ) \cap A = A\\
-        &\Rightarrow \bigcup_{j=1}^n \underbrace{(U_{i_j} \cap A)}_{= V_{i_j}} \cup \underbrace{((X \setminus A) \cap A)}_{= \emptyset}\\
-        &\Rightarrow V_{i_1}, \dots, V_{i_n} \text{ Überdecken } A
+        &\Rightarrow \bigcup_{j=1}^n \underbrace{(U_{i_j} \cap A)}_{= V_{i_j}} \cup \underbrace{((X \setminus A) \cap A)}_{= \emptyset} = A\\
+        &\Rightarrow V_{i_1}, \dots, V_{i_n} \text{ überdecken } A
     \end{align*}
     $\qed$
 \end{beweis}
@@ -756,7 +756,7 @@ $\qed$
 \begin{beweis}
     Sei $(V_i)_{i \in I}$ offene Überdeckung von $f(K)$
     $\Rightarrow (f^{-1}(V_i))_{i \in I}$ ist offene Überdeckung von $K$\\
-    $\stackrel{\text{Kompakt}}{\Rightarrow}$ es gibt $i_1, \dots, i_n$, 
+    $\xRightarrow{\text{Kompakt}}$ es gibt $i_1, \dots, i_n$, 
     sodass $f^{-1}(V_{i_1}), \dots, f^{-1}(V_{i_n})$ Überdeckung von
     $K$ ist.\\
     $\Rightarrow f(f^{-1}( V_{i_1})), \dots, f(f^{-1}(V_{i_n}))$ 

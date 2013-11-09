@@ -1,6 +1,7 @@
 \documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
 \usepackage{etoolbox}
 \usepackage{amsmath,amssymb}% math symbols / fonts
+\usepackage{mathtools}      % \xRightarrow
 \usepackage{nicefrac}       % \nicefrac
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
@@ -35,6 +36,22 @@
 \usetikzlibrary{3d,calc,intersections,er,arrows,positioning,shapes.misc,patterns,fadings,decorations.pathreplacing}
 \usepackage{cleveref} % has to be after hyperref, ntheorem, amsthm
 \usepackage{shortcuts}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]%
+{\markboth{\MakeUppercase{\thechapter.\ #1}}{}}
+\renewcommand{\sectionmark}[1]%
+{\markright{\MakeUppercase{\thesection.\ #1}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\newcommand{\helv}{%
+\fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
+\fancyhf{}
+\fancyhead[LE,RO]{\helv \thepage}
+\fancyhead[LO]{\helv \rightmark}
+\fancyhead[RE]{\helv \leftmark}
+
 
 % Setze den richtigen Namen für das Glossar und das Stichwortverzeichnis
 \newcommand{\glossarName}{Symbolverzeichnis}
