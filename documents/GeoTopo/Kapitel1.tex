@@ -224,7 +224,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     $X = \mdr^2$ und $d\left ((x_1, y_1), (x_2, y_2)\right ) := \max(\|x_1 - x_2\|, \|y_1 - y_2\|)$
     ist Metrik.
 
-    \emph{Beobachtung:} $d$ erzeugt die eukldische Topologie.
+    \emph{Beobachtung:} $d$ erzeugt die euklidische Topologie.
 
     \begin{figure}[ht]
         \centering
@@ -743,9 +743,9 @@ $\qed$
         &\Rightarrow V \cap \left (\bigcup_{i=1}^n U_{x_i} \right) = \emptyset \\
         &\Rightarrow V \cap K = \emptyset\\
         &\Rightarrow V \text{ ist Überdeckung von } y\text{, die ganz in } X \setminus K \text{ enthalten ist}.\\
-        &\Rightarrow X \setminus K \text{ ist offen}\\
-        &\Rightarrow K \text{ ist abgeschlossen} \qed
+        &\Rightarrow X \setminus K \text{ ist offen}
     \end{align*}
+    Damit ist $K$ abgeschlossen. $\qed$
 \end{beweis}
 
 \begin{korollar}
@@ -754,8 +754,8 @@ $\qed$
 \end{korollar}
 
 \begin{beweis}
-    Sei $(V_i)_{i \in I}$ offene Überdeckung von $f(K)$
-    $\Rightarrow (f^{-1}(V_i))_{i \in I}$ ist offene Überdeckung von $K$\\
+    Sei $(V_i)_{i \in I}$ offene Überdeckung von $f(K)$\\
+    $\xRightarrow{f \text{ stetig}} (f^{-1}(V_i))_{i \in I}$ ist offene Überdeckung von $K$\\
     $\xRightarrow{\text{Kompakt}}$ es gibt $i_1, \dots, i_n$, 
     sodass $f^{-1}(V_{i_1}), \dots, f^{-1}(V_{i_n})$ Überdeckung von
     $K$ ist.\\
