@@ -1,6 +1,6 @@
 \chapter*{Lösungen der Übungsaufgaben}
 \addcontentsline{toc}{chapter}{Lösungen der Übungsaufgaben}
-\begin{solution}[\ref{ub:aufg1}]
+\begin{solution}[\ref{ub1:aufg1}]
     \textbf{Teilaufgabe a)} Es gilt:
     \begin{enumerate}[label=(\roman*)]
         \item $\emptyset, X \in \fT_X$.
@@ -24,6 +24,41 @@
     dass $(X, \fT_X)$ kein metrischer Raum sein kann.
 \end{solution}
 
-\begin{solution}[\ref{ub:aufg4}]
+\begin{solution}[\ref{ub1:aufg4}]
     \todo[inline]{Lösung schreiben}
+\end{solution}
+
+\begin{solution}[\ref{ub2:aufg4}]
+    \begin{enumerate}[label=(\alph*)]
+        \item \underline{Beh.:} Die offenen Mengen von $P$ sind
+              Vereinigungen von Mengen der Form 
+              \[\prod_{j \in J} U_j \times \prod_{i \in \mdn, i \neq j} P_i\]
+              wobei $J \subseteq \mdn$ endlich und $U_j \subseteq P_j$
+              offen ist.
+              \begin{beweis}
+                Nach Definition der Produkttopologie bilden Mengen
+                der Form
+                \[\prod_{i \in J} U_j \times \prod_{\stackrel{i \in \mdn}{i \notin J}} P_i, \text{ wobei } J \subseteq \mdn \text{ endlich und } U_j \subseteq P_j \text{offen } \forall{j \in J}\]
+                eine Basis der Topologie. Damit sind die offenen 
+                Mengen von $P$ Vereinigungen von Mengen der obigen
+                Form. $\qed$
+              \end{beweis}
+        \item \underline{Beh.:} Die Zusammenhangskomponenten von $P$
+              sind alle einpunktig.\xindex{Total Unzusammenhängend}
+              \begin{beweis}
+                Es seinen $x,y \in P$ und $x$ sowie $y$ liegen in der
+                gleichen Zusammenhangskomponente $Z \subseteq P$.
+                Da $Z$ zusammenhängend ist und $\forall{i \in I}: p_i : P \rightarrow P_i$
+                ist stetig, ist $p_i(Z) \subseteq P_i$ zusammenhängend
+                für alle $i \in \mdn$. Die zusammenhängenden Mengen
+                von $P_i$ sind genau $\Set{0}$ und $\Set{1}$, d.~h.
+                für alle $i \in \mdn$ gilt entweder $p_i(Z) \subseteq \Set{0}$
+                oder $p_i(Z) \subseteq \Set{1}$. Es sei $z_i \in \Set{0,1}$
+                so, dass $p_i(Z) \subseteq \Set{z_i}$ für alle $i \in \mdn$.
+                Dann gilt also: 
+                \[\underbrace{p_i(x)}_{= x_i} = z_i = \underbrace{p_i(y)}_{= y_i} \forall i \in \mdn\]
+                Somit folgt: $x = y \qed$
+                
+              \end{beweis}
+    \end{enumerate}
 \end{solution}
