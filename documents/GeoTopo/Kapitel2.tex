@@ -4,16 +4,16 @@
 \chapter{Mannigfaltigkeiten und Simpizidkomplexe}
 \section{Topologische Mannigfaltigkeiten}
 \begin{definition}
-    Sei $X$ ein topologischer Raum, $n \in \mdn$.
+    Sei $X$ ein topologischer Raum und $n \in \mdn$.
     \begin{enumerate}[label=(\alph*)]
-        \item Eine \textbf{$n$-dimensionale Karte}\xindex{Karte} auf
-              $X$ ist ein Paar $(U, \varphi)$, wobei $U \subset X$
+        \item Eine $n$-dimensionale \textbf{Karte}\xindex{Karte} auf
+              $X$ ist ein Paar $(U, \varphi)$, wobei $U \subseteq X$
               offen und $\varphi: U \rightarrow V$ Homöomorphismus
               von $U$ auf eine offene Teilmenge $V \subseteq \mdr^n$.
-        \item Ein \textbf{$n$-dimensionaler Atlas}\xindex{Atlas} auf $X$ ist eine
+        \item Ein $n$-dimensionaler \textbf{Atlas}\xindex{Atlas} auf $X$ ist eine
               Familie $(U_i, \varphi_i)_{i \in I}$ von Karten auf $X$,
               sodass $\bigcup_{i \in I} U_i = X$.
-        \item $X$ heißt (topologische) \textbf{$n$-dimensionale Mannigfaltigkeit}\xindex{Mannigfaltigkeit},
+        \item $X$ heißt (topologische) $n$-dimensionale \textbf{Mannigfaltigkeit}\xindex{Mannigfaltigkeit},
               wenn $X$ hausdorffsch ist, eine abzählbare Basis der 
               Topologie hat und ein $n$-dimensionalen Atlas besitzt.
     \end{enumerate}
@@ -24,6 +24,7 @@
         \item Es gibt surjektive, stetige Abbildungen $[0,1] \rightarrow [0,1] \times [0,1]$
         \item Für $n \neq m$ sind $\mdr^n$ und $\mdr^m$ nicht homöomorph.
               Zum Beweis benutzt man den \enquote{Satz von der Gebietstreue} (Brouwer):
+
               Ist $U \subseteq \mdr^n$ offen und $f: U \rightarrow \mdr^n$
               stetig und injektiv, so ist $f(U)$ offen.
 
@@ -45,14 +46,15 @@
         \item $\mdp^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\mdp^n(\mdc)$ sind Mannigfaltigkeiten 
               der Dimension $n$ bzw. $2n$.
 
-              $\mdp^n(\mdr) = \bigcup_{i=0}^n U_i, U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} \rightarrow \mdr^n$
+              $\mdp^n(\mdr) = \bigcup_{i=0}^n U_i,$
               \begin{align*}
+U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n\\
                 (x_0 : \dots : x_n) &\mapsto \left (\frac{x_0}{x_i}, \dots, \frac{x_i}{x_i}, \dots, \frac{x_n}{x_i} \right )\\
                 (y_1 : \dots : y_{i-1} : 1 : y_i : \dots : y_n) &\mapsfrom (y_1, \dots, y_n)
               \end{align*}
               ist bijektiv.
 
-              Die $U_i,\; i = 0, \dots, n$ bilden $n$-dimensionalen Atals.
+              Die $U_i,\; i = 0, \dots, n$ bilden einen $n$-dimensionalen Atals.
               \begin{align*}
                       x &= (1:0:0)            &y &= (0:1:1) \in U_2 \rightarrow \mdr^2\\
                 \in U_0 &\rightarrow \mdr^2   &y &\mapsto (0,1)\\
