@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Henriekes Mitschrieb vom 07.11.2013                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Mannigfaltigkeiten und Simpizidkomplexe}
+\section{Topologische Mannigfaltigkeiten}
+\begin{definition}
+    Sei $X$ ein topologischer Raum, $n \in \mdn$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Eine \textbf{$n$-dimensionale Karte}\xindex{Karte} auf
+              $X$ ist ein Paar $(U, \varphi)$, wobei $U \subset X$
+              offen und $\varphi: U \rightarrow V$ Homöomorphismus
+              von $U$ auf eine offene Teilmenge $V \subseteq \mdr^n$.
+        \item Ein \textbf{$n$-dimensionaler Atlas}\xindex{Atlas} auf $X$ ist eine
+              Familie $(U_i, \varphi_i)_{i \in I}$ von Karten auf $X$,
+              sodass $\bigcup_{i \in I} U_i = X$.
+        \item $X$ heißt (topologische) \textbf{$n$-dimensionale Mannigfaltigkeit}\xindex{Mannigfaltigkeit},
+              wenn $X$ hausdorffsch ist, eine abzählbare Basis der 
+              Topologie hat und ein $n$-dimensionalen Atlas besitzt.
+    \end{enumerate}
+\end{definition}
+
+\begin{bemerkung}
+    \begin{enumerate}[label=(\alph*)]
+        \item Es gibt surjektive, stetige Abbildungen $[0,1] \rightarrow [0,1] \times [0,1]$
+        \item Für $n \neq m$ sind $\mdr^n$ und $\mdr^m$ nicht homöomorph.
+              Zum Beweis benutzt man den \enquote{Satz von der Gebietstreue} (Brouwer):
+              Ist $U \subseteq \mdr^n$ offen und $f: U \rightarrow \mdr^n$
+              stetig und injektiv, so ist $f(U)$ offen.
+
+              Ist $n < m$ und $\mdr^m$ homöomorph zu $\mdr^n$, so wäre
+              \[f:\mdr^n \rightarrow \mdr^m \rightarrow \mdr^n, \;\;\; (x_1, \dots, x_n) \mapsto (x_1, x_2, \dots, x_n, 0, \dots, 0)\]
+              eine stetige injektive Abbildung. Also müsste $f(\mdr^n)$
+              offen sein $\Rightarrow$ Widerspruch
+    \end{enumerate}
+\end{bemerkung}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item Jede offene Teilmenge $U \subseteq \mdr^n$ ist eine 
+              $n$-dimensionale Mannigfaltigkeit mit einem Atlas aus 
+              einer Karte.
+        \item $\mdc^n$ ist eine $2n$-dimensionale Mannigfaltigkeit
+              mit einem Atlas aus einer Karte:
+              \[(z_1, \dots, z_n) \mapsto (\operatorname{Re} z_1, \operatorname{Im}z_1, \dots, \operatorname{Re}z_n, \operatorname{Im}z_n)\]
+        \item $\mdp^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\mdp^n(\mdc)$ sind Mannigfaltigkeiten 
+              der Dimension $n$ bzw. $2n$.
+
+              $\mdp^n(\mdr) = \bigcup_{i=0}^n U_i, U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} \rightarrow \mdr^n$
+              \begin{align*}
+                (x_0 : \dots : x_n) &\mapsto \left (\frac{x_0}{x_i}, \dots, \frac{x_i}{x_i}, \dots, \frac{x_n}{x_i} \right )\\
+                (y_1 : \dots : y_{i-1} : 1 : y_i : \dots : y_n) &\mapsfrom (y_1, \dots, y_n)
+              \end{align*}
+              ist bijektiv.
+
+              Die $U_i,\; i = 0, \dots, n$ bilden $n$-dimensionalen Atals.
+              \begin{align*}
+                      x &= (1:0:0)            &y &= (0:1:1) \in U_2 \rightarrow \mdr^2\\
+                \in U_0 &\rightarrow \mdr^2   &y &\mapsto (0,1)\\
+                      x &\mapsto (0,0)        &&\text{Umgebung: } \fB_1 (0,1) \rightarrow \Set{(w:z:1) | w^2 + z^2 < 1} = V_2
+              \end{align*}
+              Umgebung $\fB_1(0,1) \rightarrow \Set{(1:u:v) | \|(u,v)\| < 1} = v_1$
+
+              $V_1 \cap V_2 = \emptyset$?
+
+              $(a:b:c) \in V_1 \cap V_2$\\
+              $\Rightarrow a \neq 0$ und $(\frac{b}{a})^2 + (\frac{c}{a})^2 < 1 \Rightarrow \frac{c}{a} < 1$\\
+              $\Rightarrow c \neq 0$ und $(\frac{a}{c})^2 + (\frac{b}{c})^2 < 1 \Rightarrow \frac{a}{c} < 1$\\
+              $\Rightarrow$ Widerspruch
+        \item $S^n = \Set{x \in \mdr^{n+1} | \|x\| = 1}$ ist $n$-dimensionale
+              Mannigfaltigkeit.
+
+              Karten: $O_i := \Set{(x_1, \dots, x_{n+1}) \in S^n | x_i > 0} \rightarrow \fB_1 (\underbrace{0, \dots, 0}_{\in \mdr^n})$\\
+              $(x_1, \dots, x_{n+1}) \mapsto (x_1, \dots, x_i, \dots, x_{n+1})$\\
+              $(x_1, \dots, x_{i-1}, \sqrt{1 - \sum x^2}) \mapsfrom (x_1, \dots, x_n)$\todo{was genau steht hier?}\\
+              $S^n = \bigcup_{i=1}^{n+1} (c_i \cup D_i)$
+        \item $[0,1]$ ist keine Mannigfaltigkeit, denn:\\
+              Es gibt keine Umgebung von $0$ in $[0,1]$, die homöomorph
+              zu einem offenem Intervall ist.
+        \item $V_1 = \Set{(x,y) \in \mdr^2 | x \cdot y = 0}$ ist
+              keine Mannigfaltigkeit.
+        \item $V_2 = \Set{(x,y) \in \mdr^2 | x^3 = y^2}$ ist eine
+              Mannigfaltigkeit.
+        \item $X = (\mdr \setminus \Set{0}) \cup (O_1, O_2)$
+
+              \[U \subseteq X \text{ offen } \gdw 
+                \begin{cases}
+                    U \text{ offen in } \mdr \setminus \Set{0}, &\text{falls } O_1 \notin U, O_2 \in U\\
+                    \exists \varepsilon > 0 \text{ mit } (-\varepsilon, \varepsilon) \subseteq U &\text{falls } O_1 \in U, O_2 \in U
+                \end{cases}\]
+              Insbesondere sind $(\mdr \setminus \Set{0}) \cup \Set{O_1}$
+              und $(\mdr \setminus \Set{0}) \cup \Set{O_2}$ offen und
+              homöomorph zu $\mdr$.
+
+              \underline{Aber:} $X$ ist nicht hausdorffsch!
+              Denn es gibt keine disjunkten Umgebungen von $O_1$ und
+              $O_2$.
+        \item $\GL_n(\mdr)$ ist eine Mannigfaltigkeit der Dimension 
+              $n^2$, weil offene Teilmengen von $\mdr^{n^2}$ eine
+              Mannigfaltigkeit bilden.
+    \end{enumerate}
+\end{beispiel}
+
+% Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
+\input{Kapitel2-UB}
