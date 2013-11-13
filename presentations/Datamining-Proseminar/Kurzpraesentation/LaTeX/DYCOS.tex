@@ -1,0 +1,28 @@
+\subsection{DYCOS}
+\begin{frame}{Allgmeines}
+    \begin{center}
+    \Huge
+    \textbf{DY}namic \textbf{C}lassification algorithm with 
+    c\textbf{O}ntent and \textbf{S}tructure
+    \end{center}
+\end{frame}
+
+\begin{frame}{Der Algorithmus}
+\begin{algorithm}[H]
+	\begin{algorithmic}
+		\Function{DYCOS}{Network $G_t = (N_t, A_t, T_t), l, h, p_s$}
+			\ForAll{node $v$ in $T_t$} \Comment{Für jeden gelabelten Knoten}
+			    \For{$i \in 1, \dots, l$} 
+				    \State Perform an $h$-hop random walk from $v$
+			    \EndFor
+                \State Classify $v$ with the class labels most frequent
+                       encountered
+			\EndFor
+		\EndFunction
+	\end{algorithmic}
+\caption{Tarjans Algorithmus zur bestimmung starker Zusammenhangskomponenten}
+\label{alg:seq1}
+\end{algorithm}
+\end{frame}
+
+
