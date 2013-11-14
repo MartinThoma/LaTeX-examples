@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{calc} 
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \newcommand\angleR{35}
+    \newcommand\radiusR{4cm}
+
+    \coordinate[label=below left:$O$] (O) at (0,0);
+    \draw[->,very thick] (0,0)--(0,5) node[above] {$x$};
+    \draw[->,very thick] (0,0)--(-2.5,0) node[left] {$y$};
+    \node at (90+15:\radiusR+0.5cm) {$\alpha > 0$};
+    \node at (90-15:\radiusR+0.5cm) {$\alpha < 0$};
+    \draw[fill=orange!30] (-1,-1) rectangle (1,2);
+    \draw[fill=blue!30] (0,2) circle (0.3cm);
+
+    % Draw angle
+    \begin{scope}[shift={(0,0)}]
+        \draw[thick, <->] ([shift={({90+\angleR}:\radiusR)}]-0.0,0) arc ({90+\angleR}:{90-\angleR}:\radiusR);
+    \end{scope}
+\end{tikzpicture}
+\end{preview}
+\end{document}
