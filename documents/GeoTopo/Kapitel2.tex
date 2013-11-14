@@ -102,5 +102,152 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
     \end{enumerate}
 \end{beispiel}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 14.11.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}\xindex{Verklebung}
+    Seien $X, Y$ $n$-dimensionale Mannigfaltigkeiten, $U \subseteq X$
+    und $V \subseteq Y$ offen, $\Phi: U \rightarrow V$ ein Homöomorphismus
+    $Z = (X \dcup Y) /_\sim$ mit der von $u \sim \Phi(u) \forall{u \in U}$
+    erzeugten Äquivalenzrelation und der von $\sim$ induzierten 
+    Quotiententopologie.
+
+    $Z$ heißt \textbf{Verklebung} von $X$ und $Y$ längs $U$ und $V$.
+    $Z$ besitzt einen Atlas aus $n$-dimensionalen Karten.
+    Falls $Z$ hausdoffsch ist, ist $Z$ eine $n$-dimensionale 
+    Mannigfaltigkeit.
+\end{definition}
+
+\todo[inline]{Bilder mit Verklebung einfügen}
+
+\begin{korollar}
+    Sind $X, Y$ Mannigfaltigkeiten der Dimension $n$ bzw. $m$, so ist
+    $X \times Y$ eine Mannigfaltigkeit der Dimension $n+m$.
+\end{korollar}
+
+\begin{beweis}
+    Produkte von Karten sind Karten. $\qed$
+\end{beweis}
+
+\begin{beispiel}
+    Mannigfaltigkeiten mit Dimension 1:
+    \begin{enumerate}[label=\arabic*)]
+        \item Offene Intervalle, $\mdr$, $(0,1)$ sind alle homöomorph
+        \item $S^1$
+    \end{enumerate}
+
+    Mannigfaltigkeiten mit Dimension 2:
+    \begin{enumerate}[label=\arabic*)]
+        \item $\mdr^2$
+        \item $S^2$ (0 Henkel)
+        \item $T^2$ (1 Henkel)
+        \item oder mehr Henkel, wie z.B. der Zweifachtorus in Abb. \ref{fig:double-torus}
+    \end{enumerate}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/Double-torus-illustration.png}
+        \caption{Zweifachtorus}
+        \label{fig:double-torus}
+    \end{figure}
+\end{beispiel}
+
+\begin{korollar}
+    Sei $n \in \mdn, F:\mdr^n \rightarrow \mdr$ stetig differenzierbar
+    und $X = V(F) := \Set{x \in \mdr^n | F(x) = 0}$ das \enquote{vanishing set}.
+
+    Dann gilt:
+    \begin{enumerate}[label=\alph*)]
+        \item $X$ ist abgeschlossen in $\mdr^n$
+        \item Ist $\text{grad}(F)(X) \neq 0 \forall{x \in X}$, so ist
+              $X$ eine Mannigfaltigkeit der Dimension $n-1$.  \label{Mannigfaltigkeitskriterium}
+    \end{enumerate}
+\end{korollar}
+
+\begin{beweis}
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+        \item Sei $y \in \mdr^n \setminus V(F)$. Weil $F$ stetig ist,
+              gibt es $\delta > 0$, sodass $F(\fB_\delta(y)) \subseteq \fB_\varepsilon(F(y))$
+              mit $\varepsilon = \frac{1}{2} \|F(y)\|$. Folgt
+              $\fB_\delta(y) \cap V(F) = \emptyset \Rightarrow \mdr^n \setminus V(F)$
+              ist offen.
+        \item Sei $x \in X$ mit $\text{grad}(F)(x) \neq 0$, also
+              \obda $\frac{\partial F}{\partial X_1} (x) \neq 0$,
+              $x = (x_1, \dots, x_n)$, $x' := (x_2, \dots, x_n) \in \mdr^{n-1}$.
+              Der Satz von der impliziten Funktion liefert nun:
+              Es gibt Umgebungen $U$ von $x'$ und differenzierbare
+              Funktionen $g: U \rightarrow \mdr$, sodass
+              $G: U \rightarrow \mdr^n, \; u \mapsto (g(u), u)$
+              eine stetige Abbildung auf eine offene Umgebung $V$ von
+              $x$ in $X$ ist.
+    \end{enumerate}  
+    $\qed$
+\end{beweis}
+
+\begin{beispiel}\xindex{Neilsche Parabel}
+    \begin{enumerate}[label=\alph*)]
+        \item $F: \mdr^3 \rightarrow \mdr,\;\;\; (x, y, z) \mapsto x^2 + y^2 + z^2 - 1$,
+              $V(F) = S^2$, $\text{grad}(F) = (2x, 2y, 2z) \xRightarrow{\ref{Mannigfaltigkeitskriterium}} S^n$
+              ist $n$-dimensionale Mannigfaltigkeit in $\mdr^{n+1}$
+        \item $F: \mdr^2 \rightarrow \mdr, \;\;\; (x,y) \mapsto y^2 - x^3$
+            \begin{figure}[ht]
+                \centering
+                \subfloat[$F(x,y) = y^2 - x^3$]{
+                    \input{figures/3d-function-semicubical-parabola.tex}
+                    \label{fig:semicubical-parabola-2d}
+                }%
+                \subfloat[$y^2 - ax^3 = 0$]{
+                    \input{figures/2d-semicubical-parabola.tex}
+                    \label{fig:semicubical-parabola-3d}
+                }%
+                \label{Neilsche-Parabel}
+                \caption{Rechts ist die Neilsche Parabel für verschiedene Parameter $a$.}
+            \end{figure}
+              Es gilt: $\text{grad}(F) = (-3x^2, 2y)$. Also: $\text{grad}(0,0) = (0,0)$.
+              Daher ist Korollar \label{Mannigfaltigkeitskriterium}
+              nicht anwendbar, aber $V(F)$ ist trotzdem
+              eine 1-dimensionale topologische Mannigfaltigkeit.
+    \end{enumerate}
+\end{beispiel}
+
+\begin{definition}\textbf{Mannigfaltigkeit!mit Rand}
+    Sei $X$ ein Hausdorffraum mit abzählbarer Basis der Topologie.
+    $X$ heißt $n$-dimensionale \textbf{Mannigfaltigkeit mit Rand},
+    wenn es einen Atlas $(U_i, \varphi_i)$ gibt, wobei $U_i \subseteq X_i$
+    offen und $\varphi_i$ ein Homöomorphismus auf eine offene 
+    Teilmenge von 
+    \[R_{+,0}^n := \Set{(x_1, \dots, x_n) \in \mdr^n | x_m \geq 0}\]
+    ist. $R_{+,0}^n$ ist ein \enquote{Halbraum}.
+\end{definition}
+
+\begin{beispiel}
+    \todo[inline]{Viele Bilder: Pair of pants, sphere with a hole, halbraum...}
+\end{beispiel}
+
+\begin{definition}\xindex{Rand}
+    Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Rand und
+    Atlas $(U_i, \varphi_i)$. Dann heißt 
+    \[\partial X := \bigcup_{i\in I} \Set{x \in U_i | \varphi_i (x)_n = 0}\]
+    \textbf{Rand} von $X$.
+\end{definition}
+
+$\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
+
+\begin{definition}\xindex{Kartenwechsel}\xindex{bergangsfunktion}
+    Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Atlas
+    $(U_i, \varphi_i)_{i \in I}$
+
+    \begin{enumerate}[label=\alph*)]
+        \item Für $i, j \in I$ mit $U_i, U_j \neq \emptyset$ heißt
+              \begin{align*}
+                \varphi_{ij} &:= \varphi_j \circ \varphi_i^{-1}\\
+                \varphi_i (U_i \cap U_j) &\rightarrow \varphi_j (U_i \cap U_j)
+              \end{align*}
+              \textbf{Kartenwechsel} oder \textbf{Übergangsfunktion}.
+    \end{enumerate}
+\end{definition}
+
+\todo[inline]{Bilder mit Verklebung einfügen}
+
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel2-UB}
