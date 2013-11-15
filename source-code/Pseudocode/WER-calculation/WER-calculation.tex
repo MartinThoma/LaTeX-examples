@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \Function{WER}{Reference $r$, Hypophysis $h$}
+                \State int[$|r|+1$][$|h|+1$] $D$ \Comment{Initialisation}
+                \For{($i=0$; $\;i \leq |r|$; $\;i$++)}
+                    \For{($j=0$; $\;j \leq |h|$; $\;j$++)}
+                        \If{$i==0$}
+                            \State $D[0][j] \gets j$
+                        \ElsIf{$j==0$}
+                            \State $D[i][0] \gets i$
+                        \EndIf
+                    \EndFor
+                \EndFor
+
+                \State
+                \For{($i=1$; $\;i \leq |r|$; $\;i$++)} \Comment{Calculation}
+                    \For{($j=1$; $\;j \leq |h|$; $\;j$++)}
+                        \If{$r[i-1] == h[j-1]$}
+                            \State $D[i][j] \gets D[i-1][j-1]$
+                        \Else
+                            \State $sub \gets D[i-1][j-1] + 1$
+                            \State $ins \gets D[i][j-1] + 1$
+                            \State $del \gets D[i-1][j] + 1$
+                            \State $D[i][j] \gets \min(sub, ins, del)$
+                        \EndIf
+                    \EndFor
+                \EndFor
+
+                \State 
+                \State \Return $D[|r|][|h|]$
+            \EndFunction
+        \end{algorithmic}
+    \caption{Calculation of WER with Levenshtein distance}
+    \label{alg:seq1}
+    \end{algorithm}
+\end{preview}
+\end{document}
