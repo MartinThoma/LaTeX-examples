@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+    \draw [white,step=0.5cm, pattern=north east lines] (0,0) rectangle (2,1);
+    \draw[very thick] (0,0) -- (2,0);
+
+    \node at (2.4,0.5) {$\stackrel{\sim}{=}$};
+
+\begin{scope}[shift={(4,0)}]
+    \draw[white,pattern=north east lines] ([shift={(180:1cm)}]-0.0,0) arc (180:0:1cm);
+    \draw[very thick] (-1,0) -- (1,0);
+\end{scope}
+\end{tikzpicture}

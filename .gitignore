@@ -26,6 +26,8 @@
 *.mtc
 *.mtc0
 *.svg
+*.thm
+*.xdy
 
 *.pdf
 
