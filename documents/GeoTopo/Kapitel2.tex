@@ -210,7 +210,7 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
     \end{enumerate}
 \end{beispiel}
 
-\begin{definition}\textbf{Mannigfaltigkeit!mit Rand}
+\begin{definition}\xindex{Mannigfaltigkeit!mit Rand}
     Sei $X$ ein Hausdorffraum mit abzählbarer Basis der Topologie.
     $X$ heißt $n$-dimensionale \textbf{Mannigfaltigkeit mit Rand},
     wenn es einen Atlas $(U_i, \varphi_i)$ gibt, wobei $U_i \subseteq X_i$
@@ -221,7 +221,24 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
 \end{definition}
 
 \begin{beispiel}
-    \todo[inline]{Viele Bilder: Pair of pants, sphere with a hole, halbraum...}
+    \begin{figure}[ht]
+        \centering
+        \subfloat[Halbraum]{
+            \input{figures/topology-halfspace.tex}
+            \label{fig:half-space}
+        }%
+
+        \subfloat[Pair of pants]{
+            \input{figures/topology-pair-of-pants.tex}
+            \label{fig:pair-of-pants}
+        }%
+        \subfloat[Sphäre mit einem Loch]{
+            \input{figures/topology-sphere-with-hole.tex}
+            \label{fig:sphere-with-hole}
+        }%
+        \label{Mannigfaltigkeiten mit Rand}
+        \caption{Beispiele für Mannigfaltigkeiten mit Rand}
+    \end{figure}
 \end{beispiel}
 
 \begin{definition}\xindex{Rand}
