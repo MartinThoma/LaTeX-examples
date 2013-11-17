@@ -118,7 +118,12 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
     Mannigfaltigkeit.
 \end{definition}
 
-\todo[inline]{Bilder mit Verklebung einfügen}
+\begin{figure}[htp]
+    \centering
+    \input{figures/topology-verklebung.tex}
+    \caption{Verklebung}
+    \label{fig:verklebung}
+\end{figure}
 
 \begin{korollar}
     Sind $X, Y$ Mannigfaltigkeiten der Dimension $n$ bzw. $m$, so ist
@@ -220,26 +225,24 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
     ist. $R_{+,0}^n$ ist ein \enquote{Halbraum}.
 \end{definition}
 
-\begin{beispiel}
-    \begin{figure}[ht]
-        \centering
-        \subfloat[Halbraum]{
-            \input{figures/topology-halfspace.tex}
-            \label{fig:half-space}
-        }%
+\begin{figure}[ht]
+    \centering
+    \subfloat[Halbraum]{
+        \input{figures/topology-halfspace.tex}
+        \label{fig:half-space}
+    }%
 
-        \subfloat[Pair of pants]{
-            \input{figures/topology-pair-of-pants.tex}
-            \label{fig:pair-of-pants}
-        }%
-        \subfloat[Sphäre mit einem Loch]{
-            \input{figures/topology-sphere-with-hole.tex}
-            \label{fig:sphere-with-hole}
-        }%
-        \label{Mannigfaltigkeiten mit Rand}
-        \caption{Beispiele für Mannigfaltigkeiten mit Rand}
-    \end{figure}
-\end{beispiel}
+    \subfloat[Pair of pants]{
+        \input{figures/topology-pair-of-pants.tex}
+        \label{fig:pair-of-pants}
+    }%
+    \subfloat[Sphäre mit einem Loch]{
+        \input{figures/topology-sphere-with-hole.tex}
+        \label{fig:sphere-with-hole}
+    }%
+    \label{Mannigfaltigkeiten mit Rand}
+    \caption{Beispiele für Mannigfaltigkeiten mit Rand}
+\end{figure}
 
 \begin{definition}\xindex{Rand}
     Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Rand und
@@ -263,8 +266,6 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               \textbf{Kartenwechsel} oder \textbf{Übergangsfunktion}.
     \end{enumerate}
 \end{definition}
-
-\todo[inline]{Bilder mit Verklebung einfügen}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel2-UB}
