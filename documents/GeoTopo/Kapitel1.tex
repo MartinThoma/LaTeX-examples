@@ -21,7 +21,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{korollar}[Mengen, die offen und abgeschlossen sind, existieren]
     Betrachte $\emptyset$ und $X$ mit der \enquote{trivialen Topologie}
-    \xindex{Topologie!triviale} $\fT_\text{triv} = \Set{\emptyset, X}$.
+    \xindex{Topologie!triviale}\index{Klumpentopologie|see{triviale Topologie}} $\fT_\text{triv} = \Set{\emptyset, X}$.
 
     Es gilt: $X \in \fT$ und $\emptyset \in \fT$, d.~h. $X$ und $\emptyset$
     sind offen. Außerdem $X^C = X \setminus X = \emptyset \in \fT$
@@ -36,14 +36,15 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
                 U \subseteq \mdr^n \text{ offen} \gdw &\text{ für jedes } x \in U \text{ gibt es } r > 0,\\
                                                       &\text{ sodass } \fB_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U
               \end{align*}
-              Also: $\fT = \Set{M \subseteq X | M \text{ ist offene Kugel}}$
-        \item Allgemeiner: $(X, d)$ metrischer Raum
-        \item $X$ Menge, $\fT = \powerset{X}$ heißt \enquote{diskrete Topologie} \xindex{Topologie!diskrete}
+              Also: $\fT = \Set{M \subseteq X | M \text{ ist offene Kugel}}$. 
+              Diese Topolgie wird auch \enquote{Standardtopologie des $\mdr^n$}\xindex{Standardtopologie} genannt.
+        \item Jeder metrische Raum $(X, d)$ ist auch ein topologischer Raum.
+        \item Für eine Menge $X$ heißt $\fT = \powerset{X}$ \enquote{diskrete Topologie}\xindex{Topologie!diskrete}.
         \item $X :=\mdr, \fT_Z := \Set{U \subseteq \mdr | \mdr \setminus U \text{ endlich}} \cup \Set{\emptyset}$ heißt \enquote{Zariski-Topologie} \xindex{Topologie!Zariski}\\
               Beobachtungen: 
             \begin{itemize}
                 \item $U \in \fT_Z \gdw \exists f \in \mdr[X]$, sodass $\mdr \setminus U = V(f) = \Set{x \in \mdr | f(x) = 0}$
-                \item Es gibt keine disjunkten offenen Mengen in $\fT_Z$
+                \item Es gibt keine disjunkten offenen Mengen in $\fT_Z$.
             \end{itemize}
         \item $X := \mdr^n, \fT_Z = \{U \subseteq \mdr^n | \text{Es gibt Polynome } f_1, \dots, f_r \in \mdr[X_1, \dots, X_n] \text{ sodass }\\\mdr^n \setminus U = V(f_1, \dots, f_r)\}$
         \item $X := \Set{0,1}, \fT = \Set{\emptyset, \Set{0,1}, \Set{0}}$ heißt \enquote{Sierpińskiraum}.\xindex{Sierpińskiraum}\\
