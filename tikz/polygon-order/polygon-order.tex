@@ -1,0 +1,25 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,positioning,calc}
+
+\newcommand{\room} {
+    \coordinate[label=left:$A$] (A) at (1,0);
+    \coordinate[label=right:$B$] (B) at (3,0);
+    \coordinate[label=right:$C$] (C) at (4,2);
+    \coordinate[label=above:$D$] (D) at (3,4);
+    \coordinate[label={[label distance=0.5cm]90:$E$}] (E) at (2,2);
+    \coordinate[label=above:$F$] (F) at (1,4);
+    \coordinate[label=left:$G$] (G) at (0,2);
+}
+
+\begin{document}
+    \tikzstyle{polygon}=[very thick, fill=orange!25]
+    \begin{tikzpicture}
+        \room;
+        \draw[polygon] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (G) -- cycle;
+        \begin{scope}[xshift=5.5cm]
+            \room;
+            \draw[polygon] (A) -- (B) -- (C) -- (D) -- (F) -- (E) -- (G) -- cycle;
+        \end{scope}
+    \end{tikzpicture}
+\end{document}
