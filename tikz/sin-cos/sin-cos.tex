@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{0mm}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=0.5]
+    \begin{axis}[
+        axis x line=middle,
+        axis y line=middle,
+        enlarge y limits=true,
+        enlarge x limits=true,
+        xmin=0, xmax=2*pi, % x domain
+        width=15cm, height=8cm,     % size of the image
+        grid = major,
+        grid style={dashed, gray!30},
+        ymin=-1,      % start the diagram at this y-coordinate
+        ymax= 1,      % end   the diagram at this y-coordinate
+        axis background/.style={fill=white},
+        ylabel=$y$,
+        xlabel=$x$,
+        xtick={0,1.5708,3.14159,4.7123889,6.2830},
+        xticklabels={$0$,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+        legend style={at={(0.2,0.37)}, anchor=north}
+     ]
+      \addplot[domain=-8:8,thick,samples=200,red]   {sin(deg(x))};
+      \addplot[domain=-8:8,thick,samples=200,blue,dotted]   {cos(deg(x))};
+      \legend{$\sin x$, $\cos x$}
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}
