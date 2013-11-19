@@ -267,5 +267,172 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \label{fig:kartenwechsel}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 19.11.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Differenzierbare Mannigfaltigkeiten}
+\begin{definition}
+    Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Atlas $(U_i, \varphi_i)_{i \in I}$.
+
+    \begin{enumerate}[label=\alph*)]
+        \item $X$ heißt \textbf{differenzierbare Mannigfaltigkeit der Klasse $C^k$}\xindex{Mannigfaltigkeit!differenzierbare},
+              wenn jede Kartenwechselabbildung $\varphi_{ij},\;i,j \in I$
+              $k$-mal stetig differenzierbar ist.
+        \item $X$ heißt \textbf{differenzierbare Mannigfaltigkeit}\xindex{Mannigfaltigkeit!glatte},
+              wenn $X$ eine differenzierbare Mannigfaltigkeit der
+              Klasse $C^\infty$ ist.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    Sei $X$ eine differenzierbare Mannigfaltigkeit der Klasse $C^k$ 
+    ($k \in \mdn \cup \Set{\infty}$) mit Atlas $(U_i, \varphi_i)_{i \in I}$.
+
+    \begin{enumerate}[label=\alph*)]
+        \item Eine Karte $(U, \varphi)$ auf $X$ heißt \textbf{verträglich}\xindex{verträglich}
+              mit $\atlas$, wenn alle Kartenwechsel $\varphi \circ \varphi_i^{-1}$
+              und $\varphi_i \circ \varphi^{-1}$ ($i \in I$ mit $U_i \cap U \neq \emptyset$)
+              differenzierbar von Klasse $C^k$ sind.
+        \item Die Menge aller mit $\atlas$ verträglichen Karten auf 
+              $X$ bildet einen maximalen Atlas von Klasse $C^k$. Er
+              heißt \textbf{$C^k$-Struktur}\xindex{$C^k$-Struktur} auf $X$.
+            
+              Eine $C^\infty$-Struktur heißt auch \textbf{differenzierbare Struktur}\xindex{Struktur!differenzierbare}
+              auf $X$.
+    \end{enumerate}
+\end{definition}
+
+\begin{bemerkung}
+    Für $n \geq 4$ gibt es auf $S^n$ mehrere verschiedene differenzierbare
+    Strukturen, die sog. \enquote{exotische Sphären}\xindex{Sphäre!exotische}.
+\end{bemerkung}
+
+\begin{definition}
+    Seien $X, Y$ differenzierbare Mannigfaltigkeiten der Dimension
+    $n$ bzw. $m$, $x \in X$.
+
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+        \item Eine stetige Abbildung $f:X \rightarrow Y$ heißt\label{def:stetigeAbbildungDiffbar}
+              \textbf{differenzierbar}\xindex{Abbildung!differenzierbare}
+              in $X$ (von Klasse $C^k$),
+              wenn es Karten $(U, \varphi)$ von $X$ mit
+              $x \in U$ und $(V, \psi)$ von $Y$ mit $f(U) \subseteq V$
+              gibt, sodass $\psi \circ f \circ \varphi^{-1}$ stetig
+              differenzierbar von Klasse $C^k$ in $\varphi(x)$ ist.
+        \item $f$ heißt \textbf{differenzierbar}\todo{stimmt das so?}
+              (von Klasse $C^k$), wenn $f$ in jedem $x \in X$ 
+              differenzierbar ist.
+        \item $f$ heißt \textbf{Diffieomorphismus}\xindex{Diffieomorphismus},
+              wenn $f$ differenzierbar von Klasse $C^\infty$ ist und
+              es eine differenzierbare Abbildung $g: Y \rightarrow X$
+              von Klasse $C^\infty$ gibt mit $g \circ f = \text{id}_X$
+              und $f \circ g = \text{id}_Y$.
+    \end{enumerate}
+\end{definition}
+
+\begin{korollar}
+    Die Bedingung in Definition \ref{def:stetigeAbbildungDiffbar} hängt nicht
+    von den gewählten Karten ab.
+\end{korollar}
+
+\begin{beweis}
+    Seien $(U', \varphi')$ und $(V', \psi')$ Karten von $X$ bzw. $Y$
+    um $x$ bzw. $f(x)$ mit $f(U') \subseteq V'$.
+
+    \begin{align*}
+        \Rightarrow &\psi' \circ f \circ (\varphi')^{-1}\\
+                  = &\psi' \circ ( \psi^{-1} \circ \psi) \circ f \circ (\varphi^{-1} \circ \varphi ) \circ (\varphi')^{-1}
+    \end{align*}
+
+    ist genau dann differenzierbar, wenn $\psi \circ f \circ \varphi^{-1}$
+    differenzierbar ist.
+\end{beweis}
+
+\begin{beispiel}
+    $f: \mdr \rightarrow \mdr, \;\;\; x \mapsto x^3$ ist kein
+    Diffieomorphismis, aber Homöomorphismus, da mit $g(x) := \sqrt[3]{x}$
+    gilt: $f \circ g = \text{id}_\mdr, \;\;\; g \circ f = \text{id}_\text{\mdr}$
+\end{beispiel}
+
+\begin{bemerkung}
+    Sei $X$ eine glatte Mannigfaltigkeit. Dann ist
+    \[\text{Diffeo}(X) := \Set{f:X \rightarrow X | f \text{ ist Diffeomorphismus}}\]
+    eine Untergruppe von $\text{Homöo}(X)$.
+\end{bemerkung}
+
+\begin{definition}
+    Eine Teilmenge $S \subseteq \mdr^3$ heißt \textbf{reguläre Fläche}\xindex{Fläche!reguläre},
+    wenn es für jedes $s \in S$ eine Umgebung $V$ von $\sin{\mdr^3}$
+    eine offene Teilmenge $F: U \rightarrow V \cap S$ gibt, sodass
+    die Jacobi-Matrix $J_F(u)$ für alle $u \in U$ Rang 2 hat.
+
+    $F$ heißt (lokale) reguläre Parametrisierung von $S$.
+
+    \begin{align*}
+        F(u,v) &= \left (x(u,v), y(u,v), z(u,v) \right )\\
+        J_F(u,v) &= \begin{pmatrix}
+            \frac{\partial x}{\partial u} (p) & \frac{\partial x}{\partial v} (p)\\
+            \frac{\partial y}{\partial u} (p) & \frac{\partial y}{\partial v} (p)\\
+            \frac{\partial z}{\partial u} (p) & \frac{\partial z}{\partial v} (p)
+        \end{pmatrix}
+    \end{align*}
+\end{definition}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item Rotationsflächen: Sei $r:\mdr \rightarrow \mdr_{> 0}$
+              eine differenzierbare Funktion.
+
+              $F: \mdr^2 \rightarrow \mdr^3 \;\;\; (u,v) \mapsto (r(u) \cos (u), r(v) \sin(u), v)$
+
+
+            \begin{figure}
+                \centering
+                \subfloat[Kugelkooridnaten]{
+                    \includegraphics[width=0.4\linewidth, keepaspectratio]{figures/spherical-coordinates.pdf}
+                    \label{fig:spherical-coordinates}
+                }%
+                \subfloat[Rotationskörper]{
+                    \input{figures/solid-of-revolution.tex}
+                    \label{fig:solid-of-revolution}
+                }%
+
+                \subfloat[Sinus und Cosinus]{
+                    \includegraphics[width=0.8\linewidth, keepaspectratio]{figures/sin-cos.pdf}
+                    \label{fig:sin-cos}
+                }%
+                \label{Formen}
+                %\caption{}
+            \end{figure}
+
+            \[J_F(u,v) = 
+            \begin{pmatrix}
+                -r(v) \sin u & r'(v) \cos u\\
+                r(v) \cos u  & r'(v) \sin u\\
+                 0           & 1
+            \end{pmatrix}\]
+            hat Rang 2 für alle $(u,v) \in \mdr^2$.
+        \item Kugelkoordinaten: $F: \mdr^2 \rightarrow \mdr^3, \;\;\; (u, v) \mapsto (R \cos v \cos u, R \cos v \sin u, R \sin v)$
+              $F(u,v) \in S_R^2$, denn 
+                \begin{align*}
+                    & R^2 \cos^2(v) \cos^2(u) + R^2 \cos^2(v) \sin^2(u) + R^2 \sin^2(v)\\
+                    =& R^2 (\cos^2(v) \cos^2(u) + \cos^2(v) \sin^2(u) + \sin^2(v))\\
+                    =& R^2 \left (\cos^2(v) (\cos^2(u) + \sin^2(u)) + \sin^2(v) \right)\\
+                    =& R^2 \left (\cos^2(v) + \sin^2(v) \right)\\
+                    =&R^2
+                \end{align*}
+
+                Die Jacobi-Matrix
+                \[J_F(u,v) = 
+                \begin{pmatrix}
+                    -R \cos v \sin u & -R \sin v \cos u\\
+                    R \cos v \cos u  & -R \sin v \sin u\\
+                    0                & R \cos v
+                \end{pmatrix}\]
+                hat Rang 2 für $\cos v \neq 0$. In $N$ und $S$ ist
+                $\cos v = 0$.
+    \end{enumerate}
+\end{beispiel}
+
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel2-UB}
