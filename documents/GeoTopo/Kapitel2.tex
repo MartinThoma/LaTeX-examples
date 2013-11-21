@@ -434,5 +434,150 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{beispiel}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 21.11.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+    $S \subseteq \mdr^3$ heißt \textbf{reguläre Fläche}\xindex{Fläche!reguläre} $:\gdw$
+    zu $s \in S$ ex. eine Umgebung $V \subseteq \mdr^3$ und offene
+    Teilmengen $U \subseteq \mdr^2$ und differenzierbare Abbildung
+    $F: U \rightarrow V \cap S$ mit $\text{Rg}(J_f(u)) = 2$
+    für alle $u \in U$.
+\end{definition}
+
+\begin{korollar}
+    Jede reguläre Fläche $S \subseteq \mdr^3$ ist eine 2-dimensionale,
+    differenzierbare Mannigfaltigkeit.
+\end{korollar}
+
+\begin{beweis}
+    \todo{Hier muss ich nochmals drüberlesen.}
+    \underline{z.Z.:} $F_j^{-1} \circ F_i$ ist Diffeomorphismus
+
+    \todo[inline]{Bild $F_j^{-1} \circ F_i$}
+
+    \underline{Idee:} Finde differenzierbare Funktion $\tilde{F_j^{-1}}$
+    in Umgebung $W$ von $s$, sodass $\tilde{F_j^{-1}}|_{S \cap W} = F_j^{-1}$.
+
+    \underline{Ausführung:} Sei $u_0 \in U_i$ mit $F_i(u_0) = s = F_j(v_0), v_0 \in U_j$.
+
+    Da $\rang{J_{F_j}(v_0)} = 2$ ist, ist \obda 
+    \[\det 
+        \begin{pmatrix}
+            \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v}\\
+            \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+        \end{pmatrix} (v_0) \neq 0
+    \]
+
+    und $F_j(u,v) = \left ( x(u,v), y(u,v), z(u,v) \right)$.
+
+    Definiere $\tilde{F_j}: U_j \times \mdr \rightarrow \mdr^3$ durch
+    \[\tilde{F_j} (u, v, t) = \left(x(u,v), y(u,v), z(u,v)+t \right )\]
+    
+    Offensichtlich: $\tilde{F_j} |_{U_j \times \Set{0}} = F_j$
+
+    \[J_{\tilde{F_j}} = 
+    \begin{pmatrix}
+        \frac{\partial x}{\partial u}   & \frac{\partial x}{\partial v} & 0\\
+        \frac{\partial y}{\partial u}   & \frac{\partial y}{\partial v} & 0\\
+        \frac{\partial z}{\partial u}   & \frac{\partial z}{\partial v} & 1
+    \end{pmatrix} \Rightarrow \det J_{\tilde{F_j}} (v_0, 0) \neq  0\]
+
+    $\xRightarrow{\text{Analysis II}}$ Es gibt Umgebungen $W$ von
+    $F_j$ von $\tilde{F_j}(v_0, 0) = F_j(v_0) = s$, sodass $\tilde{F_j}$
+    auf $W$ eine differenzierbar Inverse $F_j^{-1}$ hat.
+
+    Weiter ist $\tilde{F_j}^{-1}|_{W \cap S} = F_j^{-1} |_{W \cap S}$
+    $\Rightarrow F_j^{-1} \circ F_i |_{F_i^{-1} (W \cap S)} = F_j^{-1} \circ F_i |_{F_i^{-1} (W \cap S)}$
+    ist differenzierbar.
+\end{beweis}
+
+\begin{definition}
+    Sei $G$ eine Mannigfaltigkeit, $\circ: G \times G \rightarrow G$
+    eine Abbildung, $(g,h) \mapsto g \cdot h$, sodass $(G, \circ)$
+    eine Gruppe ist.
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $G$ heißt \textbf{topologische Gruppe}\xindex{Gruppe!topologische},
+              wenn die Abbildungen $\circ: G \times G \rightarrow G$
+              und $\iota: G \rightarrow G$.
+              \[(g, h) \mapsto g \cdot h\;\;\; g \mapsto g^{-1}\]
+              stetig sind.
+        \item Ist $G$ eine differenzierbare Mannigfaltigkeit, so heißt
+              $G$ \textbf{Lie-Gruppe}\xindex{Lie-Gruppe}, wenn
+              $(G, \circ)$ und $(G, \iota)$ differenzierbar sind.
+    \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item Alle endlichen Gruppen sind 0-Dimensionale Lie-Gruppen.
+        \item $\text{GL}_n(\mdr)$
+        \item $(\mdr^\times, \cdot)$
+        \item $(\mdr_{>0}, \cdot)$
+        \item $(\mdr^n, +)$, denn $A \cdot B (i,j) = \sum_{k=1}^n a_{ik} b_{kj}$ ist
+              nach allen Variablen differenzierbar
+
+              $(A^{-1}) (i,j) = \frac{\det(A_{ij})}{\det A}$
+
+              \[A_{ij} = \begin{pmatrix}
+                a_{i1} & \dots  & a_{in}\\
+                \vdots & \ddots & \vdots\\
+                a_{n1} & \dots  & a_{nn}
+              \end{pmatrix} \in \mdr^{(n-1) \times (n-1)}\]
+
+            ist diffbar.
+
+            $\det A_{ij}$ kann $0$ werden, da:
+            \[\begin{pmatrix}1 & 1\\-1&0\end{pmatrix}\]
+        \item $\text{SL}_n(\mdr) = \Set{A \in \text{GL}_n(\mdr) | \text{det}(A) = 1} $ \todo{Besser strukturieren}
+
+              $\text{grad}(\det-1)(A) = 0$?
+
+              $\frac{\partial}{\partial a_{11}} (\det -1) = 1 \cdot \det A_{11}$
+
+              Es gibt $i \in \Set{1, \dots, n}$ mit $\frac{\partial}{\partial a_{1i}} (\det -1) A \neq 0$
+    \end{enumerate}
+\end{beispiel}
+
+\begin{bemerkung}
+    Ist $G$ eine Lie-Gruppe, $g \in G$, so ist die Abbildung
+    \begin{align*}
+        l_g &: G \rightarrow G\\
+        h  &\mapsto g \cdot h
+    \end{align*}
+
+    ein Diffieomorphismus.
+\end{bemerkung}
+
+\section{Simplizialkomplex}
+\begin{definition}
+    $v_0, \dots, v_k$
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+        \item in allgemeiner Lage $\gdw$ es gibt keinen $(k-1)$-dimensionalen
+              affinen Untervektorraum, der $v_0, \dots, v_k$ enthält
+              \gdw $v_1 - v_0, \dots, v_k - v_0$ sind linear abhängig.
+        \item $\text{conv}(v_0, \dots, v_k) = \Set{\sum_{i=0}^k \lambda_i v_i | \lambda_i \geq 0, \sum_{i=0}^k \lambda_i = 1} $
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+        \item Sei $\Delta^n = \text{conv}(e_0, \dots, e_k) \subseteq \mdr^{n+1}$ \todo{stimmen die indizes?}
+              die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_k$.
+              $\Delta^k$ heißt Standard-Simplex.
+        \item Für Punkte $v_0, \dots, v_k$ im $\mdr^n$ in allgemeiner
+              Lage heißt $\delta (v_0, \dots, v_k) = \text{conv}(v_0, \dots, v_k)$
+              ein \textbf{$k$-Simplex}\xindex{Simplex} in $\mdr^n$.
+        \item Ist $\Delta (v_0, \dots, v_k)$ ein $k$-Simplex und
+              $I = \Set{i_0, \dots, i_r} \subseteq \Set{0, \dots, k}$,
+              so heißt $s_{i_0} \dots i_r := \text{conv}(v_{i_0}, \dots, v_{i_r})$
+              \textbf{Teilsimplex}\xindex{Teilsimplex} oder \textbf{Seite}\xindex{Seite}
+              von $\Delta$. $s_{i_0} \dots i_r$ ist $r$-Simplex.
+    \end{enumerate}
+\end{definition}
+
+\todo[inline]{Bilder von 1, 2, 3-simplex}
+
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel2-UB}

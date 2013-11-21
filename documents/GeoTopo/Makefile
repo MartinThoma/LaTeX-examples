@@ -7,6 +7,7 @@ make:
 	makeglossaries $(DOKUMENT)
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Stichwortverzeichnis einbinden
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Symbolverzeichnis einbinden
+	make clean
 
 ebook:
 	latexml --dest=$(DOKUMENT).xml $(DOKUMENT).tex
