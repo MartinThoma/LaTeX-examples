@@ -12,6 +12,26 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.7,compat/path replacement=1.5.1}
 \usepackage{tikz}
+\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
+\usepackage{framed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define theorems                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{break}
+\setlength\theoremindent{0.7cm}
+\theoremheaderfont{\kern-0.7cm\normalfont\bfseries} 
+\theorembodyfont{\normalfont} % nicht mehr kursiv
+
+\newframedtheorem{theorem}{Theorem}[section]
+\newframedtheorem{lemma}[theorem]{Lemma}
+\newtheorem{plaindefinition}{Definition}
+\newenvironment{definition}{\begin{plaindefinition}}{\end{plaindefinition}}
+\newenvironment{definition*}{\begin{plaindefinition*}}{\end{plaindefinition*}}
+\newtheorem{example}{Example}
+\theoremstyle{nonumberplain}
+\newtheorem{proof}{Proof:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Minimal distance to a cubic function}
 \author{Martin Thoma}
@@ -51,15 +71,35 @@ distance of a point to a polynomial of degree 0, 1 and 2.
 
 \section{Description of the Problem}
 Let $f: \mdr \rightarrow \mdr$ be a polynomial function and $P \in \mdr^2$
-be a point. Let $d: \mdr^2 \times \mdr^2 \rightarrow \mdr_0^+$
-be the Euklidean distance of two points:
-\[d \left ((x_1, y_1), (x_2, y_2) \right) := \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}\]
+be a point. Let $d_{P,f}: \mdr^2 \rightarrow \mdr_0^+$
+be the Euklidean distance $d_{P,f}$ of a point $P$ and a point $\left (x, f(x) \right )$:
+\[d_{P,f} (x) := \sqrt{(x_P - x)^2 + (y_P - f(x))^2}\]
 
 Now there is \todo{Should I proof this?}{finite set} $x_1, \dots, x_n$ such that 
-\[\forall \tilde x \in \mathbb{R} \setminus \{x_1, \dots, x_n\}: d(P, (x_1, f(x_1))) = \dots = d(P, (x_n, f(x_n))) < d(P, (\tilde x, f(\tilde x)))\]
+\[\forall \tilde x \in \mathbb{R} \setminus \{x_1, \dots, x_n\}: d_{P,f}(x_1) = \dots = d_{P,f}(x_n) < d_{P,f}(\tilde x)\]
 
-The task is now to find those $x_1, \dots, x_n$ for given $f, P$.
+Essentially, you want to find the minima $x_1, \dots, x_n$ for given 
+$f$ and $P$.
+But minimizing $d_{P,f}$ is the same as minimizing $d_{P,f}^2$:
+\begin{align}
+    d_{P,f}(x)^2    &= \sqrt{(x_P - x)^2 + (y_P - f(x))^2}^2\\
+                &= x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2
+\end{align}
 
+\todo[inline]{hat dieser Satz einen Namen? kann ich den irgendwo zitieren? Ich habe ihn aus \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis I}{meinem Analysis I Skript} (Satz 22.3).}
+\begin{theorem}[Minima of polynomial functions]\label{thm:minima-of-polynomials}
+    Let $n \in \mathbb{N}, n \geq 2$, $f$ polynomial function of 
+    degree $n$, $x_0 \in \mathbb{R}$,  \\
+    $f'(x_0) = f''(x_0) = \dots = f^{(n-1)} (x_0) = 0$
+    and $f^{(n)} > 0$.
+
+    Then $x_0$ is a local minimum of $f$.
+\end{theorem}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Constant functions                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Minimal distance to a constant function}
 Let $f(x) = c$ with $c \in \mdr$ be a constant function. 
 
@@ -98,7 +138,7 @@ Let $f(x) = c$ with $c \in \mdr$ be a constant function.
           \addlegendentry{$h(x)=3$}
         \end{axis} 
     \end{tikzpicture}
-    \caption{3 constant functions and their points with minimal distance}
+    \caption{Three constant functions and their points with minimal distance}
     \label{fig:constant-min-distance}
 \end{figure}
 
@@ -106,6 +146,9 @@ Then $(x_P,f(x_P))$ has
 minimal distance to $P$. Every other point has higher distance.
 See Figure~\ref{fig:constant-min-distance}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Linear functions                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Minimal distance to a linear function}
 Let $f(x) = m \cdot x + t$ with $m \in \mdr \setminus \Set{0}$ and 
 $t \in \mdr$ be a linear function.
@@ -207,6 +250,39 @@ $b, c \in \mdr$ be a quadratic function.
     \caption{Quadratic functions}
 \end{figure}
 
+\subsection{Calculate points with minimal distance}
+We use Theorem~\ref{thm:minima-of-polynomials}:\nobreak
+\begin{align}
+    0     &\stackrel{!}{=} (d_{P,f}^2)'\\
+          &= -2 x_p + 2x -2y_p f'(x) + \left (f(x)^2 \right )'\label{eq:minimizingFirstDerivative}\\
+          &= -2 x_p + 2x -2y_p (2ax+b) + ((ax^2+bx+c)^2)'\\
+          &= -2 x_p + 2x -2y_p \cdot 2ax-2 y_p b + (a^2 x^4+2 a b x^3+2 a c x^2+b^2 x^2+2 b c x+c^2)'\\
+          &= -2 x_p + 2x -4y_p ax-2 y_p b + (4a^2 x^3 + 6 ab x^2 + 4acx + 2b^2 x + 2bc)\\
+          &= 4a^2 x^3 + 6 ab x^2 + 2(1 -2y_p a+ 2ac + b^2)x +2(bc-by_p-x_p)\\
+    0     &\stackrel{!}{=}(d_{P,f}^2)''\\
+          &= 12a^2 x^2 + 12abx + 2(1 -2y_p a+ 2ac + b^2)
+\end{align}
+
+
+
+This is an algebraic equation of degree 3.
+There can be up to 3 solutions in such an equation. An example is
+
+\begin{align*}
+    a &= 1 &  b &= 0  & c &= 1  & x_p &= 0 & y_p &= 1
+\end{align*}
+
+So $f(x) = x^2 + 1$ and $P(0, 1)$.
+
+\begin{align}
+    0 &\stackrel{!}{=} 4 x^3 - 2x\\
+      &=2x(2x^2 - 1)\\
+    \Rightarrow x_1 &= 0 \;\;\; x_{2,3} = \pm \frac{1}{\sqrt{2}}
+\end{align}
+
+As you can easily verify, only $x_1$ is a minimum of $d_{P,f}$.
+
+
 \subsection{Number of points with minimal distance}
 It is obvious that a quadratic function can have two points with 
 minimal distance. 
@@ -250,58 +326,9 @@ But can there be three points?
         \end{axis} 
     \end{tikzpicture}
     \caption{3 points with minimal distance?}
-    \todo[inline]{Is this possible? http://math.stackexchange.com/q/553097/6876}
 \end{figure}
 
-As the point is already given, you want to minimize the following 
-function:
-
-\begin{align}
-    d:   &\mdr \rightarrow \mdr^+_0\\
-    d(x) &= \sqrt{(x_p,y_p),(x,f(x))}\\
-         &= \sqrt{(x_p-x)^2 + (y_p - f(x))^2}\\
-         &= \sqrt{x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2}
-\end{align}
-
-Minimizing $d$ is the same as minimizing $d^2$:
-\begin{align}
-    d(x)^2    &= x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2\\
-    (d(x)^2)' &= -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
-           0  &\stackrel{!}{=} -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)' \label{eq:minimizing}
-\end{align}
-
-Now we use thet $f(x) = ax^2 + bx + c$:
-
-\begin{align}
-    0     &\stackrel{!}{=} -2 x_p + 2x -2y_p(2ax+b) + ((ax^2+bx+c)^2)'\\
-          &= -2 x_p + 2x -2y_p \cdot 2ax-2 y_p b + (a^2 x^4+2 a b x^3+2 a c x^2+b^2 x^2+2 b c x+c^2)'\\
-          &= -2 x_p + 2x -4y_p ax-2 y_p b + (4a^2 x^3 + 6 ab x^2 + 4acx + 2b^2 x + 2bc)\\
-          &= 4a^2 x^3 + 6 ab x^2 + 2(1 -2y_p a+ 2ac + b^2)x +2(bc-by_p-x_p)\\
-\end{align}
-
-\subsubsection{Solutions}
-As the problem stated above is a cubic equation, you can solved it
-analytically. But the solutions are not very nice, so I've entered
-
-\texttt{$0=4*a^2 *x^3 + 6 *a*b *x^2 + 2*(1 -2*e *a+ 2*a*c + b^2)*x +2*(b*c-b*e-d)$}
-
-with $d := x_p$ and $e := y_p$.
-
-to \href{http://www.wolframalpha.com/input/?i=0%3D4*a%5E2+*x%5E3+%2B+6+*a*b+*x%5E2+%2B+2*%281+-2*e+*a%2B+2*a*c+%2B+b%5E2%29*x+%2B2*%28b*c-b*e-d%29}{WolframAlpha} to let it solve. The solutions are:
-
-\textbf{First solution}
-
-\begin{align*}
-    x = &\frac{1}{6 \sqrt[3]{2} a^2} \sqrt[3]{(108 a^4 d+54 a^3 b+\sqrt{(108 a^4 d+54 a^3 b)^2+4 (12 a^3 c-12 a^3 e-3 a^2 b^2+6 a^2)^3})}\\
-        &-\frac{12 a^3 c-12 a^3 e-3 a^2 b^2+6 a^2}
-         {3 (2^{\frac{2}{3}}) a^2 \sqrt[3]{108 a^4 d+54 a^3 b+\sqrt{(108 a^4 d+54 a^3 b)^2+4 (12 a^3 c-12 a^3 e-3 a^2 b^2+6 a^2)^3}} }-b/(2 a)
-\end{align*}
-
-So the minimum for $a=1, b=c=d=0$ is:
-
-
-\subsection{Calculate points with minimal distance}
-\todo[inline]{Write this}
+\todo[inline]{write this}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Cubic                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -324,7 +351,7 @@ For $b^2 \geq 3ac$
 \todo[inline]{Write this}
 \subsection{Calculate points with minimal distance}
 When you want to calculate points with minimal distance, you can 
-take the same approach as in Equation \ref{eq:minimizing}:
+take the same approach as in Equation \ref{eq:minimizingFirstDerivative}:
 
 \begin{align}
     0  &\stackrel{!}{=} -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
