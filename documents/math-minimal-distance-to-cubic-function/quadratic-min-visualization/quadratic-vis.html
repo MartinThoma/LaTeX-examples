@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- saved from url=(0112)file:///home/moose/Downloads/LaTeX-examples/documents/math-minimal-distance-to-cubic-function/quadratic-vis.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>Quadratic visualization</title>
+        <style type="text/css">
+            span.hint {
+	            border-bottom:1px dotted #666;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tbody><tr>
+                <td><span class="hint" title="constat for x*x">a</span></td>
+                <td><input type="number" step="1" value="1" id="a" min="1" onchange="updateBoard()"></td>
+                <td><span class="hint" title="constant for x">b</span></td>
+                <td><input type="number" step="1" value="1" id="b" min="1" onchange="updateBoard()"></td>
+                <td><span class="hint" title="constant">c</span></td>
+                <td><input type="number" step="1" value="1" id="c" min="1" onchange="updateBoard()"></td>
+            </tr>
+            <tr>
+                <td><span class="hint" title="">STRETCH_X</span></td>
+                <td><input type="number" step="1" value="3" id="STRETCH_X" min="1" onchange="updateBoard()"></td>
+                <td><span class="hint" title="">STRETCH_Y</span></td>
+                <td><input type="number" step="0.25" value="0.5" id="STRETCH_Y" min="0.1" onchange="updateBoard()"></td>
+                <td><span class="hint" title="">X_OFFSET</span></td>
+                <td><input type="number" step="16" value="-128" id="X_OFFSET" onchange="updateBoard()"></td>
+                <td><span class="hint" title="">Y_OFFSET</span></td>
+                <td><input type="number" step="16" value="256" id="Y_OFFSET" onchange="updateBoard()"></td>
+            </tr>
+            <tr>
+                <td><span class="hint" title="visualize distance">pDistance</span></td>
+                <td><input type="checkbox" id="pDistance" onchange="updateBoard()"></td>
+                <td><span class="hint" title="How much will points be spread for voronoi? USE 1 WITH CAUTION! The bigger the value, the quicker the computation.">spread</span></td>
+                <td><input type="number" step="1" value="1" id="density" min="1" onchange="updateBoard()"></td>
+                <td><a href="./quadratic-vis_files/quadratic-vis.html">clear board</a></td>
+            </tr>
+        </tbody></table>
+        <canvas id="myCanvas" width="1316" height="535" style="border: 1px solid rgb(0, 0, 0); cursor: crosshair;"> </canvas>
+    <script type="text/javascript" src="quadratic-vis.js">
+
+    </script>
+
+
+</body></html>

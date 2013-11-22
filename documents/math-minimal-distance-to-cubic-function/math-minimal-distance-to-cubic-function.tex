@@ -30,21 +30,38 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-In this paper I want to discuss how to find all points on a a cubic 
+When you have a selfdriving car, you have to plan which path you
+want to take. A reasonable choice for the representation of this
+path is a cubic spline. But you also have to be able to calculate
+how to steer to get or to remain on this path. A way to do this
+is applying the \href{https://en.wikipedia.org/wiki/PID_algorithm}{PID algorithm}.
+But this algorithm needs to know the current error. So you need to 
+be able to get the minimal distance of a point to a cubic spline.
+As you need to get the signed error (and one steering direction might
+be prefered), it is not only necessary to
+get the minimal absolute distance, but also to get all points
+on the spline with minimal distance.
+
+In this paper I want to discuss how to find all points on a cubic 
 function with minimal distance to a given point.
+As other representations of paths might be easier to understand and
+to implement, I will also cover the problem of finding the minimal
+distance of a point to a polynomial of degree 0, 1 and 2.
 \end{abstract}
 
 \section{Description of the Problem}
 Let $f: \mdr \rightarrow \mdr$ be a polynomial function and $P \in \mdr^2$
 be a point. Let $d: \mdr^2 \times \mdr^2 \rightarrow \mdr_0^+$
-be the euklidean distance of two points:
+be the Euklidean distance of two points:
 \[d \left ((x_1, y_1), (x_2, y_2) \right) := \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}\]
 
-Now there is finite set of points $x_1, \dots, x_n$ such that 
+Now there is \todo{Should I proof this?}{finite set} $x_1, \dots, x_n$ such that 
 \[\forall \tilde x \in \mathbb{R} \setminus \{x_1, \dots, x_n\}: d(P, (x_1, f(x_1))) = \dots = d(P, (x_n, f(x_n))) < d(P, (\tilde x, f(\tilde x)))\]
 
+The task is now to find those $x_1, \dots, x_n$ for given $f, P$.
+
 \section{Minimal distance to a constant function}
-Let $f(x) = c$ with $c \in \mdr$ be a function. 
+Let $f(x) = c$ with $c \in \mdr$ be a constant function. 
 
 \begin{figure}[htp]
     \centering
@@ -72,21 +89,26 @@ Let $f(x) = c$ with $c \in \mdr$ be a function.
           \addplot[domain=-5:5, thick,samples=50, green] {2};
           \addplot[domain=-5:5, thick,samples=50, blue] {3};
           \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
+          \addplot[blue, mark = *, nodes near coords=$P_{h,\text{min}}$,every node near coord/.style={anchor=225}] coordinates {(2, 3)};
+          \addplot[green, mark = x, nodes near coords=$P_{g,\text{min}}$,every node near coord/.style={anchor=120}] coordinates {(2, 2)};
+          \addplot[red, mark = *, nodes near coords=$P_{f,\text{min}}$,every node near coord/.style={anchor=225}] coordinates {(2, 1)};
           \draw[thick, dashed] (axis cs:2,0) -- (axis cs:2,3);
           \addlegendentry{$f(x)=1$}
           \addlegendentry{$g(x)=2$}
           \addlegendentry{$h(x)=3$}
         \end{axis} 
     \end{tikzpicture}
-    \caption{3 constant functions}
+    \caption{3 constant functions and their points with minimal distance}
+    \label{fig:constant-min-distance}
 \end{figure}
 
 Then $(x_P,f(x_P))$ has
 minimal distance to $P$. Every other point has higher distance.
+See Figure~\ref{fig:constant-min-distance}.
 
 \section{Minimal distance to a linear function}
 Let $f(x) = m \cdot x + t$ with $m \in \mdr \setminus \Set{0}$ and 
-$t \in \mdr$ be a function.
+$t \in \mdr$ be a linear function.
 
 \begin{figure}[htp]
     \centering
@@ -118,27 +140,33 @@ $t \in \mdr$ be a function.
         \end{axis} 
     \end{tikzpicture}
     \caption{The shortest distance of $P$ to $f$ can be calculated by using the perpendicular}
+    \label{fig:linear-min-distance}
 \end{figure}
 
-Now you can drop a perpendicular through $P$ on $f(x)$. The slope $f_\bot$
-of the perpendicular is $- \frac{1}{m}$. Then:
-
+Now you can drop a perpendicular $f_\bot$ through $P$ on $f(x)$. The slope of $f_\bot$
+is $- \frac{1}{m}$. Now you can calculate $f_\bot$:\nobreak
 \begin{align}
                  f_\bot(x) &= - \frac{1}{m} \cdot x + t_\bot\\
     \Rightarrow        y_P &= - \frac{1}{m} \cdot x_P + t_\bot\\
-    \Leftrightarrow t_\bot &= y_P + \frac{1}{m} \cdot x_P\\
+    \Leftrightarrow t_\bot &= y_P + \frac{1}{m} \cdot x_P
+\end{align}
+
+Now find the point $(x, f(x))$ where the perpendicular crosses the function:
+\begin{align}
     f(x) &= f_\bot(x)\\
     \Leftrightarrow m \cdot x + t &= - \frac{1}{m} \cdot x + \left(y_P + \frac{1}{m} \cdot x_P \right)\\
     \Leftrightarrow \left (m + \frac{1}{m} \right ) \cdot x &= y_P + \frac{1}{m} \cdot x_P - t\\
     \Leftrightarrow x &= \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )
 \end{align}
 
-There is only one point with minimal distance.
+There is only one point with minimal distance. See Figure~\ref{fig:linear-min-distance}.
 \clearpage
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quadratic functions                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Minimal distance to a quadratic function}
 Let $f(x) = a \cdot x^2 + b \cdot x + c$ with $a \in \mdr \setminus \Set{0}$ and 
-$b, c \in \mdr$ be a function.
+$b, c \in \mdr$ be a quadratic function.
 
 \begin{figure}[htp]
     \centering
@@ -239,7 +267,7 @@ Minimizing $d$ is the same as minimizing $d^2$:
 \begin{align}
     d(x)^2    &= x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2\\
     (d(x)^2)' &= -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
-           0  &\stackrel{!}{=} -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'
+           0  &\stackrel{!}{=} -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)' \label{eq:minimizing}
 \end{align}
 
 Now we use thet $f(x) = ax^2 + bx + c$:
@@ -274,9 +302,12 @@ So the minimum for $a=1, b=c=d=0$ is:
 
 \subsection{Calculate points with minimal distance}
 \todo[inline]{Write this}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cubic                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Minimal distance to a cubic function}
-Let $f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$ with $a \in \mdr \setminus \Set{0}$ and 
+Let $f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$ be a cubic function
+with $a \in \mdr \setminus \Set{0}$ and 
 $b, c, d \in \mdr$ be a function.
 
 \subsection{Number of points with minimal distance}
@@ -292,5 +323,16 @@ For $b^2 \geq 3ac$
 
 \todo[inline]{Write this}
 \subsection{Calculate points with minimal distance}
+When you want to calculate points with minimal distance, you can 
+take the same approach as in Equation \ref{eq:minimizing}:
+
+\begin{align}
+    0  &\stackrel{!}{=} -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
+    \Leftrightarrow 0 &\stackrel{!}{=} 2 f(x) \cdot f'(x) - 2 y_p f'(x) + 2x - 2 x_p\\
+    \Leftrightarrow 0 &\stackrel{!}{=} \underbrace{\left (2 f(x) - 2 y_p \right ) \cdot f'(x)}_{\text{Polynomial of degree 5}} + \underbrace{2x - 2 x_p}_{\text{:-(}}
+\end{align}
+
+
+
 \todo[inline]{Write this}
 \end{document}
