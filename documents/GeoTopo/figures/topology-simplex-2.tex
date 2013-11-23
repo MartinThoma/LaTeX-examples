@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+    \tikzstyle{point}=[thick,draw=black,cross out,inner sep=0pt,minimum width=4pt,minimum height=4pt]
+    \begin{axis}[
+        legend pos=south west,
+        axis x line=middle,
+        axis y line=middle,
+        grid = major,
+        width=5cm,
+        height=5cm,
+        grid style={dashed, gray!30},
+        xmin=0,    % start the diagram at this x-coordinate
+        xmax=3,    % end   the diagram at this x-coordinate
+        ymin=0,    % start the diagram at this y-coordinate
+        ymax=3,    % end   the diagram at this y-coordinate
+        tick align=outside,
+        minor tick num=-3,
+        enlargelimits=true,
+        tension=0.08]
+        \node (a)[point,label={[label distance=0cm]5:$e_0$}] at (axis cs:2.5,0) {};
+        \node (b)[point,label={[label distance=0cm]5:$e_1$}] at (axis cs:0,2.5) {};
+        \node (c)[point,label={[label distance=0cm]0:$e_2$}] at (axis cs:2,2) {};
+        \draw[thick,fill=orange!50] (a.center) -- (b.center) -- (c.center) -- cycle;
+    \end{axis} 
+\end{tikzpicture}
