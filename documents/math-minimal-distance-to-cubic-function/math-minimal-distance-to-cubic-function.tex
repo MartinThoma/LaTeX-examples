@@ -86,15 +86,23 @@ But minimizing $d_{P,f}$ is the same as minimizing $d_{P,f}^2$:
                 &= x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2
 \end{align}
 
-\todo[inline]{hat dieser Satz einen Namen? kann ich den irgendwo zitieren? Ich habe ihn aus \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis I}{meinem Analysis I Skript} (Satz 22.3).}
-\begin{theorem}[Minima of polynomial functions]\label{thm:minima-of-polynomials}
-    Let $n \in \mathbb{N}, n \geq 2$, $f$ polynomial function of 
-    degree $n$, $x_0 \in \mathbb{R}$,  \\
-    $f'(x_0) = f''(x_0) = \dots = f^{(n-1)} (x_0) = 0$
-    and $f^{(n)} > 0$.
+\todo[inline]{Hat dieser Satz einen Namen? Gibt es ein gutes Buch,
+aus dem ich den zitieren kann? Ich habe ihn aus \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis I}{meinem Analysis I Skript} (Satz 21.5).}
+\begin{theorem}\label{thm:required-extremum-property}
+    Let $x_0$ be a relative extremum of $f$.
 
-    Then $x_0$ is a local minimum of $f$.
+    Then: $f'(x_0) = 0$.
 \end{theorem}
+
+%bzw. 22.3
+%\begin{theorem}[Minima of polynomial functions]\label{thm:minima-of-polynomials}
+%    Let $n \in \mathbb{N}, n \geq 2$, $f$ polynomial function of 
+%    degree $n$, $x_0 \in \mathbb{R}$,  \\
+%    $f'(x_0) = f''(x_0) = \dots = f^{(n-1)} (x_0) = 0$
+%    and $f^{(n)} > 0$.
+%
+%    Then $x_0$ is a local minimum of $f$.
+%\end{theorem}
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,28 +259,36 @@ $b, c \in \mdr$ be a quadratic function.
 \end{figure}
 
 \subsection{Calculate points with minimal distance}
-We use Theorem~\ref{thm:minima-of-polynomials}:\nobreak
+In this case, $d_{P,f}^2$ is polynomial of degree 4. 
+We use Theorem~\ref{thm:required-extremum-property}:\nobreak
 \begin{align}
-    0     &\stackrel{!}{=} (d_{P,f}^2)'\\
-          &= -2 x_p + 2x -2y_p f'(x) + \left (f(x)^2 \right )'\label{eq:minimizingFirstDerivative}\\
+    0     &\overset{!}{=} (d_{P,f}^2)'\\
+          &= -2 x_p + 2x -2y_p f'(x) + \left (f(x)^2 \right )'\\
+          &= -2 x_p + 2x -2y_p f'(x) + 2 f(x) \cdot f'(x) \rlap{\hspace*{3em}(chain rule)}\label{eq:minimizingFirstDerivative}\\
           &= -2 x_p + 2x -2y_p (2ax+b) + ((ax^2+bx+c)^2)'\\
           &= -2 x_p + 2x -2y_p \cdot 2ax-2 y_p b + (a^2 x^4+2 a b x^3+2 a c x^2+b^2 x^2+2 b c x+c^2)'\\
           &= -2 x_p + 2x -4y_p ax-2 y_p b + (4a^2 x^3 + 6 ab x^2 + 4acx + 2b^2 x + 2bc)\\
-          &= 4a^2 x^3 + 6 ab x^2 + 2(1 -2y_p a+ 2ac + b^2)x +2(bc-by_p-x_p)\\
-    0     &\stackrel{!}{=}(d_{P,f}^2)''\\
-          &= 12a^2 x^2 + 12abx + 2(1 -2y_p a+ 2ac + b^2)
+          &= 4a^2 x^3 + 6 ab x^2 + 2(1 -2y_p a+ 2ac + b^2)x +2(bc-by_p-x_p)
 \end{align}
 
+%\begin{align}
+%    0     &\overset{!}{=}(d_{P,f}^2)''\\
+%          &= 2 - 2y_p f''(x) + \left ( 2 f(x) \cdot f'(x) \right )' \rlap{\hspace*{3em}(Eq. \ref{eq:minimizingFirstDerivative})}\\
+%          &= 2 - 2y_p f''(x) + 2 \cdot \left ( f'(x) \cdot f'(x) + f(x) \cdot f''(x) \right ) \rlap{\hspace*{3em}(product rule)}\\
+%          &= 2 - 2y_p f''(x) + 2 \cdot \left ( f'(x)^2 + f(x) \cdot f''(x) \right )\\
+%          &= 12a^2 x^2 + 12abx + 2(1 -2y_p a+ 2ac + b^2)
+%\end{align}
 
 
 This is an algebraic equation of degree 3.
-There can be up to 3 solutions in such an equation. An example is
+There can be up to 3 solutions in such an equation. Those solutions
+can be found with a closed formula.
 
-\begin{align*}
-    a &= 1 &  b &= 0  & c &= 1  & x_p &= 0 & y_p &= 1
-\end{align*}
+\todo[inline]{Where are those closed formulas?}
 
-So $f(x) = x^2 + 1$ and $P(0, 1)$.
+\begin{example}
+    Let $a = 1,  b = 0,  c= 1, x_p= 0, y_p = 1$.
+    So $f(x) = x^2 + 1$ and $P(0, 1)$.
 
 \begin{align}
     0 &\stackrel{!}{=} 4 x^3 - 2x\\
@@ -281,6 +297,7 @@ So $f(x) = x^2 + 1$ and $P(0, 1)$.
 \end{align}
 
 As you can easily verify, only $x_1$ is a minimum of $d_{P,f}$.
+\end{example}
 
 
 \subsection{Number of points with minimal distance}
@@ -288,10 +305,18 @@ It is obvious that a quadratic function can have two points with
 minimal distance. 
 
 For example, let $f(x) = x^2$ and $P = (0,5)$. Then $P_{f,1} \approx (2.179, 2.179^2)$
-has minimal distance to $P$, but also $P_{f,2}\approx (-2.179, 2.179^2)$.
+has minimal distance to $P$, but also $P_{f,2}\approx (-2.179, 2.179^2)$.\todo{exact example?}
 
-Obviously, there cannot be more than three points with minimal distance.
-But can there be three points?
+As discussed before, there cannot be more than 3 points on the graph
+of $f$ next to $P$.
+
+\todo[inline]{But can there be three points? O.b.d.A: $a > 0$.
+As $c$ is moves the curve only up and down, we can o.b.d.A assume
+that $c=0$. 
+
+$x=-\frac{b}{2a}$ is the minimum of $f$. If there are 3 points, this will
+be one of them. The other two ones are symmetric by an axis through
+$-\frac{b}{2a}$}
 
 \begin{figure}[htp]
     \centering
@@ -328,7 +353,7 @@ But can there be three points?
     \caption{3 points with minimal distance?}
 \end{figure}
 
-\todo[inline]{write this}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Cubic                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -337,29 +362,72 @@ Let $f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$ be a cubic function
 with $a \in \mdr \setminus \Set{0}$ and 
 $b, c, d \in \mdr$ be a function.
 
-\subsection{Number of points with minimal distance}
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}
+    \begin{axis}[
+        legend pos=south east,
+        axis x line=middle,
+        axis y line=middle,
+        grid = major,
+        width=0.8\linewidth,
+        height=8cm,
+        grid style={dashed, gray!30},
+        xmin=-3,     % start the diagram at this x-coordinate
+        xmax= 3,    % end   the diagram at this x-coordinate
+        ymin=-3,     % start the diagram at this y-coordinate
+        ymax= 3,   % end   the diagram at this y-coordinate
+        axis background/.style={fill=white},
+        xlabel=$x$,
+        ylabel=$y$,
+        %xticklabels={-2,-1.6,...,7},
+        %yticklabels={-8,-7,...,8},
+        tick align=outside,
+        minor tick num=-3,
+        enlargelimits=true,
+        tension=0.08]
+      \addplot[domain=-3:3, thick,samples=50, red] {x*x*x}; 
+      \addplot[domain=-3:3, thick,samples=50, green] {x*x*x+x*x};
+      \addplot[domain=-3:3, thick,samples=50, blue] {x*x*x+2*x*x};
+      \addplot[domain=-3:3, thick,samples=50, orange] {x*x*x+x}; 
+      \addlegendentry{$f_1(x)=x^3$}
+      \addlegendentry{$f_2(x)=x^3 + x^2$}
+      \addlegendentry{$f_2(x)=x^3 + 2 \cdot x^2$}
+      \addlegendentry{$f_1(x)=x^3 + x$}
+    \end{axis} 
+\end{tikzpicture}
+    \caption{Cubic functions}
+\end{figure}
 
-\todo[inline]{Write this}
+%
+%\subsection{Special points}
+%\todo[inline]{Write this}
+%
+%\subsection{Voronoi}
+%
+%For $b^2 \geq 3ac$
+%
+%\todo[inline]{Write this}
 
-\subsection{Special points}
-\todo[inline]{Write this}
-
-\subsection{Voronoi}
-
-For $b^2 \geq 3ac$
-
-\todo[inline]{Write this}
 \subsection{Calculate points with minimal distance}
 When you want to calculate points with minimal distance, you can 
 take the same approach as in Equation \ref{eq:minimizingFirstDerivative}:
 
 \begin{align}
     0  &\stackrel{!}{=} -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
-    \Leftrightarrow 0 &\stackrel{!}{=} 2 f(x) \cdot f'(x) - 2 y_p f'(x) + 2x - 2 x_p\\
-    \Leftrightarrow 0 &\stackrel{!}{=} \underbrace{\left (2 f(x) - 2 y_p \right ) \cdot f'(x)}_{\text{Polynomial of degree 5}} + \underbrace{2x - 2 x_p}_{\text{:-(}}
+       &= 2 f(x) \cdot f'(x) - 2 y_p f'(x) + 2x - 2 x_p\\
+       &= \underbrace{\left (2 f(x) - 2 y_p \right ) \cdot f'(x)}_{\text{Polynomial of degree 5}} + \underbrace{2x - 2 x_p}_{\text{:-(}}
 \end{align}
 
+\subsection{Number of points with minimal distance}
+As there is an algebraic equation of degree 5, there cannot be more
+than 5 solutions.
+\todo[inline]{Can there be 3, 4 or even 5 solutions? Examples!
 
+After looking at function graphs of cubic functions, I'm pretty 
+sure that there cannot be 4 or 5 solutions, no matter how you 
+chose the cubic function $f$ and $P$.
 
-\todo[inline]{Write this}
+I'm also pretty sure that there is no polynomial (no matter what degree)
+that has more than 3 solutions.}
 \end{document}
