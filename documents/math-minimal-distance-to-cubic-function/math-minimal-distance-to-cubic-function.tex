@@ -50,13 +50,13 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-When you have a selfdriving car, you have to plan which path you
-want to take. A reasonable choice for the representation of this
-path is a cubic spline. But you also have to be able to calculate
-how to steer to get or to remain on this path. A way to do this
+When you want to develop a selfdriving car, you have to plan which path 
+it should take. A reasonable choice for the representation of
+paths are cubic splines. You also have to be able to calculate
+how to steer to get or to remain on a path. A way to do this
 is applying the \href{https://en.wikipedia.org/wiki/PID_algorithm}{PID algorithm}.
-But this algorithm needs to know the current error. So you need to 
-be able to get the minimal distance of a point to a cubic spline.
+This algorithm needs to know the signed current error. So you need to 
+be able to get the minimal distance of a point to a cubic spline combined with the direction (left or right).
 As you need to get the signed error (and one steering direction might
 be prefered), it is not only necessary to
 get the minimal absolute distance, but also to get all points
@@ -71,7 +71,7 @@ distance of a point to a polynomial of degree 0, 1 and 2.
 
 \section{Description of the Problem}
 Let $f: \mdr \rightarrow \mdr$ be a polynomial function and $P \in \mdr^2$
-be a point. Let $d_{P,f}: \mdr^2 \rightarrow \mdr_0^+$
+be a point. Let $d_{P,f}: \mdr \rightarrow \mdr_0^+$
 be the Euklidean distance $d_{P,f}$ of a point $P$ and a point $\left (x, f(x) \right )$:
 \[d_{P,f} (x) := \sqrt{(x_P - x)^2 + (y_P - f(x))^2}\]
 
@@ -89,7 +89,7 @@ But minimizing $d_{P,f}$ is the same as minimizing $d_{P,f}^2$:
 \todo[inline]{Hat dieser Satz einen Namen? Gibt es ein gutes Buch,
 aus dem ich den zitieren kann? Ich habe ihn aus \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis I}{meinem Analysis I Skript} (Satz 21.5).}
 \begin{theorem}\label{thm:required-extremum-property}
-    Let $x_0$ be a relative extremum of $f$.
+    Let $x_0$ be a relative extremum of a differentiable function $f: \mathbb{R} \rightarrow \mathbb{R}$.
 
     Then: $f'(x_0) = 0$.
 \end{theorem}
@@ -265,10 +265,11 @@ We use Theorem~\ref{thm:required-extremum-property}:\nobreak
     0     &\overset{!}{=} (d_{P,f}^2)'\\
           &= -2 x_p + 2x -2y_p f'(x) + \left (f(x)^2 \right )'\\
           &= -2 x_p + 2x -2y_p f'(x) + 2 f(x) \cdot f'(x) \rlap{\hspace*{3em}(chain rule)}\label{eq:minimizingFirstDerivative}\\
-          &= -2 x_p + 2x -2y_p (2ax+b) + ((ax^2+bx+c)^2)'\\
-          &= -2 x_p + 2x -2y_p \cdot 2ax-2 y_p b + (a^2 x^4+2 a b x^3+2 a c x^2+b^2 x^2+2 b c x+c^2)'\\
-          &= -2 x_p + 2x -4y_p ax-2 y_p b + (4a^2 x^3 + 6 ab x^2 + 4acx + 2b^2 x + 2bc)\\
-          &= 4a^2 x^3 + 6 ab x^2 + 2(1 -2y_p a+ 2ac + b^2)x +2(bc-by_p-x_p)
+\Leftrightarrow 0 &\overset{!}{=} -x_p + x -y_p f'(x) + f(x) \cdot f'(x) \rlap{\hspace*{3em}(divide by 2)}\label{eq:minimizingFirstDerivative}\\
+          &= -x_p + x -y_p (2ax+b) + (ax^2+bx+c)(2ax+b)\\
+          &= -x_p + x -y_p \cdot 2ax- y_p b + (2 a^2 x^3+2 a b x^2+2 a c x+ab x^2+b^2 x+bc)\\
+          &= -x_p + x -2y_p ax- y_p b + (2a^2 x^3 + 3 ab x^2 + 2acx + b^2 x + bc)\\
+          &= 2a^2 x^3 + 3 ab x^2 + (1 -2y_p a+ 2ac + b^2)x +(bc-by_p-x_p)
 \end{align}
 
 %\begin{align}
@@ -416,7 +417,8 @@ take the same approach as in Equation \ref{eq:minimizingFirstDerivative}:
 \begin{align}
     0  &\stackrel{!}{=} -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
        &= 2 f(x) \cdot f'(x) - 2 y_p f'(x) + 2x - 2 x_p\\
-       &= \underbrace{\left (2 f(x) - 2 y_p \right ) \cdot f'(x)}_{\text{Polynomial of degree 5}} + \underbrace{2x - 2 x_p}_{\text{:-(}}
+       &= f(x) \cdot f'(x) - y_p f'(x) + x - x_p\\
+       &= \underbrace{f'(x) \cdot \left (f(x) - y_p \right )}_{\text{Polynomial of degree 5}} + \underbrace{x - x_p}_{\text{:-(}}
 \end{align}
 
 \todo[inline]{Although general algebraic equations of degree 5 don't
