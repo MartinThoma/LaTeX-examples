@@ -1,4 +1,5 @@
 \documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{amsmath,amssymb}% math symbols / fonts
 \usepackage{tikz}
 \usepackage{tqft}
 \usetikzlibrary{patterns}
@@ -6,6 +7,7 @@
 \begin{document}
     \begin{tikzpicture}[tqft/flow=east]
         \draw (0,0) ellipse (2cm and 1cm);
+        \draw (0,-2) ellipse (3cm and 0.8cm);
         \def\ringa{(-0.3,0) circle (0.5cm)}
         \def\ringb{(+0.3,0) circle (0.5cm)}
 
@@ -30,6 +32,8 @@
         \node at (+1,0.3) {$U_j$};
         \node at (-1.9,-2) {$V_i$};
         \node at (+1.9,-2) {$V_j$};
+        \node at (+2.0,0.7) {$X$};
+        \node at (+2.4,-1.3) {$\mathbb{R}^n$};
 
 
         \path[->] (-0.35,0)  edge [bend angle=10,bend right] node[label={[label distance=0.1cm]210:$\varphi_i$}] {} (-1,-1.5);
