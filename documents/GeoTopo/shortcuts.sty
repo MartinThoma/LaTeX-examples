@@ -30,10 +30,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define theorems                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\thmfoot}{}
 \theoremstyle{break}
 \setlength\theoremindent{0.7cm}
 \theoremheaderfont{\kern-0.7cm\normalfont\bfseries} 
 \theorembodyfont{\normalfont} % nicht mehr kursiv
+\theoremseparator{\thmfoot}
 
 \newframedtheorem{satz}{Satz}[chapter]
 \newframedtheorem{lemma}[satz]{Lemma}
@@ -67,5 +69,6 @@
 \newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
 \newcommand\dcup{\mathbin{\dot{\cup}}}
 \newcommand\obda{o.~B.~d.~A.}
+\newcommand\Obda{o.~B.~d.~A.}
 
 

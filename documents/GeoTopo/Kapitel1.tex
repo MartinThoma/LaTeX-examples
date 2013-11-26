@@ -53,14 +53,14 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{beispiel}
 
 \begin{definition} \xindex{Umgebung}
-    Sei $(X, \fT)$ ein topologischer Raum, $x \in X$.
+    Sei $(X, \fT)$ ein topologischer Raum und $x \in X$.
 
     Eine Teilmenge $U \subseteq X$ heißt \textbf{Umgebung} von $x$,
     wenn es ein $U_0 \in \fT$ gibt mit $x \in U_0$ und $U_0 \subseteq U$.
 \end{definition}
 
 \begin{definition}
-    Sei $(X, \fT)$ ein topologischer Raum, $M \subseteq X$ eine Teilmenge.
+    Sei $(X, \fT)$ ein topologischer Raum und $M \subseteq X$ eine Teilmenge.
     \begin{enumerate}[label=\alph*)]
         \item $\displaystyle M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x} = \bigcup_{\stackrel{U \subseteq M} {U \in \fT}} U $ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \xindex{Inneres} \xindex{Kern!offener}
         \item $\displaystyle \overline{M} := \bigcap_{\stackrel{M \subseteq A}{A \text{ abgeschlossen}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \xindex{Abschluss}
@@ -71,11 +71,13 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*)]
-        \item $X = \mdr$ mit euklidischer Topologie\\
-              $M = \mdq \Rightarrow \overline{M} = \mdr, \;\;\; M^\circ = \emptyset$
-        \item $X = \mdr$, $M=(a,b) \Rightarrow \overline{M} = [a,b]$
-        \item $X = \mdr, \fT = \fT_Z$\\
-              $M = (a,b) \Rightarrow \overline{M} = \mdr$
+        \item Sei $X = \mdr$ mit euklidischer Topologie und 
+              $M = \mdq$. Dann gilt: $\overline{M} = \mdr$ und 
+              $M^\circ = \emptyset$
+        \item Sei $X = \mdr$ und $M=(a,b)$. Dann gilt: 
+              $\overline{M} = [a,b]$
+        \item Sei $X = \mdr, \fT = \fT_Z$ und $M = (a,b)$. Dann gilt:
+              $\overline{M} = \mdr$
     \end{enumerate}
 \end{beispiel}
 
@@ -103,7 +105,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{bemerkung}
 
 \begin{definition} \xindex{Spurtopologie} \xindex{Teilraum}
-    Sei $(X, \fT)$ ein topologischer Raum, $Y \subseteq X$.\\
+    Sei $(X, \fT)$ ein topologischer Raum und $Y \subseteq X$.\\
     $\fT_Y := \Set{U \cap Y | U \in \fT}$ ist eine Topologie auf $Y$.
 
     $\fT_Y$ heißt \textbf{Spurtopologie} und $(Y, \fT_Y)$ heißt ein 
@@ -168,10 +170,9 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{beispiel}
 
 \begin{beispiel}
-    \begin{align*}
-        X = \mdr^2, (x_1, y_1) \sim (x_2, y_2) \Leftrightarrow &x_1 - x_2 \in \mdz\\
-                                                   &y_1 - y_2 \in \mdz
-    \end{align*}
+    Sei $X = \mdr^2$ und $(x_1, y_1) \sim (x_2, y_2) \gdw x_1 - x_2 \in \mdz$ 
+    und $y_1 - y_2 \in \mdz$.
+
     $X /_\sim$ ist ein Torus.
 \end{beispiel}
 
@@ -191,9 +192,9 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     heißt \textbf{Metrik}, wenn gilt:
 
     \begin{enumerate}[label=(\roman*)]
-        \item Definitheit:         \tabto{4cm} $d(x,y) = 0 \gdw x = y$
-        \item Symmetrie:           \tabto{4cm} $d(x,y) = d(y,x)$
-        \item Dreiecksungleichung: \tabto{4cm} $d(x,z) \leq d(x,y) + d(x+z)$
+        \item Definitheit:         \tabto{4cm} $d(x,y) = 0 \gdw x = y \;\;\; \forall x, y \in X$
+        \item Symmetrie:           \tabto{4cm} $d(x,y) = d(y,x) \;\;\; \forall x, y \in X$
+        \item Dreiecksungleichung: \tabto{4cm} $d(x,z) \leq d(x,y) + d(x+z) \;\;\; \forall x, y, z \in X$
     \end{enumerate}
 
     Das Paar $(X, d)$ heißt ein \textbf{metrischer Raum}.
@@ -257,7 +258,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{bemerkung}[Trennungseigenschaft]\label{Trennungseigenschaft}
     Metrische Räume sind hausdorffsch, da 
-    \[d(x,y) > 0 \Rightarrow \exists \varepsilon: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
+    \[d(x,y) > 0 \Rightarrow \exists \varepsilon > 0: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
     Ein Beispiel für einen topologischen Raum, der nicht hausdorfsch ist,
     ist $(\mdr, \fT_Z)$.
 \end{bemerkung}
@@ -291,12 +292,12 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{korollar}
 
 \begin{beweis}
-    \underline{Annahme}: $x$ und $y$ mit $x \neq y$ sind Grenzwerte der Folge $(x_n)$.
+    Sei $(x_n)$ eine konvergierende Folge und $x$ und $y$ Grenzwerte der Folge.
 
     Nach Voraussetzung gibt es Umgebungen $U_x$ von $x$ und $U_y$
-    von $y$ mit $U_x \cap U_y = \emptyset$. Nach Annahme gibt es
+    von $y$ mit $U_x \cap U_y = \emptyset$. Es existiert ein
     $n_0$ mit $x_n \in U_x \cap U_y$ für alle $n \geq n_0$
-    $\Rightarrow$ Widerspruch   $\qed$
+    $\Rightarrow x = y \qed$
 \end{beweis}
 
 \section{Stetigkeit}\index{Stetigkeit|(}
@@ -306,22 +307,28 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item $f$ heißt \textbf{stetig}, wenn für jedes offene 
               $U \subseteq Y$ auch $f^{-1} (U) \subseteq X$ offen ist. \label{def:stetigkeit}
-        \item $f$ heißt \textbf{Homöomorphismus}, wenn es eine 
+        \item $f$ heißt \textbf{Homöomorphismus}, wenn $f$ stetig ist
+              und es eine 
               stetige Abbildung  $g: Y \rightarrow X$ gibt, sodass
               $g \circ f = \text{id}_X$ und $f \circ g = \text{id}_Y$.
     \end{enumerate}
 \end{definition}
 
+\begingroup
+\renewcommand{\thmfoot}{\footnotemark}
 \begin{korollar}
-    % Im Grunde wird die Äquivalenz von Stetigkeit im Sinne der 
-    % Analysis und Topologie auf metrischen Räumen gezeigt.
-    Seien $X, Y$ metrische Räume und $f: X \rightarrow Y$ eine Abbildung.
+  \footnotetext[\thefootnote]{Im Grunde wird die Äquivalenz
+  von Stetigkeit im Sinne der Analysis und Topologie auf metrischen
+  Räumen gezeigt.}
+  Seien $X, Y$ metrische Räume und $f\colon X \rightarrow Y$ eine
+  Abbildung.
 
-    Dann gilt: $f$ ist stetig $\gdw$ zu jedem $x \in X$ und jedem
-    $\varepsilon > 0$ gibt es $\delta(x, \varepsilon) > 0$, sodass für
-    alle $y \in X$ mit $d(x,y) < \delta $ gilt 
-    $d_Y(f(x), f(y)) < \varepsilon$.
+  Dann gilt: $f$ ist stetig $\Leftrightarrow$ zu jedem $x \in X$ und
+  jedem $\varepsilon > 0$ gibt es $\delta(x, \varepsilon) > 0$, sodass
+  für alle $y \in X$ mit $d(x,y) < \delta $ gilt $d_Y(f(x), f(y)) <
+  \varepsilon$.
 \end{korollar}
+\endgroup
 
 \begin{beweis}
     \enquote{$\Rightarrow$}: Sei $x \in X, \varepsilon > 0$ gegeben
@@ -352,7 +359,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \begin{enumerate}[label=\arabic*)]
         \item Für jeden topologischen Raum $X$ gilt: $\text{Id}_X : X \rightarrow X$
               ist Homöomorphismus.
-        \item Ist $Y$ trivialer topologischer Raum, d.h. $\fT = \fT_\text{triv}$,
+        \item Ist $Y$ trivialer topologischer Raum, d.~h. $\fT = \fT_\text{triv}$,
               so ist jede Abbildung $f:X \rightarrow Y$ stetig.
         \item Ist $X$ diskreter topologischer Raum, so ist $f:X \rightarrow Y$
               stetig für jeden topologischen Raum $Y$ und jede Abbildung $f$.
@@ -366,7 +373,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
                 \label{fig:nicht-stetige-umkehrabbildung}
               \end{figure}
               Die Umkehrabbildung $g$ ist nicht stetig, da $g^{-1}(U)$
-              nicht offen ist (vgl. Abb. \ref{fig:nicht-stetige-umkehrabbildung})
+              nicht offen ist (vgl. Abb. \ref{fig:nicht-stetige-umkehrabbildung}).
     \end{enumerate}
 \end{beispiel}
 
@@ -396,19 +403,19 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \begin{enumerate}[label=\alph*)]
         \item Für jeden topologischen Raum ist 
               $\text{Homöo}(X) := \Set{f: X \rightarrow X | f \text{ ist Homöomorphismus}}$
-              eine Gruppe.
+              eine Gruppe.\xindex{Homöomorphismengruppe}
         \item Jede Isometrie $f:X \rightarrow Y$ zwischen metrischen 
               Räumen ist ein Homöomorphismus.
         \item $\text{Isom}(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
-              Untergruppe von $\text{Homöo}(X)$ für jeden metrischen
-              Raum $X$.
+              eine Untergruppe von $\text{Homöo}(X)$ für jeden
+              metrischen Raum $X$.
     \end{enumerate}
 \end{bemerkung}
 
 \begin{korollar}
     Seien $X, Y$ topologische Räume. $\pi_X: X \times Y \rightarrow X$
     und $\pi_Y: X \times Y \rightarrow Y$ die Projektionen 
-    \[(x,y) \mapsto x \;\;\;(x,y) \mapsto y\]
+    \[\pi_X: (x,y) \mapsto x \text{ und } \pi_Y: (x,y) \mapsto y\]
     Wird $X \times Y$ mit der Produkttopologie versehen, so sind $\pi_X$
     und $\pi_Y$ stetig.
 \end{korollar}
@@ -437,14 +444,16 @@ sodass $\pi$ stetig wird.
 
 \begin{beispiel}[Stereographische Projektion] \xindex{Projektion!stereographische}
     $\mdr^n$ und $S^n \setminus \Set{N}$ sind homöomorph für
-    beliebiges $N \in S^n$
+    beliebiges $N \in S^n$. Es gilt:
 
     \begin{align*}
         S^n &= \Set{x \in \mdr^{n+1} | \|x\| = 1}\\
             &= \Set{x \in \mdr^{n+1} | \sum_{i=1}^{n+1} x_i^2}
     \end{align*}
     
-    \OE{} sei $N = \begin{pmatrix}0\\ \vdots\\ 1\end{pmatrix}$.
+    \Obda sei $N = \begin{pmatrix}0\\ \vdots\\ 1\end{pmatrix}$. Die
+    Gerade durch $N$ und $P$ schneidet die Ebene $H$ in genau einem
+    Punkt $\hat{P}$. $P$ wird auf $\hat{P}$ abgebildet.
 
     \begin{align*}
         f: &S^n \setminus \Set{N} \rightarrow \mdr^n\\
@@ -457,7 +466,8 @@ sodass $\pi$ stetig wird.
     \begin{figure}[htp]
         \centering
         \input{figures/stereographic-projection}
-        \caption{Visualisierung der sphärischen Projektion\\Bildquelle: \href{http://texample.net/tikz/examples/map-projections/}{texample.net/tikz/examples/map-projections}}
+        \caption{Visualisierung der stereographischen Projektion}
+        \label{fig:stereographic-projection}
     \end{figure}
 
     Sei $P = \begin{pmatrix}x_1\\ \vdots \\ x_{n+1}\end{pmatrix}$, so
@@ -474,14 +484,15 @@ sodass $\pi$ stetig wird.
 \index{Stetigkeit|)}
 \section{Zusammenhang}\index{Zusammenhang|(}
 \begin{definition}\xindex{zusammenhängend}
-    Ein Raum $X$ heißt \textbf{zusammenhängend}, wenn es keine offenen
-    nichtleeren Teilmengen $U_1, U_2$ von $X$ gibt mit $U_1 \cap U_2 = \emptyset$
-    und $U_1 \cup U_2 = X$.
+    Ein Raum $X$ heißt \textbf{zusammenhängend}, wenn es keine offenen,
+    nichtleeren Teilmengen $U_1, U_2$ von $X$ gibt mit 
+    $U_1 \cap U_2 = \emptyset$ und $U_1 \cup U_2 = X$.
 \end{definition}
 
 \begin{bemerkung}
-    $X$ ist zusammenhängend $\gdw$ Es gibt keine nichtleeren abgeschlossenen
-    Teilmengen $A_1, A_2$ mit $A_1 \cap A_2 = \emptyset$ und $A_1 \cup A_2 = X$.
+    $X$ ist zusammenhängend $\gdw$ Es gibt keine abgeschlossenen,
+    nichtleeren Teilmengen $A_1, A_2$ mit $A_1 \cap A_2 = \emptyset$ 
+    und $A_1 \cup A_2 = X$.
 \end{bemerkung}
 
 \begin{bemerkung}
@@ -494,12 +505,13 @@ sodass $\pi$ stetig wird.
 %\end{beispiel}
 
 \begin{beispiel}[Zusammenhang von Räumen]
-    \begin{enumerate}
+    \begin{enumerate}[label=\arabic*)]
         \item $\mdr^n$ ist mit der euklidischen Topologie zusammenhängend,
             denn:
 
-            Angenommen, $\mdr^n = U_1 \cup U_2$ mit $U_i$ offen, $U_i \neq \emptyset$
-            und $U_1 \cap U_2 = \emptyset$ existiert.
+            \underline{Annahme}: $\mdr^n = U_1 \cup U_2$ mit $U_i$ 
+            offen, $U_i \neq \emptyset$ und $U_1 \cap U_2 = \emptyset$ 
+            existieren.
 
             Sei $x \in U_1, y \in U_2$ und $[x,y]$ die Strecke zwischen $x$
             und $y$. Dann ist $U_1 \cap [x,y]$ die Vereinigung von offenen
@@ -510,33 +522,33 @@ sodass $\pi$ stetig wird.
               $\mdr \setminus \Set{0} = \mdr_{< 0} \cup \mdr_{> 0}$
         \item $\mdr^2 \setminus \Set{0}$ ist zusammenhängend.
         \item $\mdq \subsetneq \mdr$ ist nicht zusammenhängend, da 
-    \[(\mdq \cap \mdr_{< \sqrt{2}}) \cup (\mdq \cap \mdr_{> \sqrt{2}}) = \mdq\]
-        \item $\Set{x}$ ist zusammenhängedn für jedes $x \in X$, wobei $X$ ein 
-              topologischer Raum ist.
+              $(\mdq \cap \mdr_{< \sqrt{2}}) \cup (\mdq \cap \mdr_{> \sqrt{2}}) = \mdq$
+        \item $\Set{x}$ ist zusammenhängend für jedes $x \in X$, 
+              wobei $X$ ein topologischer Raum ist.
         \item $\mdr$ mit Zariski-Topologie ist zusammenhängend\xindex{Topologie!Zariski}
     \end{enumerate}
 \end{beispiel}
 
 \begin{korollar}\label{zusammenhangAbschluss}
-    Sei $X$ ein topologischer Raum, $A \subseteq X$ zusammenhängend.
+    Sei $X$ ein topologischer Raum und $A \subseteq X$ zusammenhängend.
     Dann ist auch $\overline{A}$ zusammenhängend.
 \end{korollar}
 
 \begin{beweis}
-    Angenommen $\overline{A} = A_1 \cup A_2, A_i$ abgeschlossen, $\neq \emptyset$,
-    $A_1 \cap A_2 = \emptyset$
+    \underline{Annahme}: $\overline{A} = A_1 \cup A_2,\; A_i$ abgeschlossen, $\neq \emptyset$,
+    $\;A_1 \cap A_2 = \emptyset$
     \begin{align*}
         &\Rightarrow A = \underbrace{\underbrace{(A \cap A_1)}_\text{abgeschlossen} \cup \underbrace{(A \cap A_2)}_\text{abgeschlossen}}_\text{disjunkt}\\
     \end{align*}
 
-    Wäre $A \cap A_1 = \emptyset$
-    \begin{align*}
-        &\Rightarrow A \subseteq A_2\\
-        &\Rightarrow \overline{A} \subseteq A_2\\
-        &\Rightarrow A_1 = \emptyset
-        &\Rightarrow \text{Widerspruch}
-    \end{align*}
-    $\qed$
+    Wäre $A \cap A_1 = \emptyset$\\
+    $\Rightarrow A \subseteq A_2$\\
+    $\Rightarrow \overline{A} \subseteq A_2$\\
+    $\Rightarrow A_1 = \emptyset$\\
+    $\Rightarrow$ Widerspruch zu $A_1 \neq \emptyset$\\
+    $\Rightarrow A \cap A_1 \neq \emptyset$ und analog 
+                $A \cap A_2 \neq \emptyset$\\
+    $\Rightarrow$ Widerspruch zu $A$ ist zusammenhängend $ \qed$
 \end{beweis}
 
 \begin{korollar}\label{zusammenhangVereinigung}
@@ -548,7 +560,7 @@ sodass $\pi$ stetig wird.
 \begin{beweis}
     Sei $A \cup B = U_1 \cup U_2, U_i \neq \emptyset$ offen, disjunkt
     \begin{align*}
-        &\xRightarrow{\text{\OE{}}} A = (A \cap U_1) \cup (A \cap U_2) \text{ offen, disjunkt}\\
+        &\xRightarrow{\text{\obda}} A = (A \cap U_1) \cup (A \cap U_2) \text{ offen, disjunkt}\\
         &\xRightarrow{A \text{ zhgd.}} A \cap U_1 = \emptyset\\
         &\xRightarrow{A \cap B \neq \emptyset} U_1 \subseteq B\\
         &B = \underbrace{(B \cap U_1)}_{= U_1} \cup \underbrace{(B \cap U_2)}_{= \emptyset} \text{ ist unerlaubte Zerlegung}
@@ -580,7 +592,7 @@ sodass $\pi$ stetig wird.
         \item Sei $Z(x) = A_1 \cup A_2$ mit $A_i \neq \emptyset$ abgeschlossen,
               disjunkt.
 
-            \OE{} sei $x \in A_1$ und $y \in A_2$. $y$ liegt in einer zusammehängenden
+            \Obda sei $x \in A_1$ und $y \in A_2$. $y$ liegt in einer zusammehängenden
             Teilmenge $A$, die auch $x$ enthält.
             $\Rightarrow A = \underbrace{(A \cap A_1)}_{\ni x} \cup \underbrace{(A \cap A_2)}_{\ni y}$
             ist unerlaubte Zerlegung.
@@ -612,19 +624,19 @@ sodass $\pi$ stetig wird.
 \end{beweis}\index{Zusammenhang|)}
 
 \section{Kompaktheit}
+\begin{definition}\xindex{Ueberdeckung@""Uberdeckung}
+    Sei $X$ eine Menge und $T \subseteq \powerset{X}$.
+
+    $T$ heißt eine \textbf{Überdeckung} von $X$, wenn gilt:
+    \[\forall x \in X: \exists M \in T: x \in M\]
+\end{definition}
+
 \begin{definition}\xindex{kompakt}
     Ein topologischer Raum $X$ heißt \textbf{kompakt}, wenn jede
     offene Überdeckung von $X$ eine endliche Teilüberdeckung besitzt.
 
     \[\mathfrak{U} = \Set{U_i}_{i \in I},\;\;\;U_i \text{ offen in } X,\;\;\;\bigcup_{i \in I} U_i = X\]
     
-\end{definition}
-
-\begin{definition}\xindex{Ueberdeckung@""Uberdeckung}
-    Sei $X$ eine Menge und $T \subseteq \powerset{X}$.
-
-    $T$ heißt eine \textbf{Überdeckung} von $X$, wenn gilt:
-    \[\forall x \in X: \exists M \in T: x \in M\]
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -663,7 +675,7 @@ $\qed$
 
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*)]
-        \item $\mdr$ ist nicht kompakt.
+        \item $\mdr$ ist nicht kompakt.\todo{mit der std-topo? Warum? Def?}
         \item $(0,1)$ ist nicht kompakt.\\
               $U_n = (\nicefrac{1}{n}, 1-\nicefrac{1}{n}) \Rightarrow \bigcup_{n \in \mdn} U_n = (0,1)$
         \item $\mdr$ mit der Zariski-Topologie ist kompakt und jede 
@@ -937,8 +949,8 @@ $\qed$
             \label{fig:knot-6-2}
         }
 
-        \label{Knoten}
         \caption{Beispiele für verschiedene Knoten}
+        \label{fig:Knoten}
     \end{figure}
 \end{beispiel}
 
@@ -983,8 +995,8 @@ $\qed$
         \label{fig:reidemeister-3}
     }
 
+    \caption{Reidemeister-Züge}
     \label{fig:reidemeister-zuege}
-    \caption{Reidemeister-Züge\newline Urheber:YAMASHITA Makoto}
 \end{figure}
 
 \begin{beweis}
@@ -1002,8 +1014,8 @@ $\qed$
     \centering
     \includegraphics[height=0.3\linewidth, keepaspectratio]{figures/tricoloring.png} 
 
-    \label{fig:reidemeister-zuege}
     \caption{Ein 3-gefärber Kleeblattknoten}
+    \label{fig:treefoil-knot-three-colors}
 \end{figure}
 \index{Knoten|)}
 

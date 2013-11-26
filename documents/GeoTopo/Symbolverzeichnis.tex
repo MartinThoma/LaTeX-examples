@@ -1,277 +1,68 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Begriffslexikon zur Beschreibung des Produkts						 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newglossaryentry{sortierschluessel}
-%{
-%  name=Sortierschlüssel,
-%  description={ein Schlüssel, anhand dessen diese Einträge sortiert werden}
-%}
-%\newacronym{abc}{Blub}{Bananarama}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Mengenoperationen                                                 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newglossaryentry{Potenzmenge}
-{
-  name={\ensuremath{\mathcal{P}(M)}},
-  description={Potenzmenge von $M$},
-  sort=MengenoperationNPotenzmenge
-}
-
-\newglossaryentry{Abschluss}
-{
-  name={\ensuremath{\overline{M}}},
-  description={Abschluss der Menge $M$},
-  sort=MengenoperationFAbschluss
-}
-
-\newglossaryentry{Rand}
-{
-  name={\ensuremath{\partial M}},
-  description={Rand der Menge $M$},
-  sort=MengenoperationFRand
-}
-
-\newglossaryentry{Inneres}
-{
-  name={\ensuremath{M^\circ}},
-  description={Inneres der Menge $M$},
-  sort=MengenoperationFInneres
-}
-
-\newglossaryentry{Kreuzprodukt}
-{
-  name={\ensuremath{A \times B}},
-  description={Kreuzprodukt zweier Mengen},
-  sort=MengenoperationNKreuzprodukt
-}
-\newglossaryentry{subseteq}
-{
-  name={\ensuremath{A \subseteq B}},
-  description={Teilmengenbeziehung},
-  sort=MengenoperationNSubseteq
-}
-\newglossaryentry{subsetneq}
-{
-  name={\ensuremath{A \subsetneq B}},
-  description={echte Teilmengenbeziehung},
-  sort=MengenoperationNSubsetneq
-}
-
-\newglossaryentry{setminus}
-{
-  name={\ensuremath{A \setminus B}},
-  description={$A$ ohne $B$},
-  sort=MengenoperationNSetminus
-}
-
-\newglossaryentry{cup}
-{
-  name={\ensuremath{A \cup B}},
-  description={Vereinigung},
-  sort=MengenoperationOCup
-}
-
-\newglossaryentry{dcup}
-{
-  name={\ensuremath{A \dcup B}},
-  description={Disjunkte Vereinigung},
-  sort=MengenoperationOCupD
-}
-
-\newglossaryentry{cap}
-{
-  name={\ensuremath{A \cap B}},
-  description={Schnitt},
-  sort=MengenoperationOCap
-}
-
+\chapter*{Symbolverzeichnis}
+\addcontentsline{toc}{chapter}{Symbolverzeichnis}
+\begin{minipage}[t]{0.45\textwidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Zahlenmengen                                                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newglossaryentry{N}
-{
-  name={\ensuremath{\mdn}},
-  description={Natürliche Zahlen},
-  sort=KoerperAN
-}
+\section*{Zahlenmengen}
+$\mdn\;\;\;$ Natürliche Zahlen\\
+$\mdz\;\;\;$ Ganze Zahlen\\
+$\mdq\;\;\;$ Rationale Zahlen\\
+$\mdr\;\;\;$ Reele Zahlen\\
+$\mdr^+\;\;\;$ Echt positive reele Zahlen\\
+$\mdr^\times\;\;\;$ Einheitengruppe von $\mdr$\\
+$\mdc\;\;\;$ Komplexe Zahlen\\
 
-\newglossaryentry{Z}
-{
-  name={\ensuremath{\mdz}},
-  description={Ganze Zahlen},
-  sort=KoerperAZ
-}
-
-\newglossaryentry{Q}
-{
-  name={\ensuremath{\mdq}},
-  description={Rationale Zahlen},
-  sort=KoerperBQ
-}
-
-\newglossaryentry{R}
-{
-  name={\ensuremath{\mdr}},
-  description={Reele Zahlen},
-  sort=KoerperR
-}
-
-\newglossaryentry{Rplus}
-{
-  name={\ensuremath{\mdr^+}},
-  description={Echt positive reele Zahlen},
-  sort=KoerperRplus
-}
-
-\newglossaryentry{Einheitengruppe}
-{
-  name={\ensuremath{\mdr^\times}},
-  description={Multiplikative Einheitengruppe von $\mdr$},
-  sort=KoerperREinheiten
-}
-
-\newglossaryentry{Komplexe Zahlen}
-{
-  name={\ensuremath{\mdc}},
-  description={Komplexe Zahlen},
-  sort=KoerperSComplexeZahlen
-}
-
-\newglossaryentry{Projektiver Raum}
-{
-  name={\ensuremath{\mdp}},
-  description={Projektiver Raum},
-  sort=KoerperXProjektion
-}
-
+\section*{Weiteres}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Fraktale Symbole                                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newglossaryentry{fB}
-{
-  name={\ensuremath{\fB}},
-  description={Basis einer Topologie},
-  sort=fB
-}
+$\fB\;\;\;$ Basis einer Topologie\\
+$\fB_\delta(x)\;\;\;$ $\delta$-Kugel um $x$\\
+$\fT\;\;\;$ Topologie\\
 
-\newglossaryentry{Epsilonumgebung}
-{
-  name={\ensuremath{\fB_\delta(x)}},
-  description={$\delta$-Kugel um $x$},
-  sort=fBr
-}
+$\mdp\;\;\;$ Projektiver Raum\\
+$\langle \cdot , \cdot \rangle\;\;\;$ Skalarprodukt\\
+$X /_\sim\;\;\;$ $X$ modulo $\sim$\\
+$[x]_\sim\;\;\;$ Äquivalenzklassen von $x$ bzgl. $\sim$\\
+$\| x \|\;\;\;$ Norm von $x$\\
+$| x |\;\;\;$ Betrag von $x$\\
+$S^n\;\;\;$ Sphäre\\
+$T^n\;\;\;$ Torus\\
+$\pi_X\;\;\;$ Projektion auf $X$\\
+$f^{-1}(M)\;\;\;$ Urbild von $M$\\
+$\GL_n(K)\;\;\;$ Allgemeine lineare Gruppe (general linear group)\\
+$\text{Rg}(M)\;\;\;$ Rang von $M$\\
+$f|_U\;\;\;$ $f$ eingeschränkt auf $U$\\
 
-\newglossaryentry{fT}
-{
-  name={\ensuremath{\fT}},
-  description={Topologie},
-  sort=fT
-}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mengenoperationen                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Mengenoperationen}
+$A^C\;\;\;$ Komplement der Menge $A$\\
+$\mathcal{P}(M)\;\;\;$ Potenzmenge von $M$\\
+$\overline{M}\;\;\;$ Abschluss der Menge $M$\\
+$\partial M\;\;\;$ Rand der Menge $M$\\
+$M^\circ\;\;\;$ Inneres der Menge $M$\\
+$A \times B\;\;\;$ Kreuzprodukt zweier Mengen\\
+$A \subseteq B\;\;\;$ Teilmengenbeziehung\\
+$A \subsetneq B\;\;\;$ echte Teilmengenbeziehung\\
+$A \setminus B\;\;\;$ $A$ ohne $B$\\
+$A \cup B\;\;\;$ Vereinigung\\
+$A \dcup B\;\;\;$ Disjunkte Vereinigung\\
+$A \cap B\;\;\;$ Schnitt\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Sonstiges                                                         %
+% Gruppen                                                           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newglossaryentry{Skalarprodukt}
-{
-  name={\ensuremath{\langle \cdot , \cdot \rangle}},
-  description={Skalarprodukt},
-  sort=ZZZSkalarprodukt
-}
-
-\newglossaryentry{Modulo}
-{
-  name={\ensuremath{X /_\sim}},
-  description={$X$ modulo $\sim$},
-  sort=ZZZAuequivalenzModulo
-}
-
-\newglossaryentry{Modulo-Aequivalenzklasse}
-{
-  name={\ensuremath{[x]_\sim}},
-  description={Äquivalenzklassen von $x$ bzgl. $\sim$},
-  sort=ZZZAuequivalenzKlassen
-}
-
-\newglossaryentry{Norm}
-{
-  name={\ensuremath{\| x \|}},
-  description={Norm von $x$},
-  sort=ZZZNorm
-}
-
-\newglossaryentry{Betrag}
-{
-  name={\ensuremath{| x |}},
-  description={Betrag von $x$},
-  sort=ZZZNormBetrag
-}
-
-\newglossaryentry{Sphaere}
-{
-  name={\ensuremath{S^n}},
-  description={Sphäre},
-  sort=ZZZSphaere
-}
-
-\newglossaryentry{Torus}
-{
-  name={\ensuremath{T^n}},
-  description={Torus},
-  sort=ZZZSphaereTorus
-}
-
-\newglossaryentry{Projektion}
-{
-  name={\ensuremath{\pi_X}},
-  description={Projektion auf X},
-  sort=ZZZProjektion
-}
-
-\newglossaryentry{Urbild}
-{
-  name={\ensuremath{f^{-1}(M)}},
-  description={Urbild von $M$},
-  sort=ZZZUrbild
-}
-
-\newglossaryentry{Ohne Einschraekung}
-{
-  name={$\text{\OE}$},
-  description={Ohne Einschränkung},
-  sort=ZZZOE
-}
-
-\newglossaryentry{Allgemeine lineare Gruppe}
-{
-  name={$\GL_n(K)$},
-  description={Allgemeine lineare Gruppe (general linear group)},
-  sort=ZZZGL
-}
+\section*{Gruppen}
+$\text{Homöo}(X)\;\;\;$ Homöomorphismengruppe\\
+$\text{Iso}(X)\;\;\;$ Isometriengruppe\\
+\end{minipage}
 
 
-\newglossaryentry{Rang}
-{
-  name={$\text{Rg}(M)$},
-  description={Rang von $M$},
-  sort=ZZZRang
-}
 
-\newglossaryentry{Einschraeunkung}
-{
-  name={$f|_U$},
-  description={$f$ eingeschränkt auf U},
-  sort=ZZZEinschraenkung
-}
 
-% Setze den richtigen Namen für das Glossar
-\renewcommand*{\glossaryname}{\glossarName}
-\deftranslation{Glossary}{\glossarName}
 
-% Drucke das gesamte Glossar
-\glsaddall
-\printglossaries
-
-% Trage das Glossar in das Inhaltsverzeichnis ein
-%\stepcounter{section}
-%\addcontentsline{toc}{section}{\numberline {\thesection} \glossarName}

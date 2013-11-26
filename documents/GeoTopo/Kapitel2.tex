@@ -5,12 +5,12 @@
 \section{Topologische Mannigfaltigkeiten}
 \begin{definition}
     Sei $X$ ein topologischer Raum und $n \in \mdn$.
-    \begin{enumerate}[label=(\alph*)]
+    \begin{enumerate}[label=\alph*)]
         \item Eine $n$-dimensionale \textbf{Karte}\xindex{Karte} auf
               $X$ ist ein Paar $(U, \varphi)$, wobei $U \subseteq X$
               offen und $\varphi: U \rightarrow V$ Homöomorphismus
               von $U$ auf eine offene Teilmenge $V \subseteq \mdr^n$.
-        \item Ein $n$-dimensionaler \textbf{Atlas}\xindex{Atlas} auf $X$ ist eine
+        \item Ein $n$-dimensionaler \textbf{Atlas}\xindex{Atlas} $\atlas$ auf $X$ ist eine
               Familie $(U_i, \varphi_i)_{i \in I}$ von Karten auf $X$,
               sodass $\bigcup_{i \in I} U_i = X$.
         \item $X$ heißt (topologische) $n$-dimensionale \textbf{Mannigfaltigkeit}\xindex{Mannigfaltigkeit},
@@ -21,7 +21,7 @@
 
 \begin{bemerkung}
     \begin{enumerate}[label=(\alph*)]
-        \item Es gibt surjektive, stetige Abbildungen $[0,1] \rightarrow [0,1] \times [0,1]$
+        \item Es gibt surjektive, stetige Abbildungen $[0,1] \rightarrow [0,1] \times [0,1]$\todo{Wann ist das wichtig? Ist die Hilbert-Kurve ein Beispiel?}
         \item Für $n \neq m$ sind $\mdr^n$ und $\mdr^m$ nicht homöomorph.
               Zum Beweis benutzt man den \enquote{Satz von der Gebietstreue} (Brouwer):
 
@@ -43,7 +43,7 @@
         \item $\mdc^n$ ist eine $2n$-dimensionale Mannigfaltigkeit
               mit einem Atlas aus einer Karte:
               \[(z_1, \dots, z_n) \mapsto (\operatorname{Re} z_1, \operatorname{Im}z_1, \dots, \operatorname{Re}z_n, \operatorname{Im}z_n)\]
-        \item $\mdp^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\mdp^n(\mdc)$ sind Mannigfaltigkeiten 
+        \item $\mdp^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\mdp^n(\mdc)$ sind Mannigfaltigkeiten \todo{besser aufschreiben}
               der Dimension $n$ bzw. $2n$.
 
               $\mdp^n(\mdr) = \bigcup_{i=0}^n U_i,$
@@ -79,7 +79,7 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
               Es gibt keine Umgebung von $0$ in $[0,1]$, die homöomorph
               zu einem offenem Intervall ist.
         \item $V_1 = \Set{(x,y) \in \mdr^2 | x \cdot y = 0}$ ist
-              keine Mannigfaltigkeit.
+              keine Mannigfaltigkeit. \todo{Warum genau?}
         \item $V_2 = \Set{(x,y) \in \mdr^2 | x^3 = y^2}$ ist eine
               Mannigfaltigkeit.
         \item $X = (\mdr \setminus \Set{0}) \cup (O_1, O_2)$
@@ -155,14 +155,15 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
     und $X = V(F) := \Set{x \in \mdr^n | F(x) = 0}$ das \enquote{vanishing set}.
 
     Dann gilt:
-    \begin{enumerate}[label=\alph*)]
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item $X$ ist abgeschlossen in $\mdr^n$
-        \item Ist $\text{grad}(F)(X) \neq 0 \forall{x \in X}$, so ist
+        \item Ist $\text{grad}(F)(X) \neq 0 \;\;\;\forall{x \in X}$, so ist
               $X$ eine Mannigfaltigkeit der Dimension $n-1$.  \label{Mannigfaltigkeitskriterium}
     \end{enumerate}
 \end{korollar}
 
 \begin{beweis}
+    von a und b:
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item Sei $y \in \mdr^n \setminus V(F)$. Weil $F$ stetig ist,
               gibt es $\delta > 0$, sodass $F(\fB_\delta(y)) \subseteq \fB_\varepsilon(F(y))$
@@ -202,7 +203,7 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
                 \caption{Rechts ist die Neilsche Parabel für verschiedene Parameter $a$.}
             \end{figure}
               Es gilt: $\text{grad}(F) = (-3x^2, 2y)$. Also: $\text{grad}(0,0) = (0,0)$.
-              Daher ist Korollar \label{Mannigfaltigkeitskriterium}
+              Daher ist Korollar \ref{Mannigfaltigkeitskriterium}
               nicht anwendbar, aber $V(F)$ ist trotzdem
               eine 1-dimensionale topologische Mannigfaltigkeit.
     \end{enumerate}
@@ -276,7 +277,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
     \begin{enumerate}[label=\alph*)]
         \item $X$ heißt \textbf{differenzierbare Mannigfaltigkeit der Klasse $C^k$}\xindex{Mannigfaltigkeit!differenzierbare},
-              wenn jede Kartenwechselabbildung $\varphi_{ij},\;i,j \in I$
+              wenn jede Kartenwechselabbildung $\varphi_{ij},\;i,j \in I$\todo{warum Doppelindex}
               $k$-mal stetig differenzierbar ist.
         \item $X$ heißt \textbf{differenzierbare Mannigfaltigkeit}\xindex{Mannigfaltigkeit!glatte},
               wenn $X$ eine differenzierbare Mannigfaltigkeit der
@@ -314,12 +315,12 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item Eine stetige Abbildung $f:X \rightarrow Y$ heißt\label{def:stetigeAbbildungDiffbar}
               \textbf{differenzierbar}\xindex{Abbildung!differenzierbare}
-              in $X$ (von Klasse $C^k$),
+              in $x$ (von Klasse $C^k$),
               wenn es Karten $(U, \varphi)$ von $X$ mit
               $x \in U$ und $(V, \psi)$ von $Y$ mit $f(U) \subseteq V$
               gibt, sodass $\psi \circ f \circ \varphi^{-1}$ stetig
               differenzierbar von Klasse $C^k$ in $\varphi(x)$ ist.
-        \item $f$ heißt \textbf{differenzierbar}\todo{stimmt das so?}
+        \item $f$ heißt \textbf{differenzierbar}
               (von Klasse $C^k$), wenn $f$ in jedem $x \in X$ 
               differenzierbar ist.
         \item $f$ heißt \textbf{Diffieomorphismus}\xindex{Diffieomorphismus},
@@ -338,11 +339,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \begin{beweis}
     Seien $(U', \varphi')$ und $(V', \psi')$ Karten von $X$ bzw. $Y$
     um $x$ bzw. $f(x)$ mit $f(U') \subseteq V'$.
-
-    \begin{align*}
-        \Rightarrow &\psi' \circ f \circ (\varphi')^{-1}\\
-                  = &\psi' \circ ( \psi^{-1} \circ \psi) \circ f \circ (\varphi^{-1} \circ \varphi ) \circ (\varphi')^{-1}
-    \end{align*}
+    
+    $\Rightarrow \psi' \circ f \circ (\varphi')^{-1}$\\
+    $= \psi' \circ ( \psi^{-1} \circ \psi) \circ f \circ (\varphi^{-1} \circ \varphi ) \circ (\varphi')^{-1}$
 
     ist genau dann differenzierbar, wenn $\psi \circ f \circ \varphi^{-1}$
     differenzierbar ist.
@@ -686,7 +685,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               ist simplizial:
 
               \input{figures/topology-triangle-to-line.tex}
-        \item \todo[inline]{wozu dient das Beispiel?}
+        \item \todo[inline]{Wozu dient das Beispiel?}
 
             \input{figures/topology-2.tex}
     \end{enumerate}
