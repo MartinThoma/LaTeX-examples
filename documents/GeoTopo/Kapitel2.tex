@@ -600,5 +600,135 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \caption{Beispiele für $k$-Simplexe}
 \end{figure}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 21.11.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+        \item Eine endliche Menge $K$ von Simplizes im $\mdr^n$
+              heißt (endlicher) \textbf{Simplizialkomplex}\xindex{Simplizialkomplex},
+              wenn gilt:
+            \begin{enumerate}[label=(\roman*)]
+                \item Für $\Delta \in K$ und $S \subseteq \Delta$ Teilsimplex
+                      ist $S \in K$
+                \item Für $\Delta_1, \Delta_2 \in K$ ist 
+                      $\Delta_1 \cap \Delta_2$ leer
+                      oder ein Teilsimplex von $\Delta_1$ und von 
+                      $\Delta_2$
+            \end{enumerate}
+        \item $|K| := \bigcup_{\Delta \in K} \Delta$ (mit Spurtoplogie)
+              heißt \textbf{geometrische Realisierung}\xindex{Realisierung!geometrische}
+              von $K$.
+        \item Ist $d = \max \Set{ k | K \text{ enthält } k-\text{Simplex}}$,
+              so heißt $d$ \textbf{Dimension}\xindex{Dimension} von
+              $K$.
+    \end{enumerate}
+\end{definition}
+
+\xindex{Oktaeder}\xindex{Würfel}
+\begin{figure}[ht]
+    \centering
+    \subfloat[1D Simplizialkomplex]{
+        \parbox{4cm}{\centering\input{figures/topology-1-d-simplizialkomplex}}
+        \label{fig:simplizialkomplex-1-d}
+    }%
+    \subfloat[2D Simplizialkomplex (ohne untere Fläche!)]{
+        \parbox{4cm}{\centering\input{figures/topology-pyramid.tex}}
+        \label{fig:simplizialkomplex-2-d}
+    }%
+    \subfloat[2D Simplizialkomplex]{
+        \parbox{5cm}{\centering\input{figures/topology-oktaeder.tex}}
+        \label{fig:simplizialkomplex-2-d-okateder}
+    }%
+
+    \subfloat[1D Simplizialkomplex]{
+        \parbox{5cm}{\centering\input{figures/topology-cube.tex}}
+        \label{fig:simplizialkomplex-cube}
+    }%
+    \subfloat[2D Simplizialkomplex]{
+        \parbox{5cm}{\centering\input{figures/topology-cube-divided.tex}}
+        \label{fig:simplizialkomplex-cube-divided}
+    }
+
+    \subfloat[$P$ ist kein Teilsimplex, da Eigenschaft (ii) verletzt ist]{
+        \parbox{5cm}{\centering\input{figures/topology-triangle-no-simplicial-complex.tex}}
+        \label{fig:no-simplizialkomplex-triangles}
+    }%
+    \subfloat[Simplizialkomplex]{
+        \parbox{5cm}{\centering\input{figures/topology-triangle-simplicial-complex.tex}}
+        \label{fig:simplizialkomplex-triangles}
+    }%
+    \label{fig:simplizialkomplexe}
+    \caption{Beispiele für Simplizialkomplexe}
+\end{figure}
+
+\begin{definition}
+    Seien $K, L$ Simplizialkomplexe. Eine stetige Abbildung
+    \[f:|K| \rightarrow |L|\]
+    heißt \textbf{simplizial}\xindex{Abbildung!simpliziale}, wenn für
+    jedes $\Delta \in K$ gilt:
+    \begin{enumerate}[label=(\roman*)]
+        \item $f(\Delta) \in L$
+        \item $f|_{\Delta} : \Delta \rightarrow f(\Delta)$ ist eine
+              affine Abbildung.
+    \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item $\varphi(e_1) := b_1$, $\varphi(e_2) := b_2$\\
+              $\varphi$ ist eine eindeutig bestimmte lineare Abbildung
+
+              \input{figures/topology-linear-mapping.tex}
+
+        \item Folgende Abbildung $\Delta^n \rightarrow \Delta^{n-1}$ 
+              ist simplizial:
+
+              \input{figures/topology-triangle-to-line.tex}
+        \item \todo[inline]{wozu dient das Beispiel?}
+
+            \input{figures/topology-2.tex}
+    \end{enumerate}
+\end{beispiel}
+
+\begin{definition}
+    Sei $K$ ein endlicher Simplizialkomplex. Für $n \geq 0$ sei
+    $a_n(K)$ die Anzahl der $n$-Simplizes in $K$.
+
+    Dann heißt 
+    \[\chi(K) := \sum_{k=0}^{\dim K} (-1)^n a_n(K)\]
+    \textbf{Eulerzahl}\xindex{Eulerzahl} (oder Euler-Charakteristik\index{Euler-Charakteristik|see{Eulerzahl}})
+    von $K$.
+\end{definition}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item $\chi(\Delta^1) = 2 - 1 = 1$\\
+              $\chi(\Delta^2) = 3 - 3 + 1 = 1$\\
+              $\chi(\Delta^3) = 4 - 6 + 4 - 1 = 1$
+        \item $\chi(\text{Oktaeder-Oberfläche}) = 6 - 12 + 8 = 2$\\
+              $\chi(\text{Rand des Tetraeders}) = 2$\\
+              $\chi(\text{Ikosaeder}) = 12 - 30 + 20 = 2$
+        \item $\chi(\text{Würfel}) = 8 - 12 + 6 = 2$\\
+              $\chi(\text{Würfel, unterteilt in Dreiecksflächen}) = 8 - (12 + 6) + (6 \cdot 2) = 2$
+    \end{enumerate}
+\end{beispiel}
+
+\begin{korollar}
+    $\chi(\Delta^n) = 1$ für jedes $n \in \mdn_0$
+\end{korollar}
+
+\begin{beweis}
+    $\Delta^n$ ist die konvexe Hülle von $(e_0, \dots, e_n)$ in $\mdr^{n+1}$.
+    Jede $(k+1)$-elementige Teilmenge von $\Set{e_0, \dots, e_n}$
+    definiert ein $k$-Simplex.\\
+    $\Rightarrow a_k(\Delta^n) = \binom{n+1}{k+1}, \;\;\; k = 0, \dots, n$\\
+    $\Rightarrow \chi(\Delta^n) = \sum_{k=0}^n (-1)^k \binom{n+1}{k+1}$\\
+    $f(x) = (x+1)^{n+1} \stackrel{\substack{\tiny\text{Binomischer}\\\text{Lehrsatz}}}{=} \sum_{k=0}^{n+1} \binom{n+1}{k} x^k$\\
+    $\Rightarrow 0 = \sum_{k=0}^{n+1} \binom{n+1}{k} (-1)^k = \chi(\Delta^n) -1$\\
+    $\Rightarrow \chi(\Delta^n) = 1 \qed$
+\end{beweis}
+
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel2-UB}

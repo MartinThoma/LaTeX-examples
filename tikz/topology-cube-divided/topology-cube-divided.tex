@@ -1,0 +1,35 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+    \tikzstyle{point}=[circle,thick,draw=black,fill=black,inner sep=0pt,minimum width=4pt,minimum height=4pt]
+    \node (a)[point] at (0,0) {};
+    \node (b)[point] at (4,0) {};
+    \node (c)[point] at (5,1) {};
+    \node (d)[point] at (1,1) {};
+    \node (e)[point] at (0,2) {};
+    \node (f)[point] at (4,2) {};
+    \node (g)[point] at (5,3) {};
+    \node (h)[point] at (1,3) {};
+    \draw (a.center) -- (b.center) -- (f.center) -- (e.center) -- cycle;
+    \draw (b.center) -- (c.center) -- (g.center) -- (f.center) -- cycle;
+    \draw (e.center) -- (f.center) -- (g.center) -- (h.center) -- cycle;
+    \draw[dashed] (a.center) -- (d.center) -- (c.center);
+    \draw[dashed] (d.center) -- (h.center);
+
+    \draw[orange] (b.center) -- (e.center) -- (g.center);
+    \draw[orange,dashed] (a.center) -- (c.center) -- (h.center);
+    \draw[orange,dashed] (d.center) -- (e.center);
+    \draw[orange] (f.center) -- (c.center);
+
+    \node (a)[point] at (0,0) {};
+    \node (b)[point] at (4,0) {};
+    \node (c)[point] at (5,1) {};
+    \node (d)[point] at (1,1) {};
+    \node (e)[point] at (0,2) {};
+    \node (f)[point] at (4,2) {};
+    \node (g)[point] at (5,3) {};
+    \node (h)[point] at (1,3) {};
+\end{tikzpicture}
+\end{document}
