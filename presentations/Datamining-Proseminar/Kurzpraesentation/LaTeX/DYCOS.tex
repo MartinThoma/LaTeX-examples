@@ -7,22 +7,35 @@
     \end{center}
 \end{frame}
 
-\begin{frame}{Der Algorithmus}
-\begin{algorithm}[H]
-	\begin{algorithmic}
-		\Function{DYCOS}{Network $G_t = (N_t, A_t, T_t), l, h, p_s$}
-			\ForAll{node $v$ in $T_t$} \Comment{Für jeden gelabelten Knoten}
-			    \For{$i \in 1, \dots, l$} 
-				    \State Perform an $h$-hop random walk from $v$
-			    \EndFor
-                \State Classify $v$ with the class labels most frequent
-                       encountered
-			\EndFor
-		\EndFunction
-	\end{algorithmic}
-\caption{DYCOS algorithm for classification with content and structure}
-\label{alg:seq1}
-\end{algorithm}
+\begin{frame}{DYCOS}
+    DYCOS zeichnet sich aus durch:
+    \begin{itemize}
+        \item \textbf{Geschwindigkeit}: < $10\si{\second}$ für
+            \begin{itemize}
+                \item $806\,635$ Knoten ($18\,999$ mit Labels)
+                \item $4\,414\,135$ Kanten
+            \end{itemize}
+        \item \textbf{Genauigkeit}: > $65\%$
+    \end{itemize}
 \end{frame}
+
+
+%\begin{frame}{Der Algorithmus}
+%\begin{algorithm}[H]
+%	\begin{algorithmic}
+%		\Function{DYCOS}{Network $G_t = (N_t, A_t, T_t), l, h, p_s$}
+%			\ForAll{node $v$ in $T_t$} \Comment{Für jeden gelabelten Knoten}
+%			    \For{$i \in 1, \dots, l$} 
+%				    \State Perform an $h$-hop random walk from $v$
+%			    \EndFor
+%               \State Classify $v$ with the class labels most frequent
+%                       encountered
+%			\EndFor
+%		\EndFunction
+%	\end{algorithmic}
+%\caption{DYCOS algorithm for classification with content and structure}
+%\label{alg:seq1}
+%\end{algorithm}
+%\end{frame}
 
 
