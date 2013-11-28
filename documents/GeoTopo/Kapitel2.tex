@@ -162,8 +162,7 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
     \end{enumerate}
 \end{korollar}
 
-\begin{beweis}
-    von a und b:
+\begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item Sei $y \in \mdr^n \setminus V(F)$. Weil $F$ stetig ist,
               gibt es $\delta > 0$, sodass $F(\fB_\delta(y)) \subseteq \fB_\varepsilon(F(y))$
@@ -321,7 +320,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \item $f$ heißt \textbf{differenzierbar}
               (von Klasse $C^k$), wenn $f$ in jedem $x \in X$ 
               differenzierbar ist.
-        \item $f$ heißt \textbf{Diffieomorphismus}\xindex{Diffieomorphismus},
+        \item $f$ heißt \textbf{Diffeomorphismus}\xindex{Diffeomorphismus},
               wenn $f$ differenzierbar von Klasse $C^\infty$ ist und
               es eine differenzierbare Abbildung $g: Y \rightarrow X$
               von Klasse $C^\infty$ gibt mit $g \circ f = \text{id}_X$
@@ -347,7 +346,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
 \begin{beispiel}
     $f: \mdr \rightarrow \mdr, \;\;\; x \mapsto x^3$ ist kein
-    Diffieomorphismis, aber Homöomorphismus, da mit $g(x) := \sqrt[3]{x}$
+    Diffeomorphismis, aber Homöomorphismus, da mit $g(x) := \sqrt[3]{x}$
     gilt: $f \circ g = \text{id}_\mdr, \;\;\; g \circ f = \text{id}_\text{\mdr}$
 \end{beispiel}
 
@@ -535,7 +534,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         h  &\mapsto g \cdot h
     \end{align*}
 
-    ein Diffieomorphismus.
+    ein Diffeomorphismus.
 \end{bemerkung}
 
 \section{Simplizialkomplex}
@@ -618,33 +617,33 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \begin{figure}[ht]
     \centering
     \subfloat[1D Simplizialkomplex]{
-        \parbox{4cm}{\centering\input{figures/topology-1-d-simplizialkomplex}}
+        \parbox[c][4cm]{4cm}{\centering\input{figures/topology-1-d-simplizialkomplex}}
         \label{fig:simplizialkomplex-1-d}
     }%
     \subfloat[2D Simplizialkomplex (ohne untere Fläche!)]{
-        \parbox{4cm}{\centering\input{figures/topology-pyramid.tex}}
+        \parbox[c][4cm]{4cm}{\centering\input{figures/topology-pyramid.tex}}
         \label{fig:simplizialkomplex-2-d}
     }%
     \subfloat[2D Simplizialkomplex]{
-        \parbox{5cm}{\centering\input{figures/topology-oktaeder.tex}}
+        \parbox[c][4cm]{5cm}{\centering\input{figures/topology-oktaeder.tex}}
         \label{fig:simplizialkomplex-2-d-okateder}
     }%
 
     \subfloat[1D Simplizialkomplex]{
-        \parbox{5cm}{\centering\input{figures/topology-cube.tex}}
+        \parbox[c][4cm]{5cm}{\centering\input{figures/topology-cube.tex}}
         \label{fig:simplizialkomplex-cube}
     }%
     \subfloat[2D Simplizialkomplex]{
-        \parbox{5cm}{\centering\input{figures/topology-cube-divided.tex}}
+        \parbox[c][4cm]{5cm}{\centering\input{figures/topology-cube-divided.tex}}
         \label{fig:simplizialkomplex-cube-divided}
     }
 
     \subfloat[$P$ ist kein Teilsimplex, da Eigenschaft (ii) verletzt ist]{
-        \parbox{5cm}{\centering\input{figures/topology-triangle-no-simplicial-complex.tex}}
+        \parbox[c][4cm]{5cm}{\centering\input{figures/topology-triangle-no-simplicial-complex.tex}}
         \label{fig:no-simplizialkomplex-triangles}
     }%
     \subfloat[Simplizialkomplex]{
-        \parbox{5cm}{\centering\input{figures/topology-triangle-simplicial-complex.tex}}
+        \parbox[c][4cm]{5cm}{\centering\input{figures/topology-triangle-simplicial-complex.tex}}
         \label{fig:simplizialkomplex-triangles}
     }%
     \label{fig:simplizialkomplexe}
@@ -733,20 +732,20 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \begin{figure}[ht]
     \centering
     \subfloat[Dies wird häufig auch als Multigraph bezeichnet.]{
-        \parbox{4cm}{\centering\input{figures/topology-graph-simple.tex}}
+        \parbox[c][3cm]{4cm}{\centering\input{figures/topology-graph-simple.tex}}
         \label{fig:topology-graph-simple}
     }%
     \subfloat[Planare Einbettung des Tetraeders]{
-        \parbox{4cm}{\centering\input{figures/topology-graph-tetraeder.tex}}
+        \parbox[c][3cm]{4cm}{\centering\input{figures/topology-graph-tetraeder.tex}}
         \label{fig:topology-graph-tetraeder}
     }
 
     \subfloat[$K_5$]{
-        \parbox{4cm}{\centering\input{figures/topology-graph-k-5.tex}}
+        \parbox[c][3cm]{4cm}{\centering\input{figures/topology-graph-k-5.tex}}
         \label{fig:k-5}
     }%
     \subfloat[$K_{3,3}$]{
-        \parbox{4cm}{\centering\input{figures/topology-graph-k-3-3.tex}}
+        \parbox[c][3cm]{4cm}{\centering\input{figures/topology-graph-k-3-3.tex}}
         \label{fig:k-3-3}
     }%
     \label{fig:graphen-beispiele}
@@ -827,11 +826,13 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               eine eine Triangulierungen $T$, die sowohl um $T_1$ als
               auch um $T_2$ Verfeinerung ist.
 
-              \todo[inline]{Komische Zeichung}
+              \begin{center}
+                  \input{figures/topology-3.tex}\todo{Was bedeutet diese Zeichnung?}
+              \end{center}
 
               Nach Korollar~\ref{kor:simplex-unterteilung} ist
-              $\chi(\partial P_1) = \chi(T_1) = \chi(T) = \chi(T_2) = \chi(\partial P_2) = 2$.
-              Weil \obda{} $P_2$ ein Tetraeder ist.
+              $\chi(\partial P_1) = \chi(T_1) = \chi(T) = \chi(T_2) = \chi(\partial P_2) = 2$,
+              weil \obda{} $P_2$ ein Tetraeder ist.
     \end{enumerate}
 \end{beweis}
 
