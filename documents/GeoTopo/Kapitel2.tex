@@ -432,7 +432,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 21.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{korollar}
+\begin{korollar}\label{kor:regular-surface-mannigfaltigkeit}
     Jede reguläre Fläche $S \subseteq \mdr^3$ ist eine 2-dimensionale,
     differenzierbare Mannigfaltigkeit.
 \end{korollar}
@@ -441,7 +441,13 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \todo{Hier muss ich nochmals drüberlesen.}
     \underline{z.Z.:} $F_j^{-1} \circ F_i$ ist Diffeomorphismus
 
-    \todo[inline]{Bild $F_j^{-1} \circ F_i$}
+    \begin{figure}[htp]
+        \centering
+        \input{figures/topology-parametric-surface-mapping.tex}
+        \caption{Reguläre Fläche $S$ zum Beweis von Korollar~\ref{kor:regular-surface-mannigfaltigkeit}}
+        \label{fig:parametric-surface-mapping}
+    \end{figure}
+    
 
     \underline{Idee:} Finde differenzierbare Funktion $\tilde{F_j^{-1}}$
     in Umgebung $W$ von $s$, sodass $\tilde{F_j^{-1}}|_{S \cap W} = F_j^{-1}$.
@@ -819,8 +825,6 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \item \Obda{} sei $0 \in P$ und $P \subseteq \fB_1(0)$. Projeziere
               $0P$ von $0$ aus auf $\partial \fB_1(0) = S^2$.
               Erhalte Triangulierung von $S^2$.
-
-              \todo[inline]{Bild von rundem Wuerfel}
         \item Sind $P_1$ und $P_2$ konvexe Polygone und $T_1, T_2$
               die zugehörigen Triangulierungen von $S^2$, so gibt es 
               eine eine Triangulierungen $T$, die sowohl um $T_1$ als
@@ -855,7 +859,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
     Dann gilt: $d_{n-1} \circ d_n = 0$
 
-    \todo[inline]{Skizze von Dreieck}
+    \input{figures/topology-oriented-triangle.tex}
+
+    $a < b < c$
 
     $d_2 \sigma = e_1 - e_2 + e_3 = c - b - (c-a) + b - a = 0$
 \end{korollar}
