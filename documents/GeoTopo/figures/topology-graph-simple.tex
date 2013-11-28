@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+    \tikzstyle{point}=[circle,thick,draw=black,fill=black,inner sep=0pt,minimum width=4pt,minimum height=4pt]
+    \node (a)[point] at (0,0) {};
+    \node (b)[point] at (1,0) {};
+    \path (a.center) edge [bend left]  (b.center);
+    \path (a.center) edge              (b.center);
+    \path (a.center) edge [bend right] (b.center);
+\end{tikzpicture}
