@@ -21,7 +21,7 @@
 
 \begin{bemerkung}
     \begin{enumerate}[label=(\alph*)]
-        \item Es gibt surjektive, stetige Abbildungen $[0,1] \rightarrow [0,1] \times [0,1]$\todo{Wann ist das wichtig? Ist die Hilbert-Kurve ein Beispiel?}
+        \item Es gibt surjektive, stetige Abbildungen $[0,1] \rightarrow [0,1] \times [0,1]$
         \item Für $n \neq m$ sind $\mdr^n$ und $\mdr^m$ nicht homöomorph.
               Zum Beweis benutzt man den \enquote{Satz von der Gebietstreue} (Brouwer):
 
@@ -43,12 +43,12 @@
         \item $\mdc^n$ ist eine $2n$-dimensionale Mannigfaltigkeit
               mit einem Atlas aus einer Karte:
               \[(z_1, \dots, z_n) \mapsto (\operatorname{Re} z_1, \operatorname{Im}z_1, \dots, \operatorname{Re}z_n, \operatorname{Im}z_n)\]
-        \item $\mdp^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\mdp^n(\mdc)$ sind Mannigfaltigkeiten \todo{besser aufschreiben}
+        \item $\praum^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\praum^n(\mdc)$ sind Mannigfaltigkeiten \todo{besser aufschreiben}
               der Dimension $n$ bzw. $2n$.
 
-              $\mdp^n(\mdr) = \bigcup_{i=0}^n U_i,$
+              $\praum^n(\mdr) = \bigcup_{i=0}^n U_i,$
               \begin{align*}
-U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n\\
+U_i = \Set{(x_0: \dots : x_n) \in \praum^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n\\
                 (x_0 : \dots : x_n) &\mapsto \left (\frac{x_0}{x_i}, \dots, \frac{x_i}{x_i}, \dots, \frac{x_n}{x_i} \right )\\
                 (y_1 : \dots : y_{i-1} : 1 : y_i : \dots : y_n) &\mapsfrom (y_1, \dots, y_n)
               \end{align*}
@@ -79,7 +79,12 @@ U_i = \Set{(x_0: \dots : x_n) \in \mdp^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n
               Es gibt keine Umgebung von $0$ in $[0,1]$, die homöomorph
               zu einem offenem Intervall ist.
         \item $V_1 = \Set{(x,y) \in \mdr^2 | x \cdot y = 0}$ ist
-              keine Mannigfaltigkeit. \todo{Warum genau?}
+              keine Mannigfaltigkeit. 
+
+              Das Problem ist $(0,0)$. Wenn man diesen Punkt entfernt,
+              zerfällt der Raum in 4 Zusammenhangskomponenten.
+              Jeder $\mdr^n$ zerfällt jedoch in höchstens zwei
+              Zusammenhangskomponenten, wenn man einen Punkt entfernt.
         \item $V_2 = \Set{(x,y) \in \mdr^2 | x^3 = y^2}$ ist eine
               Mannigfaltigkeit.
         \item $X = (\mdr \setminus \Set{0}) \cup (O_1, O_2)$
@@ -274,7 +279,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
     \begin{enumerate}[label=\alph*)]
         \item $X$ heißt \textbf{differenzierbare Mannigfaltigkeit der Klasse $C^k$}\xindex{Mannigfaltigkeit!differenzierbare},
-              wenn jede Kartenwechselabbildung $\varphi_{ij},\;i,j \in I$\todo{warum Doppelindex?}{}
+              wenn jede Kartenwechselabbildung $\varphi_{ij},\;i,j \in I$
               $k$-mal stetig differenzierbar ist.
         \item $X$ heißt \textbf{differenzierbare Mannigfaltigkeit}\xindex{Mannigfaltigkeit!glatte},
               wenn $X$ eine differenzierbare Mannigfaltigkeit der
@@ -392,7 +397,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
                     \label{fig:solid-of-revolution}
                 }%
 
-                \subfloat[Sinus und Cosinus]{
+                \subfloat[Sinus und Cosinus haben keine gemeinsamme Nullstelle]{
                     \includegraphics[width=0.8\linewidth, keepaspectratio]{figures/sin-cos.pdf}
                     \label{fig:sin-cos}
                 }%
