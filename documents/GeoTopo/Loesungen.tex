@@ -95,3 +95,62 @@
               \end{beweis}
     \end{enumerate}
 \end{solution}
+
+\begin{solution}[\ref{ub4:aufg1}]
+    \begin{enumerate}[label=(\alph*)]
+        \item \textbf{Vor.:} Sei $M$ eine topologische Mannigfaltigkeit.\\
+              \textbf{Beh.:} $M$ ist wegzusammehängend $\gdw M$ ist zusammenhängend
+              \begin{beweis}
+                \enquote{$\Rightarrow$}: Da $M$ insbesondere ein
+                topologischer Raum ist folgt diese Richtung direkt 
+                aus Korollar~\ref{kor:wegzusammehang-impliziert-zusammenhang}.
+
+                \enquote{$\Leftarrow$}: Seien $x,y \in M$ und
+                \[Z := \Set{z \in M | \exists \text{Weg von } x \text{ nach } z}\]
+                Es gilt:
+                \begin{enumerate}[label=(\roman*)]
+                    \item $Z \neq \emptyset$, da $M$ lokal wegzusammenhängend ist
+                    \item $Z$ ist offen, da $M$ lokal wegzusammenhängend ist
+                    \item $Z^C := \Set{\tilde{z} \in M | \nexists \text{Weg von } x \text{ nach } \tilde{z}}$ ist offen
+
+                    Da $M$ eine Mannigfaltigkeit ist, existiert zu jedem
+                    $\tilde{z} \in Z^C$ eine offene und wegzusammenhängende Umgebung 
+                    $U_{\tilde{z}} \subseteq M$.
+
+                    Es gilt sogar $U_{\tilde{z}} \subseteq Z^C$, denn
+                    gäbe es ein $U_{\tilde{z}} \ni \overline{z} \in Z$,
+                    so gäbe es Wege $\gamma_2:[0,1] \rightarrow M, \gamma_2(0) = \overline{z}, \gamma_2(1) = x$
+                    und $\gamma_1:[0,1] \rightarrow M, \gamma_1(0) = \tilde{z}, \gamma_1(1) = \overline{z}$.
+                    Dann wäre aber
+                    \[\gamma:[0,1] \rightarrow M,\;\;\; \gamma(x) = \begin{cases}
+                        \gamma_1(2x)   &\text{falls } 0 \leq x \leq \frac{1}{2}\\
+                        \gamma_2(2x-1) &\text{falls } \frac{1}{2} < x \leq 1
+                        \end{cases}\]
+                    ein stetiger Weg von $\tilde{z}$ nach $x$
+                    $\Rightarrow$ Widerspruch.
+
+                    Da $M$ zusammenhängend ist und $M = \underbrace{Z}_{\mathclap{\text{offen}}} \cup \underbrace{Z^C}_{\mathclap{\text{offen}}}$,
+                    sowie $Z \neq \emptyset$ folgt $Z^C = \emptyset$.
+                    Also ist $M=Z$ wegzusammenhängend.$\qed$
+                \end{enumerate}
+              \end{beweis}
+        \item \textbf{Beh.:} $X$ ist wegzusammenhängend.\\
+            \begin{beweis}
+                $X:= (\mdr \setminus \Set{0}) \cup \Set{0_1, 0_2}$
+                und $(\mdr \setminus \Set{0}) \cup \Set{0_2}$ sind
+                homöomorph zu $\mdr$. Also sind die einzigen kritischen
+                Punkte, die man nicht verbinden können könnte
+                $0_1$ und $0_2$.
+
+                Da $(\mdr \setminus \Set{0}) \cup \Set{0_1}$ homöomorph
+                zu $\mdr$ ist, exisitert ein Weg $\gamma_1$ von $0_1$
+                zu einem beliebigen Punkt $a \in \mdr \setminus \Set{0}$.
+                
+                Da $(\mdr \setminus \Set{0}) \cup \Set{0_2}$ ebenfalls
+                homöomorph zu $\mdr$ ist, existiert außerdem ein Weg
+                $\gamma_2$ von $a$ nach $0_2$. Damit existiert ein
+                (nicht einfacher)
+                Weg $\gamma$ von $0_1$ nach $0_2$. $\qed$
+            \end{beweis}
+    \end{enumerate}
+\end{solution}
