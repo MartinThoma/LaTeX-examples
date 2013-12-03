@@ -845,31 +845,93 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{beweis}
 
-\begin{korollar}
+\begin{korollar}[Der Rand vom Rand ist 0]\label{kor:9.11}
     Sei $K$ ein \todo{Warum in Klammern?}{(endlicher)} Simplizialkomplex mit Eckenmenge $V$
     und $<$ eine Totalordnung auf $V$.
 
-    Für jedes $n=0, \dots, d=\dim(K)$ sei $A_n(K)$ die Menge der
-    $n$-Simplizes von $K$ und $C_n(K)$ der $\mdr$-Vektorraum mit
-    Basis $A_n(K)$, d.~h.
+    Sei $A_n$ die Menge der $n$-Simplizes in $K$, d.~h.
+    \[A_n(K) := \Set{ \sigma \in K | \dim(\sigma) = n}\;\;\; \text{für } n=0, \dots, d=\dim(K)\]
+
+    und $C_n(K)$ der $\mdr$-Vektorraum mit Basis $A_n(K)$, d.~h.
     \[C_n(K) = \Set{\sum_{\sigma \in A_n(K)} c_\sigma \cdot \sigma | c_\sigma \in \mdr}\]
 
     Sei $\sigma = \Delta(x_0, \dots, x_n) \in A_n(K)$, sodass 
     $x_0 < x_1 < \dots < x_n$.
 
     Für $i = 0, \dots, n$ sei $\partial_i \sigma := \Delta(x_0, \dots, \hat{x_i}, \dots, x_n)$
-    die $i$-te Seite von $\sigma$. Sei $d_\sigma = d_n \sigma := \sum_{i=0} (-1)^i \partial_i \sigma \in C_{n-1} (K)$
+    die $i$-te Seite von $\sigma$ und $d_\sigma = d_n \sigma := \sum_{i=0} (-1)^i \partial_i \sigma \in C_{n-1} (K)$
     und $d: C_n(K) \rightarrow C_{n-1}(K)$ die dadurch definierte lineare
     Abbildung.
 
     Dann gilt: $d_{n-1} \circ d_n = 0$
+\end{korollar}
 
+\begin{beispiel}
     \input{figures/topology-oriented-triangle.tex}
 
     $a < b < c$
 
-    $d_2 \sigma = e_1 - e_2 + e_3 = c - b - (c-a) + b - a = 0$
-\end{korollar}
+    $d_2 \sigma = e_1 - e_2 + e_3 = (c - b) - (c-a) + (b - a) = 0$
+
+    \todo[inline]{Beispiel auf Tetraeder übertragen}
+\end{beispiel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 03.12.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{beweis}
+    Sei $\sigma \in A_n$. Dann gilt:
+
+    \begin{align*}
+        d_{n-1}(d_n \sigma) &= d_{n-1} (\sum_{i=0}^n (-1)^i \partial_i \sigma)\\
+        &= \sum_{i=0}^n (-1)^i d_{n-1} (\partial_i \sigma)\\
+        &= \sum_{i=0}^n (-1)^i \sum_{j=0}^{n-1} \partial_i (\partial_j \sigma) (-1)^j\\
+        &= \sum_{0 \leq i \leq j \leq n-1} (-1)^{i+j} \partial_j (\partial_j (\sigma)) + \sum_{0 \leq j < i \leq n} (-1)^{i+j} \partial_{i-1} (\partial_j \sigma)\\
+        &= 0
+    \end{align*}
+    weil jeder Summand aus der ersten Summe auch in der zweiten
+    Summe vorkommt, aber mit umgekehrten Vorzeichen. $\qed$
+\end{beweis}
+
+\begin{definition}
+    $Z_n := \text{Kern}(d_n) \subseteq C_n, \;\;\; B_n := \text{Bild}(d_{n+1}) \subseteq C_n$
+
+    Nach Korollar~\ref{kor:9.11} ist $B_n \subseteq Z_n$, denn \todo{Muss das hier stehen?}
+    $d_{n+1}(C) \in \text{Kern}(d_n)$ für $C \in C_{n+1}$.
+
+    \begin{enumerate}[label=\alph*)]
+        \item $H_n = H_n(K, \mdr) := Z_n / B_n$ heißt $n$-te 
+              \textbf{Homotopiegruppe}\xindex{Homotopiegruppe} von $K$.
+        \item $b_n(K) := \dim_{\mdr} H_n$ heißt $n$-te 
+              \textbf{Belti-Zahl}\xindex{Belit-Zahl} von $K$.
+    \end{enumerate}
+\end{definition}
+
+\begin{satz}
+    Für jeden endlichen Simplizialkomplex $K$ der Dimension $d$ gilt:
+
+    \[\sum_{k=0}^d (-1)^k b_k (K) = \sum_{k=0}^d (-1)^k a_k(K) = \chi(K) \]
+\end{satz}
+
+\begin{bemerkung}
+    Es gilt \underline{nicht} $a_k = b_k\;\forall k \in \mdn_0$.
+\end{bemerkung}
+
+\begin{beweis}
+    \begin{itemize}
+        \item Dimensionsformel für $d_n$: $a_n = \dim Z_n + \dim B_{n-1}$ für $n \geq 1$
+        \item Dimensionsformel für $Z_n \rightarrow H_n = Z_n / B_n: \dim Z_n = b_n + \dim B_n$
+    \end{itemize}
+
+    \begin{align}
+        \Rightarrow \sum_{k=0}^d (-1)^k a_k &= a_0 + \sum_{k=1}^d (-1)^k (\dim Z_k + \dim B_{k-1})\\
+        &= a_0 + \sum_{k=1}^d (-1)^k \dim Z_k + \sum_{k=0}^d (-1)^{k+1}  \dim B_{k-1}\\
+        &= a_0 + \sum_{k=1}^d (-1)^k \dim Z_k - \sum_{k=0}^d (-1)^k  \dim B_{k-1}\\
+        &= a_0 + \sum_{k=1}^{d-1} (-1)^k b_k + (-1)^d  \underbrace{\dim Z_d}_{= b_d} - \dim B_0\\
+        &= b_0 + \sum_{k=1}^{d-1} (-1)^k b_k + (-1)^d b_d\\
+        &= \sum_{k=0}^d (-1)^k b_k
+    \end{align}
+\end{beweis}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel2-UB}

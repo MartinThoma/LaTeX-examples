@@ -1,0 +1,49 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 03.12.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Fundamentalgruppe und Überlagerungen}
+\section{Homotopie von Wegen}
+\begin{definition}
+    Sei $X$ ein topologischer Raum, $a, b \in X$, 
+    $\gamma_1, \gamma_2: [0,1] \rightarrow X$ Wege von $a$ nach $b$,
+    d.~h. $\gamma_1(0) = \gamma_2(0) = a$, $\gamma_1(1) = \gamma_2(1) = b$
+
+    \begin{enumerate}[label=\alph*)]
+        \item $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{homotop}
+              ($\gamma_1 \sim \gamma_2$), wenn es eine stetige Abbildung
+              \[H(t,0) = \gamma_1(t), H(t,1) = \gamma_2(t) \;\;\; \forall t \in [0,1] =: I \]
+              und $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$ gibt.
+
+              $H$ heißt \textbf{Homotopie}\xindex{Homotopie} zwischen
+              $\gamma_1$ und $\gamma_2$.
+        \item $\gamma_s: I \rightarrow X, \gamma_s(t) = H(t,s)$ ist
+              Weg in $X$ von $a$ nach $b$ für jedes $s \in I$.
+    \end{enumerate}
+\end{definition}
+
+\begin{korollar}
+    \enquote{Homotop} ist eine Äquivalenzrelation auf der Menge aller
+    Wege in $X$ von $a$ nach $b$.
+\end{korollar}
+
+\begin{beweis}
+    \begin{itemize}
+        \item reflexiv: $H(t,s) = \gamma(t)$ für alle $t,s \in I \times I$
+        \item symmetrisch: $H'(t,s) = H(t,1-s)$ für alle $t,s \in I \times I$
+        \item transitiv: Seien $H'$ bzw. $H''$ Homotopien von $\gamma_1$
+              nach $\gamma_2$ bzw. von $\gamma_2$ nach $\gamma_3$.
+
+              Dann sei $H(t,s) := \begin{cases}
+              H'(t, 2s)    &\text{, falls } 0 \leq s \leq \frac{1}{2}\\
+              H''(t, 2s-1) &\text{, falls } \frac{1}{2} \leq s \leq 1\end{cases}$
+
+              $\Rightarrow$ $H$ ist stetig und Homotopie von $\gamma_1$ nach 
+              $\gamma_2$
+    \end{itemize}
+    $\qed$
+\end{beweis}
+
+\todo[inline]{Noch ca. eine halbe seite mit 3 Beispielen}
+
+% Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
+\input{Kapitel3-UB}
