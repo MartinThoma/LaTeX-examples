@@ -867,7 +867,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{korollar}
 
 \begin{beispiel}
-    \input{figures/topology-oriented-triangle.tex}
+    \begin{figure}[h!]
+        \input{figures/topology-oriented-triangle.tex}
+    \end{figure}
 
     $a < b < c$
 
@@ -907,17 +909,19 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{definition}
 
+\begin{minipage}{\textwidth}%don't break this theorem!
 \begin{satz}
     Für jeden endlichen Simplizialkomplex $K$ der Dimension $d$ gilt:
 
     \[\sum_{k=0}^d (-1)^k b_k (K) = \sum_{k=0}^d (-1)^k a_k(K) = \chi(K) \]
 \end{satz}
+\end{minipage}
 
 \begin{bemerkung}
     Es gilt \underline{nicht} $a_k = b_k\;\forall k \in \mdn_0$.
 \end{bemerkung}
 
-\begin{beweis}
+\begin{beweis}\leavevmode
     \begin{itemize}
         \item Dimensionsformel für $d_n$: $a_n = \dim Z_n + \dim B_{n-1}$ für $n \geq 1$
         \item Dimensionsformel für $Z_n \rightarrow H_n = Z_n / B_n: \dim Z_n = b_n + \dim B_n$

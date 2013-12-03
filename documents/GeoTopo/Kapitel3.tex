@@ -3,6 +3,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Fundamentalgruppe und Überlagerungen}
 \section{Homotopie von Wegen}
+\begin{figure}[ht]
+    \centering
+    \subfloat[$\gamma_1$ und $\gamma_2$ sind homotop, da man sie 
+             \enquote{zueinander verschieben} kann.]{
+        \input{figures/topology-homotop-paths.tex}
+        \label{fig:homotope-wege-anschaulich}
+    }\hspace{1em}%
+    \subfloat[$\gamma_1$ und $\gamma_2$ sind wegen dem Hindernis nicht homotop.]{
+        \input{figures/topology-non-homotop-paths.tex}
+        \label{fig:nicht-homotope-wege-anschaulich}
+    }
+    \label{Formen}
+    \caption{Beispiele für Wege $\gamma_1$ und $\gamma_2$}
+\end{figure}
+
 \begin{definition}
     Sei $X$ ein topologischer Raum, $a, b \in X$, 
     $\gamma_1, \gamma_2: [0,1] \rightarrow X$ Wege von $a$ nach $b$,
@@ -26,7 +41,7 @@
     Wege in $X$ von $a$ nach $b$.
 \end{korollar}
 
-\begin{beweis}
+\begin{beweis}\leavevmode
     \begin{itemize}
         \item reflexiv: $H(t,s) = \gamma(t)$ für alle $t,s \in I \times I$
         \item symmetrisch: $H'(t,s) = H(t,1-s)$ für alle $t,s \in I \times I$
@@ -34,8 +49,8 @@
               nach $\gamma_2$ bzw. von $\gamma_2$ nach $\gamma_3$.
 
               Dann sei $H(t,s) := \begin{cases}
-              H'(t, 2s)    &\text{, falls } 0 \leq s \leq \frac{1}{2}\\
-              H''(t, 2s-1) &\text{, falls } \frac{1}{2} \leq s \leq 1\end{cases}$
+              H'(t, 2s)    &\text{falls } 0 \leq s \leq \frac{1}{2}\\
+              H''(t, 2s-1) &\text{falls } \frac{1}{2} \leq s \leq 1\end{cases}$
 
               $\Rightarrow$ $H$ ist stetig und Homotopie von $\gamma_1$ nach 
               $\gamma_2$
@@ -43,7 +58,46 @@
     $\qed$
 \end{beweis}
 
-\todo[inline]{Noch ca. eine halbe seite mit 3 Beispielen}
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item Sei $X = S^1$. $\gamma_1$ und $\gamma_2$ aus 
+              Abb.~\ref{fig:circle-two-paths} nicht homöotop.
+              \begin{figure}
+                \centering
+                \input{figures/topology-circle-two-paths.tex}
+                \caption{Kreis mit zwei Wegen}
+                \label{fig:circle-two-paths}
+              \end{figure}
+        \item Sei $X = T^2$. $\gamma_1, \gamma_2$ und $\gamma_3$
+              aus Abb.~\ref{fig:torus-three-paths} sind paarweise
+              nicht homöotop.
+              \begin{figure}
+                \centering
+                \input{figures/todo.tex}
+                \caption{Torus mit drei Wegen}
+                \label{fig:torus-three-paths}
+              \end{figure}
+        \item Sei $X = \mdr^2$ und $a=b=(0,0)$. 
+
+              Je zwei Wege im $\mdr^2$ mit Anfangs- und Enpunkt $(0,0)$
+              sind homöotop.
+
+              \begin{figure}
+                \centering
+                \input{figures/topology-paths-in-r2.tex}
+                \caption{Zwei Wege im $\mdr^2$ mit Anfangs- und Enpunkt $(0,0)$}
+                \label{fig:torus-three-paths}
+              \end{figure}
+
+              Sei $\gamma_0: I \rightarrow \mdr^2$ der konstante Weg
+              $\gamma_0(t) = 0 \; \forall t \in I$. Sei
+              $\gamma(0) = \gamma(1) = 0$.
+
+              $H(t,s) := (1-s) \gamma(t)$ ist stetig, 
+              $H(t,0) = \gamma(t)\; \forall t \in I$ und
+              $H(t,1) = 0 \; \forall t \in I$
+    \end{enumerate}
+\end{beispiel}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel3-UB}
