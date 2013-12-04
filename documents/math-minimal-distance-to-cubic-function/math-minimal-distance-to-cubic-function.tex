@@ -307,8 +307,42 @@ As you can easily verify, only $x_1$ is a minimum of $d_{P,f}$.
 It is obvious that a quadratic function can have two points with 
 minimal distance. 
 
-For example, let $f(x) = x^2$ and $P = (0,5)$. Then $P_{f,1} \approx (2.179, 2.179^2)$
-has minimal distance to $P$, but also $P_{f,2}\approx (-2.179, 2.179^2)$.\todo{exact example?}
+For example, let $f(x) = x^2$ and $P = (0,5)$. Then $P_{f,1} = (\sqrt{\frac{9}{2}}, \frac{9}{2})$
+has minimal distance to $P$, but also $P_{f,2} = (-\sqrt{\frac{9}{2}}, \frac{9}{2})$.
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            %legend pos=north west,
+            axis x line=middle,
+            axis y line=middle,
+            grid = major,
+            width=0.6\linewidth,
+            height=8cm,
+            grid style={dashed, gray!30},
+            xmin=-3,     % start the diagram at this x-coordinate
+            xmax= 3,    % end   the diagram at this x-coordinate
+            ymin= 0,     % start the diagram at this y-coordinate
+            ymax= 5,   % end   the diagram at this y-coordinate
+            axis background/.style={fill=white},
+            xlabel=$x$,
+            ylabel=$y$,
+            %xticklabels={-2,-1.6,...,7},
+            %yticklabels={-8,-7,...,8},
+            tick align=outside,
+            minor tick num=-3,
+            enlargelimits=true,
+            tension=0.08]
+          \addplot[domain=-3:3, thick,samples=50, orange] {x*x};
+          \draw (axis cs:0,5) circle[radius=2.17];
+          \draw[red, thick] (axis cs:0,5) -- (axis cs:2.121,4.5);
+          \draw[red, thick] (axis cs:0,5) -- (axis cs:-2.121,4.5);
+          \addlegendentry{$f(x)=x^2$}
+        \end{axis} 
+    \end{tikzpicture}
+    \caption{Two points with minimal distance}
+\end{figure}
 
 As discussed before, there cannot be more than 3 points on the graph
 of $f$ next to $P$.
