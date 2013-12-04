@@ -1,0 +1,62 @@
+\documentclass[runningheads]{llncs}
+
+%---- Sonderzeichen-------%
+\usepackage {ngerman}
+%---- Codierung----%
+\usepackage[utf8]{inputenc}	% for Unix and Windows
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{llncsdoc}
+%----- Mathematischer Zeichenvorrat---%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+% fuer die aktuelle Zeit
+\usepackage{scrtime}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{mystyle}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\hypersetup{ 
+  pdftitle    = {Über die Klassifizierung von Knoten in einem dynamischen Netzwerk mit Inhalt},
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {DYCOS}
+}
+
+\begin{document}
+
+\mainmatter
+\title{\"Uber die Klassifizierung von Knoten in einem dynamischen Netzwerk mit Inhalt}
+\titlerunning{Titel der Seminararbeit}
+\author{Martin Thoma}
+\authorrunning{Titel des Seminars}
+\institute{Betreuer: Christopher O\ss{}ner}
+\date{17.01.2014}
+\maketitle
+
+\begin{abstract}%
+\input{abstract}
+\end{abstract}
+
+\section{Einleitung}
+\input{Einleitung}
+
+\section{Notation}
+\input{Notation}
+
+\section{Inhalte}
+\input{Inhalte}
+
+% Normaler LNCS Zitierstil
+%\bibliographystyle{splncs}
+\bibliographystyle{itmalpha}
+% TODO: Ändern der folgenden Zeile, damit die .bib-Datei gefunden wird
+\bibliography{literatur}
+
+\end{document}
+

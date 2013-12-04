@@ -42,6 +42,9 @@ Re-use
 Feel free to use and modify the examples of this repository.
 But please add a link to this repository or martin-thoma.com
 
+*Most* content was completely created by myself. But check 
+Readme-files in the specific folder to make sure you can use it.
+
 Other resources
 ===============
 * [LaTeX Templates](http://www.latextemplates.com/)
