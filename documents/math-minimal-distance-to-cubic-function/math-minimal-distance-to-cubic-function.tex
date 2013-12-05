@@ -334,12 +334,12 @@ Because:
 Then move $f_1$ and $P_1$ by $\frac{b^2}{4a}-c$ in $y$ direction. You get:
 \[f_2(x) = ax^2\;\;\;\text{ and }\;\;\; P_2 = \left (x_p+\frac{b}{2a},\;\; y_p+\frac{b^2}{4a}-c \right )\]
 
-As $f(x) = ax^2$ is symmetric to the $y$ axis, only points 
+As $f_2(x) = ax^2$ is symmetric to the $y$ axis, only points 
 $P = (0, w)$ could possilby have three minima.
 
 Then compute:
 \begin{align}
-  d_{P,f}(x)  &= \sqrt{(x-x_{P})^2 + (f(x)-w)^2}\\
+  d_{P,{f_2}}(x)  &= \sqrt{(x-x_{P})^2 + (f(x)-w)^2}\\
     &= \sqrt{x^2 + (ax^2-w)^2}\\
     &= \sqrt{x^2 + a^2 x^4-2aw x^2+w^2}\\
     &= \sqrt{a^2 x^4 + (1-2aw) x^2 + w^2}\\
@@ -347,16 +347,23 @@ Then compute:
     &= \sqrt{\left (a^2 x^2 + \nicefrac{1}{2}-a w \right )^2 + (w^2 - (1-2 a w)^2)}\\
 \end{align}
 
-For $w \leq \nicefrac{1}{2a}$ you only have $x = 0$ as a minimum.
-For all other points $P = (0, w)$, there are exactly two minima.
+The term 
+\[a^2 x^2 + (\nicefrac{1}{2}-a w)\]
+should get as close to $0$ as possilbe when we want to minimize 
+$d_{P,{f_2}}$. For $w \leq \nicefrac{1}{2a}$ you only have $x = 0$ as a minimum.
+For all other points $P = (0, w)$, there are exactly two minima $x_{1,2} = \pm \sqrt{aw - \nicefrac{1}{2}}$.
 
 So the solution is given by
 
-\[\underset{x\in\mdr}{\arg \min d_{P,f}(x)} = \begin{cases}
-     x_1 = todo \text{ and } x_2 = todo   &\text{if } x_P = - \frac{b}{2a} \text{ and } y_p + \frac{b^2}{4a} - c >  \frac{1}{2a} \\
-     x = todo   &\text{if } x_P = - \frac{b}{2a} \text{ and } y_p + \frac{b^2}{4a} - c \leq  \frac{1}{2a} \\
-     x = todo   &\text{if } x_P \neq - \frac{b}{2a}
-    \end{cases}\]
+\begin{align*}
+x_S &:= - \frac{b}{2a}\\
+\underset{x\in\mdr}{\arg \min d_{P,f}(x)} &= \begin{cases}
+     x_1 = +\sqrt{a (y_p + \frac{b^2}{4a} - c) - \frac{1}{2}} + x_S \text{ and }   &\text{if } x_P = x_S \text{ and } y_p + \frac{b^2}{4a} - c >  \frac{1}{2a} \\
+     x_2 = -\sqrt{a (y_p + \frac{b^2}{4a} - c) - \frac{1}{2}} + x_S\\
+     x_1 = x_S   &\text{if } x_P = x_S \text{ and } y_p + \frac{b^2}{4a} - c \leq  \frac{1}{2a} \\
+     x_1 = todo   &\text{if } x_P \neq x_S
+    \end{cases}
+\end{align*}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
