@@ -14,6 +14,7 @@
 \usepackage{tikz}
 \usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
 \usepackage{framed}
+\usepackage{nicefrac}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define theorems                                                   %
@@ -24,6 +25,7 @@
 \theorembodyfont{\normalfont} % nicht mehr kursiv
 
 \def\mdr{\ensuremath{\mathbb{R}}}
+\renewcommand{\qed}{\hfill\blacksquare}
 
 \newframedtheorem{theorem}{Theorem}
 \newframedtheorem{lemma}[theorem]{Lemma}
@@ -271,7 +273,7 @@ We use Theorem~\ref{thm:required-extremum-property}:\nobreak
           &= -x_p + x -y_p (2ax+b) + (ax^2+bx+c)(2ax+b)\\
           &= -x_p + x -y_p \cdot 2ax- y_p b + (2 a^2 x^3+2 a b x^2+2 a c x+ab x^2+b^2 x+bc)\\
           &= -x_p + x -2y_p ax- y_p b + (2a^2 x^3 + 3 ab x^2 + 2acx + b^2 x + bc)\\
-          &= 2a^2 x^3 + 3 ab x^2 + (1 -2y_p a+ 2ac + b^2)x +(bc-by_p-x_p)
+          &= 2a^2 x^3 + 3 ab x^2 + (1 -2y_p a+ 2ac + b^2)x +(bc-by_p-x_p)\label{eq:quadratic-derivative-eq-0}
 \end{align}
 
 %\begin{align}
@@ -304,11 +306,24 @@ As you can easily verify, only $x_1$ is a minimum of $d_{P,f}$.
 
 
 \subsection{Number of points with minimal distance}
-It is obvious that a quadratic function can have two points with 
-minimal distance. 
+\subsubsection{Two points with minimal distance}
+Quadratic functions can have two points with minimal distance. 
 
 For example, let $f(x) = x^2$ and $P = (0,5)$. Then $P_{f,1} = (\sqrt{\frac{9}{2}}, \frac{9}{2})$
-has minimal distance to $P$, but also $P_{f,2} = (-\sqrt{\frac{9}{2}}, \frac{9}{2})$.
+has minimal distance to $P$, but also $P_{f,2} = (-\sqrt{\frac{9}{2}}, \frac{9}{2})$:
+
+\begin{proof}
+    \begin{align}
+      d_{P,f}(x)  &= \sqrt{(x-x_P)^2 + (f(x)-y_p)^2}\\
+        &= \sqrt{x^2 + (x^2-5)^2}\\
+        &= \sqrt{x^2 + x^4-10x^2+25}\\
+        &= \sqrt{x^4 -9x^2 + 25}\\
+        &= \sqrt{x^4 -9x^2 + \frac{81}{4}+\frac{19}{4}}\\
+        &= \sqrt{\left (x^2 - \frac{9}{2} \right )^2 + \frac{19}{4}}
+    \end{align}
+
+    Obviously, $d_{P,f}$ is minimal for $x = \pm \sqrt{\frac{9}{2}} \qed$
+\end{proof}
 
 \begin{figure}[htp]
     \centering
@@ -344,6 +359,7 @@ has minimal distance to $P$, but also $P_{f,2} = (-\sqrt{\frac{9}{2}}, \frac{9}{
     \caption{Two points with minimal distance}
 \end{figure}
 
+\subsubsection{Three points with minimal distance}
 As discussed before, there cannot be more than 3 points on the graph
 of $f$ next to $P$.
 
@@ -389,6 +405,40 @@ $-\frac{b}{2a}$}
     \end{tikzpicture}
     \caption{3 points with minimal distance?}
 \end{figure}
+
+When move the $f$ and $P$ simultaneously in $x$ direction, you will not change the
+results. 
+
+First of all, you move $f_0$ by $\frac{b}{2a}$, so
+\[f_1(x) = ax^2 - \frac{b^2}{4a} + c \;\;\;\text{ and }\;\;\; P_1 = \left (x_p+\frac{b}{2a},\;\; y_p \right )\]
+
+Because:
+\begin{align}
+    f(x-\nicefrac{b}{2a}) &= a (x-\nicefrac{b}{2a})^2 + b (x-\nicefrac{b}{2a}) + c\\
+    &= a (x^2 - \nicefrac{b}{a} x + \nicefrac{b^2}{4a^2}) + bx - \nicefrac{b^2}{2a} + c\\
+    &= ax^2 - bx + \nicefrac{b^2}{4a} + bx - \nicefrac{b^2}{2a} + c\\
+    &= ax^2 -\nicefrac{b^2}{4a} + c
+\end{align}
+
+
+Then move $f_1$ and $P_1$ by $\frac{b^2}{4a}-c$ in $y$ direction. You get:
+\[f_2(x) = ax^2\;\;\;\text{ and }\;\;\; P_2 = \left (x_p+\frac{b}{2a},\;\; y_p+\frac{b^2}{4a}-c \right )\]
+
+As $f(x) = ax^2$ is symmetric to the $y$ axis, only points 
+$P = (0, y_p)$ could possilby have three minima.
+
+Then compute:
+\begin{align}
+  d_{P,f}(x)  &= \sqrt{(x-x_P)^2 + (f(x)-y_p)^2}\\
+    &= \sqrt{x^2 + (ax^2-y_p)^2}\\
+    &= \sqrt{x^2 + a^2 x^4-2ay_p x^2+y_p^2}\\
+    &= \sqrt{a^2 x^4 + (1-2ay_p) x^2 + y_p^2}\\
+    &= \sqrt{\left (a^2 x^2 + \frac{1-2 a y_p}{2} \right )^2 + y_p^2 - (1-2 a y_p)^2}\\
+    &= \sqrt{\left (a^2 x^2 + \nicefrac{1}{2}-a y_p \right )^2 + (y_p^2 - (1-2 a y_p)^2)}\\
+\end{align}
+
+For $y_p \leq \nicefrac{1}{2a}$ you only have $x = 0$ as a minimum.
+For all other points, there are exactly two minima.
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
