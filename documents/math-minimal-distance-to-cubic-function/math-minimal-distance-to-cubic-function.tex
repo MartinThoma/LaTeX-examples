@@ -351,9 +351,21 @@ For all other points $P = (0, w)$, there are exactly two minima $x_{1,2} = \pm \
 
 The solution of Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
 is
-\[t := \sqrt[3]{\sqrt{3 \cdot (4a^3 + 27 b^2)} -9b}\]
-\[x = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} a }{t}\]
+\[t := \sqrt[3]{\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta}\]
+\[x = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}\]
 
+When you insert is in Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
+you get:
+
+\begin{align}
+    0 &= \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right )^3 + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= (\frac{t}{\sqrt[3]{18}})^3 - 3 (\frac{t}{\sqrt[3]{18}})^2 \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} + 3 (\frac{t}{\sqrt[3]{18}})(\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^2 + (\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^3 + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= \frac{t^3}{18} - \frac{3t^2}{\sqrt[3]{18^2}} \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} + \frac{3t}{\sqrt[3]{18}} \frac{\sqrt[3]{\frac{4}{9}} \alpha^2 }{t^2} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= \frac{t^3}{18} - \frac{\sqrt[3]{18} t \alpha}{\sqrt[3]{18^2}} + \frac{\sqrt[3]{12} \alpha^2}{\sqrt[3]{18} t} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= \frac{t^3}{18} - \frac{t \alpha}{\sqrt[3]{18}} + \frac{\sqrt[3]{2} \alpha^2}{\sqrt[3]{3} t} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= \frac{t^3}{18} - \frac{t \alpha}{\sqrt[3]{18}} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \frac{\alpha t}{\sqrt[3]{18}} + \beta\\
+&= \frac{t^3}{18} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \beta\\
+\end{align}
 \todo[inline]{verify this solution}
 
 
