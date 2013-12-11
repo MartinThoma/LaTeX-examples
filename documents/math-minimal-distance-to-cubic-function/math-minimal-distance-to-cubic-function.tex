@@ -354,30 +354,61 @@ is
 \[t := \sqrt[3]{\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta}\]
 \[x = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}\]
 
-When you insert is in Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
-you get:
-
+When you insert this in Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
+you get:\footnote{Remember: $(a-b)^3 = a^3-3 a^2 b+3 a b^2-b^3$}
+\allowdisplaybreaks
 \begin{align}
-    0 &= \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right )^3 + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= (\frac{t}{\sqrt[3]{18}})^3 - 3 (\frac{t}{\sqrt[3]{18}})^2 \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} + 3 (\frac{t}{\sqrt[3]{18}})(\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^2 + (\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^3 + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= \frac{t^3}{18} - \frac{3t^2}{\sqrt[3]{18^2}} \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} + \frac{3t}{\sqrt[3]{18}} \frac{\sqrt[3]{\frac{4}{9}} \alpha^2 }{t^2} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= \frac{t^3}{18} - \frac{\sqrt[3]{18} t \alpha}{\sqrt[3]{18^2}} + \frac{\sqrt[3]{12} \alpha^2}{\sqrt[3]{18} t} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= \frac{t^3}{18} - \frac{t \alpha}{\sqrt[3]{18}} + \frac{\sqrt[3]{2} \alpha^2}{\sqrt[3]{3} t} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= \frac{t^3}{18} - \frac{t \alpha}{\sqrt[3]{18}} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \frac{\alpha t}{\sqrt[3]{18}} + \beta\\
-&= \frac{t^3}{18} + \frac{\frac{2}{3} \alpha^3 }{t^3} + \beta\\
+    0 &\stackrel{!}{=} \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right )^3 + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= (\frac{t}{\sqrt[3]{18}})^3 
+    - 3 (\frac{t}{\sqrt[3]{18}})^2 \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} 
+    + 3 (\frac{t}{\sqrt[3]{18}})(\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^2 
+    - (\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^3 
+    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= \frac{t^3}{18}             
+    - \frac{3t^2}{\sqrt[3]{18^2}} \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}
+    + \frac{3t}{\sqrt[3]{18}} \frac{\sqrt[3]{\frac{4}{9}} \alpha^2 }{t^2} 
+    - \frac{\frac{2}{3} \alpha^3 }{t^3} 
+    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= \frac{t^3}{18}
+    - \frac{\sqrt[3]{18} t \alpha}{\sqrt[3]{18^2}}
+    + \frac{\sqrt[3]{12} \alpha^2}{\sqrt[3]{18} t}  
+    - \frac{\frac{2}{3} \alpha^3 }{t^3} 
+    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+&= \frac{t^3}{18} 
+    - \frac{t \alpha}{\sqrt[3]{18}} 
+    \color{red}+ \frac{\sqrt[3]{2} \alpha^2}{\sqrt[3]{3} t} \color{black}
+    - \frac{\frac{2}{3} \alpha^3 }{t^3} 
+    + \color{red}\alpha \color{black} \left (\frac{t}{\sqrt[3]{18}}  \color{red}- \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \color{black}\right ) 
+    + \beta\\
+&= \frac{t^3}{18} \color{blue}- \frac{t \alpha}{\sqrt[3]{18}} \color{black} 
+    - \frac{\frac{2}{3} \alpha^3 }{t^3} 
+    \color{blue}+ \frac{\alpha t}{\sqrt[3]{18}} \color{black} 
+    + \beta\\
+&= \frac{t^3}{18} - \frac{\frac{2}{3} \alpha^3 }{t^3} + \beta\\
+&= \frac{t^6 - 12 \alpha^3 + \beta 18 t^3}{18t^3}
 \end{align}
-\todo[inline]{verify this solution}
 
+Now only go on calculating with the numerator. Start with resubstituting
+$t$:
+\begin{align}
+0 &= (\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta)^2 - 12 \alpha^3 + \beta 18 (\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta)\\
+&= (\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)})^2 +(9\beta)^2 - 12 \alpha^3 -18\cdot 9\beta^2\\
+&= 3 \cdot (4 \alpha^3 + 27 \beta^2) -81 \beta^2 - 12 \alpha^3\\
+&= (4 \alpha^3 + 27 \beta^2) -27 \beta^2 - 4 \alpha^3\\
+&= 0
+\end{align}
 
 \goodbreak
 So the solution is given by
 \begin{align*}
 x_S &:= - \frac{b}{2a} \;\;\;\;\; \text{(the symmetry axis)}\\
+w &:= y_P+\frac{b^2}{4a}-c \;\;\; \text{ and } \;\;\; \alpha := \frac{(1- 2 aw)}{2 a^2} \;\;\;\text{ and }\;\;\; \beta := \frac{-z}{2 a^2}\\
+t &:= \sqrt[3]{\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta}\\
 \underset{x\in\mdr}{\arg \min d_{P,f}(x)} &= \begin{cases}
      x_1 = +\sqrt{a (y_p + \frac{b^2}{4a} - c) - \frac{1}{2}} + x_S \text{ and }   &\text{if } x_P = x_S \text{ and } y_p + \frac{b^2}{4a} - c >  \frac{1}{2a} \\
      x_2 = -\sqrt{a (y_p + \frac{b^2}{4a} - c) - \frac{1}{2}} + x_S\\
      x_1 = x_S   &\text{if } x_P = x_S \text{ and } y_p + \frac{b^2}{4a} - c \leq  \frac{1}{2a} \\
-     x_1 = todo   &\text{if } x_P \neq x_S
+     x_1 = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}   &\text{if } x_P \neq x_S
     \end{cases}
 \end{align*}
 
