@@ -431,82 +431,48 @@ $b, c, d \in \mdr$ be a function.
 \end{theorem}
 
 \begin{proof}
-Let $g : \mdr \rightarrow \mdr$ be a polynomial of degree 5
-\[g(x) = \tilde{a} x^5 + \tilde{b} x^4 + \tilde{c} x^3 + \tilde{d} x^2 + \tilde{e} x + \tilde{f}\]
-with $\tilde{a} \in \mdr_{> 0},\; \tilde{b} \in \mdr \setminus \Set{0}$ and $\tilde{c}, \tilde{d}, \tilde{e}, \tilde{f} \in \mdr$.
-Then, according to the Abel-Ruffini theorem, the equation
-\[g(x) = 0\]
-cannot be solved algebraicly.
+    Suppose you could solve the closest point problem for arbitrary
+    cubic functions $f = ax^3 + bx^2 + cx + d$ and arbitrary points $P = (x_P, y_P)$.
 
-%But lets define $a := \frac{\sqrt{\tilde{a}}}{3}$, $b := \frac{\tilde{b}}{5a}$,
-%$c : = \frac{\frac{\tilde{c}}{2} - b^2}{2a}$, $d := \frac{\tilde{d}}{3} - bc + $
+    Then you could solve the following problem for $x$:
+    \begin{align}
+        0  &\stackrel{!}{=} \left ((d_{P,f}(x))^2 \right )'
+           &=-2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
+           &= 2 f(x) \cdot f'(x) - 2 y_p f'(x) + 2x - 2 x_p\\
+           &= f(x) \cdot f'(x) - y_p f'(x) + x - x_p\\
+           &= \underbrace{f'(x) \cdot \left (f(x) - y_p \right )}_{\text{Polynomial of degree 5}} + x - x_p
+    \end{align}
 
-So you can find $a, b, c, d, x_p, y_p$ such that
+    General algebraic equations of degree 5 don't have a solution formula.\footnote{TODO: Quelle}
+    Although here seems to be more structure, the resulting algebraic
+    equation can be almost any polynomial of degree 5:\footnote{Thanks to Peter Košinár on \href{http://math.stackexchange.com/a/584814/6876}{math.stackexchange.com} for this one}
 
-\begin{align}
-    g(x) &= \underbrace{3 a^2}_{= \tilde{a}} x^5 + \underbrace{5ab}_{= \tilde{b}}x^4 + \underbrace{2(2ac + b^2 )}_{= \tilde{c}}x^3 &+& \underbrace{3(ad+bc-ay_p)}_{= \tilde{d}} x^2 \\
-    & &+& \underbrace{(2 b d+c^2+1-2 b y_p)}_{= \tilde{e}}x+\underbrace{c d-c y_p-x_p}_{= \tilde{f}}\\
-    &= f'(x) \cdot \left (f(x) - y_p \right ) + (x - x_p)\\
-    &= f(x) \cdot f'(x) - y_p f'(x) + x - x_p
-\end{align}
+    \begin{align}
+        0  &\stackrel{!}{=} f'(x) \cdot \left (f(x) - y_p \right ) + (x - x_p)\\
+        &= \underbrace{3 a^2}_{= \tilde{a}} x^5 + \underbrace{5ab}_{\tilde{b}}x^4 + \underbrace{2(2ac + b^2 )}_{=: \tilde{c}}x^3 &+& \underbrace{3(ad+bc-ay_p)}_{\tilde{d}} x^2 \\
+        & &+& \underbrace{(2 b d+c^2+1-2 b y_p)}_{=: \tilde{e}}x+\underbrace{c d-c y_p-x_p}_{=: \tilde{f}}\\
+        0 &\stackrel{!}{=} \tilde{a}x^5 + \tilde{b}x^4 + \tilde{c}x^3 + \tilde{d}x^2 + \tilde{e}x + \tilde{f}
+    \end{align}
 
-And
-\begin{align}
-  g(x) &\stackrel{!}{=}0\\
-\Leftrightarrow 0 &\stackrel{!}{=} 2 f(x) \cdot f'(x) - 2 y_p f'(x) + 2x - 2 x_p\\
-    &= -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
-    &= \left ((x-x_p)^2 \right )' + \left ( (f(x) - y_p)^2 \right )'\\
-    &= \left ((x-x_p)^2 + (f(x) - y_p)^2 \right )'\\
-    &= (d_{P,f}(x)^2)'
-\end{align}
+    \begin{enumerate}
+        \item For any coefficient $\tilde{a} \in \mdr_{> 0}$ of $x^5$ we can choose $a$ such that we get $\tilde{a}$.
+        \item For any coefficient $\tilde{b} \in \mdr \setminus \Set{0}$ of $x^4$ we can choose $b$ such that we get $\tilde{b}$.
+        \item With $c$, we can get any value of $\tilde{c} \in \mdr$.
+        \item With $d$, we can get any value of $\tilde{d} \in \mdr$.
+        \item With $y_p$, we can get any value of $\tilde{e} \in \mdr$.
+        \item With $x_p$, we can get any value of $\tilde{f} \in \mdr$.
+    \end{enumerate}
 
-    So the problem of finding a closest point $(x, f(x))$ on a 
-    cubic function $f$ to $P$ is essentially the same as finding 
-    a root of a polynomial function of degree 5. As this cannot
-    be solved algebraicly, the problem of finding such a point
-    can also not be solved algebraicly.$\qed$
+    The first restriction guaratees that we have a polynomial of 
+    degree 5. The second one is necessary, to get a high range of
+    $\tilde{e}$.
+
+    This means, that there is no solution formula for the problem of 
+    finding the closest points on a cubic function to a given point,
+    because if there was one, you could use this formula for finding
+    roots of polynomials of degree 5. $\qed$
 \end{proof}
 
-\todo[inline]{Start with theorem that this problem is not solvable
-with analytics only. Use a general 5th degree function and show
-that it can be mapped to a $f$ and $P$ instance.}
-
-When you want to calculate points with minimal distance, you can 
-take the same approach as in Equation \ref{eq:minimizingFirstDerivative}:
-
-\begin{align}
-    0  &\stackrel{!}{=} -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
-       &= 2 f(x) \cdot f'(x) - 2 y_p f'(x) + 2x - 2 x_p\\
-       &= f(x) \cdot f'(x) - y_p f'(x) + x - x_p\\
-       &= \underbrace{f'(x) \cdot \left (f(x) - y_p \right )}_{\text{Polynomial of degree 5}} + x - x_p
-\end{align}
-
-General algebraic equations of degree 5 don't have a solution formula.\footnote{TODO: Quelle}
-Although here seems to be more structure, the resulting algebraic
-equation can be almost any polynomial of degree 5:\footnote{Thanks to Peter Košinár on \href{http://math.stackexchange.com/a/584814/6876}{math.stackexchange.com} for this one}
-
-\begin{align}
-    0  &\stackrel{!}{=} f'(x) \cdot \left (f(x) - y_p \right ) + (x - x_p)\\
-    &= \underbrace{3 a^2}_{= \tilde{a}} x^5 + \underbrace{5ab}_{\tilde{b}}x^4 + \underbrace{2(2ac + b^2 )}_{=: \tilde{c}}x^3 &+& \underbrace{3(ad+bc-ay_p)}_{\tilde{d}} x^2 \\
-    & &+& \underbrace{(2 b d+c^2+1-2 b y_p)}_{=: \tilde{e}}x+\underbrace{c d-c y_p-x_p}_{=: \tilde{f}}\\
-    0 &\stackrel{!}{=} \tilde{a}x^5 + \tilde{b}x^4 + \tilde{c}x^3 + \tilde{d}x^2 + \tilde{e}x + \tilde{f}
-\end{align}
-
-\begin{enumerate}
-    \item With $a$, we can get any value of $\tilde{a} \in \mdr \setminus \Set{0}$.
-    \item With $b$, we can get any value of $\tilde{b} \in \mdr \setminus \Set{0}$.
-    \item With $c$, we can get any value of $\tilde{c} \in \mdr$.
-    \item With $d$, we can get any value of $\tilde{d} \in \mdr$.
-    \item With $y_p$, we can get any value of $\tilde{e} \in \mdr$.
-    \item With $x_p$, we can get any value of $\tilde{f} \in \mdr$.
-\end{enumerate}
-
-The first restriction only guaratees that we have a polynomial of 
-degree 5. The second one is necessary, to get a high range of
-$\tilde{e}$.
-
-This means, that there is no solution formula for the problem of 
-finding the closest points on a cubic function to a given point.
 
 \subsection{Another approach}
 Just like we moved the function $f$ and the point to get in a 
