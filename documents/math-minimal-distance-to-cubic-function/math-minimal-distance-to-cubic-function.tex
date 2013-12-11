@@ -16,6 +16,7 @@
 \usepackage{framed}
 \usepackage{nicefrac}
 \usepackage{siunitx}
+\usepackage{csquotes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define theorems                                                   %
@@ -519,6 +520,9 @@ $b, c, d \in \mdr$ be a function.
 
 
 \subsection{Another approach}
+\todo[inline]{Currently, this is only an idea. It might be usefull
+to move the cubic function $f$ such that $f$ is point symmetric
+to the origin. But I'm not sure how to make use of this symmetry.}
 Just like we moved the function $f$ and the point to get in a 
 nicer situation, we can apply this approach for cubic functions.
 
@@ -576,11 +580,9 @@ because
             &= ax^3 + \frac{b^2}{3a}\left (1-2+c \right )x + \frac{b^3}{9a^2} \left (1-\frac{1}{3} \right )- \frac{bc}{3a} + d
 \end{align}
 
-\todo[inline]{Which way to move might be clever?}
-
 \subsection{Number of points with minimal distance}
-As there is an algebraic equation of degree 5, there cannot be more
-than 5 solutions.
+As this leads to a polynomial of degree 5 of which we have to find
+roots, there cannot be more than 5 solutions.
 \todo[inline]{Can there be 3, 4 or even 5 solutions? Examples!
 
 After looking at function graphs of cubic functions, I'm pretty 
@@ -590,9 +592,38 @@ chose the cubic function $f$ and $P$.
 I'm also pretty sure that there is no polynomial (no matter what degree)
 that has more than 3 solutions.}
 
+\section{Bisection method}
+
 \section{Newtons method}
-\todo[inline]{When does Newtons method converge? How fast?
-How to choose starting point?}
+One way to find roots of functions is Newtons method. It gives an
+iterative computation procedure that can converge quadratically 
+if some conditions are met:
+
+\begin{theorem}[local quadratic convergence of Newton's method]
+    Let $D \subseteq \mdr^n$ be open and $f: D \rightarrow \mdr^n \in C^2(\mdr)$.
+    Let $x^* \in D$ with $f(x^*) = 0$ and the Jaccobi-Matrix $f'(x^*)$
+    should not be invertable when evaluated at the root.
+
+    Then there is a sphere 
+    \[K := K_\rho(x^*) = \Set{x \in \mdr^n | \|x- x^*\|_\infty \leq \rho} \subseteq D\]
+    such that $x^*$ is the only root of $f$ in $K$. Furthermore,
+    the elements of the sequence
+    \[ x_{n+1} = x_n - \frac{f'(x_n)}{f(x_n)}\]
+    are for every starting value $x_0 \in K$ again in $K$ and
+    \[\lim_{n \rightarrow \infty} x_k = x^*\]
+    Also, there is a constant $C > 0$ such that
+    \[\|x^* - x_{n+1} \| = C \|x^* - x_n\|^2 \text{ for } n \in \mathbb{N}_0\|\]
+\end{theorem}
+
+The approach is extraordinary simple. You choose a starting value
+$x_0$ and compute
+
+\[x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\]
+
+As soon as the values don't change much, you are close to a root.
+The problem of this approach is choosing a starting value that is
+close enough to the root. So we have to have a \enquote{good}
+initial guess.
 
 \section{Quadratic minimization}
 \todo[inline]{TODO}
