@@ -64,7 +64,7 @@ This algorithm needs to know the signed current error. So you need to
 be able to get the minimal distance of a point to a cubic spline combined with the direction (left or right).
 As you need to get the signed error (and one steering direction might
 be prefered), it is not only necessary to
-get the minimal absolute distance, but also to get all points
+get the minimal absolute distance, but might also help to get all points
 on the spline with minimal distance.
 
 In this paper I want to discuss how to find all points on a cubic 
@@ -77,37 +77,24 @@ distance of a point to a polynomial of degree 0, 1 and 2.
 \section{Description of the Problem}
 Let $f: \mdr \rightarrow \mdr$ be a polynomial function and $P \in \mdr^2$
 be a point. Let $d_{P,f}: \mdr \rightarrow \mdr_0^+$
-be the Euklidean distance $d_{P,f}$ of a point $P$ and a point $\left (x, f(x) \right )$:
+be the Euklidean distance of a point $P$ and a point $\left (x, f(x) \right )$
+on the graph of $f$:
 \[d_{P,f} (x) := \sqrt{(x_P - x)^2 + (y_P - f(x))^2}\]
 
-Now there is \todo{Should I proof this?}{finite set} $x_1, \dots, x_n$ such that 
-\[\forall \tilde x \in \mathbb{R} \setminus \{x_1, \dots, x_n\}: d_{P,f}(x_1) = \dots = d_{P,f}(x_n) < d_{P,f}(\tilde x)\]
+Now there is finite set $M = \Set{x_1, \dots, x_n}$ of minima for given $f$ and $P$:
+\[M = \Set{x \in \mdr | d_{P,f}(x) = \min_{\overline{x} \in \mdr} d_{P,f}(\overline{x})}\] 
 
-Essentially, you want to find the minima $x_1, \dots, x_n$ for given 
-$f$ and $P$.
 But minimizing $d_{P,f}$ is the same as minimizing $d_{P,f}^2$:
 \begin{align}
     d_{P,f}(x)^2    &= \sqrt{(x_P - x)^2 + (y_P - f(x))^2}^2\\
                 &= x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2
 \end{align}
 
-\todo[inline]{Hat dieser Satz einen Namen? Gibt es ein gutes Buch,
-aus dem ich den zitieren kann? Ich habe ihn aus \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis I}{meinem Analysis I Skript} (Satz 21.5).}
-\begin{theorem}\label{thm:required-extremum-property}
-    Let $x_0$ be a relative extremum of a differentiable function $f: \mathbb{R} \rightarrow \mathbb{R}$.
+\begin{theorem}[Fermat's theorem about stationary points]\label{thm:required-extremum-property}
+    Let $x_0$ be a local extremum of a differentiable function $f: \mathbb{R} \rightarrow \mathbb{R}$.
 
     Then: $f'(x_0) = 0$.
 \end{theorem}
-
-%bzw. 22.3
-%\begin{theorem}[Minima of polynomial functions]\label{thm:minima-of-polynomials}
-%    Let $n \in \mathbb{N}, n \geq 2$, $f$ polynomial function of 
-%    degree $n$, $x_0 \in \mathbb{R}$,  \\
-%    $f'(x_0) = f''(x_0) = \dots = f^{(n-1)} (x_0) = 0$
-%    and $f^{(n)} > 0$.
-%
-%    Then $x_0$ is a local minimum of $f$.
-%\end{theorem}
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -140,7 +127,7 @@ Let $f(x) = c$ with $c \in \mdr$ be a constant function.
             tension=0.08]
           \addplot[domain=-5:5, thick,samples=50, red] {1};
           \addplot[domain=-5:5, thick,samples=50, green] {2};
-          \addplot[domain=-5:5, thick,samples=50, blue] {3};
+          \addplot[domain=-5:5, thick,samples=50, blue, densely dotted] {3};
           \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
           \addplot[blue, mark = *, nodes near coords=$P_{h,\text{min}}$,every node near coord/.style={anchor=225}] coordinates {(2, 3)};
           \addplot[green, mark = x, nodes near coords=$P_{g,\text{min}}$,every node near coord/.style={anchor=120}] coordinates {(2, 2)};
@@ -199,15 +186,16 @@ $t \in \mdr$ be a linear function.
     \label{fig:linear-min-distance}
 \end{figure}
 
-Now you can drop a perpendicular $f_\bot$ through $P$ on $f(x)$. The slope of $f_\bot$
-is $- \frac{1}{m}$. Now you can calculate $f_\bot$:\nobreak
+Now you can drop a perpendicular $f_\bot$ through $P$ on $f(x)$. The 
+slope of $f_\bot$ is $- \frac{1}{m}$ and $t_\bot$ can be calculated:\nobreak
 \begin{align}
                  f_\bot(x) &= - \frac{1}{m} \cdot x + t_\bot\\
     \Rightarrow        y_P &= - \frac{1}{m} \cdot x_P + t_\bot\\
     \Leftrightarrow t_\bot &= y_P + \frac{1}{m} \cdot x_P
 \end{align}
 
-Now find the point $(x, f(x))$ where the perpendicular crosses the function:
+The point $(x, f(x))$ where the perpendicular $f_\bot$ crosses $f$
+is calculated this way:
 \begin{align}
     f(x) &= f_\bot(x)\\
     \Leftrightarrow m \cdot x + t &= - \frac{1}{m} \cdot x + \left(y_P + \frac{1}{m} \cdot x_P \right)\\
@@ -235,24 +223,22 @@ $b, c \in \mdr$ be a quadratic function.
         width=0.8\linewidth,
         height=8cm,
         grid style={dashed, gray!30},
-        xmin=-3,     % start the diagram at this x-coordinate
+        xmin=-3,    % start the diagram at this x-coordinate
         xmax= 3,    % end   the diagram at this x-coordinate
-        ymin=-0.25,     % start the diagram at this y-coordinate
-        ymax= 9,   % end   the diagram at this y-coordinate
+        ymin=-0.25, % start the diagram at this y-coordinate
+        ymax= 9,    % end   the diagram at this y-coordinate
         axis background/.style={fill=white},
         xlabel=$x$,
         ylabel=$y$,
-        %xticklabels={-2,-1.6,...,7},
-        %yticklabels={-8,-7,...,8},
         tick align=outside,
         minor tick num=-3,
         enlargelimits=true,
         tension=0.08]
-      \addplot[domain=-3:3, thick,samples=50, red] {0.5*x*x}; 
-      \addplot[domain=-3:3, thick,samples=50, green] {x*x}; 
-      \addplot[domain=-3:3, thick,samples=50, blue] {x*x + x};
-      \addplot[domain=-3:3, thick,samples=50, orange] {x*x + 2*x};
-      \addplot[domain=-3:3, thick,samples=50, black] {-x*x + 6};
+      \addplot[domain=-3:3, thick,samples=50, red]    {0.5*x*x}; 
+      \addplot[domain=-3:3, thick,samples=50, green]  { x*x}; 
+      \addplot[domain=-3:3, thick,samples=50, blue]   { x*x +   x};
+      \addplot[domain=-3:3, thick,samples=50, orange,dotted] { x*x + 2*x};
+      \addplot[domain=-3:3, thick,samples=50, black,dashed]  {-x*x + 6};
       \addlegendentry{$f_1(x)=\frac{1}{2}x^2$}
       \addlegendentry{$f_2(x)=x^2$}
       \addlegendentry{$f_3(x)=x^2+x$}
@@ -276,15 +262,6 @@ We use Theorem~\ref{thm:required-extremum-property}:\nobreak
           &= -x_p + x -2y_p ax- y_p b + (2a^2 x^3 + 3 ab x^2 + 2acx + b^2 x + bc)\\
           &= 2a^2 x^3 + 3 ab x^2 + (1 -2y_p a+ 2ac + b^2)x +(bc-by_p-x_p)\label{eq:quadratic-derivative-eq-0}
 \end{align}
-
-%\begin{align}
-%    0     &\overset{!}{=}(d_{P,f}^2)''\\
-%          &= 2 - 2y_p f''(x) + \left ( 2 f(x) \cdot f'(x) \right )' \rlap{\hspace*{3em}(Eq. \ref{eq:minimizingFirstDerivative})}\\
-%          &= 2 - 2y_p f''(x) + 2 \cdot \left ( f'(x) \cdot f'(x) + f(x) \cdot f''(x) \right ) \rlap{\hspace*{3em}(product rule)}\\
-%          &= 2 - 2y_p f''(x) + 2 \cdot \left ( f'(x)^2 + f(x) \cdot f''(x) \right )\\
-%          &= 12a^2 x^2 + 12abx + 2(1 -2y_p a+ 2ac + b^2)
-%\end{align}
-
 
 This is an algebraic equation of degree 3.
 There can be up to 3 solutions in such an equation. Those solutions
@@ -323,7 +300,11 @@ the minimum points in the original situation.
 First of all, we move $f_0$ and $P_0$ by $\frac{b}{2a}$ in $x$ direction, so
 \[f_1(x) = ax^2 - \frac{b^2}{4a} + c \;\;\;\text{ and }\;\;\; P_1 = \left (x_p+\frac{b}{2a},\;\; y_p \right )\]
 
-Because:
+Because:\footnote{The idea why you subtract $\frac{b}{2a}$ within
+$f$ is that when you subtract something from $x$ before applying
+$f$ it takes more time ($x$ needs to be bigger) to get to the same
+situation. So to move the whole graph by $1$ to the left whe have
+to add $+1$.}
 \begin{align}
     f(x-\nicefrac{b}{2a}) &= a (x-\nicefrac{b}{2a})^2 + b (x-\nicefrac{b}{2a}) + c\\
     &= a (x^2 - \nicefrac{b}{a} x + \nicefrac{b^2}{4a^2}) + bx - \nicefrac{b^2}{2a} + c\\
@@ -333,19 +314,19 @@ Because:
 
 
 Then move $f_1$ and $P_1$ by $\frac{b^2}{4a}-c$ in $y$ direction. You get:
-\[f_2(x) = ax^2\;\;\;\text{ and }\;\;\; P_2 = \left (x_p+\frac{b}{2a},\;\; y_p+\frac{b^2}{4a}-c \right )\]
+\[f_2(x) = ax^2\;\;\;\text{ and }\;\;\; P_2 = \Big (\underbrace{x_P+\frac{b}{2a}}_{=: z},\;\; \underbrace{y_P+\frac{b^2}{4a}-c}_{=: w} \Big )\]
 
 \textbf{Case 1:} As $f_2(x) = ax^2$ is symmetric to the $y$ axis, only points 
 $P = (0, w)$ could possilby have three minima.
 
 Then compute:
 \begin{align}
-  d_{P,{f_2}}(x)  &= \sqrt{(x-x_{P})^2 + (f(x)-w)^2}\\
+  d_{P,{f_2}}(x)  &= \sqrt{(x-0)^2 + (f_2(x)-w)^2}\\
     &= \sqrt{x^2 + (ax^2-w)^2}\\
     &= \sqrt{x^2 + a^2 x^4-2aw x^2+w^2}\\
     &= \sqrt{a^2 x^4 + (1-2aw) x^2 + w^2}\\
     &= \sqrt{\left (a^2 x^2 + \frac{1-2 a w}{2} \right )^2 + w^2 - (1-2 a w)^2}\\
-    &= \sqrt{\left (a^2 x^2 + \nicefrac{1}{2}-a w \right )^2 + (w^2 - (1-2 a w)^2)}\\
+    &= \sqrt{\left (a^2 x^2 + \nicefrac{1}{2}-a w \right )^2 + \big (w^2 - (1-2 a w)^2 \big)}
 \end{align}
 
 The term 
@@ -357,37 +338,24 @@ For all other points $P = (0, w)$, there are exactly two minima $x_{1,2} = \pm \
 \textbf{Case 2:} $P = (z, w)$ is not on the symmetry axis, so $z \neq 0$. Then you compute:
 \begin{align}
   d_{P,{f_2}}(x)  &= \sqrt{(x-z)^2 + (f(x)-w)^2}\\
-    &= \sqrt{(x^2 - 2zx + z^2) + ((ax^2)^2 - 2 awx^2 - w^2)}\\
-    &= \sqrt{a^2x^4 + (1- 2 aw)x^2 +(- 2z)x + z^2 - w^2}\\
-  0 &\stackrel{!}{=} d_{P, {f_2}}'(x) \\
+    &= \sqrt{(x^2 - 2zx + z^2) + ((ax^2)^2 - 2 awx^2 + w^2)}\\
+    &= \sqrt{a^2x^4 + (1- 2 aw)x^2 +(- 2z)x + z^2 + w^2}\\
+  0 &\stackrel{!}{=} \Big(\big(d_{P, {f_2}}(x)\big)^2\Big)' \\
     &= 4a^2x^3 + 2(1- 2 aw)x +(- 2z)\\
     &= 2 \left (2a^2x^2 + (1- 2 aw) \right )x - 2z\\
-    \Leftrightarrow z &\stackrel{!}{=} (2a^2x^2 + (1- 2 aw)) x\\
-    \Leftrightarrow 0 &\stackrel{!}{=} 2 a^2 x^3 + (1- 2 aw)x - z\label{line:solution-equation}
+    \Leftrightarrow 0 &\stackrel{!}{=} (2a^2x^2  + (1- 2 aw)) x - z\\
+    &= 2 a^2 x^3 + (1- 2 aw) x - z\\
+\Leftrightarrow 0 &\stackrel{!}{=} x^3 + \underbrace{\frac{(1- 2 aw)}{2 a^2}}_{=: \alpha} x  + \underbrace{\frac{-z}{2 a^2}}_{=: \beta}\\
+    &= x^3 + \alpha x + \beta\label{eq:simple-cubic-equation-for-quadratic-distance}
 \end{align}
 
-The solution for this equation was computated with Wolfram|Alpha.
-I will only verify that the solution is correct. As there is only
-one solution in this case, we only have to check this one.
+The solution of Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
+is
+\[t := \sqrt[3]{\sqrt{3 \cdot (4a^3 + 27 b^2)} -9b}\]
+\[x = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} a }{t}\]
 
-\begin{align}
-    t &:= \sqrt[3]{108a^4z + \sqrt{\num{11664}a^8 z^2 + 864 a^6  (1-2aw)^3}}\\
-    x &= \frac{t}{6 \sqrt[3]{2} a^2} - \frac{\sqrt[3]{2}(1-2aw)}{t}\\
-    \xRightarrow{x \text{ in line }\ref{line:solution-equation}} 0 &\stackrel{!}{=} 2a^2 \left ( \frac{t}{6 \sqrt[3]{2} a^2} - \frac{\sqrt[3]{2}(1-2aw)}{t} \right )^3 + (1-2aw) (\frac{t}{6 \sqrt[3]{2} a^2} - \frac{\sqrt[3]{2}(1-2aw)}{t}) - z\\
-    &= 2a^2 \underbrace{\left ( \frac{t}{6 \sqrt[3]{2} a^2} - \frac{\sqrt[3]{2}(1-2aw)}{t} \right )^3}_{=: \alpha} +  \frac{t \cdot (1-2aw)}{6 \sqrt[3]{2} a^2} - \frac{\sqrt[3]{2} (1-2aw)^2}{t} - z
-\end{align}
+\todo[inline]{verify this solution}
 
-Now compute $\alpha$. We know that $(a-b)^3 = a^3 - 3a^2 b +3ab^2 - b^3$:
-\begin{align}
-    \alpha &= \left (\frac{t}{6 \sqrt[3]{2} a^2} \right )^3 - 3 \left (\frac{t}{6 \sqrt[3]{2} a^2} \right )^2 \left (\frac{\sqrt[3]{2}(1-2aw)}{t} \right ) + 3 \left (\frac{t}{6 \sqrt[3]{2} a^2} \right ) \left (\frac{\sqrt[3]{2}(1-2aw)}{t} \right )^2 - \left (\frac{\sqrt[3]{2}(1-2aw)}{t} \right )^3\\
-    &= \frac{t^3}{216 \cdot 2 \cdot a^6} - \frac{3t^2}{36 \sqrt[3]{4} a^4} \cdot \frac{\sqrt[3]{2}(1-2aw)}{t}
-       + \frac{3t}{6 \sqrt[3]{2} a^2} \cdot \frac{\sqrt[3]{4} (1-2aw)^2}{t^2} - \frac{2 (1-2aw)^3}{t^3}\\
-    &= \frac{t^3}{432a^6} - \frac{t (1-2aw)}{12\sqrt[3]{2} a^4} + \frac{\sqrt[3]{2} (1-2aw)^2}{2ta^2} - \frac{2 (1-2aw)^3}{t^3}\\
-    &= \frac{t^3}{432a^6} + \frac{t^2 (2aw-1) + 6 \sqrt[3]{4} a^2 (1-2aw)^2}{12\sqrt[3]{2} a^4} - \frac{2 (1-2aw)^3}{t^3}\\
-    &= \frac{t^3- 2 (1-2aw)^3 \cdot 432a^6}{432a^6 t^3} + \frac{t^2 (2aw-1) + 6 \sqrt[3]{4} a^2 (1-2aw)^2}{12\sqrt[3]{2} a^4}\\
-    &= \frac{\sqrt[3]{2}(t^3- 2 (1-2aw)^3 \cdot 432a^6) + 36 a^2 t^3 (t^2 (2aw-1) + 6 \sqrt[3]{4} a^2 (1-2aw)^2)}{432 \sqrt[3]{2} a^6 t^3}\\
-    &= \frac{\sqrt[3]{2} t^3 - \sqrt[3]{2} (1-2aw)^3 \cdot 864a^6 + 36 a^2 t^3 (2awt^1-t^2 + 6 \sqrt[3]{4} a^2 (1-2aw)^2)}{6 \sqrt[3]{2} a^2 t \cdot 2a^2 \cdot 36 a^2 t^2}
-\end{align}
 
 \goodbreak
 So the solution is given by
@@ -421,15 +389,13 @@ $b, c, d \in \mdr$ be a function.
         width=0.8\linewidth,
         height=8cm,
         grid style={dashed, gray!30},
-        xmin=-3,     % start the diagram at this x-coordinate
-        xmax= 3,    % end   the diagram at this x-coordinate
-        ymin=-3,     % start the diagram at this y-coordinate
-        ymax= 3,   % end   the diagram at this y-coordinate
+        xmin=-3, % start the diagram at this x-coordinate
+        xmax= 3, % end   the diagram at this x-coordinate
+        ymin=-3, % start the diagram at this y-coordinate
+        ymax= 3, % end   the diagram at this y-coordinate
         axis background/.style={fill=white},
         xlabel=$x$,
         ylabel=$y$,
-        %xticklabels={-2,-1.6,...,7},
-        %yticklabels={-8,-7,...,8},
         tick align=outside,
         minor tick num=-3,
         enlargelimits=true,
@@ -458,6 +424,53 @@ $b, c, d \in \mdr$ be a function.
 %\todo[inline]{Write this}
 
 \subsection{Calculate points with minimal distance}
+\begin{theorem}
+    There cannot be an algebraic solution to the problem of finding 
+    a closest point $(x, f(x))$ to a given point $P$ when $f$ is
+    a polynomial function of degree $3$ or higher.
+\end{theorem}
+
+\begin{proof}
+Let $g : \mdr \rightarrow \mdr$ be a polynomial of degree 5
+\[g(x) = \tilde{a} x^5 + \tilde{b} x^4 + \tilde{c} x^3 + \tilde{d} x^2 + \tilde{e} x + \tilde{f}\]
+with $\tilde{a} \in \mdr_{> 0},\; \tilde{b} \in \mdr \setminus \Set{0}$ and $\tilde{c}, \tilde{d}, \tilde{e}, \tilde{f} \in \mdr$.
+Then, according to the Abel-Ruffini theorem, the equation
+\[g(x) = 0\]
+cannot be solved algebraicly.
+
+%But lets define $a := \frac{\sqrt{\tilde{a}}}{3}$, $b := \frac{\tilde{b}}{5a}$,
+%$c : = \frac{\frac{\tilde{c}}{2} - b^2}{2a}$, $d := \frac{\tilde{d}}{3} - bc + $
+
+So you can find $a, b, c, d, x_p, y_p$ such that
+
+\begin{align}
+    g(x) &= \underbrace{3 a^2}_{= \tilde{a}} x^5 + \underbrace{5ab}_{= \tilde{b}}x^4 + \underbrace{2(2ac + b^2 )}_{= \tilde{c}}x^3 &+& \underbrace{3(ad+bc-ay_p)}_{= \tilde{d}} x^2 \\
+    & &+& \underbrace{(2 b d+c^2+1-2 b y_p)}_{= \tilde{e}}x+\underbrace{c d-c y_p-x_p}_{= \tilde{f}}\\
+    &= f'(x) \cdot \left (f(x) - y_p \right ) + (x - x_p)\\
+    &= f(x) \cdot f'(x) - y_p f'(x) + x - x_p
+\end{align}
+
+And
+\begin{align}
+  g(x) &\stackrel{!}{=}0\\
+\Leftrightarrow 0 &\stackrel{!}{=} 2 f(x) \cdot f'(x) - 2 y_p f'(x) + 2x - 2 x_p\\
+    &= -2 x_p + 2x -2y_p(f(x))' + (f(x)^2)'\\
+    &= \left ((x-x_p)^2 \right )' + \left ( (f(x) - y_p)^2 \right )'\\
+    &= \left ((x-x_p)^2 + (f(x) - y_p)^2 \right )'\\
+    &= (d_{P,f}(x)^2)'
+\end{align}
+
+    So the problem of finding a closest point $(x, f(x))$ on a 
+    cubic function $f$ to $P$ is essentially the same as finding 
+    a root of a polynomial function of degree 5. As this cannot
+    be solved algebraicly, the problem of finding such a point
+    can also not be solved algebraicly.$\qed$
+\end{proof}
+
+\todo[inline]{Start with theorem that this problem is not solvable
+with analytics only. Use a general 5th degree function and show
+that it can be mapped to a $f$ and $P$ instance.}
+
 When you want to calculate points with minimal distance, you can 
 take the same approach as in Equation \ref{eq:minimizingFirstDerivative}:
 
@@ -510,15 +523,13 @@ nicer situation, we can apply this approach for cubic functions.
         width=0.8\linewidth,
         height=8cm,
         grid style={dashed, gray!30},
-        xmin=-3,     % start the diagram at this x-coordinate
-        xmax= 3,    % end   the diagram at this x-coordinate
-        ymin=-3,     % start the diagram at this y-coordinate
-        ymax= 3,   % end   the diagram at this y-coordinate
+        xmin=-3, % start the diagram at this x-coordinate
+        xmax= 3, % end   the diagram at this x-coordinate
+        ymin=-3, % start the diagram at this y-coordinate
+        ymax= 3, % end   the diagram at this y-coordinate
         axis background/.style={fill=white},
         xlabel=$x$,
         ylabel=$y$,
-        %xticklabels={-2,-1.6,...,7},
-        %yticklabels={-8,-7,...,8},
         tick align=outside,
         minor tick num=-3,
         enlargelimits=true,
@@ -569,6 +580,14 @@ chose the cubic function $f$ and $P$.
 I'm also pretty sure that there is no polynomial (no matter what degree)
 that has more than 3 solutions.}
 
-\todo[inline]{If there is no closed form solution, I want to 
-describe a numerical solution. I guess Newtons method might be good.}
+\section{Newtons method}
+\todo[inline]{When does Newtons method converge? How fast?
+How to choose starting point?}
+
+\section{Quadratic minimization}
+\todo[inline]{TODO}
+
+\section{Conclusion}
+\todo[inline]{TODO}
+
 \end{document}
