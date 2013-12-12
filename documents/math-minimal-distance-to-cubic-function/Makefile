@@ -5,4 +5,4 @@ make:
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.log *.aux *.out *.thm
+	rm -rf  $(TARGET) *.class *.log *.aux *.out *.thm *.toc

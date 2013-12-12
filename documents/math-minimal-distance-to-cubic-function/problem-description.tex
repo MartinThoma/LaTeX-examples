@@ -1,0 +1,21 @@
+\chapter{Description of the Problem}
+Let $f: D \rightarrow \mdr$ with $D \subseteq \mdr$ be a polynomial function and $P \in \mdr^2$
+be a point. Let $d_{P,f}: \mdr \rightarrow \mdr_0^+$
+be the Euklidean distance of a point $P$ and a point $\left (x, f(x) \right )$
+on the graph of $f$:
+\[d_{P,f} (x) := \sqrt{(x_P - x)^2 + (y_P - f(x))^2}\]
+
+Now there is finite set $M = \Set{x_1, \dots, x_n} \subseteq D$ of minima for given $f$ and $P$:
+\[M = \Set{x \in D | d_{P,f}(x) = \min_{\overline{x} \in D} d_{P,f}(\overline{x})}\] 
+
+But minimizing $d_{P,f}$ is the same as minimizing $d_{P,f}^2$:
+\begin{align}
+    d_{P,f}(x)^2    &= \sqrt{(x_P - x)^2 + (y_P - f(x))^2}^2\\
+                &= x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2
+\end{align}
+
+\begin{theorem}[Fermat's theorem about stationary points]\label{thm:required-extremum-property}
+    Let $x_0$ be a local extremum of a differentiable function $f: \mathbb{R} \rightarrow \mathbb{R}$.
+
+    Then: $f'(x_0) = 0$.
+\end{theorem}
