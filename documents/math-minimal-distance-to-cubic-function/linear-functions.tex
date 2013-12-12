@@ -8,6 +8,7 @@ $t \in \mdr$ be a linear function.
     \begin{tikzpicture}
         \begin{axis}[
             legend pos=north east,
+            legend cell align=left,
             axis x line=middle,
             axis y line=middle,
             grid = major,
@@ -29,7 +30,7 @@ $t \in \mdr$ be a linear function.
           \addplot[domain=-5:5, thick,samples=50, blue] {-2*x+6};
           \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
           \addlegendentry{$f(x)=\frac{1}{2}x$}
-          \addlegendentry{$g(x)=-2x+6$}
+          \addlegendentry{$f_\bot(x)=-2x+6$}
         \end{axis} 
     \end{tikzpicture}
     \caption{The shortest distance of $P$ to $f$ can be calculated by using the perpendicular}
@@ -50,9 +51,66 @@ is calculated this way:
     f(x) &= f_\bot(x)\\
     \Leftrightarrow m \cdot x + t &= - \frac{1}{m} \cdot x + \left(y_P + \frac{1}{m} \cdot x_P \right)\\
     \Leftrightarrow \left (m + \frac{1}{m} \right ) \cdot x &= y_P + \frac{1}{m} \cdot x_P - t\\
-    \Leftrightarrow x &= \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )
+    \Leftrightarrow x &= \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )\label{eq:solution-of-the-linear-problem}
 \end{align}
 
-There is only one point with minimal distance. See Figure~\ref{fig:linear-min-distance}.
+There is only one point with minimal distance. I'll call the result
+from line~\ref{eq:solution-of-the-linear-problem} \enquote{solution of 
+the linear problem} and the function that gives this solution 
+$S_1(f,P)$.
 
-\section{Defined on a closed interval of $\mdr$}
+See Figure~\ref{fig:linear-min-distance}
+to get intuition about the geometry used.
+\clearpage
+
+\section{Defined on a closed interval $[a,b] \subseteq \mdr$}
+Let $f:[a,b] \rightarrow \mdr$, $f(x) := m\cdot x + t$ with $a,b,m,t \in \mdr$ and 
+$a \leq b$, $m \neq 0$  be a linear function.
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            legend pos=north east,
+            legend cell align=left,
+            axis x line=middle,
+            axis y line=middle,
+            grid = major,
+            width=0.8\linewidth,
+            height=8cm,
+            grid style={dashed, gray!30},
+            xmin= 0, % start the diagram at this x-coordinate
+            xmax= 5, % end   the diagram at this x-coordinate
+            ymin= 0, % start the diagram at this y-coordinate
+            ymax= 3, % end   the diagram at this y-coordinate
+            axis background/.style={fill=white},
+            xlabel=$x$,
+            ylabel=$y$,
+            tick align=outside,
+            minor tick num=-3,
+            enlargelimits=true,
+            tension=0.08]
+          \addplot[domain= 2:3, thick,samples=50, red] {0.5*x};
+          \addplot[domain=-5:5, thick,samples=50, blue, dashed] {-2*x+6};
+          \addplot[domain=1:1.5, thick, samples=50, orange] {3*x-3};
+          \addplot[domain=4:5, thick, samples=50, green] {-x+5};
+          \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
+          \draw[thick, dashed] (axis cs:2,2) -- (axis cs:1.5,1.5);
+          \draw[thick, dashed] (axis cs:2,2) -- (axis cs:4,1);
+          \addlegendentry{$f(x)=\frac{1}{2}x, D = [2,3]$}
+          \addlegendentry{$f_\bot(x)=-2x+6, D=[-5,5]$}
+          \addlegendentry{$h(x)=3x-3, D=[1,1.5]$}
+          \addlegendentry{$h(x)=-x+5, D=[4,5]$}
+        \end{axis} 
+    \end{tikzpicture}
+    \caption{Different situations when you have linear functions which
+             are defined on a closed intervall}
+    \label{fig:linear-min-distance-closed-intervall}
+\end{figure}
+
+The point with minimum distance can be found by:
+\[\underset{x\in\mdr}{\arg \min d_{P,f}(x)} = \begin{cases}
+ S_1(f, P) &\text{if } S_1(f, P) \cap [a,b] \neq \emptyset\\
+   \Set{a} &\text{if } S_1(f, P) \ni x < a\\
+   \Set{b} &\text{if } S_1(f, P) \ni x > b
+    \end{cases}\]

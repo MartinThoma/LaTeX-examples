@@ -56,9 +56,9 @@ We use Theorem~\ref{thm:required-extremum-property}:\nobreak
 
 This is an algebraic equation of degree 3.
 There can be up to 3 solutions in such an equation. Those solutions
-can be found with a closed formula.
-
-\todo[inline]{Where are those closed formulas?}
+can be found with a closed formula. But not every solution of the
+equation given by Theorem~\ref{thm:required-extremum-property}
+has to be a solution to the given problem.
 
 \begin{example}
     Let $a = 1,  b = 0,  c= 1, x_p= 0, y_p = 1$.
@@ -204,4 +204,27 @@ t &:= \sqrt[3]{\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta}\\
     \end{cases}
 \end{align*}
 
-\section{Defined on a closed interval of $\mdr$}
+I call this function $S_2: \Set{\text{Quadratic functions}} \times \mdr^2 \rightarrow \mathcal{P}({\mdr})$.  
+\clearpage
+
+\section{Defined on a closed interval $[a,b] \subseteq \mdr$}
+Now the problem isn't as simple as with constant and linear
+functions.
+
+If one of the minima in $S_2(P,f)$ is in $[a,b]$, this will be the
+shortest distance as there are no shorter distances.
+
+\todo[inline]{
+The following IS WRONG! Can I include it to help the reader understand the 
+problem?}
+
+If the function (defined on $\mdr$) has only one shortest distance
+point $x$ for the given $P$, it's also easy: The point in $[a,b]$ that
+is closest to $x$ will have the sortest distance. 
+
+\[\underset{x\in\mdr}{\arg \min d_{P,f}(x)} = \begin{cases}
+ S_2(f, P) \cap [a,b] &\text{if } S_2(f, P) \cap [a,b] \neq \emptyset \\
+              \Set{a} &\text{if } |S_2(f, P)| = 1 \text{ and } S_2(f, P) \ni x < a\\
+              \Set{b} &\text{if } |S_2(f, P)| = 1 \text{ and } S_2(f, P) \ni x > b\\
+                 todo &\text{if } |S_2(f, P)| = 2 \text{ and } S_2(f, P) \cap [a,b] = \emptyset
+    \end{cases}\]

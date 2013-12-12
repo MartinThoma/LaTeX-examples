@@ -1,12 +1,13 @@
 \chapter{Constant functions}
 \section{Defined on $\mdr$}
-Let $f(x) = c$ with $c \in \mdr$ be a constant function. 
+Let $f:\mdr \rightarrow \mdr$, $f(x) := c$ with $c \in \mdr$ be a constant function. 
 
 \begin{figure}[htp]
     \centering
     \begin{tikzpicture}
         \begin{axis}[
             legend pos=north west,
+            legend cell align=left,
             axis x line=middle,
             axis y line=middle,
             grid = major,
@@ -45,4 +46,62 @@ Then $(x_P,f(x_P))$ has
 minimal distance to $P$. Every other point has higher distance.
 See Figure~\ref{fig:constant-min-distance}.
 
-\section{Defined on a closed interval of $\mdr$}
+This means:
+
+\[S_0(f, P) = \Set{x_P} \text{ with } P = (x_P, y_P)\]
+\clearpage
+
+\section{Defined on a closed interval $[a,b] \subseteq \mdr$}
+Let $f:[a,b] \rightarrow \mdr$, $f(x) := c$ with $a,b,c \in \mdr$ and 
+$a \leq b$ be a constant function. 
+
+\begin{figure}[htp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            legend pos=north west,
+            legend cell align=left,
+            axis x line=middle,
+            axis y line=middle,
+            grid = major,
+            width=0.8\linewidth,
+            height=8cm,
+            grid style={dashed, gray!30},
+            xmin=-5, % start the diagram at this x-coordinate
+            xmax= 5, % end   the diagram at this x-coordinate
+            ymin= 0, % start the diagram at this y-coordinate
+            ymax= 3, % end   the diagram at this y-coordinate
+            axis background/.style={fill=white},
+            xlabel=$x$,
+            ylabel=$y$,
+            tick align=outside,
+            minor tick num=-3,
+            enlargelimits=true,
+            tension=0.08]
+          \addplot[domain=-5:-2, thick,samples=50, red] {1};
+          \addplot[domain=-1:3, thick,samples=50, green] {1.5};
+          \addplot[domain=3:5, thick,samples=50, blue, densely dotted] {3};
+          \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
+
+          \addplot[blue, mark = *, nodes near coords=$P_{h,\text{min}}$,every node near coord/.style={anchor=225}] coordinates {(3, 3)};
+          \addplot[green, mark = x, nodes near coords=$P_{g,\text{min}}$,every node near coord/.style={anchor=120}] coordinates {(2, 1.5)};
+          \addplot[red, mark = *, nodes near coords=$P_{f,\text{min}}$,every node near coord/.style={anchor=225}] coordinates {(-2, 1)};
+
+          \draw[thick, dashed] (axis cs:2,1.5) -- (axis cs:2,2);
+          \draw[thick, dashed] (axis cs:2,2) -- (axis cs:-2,1);
+          \draw[thick, dashed] (axis cs:2,2) -- (axis cs:3,3);
+          \addlegendentry{$f(x)=1, D = [-5,-2]$}
+          \addlegendentry{$g(x)=1.5, D = [-1,3]$}
+          \addlegendentry{$h(x)=3, D = [3,5]$}
+        \end{axis} 
+    \end{tikzpicture}
+    \caption{Three constant functions and their points with minimal distance}
+    \label{fig:constant-min-distance-closed-intervall}
+\end{figure}
+
+The point with minimum distance can be found by:
+\[\underset{x\in\mdr}{\arg \min d_{P,f}(x)} = \begin{cases}
+ S_0(f,P) &\text{if } S_0(f,P) \cap [a,b] \neq \emptyset \\
+  \Set{a} &\text{if } S_0(f,P) \ni x_P < a\\
+  \Set{b} &\text{if } S_0(f,P) \ni x_P > b
+    \end{cases}\]
