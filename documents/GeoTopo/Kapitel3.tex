@@ -459,5 +459,189 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
             \end{enumerate}
 \end{beispiel}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 12.12.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}\xindex{Überlagerung}\label{def:12.1}%Definition 12.1 der Vorlesung
+    Es seien $X, Y$ zusammenhängende topologische Räume und
+    $p: Y \rightarrow X$ eine stetige, surjektive Abbildung.
+
+    $p$ heißt \textbf{Überlagerung}, wenn jedes $x \in X$ eine offene
+    Umgebung $U = U_X$ besitzt, sodass $p^{-1}(U)$ disjunkte Vereinigung
+    von offenen Teilmengen $V_j$ von $Y$ ist $(j \in I_X)$ und
+    $p|_{V_j}: V_j \rightarrow U$ ein Homöomorphismus ist.
+\end{definition}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item 
+            \begin{figure}
+                \centering
+                \input{figures/todo.tex}
+                \caption{$\mdr \rightarrow S^1$, $t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$}
+                \label{fig:ueberlappung-r1-spirale-s1}
+            \end{figure}
+        \item 
+            \begin{figure}
+                \centering
+                \input{figures/todo.tex}
+                \caption{$\mdr^2 \rightarrow T^2 = \mdr^2 / \mdz^2$}
+                \label{fig:ueberlappung-kaestchen-torus}
+            \end{figure}
+        \item $\mdr^n \rightarrow T^n = \mdr^n / \mdz^n$
+        \item $S^n \rightarrow \praum^n(\mdr)$
+        \item $S^1 \rightarrow S^1$, $z \mapsto z^2$
+            \begin{figure}
+                \centering
+                \input{figures/todo.tex}
+                \caption{$t \mapsto (\cos 4 \pi t, \sin 4 \pi t)$}
+                \label{fig:ueberlappung-kaestchen-torus}
+            \end{figure}
+    \end{enumerate}
+\end{beispiel}
+
+\begin{korollar} % Bemerkung 12.2 der Vorlesung
+    Überlappungen sind offene Abbildungen, d.~h. ist $p:Y \rightarrow X$
+    Überlappung, $V \subseteq Y$ offen, so ist $p(V)$ offen in $X$.
+\end{korollar}
+
+\begin{beweis}
+    Sei $x \in p(V)$, etwa $x=p(y)$ ($y \in V$).
+    Sei weiter $U = U_x$ die offene Umgebung von $x$ wie in Definition~\ref{def:12.1}
+    und $V_j$ die Komponente von $p^{-1}(U)$, die $y$ enthält.
+
+    Dann ist $V \cap V_j$ offene Umgebung von $y$.
+
+    $\Rightarrow p(V \cap V_j)$ ist offen in $p(V_j)$, also auch offen
+    in $X$. Außerdem ist $p(y) = x \in p(V \cap V_j)$ und
+    $p(V \cap V_j) \subseteq p(V)$.
+
+    $\Rightarrow p(V)$ ist offen.
+\end{beweis}
+
+\todo[inline]{Die Definition von Diskret habe ich mir überlegt. Hatten wir das schon mal? 
+Haben wir Häufungspunkt definiert?}
+\begin{definition}\xindex{diskret}
+    Sei $M$ eine Menge und $X$ ein topologischer Raum.
+
+    $M$ heißt \textbf{diskret} in $X$, wenn $M$ in $X$ keinen 
+    Häufungspunkt hat.
+\end{definition}
+
+\begin{korollar} % Bemerkung 12.3 der Vorlesung
+    Sei $p: Y \rightarrow X$ Überlagerung, $x \in X$.
+    \begin{enumerate}[label=\alph*)]
+        \item $X$ hausdorffsch $\Rightarrow Y$ hausdorffsch
+        \item $p^{-1}(X)$ ist diskret in $Y$
+    \end{enumerate}
+\end{korollar}
+
+\begin{beweis}
+    \begin{enumerate}[label=\alph*)]
+        \item Seien $y_1, y_2 \in Y$.
+
+        \underline{1. Fall}: $p(y_1) = p(y_2) = x$.
+
+        Sei $U$ Umgebung von $x$ wie in Definition~\ref{def:12.1},
+        $V_{j_1}$ bzw. $V_{j_2}$ die Komponente von $p^{-1}(U)$, die
+        $y_1$ bzw. $y_2$ enthält.
+
+        Dann ist $V_{j_1} \neq V_{j_2}$, weil beide \todo{Was steht hier?}{} Element $p^{-1}(x)$
+        enthält.
+
+        $\Rightarrow V_{j_1} \cap V_{j_2} = \emptyset$ nach Voraussetzung.
+
+        \underline{2. Fall}: $p(y_1) \neq p(y_2)$.
+        
+        Dann seien $U_1$ und $U_2$ disjunkte Umbebungen von $p(y_1)$
+        und $p(y_2)$.
+
+        $\Rightarrow p^{-1}(U_1)$ und $p^{-1}(U_2)$ sind Umgebungen von
+        $y_1$ und $y_2$.
+
+        \item Sei $y \in Y$
+
+        \underline{1. Fall}: $y \in p^{-1}(x)$
+
+        Finde $v_j$, sodass kein \dots \todo{...}
+
+        \underline{2. Fall}: $y \notin p^{-1}(x)$
+
+        \todo{...}
+    \end{enumerate}
+\end{beweis}
+
+\begin{korollar}%Bemerkung 12.4 der Vorlesung
+    Sei $p: Y \rightarrow X$ Überlagerung, $x_1, x_2 \in X$.
+
+    Dann ist $|p^{-1} (x_1)| = |p^{-1}(x_2)|$.\footnote{$|p^{-1} (x_1)| = \infty$ ist erlaubt!}
+\end{korollar}
+
+\begin{beweis}
+    Sei $U$ Umgebung von $x_1$ wie in Definition~\ref{def:12.1}, $x \in U$.
+    Dann enthält jedes $V_j, j \in I_X$ genau ein Element von
+    $p^{-1}(x)$
+
+    $\Rightarrow |p^{-1} (x)|$ ist konstant auf $U$
+
+    $\xRightarrow{X zhgd.} |p^{-1}(x)|$  ist konstant auf $X$
+\end{beweis}
+
+\begin{definition}\xindex{Liftung}
+    Sei $p: Y \rightarrow X$ Überlagerung, $Z$ ein weiterer topologischer
+    Raum, $f:Z \rightarrow X$ stetig.
+
+    Eine stetige Abbildung $\tilde{f}: Z \rightarrow Y$ heißt
+    \textbf{Liftung} von $f$, wenn $p \circ \tilde{f} = f$ ist.
+\end{definition}
+
+\begin{figure}
+    \centering
+    \input{figures/todo.tex}
+    \caption{Beim liften eines Weges bleiben geschlossene Wege im allgemeinen nicht geschlossen}
+    \label{fig:satz-seifert-van-kampen}
+\end{figure}
+
+\begin{korollar}
+    Sei $Z$ zusammenhängend und $f_0, \dots, f_1: Z \rightarrow Y$
+    Liftungen von $f$.
+
+    $\exists z_0 \in Z: f_0(z) = f_1(z) \Rightarrow f_0 = f_1$
+\end{korollar}
+
+\begin{beweis}
+    Sei $T = \Set{z \in Z | f_0(z) = f_1(z)}$.
+
+    \underline{Z.~Z.}: $T$ ist offen und $Z \setminus T$ ist auch offen.
+
+    Sei $z \in T, x = f(z), U$ Umgebung von $x$ wie in Definition~\ref{def:12.1},
+    $V$ die Komponente von $p^{-1}(U)$, die $y:=f_0(z) = f_1(z)$.\todo{deutsch?}
+
+    Sei $q:U \rightarrow V$ die Umkehrabbildung zu $p|_V$.
+
+    Sei $W:= f^{-1}(U) \cap f_0^{-1}(V) \cap f_1^{-1}(V)$. $W$ ist 
+    offene Umgebung in $Z$ von $z$.
+
+    \underline{Behauptung:} $B \subseteq T$
+
+    Denn für $w \in W$ ist $q(f(w)) = q((p \circ f_0))(w) = ((q \circ p) \circ f_0) (w) = f_0(w) = q(f(w)) = f_1(w)$
+
+    $\Rightarrow T$ ist offen.
+
+    Analog: $Z \setminus T$ ist offen.
+\end{beweis}
+
+\begin{satz}
+    Sei $p: Y \rightarrow X$ Überlagerung, $\gamma: I \rightarrow X$
+    ein Weg, $y \in Y$ mit $p(y) = \gamma(0) =: x$.
+
+    Dann gibt es genau einen Weg $\tilde{\gamma}: I \rightarrow Y$
+    mit $\tilde{\gamma}(0)=y$ und $p \circ \tilde{\gamma} = \gamma$.
+\end{satz}
+
+\begin{beweis}
+Existenz: Siehe Skizze.
+\end{beweis}
+
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel3-UB}
