@@ -293,5 +293,171 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     \end{align*}
 \end{beweis}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tânias Mitschrieb vom 10.12.2013                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}\xindex{einfach zusammenhängend}%11.4
+    Ein wegzusammenhängender topologischer Raum $X$ heißt
+    \textbf{einfach zusammenhängend}, wenn $\pi_1(X,x) = \Set{e}$
+    für ein \todo{was denn nun?}{(jedes)} $x \in X$.
+\end{definition}
+
+\begin{korollar}\label{korr:11.5}
+    Es seien $X, Y$ topologische Räume, $f:X \rightarrow Y$ eine
+    stetige Abbildung, $x \in X, y := f(x) \in Y$.
+
+    \begin{enumerate}[label=\alph*)]
+        \item Dann ist die Abbildung $f_* : \pi_1(X,x) \rightarrow \pi_1(Y, y),
+        [y] \rightarrow [f \circ y]$ ein Gruppenhomomorphismus.
+        \item Ist $Z$ ein weiterer topologischer Raum und $g: Y \rightarrow Z$
+              eine stetige Abbildung $z:= g(y)$. Dann ist
+              $(g \circ f)_* = g_* \circ f_*: \pi_1(X,x) \rightarrow \pi_1(Z,z)$
+    \end{enumerate}
+\end{korollar}
+
+\begin{figure}
+    \centering
+    \input{figures/todo.tex}
+    \caption{Situation aus Korollar~\ref{korr:11.5}}
+    \label{fig:kor-bem-11.5}
+\end{figure}
+
+\begin{beweis}
+    \begin{enumerate}[label=\alph*)]
+        \item $f_*$ ist wohldefiniert: Seien $\gamma_1, \gamma_2$ homotope
+              Wege von $x$. z.Z.: $f \circ \gamma_1 \sim f \circ \gamma_2$:
+              Nach Voraussetzung gibt es stetige Abbildungen $H:I\times I \rightarrow X$
+              mit $H(t,0) = \gamma_1(t), H(t,1) = \gamma_2(t), H(0,S) = H(1, S) = x$.
+              Dann ist $f \circ H: I \times I \rightarrow Y$ mit
+              \todo{Warum die Punkte?}{\dots} $(f \circ H)(t,0) = f(H(t,0)) = f(\gamma_1(t)) = (f \circ \gamma_1)(t)$
+              etc. $\Rightarrow f \circ \gamma_1 \sim f \circ \gamma_2$.
+
+              $f_*([\gamma_1] * [\gamma_2]) = [f \circ (\gamma_1 * \gamma_2)] = [(f \circ \gamma_1)] * [(f \circ \gamma_2)] = f_*([\gamma_1]) * f_*([\gamma_2])$
+        \item $(g \circ f)_* ([\gamma]) = [(g \circ f) \circ \gamma] = [g \circ (f \circ \gamma)] = g_* ([f \circ \gamma]) = g_* (f_* ([\gamma])) = (g_* \circ f_*)([\gamma])$
+    \end{enumerate}
+\end{beweis}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item $f:S^1 \hookrightarrow \mdr^2$ ist injektiv, aber 
+              $f_*:\pi_1(S^1, 1) \cong \mdz \rightarrow \pi_1(\mdr^2, 1) -0 \Set{e}$
+              ist nicht injektiv
+        \item $f: \mdr \rightarrow S^1, t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$
+              ist surjektiv, aber $f_*: \pi_1(\mdr, 0) = \Set{e} \rightarrow \pi_1(S^2, 1) \cong \mdz$
+              ist nicht surjektiv
+    \end{enumerate}
+\end{beispiel}
+
+\begin{korollar}%Folgerung 11.6
+    Ist $f:X \rightarrow Y$ ein Homöomorphismus zwischen topologischen
+    Räumen $X, Y$, so ist $f_*: \pi_1(X,x) \rightarrow \pi_1(Y, f(x))$
+    ein Isomorphismus für jedes $x \in X$.
+\end{korollar}
+
+\begin{beweis}
+    Sei $g: Y \rightarrow X$ die Umkehrabbildung, d.~h. $g$ ist stetig
+    und $f \circ g = \text{id}_Y$, $g \circ f = \text{id}_X$
+
+    $\Rightarrow f_* \circ g_* = (f \circ g)_* = (\text{id}_Y)_* = \text{id}_{\pi_1 (Y, f(X)}$
+    und $g_* \circ f_* = \text{id}_{\pi_1(X,x)}$.
+\end{beweis}
+
+\begin{definition}\xindex{homotop}
+    Seien $X, Y$ topologische Räume, $x_0 \in X, y_0 \in Y, f, g: X \rightarrow Y$
+    stetig mit $f(x_0) = y_0 = g(x_0)$.
+
+    $f$ und $g$ heißen \textbf{homotop} ($f \sim g$), wenn es eine stetige
+    Abbildung $H: X \times I \rightarrow Y$ gibt mit $H(X,0) = f(X), H(X,1)=g(x)$
+    für alle $x \in X$ und $H(x_0, S) = y_0$ für alle $s \in I$.
+\end{definition}
+
+\begin{korollar}
+    Sind $f$ und $g$ homotop, so ist $f_* = g_*: \pi_1 (X, x_0) \rightarrow \pi_1(Y, y_0)$.
+\end{korollar}
+
+\begin{beweis}
+    Sei $\gamma$ ein geschlossener Weg in $X$ um $x_0$, d.~h.
+    $[\gamma] \in \pi_1 (X, x_0)$.
+
+    Z.~Z.: $f \circ \gamma \sim g \circ \gamma$
+
+    Sei dazu $H_\gamma: I \times I \rightarrow Y, (t,s) \mapsto H(\gamma(t), S)$.
+    Dann gilt: $H_\gamma (t,0) = H(\gamma(t), 0) = (g \circ \gamma)(t)$,
+    $H_\gamma(1,s) = H(\gamma(1), s) = H(x_0, s) = y_0$ für alle $s$.
+\end{beweis}
+
+\begin{beispiel}
+    $f:X \rightarrow Y, g: Y \rightarrow X$ mit $g \circ f \sim \text{id}_X,$
+    $f \circ g \sim \text{id}_Y$
+
+    $\Rightarrow f_*$ ist Isomorphismus. Konkret: $f: \mdr^2 \rightarrow \Set{0},$
+    $g:\Set{0} \rightarrow \mdr^2$
+
+    $\Rightarrow f \circ g = \text{id}_{\Set{0}}$, $g \circ f: \mdr^2 \rightarrow \mdr^2$,
+    $x \mapsto 0$ für alle $x$.
+
+    $g \circ f \sim \text{id}_{\mdr^2}$ mit Homotopie: $H: \mdr^2 \times I \rightarrow \mdr^2, H(x,S) = (1-s) x$ (stetig!)
+
+    $\Rightarrow H(X,0) = X = \text{id}_{\mdr^2} (X), H(X, 1) = 0, H(0, s) = 0$ für alle $s \in I$
+\end{beispiel}
+
+\begin{satz}[Satz von Seifert und van Kampen \enquote{light}]\label{thm:seifert-van-kampen}
+    Sei $X$ ein topologischer Raum, $U, V \subseteq X$ offen mit 
+    $U \cup V = X$ und $U \cap V$ wegzusammenhängend.
+
+    Dann wird $\pi_1(X,x)$ für $x \in U \cap V$ erzeugt von geschlossenen
+    Wegen um $x$, die ganz in $U$ oder ganz in $V$ verlaufen.
+\end{satz}
+
+\begin{figure}
+    \centering
+    \input{figures/todo.tex}
+    \caption{Situation aus Satz~\ref{thm:seifert-van-kampen}}
+    \label{fig:satz-seifert-van-kampen}
+\end{figure}
+
+\begin{beweis}
+    Sei $\gamma: I \rightarrow X$ ein geschlossener Weg von $x$.
+    Überdecke $I$ mit endlich vielen offenen Intervallen, die ganz in 
+    $\gamma^{-1}(U)$ oder ganz in $\gamma^{-1}(V)$ liegen.
+
+    \begin{figure}
+        \centering
+        \input{figures/todo.tex}
+        \caption{Situationsskizze}
+        \label{fig:intervalle-auf-01}
+    \end{figure}
+
+    \Obda sei $\gamma(I_1) \subseteq U, \gamma(I_2) \subseteq V$, etc.
+
+    Wähle $t_i \in I_i \cap I_{i+1}$, also $\gamma(t_i) \in U \cap V$.
+    Sei $\sigma_i$ Weg in $U \cap V$ von $x_0$ nach $\gamma(t_i) \Rightarrow \gamma$
+    ist homotop zu 
+    \[\underbrace{\gamma_1 * \overline{\sigma_1}}_{\text{in } U} * \underbrace{\sigma_1 * \gamma_2 * \overline{\sigma_2}}_{\text{in } V} * \dots * \sigma_{n-1} * \gamma_2\]
+\end{beweis}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item
+            \begin{figure}
+                \centering
+                \input{figures/todo.tex}
+                \caption{Topologischer Raum $X$}
+                \label{fig:top-raum-kreise}
+            \end{figure}
+
+            $\pi_1(X,x)$ wird \enquote{frei} erzeugt von $a$ und $b$, weil
+            $\pi_1(U,x) = <a> \cong \mdz, \pi_1(V,x) = <b> \cong \mdz$,
+            insbesondere ist $a*b$ nicht homotop zu $b*a$.
+        \item Torus: $\pi_1(T^2, X)$ wird erzeugt von $a$ und $b$.
+            \begin{figure}
+                \centering
+                \input{figures/todo.tex}
+                \caption{$a*b = b*a \Leftrightarrow a * b * \overline{a} * \overline{b} \sim e$}
+                \label{fig:torous-a-b}
+            \end{figure}
+            \end{enumerate}
+\end{beispiel}
+
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel3-UB}
