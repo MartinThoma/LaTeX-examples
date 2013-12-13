@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+    \node (Z) at (0,0) {$Z$};
+    \node (Y) at (3,0) {$Y$};
+    \node (X) at (1.5,-1.5) {$X$};
+    \draw[->, above, dashed] (Z) to node {$\tilde{f}$} (Y);
+    \draw[->, below] (Z)  to node {$f$} (X);
+    \draw[->, right] (Y)  to node {$p$} (X);
+
+    \begin{scope}[xshift=1.3cm,yshift=-0.6cm]
+        \draw (0,0) -- (0.3,0.3);
+        \draw (0.1,0) -- (0.4,0.3);
+        \draw (0.2,0) -- (0.5,0.3);
+    \end{scope}
+\end{tikzpicture}
