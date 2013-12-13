@@ -105,15 +105,13 @@ function euklideanDist(p1, p2) {
 }
 
 /** 
- * Calculates the value of a cubic function at x
+ * Calculates the value of a constant function at x
  * @param {Number} x
  * @return {Number} f(x)
  */
 function getValue(x) {
-    var a = parseFloat(document.getElementById("a").value);
-    var b = parseFloat(document.getElementById("b").value);
     var c1 = parseFloat(document.getElementById("c").value);
-    return a*x*x+b*x+c1;
+    return c1;
 }
 
 /** 
@@ -163,46 +161,7 @@ function gedSquaredValueDD(x) {
 }
 
 function findMin(p) {
-    var a = parseFloat(document.getElementById("a").value);
-    var b = parseFloat(document.getElementById("b").value);
-    var c1 = parseFloat(document.getElementById("c").value);
-
-    /* old iterative solution that had problems near the center*/
-    var lastx = -10000;
-    var x = p.x;
-    var i = 0;
-    while (Math.abs(lastx-x) > 1 && i < 100) {
-        // first derivate of the square of the distance function
-        var fx = -2.0*p.x+2.0*x-2.0*p.y*getDValue(x) +2*getValue(x)*getDValue(x);
-        var fxd =         2.0  -2.0*p.y*getDDValue(x)+2*(getDValue(x)*getDValue(x) + getValue(x)*getDDValue(x));
-
-        if (fxd == 0) {
-            console.log("wow!");
-            return x;
-        }
-        // x_{n+1} = x_n - f(x_n)/f'(x_n) wenn x gesucht, sodass f(x) = 0 gilt
-        lastx = x;
-        x -= fx / fxd;
-
-        i++;
-    }
-
-    // New direct solution
-    /*var xs = -b / (2*a);
-    var w = p.y + b*b/(4*a)-c1;
-    var z = p.x + b / (2*a);
-    var alpha = (1-2*a*w)/(2*a*a);
-    var beta = -z/(2*a*a);
-    var t = Math.pow(Math.pow(3*(4*Math.pow(alpha,3) +27* Math.pow(beta,2)),1/2) - 9*beta, 1/3);
-    var currentMinX = t / (Math.pow(18, 1/3)) - Math.pow(2/3*alpha, 1/3) / t;
-    */
-    
-    return x;
-}
-
-function getDist(p, minX) {
-    var minY = getValue(minX);
-    return euklideanDist({"x":minX, "y":minY}, {"x":p.x, "y":p.y});
+    return p.x;
 }
 
 /*******************************************************************/
