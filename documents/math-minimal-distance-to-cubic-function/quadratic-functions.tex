@@ -136,12 +136,13 @@ For all other points $P = (0, w)$, there are exactly two minima $x_{1,2} = \pm \
     &= 2 \left (2a^2x^2 + (1- 2 aw) \right )x - 2z\\
     \Leftrightarrow 0 &\stackrel{!}{=} (2a^2x^2  + (1- 2 aw)) x - z\\
     &= 2 a^2 x^3 + (1- 2 aw) x - z\\
-\Leftrightarrow 0 &\stackrel{!}{=} x^3 + \underbrace{\frac{(1- 2 aw)}{2 a^2}}_{=: \alpha} x  + \underbrace{\frac{-z}{2 a^2}}_{=: \beta}\\
+\Leftrightarrow 0 &\stackrel{!}{=} x^3 + \underbrace{\frac{1- 2 aw}{2 a^2}}_{=: \alpha} x  + \underbrace{\frac{-z}{2 a^2}}_{=: \beta}\\
     &= x^3 + \alpha x + \beta\label{eq:simple-cubic-equation-for-quadratic-distance}
 \end{align}
 
 The solution of Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
 is
+\todo[inline]{Can $4 \alpha^3 + 27 \beta^2$ be negative for $\alpha=\frac{1-2aw}{2a^2}$ and $\beta = \frac{-z}{2a^2}$?}
 \[t := \sqrt[3]{\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta}\]
 \[x = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}\]
 
@@ -191,10 +192,12 @@ $t$:
 
 \goodbreak
 So the solution is given by
+\todo[inline]{NO! Currently, there are erros in the solution.
+Check $f(x) = x^2$ and $P=(-2,4)$. Solution should be $x_1 = -2$, but it isn't!}
 \begin{align*}
 x_S &:= - \frac{b}{2a} \;\;\;\;\; \text{(the symmetry axis)}\\
 w &:= y_P+\frac{b^2}{4a}-c \;\;\; \text{ and } \;\;\; z := x_P+\frac{b}{2a}\\
-\alpha &:= \frac{(1- 2 aw)}{2 a^2} \;\;\;\text{ and }\;\;\; \beta := \frac{-z}{2 a^2}\\
+\alpha &:= \frac{1- 2 aw}{2 a^2} \;\;\;\text{ and }\;\;\; \beta := \frac{-z}{2 a^2}\\
 t &:= \sqrt[3]{\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta}\\
 \underset{x\in\mdr}{\arg \min d_{P,f}(x)} &= \begin{cases}
      x_1 = +\sqrt{a (y_p + \frac{b^2}{4a} - c) - \frac{1}{2}} + x_S \text{ and }   &\text{if } x_P = x_S \text{ and } y_p + \frac{b^2}{4a} - c >  \frac{1}{2a} \\

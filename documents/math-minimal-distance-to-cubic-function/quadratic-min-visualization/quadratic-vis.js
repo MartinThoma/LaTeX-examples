@@ -168,19 +168,37 @@ function findMin(p) {
     var b = parseFloat(document.getElementById("b").value);
     var c1 = parseFloat(document.getElementById("c").value);
 
-    var currentMinX = p.x;
-    for (var i=0; i < 10; i++) {
-        // Funktionswert
-        var fx = -2.0*p.x+2.0*currentMinX-2.0*p.y*getDValue(currentMinX) +gedSquaredValueD(currentMinX);
-        var fxd =         2.0            -2.0*p.y*getDDValue(currentMinX)+gedSquaredValueDD(currentMinX);
-        if (Math.abs(fxd) < 0.0001) {
-            return currentMinX;
-        }
+    /* old iterative solution that had problems near the center*/
+    var lastx = -10000;
+    var x = p.x;
+    var i = 0;
+    while (Math.abs(lastx-x) > 1 && i < 100) {
+        // first derivate of the square of the distance function
+        var fx = -2.0*p.x+2.0*x-2.0*p.y*getDValue(x) +2*getValue(x)*getDValue(x);
+        var fxd =         2.0  -2.0*p.y*getDDValue(x)+2*(getDValue(x)*getDValue(x) + getValue(x)*getDDValue(x));
 
+        if (fxd == 0) {
+            console.log("wow!");
+            return x;
+        }
         // x_{n+1} = x_n - f(x_n)/f'(x_n) wenn x gesucht, sodass f(x) = 0 gilt
-        currentMinX -= fx / fxd;
+        lastx = x;
+        x -= fx / fxd;
+
+        i++;
     }
-    return currentMinX;
+
+    // New direct solution
+    /*var xs = -b / (2*a);
+    var w = p.y + b*b/(4*a)-c1;
+    var z = p.x + b / (2*a);
+    var alpha = (1-2*a*w)/(2*a*a);
+    var beta = -z/(2*a*a);
+    var t = Math.pow(Math.pow(3*(4*Math.pow(alpha,3) +27* Math.pow(beta,2)),1/2) - 9*beta, 1/3);
+    var currentMinX = t / (Math.pow(18, 1/3)) - Math.pow(2/3*alpha, 1/3) / t;
+    */
+    
+    return x;
 }
 
 function getDist(p, minX) {
@@ -244,7 +262,7 @@ canvas.addEventListener('mousemove',
         var x = r(mouseCoords.x, true).toFixed(3);
         var y = r(mouseCoords.y, false).toFixed(3);
         context.fillText("(" + x + ", " + y + ")", mouseCoords.x + 5, mouseCoords.y - 5);
-        var minX = findMin({"x":x, "y":y});
+        var minX = findMin({"x": mouseCoords.x, "y": mouseCoords.y});
         var minY = getValue(minX);
         context.beginPath();
         context.moveTo(c(minX, true), c(minY, false), false);
