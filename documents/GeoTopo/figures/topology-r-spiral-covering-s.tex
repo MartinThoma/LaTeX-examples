@@ -1,57 +1,63 @@
-\begin{tikzpicture}
-\draw[->, thick] (7,5) -- (7, 2) node [midway, right] {$p$};
-\node at (1,5.5) {$\mathbb{R}$} ;
-\node at (6.4,0.7) {$\color{blue} S^1$};
-\node at (4.9,1.1){$x$};
-\begin{axis}[
- view={-30}{-45},
- axis lines=middle,
- zmax=60,
- height=8cm,
- xtick=\empty,
- ytick=\empty,
- ztick=\empty,
- enlarge y limits=true,
- enlarge x limits=true,
-]
+\documentclass{standalone}
+\usepackage{asymptote}
 
-\addplot3+[->,ytick=\empty,yticklabel=\empty,
-  mark=none,
-  thick,
-  black,
-  domain=0:14.8*pi,
-  samples=400,
-  samples y=0,
-]
-({sin(deg(x))},{cos(deg(x)},{x+15});
-\addplot3+[ytick=\empty,yticklabel=\empty,
-  mark=none,
-  thick,
-  dotted,
-  black,
-  domain=-1:0,
-  samples=100,
-  samples y=0,
-]
-({sin(deg(x))},{cos(deg(x)},{x+15});
+\begin{document}
 
-\addplot3+[,ytick=\empty,yticklabel=\empty,
-  mark=none,
-  thick,
-  blue,
-  domain=0:14.7*pi,
-  samples=400,
-  samples y=0,
-]
-({sin(deg(x))},{cos(deg(x)},{0});
+\begin{asy}[width=10cm,height=10cm]
+import graph3;
 
-%%%%%%%%%%%%% Point
-\addplot3+[
-  mark options={color=black},
-  mark=*
-] 
-coordinates {({sin(deg(45)},{cos(deg(45))},0)};
-%%%%%%%%%%%%%
+usepackage("amsfonts");
 
-\end{axis}
-\end{tikzpicture}
+size3(200);
+
+currentprojection=orthographic(4,6,3);
+
+// parametrization
+real x(real t) {return cos(2pi*t);}
+real y(real t) {return sin(2pi*t);}
+real z(real t) {return 0.5*t;}
+real z0(real t) {return 0;}
+
+scale(true);
+
+// some parameters
+real delta = 0.01;
+real phix = 0.1;
+real phim = 6.7;
+
+// spiral
+path3 spiral1 = graph(x,y,z,0.9,1,operator ..);
+draw(spiral1,dotted);
+path3 spiral2 = graph(x,y,z,1,phim,operator ..);
+draw(spiral2,Arrow3);
+
+// blue circle
+draw(unitcircle3, blue);
+
+// orange segments
+pen sp = orange+1;
+
+draw(graph(x,y,z0,phix-delta,phix+delta,operator ..),sp);
+for(real i=1; i<phim; ++i) {
+  draw(graph(x,y,z,i+phix-delta,i+phix+delta,operator ..),sp);
+}
+
+// the dot x
+triple px = (x(phix),y(phix),0);
+dot(px);
+label("$x$",px,S);
+
+// axes and labels
+xaxis3("",red,Arrow3);
+yaxis3("",red,Arrow3);
+zaxis3("",red,Arrow3);
+
+label("$\mathbb{R}$",(1,-1,4));
+
+draw((-1,1,4)--(-1,1,1),Arrow3);
+label("$p$",(-1,1,2.5),E);
+
+label("$S^1$",(-1,1,0),W,blue);
+\end{asy}
+
+\end{document}

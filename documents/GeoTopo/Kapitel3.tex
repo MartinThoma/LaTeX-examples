@@ -74,7 +74,7 @@
               nicht homöotop.
               \begin{figure}
                 \centering
-                \input{figures/todo.tex}
+                \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/torus-three-paths.jpg}
                 \caption{Torus mit drei Wegen}
                 \label{fig:torus-three-paths}
               \end{figure}
@@ -143,11 +143,12 @@
     \begin{figure}[ht]
         \centering
         \subfloat[$\gamma_1 * (\gamma_2 * \gamma_3)$]{
-            \input{figures/todo.tex}
+            \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/zusammensetzen-von-wegen-nicht-assoziativ-1.jpg}
             \label{fig:assotiativitaet-von-wegen-a}
-        }%
+        }
+
         \subfloat[$(\gamma_1 * \gamma_2) * \gamma_3$]{
-            \input{figures/todo.tex}
+            \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/zusammensetzen-von-wegen-nicht-assoziativ-2.jpg}
             \label{fig:assotiativitaet-von-wegen-b}
         }%
         \label{fig:assoziativitaet-von-wegen}
@@ -174,7 +175,7 @@
 
 \begin{figure}
     \centering
-    \input{figures/todo.tex}
+    \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/skizze-bemerkung-10-6.jpg}
     \caption{Situation aus Korollar~\ref{kor:bemerkung-10-6}}.
     \label{fig:situation-bemerkung-10-6}
 \end{figure}
@@ -237,7 +238,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
               $[\gamma^k] \mapsto k$
         \item $\pi_1 (\mdr^2, 0) = \pi_1 (\mdr^2, x) = \Set{e}$ für jedes $x \in \mdr^2$
         \item $\pi_1 (\mdr^n, x) = \Set{e}$ für jedes $x \in \mdr^n$
-        \item $G \subseteq \mdr^n$ \todo{hier fehlt was}heißt bzgl. $x \in G$, 
+        \item $G \subseteq \mdr^n$ heißt \textbf{sternförmig}\xindex{sternförmig} bzgl. $x \in G$, 
             wenn für jedes $y \in G$ auch die Strecke $[x, y] \subseteq G$
             ist.
 
@@ -247,12 +248,12 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
             \begin{figure}[ht]
                 \centering
-                \subfloat[TODO]{
+                \subfloat[TODO: Was ist das hier?]{
                     \input{figures/todo.tex}
                     \label{fig:wege-zueinander-zusammenziehen}
                 }\hspace{1em}%
                 \subfloat[Sternförmiges Gebiet]{
-                    \input{figures/todo.tex}
+                    \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/sternfoermiges-gebiet.jpg}
                     \label{fig:sternfoermiges-gebiet}
                 }
                 \label{fig:Gebiete}
@@ -462,6 +463,13 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 12.12.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Überlagerungen}
+\begin{figure}
+    \centering
+    \includegraphics[width=4cm, keepaspectratio]{figures/topology-r-spiral-covering-s.pdf}
+    \caption{$\mdr \rightarrow S^1$,\\$t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$}
+    \label{fig:ueberlappung-r1-spirale-s1}
+\end{figure}
 \begin{definition}\xindex{Überlagerung}\label{def:12.1}%Definition 12.1 der Vorlesung
     Es seien $X, Y$ zusammenhängende topologische Räume und
     $p: Y \rightarrow X$ eine stetige, surjektive Abbildung.
@@ -474,17 +482,11 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*)]
-        \item 
+        \item siehe Abbildung~\ref{fig:ueberlappung-r1-spirale-s1}
+        \item siehe Abbildung~\ref{fig:ueberlappung-kaestchen-torus}
             \begin{figure}
                 \centering
-                \input{figures/topology-r-spiral-covering-s.tex}
-                \caption{$\mdr \rightarrow S^1$, $t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$}
-                \label{fig:ueberlappung-r1-spirale-s1}
-            \end{figure}
-        \item 
-            \begin{figure}
-                \centering
-                \input{figures/todo.tex}
+                \includegraphics[width=0.8\linewidth, keepaspectratio]{figures/todo/ueberlappung-kaestchen-torus.jpg}
                 \caption{$\mdr^2 \rightarrow T^2 = \mdr^2 / \mdz^2$}
                 \label{fig:ueberlappung-kaestchen-torus}
             \end{figure}
@@ -493,9 +495,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
         \item $S^1 \rightarrow S^1$, $z \mapsto z^2$
             \begin{figure}
                 \centering
-                \input{figures/todo.tex}
+                \includegraphics[width=0.8\linewidth, keepaspectratio]{figures/todo/liftung-s-s.jpg}
                 \caption{$t \mapsto (\cos 4 \pi t, \sin 4 \pi t)$}
-                \label{fig:ueberlappung-kaestchen-torus}
+                \label{fig:liftung-s1-s1}
             \end{figure}
     \end{enumerate}
 \end{beispiel}
@@ -597,7 +599,7 @@ Haben wir Häufungspunkt definiert?}
 
 \begin{figure}
     \centering
-    \input{figures/todo.tex}
+    \includegraphics[width=\linewidth, keepaspectratio]{figures/todo/liftung-torus-r.jpg}
     \caption{Beim liften eines Weges bleiben geschlossene Wege im allgemeinen nicht geschlossen}
     \label{fig:satz-seifert-van-kampen}
 \end{figure}
@@ -638,7 +640,7 @@ Haben wir Häufungspunkt definiert?}
     Analog: $Z \setminus T$ ist offen.
 \end{beweis}
 
-\begin{satz}
+\begin{satz}\label{thm:ueberlagerung-weg-satz-12.6}
     Sei $p: Y \rightarrow X$ Überlagerung, $\gamma: I \rightarrow X$
     ein Weg, $y \in Y$ mit $p(y) = \gamma(0) =: x$.
 
@@ -647,7 +649,13 @@ Haben wir Häufungspunkt definiert?}
 \end{satz}
 
 \begin{beweis}
-Existenz: Siehe Skizze.
+Existenz: Siehe Skizze (Abbildung~\ref{fig:satz-12.6}).
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\linewidth, keepaspectratio]{figures/todo/skizze-1.jpg}
+        \caption{Skizze für den Beweis von Satz~\ref{thm:ueberlagerung-weg-satz-12.6}}
+        \label{fig:satz-12.6}
+    \end{figure}
 \end{beweis}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
