@@ -1,4 +1,4 @@
-SOURCE = topology-r-spiral-covering-s
+SOURCE = torus-three-paths
 DELAY = 80
 DENSITY = 300
 WIDTH = 512
@@ -12,7 +12,7 @@ make:
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.data *.gnuplot *.out *.prc *.pre *.asy topology-r-spiral-covering-s-1_0.pdf topology-r-spiral-covering-s-1+0_0.pdf topology-r-spiral-covering-s-1.tex
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.data *.gnuplot *.out *.prc *.pre *.asy $(SOURCE)-1_0.pdf $(SOURCE)1+0_0.pdf $(SOURCE)-1.tex
 
 gif:
 	pdfcrop $(SOURCE).pdf

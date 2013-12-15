@@ -26,8 +26,10 @@ real phix = 0.1;
 real phim = 6.7;
 
 // spiral
-path3 spiral = graph(x,y,z,1,phim,operator ..);
-draw(spiral,Arrow3);
+path3 spiral1 = graph(x,y,z,0.9,1,operator ..);
+draw(spiral1,dotted);
+path3 spiral2 = graph(x,y,z,1,phim,operator ..);
+draw(spiral2,Arrow3);
 
 // blue circle
 draw(unitcircle3, blue);
@@ -46,9 +48,9 @@ dot(px);
 label("$x$",px,S);
 
 // axes and labels
-xaxis3("",red);
-yaxis3("",red);
-zaxis3("",red);
+xaxis3("",red,Arrow3);
+yaxis3("",red,Arrow3);
+zaxis3("",red,Arrow3);
 
 label("$\mathbb{R}$",(1,-1,4));
 
