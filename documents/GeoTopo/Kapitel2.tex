@@ -454,8 +454,8 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{figure}
     
 
-    \underline{Idee:} Finde differenzierbare Funktion $\tilde{F_j^{-1}}$
-    in Umgebung $W$ von $s$, sodass $\tilde{F_j^{-1}}|_{S \cap W} = F_j^{-1}$.
+    \underline{Idee:} Finde differenzierbare Funktion $\widetilde{F_j^{-1}}$
+    in Umgebung $W$ von $s$, sodass $\widetilde{F_j^{-1}}|_{S \cap W} = F_j^{-1}$.
 
     \underline{Ausführung:} Sei $u_0 \in U_i$ mit $F_i(u_0) = s = F_j(v_0), v_0 \in U_j$.
 
@@ -469,23 +469,23 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
     und $F_j(u,v) = \left ( x(u,v), y(u,v), z(u,v) \right)$.
 
-    Definiere $\tilde{F_j}: U_j \times \mdr \rightarrow \mdr^3$ durch
-    \[\tilde{F_j} (u, v, t) = \left(x(u,v), y(u,v), z(u,v)+t \right )\]
+    Definiere $\widetilde{F_j}: U_j \times \mdr \rightarrow \mdr^3$ durch
+    \[\widetilde{F_j} (u, v, t) = \left(x(u,v), y(u,v), z(u,v)+t \right )\]
     
-    Offensichtlich: $\tilde{F_j} |_{U_j \times \Set{0}} = F_j$
+    Offensichtlich: $\widetilde{F_j} |_{U_j \times \Set{0}} = F_j$
 
-    \[J_{\tilde{F_j}} = 
+    \[J_{\widetilde{F_j}} = 
     \begin{pmatrix}
         \frac{\partial x}{\partial u}   & \frac{\partial x}{\partial v} & 0\\
         \frac{\partial y}{\partial u}   & \frac{\partial y}{\partial v} & 0\\
         \frac{\partial z}{\partial u}   & \frac{\partial z}{\partial v} & 1
-    \end{pmatrix} \Rightarrow \det J_{\tilde{F_j}} (v_0, 0) \neq  0\]
+    \end{pmatrix} \Rightarrow \det J_{\widetilde{F_j}} (v_0, 0) \neq  0\]
 
     $\xRightarrow{\text{Analysis II}}$ Es gibt Umgebungen $W$ von
-    $F_j$ von $\tilde{F_j}(v_0, 0) = F_j(v_0) = s$, sodass $\tilde{F_j}$
+    $F_j$ von $\widetilde{F_j}(v_0, 0) = F_j(v_0) = s$, sodass $\widetilde{F_j}$
     auf $W$ eine differenzierbar Inverse $F_j^{-1}$ hat.
 
-    Weiter ist $\tilde{F_j}^{-1}|_{W \cap S} = F_j^{-1} |_{W \cap S}$
+    Weiter ist $\widetilde{F_j}^{-1}|_{W \cap S} = F_j^{-1} |_{W \cap S}$
     $\Rightarrow F_j^{-1} \circ F_i |_{F_i^{-1} (W \cap S)} = F_j^{-1} \circ F_i |_{F_i^{-1} (W \cap S)}$
     ist differenzierbar.
 \end{beweis}
@@ -549,10 +549,10 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{bemerkung}
 
 \section{Simplizialkomplex}
-\begin{definition}
-    $v_0, \dots, v_k$
+\begin{definition}\xindex{Lage!allgemeine}
+    Seien $v_0, \dots, v_k \in \mdr^n$ Punkte.
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
-        \item in allgemeiner Lage $\gdw$ es gibt keinen $(k-1)$-dimensionalen
+        \item $v_0, \dots, v_k$ sind \textbf{in allgemeiner Lage} $\gdw$ es gibt keinen $(k-1)$-dimensionalen
               affinen Untervektorraum, der $v_0, \dots, v_k$ enthält
               \gdw $v_1 - v_0, \dots, v_k - v_0$ sind linear abhängig.
         \item $\text{conv}(v_0, \dots, v_k) = \Set{\sum_{i=0}^k \lambda_i v_i | \lambda_i \geq 0, \sum_{i=0}^k \lambda_i = 1} $
@@ -563,7 +563,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item Sei $\Delta^n = \text{conv}(e_0, \dots, e_k) \subseteq \mdr^{n+1}$ \todo{stimmen die indizes?}
               die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_k$.
-              $\Delta^k$ heißt Standard-Simplex.
+              $\Delta^k$ heißt \textbf{Standard-Simplex}\xindex{Standard-Simplex}.
         \item Für Punkte $v_0, \dots, v_k$ im $\mdr^n$ in allgemeiner
               Lage heißt $\delta (v_0, \dots, v_k) = \text{conv}(v_0, \dots, v_k)$
               ein \textbf{$k$-Simplex}\xindex{Simplex} in $\mdr^n$.
@@ -571,7 +571,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               $I = \Set{i_0, \dots, i_r} \subseteq \Set{0, \dots, k}$,
               so heißt $s_{i_0} \dots i_r := \text{conv}(v_{i_0}, \dots, v_{i_r})$
               \textbf{Teilsimplex}\xindex{Teilsimplex} oder \textbf{Seite}\xindex{Seite}
-              von $\Delta$. $s_{i_0} \dots i_r$ ist $r$-Simplex.
+              von $\Delta$. 
+
+              $s_{i_0} \dots i_r$ ist $r$-Simplex.
     \end{enumerate}
 \end{definition}
 
@@ -896,10 +898,8 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{beweis}
 
 \begin{definition}
-    $Z_n := \text{Kern}(d_n) \subseteq C_n, \;\;\; B_n := \text{Bild}(d_{n+1}) \subseteq C_n$
-
-    Nach Korollar~\ref{kor:9.11} ist $B_n \subseteq Z_n$, denn \todo{Muss das hier stehen?}
-    $d_{n+1}(C) \in \text{Kern}(d_n)$ für $C \in C_{n+1}$.
+    Sei $Z_n := \text{Kern}(d_n) \subseteq C_n$ und 
+    $B_n := \text{Bild}(d_{n+1}) \subseteq C_n$.
 
     \begin{enumerate}[label=\alph*)]
         \item $H_n = H_n(K, \mdr) := Z_n / B_n$ heißt $n$-te 
@@ -908,6 +908,11 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               \textbf{Belti-Zahl}\xindex{Belit-Zahl} von $K$.
     \end{enumerate}
 \end{definition}
+
+\begin{bemerkung}
+    Nach Korollar~\ref{kor:9.11} ist $B_n \subseteq Z_n$, denn
+    $d_{n+1}(C) \in \text{Kern}(d_n)$ für $C \in C_{n+1}$.
+\end{bemerkung}
 
 \begin{minipage}{\textwidth}%don't break this theorem!
 \begin{satz}
