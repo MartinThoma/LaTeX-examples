@@ -113,9 +113,9 @@
 \begin{beweis}
     Sei $H (t,s) = \gamma ((1-s) t + s \cdot \varphi(t))$.
 
-    $H$ ist stetig, $H(t,0) = \gamma(t)\;\;\; H(t,1) = \gamma ( \varphi(t))$,
-    $H(0,s) = \gamma(0),\;\;\; H(1,s) = \gamma(1-s+s) = \gamma(1)$\\
-    $\Rightarrow H$ ist Homotopie.
+    Dann ist $H$ stetig, $H(t,0) = \gamma(t),\;\;\; H(t,1) = \gamma ( \varphi(t)),\;\;\;$
+    $H(0,s) = \gamma(0)$ und $H(1,s) = \gamma(1-s+s) = \gamma(1)$\\
+    $\Rightarrow H$ ist Homotopie. $\qed$
 \end{beweis}
 
 \begin{definition}\xindex{Weg!zusammengesetzter}
@@ -167,7 +167,7 @@
 
 \begin{korollar}\label{kor:bemerkung-10-6}
     Sei $X$ ein topologischer Raum, $a,b,c \in X$, $\gamma_1, \gamma_1'$
-    Wege von $a$ nach $b$, $\gamma_2, \gamma_2'$ Wege von $b$ nach $c$.
+    Wege von $a$ nach $b$ und $\gamma_2, \gamma_2'$ Wege von $b$ nach $c$.
 
     Sind $\gamma_1 \sim \gamma_1'$ und $\gamma_2 \sim \gamma_2'$, so
     ist $\gamma_1 * \gamma_2 \sim \gamma_1 ' * \gamma_2'$.
@@ -201,7 +201,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     Sei $X$ ein topologischer Raum und $x \in X$. Sei außerdem
     \[\pi_1(X,x) := \Set{[\gamma] | \gamma \text{ ist Weg in } X \text{ mit } \gamma(0) = \gamma(1) = x}\]
 
-    Durch $[\gamma_1] * [\gamma_2] : = [\gamma_1 * \gamma_2]$ wird
+    Durch $[\gamma_1] *_G [\gamma_2] : = [\gamma_1 * \gamma_2]$ wird
     $\pi_1(X,x)$ zu einer Gruppe. Diese Gruppe heißt \textbf{Fundamentalgruppe}\xindex{Fundamentalgruppe}
     in $X$ im Basispunkt $x$.
 \end{definition}
@@ -210,9 +210,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     Im $\mdr^2$ gibt es nur eine Homotopieklasse.
 \end{bemerkung}
 
-\begin{beweis}{Fundamentalgruppe ist eine Gruppe}
+\begin{beweis}[Fundamentalgruppe ist eine Gruppe]\leavevmode
     \begin{enumerate}[label=\alph*)]
-        \item Abgeschlossenheit folgt aus \todo{?}
+        \item Abgeschlossenheit folgt direkt aus der Definition von $*_G$
         \item Assoziativität folgt aus Korollar~\ref{kor:assoziativitaet-von-zusammensetzen-von-wegen}
         \item Neutrales Element $e = [\gamma_0], \gamma_0(t) = x \;\;\; \forall t \in I$.
 
@@ -350,9 +350,11 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{beispiel}
 
 \begin{korollar}%Folgerung 11.6
-    Ist $f:X \rightarrow Y$ ein Homöomorphismus zwischen topologischen
-    Räumen $X, Y$, so ist $f_*: \pi_1(X,x) \rightarrow \pi_1(Y, f(x))$
-    ein Isomorphismus für jedes $x \in X$.
+    Sei $f:X \rightarrow Y$ ein Homöomorphismus zwischen topologischen
+    Räumen $X, Y$. Dann gilt:
+
+    \[f_*: \pi_1(X,x) \rightarrow \pi_1(Y, f(x))\]
+    ist ein Isomorphismus für jedes $x \in X$.
 \end{korollar}
 
 \begin{beweis}
@@ -484,31 +486,39 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     \begin{enumerate}[label=\arabic*)]
         \item siehe Abbildung~\ref{fig:ueberlappung-r1-spirale-s1}
         \item siehe Abbildung~\ref{fig:ueberlappung-kaestchen-torus}
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.8\linewidth, keepaspectratio]{figures/todo/ueberlappung-kaestchen-torus.jpg}
-                \caption{$\mdr^2 \rightarrow T^2 = \mdr^2 / \mdz^2$}
-                \label{fig:ueberlappung-kaestchen-torus}
-            \end{figure}
         \item $\mdr^n \rightarrow T^n = \mdr^n / \mdz^n$
         \item $S^n \rightarrow \praum^n(\mdr)$
-        \item $S^1 \rightarrow S^1$, $z \mapsto z^2$
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.8\linewidth, keepaspectratio]{figures/todo/liftung-s-s.jpg}
-                \caption{$t \mapsto (\cos 4 \pi t, \sin 4 \pi t)$}
-                \label{fig:liftung-s1-s1}
-            \end{figure}
+        \item $S^1 \rightarrow S^1$, $z \mapsto z^2$, siehe Abbildung~\ref{fig:liftung-s1-s1}
     \end{enumerate}
+
+    \begin{figure}[ht]
+        \centering
+        \subfloat[$\mdr^2 \rightarrow T^2 = \mdr^2 / \mdz^2$]{
+            \includegraphics[width=0.6\linewidth, keepaspectratio]{figures/todo/ueberlappung-kaestchen-torus.jpg}
+            \label{fig:ueberlappung-kaestchen-torus}
+        }%
+        \subfloat[$t \mapsto (\cos 4 \pi t, \sin 4 \pi t)$]{
+            \includegraphics[width=0.3\linewidth, keepaspectratio]{figures/todo/liftung-s-s.jpg}
+            \label{fig:liftung-s1-s1}
+        }%
+        \label{Formen}
+        \caption{Beispiele für Überlagerungen}
+    \end{figure}
 \end{beispiel}
 
+\begin{definition}
+    Seien $X, Y$ topologische Räume und $f:X \rightarrow Y$ eine 
+    Abbildung.
+
+    $f$ heißt offen $:\gdw \forall V \subseteq X$ offen: $f(V)$ ist offen in $Y$.
+\end{definition}
+
 \begin{korollar} % Bemerkung 12.2 der Vorlesung
-    Überlappungen sind offene Abbildungen, d.~h. ist $p:Y \rightarrow X$
-    Überlappung, $V \subseteq Y$ offen, so ist $p(V)$ offen in $X$.
+    Überlappungen sind offene Abbildungen.
 \end{korollar}
 
 \begin{beweis}
-    Sei $x \in p(V)$, etwa $x=p(y)$ ($y \in V$).
+    Sei $y \in V$ und $x \in p(V)$, sodass $x=p(y)$ gilt.
     Sei weiter $U = U_x$ die offene Umgebung von $x$ wie in Definition~\ref{def:12.1}
     und $V_j$ die Komponente von $p^{-1}(U)$, die $y$ enthält.
 
@@ -586,7 +596,7 @@ Haben wir Häufungspunkt definiert?}
 
     $\Rightarrow |p^{-1} (x)|$ ist konstant auf $U$
 
-    $\xRightarrow{X zhgd.} |p^{-1}(x)|$  ist konstant auf $X$
+    $\xRightarrow{X \text{zhgd.}} |p^{-1}(x)|$  ist konstant auf $X$
 \end{beweis}
 
 \begin{definition}\xindex{Liftung}
