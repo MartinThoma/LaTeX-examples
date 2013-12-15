@@ -4,7 +4,6 @@ make:
 	sketch figures/torus.sketch > figures/torus.tex
 	pdflatex $(DOKUMENT).tex -output-format=pdf # aux-Dateien für makeindex / makeglossaries
 	makeindex $(DOKUMENT)
-	makeglossaries $(DOKUMENT)
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Stichwortverzeichnis einbinden
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Symbolverzeichnis einbinden
 	make clean

@@ -12,9 +12,6 @@
 \usepackage{makeidx} % for automatically generation of an index
 \usepackage{xcolor}
 \usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
-\usepackage[xindy,toc,nonumberlist]{glossaries} % for symbol table, has to be after hyperref
-\usepackage{glossary-mcols}
-\glossarystyle{mcolindex} % two column design for glossary
 %\usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{tabto}
@@ -56,14 +53,12 @@
 
 
 % Setze den richtigen Namen für das Glossar und das Stichwortverzeichnis
-\newcommand{\glossarName}{Symbolverzeichnis}
 \renewcommand{\indexname}{Stichwortverzeichnis}
 
 \author{Siehe \href{http://tinyurl.com/GeoTopo}{tinyurl.com/GeoTopo}}
 \title{Geometrie und Topologie\\
         \vspace{10cm}
         \includegraphics[width=0.9\linewidth]{figures/Torus.pdf}}
-\makeglossaries
 \makeindex
 
 \hypersetup{ 
