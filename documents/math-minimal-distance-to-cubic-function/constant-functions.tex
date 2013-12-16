@@ -1,6 +1,7 @@
 \chapter{Constant functions}
 \section{Defined on $\mdr$}
 Let $f:\mdr \rightarrow \mdr$, $f(x) := c$ with $c \in \mdr$ be a constant function. 
+The situation can be seen in Figure~\ref{fig:constant-min-distance}.
 
 \begin{figure}[htp]
     \centering
@@ -42,11 +43,21 @@ Let $f:\mdr \rightarrow \mdr$, $f(x) := c$ with $c \in \mdr$ be a constant funct
     \label{fig:constant-min-distance}
 \end{figure}
 
+\begin{align}
+    d_{P,f}(x) &= \sqrt{(x_P - x)^2 + (y_P - f(x))^2}\\
+               &= \sqrt{(x_P^2 - 2x_P x + x^2) + (y_P^2 - 2 y_P c + c^2)} \\
+               &= \sqrt{x^2 - 2 x_P x + (x_P^2 + y_P^2 - 2 y_P c + c^2)}\label{eq:constant-function-distance}\\
+ \xRightarrow{\text{Theorem}~\ref{thm:fermats-theorem}} 0 &\stackrel{!}{=} (d_{P,f}(x)^2)'\\
+              &= 2x - 2x_P\\
+  \Leftrightarrow x &\stackrel{!}{=} x_P
+\end{align}
+
 Then $(x_P,f(x_P))$ has
 minimal distance to $P$. Every other point has higher distance.
-See Figure~\ref{fig:constant-min-distance}.
+See Figure~\ref{fig:constant-min-distance} to see that intuition
+yields to the same results.
 
-This means:
+This result means:
 
 \[S_0(f, P) = \Set{x_P} \text{ with } P = (x_P, y_P)\]
 \clearpage

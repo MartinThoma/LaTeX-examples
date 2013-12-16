@@ -11,16 +11,19 @@ Now there is finite set $M = \Set{x_1, \dots, x_n} \subseteq D$ of minima for gi
 But minimizing $d_{P,f}$ is the same as minimizing 
 $d_{P,f}^2 = x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2$.
 
-\begin{theorem}[Fermat's theorem about stationary points]\label{thm:required-extremum-property}
+In order to solve the minimal distance problem, Fermat's theorem
+about stationary points will be tremendously usefull:
+
+\begin{theorem}[Fermat's theorem about stationary points]\label{thm:fermats-theorem}
     Let $x_0$ be a local extremum of a differentiable function $f: \mathbb{R} \rightarrow \mathbb{R}$.
 
     Then: $f'(x_0) = 0$.
 \end{theorem}
 
 Let $S_n$ be the function that returns the set of solutions for a
-polynomial of degree $n$ and a point:
+polynomial $f$ of degree $n$ and a point $P$:
 
 \[S_n: \Set{\text{Polynomials of degree } n \text{ defined on } \mdr} \times \mdr^2 \rightarrow \mathcal{P}({\mdr})\]
-\[S_n(f, P) := \underset{x\in\mdr}{\arg \min d_{P,f}(x)}\]
+\[S_n(f, P) := \underset{x\in\mdr}{\arg \min d_{P,f}(x)} = M\]
 
 If possible, I will explicitly give this function.
