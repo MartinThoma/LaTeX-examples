@@ -51,10 +51,6 @@
 \fancyhead[LO]{\helv \rightmark}
 \fancyhead[RE]{\helv \leftmark}
 
-
-% Setze den richtigen Namen für das Glossar und das Stichwortverzeichnis
-\renewcommand{\indexname}{Stichwortverzeichnis}
-
 \author{Siehe \href{http://tinyurl.com/GeoTopo}{tinyurl.com/GeoTopo}}
 \title{Geometrie und Topologie\\
         \vspace{10cm}
@@ -91,5 +87,6 @@
 \input{Symbolverzeichnis} 
 \clearpage
 \addcontentsline{toc}{chapter}{Stichwortverzeichnis}
+\renewcommand{\indexname}{Stichwortverzeichnis}
 \printindex
 \end{document}
