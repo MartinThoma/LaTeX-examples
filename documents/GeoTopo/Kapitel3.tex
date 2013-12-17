@@ -63,21 +63,9 @@
     \begin{enumerate}[label=\arabic*)]
         \item Sei $X = S^1$. $\gamma_1$ und $\gamma_2$ aus 
               Abb.~\ref{fig:circle-two-paths} nicht homöotop.
-              \begin{figure}
-                \centering
-                \input{figures/topology-circle-two-paths.tex}
-                \caption{Kreis mit zwei Wegen}
-                \label{fig:circle-two-paths}
-              \end{figure}
         \item Sei $X = T^2$. $\gamma_1, \gamma_2$ und $\gamma_3$
               aus Abb.~\ref{fig:torus-three-paths} sind paarweise
               nicht homöotop.
-              \begin{figure}
-                \centering
-                \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/torus-three-paths.jpg}
-                \caption{Torus mit drei Wegen}
-                \label{fig:torus-three-paths}
-              \end{figure}
         \item Sei $X = \mdr^2$ und $a=b=(0,0)$. 
 
               Je zwei Wege im $\mdr^2$ mit Anfangs- und Enpunkt $(0,0)$
@@ -98,6 +86,20 @@
               $H(t,0) = \gamma(t)\; \forall t \in I$ und
               $H(t,1) = 0 \; \forall t \in I$
     \end{enumerate}
+
+    \begin{figure}[ht]
+        \centering
+        \subfloat[Kreis mit zwei Wegen]{
+            \input{figures/topology-circle-two-paths.tex}
+            \label{fig:circle-two-paths}
+        }%
+        \subfloat[Torus mit drei Wegen]{
+            \includegraphics[width=0.45\linewidth, keepaspectratio]{figures/torus-three-paths.pdf}
+            \label{fig:torus-three-paths}
+        }%
+        \label{Formen}
+        \caption{Beispiele für (nicht)-homotopie von Wegen}
+    \end{figure}
 \end{beispiel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -315,7 +317,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     \label{fig:kor-bem-11.5}
 \end{figure}
 
-\begin{beweis}
+\begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item $f_*$ ist wohldefiniert: Seien $\gamma_1, \gamma_2$ homotope
               Wege von $x$. z.Z.: $f \circ \gamma_1 \sim f \circ \gamma_2$:
@@ -660,5 +662,169 @@ Existenz: Siehe Skizze (Abbildung~\ref{fig:satz-12.6}).
     \end{figure}
 \end{beweis}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sebastians Mitschrieb vom 17.12.2013                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$p:Y \rightarrow X$ Überlagerung, $X,Y$ wegzusammenhängend.
+$p$ stetig und surjektiv, zu $x \in X \exists$ Umgebung $U$, so dass
+$p^{-1}(U) = \bigcup V_j$
+
+$p|V_j: V_j \rightarrow U$ Homöomorphismus.
+
+\begin{bemerkung}%Bemerkung 12.6 der Vorlesung
+    Wege in $X$ lassen sich zu Wegen in $Y$ liften.
+
+    Zu jedem $y \in p^{-1}(\gamma(0))$ gibt es genau einen Lift von 
+    $\gamma$.
+\end{bemerkung}
+
+\begin{proposition}\label{proposition:12.7}%Proposition 12.7 der Vorlesung
+    Seien $p: Y \rightarrow X$ eine Überlagerung, $a,b \in X$,
+    $\gamma_0, \gamma_1: I \rightarrow X$ homotope Wege von $a$ nach
+    $b$, $\tilde{a} \in p^{-1}(a), \tilde{\gamma_0}, \tilde{\gamma_1}$
+    Liftungen von $\gamma_0$ bzw. $\gamma_1$ mit 
+    $\tilde{\gamma_i}(0) = \tilde{0}$.
+
+    Dann ist $\tilde{\gamma_0}(1) = \tilde{\gamma_1}(1)$ und
+    $\tilde{\gamma_0} \sim \tilde{\gamma_1}$.
+\end{proposition}
+
+\begin{beweis}
+    Sei $H: I \times I \rightarrow X$ Homotopie zwischen $\gamma_1$
+    und $\gamma_2$.
+
+    Für $s \in [0,1]$ sei $\gamma_s: I \rightarrow X$, $t \mapsto H(t,s)$.
+
+    Sei $\tilde{\gamma_s}$ Lift von $\gamma_s$ mit $\tilde{\gamma_s}(0) = \tilde{a}$
+
+    Sei $\tilde{H}: I \times I \rightarrow Y,\;\;\; \tilde{H}(t,s) := (\tilde{\gamma_s}(t), s)$
+
+    Dann gilt:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\tilde{H}$ ist stetig (Beweis wie für Korollar~\ref{kor:12.5})
+        \item $\tilde{H}(t,0) = \tilde{\gamma_s}(t) = \tilde{H}(t,1) = \tilde{\gamma_1}(t)$
+        \item $\tilde{H}(0,s) = \tilde{\gamma_s}(0) = \tilde{0}$
+        \item $\tilde{H}(1,s) \in p^{-1}(b)$
+    \end{enumerate}
+
+    Da $p^{-1}(b)$ diskrete Teilmenge von $Y$ ist\\
+    $\Rightarrow \tilde{H}(1,s) = \tilde{H}(1,0) = \tilde{b_s} \forall s \in I$\\
+    $\Rightarrow \tilde{b_0} = \tilde{b_1}$ und $H$ ist Homotopie 
+    zwischen $\tilde{\gamma_0}$ und $\tilde{\gamma_1}$. $\qed$
+\end{beweis}
+
+\begin{korollar}%In Vorlesung: "Folgerung 12.8"
+    Sei $p: Y \rightarrow X$ eine Überlagerung, $x_0 \in X, y_0 \in p^{-1}(x_0)$
+    \begin{enumerate}[label=\alph*)]
+        \item $p_1: \pi_1(Y, y_0) \rightarrow \pi_1(X, x_0)$ ist injektiv\label{kor:12.8a}
+        \item $[\pi_1(X, x_0): p_* (\pi_1(Y, y_0))] = \deg(p)$\label{kor:12.8b}
+    \end{enumerate}
+\end{korollar}
+
+\begin{beweis}\leavevmode
+    \begin{enumerate}[label=\alph*)]
+        \item Sei $\tilde{\gamma}$ ein Weg in $Y$ um $y_0$ und
+              $p_* ([\tilde{\gamma}]) = e$, also $p \circ \tilde{\gamma} \sim \gamma_{x_0}$
+
+              Nach Proposition~\ref{proposition:12.7} ist dann 
+              $\tilde{\gamma}$ homotop zum Lift des konstanten Wegs
+              $\gamma_{x_0}$ mit Anfangspunkt $y_0$, also zu
+              $\gamma_{y_0} \Rightarrow [\tilde{\gamma}] = e$
+        \item Sei $d = \deg{p}, p^{-1}(x_0) = \Set{y_0, y_1, \dots, y_{d-1}}$.
+              Für einen geschlossenen Weg $\gamma$ in $X$ um $x_0$
+              sei $\tilde{\gamma}$ die Liftung mit $\tilde{\gamma}(0) = y_0$.
+
+              $\tilde{\gamma}(1) \in \Set{y_0, \dots, y_{d-1}}$ hängt
+              nur von $[\gamma] \in \pi_1(X,x_0)$ ab.
+
+              Es gilt:
+              \begin{align}
+                \tilde{\gamma_0}(1) &= \tilde{\gamma_1}(1)\\
+                \Leftrightarrow [\tilde{\gamma_0} * \tilde{\gamma_1}^{-1}] &\in \pi_1(Y, y_0)\\
+                \Leftrightarrow [\gamma_0 * \gamma_1^{-1}] &\in p_* (\pi_1(Y,y_0))
+              \end{align}
+              Zu $i \in \Set{0, \dots, d-1}$ gibt es Weg $\delta_i$ in
+              $Y$ mit $\delta_i(0) = y_0$ und $\sigma_i(1) = y_i$\\
+              $\Rightarrow p * \delta_i$ ist geschlossener Weg in 
+              $X$ um $x_0$.\\
+              $\Rightarrow \sigma_i = \widetilde{p*\delta_i}$\\
+              $\Rightarrow$ Jedes $y_i$ mit $i=0, \dots, d-1$ ist 
+              $\tilde{\gamma}(1)$ für ein $[\gamma] \in \pi_1(X,x_0)$
+    \end{enumerate}
+\end{beweis}
+
+\begin{korollar}%In Vorlesung: "Folgerung 12.9"
+    Sei $p: Y \rightarrow X$ Überlagerung und $X$ einfach zusammenhängend.
+
+    Dann ist $p$ ein Homöomorphismus.
+\end{korollar}
+
+\begin{beweis}
+    Wegen Korollar~\ref{kor:12.8a} ist auch $Y$ einfach zusammenhängend
+    und wegen Korollar~\ref{kor:12.8b} ist $\deg(p)=1$, $p$ ist also
+    bijektiv.
+
+    Nach \todo{Was ist das?}{12.2} ist $p$ offen $\Rightarrow p^{-1}$
+    ist stetig. $\qed$
+\end{beweis}
+
+\begin{definition}%In Vorlesung: "Definition 12.10"
+    Eine Überlagerung $p: \tilde{X} \rightarrow X$ heißt
+    \textbf{universell}\xindex{Überlagerung!universelle}, wenn
+    $\tilde{X}$ einfach zusammenhängend ist.
+\end{definition}
+
+\begin{beispiel}
+    $\mdr \rightarrow S^1, \;\;\; t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$
+
+    $\mdr^2 \rightarrow T^2 = \mdr^2 / \mdz^2$
+
+    $S^n \rightarrow \praum^n(\mdr)$ für $n \geq 2$
+\end{beispiel}
+
+\begin{satz}%In Vorlesung: Satz 12.11
+    Sei $p: \tilde{X} \rightarrow X$ universelle Überlagerung,
+    $q:Y \rightarrow X$ weitere Überlagerung.
+
+    Sei $x_0 \in X, \tilde{x_0} \in \tilde{X}, y_0 \in Y$ mit
+    $q(y_1) = x_0, p(\tilde{x_0}) = x_0$.
+
+    Dann gibt es genau eine Überlagerung $\tilde{p}: \tilde{X} \rightarrow Y$
+    mit $\tilde{p}(\tilde{x_0}) = y_0$.
+\end{satz}
+
+\begin{beweis}
+    Sei $z \in \tilde{X}, y_z: I \rightarrow \tilde{X}$ ein Weg von
+    $\tilde{x_0}$ nach $z$.
+
+    Sei $\delta_Z$ \underline{die} Liftung von $p \circ \gamma_z$
+    nach $y$ mit $\delta_2(0) = y_0$.
+
+    Setze $\tilde{p}(z) = \delta_Z(1)$.
+
+    Da $\tilde{X}$ einfach zusammenhängend ist, hängt $\tilde{p}(z)$
+    nicht vom gewählten $y_z$ ab.
+
+    Offensichtlich ist $q(\tilde{p}(z)) = p(z)$.
+
+    $\tilde{p}$ ist stetig (in $z \in \tilde{X}$). Sei $W \subseteq Y$
+    offene Umgebung von $\tilde{p}(z)$.
+
+    $\xRightarrow{q \text{ offen}} q(W)$ ist offene Umgebung von $p(z) \cdot d(\tilde{p}(z))$.
+
+    Sei $U \subseteq q(W)$ offen wie in Defintion~\ref{def:12.1} und
+    $V \subseteq q^{-1}(U)$ die \todo{Was?}{Komp.} die $\tilde{p}(z)$
+    enthält.
+
+    \Obda sei $V \subseteq W$.
+
+    Sei $Z := p^{-1}(U)$. Für $u \in Z$ sei $\delta$ ein Weg in $Z$
+    von $z$ nach $u$.
+
+    $\Rightarrow \gamma_Z * \delta$ ist Weg von $x_0$ nach $u$\\
+    $\Rightarrow \tilde{p}(u) \in V$\\
+    $\Rightarrow Z \subseteq \tilde{p^{-1}}(W)$\\
+    $\Rightarrow \tilde{p}$ ist stetig
+\end{beweis}
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel3-UB}
