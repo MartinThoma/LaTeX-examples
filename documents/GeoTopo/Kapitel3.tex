@@ -217,17 +217,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
         \item Abgeschlossenheit folgt direkt aus der Definition von $*_G$
         \item Assoziativität folgt aus Korollar~\ref{kor:assoziativitaet-von-zusammensetzen-von-wegen}
         \item Neutrales Element $e = [\gamma_0], \gamma_0(t) = x \;\;\; \forall t \in I$.
-
-        $e * [\gamma] = [\gamma] = [\gamma] * e$, da $\gamma_0 * \gamma \sim \gamma$
-
-        \begin{figure}
-            \centering
-            \input{figures/todo.tex}
-            \caption{Bis auf Parametrisierung sind $\gamma_0 * \gamma$ und $\gamma$ das selbe}.
-            \label{fig:weg-zusammengesetzt-mit-neutralem-weg}
-        \end{figure}
+              $e * [\gamma] = [\gamma] = [\gamma] * e$, da $\gamma_0 * \gamma \sim \gamma$
         \item Inverses Element  $[\gamma]^{-1} = [\overline{\gamma}] = [\gamma(1-t)]$, 
-            denn $\overline{\gamma} * \gamma \sim \gamma_0 \sim \gamma * \overline{\gamma}$
+              denn $\overline{\gamma} * \gamma \sim \gamma_0 \sim \gamma * \overline{\gamma}$
     \end{enumerate}
 \end{beweis}
 
@@ -309,13 +301,6 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
               $(g \circ f)_* = g_* \circ f_*: \pi_1(X,x) \rightarrow \pi_1(Z,z)$
     \end{enumerate}
 \end{korollar}
-
-\begin{figure}
-    \centering
-    \input{figures/todo.tex}
-    \caption{Situation aus Korollar~\ref{korr:11.5}}
-    \label{fig:kor-bem-11.5}
-\end{figure}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
@@ -406,24 +391,10 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     Wegen um $x$, die ganz in $U$ oder ganz in $V$ verlaufen.
 \end{satz}
 
-\begin{figure}
-    \centering
-    \input{figures/todo.tex}
-    \caption{Situation aus Satz~\ref{thm:seifert-van-kampen}}
-    \label{fig:satz-seifert-van-kampen}
-\end{figure}
-
 \begin{beweis}
     Sei $\gamma: I \rightarrow X$ ein geschlossener Weg von $x$.
     Überdecke $I$ mit endlich vielen offenen Intervallen, die ganz in 
     $\gamma^{-1}(U)$ oder ganz in $\gamma^{-1}(V)$ liegen.
-
-    \begin{figure}
-        \centering
-        \input{figures/todo.tex}
-        \caption{Situationsskizze}
-        \label{fig:intervalle-auf-01}
-    \end{figure}
 
     \Obda sei $\gamma(I_1) \subseteq U, \gamma(I_2) \subseteq V$, etc.
 
@@ -438,18 +409,18 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
         \item
             \begin{figure}
                 \centering
-                \input{figures/todo.tex}
+                \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/todo/topologischer-raum-x.png}
                 \caption{Topologischer Raum $X$}
                 \label{fig:top-raum-kreise}
             \end{figure}
 
-            $\pi_1(X,x)$ wird \enquote{frei} erzeugt von $a$ und $b$, weil
+            Sei $X$ wie in Abb.~\ref{fig:top-raum-kreise}. $\pi_1(X,x)$ wird \enquote{frei} erzeugt von $a$ und $b$, weil
             $\pi_1(U,x) = <a> \cong \mdz, \pi_1(V,x) = <b> \cong \mdz$,
             insbesondere ist $a*b$ nicht homotop zu $b*a$.
         \item Torus: $\pi_1(T^2, X)$ wird erzeugt von $a$ und $b$.
             \begin{figure}
                 \centering
-                \input{figures/todo.tex}
+                \input{figures/topology-4.tex}
                 \caption{$a*b = b*a \Leftrightarrow a * b * \overline{a} * \overline{b} \sim e$}
                 \label{fig:torous-a-b}
             \end{figure}
@@ -500,11 +471,11 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     \end{figure}
 \end{beispiel}
 
-\begin{definition}
+\begin{definition}\xindex{Abbildung!offene}
     Seien $X, Y$ topologische Räume und $f:X \rightarrow Y$ eine 
     Abbildung.
 
-    $f$ heißt offen $:\gdw \forall V \subseteq X$ offen: $f(V)$ ist offen in $Y$.
+    $f$ heißt \textbf{offen} $:\gdw \forall V \subseteq X$ offen: $f(V)$ ist offen in $Y$.
 \end{definition}
 
 \begin{korollar} % Bemerkung 12.2 der Vorlesung
@@ -542,7 +513,7 @@ Haben wir Häufungspunkt definiert?}
     \end{enumerate}
 \end{korollar}
 
-\begin{beweis}
+\begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item Seien $y_1, y_2 \in Y$.
 
