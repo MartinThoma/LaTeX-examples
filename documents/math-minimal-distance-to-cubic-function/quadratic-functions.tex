@@ -205,12 +205,40 @@ $t$:
 &= 0
 \end{align}
 
-\textbf{Case 2.2:} TODO
+\textbf{Case 2.2:}
+\todo[inline]{calculate...} 
 
 \[x = \frac{(1+i \sqrt{3})a}{\sqrt[3]{12} \cdot t}
      -\frac{(1-i\sqrt{3}) t}{2\sqrt[3]{18}}\]
 
-\textbf{Case 2.3:} TODO
+\begin{align}
+    x^3 &= \underbrace{\left (\frac{(1+i\sqrt{3})a}{\sqrt[3]{12} \cdot t} \right)^3}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}}}
+           \underbrace{- 3 \left(\frac{(1+i\sqrt{3})a}{\sqrt[3]{12} \cdot t} \right)^2 \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}} \right)}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}}}\\
+         &\hphantom{{}=}+ \underbrace{3 \left(\frac{(1+i\sqrt{3})a}{\sqrt[3]{12} \cdot t} \right) \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^2}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}}}
+           \underbrace{- \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^3}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {4}}}}
+\end{align}
+
+Now simplify the summands:
+\begin{align}
+    \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}} &=
+    \frac{a^3(1+3i\sqrt{3} - 3 \cdot 3 - \sqrt{27} i)}{12 t^3}\\
+    &= \frac{a^3((3\sqrt{3}- \sqrt{27})i - 8)}{12 t^3}\\
+    &= \frac{-8a^3}{12 t^3}\\
+    &= \frac{-2a^3}{3 t^3}\\
+    \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} &=- 3 \left(\frac{(1+i\sqrt{3})a}{\sqrt[3]{12} \cdot t} \right)^2 \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}} \right)\\
+    &= \frac{3a(1+2\sqrt{3}i-3)(1-i\sqrt{3})}{t \cdot 2 \cdot 2 \sqrt[3]{3 \cdot 3 \cdot 2 \cdot 18}}\\
+    &= \frac{3a(1+2\sqrt{3}i - 3- i\sqrt{3}+2\cdot 3 + i\sqrt[3]{3})}{4t \cdot 3 \sqrt{6}}\\
+    &= \frac{a(1-3+4\sqrt{3}i + 6)}{4t\sqrt[3]{6}}\\
+    &= \frac{a(4+4\sqrt{3}i)}{4t \sqrt[3]{6}}\\
+    &= \frac{a(1+\sqrt{3}i)}{t \sqrt[3]{6}}\\
+    \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}} &= \frac{3(1+i\sqrt{3})a (1-2i\sqrt{3} - 3)t}{\sqrt[3]{12 \cdot 18^2}}\\
+    &= \frac{3at((1-2i\sqrt{3}-3)+(i\sqrt{3} + 2\cdot 3 - 3i\sqrt{3}))}{\sqrt[3]{2^2 \cdot 3 \cdot (2 \cdot 3^2)^2}}\\
+    &=
+\end{align}
+
+
+\textbf{Case 2.3:} 
+\todo[inline]{calculate...} 
 
 \[x = \frac{(1-i \sqrt{3})a}{\sqrt[3]{12} \cdot t}
      -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\]
