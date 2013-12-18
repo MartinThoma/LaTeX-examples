@@ -561,19 +561,21 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
 \begin{definition}
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
-        \item Sei $\Delta^n = \text{conv}(e_0, \dots, e_k) \subseteq \mdr^{n+1}$ \todo{stimmen die indizes?}
+        \item Sei $\Delta^k = \text{conv}(e_0, \dots, e_k) \subseteq \mdr^{n+1}$
               die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_k$.
-              $\Delta^k$ heißt \textbf{Standard-Simplex}\xindex{Standard-Simplex}.
+
+              Dann heißt $\Delta^k$ \textbf{Standard-Simplex}\xindex{Standard-Simplex}
+              und $k$ die Dimension des Simplex.
         \item Für Punkte $v_0, \dots, v_k$ im $\mdr^n$ in allgemeiner
               Lage heißt $\delta (v_0, \dots, v_k) = \text{conv}(v_0, \dots, v_k)$
               ein \textbf{$k$-Simplex}\xindex{Simplex} in $\mdr^n$.
         \item Ist $\Delta (v_0, \dots, v_k)$ ein $k$-Simplex und
               $I = \Set{i_0, \dots, i_r} \subseteq \Set{0, \dots, k}$,
-              so heißt $s_{i_0} \dots i_r := \text{conv}(v_{i_0}, \dots, v_{i_r})$
+              so heißt $s_{i_0, \dots, i_r} := \text{conv}(v_{i_0}, \dots, v_{i_r})$
               \textbf{Teilsimplex}\xindex{Teilsimplex} oder \textbf{Seite}\xindex{Seite}
               von $\Delta$. 
 
-              $s_{i_0} \dots i_r$ ist $r$-Simplex.
+              $s_{i_0, \dots, i_r}$ ist $r$-Simplex.
     \end{enumerate}
 \end{definition}
 
@@ -862,7 +864,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
     Für $i = 0, \dots, n$ sei $\partial_i \sigma := \Delta(x_0, \dots, \hat{x_i}, \dots, x_n)$
     die $i$-te Seite von $\sigma$ und $d_\sigma = d_n \sigma := \sum_{i=0} (-1)^i \partial_i \sigma \in C_{n-1} (K)$
-    und $d: C_n(K) \rightarrow C_{n-1}(K)$ die dadurch definierte lineare
+    und $d_n: C_n(K) \rightarrow C_{n-1}(K)$ die dadurch definierte lineare
     Abbildung.
 
     Dann gilt: $d_{n-1} \circ d_n = 0$
