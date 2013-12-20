@@ -27,7 +27,7 @@ $t \in \mdr$ be a linear function.
             enlargelimits=true,
             tension=0.08]
           \addplot[domain=-5:5, thick,samples=50, red] {0.5*x};
-          \addplot[domain=-5:5, thick,samples=50, blue] {-2*x+6};
+          \addplot[domain=-5:5, thick,samples=50, blue, dashed] {-2*x+6};
           \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
           \addplot[blue, nodes near coords=$f_\bot$,every node near coord/.style={anchor=225}] coordinates {(1.5, 3)};
           \addplot[red, nodes near coords=$f$,every node near coord/.style={anchor=225}] coordinates {(0.9, 0.5)};

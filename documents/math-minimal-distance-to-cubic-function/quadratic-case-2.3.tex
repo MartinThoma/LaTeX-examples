@@ -1,0 +1,90 @@
+\todo[inline]{calculate...} 
+
+\[x = \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t}
+     -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\]
+
+\begin{align}
+    x^3 &= \left (\frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} - \frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}} \right)^3\\
+    &= \left (\frac{(2\sqrt[3]{18})(1-i \sqrt{3}) \alpha - (\sqrt[3]{12} \cdot t)(1+i\sqrt{3}) t}{\sqrt[3]{12} \cdot t \cdot 2 \cdot \sqrt[3]{18}} \right)^3\\
+    &= \left (\frac{2\sqrt[3]{18}a \alpha (1-i \sqrt{3}) - \sqrt[3]{12} \cdot t^2(1+i\sqrt{3})}{2t \sqrt[3]{2^3 \cdot 3^3}} \right )^3\\
+    &= 12 \cdot \bigg (\frac{\overbrace{\sqrt[3]{12} \alpha (1-i \sqrt{3}) - t^2(1+i\sqrt{3})}^{\text{numerator}}}{12t} \bigg )^3
+\end{align}
+
+Now calculate the numerator$^3$. Remember, that $(1-i \sqrt{3})^2 = -2 (1+i \sqrt{3})$
+and $(1 \pm i \sqrt{3})^3 = -8$.
+\begin{align}
+    \left (\sqrt[3]{12} \alpha (1-i \sqrt{3}) - t^2(1+i\sqrt{3}) \right )^3 &= 
+    12 \alpha^3 (1-i\sqrt{3})^3 \\
+    &\hphantom{{}=}- 3 \sqrt[3]{12^2} \alpha^2(1-i\sqrt{3})^2 (t^2(1+i \sqrt{3}))\\
+    &\hphantom{{}=}+ 3 \sqrt[3]{12\hphantom{^2}} \alpha\hphantom{^2} (1-i\sqrt{3}) t^4 (1+i\sqrt{3})^2 - t^6 (1+i\sqrt{3})^3\\
+    &= 12 \alpha^3 \cdot (-8) \\
+    &\hphantom{{}=}- 3 \cdot 2 \sqrt[3]{18} \alpha^2(-2(1+i\sqrt{3}))(t^2(1+i \sqrt{3}))\\
+    &\hphantom{{}=}+ 3 \sqrt[3]{12} \alpha (1-i\sqrt{3}) t^4 (-2(1-i\sqrt{3})) - t^6 (-8)\\
+    &= -96 \alpha^3 + 12 \sqrt[3]{18} \alpha^2 t^2 (1+i \sqrt{3})^2\\
+    &\hphantom{{}=}- 6 \sqrt[3]{12} \alpha (1-i\sqrt{3})^2 t^4 +8 t^6\\
+    &= -96 \alpha^3 - 24 \sqrt[3]{18} \alpha^2 t^2 (1-i \sqrt{3})\\
+    &\hphantom{{}=}+ 12 \sqrt[3]{12} \alpha t^4 (1+i \sqrt{3}) +8 t^6
+\end{align}
+\goodbreak
+Now back to the original equation:
+\begin{align}
+0 &\stackrel{!}{=} x^3 + \alpha x + \beta\\
+  &= \frac{-96 \alpha^3 - 24 \sqrt[3]{18} \alpha^2 t^2 (1-i \sqrt{3}) + 12 \sqrt[3]{12} \alpha t^4 (1+i \sqrt{3}) +8 t^6}{12^2 t^3}\\
+  &\hphantom{{}=}+\alpha \left (\sqrt[3]{12} \cdot \frac{\sqrt[3]{12} \alpha (1-i \sqrt{3}) - t^2(1+i\sqrt{3})}{12t} \right ) + \beta
+\end{align}
+
+\todo[inline]{the calculation above seems to be wrong / too long. Next try}
+
+When you insert this in Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
+you get:\footnote{Remember, that $(1+i\sqrt{3})^2 = -2 (1-i \sqrt{3})$ and $(1-i \sqrt{3})^2 = -2 (1+i \sqrt{3})$
+and $(1 \pm i \sqrt{3})^3 = -8$}
+\begin{align}
+ 0 &\stackrel{!}{=} \left( \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t}
+     -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}} \right)^3 
+     + \alpha \left ( \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\right )
+     + \beta\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &= \frac{(1-i \sqrt{3})^3 \alpha^3}{12 \cdot t^3}
+       - 3 \left (\frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} \right )^2 \frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}
+       + 3 \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} \left (\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}} \right)^2\\
+    &\hphantom{{}=}
+       + \frac{(1+i\sqrt{3})^3 t^3}{2^3 \cdot 18}
+       + \alpha \left ( \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\right )
+       + \beta\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &= \frac{-8 \alpha^3}{12t^3}
+       - 3 \frac{-2(1+i \sqrt{3}) \alpha^2}{\sqrt[3]{12^2} t^2} \frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}
+       + 3 \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} \frac{-2(1-i\sqrt{3}) t^2}{4\sqrt[3]{18^2}}\\
+    &\hphantom{{}=}
+       + \frac{-8 t^3}{2^3 \cdot 18}
+       + \alpha \left ( \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\right )
+       + \beta\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &= \frac{-2 \alpha^3}{3t^3}
+       + \frac{6 \alpha^2 t (-2)(1-i \sqrt{3})}{(\sqrt[3]{12^2} t^2)(2\sqrt[3]{18})}
+       + \frac{12 \alpha t^2 (1+i \sqrt{3})}{(\sqrt[3]{12} \cdot t)(4\sqrt[3]{18^2)}}\\
+    &\hphantom{{}=}
+       + \frac{- t^3}{18}
+       + \alpha \left ( \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\right )
+       + \beta\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &= \frac{-2 \alpha^3}{3t^3}
+       + \frac{-6 \alpha^2 (1-i \sqrt{3})}{6 \sqrt[3]{12} t}
+       + \frac{3 \alpha t (1+i \sqrt{3})}{6\sqrt[3]{18}}
+       + \frac{- t^3}{18}\\
+    &\hphantom{{}=}+ \alpha \left ( \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\right )
+       + \beta\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &= \frac{-2 \alpha^3}{3t^3}
+       + \frac{-\alpha^2 (1-i \sqrt{3})}{\sqrt[3]{12} t}
+       + \frac{\alpha t (1+i \sqrt{3})}{2\sqrt[3]{18}}
+       + \frac{- t^3}{18}\\
+    &\hphantom{{}=}+ \alpha \left ( \frac{(1-i \sqrt{3}) \alpha}{\sqrt[3]{12} \cdot t} -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\right )
+       + \beta\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    &= \frac{12 \cdot (-2 \alpha^3) +(6 \sqrt[3]{18}t^2)(-\alpha^2 (1-i \sqrt{3}))+ (3 \sqrt[3]{12})(\alpha t (1+i \sqrt{3})) + (2t^3)(- t^3)}{36t^3}\\
+    &\hphantom{{}=}+ \frac{(6 \sqrt[3]{18})((1-i \sqrt{3}) \alpha) - (3 \sqrt[3]{12})((1+i\sqrt{3}) t) + 36t^3 \beta}{36t^3}\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{align}
+
+\goodbreak
+Now calculate only the numerator:
+\begin{align}
+    0 &\stackrel{!}{=} -12 \alpha^3 - 6 \sqrt[3]{18} t^2 \alpha^2 (1 - i \sqrt{3})
+        + 3 \sqrt[3]{12} \alpha t (1+i\sqrt{3}) - 2t^6\\
+      &\hphantom{{}=} + 6\sqrt[3]{18} \alpha (1- i \sqrt{3})
+        - 3 \sqrt[3]{12} t (1+i \sqrt{3}) + 36 t^3 \beta
+\end{align}

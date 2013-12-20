@@ -42,7 +42,7 @@ $b, c \in \mdr$ be a quadratic function.
 
 \subsection{Calculate points with minimal distance}
 In this case, $d_{P,f}^2$ is polynomial of degree 4. 
-We use Theorem~\ref{thm:required-extremum-property}:\nobreak
+We use Theorem~\ref{thm:fermats-theorem}:\nobreak
 \begin{align}
     0     &\overset{!}{=} (d_{P,f}^2)'\\
           &= -2 x_p + 2x -2y_p f'(x) + \left (f(x)^2 \right )'\\
@@ -57,7 +57,7 @@ We use Theorem~\ref{thm:required-extremum-property}:\nobreak
 This is an algebraic equation of degree 3.
 There can be up to 3 solutions in such an equation. Those solutions
 can be found with a closed formula. But not every solution of the
-equation given by Theorem~\ref{thm:required-extremum-property}
+equation given by Theorem~\ref{thm:fermats-theorem}
 has to be a solution to the given problem.
 
 \begin{example}
@@ -134,7 +134,7 @@ We start with the graph that was moved so that $f_2 = ax^2$.
 
 \textbf{Case 1:} $P$ is on the symmetry axis, hence $x_P = - \frac{b}{2a}$.
 
-In this case, we have already found the solution. If $y_P + \frac{b^2}{4a} - c > \frac{1}{2a}$,
+In this case, we have already found the solution. If $w = y_P + \frac{b^2}{4a} - c > \frac{1}{2a}$,
 then there are two solutions:
 \[x_{1,2} = \pm \sqrt{aw - \nicefrac{1}{2}}\]
 Otherwise, there is only one solution $x_1 = 0$.
@@ -206,62 +206,10 @@ $t$:
 \end{align}
 
 \textbf{Case 2.2:}
-\todo[inline]{calculate...} 
-\[x = \frac{(1+i \sqrt{3})\alpha}{\sqrt[3]{12} \cdot t}
-     -\frac{(1-i\sqrt{3}) t}{2\sqrt[3]{18}}\]
+\input{quadratic-case-2.2}
 
-\begin{align}
-    x^3 &= \underbrace{\left (\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^3}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}}}
-           \underbrace{- 3 \left(\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^2 \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}} \right)}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}}}\\
-         &\hphantom{{}=}+ \underbrace{3 \left(\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right) \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^2}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}}}
-           \underbrace{- \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^3}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {4}}}}
-\end{align}
-
-Now simplify the summands:
-\begin{align}
-    \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}} &=
-    \left (\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^3\\
-    &= \frac{\alpha^3(1-3i\sqrt{3} - 3 \cdot 3 + \sqrt{27} i)}{12 t^3}\\
-    &= \frac{-8\alpha^3}{12 t^3}\\
-    &= \frac{-2 \alpha^3}{3 t^3}\\
-    \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} &=- 3 \left(\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^2 \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}} \right)\\
-    &= \frac{-3\alpha^2(1+2\sqrt{3}i-3)(1-i\sqrt{3})t}{t^2 \sqrt[3]{2^4 \cdot 3^2} \cdot 2 \sqrt[3]{2 \cdot 3^2}}\\
-    &= \frac{-3\alpha^2((1+2\sqrt{3}i - 3)+(- i\sqrt{3}+2\cdot 3 + i\sqrt{3}))}{12 t \sqrt[3]{12}}\\
-    &= \frac{-\alpha^2(4+2\sqrt{3}i)}{4t\sqrt[3]{12}}\\
-    &= \frac{-\alpha^2(2+\sqrt{3}i)}{2t\sqrt[3]{12}}\\
-    \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}} &= 3 \left(\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right) \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^2\\
-    &= \frac{3(1+i\sqrt{3})\alpha (1-2i\sqrt{3} - 3)t}{4 \sqrt[3]{12 \cdot 18^2}}\\
-    &= \frac{3 \alpha t((1-2i\sqrt{3}-3)+(i\sqrt{3} + 2\cdot 3 - 3i\sqrt{3}))}{4 \sqrt[3]{2^2 \cdot 3 \cdot (2 \cdot 3^2)^2}}\\
-    &= \frac{3 \alpha t(4-4\sqrt{3}i)}{4 \cdot 2 \cdot 3 \sqrt[3]{2 \cdot 3^2}}\\
-    &= \frac{\alpha t(1-\sqrt{3}i)}{2\sqrt[3]{18}}\\
-    \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {4}}} &= - \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^3\\
-    &= -\frac{(1-3i\sqrt{3} - 3 \cdot 3 + i \sqrt{27}) t^3}{8 \cdot 18}\\
-    &=- \frac{t^3 (-8)}{8 \cdot 18}\\
-    &= \frac{t^3}{18}
-\end{align}
-
-Now get back to the original equation:
-\begin{align}
-    0 &\stackrel{!}{=} x^3 + \alpha x + \beta \\
-       &= \left (\frac{-2 \alpha^3}{3 t^3}
-        + \frac{-\alpha^2(2+\sqrt{3}i)}{2t\sqrt[3]{12}}
-        + \color{blue}\frac{\alpha t(1-\sqrt{3}i)}{2\sqrt[3]{18}}\color{black}
-        + \frac{t^3}{18} \right )\\
-    &\hphantom{{}=} + \color{blue}\alpha\color{black} \left (\frac{(1+i \sqrt{3})\alpha}{\sqrt[3]{12} \cdot t}
-     \color{blue}-\frac{(1-i\sqrt{3}) t}{2\sqrt[3]{18}} \color{black} \right ) + \beta\\
-    &= \frac{-2 \alpha^3}{3 t^3}
-    + \frac{\alpha^2(2(1+i\sqrt{3})-(2+\sqrt{3}i))}{2t\sqrt[3]{12}}
-    + \frac{t^3}{18}
-    + \beta\\
-    &= \frac{-24 \alpha^3 + (3\sqrt[3]{18}t^2)(\alpha^2\sqrt{3}i) + 2t^3+36 t^3 \beta}{36t^3}
-\end{align}
-
-
-\textbf{Case 2.3:} 
-\todo[inline]{calculate...} 
-
-\[x = \frac{(1-i \sqrt{3})a}{\sqrt[3]{12} \cdot t}
-     -\frac{(1+i\sqrt{3}) t}{2\sqrt[3]{18}}\]
+\textbf{Case 2.3:}
+\input{quadratic-case-2.3}
 
 \goodbreak
 So the solution is given by
@@ -298,7 +246,7 @@ If the function (defined on $\mdr$) has only one shortest distance
 point $x$ for the given $P$, it's also easy: The point in $[a,b]$ that
 is closest to $x$ will have the sortest distance. 
 
-\[\underset{x\in\mdr}{\arg \min d_{P,f}(x)} = \begin{cases}
+\[\underset{x\in[a,b]}{\arg \min d_{P,f}(x)} = \begin{cases}
  S_2(f, P) \cap [a,b] &\text{if } S_2(f, P) \cap [a,b] \neq \emptyset \\
               \Set{a} &\text{if } |S_2(f, P)| = 1 \text{ and } S_2(f, P) \ni x < a\\
               \Set{b} &\text{if } |S_2(f, P)| = 1 \text{ and } S_2(f, P) \ni x > b\\
