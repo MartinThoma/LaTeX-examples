@@ -3,7 +3,7 @@ Let $f: D \rightarrow \mdr$ with $D \subseteq \mdr$ be a polynomial function and
 be a point. Let $d_{P,f}: \mdr \rightarrow \mdr_0^+$
 be the Euklidean distance of a point $P$ to a point $\left (x, f(x) \right )$
 on the graph of $f$:
-\[d_{P,f} (x) := \sqrt{(x_P - x)^2 + (y_P - f(x))^2}\]
+\[d_{P,f} (x) := \sqrt{(x - x_P)^2 + (f(x) - y_P)^2}\]
 
 Now there is finite set $M = \Set{x_1, \dots, x_n} \subseteq D$ of minima for given $f$ and $P$:
 \[M = \Set{x \in D | d_{P,f}(x) = \min_{\overline{x} \in D} d_{P,f}(\overline{x})}\] 
@@ -19,6 +19,11 @@ about stationary points will be tremendously usefull:
 
     Then: $f'(x_0) = 0$.
 \end{theorem}
+
+So in fact you can calculate the roots of $(d_{P,f}(x))'$ to get
+candidates for minimal distance. These candidates include all points
+with minimal distance, but might also contain more. Example~\ref{ex:false-positive}
+shows such a situation.
 
 Let $S_n$ be the function that returns the set of solutions for a
 polynomial $f$ of degree $n$ and a point $P$:

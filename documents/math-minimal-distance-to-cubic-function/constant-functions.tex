@@ -64,8 +64,18 @@ This result means:
 \clearpage
 
 \section{Defined on a closed interval $[a,b] \subseteq \mdr$}
+\begin{theorem}[Solution formula for constant functions]
 Let $f:[a,b] \rightarrow \mdr$, $f(x) := c$ with $a,b,c \in \mdr$ and 
 $a \leq b$ be a constant function. 
+
+Then the point $(x, f(x))$ of $f$ with minimal distance to $P$ is
+given by:
+\[\underset{x\in [a,b]}{\arg \min d_{P,f}(x)} = \begin{cases}
+ S_0(f,P) &\text{if } S_0(f,P) \cap [a,b] \neq \emptyset \\
+  \Set{a} &\text{if } S_0(f,P) \ni x_P < a\\
+  \Set{b} &\text{if } S_0(f,P) \ni x_P > b
+    \end{cases}\]
+\end{theorem}
 
 \begin{figure}[htp]
     \centering
@@ -111,17 +121,16 @@ $a \leq b$ be a constant function.
     \label{fig:constant-min-distance-closed-intervall}
 \end{figure}
 
-The point with minimum distance can be found by:
-\[\underset{x\in\mdr}{\arg \min d_{P,f}(x)} = \begin{cases}
- S_0(f,P) &\text{if } S_0(f,P) \cap [a,b] \neq \emptyset \\
-  \Set{a} &\text{if } S_0(f,P) \ni x_P < a\\
-  \Set{b} &\text{if } S_0(f,P) \ni x_P > b
-    \end{cases}\]
-
-Because:
+\begin{proof}
 \begin{align}
     \underset{x\in[a,b]}{\arg \min d_{P,f}(x)} &= \underset{x\in[a,b]}{\arg \min d_{P,f}(x)^2}\\
-   &=\underset{x\in[a,b]}{\arg \min} x^2 - 2x_P x + (x_P^2 + y_P^2 - 2 y_P c + c^2)\\
-   &=\underset{x\in[a,b]}{\arg \min} x^2 - 2 x_P x + x_P^2\\
+   &=\underset{x\in[a,b]}{\arg \min} \big (x^2 - 2x_P x + x_P^2 + \overbrace{(y_P^2 - 2 y_P c + c^2)}^{\text{constant}} \big )\\
+   &=\underset{x\in[a,b]}{\arg \min} (x^2 - 2 x_P x + x_P^2)\\
    &=\underset{x\in[a,b]}{\arg \min} (x-x_P)^2
 \end{align}
+
+which is optimal for $x = x_P$, but if $x_P \notin [a,b]$, you want
+to make this term as small as possible. It gets as small as possible when
+$x$ is as similar to $x_p$ as possible. This yields directly to the
+solution formula.$\qed$
+\end{proof}

@@ -59,18 +59,22 @@ There can be up to 3 solutions in such an equation. Those solutions
 can be found with a closed formula. But not every solution of the
 equation given by Theorem~\ref{thm:fermats-theorem}
 has to be a solution to the given problem.
-
-\begin{example}
+\goodbreak
+\begin{example}\label{ex:false-positive}
     Let $a = 1,  b = 0,  c= 1, x_p= 0, y_p = 1$.
-    So $f(x) = x^2 + 1$ and $P(0, 1)$.
-
-\begin{align}
-    0 &\stackrel{!}{=} 4 x^3 - 2x\\
-      &=2x(2x^2 - 1)\\
-    \Rightarrow x_1 &= 0 \;\;\; x_{2,3} = \pm \frac{1}{\sqrt{2}}
-\end{align}
-
-As you can easily verify, only $x_1$ is a minimum of $d_{P,f}$.
+    So $f(x) = x^2 - 1$ and $P(0, 1)$.
+    \begin{align}
+        \xRightarrow{\text{Equation}~\ref{eq:quadratic-derivative-eq-0}} 0 &\stackrel{!}{=} 2x^3 - 3x\\
+        &= x(2x^2-3)\\
+        \Rightarrow x_{1,2} &= \pm \sqrt{\frac{3}{2}} \text{ and } x_3 = 0\\
+        d_{P,f}(x_3) &= \sqrt{0^2 + (-1-1)^2} = 2\\
+        d_{P,f} \left (+ \sqrt{\frac{3}{2}} \right ) &= \sqrt{\left (\sqrt{\frac{3}{2} - 0} \right )^2 + \left (\frac{1}{2}-1 \right )^2}\\
+            &= \sqrt{\nicefrac{3}{2}+\nicefrac{1}{4}} \\
+            &= \sqrt{\nicefrac{7}{4}}\\
+            &= d_{P,f} \left (- \sqrt{\frac{3}{2}} \right )
+    \end{align}
+    This means $x_3$ is not a point of minimal distance, but with
+    $(d_{P,f}(x_3))' = 0$.
 \end{example}
 
 
@@ -81,8 +85,12 @@ As you can easily verify, only $x_1$ is a minimum of $d_{P,f}$.
 \end{theorem}
 
 \begin{proof}
+The number of closests points of $f$ cannot be bigger than 3, because
+Equation~\ref{eq:quadratic-derivative-eq-0} is a polynomial function
+of degree 3. Such a function can have at most 3 roots.
+
 In the following, I will do some transformations with $f = f_0$ and
-$P = P_0$ .
+$P = P_0$.
 
 Moving $f_0$ and $P_0$ simultaneously in $x$ or $y$ direction does 
 not change the minimum distance. Furthermore, we can find the 
@@ -95,8 +103,8 @@ First of all, we move $f_0$ and $P_0$ by $\frac{b}{2a}$ in $x$ direction, so
 Because:\footnote{The idea why you subtract $\frac{b}{2a}$ within
 $f$ is that when you subtract something from $x$ before applying
 $f$ it takes more time ($x$ needs to be bigger) to get to the same
-situation. So to move the whole graph by $1$ to the left whe have
-to add $+1$.}
+situation. In consequence, if we want to move the whole graph by 1 
+to the left, we have to add $+1$.}
 \begin{align}
     f(x-\nicefrac{b}{2a}) &= a (x-\nicefrac{b}{2a})^2 + b (x-\nicefrac{b}{2a}) + c\\
     &= a (x^2 - \nicefrac{b}{a} x + \nicefrac{b^2}{4a^2}) + bx - \nicefrac{b^2}{2a} + c\\
@@ -117,15 +125,15 @@ Then compute:
     &= \sqrt{x^2 + (ax^2-w)^2}\\
     &= \sqrt{x^2 + a^2 x^4-2aw x^2+w^2}\\
     &= \sqrt{a^2 x^4 + (1-2aw) x^2 + w^2}\\
-    &= \sqrt{\left (a^2 x^2 + \frac{1-2 a w}{2} \right )^2 + w^2 - (1-2 a w)^2}\\
-    &= \sqrt{\left (a^2 x^2 + \nicefrac{1}{2}-a w \right )^2 + \big (w^2 - (1-2 a w)^2 \big)}
+    &= \sqrt{\left (a x^2 + \frac{1-2 a w}{2a} \right )^2 + w^2 - (\frac{1-2 a w}{2a})^2}\\
+    &= \sqrt{\left (a x^2 + \nicefrac{1}{2a}- w \right )^2 + \big (w^2 - (\frac{1-2 a w}{2a})^2 \big)}
 \end{align}
 
 The term 
-\[a^2 x^2 + (\nicefrac{1}{2}-a w)\]
+\[a^2 x^2 + (\nicefrac{1}{2a}- w)\]
 should get as close to $0$ as possilbe when we want to minimize 
 $d_{P,{f_2}}$. For $w \leq \nicefrac{1}{2a}$ you only have $x = 0$ as a minimum.
-For all other points $P = (0, w)$, there are exactly two minima $x_{1,2} = \pm \sqrt{aw - \nicefrac{1}{2}}$.
+For all other points $P = (0, w)$, there are exactly two minima $x_{1,2} = \pm \sqrt{\frac{\frac{1}{2a} - w}{a}}$.
 $\qed$
 \end{proof}
 
@@ -136,7 +144,7 @@ We start with the graph that was moved so that $f_2 = ax^2$.
 
 In this case, we have already found the solution. If $w = y_P + \frac{b^2}{4a} - c > \frac{1}{2a}$,
 then there are two solutions:
-\[x_{1,2} = \pm \sqrt{aw - \nicefrac{1}{2}}\]
+\[x_{1,2} = \pm \sqrt{\frac{\frac{1}{2a} - w}{a}}\]
 Otherwise, there is only one solution $x_1 = 0$.
 
 \textbf{Case 2:} $P = (z, w)$ is not on the symmetry axis, so $z \neq 0$. Then you compute:
@@ -147,8 +155,7 @@ Otherwise, there is only one solution $x_1 = 0$.
   0 &\stackrel{!}{=} \Big(\big(d_{P, {f_2}}(x)\big)^2\Big)' \\
     &= 4a^2x^3 + 2(1- 2 aw)x +(- 2z)\\
     &= 2 \left (2a^2x^2 + (1- 2 aw) \right )x - 2z\\
-    \Leftrightarrow 0 &\stackrel{!}{=} (2a^2x^2  + (1- 2 aw)) x - z\\
-    &= 2 a^2 x^3 + (1- 2 aw) x - z\\
+    \Leftrightarrow 0 &\stackrel{!}{=} 2a^2x^3  + (1- 2 aw) x - z\\
 \Leftrightarrow 0 &\stackrel{!}{=} x^3 + \underbrace{\frac{1- 2 aw}{2 a^2}}_{=: \alpha} x  + \underbrace{\frac{-z}{2 a^2}}_{=: \beta}\\
     &= x^3 + \alpha x + \beta\label{eq:simple-cubic-equation-for-quadratic-distance}
 \end{align}
@@ -156,54 +163,15 @@ Otherwise, there is only one solution $x_1 = 0$.
 Let $t$ be defined as
 \[t := \sqrt[3]{\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta}\]
 
-\textbf{Case 2.1:} $4 \alpha^3 + 27 \beta^2 \geq 0$:
-The solution of Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
-is
-\[x = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}\]
+I will make use of the following identities:
+\begin{align*}
+    (1-i \sqrt{3})^2     &= -2 (1+i \sqrt{3})\\
+    (1+i \sqrt{3})^2     &= -2 (1-i \sqrt{3})\\
+    (1 \pm i \sqrt{3})^3 &= -8
+\end{align*}
 
-When you insert this in Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
-you get:\footnote{Remember: $(a-b)^3 = a^3-3 a^2 b+3 a b^2-b^3$}
-\allowdisplaybreaks
-\begin{align}
-    0 &\stackrel{!}{=} \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right )^3 + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= (\frac{t}{\sqrt[3]{18}})^3 
-    - 3 (\frac{t}{\sqrt[3]{18}})^2 \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} 
-    + 3 (\frac{t}{\sqrt[3]{18}})(\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^2 
-    - (\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^3 
-    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= \frac{t^3}{18}             
-    - \frac{3t^2}{\sqrt[3]{18^2}} \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}
-    + \frac{3t}{\sqrt[3]{18}} \frac{\sqrt[3]{\frac{4}{9}} \alpha^2 }{t^2} 
-    - \frac{\frac{2}{3} \alpha^3 }{t^3} 
-    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= \frac{t^3}{18}
-    - \frac{\sqrt[3]{18} t \alpha}{\sqrt[3]{18^2}}
-    + \frac{\sqrt[3]{12} \alpha^2}{\sqrt[3]{18} t}  
-    - \frac{\frac{2}{3} \alpha^3 }{t^3} 
-    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
-&= \frac{t^3}{18} 
-    - \frac{t \alpha}{\sqrt[3]{18}} 
-    \color{red}+ \frac{\sqrt[3]{2} \alpha^2}{\sqrt[3]{3} t} \color{black}
-    - \frac{\frac{2}{3} \alpha^3 }{t^3} 
-    + \color{red}\alpha \color{black} \left (\frac{t}{\sqrt[3]{18}}  \color{red}- \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \color{black}\right ) 
-    + \beta\\
-&= \frac{t^3}{18} \color{blue}- \frac{t \alpha}{\sqrt[3]{18}} \color{black} 
-    - \frac{\frac{2}{3} \alpha^3 }{t^3} 
-    \color{blue}+ \frac{\alpha t}{\sqrt[3]{18}} \color{black} 
-    + \beta\\
-&= \frac{t^3}{18} - \frac{\frac{2}{3} \alpha^3 }{t^3} + \beta\\
-&= \frac{t^6 - 12 \alpha^3 + \beta 18 t^3}{18t^3}
-\end{align}
-
-Now only go on calculating with the numerator. Start with resubstituting
-$t$:
-\begin{align}
-0 &= (\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta)^2 - 12 \alpha^3 + \beta 18 (\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta)\\
-&= (\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)})^2 +(9\beta)^2 - 12 \alpha^3 -18\cdot 9\beta^2\\
-&= 3 \cdot (4 \alpha^3 + 27 \beta^2) -81 \beta^2 - 12 \alpha^3\\
-&= (4 \alpha^3 + 27 \beta^2) -27 \beta^2 - 4 \alpha^3\\
-&= 0
-\end{align}
+\textbf{Case 2.1:} 
+\input{quadratic-case-2.1}
 
 \textbf{Case 2.2:}
 \input{quadratic-case-2.2}

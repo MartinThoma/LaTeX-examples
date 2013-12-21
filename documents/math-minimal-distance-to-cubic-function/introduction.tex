@@ -5,7 +5,9 @@ paths are cubic splines. You also have to be able to calculate
 how to steer to get or to remain on a path. A way to do this
 is applying the \href{https://en.wikipedia.org/wiki/PID_algorithm}{PID algorithm}.
 This algorithm needs to know the signed current error. So you need to 
-be able to get the minimal distance of a point to a cubic spline combined with the direction (left or right).
+be able to get the minimal distance of a point (the position of the car)
+to a cubic spline (the prefered path)
+combined with the direction (left or right).
 As you need to get the signed error (and one steering direction might
 be prefered), it is not only necessary to
 get the minimal absolute distance, but might also help to get all points
@@ -22,3 +24,8 @@ of the underlying PID-related problem. So I will try to give
 robust and easy-to-implement algorithms to calculated the distance
 of a point to a (piecewise or global) defined polynomial function
 of degree $\leq 3$.
+
+When you're able to calculate the distance to a polynomial which is
+defined on a closed invervall, you can calculate the distance from
+a point to a spline by calculating the distance to the pieces of the
+spline.

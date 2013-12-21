@@ -1,8 +1,8 @@
-\todo[inline]{calculate...}
-
+One solution is
 \[x = \frac{(1+i \sqrt{3})\alpha}{\sqrt[3]{12} \cdot t}
      -\frac{(1-i\sqrt{3}) t}{2\sqrt[3]{18}}\]
 
+We will verify it in multiple steps. First, get $x^3$:
 \begin{align}
     x^3 &= \underbrace{\left (\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^3}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}}}
            \underbrace{- 3 \left(\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^2 \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}} \right)}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}}}\\
@@ -10,26 +10,23 @@
            \underbrace{- \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^3}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {4}}}}
 \end{align}
 
-Now simplify the summands:
+Now simplify the summands of $x^3$:
 \begin{align}
     \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}} &=
     \left (\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^3\\
-    &= \frac{\alpha^3(1-3i\sqrt{3} - 3 \cdot 3 + \sqrt{27} i)}{12 t^3}\\
     &= \frac{-8\alpha^3}{12 t^3}\\
     &= \frac{-2 \alpha^3}{3 t^3}\\
     \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} &=- 3 \left(\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^2 \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}} \right)\\
-    &= \frac{-3\alpha^2(1+2\sqrt{3}i-3)(1-i\sqrt{3})t}{t^2 \sqrt[3]{2^4 \cdot 3^2} \cdot 2 \sqrt[3]{2 \cdot 3^2}}\\
-    &= \frac{-3\alpha^2((1+2\sqrt{3}i - 3)+(- i\sqrt{3}+2\cdot 3 + i\sqrt{3}))}{12 t \sqrt[3]{12}}\\
-    &= \frac{-\alpha^2(4+2\sqrt{3}i)}{4t\sqrt[3]{12}}\\
-    &= \frac{-\alpha^2(2+\sqrt{3}i)}{2t\sqrt[3]{12}}\\
+    &= \frac{-3\alpha^2(-2(1-i\sqrt{3}))(1-i\sqrt{3})t}{t^2 \sqrt[3]{2^4 \cdot 3^2} \cdot 2 \sqrt[3]{2 \cdot 3^2}}\\
+    &= \frac{6\alpha^2 t (-2 (1+i \sqrt{3}))}{12 t^2 \sqrt[3]{12}}\\
+    &= \frac{- \alpha^2 (1+i\sqrt{3})}{t\sqrt[3]{12}}\\
     \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}} &= 3 \left(\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right) \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^2\\
-    &= \frac{3(1+i\sqrt{3})\alpha (1-2i\sqrt{3} - 3)t}{4 \sqrt[3]{12 \cdot 18^2}}\\
-    &= \frac{3 \alpha t((1-2i\sqrt{3}-3)+(i\sqrt{3} + 2\cdot 3 - 3i\sqrt{3}))}{4 \sqrt[3]{2^2 \cdot 3 \cdot (2 \cdot 3^2)^2}}\\
-    &= \frac{3 \alpha t(4-4\sqrt{3}i)}{4 \cdot 2 \cdot 3 \sqrt[3]{2 \cdot 3^2}}\\
-    &= \frac{\alpha t(1-\sqrt{3}i)}{2\sqrt[3]{18}}\\
+    &= \frac{3\alpha t (1+i\sqrt{3})(-2(1+i\sqrt{3}))}{4 \cdot \sqrt[3]{12 \cdot 18^2}}\\
+    &= \frac{-\alpha t (-2 (1 - i \sqrt{3}))}{2 \sqrt[3]{12 \cdot 4 \cdot 3}}\\
+    &= \frac{\alpha t (1-i\sqrt{3})}{\sqrt[3]{2^4 \cdot 3^2}}\\
+    &= \frac{\alpha t (1-i\sqrt{3}}{2 \sqrt[3]{18}}\\
     \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {4}}} &= - \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}}\right)^3\\
-    &= -\frac{(1-3i\sqrt{3} - 3 \cdot 3 + i \sqrt{27}) t^3}{8 \cdot 18}\\
-    &=- \frac{t^3 (-8)}{8 \cdot 18}\\
+    &=- \frac{(-8) t^3}{8 \cdot 18}\\
     &= \frac{t^3}{18}
 \end{align}
 
@@ -37,10 +34,10 @@ Now get back to the original equation:
 \begin{align}
     0 &\stackrel{!}{=} x^3 + \alpha x + \beta \\
        &= \left (\frac{-2 \alpha^3}{3 t^3}
-        + \frac{-\alpha^2(2+\sqrt{3}i)}{2t\sqrt[3]{12}}
+        + \color{red}\frac{-\alpha^2(1+\sqrt{3}i)}{t\sqrt[3]{12}}\color{black}
         + \color{blue}\frac{\alpha t(1-\sqrt{3}i)}{2\sqrt[3]{18}}\color{black}
         + \frac{t^3}{18} \right )\\
-    &\hphantom{{}=} + \color{blue}\alpha\color{black} \left (\frac{(1+i \sqrt{3})\alpha}{\sqrt[3]{12} \cdot t}
+    &\hphantom{{}=} + \alpha \left (\color{red}\frac{(1+i \sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \color{black}
      \color{blue}-\frac{(1-i\sqrt{3}) t}{2\sqrt[3]{18}} \color{black} \right ) + \beta\\
     &= \frac{-2 \alpha^3}{3 t^3}
     + \frac{\alpha^2(2(1+i\sqrt{3})-(2+\sqrt{3}i))}{2t\sqrt[3]{12}}

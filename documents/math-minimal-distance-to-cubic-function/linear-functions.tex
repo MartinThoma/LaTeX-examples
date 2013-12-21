@@ -1,7 +1,13 @@
 \chapter{Linear function}
 \section{Defined on $\mdr$}
-Let $f(x) = m \cdot x + t$ with $m \in \mdr \setminus \Set{0}$ and 
-$t \in \mdr$ be a linear function.
+\begin{theorem}[Solution formula for linear functions on $\mdr$]
+    Let $f: \mdr \rightarrow \mdr $ be a linear function 
+    $f(x) := m \cdot x + t$ with $m \in \mdr \setminus \Set{0}$ and 
+    $t \in \mdr$ be a linear function.
+
+    Then the points $(x, f(x))$ with minimal distance are given by:
+    \[x = \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )\]
+\end{theorem}
 
 \begin{figure}[htp]
     \centering
@@ -39,30 +45,32 @@ $t \in \mdr$ be a linear function.
     \label{fig:linear-min-distance}
 \end{figure}
 
-Now you can drop a perpendicular $f_\bot$ through $P$ on $f(x)$. The 
-slope of $f_\bot$ is $- \frac{1}{m}$ and $t_\bot$ can be calculated:\nobreak
-\begin{align}
-                 f_\bot(x) &= - \frac{1}{m} \cdot x + t_\bot\\
-    \Rightarrow        y_P &= - \frac{1}{m} \cdot x_P + t_\bot\\
-    \Leftrightarrow t_\bot &= y_P + \frac{1}{m} \cdot x_P
-\end{align}
+\begin{proof}
+    Now you can drop a perpendicular $f_\bot$ through $P$ on $f(x)$. The 
+    slope of $f_\bot$ is $- \frac{1}{m}$ and $t_\bot$ can be calculated:\nobreak
+    \begin{align}
+                     f_\bot(x) &= - \frac{1}{m} \cdot x + t_\bot\\
+        \Rightarrow        y_P &= - \frac{1}{m} \cdot x_P + t_\bot\\
+        \Leftrightarrow t_\bot &= y_P + \frac{1}{m} \cdot x_P
+    \end{align}
 
-The point $(x, f(x))$ where the perpendicular $f_\bot$ crosses $f$
-is calculated this way:
-\begin{align}
-    f(x) &= f_\bot(x)\\
-    \Leftrightarrow m \cdot x + t &= - \frac{1}{m} \cdot x + \left(y_P + \frac{1}{m} \cdot x_P \right)\\
-    \Leftrightarrow \left (m + \frac{1}{m} \right ) \cdot x &= y_P + \frac{1}{m} \cdot x_P - t\\
-    \Leftrightarrow x &= \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )\label{eq:solution-of-the-linear-problem}
-\end{align}
+    The point $(x, f(x))$ where the perpendicular $f_\bot$ crosses $f$
+    is calculated this way:
+    \begin{align}
+        f(x) &= f_\bot(x)\\
+        \Leftrightarrow m \cdot x + t &= - \frac{1}{m} \cdot x + \left(y_P + \frac{1}{m} \cdot x_P \right)\\
+        \Leftrightarrow \left (m + \frac{1}{m} \right ) \cdot x &= y_P + \frac{1}{m} \cdot x_P - t\\
+        \Leftrightarrow x &= \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )\label{eq:solution-of-the-linear-problem}
+    \end{align}
 
-There is only one point with minimal distance. I'll call the result
-from line~\ref{eq:solution-of-the-linear-problem} \enquote{solution of 
-the linear problem} and the function that gives this solution 
-$S_1(f,P)$.
+    There is only one point with minimal distance. I'll call the result
+    from line~\ref{eq:solution-of-the-linear-problem} \enquote{solution of 
+    the linear problem} and the function that gives this solution 
+    $S_1(f,P)$.
 
-See Figure~\ref{fig:linear-min-distance}
-to get intuition about the geometry used.
+    See Figure~\ref{fig:linear-min-distance}
+    to get intuition about the geometry used. $\qed$
+\end{proof}
 \clearpage
 
 \section{Defined on a closed interval $[a,b] \subseteq \mdr$}
