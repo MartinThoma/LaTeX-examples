@@ -46,30 +46,18 @@
 \end{figure}
 
 \begin{proof}
-    Now you can drop a perpendicular $f_\bot$ through $P$ on $f(x)$. The 
-    slope of $f_\bot$ is $- \frac{1}{m}$ and $t_\bot$ can be calculated:\nobreak
+    With Theorem~\ref{thm:fermats-theorem} you get:
     \begin{align}
-                     f_\bot(x) &= - \frac{1}{m} \cdot x + t_\bot\\
-        \Rightarrow        y_P &= - \frac{1}{m} \cdot x_P + t_\bot\\
-        \Leftrightarrow t_\bot &= y_P + \frac{1}{m} \cdot x_P
+        0 &\stackrel{!}{=} (d_{P,f}(x)^2)'\\
+        &= 2(x-x_P) + 2 (f(x) - y_P)f'(x)\\
+        \Leftrightarrow 0 &\stackrel{!}{=} x - x_P + (f(x) - y_P) f'(x)\\
+        &= x- x_P + (mx+t - y_P)\cdot m\\
+        &= x (m+1) + m(t-y_P) - x_P\\
+        \Leftrightarrow x &\stackrel{!}{=} \frac{x_p - m(t-y_p)}{m^2+1}\\
+        &= \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )\label{eq:solution-linear-r}
     \end{align}
-
-    The point $(x, f(x))$ where the perpendicular $f_\bot$ crosses $f$
-    is calculated this way:
-    \begin{align}
-        f(x) &= f_\bot(x)\\
-        \Leftrightarrow m \cdot x + t &= - \frac{1}{m} \cdot x + \left(y_P + \frac{1}{m} \cdot x_P \right)\\
-        \Leftrightarrow \left (m + \frac{1}{m} \right ) \cdot x &= y_P + \frac{1}{m} \cdot x_P - t\\
-        \Leftrightarrow x &= \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )\label{eq:solution-of-the-linear-problem}
-    \end{align}
-
-    There is only one point with minimal distance. I'll call the result
-    from line~\ref{eq:solution-of-the-linear-problem} \enquote{solution of 
-    the linear problem} and the function that gives this solution 
-    $S_1(f,P)$.
-
-    See Figure~\ref{fig:linear-min-distance}
-    to get intuition about the geometry used. $\qed$
+    It is obvious that a minium has to exist, the $x$ from Equation~\ref{eq:solution-linear-r}
+    has to be this minimum.
 \end{proof}
 \clearpage
 

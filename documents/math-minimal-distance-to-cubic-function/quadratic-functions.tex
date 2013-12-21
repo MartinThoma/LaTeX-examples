@@ -45,12 +45,12 @@ In this case, $d_{P,f}^2$ is polynomial of degree 4.
 We use Theorem~\ref{thm:fermats-theorem}:\nobreak
 \begin{align}
     0     &\overset{!}{=} (d_{P,f}^2)'\\
-          &= -2 x_p + 2x -2y_p f'(x) + \left (f(x)^2 \right )'\\
-          &= -2 x_p + 2x -2y_p f'(x) + 2 f(x) \cdot f'(x) \rlap{\hspace*{3em}(chain rule)}\label{eq:minimizingFirstDerivative}\\
-\Leftrightarrow 0 &\overset{!}{=} -x_p + x -y_p f'(x) + f(x) \cdot f'(x) \rlap{\hspace*{3em}(divide by 2)}\label{eq:minimizingFirstDerivative}\\
-          &= -x_p + x -y_p (2ax+b) + (ax^2+bx+c)(2ax+b)\\
-          &= -x_p + x -y_p \cdot 2ax- y_p b + (2 a^2 x^3+2 a b x^2+2 a c x+ab x^2+b^2 x+bc)\\
-          &= -x_p + x -2y_p ax- y_p b + (2a^2 x^3 + 3 ab x^2 + 2acx + b^2 x + bc)\\
+          &= 2x -2 x_p -2y_p f'(x) + \left (f(x)^2 \right )'\\
+          &= 2x -2 x_p -2y_p f'(x) + 2 f(x) \cdot f'(x) \rlap{\hspace*{3em}(chain rule)}\label{eq:minimizingFirstDerivative}\\
+\Leftrightarrow 0 &\overset{!}{=} x -x_p -y_p f'(x) + f(x) \cdot f'(x) \rlap{\hspace*{3em}(divide by 2)}\label{eq:minimizingFirstDerivative}\\
+          &= x -x_p -y_p (2ax+b) + (ax^2+bx+c)(2ax+b)\\
+          &= x -x_p -y_p \cdot 2ax- y_p b + (2 a^2 x^3+2 a b x^2+2 a c x+ab x^2+b^2 x+bc)\\
+          &= x -x_p -2y_p ax- y_p b + (2a^2 x^3 + 3 ab x^2 + 2acx + b^2 x + bc)\\
           &= 2a^2 x^3 + 3 ab x^2 + (1 -2y_p a+ 2ac + b^2)x +(bc-by_p-x_p)\label{eq:quadratic-derivative-eq-0}
 \end{align}
 
@@ -68,12 +68,11 @@ has to be a solution to the given problem.
         &= x(2x^2-3)\\
         \Rightarrow x_{1,2} &= \pm \sqrt{\frac{3}{2}} \text{ and } x_3 = 0\\
         d_{P,f}(x_3) &= \sqrt{0^2 + (-1-1)^2} = 2\\
-        d_{P,f} \left (+ \sqrt{\frac{3}{2}} \right ) &= \sqrt{\left (\sqrt{\frac{3}{2} - 0} \right )^2 + \left (\frac{1}{2}-1 \right )^2}\\
+        d_{P,f} \left (\pm \sqrt{\frac{3}{2}} \right ) &= \sqrt{\left (\sqrt{\frac{3}{2} - 0} \right )^2 + \left (\frac{1}{2}-1 \right )^2}\\
             &= \sqrt{\nicefrac{3}{2}+\nicefrac{1}{4}} \\
             &= \sqrt{\nicefrac{7}{4}}\\
-            &= d_{P,f} \left (- \sqrt{\frac{3}{2}} \right )
     \end{align}
-    This means $x_3$ is not a point of minimal distance, but with
+    This means $x_3$ is not a point of minimal distance, although
     $(d_{P,f}(x_3))' = 0$.
 \end{example}
 
@@ -125,8 +124,8 @@ Then compute:
     &= \sqrt{x^2 + (ax^2-w)^2}\\
     &= \sqrt{x^2 + a^2 x^4-2aw x^2+w^2}\\
     &= \sqrt{a^2 x^4 + (1-2aw) x^2 + w^2}\\
-    &= \sqrt{\left (a x^2 + \frac{1-2 a w}{2a} \right )^2 + w^2 - (\frac{1-2 a w}{2a})^2}\\
-    &= \sqrt{\left (a x^2 + \nicefrac{1}{2a}- w \right )^2 + \big (w^2 - (\frac{1-2 a w}{2a})^2 \big)}
+    &= \sqrt{\left (a x^2 + \frac{1-2 a w}{2a} \right )^2 + w^2 - \left (\frac{1-2 a w}{2a} \right )^2}\\
+    &= \sqrt{\left (a x^2 + \nicefrac{1}{2a}- w \right )^2 + \left (w^2 - \left (\frac{1-2 a w}{2a} \right )^2 \right)}
 \end{align}
 
 The term 

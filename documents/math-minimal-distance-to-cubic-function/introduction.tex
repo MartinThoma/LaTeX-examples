@@ -3,7 +3,7 @@ When you want to develop a selfdriving car, you have to plan which path
 it should take. A reasonable choice for the representation of
 paths are cubic splines. You also have to be able to calculate
 how to steer to get or to remain on a path. A way to do this
-is applying the \href{https://en.wikipedia.org/wiki/PID_algorithm}{PID algorithm}.
+is by applying the \href{https://en.wikipedia.org/wiki/PID_algorithm}{PID algorithm}.
 This algorithm needs to know the signed current error. So you need to 
 be able to get the minimal distance of a point (the position of the car)
 to a cubic spline (the prefered path)
@@ -13,7 +13,7 @@ be prefered), it is not only necessary to
 get the minimal absolute distance, but might also help to get all points
 on the spline with minimal distance.
 
-In this paper I want to discuss how to find all points on a cubic 
+In this paper, I want to discuss how to find all points on a cubic 
 function with minimal distance to a given point.
 As other representations of paths might be easier to understand and
 to implement, I will also cover the problem of finding the minimal
@@ -21,7 +21,7 @@ distance of a point to a polynomial of degree 0, 1 and 2.
 
 While I analyzed this problem, I've got interested in variations
 of the underlying PID-related problem. So I will try to give
-robust and easy-to-implement algorithms to calculated the distance
+robust and easy-to-implement algorithms to calculate the distance
 of a point to a (piecewise or global) defined polynomial function
 of degree $\leq 3$.
 
