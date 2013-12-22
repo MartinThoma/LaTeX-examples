@@ -21,7 +21,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{korollar}[Mengen, die offen und abgeschlossen sind, existieren]
     Betrachte $\emptyset$ und $X$ mit der \enquote{trivialen Topologie}
-    \xindex{Topologie!triviale}\index{Klumpentopologie|see{triviale Topologie}} $\fT_\text{triv} = \Set{\emptyset, X}$.
+    \xindex{Topologie!triviale}\index{Klumpentopologie|see{triviale Topologie}} $\fT_{\ts{triv}} = \Set{\emptyset, X}$.
 
     Es gilt: $X \in \fT$ und $\emptyset \in \fT$, d.~h. $X$ und $\emptyset$
     sind offen. Außerdem $X^C = X \setminus X = \emptyset \in \fT$
@@ -33,8 +33,8 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \begin{enumerate}[label=\arabic*)]
         \item $X = \mdr^n$ mit der euklidischen Metrik. \xindex{Topologie!euklidische}
               \begin{align*}
-                U \subseteq \mdr^n \text{ offen} \gdw &\text{ für jedes } x \in U \text{ gibt es } r > 0,\\
-                                                      &\text{ sodass } \fB_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U
+                U \subseteq \mdr^n \text{ offen} \gdw &\text{ für jedes $x \in U$ gibt es $r > 0$,}\\
+                                                      &\text{ sodass $\fB_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U$}
               \end{align*}
               Also: $\fT = \Set{M \subseteq X | M \text{ ist offene Kugel}}$. 
               Diese Topolgie wird auch \enquote{Standardtopologie des $\mdr^n$}\xindex{Standardtopologie} genannt.
@@ -310,7 +310,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
         \item $f$ heißt \textbf{Homöomorphismus}\xindex{Homöomorphismus}, wenn $f$ stetig ist
               und es eine 
               stetige Abbildung  $g: Y \rightarrow X$ gibt, sodass
-              $g \circ f = \text{id}_X$ und $f \circ g = \text{id}_Y$.
+              $g \circ f = \id_X$ und $f \circ g = \id_Y$.
     \end{enumerate}
 \end{definition}
 
@@ -357,7 +357,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*)]
-        \item Für jeden topologischen Raum $X$ gilt: $\text{Id}_X : X \rightarrow X$
+        \item Für jeden topologischen Raum $X$ gilt: $\id_X : X \rightarrow X$
               ist Homöomorphismus.
         \item Ist $Y$ trivialer topologischer Raum, d.~h. $\fT = \fT_\text{triv}$,
               so ist jede Abbildung $f:X \rightarrow Y$ stetig.
@@ -406,7 +406,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
               eine Gruppe.\xindex{Homöomorphismengruppe}
         \item Jede Isometrie $f:X \rightarrow Y$ zwischen metrischen 
               Räumen ist ein Homöomorphismus.
-        \item $\text{Isom}(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
+        \item $\Iso(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
               eine Untergruppe von $\text{Homöo}(X)$ für jeden
               metrischen Raum $X$.
     \end{enumerate}
@@ -936,7 +936,7 @@ $\qed$
         \centering
         \subfloat[Trivialer Knoten]{
             \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-unknot.png} 
-            \label{fig:knot-trefoil}
+            \label{fig:knot-unknot}
         }%
         \subfloat[Kleeblattknoten]{
             \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-trefoil-knot.png} 
@@ -944,7 +944,7 @@ $\qed$
         }%
         \subfloat[Achterknoten]{
             \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-eight-knot.png} 
-            \label{fig:knot-trefoil}
+            \label{fig:knot-eight-knot}
         }%
         \subfloat[$6_2$-Knoten]{
             \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-6-2-knot.png} 

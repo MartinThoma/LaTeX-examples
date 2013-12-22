@@ -14,7 +14,7 @@
         \input{figures/topology-non-homotop-paths.tex}
         \label{fig:nicht-homotope-wege-anschaulich}
     }
-    \label{Formen}
+    \label{fig:paths-homotop-example-counterexample}
     \caption{Beispiele für Wege $\gamma_1$ und $\gamma_2$}
 \end{figure}
 
@@ -75,7 +75,7 @@
                 \centering
                 \input{figures/topology-paths-in-r2.tex}
                 \caption{Zwei Wege im $\mdr^2$ mit Anfangs- und Enpunkt $(0,0)$}
-                \label{fig:torus-three-paths}
+                \label{fig:paths-from-origin}
               \end{figure}
 
               Sei $\gamma_0: I \rightarrow \mdr^2$ der konstante Weg
@@ -97,7 +97,7 @@
             \includegraphics[width=0.45\linewidth, keepaspectratio]{figures/torus-three-paths.pdf}
             \label{fig:torus-three-paths}
         }%
-        \label{Formen}
+        \label{fig:homotop-paths}
         \caption{Beispiele für (nicht)-homotopie von Wegen}
     \end{figure}
 \end{beispiel}
@@ -338,10 +338,10 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
 \begin{beweis}
     Sei $g: Y \rightarrow X$ die Umkehrabbildung, d.~h. $g$ ist stetig
-    und $f \circ g = \text{id}_Y$, $g \circ f = \text{id}_X$
+    und $f \circ g = \id_Y$, $g \circ f = \id_X$
 
-    $\Rightarrow f_* \circ g_* = (f \circ g)_* = (\text{id}_Y)_* = \text{id}_{\pi_1 (Y, f(X)}$
-    und $g_* \circ f_* = \text{id}_{\pi_1(X,x)}$.
+    $\Rightarrow f_* \circ g_* = (f \circ g)_* = (\id_Y)_* = \id_{\pi_1 (Y, f(X)}$
+    und $g_* \circ f_* = \id_{\pi_1(X,x)}$.
 \end{beweis}
 
 \begin{definition}\xindex{Abbildung!homotope}
@@ -369,18 +369,18 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{beweis}
 
 \begin{beispiel}
-    $f:X \rightarrow Y, g: Y \rightarrow X$ mit $g \circ f \sim \text{id}_X,$
-    $f \circ g \sim \text{id}_Y$
+    $f:X \rightarrow Y, g: Y \rightarrow X$ mit $g \circ f \sim \id_X,$
+    $f \circ g \sim \id_Y$
 
     $\Rightarrow f_*$ ist Isomorphismus. Konkret: $f: \mdr^2 \rightarrow \Set{0},$
     $g:\Set{0} \rightarrow \mdr^2$
 
-    $\Rightarrow f \circ g = \text{id}_{\Set{0}}$, $g \circ f: \mdr^2 \rightarrow \mdr^2$,
+    $\Rightarrow f \circ g = \id_{\Set{0}}$, $g \circ f: \mdr^2 \rightarrow \mdr^2$,
     $x \mapsto 0$ für alle $x$.
 
-    $g \circ f \sim \text{id}_{\mdr^2}$ mit Homotopie: $H: \mdr^2 \times I \rightarrow \mdr^2, H(x,S) = (1-s) x$ (stetig!)
+    $g \circ f \sim \id_{\mdr^2}$ mit Homotopie: $H: \mdr^2 \times I \rightarrow \mdr^2, H(x,S) = (1-s) x$ (stetig!)
 
-    $\Rightarrow H(X,0) = X = \text{id}_{\mdr^2} (X), H(X, 1) = 0, H(0, s) = 0$ für alle $s \in I$
+    $\Rightarrow H(X,0) = X = \id_{\mdr^2} (X), H(X, 1) = 0, H(0, s) = 0$ für alle $s \in I$
 \end{beispiel}
 
 \begin{satz}[Satz von Seifert und van Kampen \enquote{light}]\label{thm:seifert-van-kampen}
@@ -466,7 +466,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
             \resizebox{0.3\linewidth}{!}{\input{figures/topology-ueberlagerung.tex}}
             \label{fig:liftung-s1-s1}
         }%
-        \label{Formen}
+        \label{fig:ueberlagerungen}
         \caption{Beispiele für Überlagerungen}
     \end{figure}
 \end{beispiel}
@@ -822,9 +822,9 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     Also ist $g \circ f: \tilde{X} \rightarrow \tilde{X}$ Lift von 
     $p:\tilde{X} \rightarrow X$ mit $(g \circ f) (\tilde{x_0}) = \tilde{x_0}$.
 
-    Da auch $\text{id}_{\tilde{x}}$ diese Eigenschaft hat, folgt mit
-    Korollar~\ref{kor:12.4}: $g \circ f = \text{id}_{\tilde{X}}$.
-    Analog $f \circ g = \text{id}_{\tilde{Y}}$. $\qed$
+    Da auch $\id_{\tilde{x}}$ diese Eigenschaft hat, folgt mit
+    Korollar~\ref{kor:12.4}: $g \circ f = \id_{\tilde{X}}$.
+    Analog $f \circ g = \id_{\tilde{Y}}$. $\qed$
 \end{beweis}
 
 Die Frage, wann es eine universelle Überlagerung gibt, beantwortet
@@ -877,7 +877,7 @@ der folgende Satz:
 
     $f$ heißt \textbf{Decktransformation} von $p :\gdw p \circ f = p$.
 
-    Ist $p$ eine Decktransformation und $|\text{Deck}(Y/X)| = \deg{p}$,
+    Ist $p$ eine Decktransformation und $|\Deck(Y/X)| = \deg{p}$,
     so heißt $p$ \textbf{regulär}.\xindex{Decktransformation!reguläre}
 \end{definition}
 
@@ -885,12 +885,12 @@ der folgende Satz:
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item Die Decktransformationen von $p$ bilden eine Gruppe, 
               die sog. \textbf{Decktransformationsgruppe}\xindex{Decktransformationsgruppe}
-              $\text{Deck}(p) = \text{Deck}(Y/X) = \text{Deck}(Y \rightarrow X)$
-        \item Ist $f \in \text{Deck}(Y/X)$ und $f \neq \id$, dann hat
+              $\Deck(p) = \Deck(Y/X) = \Deck(Y \rightarrow X)$
+        \item Ist $f \in \Deck(Y/X)$ und $f \neq \id$, dann hat
               $f$ keinen Fixpunkt.
-        \item $|\text{Deck}(Y/X)| \leq \deg{p}$\label{kor:12.14c}
+        \item $|\Deck(Y/X)| \leq \deg{p}$\label{kor:12.14c}
         \item Ist $p$ eine reguläre Decktransformation, dann gilt:
-              $\forall x \in X: \text{Deck}(Y/X)$ operiert transitiv
+              $\forall x \in X: \Deck(Y/X)$ operiert transitiv
               auf der Menge der Urbilder $p^{-1}(x)$.
     \end{enumerate}
 \end{korollar}

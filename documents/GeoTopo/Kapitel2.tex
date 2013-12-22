@@ -162,7 +162,7 @@ U_i = \Set{(x_0: \dots : x_n) \in \praum^n(\mdr) | x_i \neq 0} &\rightarrow \mdr
     Dann gilt:
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item $X$ ist abgeschlossen in $\mdr^n$
-        \item Ist $\text{grad}(F)(X) \neq 0 \;\;\;\forall{x \in X}$, so ist
+        \item Ist $\grad(F)(X) \neq 0 \;\;\;\forall{x \in X}$, so ist
               $X$ eine Mannigfaltigkeit der Dimension $n-1$.  \label{Mannigfaltigkeitskriterium}
     \end{enumerate}
 \end{korollar}
@@ -174,7 +174,7 @@ U_i = \Set{(x_0: \dots : x_n) \in \praum^n(\mdr) | x_i \neq 0} &\rightarrow \mdr
               mit $\varepsilon = \frac{1}{2} \|F(y)\|$. Folgt
               $\fB_\delta(y) \cap V(F) = \emptyset \Rightarrow \mdr^n \setminus V(F)$
               ist offen.
-        \item Sei $x \in X$ mit $\text{grad}(F)(x) \neq 0$, also
+        \item Sei $x \in X$ mit $\grad(F)(x) \neq 0$, also
               \obda $\frac{\partial F}{\partial X_1} (x) \neq 0$,
               $x = (x_1, \dots, x_n)$, $x' := (x_2, \dots, x_n) \in \mdr^{n-1}$.
               Der Satz von der impliziten Funktion liefert nun:
@@ -190,7 +190,7 @@ U_i = \Set{(x_0: \dots : x_n) \in \praum^n(\mdr) | x_i \neq 0} &\rightarrow \mdr
 \begin{beispiel}\xindex{Neilsche Parabel}
     \begin{enumerate}[label=\alph*)]
         \item $F: \mdr^3 \rightarrow \mdr,\;\;\; (x, y, z) \mapsto x^2 + y^2 + z^2 - 1$,
-              $V(F) = S^2$, $\text{grad}(F) = (2x, 2y, 2z) \xRightarrow{\ref{Mannigfaltigkeitskriterium}} S^n$
+              $V(F) = S^2$, $\grad(F) = (2x, 2y, 2z) \xRightarrow{\ref{Mannigfaltigkeitskriterium}} S^n$
               ist $n$-dimensionale Mannigfaltigkeit in $\mdr^{n+1}$
         \item $F: \mdr^2 \rightarrow \mdr, \;\;\; (x,y) \mapsto y^2 - x^3$
             \begin{figure}[ht]
@@ -206,7 +206,7 @@ U_i = \Set{(x_0: \dots : x_n) \in \praum^n(\mdr) | x_i \neq 0} &\rightarrow \mdr
                 \label{Neilsche-Parabel}
                 \caption{Rechts ist die Neilsche Parabel für verschiedene Parameter $a$.}
             \end{figure}
-              Es gilt: $\text{grad}(F) = (-3x^2, 2y)$. Also: $\text{grad}(0,0) = (0,0)$.
+              Es gilt: $\grad(F) = (-3x^2, 2y)$. Also: $\grad(0,0) = (0,0)$.
               Daher ist Korollar \ref{Mannigfaltigkeitskriterium}
               nicht anwendbar, aber $V(F)$ ist trotzdem
               eine 1-dimensionale topologische Mannigfaltigkeit.
@@ -328,8 +328,8 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \item $f$ heißt \textbf{Diffeomorphismus}\xindex{Diffeomorphismus},
               wenn $f$ differenzierbar von Klasse $C^\infty$ ist und
               es eine differenzierbare Abbildung $g: Y \rightarrow X$
-              von Klasse $C^\infty$ gibt mit $g \circ f = \text{id}_X$
-              und $f \circ g = \text{id}_Y$.
+              von Klasse $C^\infty$ gibt mit $g \circ f = \id_X$
+              und $f \circ g = \id_Y$.
     \end{enumerate}
 \end{definition}
 
@@ -352,7 +352,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \begin{beispiel}
     $f: \mdr \rightarrow \mdr, \;\;\; x \mapsto x^3$ ist kein
     Diffeomorphismis, aber Homöomorphismus, da mit $g(x) := \sqrt[3]{x}$
-    gilt: $f \circ g = \text{id}_\mdr, \;\;\; g \circ f = \text{id}_\text{\mdr}$
+    gilt: $f \circ g = \id_\mdr, \;\;\; g \circ f = \id_\text{\mdr}$
 \end{beispiel}
 
 \begin{bemerkung}
@@ -401,7 +401,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
                     \includegraphics[width=0.8\linewidth, keepaspectratio]{figures/sin-cos.pdf}
                     \label{fig:sin-cos}
                 }%
-                \label{Formen}
+                \label{fig:example-image-gallery-1}
                 %\caption{}
             \end{figure}
 
@@ -510,7 +510,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*)]
         \item Alle endlichen Gruppen sind 0-dimensionale Lie-Gruppen.
-        \item $\text{GL}_n(\mdr)$
+        \item $\GL_n(\mdr)$
         \item $(\mdr^\times, \cdot)$
         \item $(\mdr_{>0}, \cdot)$
         \item $(\mdr^n, +)$, denn $A \cdot B (i,j) = \sum_{k=1}^n a_{ik} b_{kj}$ ist
@@ -528,9 +528,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
             $\det A_{ij}$ kann $0$ werden, da:
             \[\begin{pmatrix}1 & 1\\-1&0\end{pmatrix}\]
-        \item $\text{SL}_n(\mdr) = \Set{A \in \text{GL}_n(\mdr) | \text{det}(A) = 1} $ \todo{Besser strukturieren}
+        \item $\SL_n(\mdr) = \Set{A \in \GL_n(\mdr) | \text{det}(A) = 1} $ \todo{Besser strukturieren}
 
-              $\text{grad}(\det-1)(A) = 0$?
+              $\grad(\det-1)(A) = 0$?
 
               $\frac{\partial}{\partial a_{11}} (\det -1) = 1 \cdot \det A_{11}$
 
@@ -727,7 +727,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     definiert ein $k$-Simplex.\\
     $\Rightarrow a_k(\Delta^n) = \binom{n+1}{k+1}, \;\;\; k = 0, \dots, n$\\
     $\Rightarrow \chi(\Delta^n) = \sum_{k=0}^n (-1)^k \binom{n+1}{k+1}$\\
-    $f(x) = (x+1)^{n+1} \stackrel{\substack{\tiny\text{Binomischer}\\\text{Lehrsatz}}}{=} \sum_{k=0}^{n+1} \binom{n+1}{k} x^k$\\
+    $f(x) = (x+1)^{n+1} \stackrel{\substack{\text{\tiny{Binomischer}}\\\text{\tiny{Lehrsatz}}}}{=} \sum_{k=0}^{n+1} \binom{n+1}{k} x^k$\\
     $\Rightarrow 0 = \sum_{k=0}^{n+1} \binom{n+1}{k} (-1)^k = \chi(\Delta^n) -1$\\
     $\Rightarrow \chi(\Delta^n) = 1 \qed$
 \end{beweis}
