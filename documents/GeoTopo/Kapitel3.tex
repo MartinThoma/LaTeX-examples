@@ -548,7 +548,7 @@ Haben wir Häufungspunkt definiert?}
     \end{enumerate}
 \end{beweis}
 
-\begin{korollar}%Bemerkung 12.4 der Vorlesung
+\begin{korollar}[Eindeutigkeit der Liftung]\label{kor:12.4}%Bemerkung 12.4 der Vorlesung
     Sei $p: Y \rightarrow X$ Überlagerung, $x_1, x_2 \in X$.
 
     Dann ist $|p^{-1} (x_1)| = |p^{-1}(x_2)|$.\footnote{$|p^{-1} (x_1)| = \infty$ ist erlaubt!}
@@ -686,7 +686,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
 
 \begin{korollar}%In Vorlesung: "Folgerung 12.8"
     Sei $p: Y \rightarrow X$ eine Überlagerung, $x_0 \in X, y_0 \in p^{-1}(x_0)$
-    \begin{enumerate}[label=\alph*)]
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item $p_1: \pi_1(Y, y_0) \rightarrow \pi_1(X, x_0)$ ist injektiv\label{kor:12.8a}
         \item $[\pi_1(X, x_0): p_* (\pi_1(Y, y_0))] = \deg(p)$\label{kor:12.8b}
     \end{enumerate}
@@ -753,8 +753,8 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     $S^n \rightarrow \praum^n(\mdr)$ für $n \geq 2$
 \end{beispiel}
 
-\begin{satz}%In Vorlesung: Satz 12.11
-    Sei $p: \tilde{X} \rightarrow X$ universelle Überlagerung,
+\begin{satz}\label{thm:12.11}%In Vorlesung: Satz 12.11
+    Sei $p: \tilde{X} \rightarrow X$ eine universelle Überlagerung,
     $q:Y \rightarrow X$ weitere Überlagerung.
 
     Sei $x_0 \in X, \tilde{x_0} \in \tilde{X}, y_0 \in Y$ mit
@@ -798,6 +798,212 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     $\Rightarrow \tilde{p}$ ist stetig
 \end{beweis}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 19.12.2013                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{korollar}%Vorlesung: Folgerung 12.12
+    \todo{Hier stimmt was mit den Tilden nicht}
+    Sind $p:X \rightarrow X$ und $y: \tilde{Y} \rightarrow X$
+    universelle Überlagerungen, so sind $\tilde{X}$ und $\tilde{Y}$
+    homöomorph.
+\end{korollar}
+
+\begin{beweis}
+    Seien $x_0 \in X, \tilde{x_0} \in \tilde{X}$ mit 
+    $p(\tilde{x_0}) = x_0$ und 
+    $\tilde{y_0} \in q^{-1}(x_0) \subseteq \tilde{Y}$.
+
+    Nach Satz~\ref{thm:12.11} gibt es genau eine Überlagerung
+    \[f:\tilde{X} \rightarrow \tilde{Y} \text{ mit } f(x_0) = \tilde{Y_0} \text{ und } q \circ f = p\]
+    und genau eine Überlagerung
+    \[g: \tilde{Y} \rightarrow \tilde{X} \text{ mit } g(\tilde{y_0}) = \tilde{x_0} \text{ und } p \circ g = q\]
+
+    Damit gilt: $p \circ q \circ f = q \circ f = p$, $q \circ f \circ g = p \circ g = q$.
+    Also ist $g \circ f: \tilde{X} \rightarrow \tilde{X}$ Lift von 
+    $p:\tilde{X} \rightarrow X$ mit $(g \circ f) (\tilde{x_0}) = \tilde{x_0}$.
+
+    Da auch $\text{id}_{\tilde{x}}$ diese Eigenschaft hat, folgt mit
+    Korollar~\ref{kor:12.4}: $g \circ f = \text{id}_{\tilde{X}}$.
+    Analog $f \circ g = \text{id}_{\tilde{Y}}$. $\qed$
+\end{beweis}
+
+Die Frage, wann es eine universelle Überlagerung gibt, beantwortet
+der folgende Satz:
+
+\begin{satz}%In Vorlesung: Satz 12.13
+    Es sei $X$ ein wegzusammenhängender topologischer Raum in dem
+    jeder Punkt eine Umgebungsbasis aus einfach zusammenhängenden
+    Mengen hat.
+
+    Dann gibt es eine universelle Überlagerung.
+\end{satz}
+
+\begin{beweis}
+    Sei $x_0 \in X$ und $\tilde{X} := \Set{(x, [\gamma]) | x \in X, \gamma \text{ Weg von } x_o \text{ nach } x}$
+    und $p: \tilde{X} \rightarrow X, (x, [\gamma]) \mapsto x$.
+
+    Die Topologie auf $\tilde{X}$ ist folgende:
+    Definiere eine Umgebungsbasis von $(x, [\gamma])$ wie folgt:
+    Es sei $U$ eine einfach zusammenhängende Umgebung von $x$ und
+    $\tilde{U} = \tilde{U}(x, [\gamma]) := \Set{(y, [\gamma * \alpha]) | y \in U, \alpha \text{ Weg in } U \text{ von } x} \text{ nach } y$.
+
+    $p$ ist Überlagerung: $p|_{\tilde{U}} : \tilde{U} \rightarrow U$
+    bijektiv. $p$ ist stetig und damit $p|_{\tilde{U}}$ ein 
+    Homöomorphismus.
+
+    Sind $\gamma_1, \gamma_2$ Wege von $x_0$ nach $x$ und $\gamma_1 \sim \gamma_2$,
+    so ist $\tilde{U}(x, [\gamma_1]) \cap \tilde{U}(x, [\gamma_2]) = \emptyset$,
+    denn: Ist $\gamma_1 * \alpha \sim \gamma_2 * \alpha$, so ist auch
+    $\gamma_1 \sim \gamma_2$. Also ist $p$ eine Überlagerung.
+
+    $\tilde{X}$ ist einfach zusammenhängend: Es sei $\tilde{x_0} := (x_0, e)$
+    und $\tilde{\gamma}: I \rightarrow \tilde{X}$ ein geschlossener
+    Weg um $\tilde{x_0}$.
+
+    Sei $\gamma := p(\tilde{\gamma})$.
+
+    \underline{Annahme}: $[\tilde{\gamma}] \neq e$
+
+    Mit Korollar~\ref{kor:12.8a} folgt dann: $[\gamma] \neq e$.
+
+    Dann ist der Lift von $\gamma$ nach $\tilde{x}$ mit Anfangspunkt
+    $\tilde{x_0}$ ein Weg von $\tilde{x_0}$ nach $(x_0, [\gamma])$.
+    Widerspruch.
+\end{beweis}
+
+\begin{definition}\xindex{Decktransformation}%In Vorlesung: Def+Bem 12.14
+    Es sei $p:Y \rightarrow X$ eine Überlagerung und $f:Y \rightarrow Y$
+    ein Homöomorphismus.
+
+    $f$ heißt \textbf{Decktransformation} von $p :\gdw p \circ f = p$.
+
+    Ist $p$ eine Decktransformation und $|\text{Deck}(Y/X)| = \deg{p}$,
+    so heißt $p$ \textbf{regulär}.\xindex{Decktransformation!reguläre}
+\end{definition}
+
+\begin{korollar}%In Vorlesung:12.14
+    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+        \item Die Decktransformationen von $p$ bilden eine Gruppe, 
+              die sog. \textbf{Decktransformationsgruppe}\xindex{Decktransformationsgruppe}
+              $\text{Deck}(p) = \text{Deck}(Y/X) = \text{Deck}(Y \rightarrow X)$
+        \item Ist $f \in \text{Deck}(Y/X)$ und $f \neq \id$, dann hat
+              $f$ keinen Fixpunkt.
+        \item $|\text{Deck}(Y/X)| \leq \deg{p}$\label{kor:12.14c}
+        \item Ist $p$ eine reguläre Decktransformation, dann gilt:
+              $\forall x \in X: \text{Deck}(Y/X)$ operiert transitiv
+              auf der Menge der Urbilder $p^{-1}(x)$.
+    \end{enumerate}
+\end{korollar}
+
+\begin{beweis}\leavevmode
+    \begin{enumerate}[label=\alph*)]
+        \item Es gilt:
+            \begin{itemize}
+                \item $\id_Y \in \Deck{Y/X}$,
+                \item $f,g \in \Deck{Y/X} \Rightarrow p \circ (f \circ g) = (p \circ f) \circ g = p \circ g \Rightarrow f \circ g \in \Deck{Y/X}$
+                \item $f \in \Deck{Y/X} \Rightarrow p \circ f =$
+                      $p \Rightarrow p \circ f^{-1} =$
+                      $(p \circ f) \circ f^{-1} =$
+                      $p \circ (f \circ f^{-1}) = p \Rightarrow f^{-1} \in \Deck{Y/X}$
+            \end{itemize}
+        \item Die Menge
+              \[\Fix(f) = \Set{y \in Y | f(y) = y}\]
+              ist abgeschlossen als Urbild der Diagonale 
+              $\Delta \subseteq Y \times Y$ unter der stetigen
+              Abbildung $y \mapsto (f(y),y)$. Außerdem ist $\Fix(f)$
+              offen, denn ist $y \in \Fix(f)$, so sei $U$ eine 
+              Umgebung von $p(y) \in X$ wie in Definition~\ref{def:12.1}
+              und $U \subseteq p^{-1}(U)$ die Komponente, die $y$
+              enthält; also $p:V \rightarrow U$ ein Homöomorphismus.
+              Dann ist $W := f^{-1}(V) \cap V$ offene Umgebung von $y$.
+
+              Für $z \in W$ ist $f(z) \in V$ und $p(f(z)) = p(z)$.
+              Da $p$ injektiv auf $V$ ist, folgt $f(z) = z$, d.~h.
+              $\Fix(f) \neq \emptyset$.
+
+              Da $Y$ zusammenhängend ist, folgt aus $\Fix(\tilde{f}) \neq \emptyset$
+              schon $\Fix(f) = Y$, also $f = \id_Y$.
+        \item Es sei $x_0 \in X$, $\deg(p) = d$ und $p^{-1}(x_0) = \Set{y_0, \dots, y_{d-1}}$.
+              Für $f \in \Deck(Y/X)$ ist $f(y_0)= \Set{y_0, \dots, y_{d-1}}$.
+
+              Zu $i \in \Set{0, \dots, d-1}$ gibt es höchstens ein 
+              $f \in \Deck(Y/X)$ mit $f(y_0) = y_1$, denn ist
+              $f(y_0) = g(y_0)$, so ist \todo{Was steht hier?}{$(g^{-1} - f) y_0 = y_0$},
+              also nach \ref{kor:12.14c} $g^{-1} \circ f = \id_Y$.
+    \end{enumerate}
+\end{beweis}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*)]
+        \item $p: \mdr \rightarrow S^1: \Deck(\mdr / S^1) = \Set{t \mapsto t + n | n \in \mdz} \cong \mdz$
+        \item $p: \mdr^2 \rightarrow T^2: \Deck(\mdr^2 / T^2) \cong \mdz \times \mdz = \mdz^2$
+        \item $p: S^n \rightarrow \praum^n(\mdr): \Deck(g^n / \praum^n(\mdr)) = \Set{x \mapsto \pm x} \cong \mdz / 2 \mdz$
+    \end{enumerate}
+\end{beispiel}
+
+Nun werden wir eine Verbindung zwischen der Decktransformationsgruppe
+und der Fundamentalgruppe herstellen:
+
+\begin{satz}\label{thm:12.15}%In Vorlesung: Satz 12.15
+    Ist $p: \tilde{X} \rightarrow X$ eine universelle Überlagerung, 
+    so gilt:
+    \[\Deck(\tilde{X}/X) \cong \pi_1(X, x_0)\;\;\;\forall x_0 \in X\]
+\end{satz}
+
+\begin{beweis}
+    Wähle $\tilde{x_0} \in p^{-1}(x_0)$. Es sei $\rho: \Deck(\tilde{x}/x) \rightarrow \pi_1(X, x_0)$
+    die Abbildung, die $f$ auf $[p(\gamma_f)]$ abbildet, wobei $\gamma_f$
+    ein Weg von $\tilde{x_0}$ nach $f(\tilde{x_0})$ sei. Da $\tilde{x}$
+    einfach zusammenhängend ist, ist $\gamma_f$ bis auf Homotopie
+    eindeutig bestimmt und damit auch $\rho$ wohldefiniert.
+
+    \begin{itemize}
+        \item \underline{$\rho$ ist Gruppenhomomorphismus}: Seien 
+            $f, g \in \Deck(\tilde{X}/ X) \Rightarrow \gamma_{g \circ f} = \gamma_g * g(\gamma_f)$
+            $\Rightarrow p(\gamma_{g \circ f}) = p(\gamma_g) * \underbrace{(p \circ g)}_{=p} (\gamma_f) = \rho(g) \neq \rho(f)$
+        \item \underline{$\rho$ ist injektiv}: $\rho(f) = e \Rightarrow p (\gamma_f) \sim \gamma_{x_0}$
+            $\xRightarrow{\ref{thm:ueberlagerung-weg-satz-12.6}} \gamma_f \sim \gamma_{\tilde{x_0}}$ 
+            $\Rightarrow f(x_0) = \tilde{x_0} \xRightarrow{\ref{kor:12.14c}} f = \id_{\tilde{x}}$.
+        \item \underline{$\rho$ ist surjektiv}: Sei $[\gamma] \in \pi_1(X, x_0)$,
+            $\tilde{\gamma}$ Lift von $\gamma$ nach $\tilde{x}$ mit
+            Anfangspunkt $\tilde{x_0}$. Der Endpunkt von $\tilde{\gamma}$
+            sei $\tilde{x_1}$.
+
+            \underline{$p$ ist reguläre Überlagerung}: Seien
+            $\tilde{x_0}, \tilde{x_1} \in \tilde{X}$ mit 
+            $p(\tilde{x_0}) = p(\tilde{x_1})$. Nach Satz~\ref{thm:12.11}
+            gibt es genau eine Überlagerung $\tilde{p}: \tilde{X} \rightarrow X$
+            mit $p=p \circ \tilde{p}$ und $\tilde{p}(\tilde{x_0}) = \tilde{x_1}$.
+            Somit ist $\tilde{p}$ eine Decktransformation und damit
+            $p$ eine reguläre Überlagerung.
+
+            Da $p$ reguläre Überlagerung ist, gibt es ein $f \in \Deck(\tilde{X}/X)$
+            mit $f(\tilde{x_0}) = \tilde{x_1}$.
+
+            Aus der Definition von $\rho$ folgt: $\rho(f) = p (\gamma_f) = \gamma$
+    \end{itemize}
+            $\qed$
+\end{beweis}
+
+\begin{beispiel}[Bestimmung von $\pi_1(S^1)$]
+    $p: \mdr \rightarrow S^1$, $t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$
+    ist universelle Überlagerung, da $\mdr$ zusammenhängend ist.
+
+    Für $n \in \mdz$ sei $f_n: \mdr \rightarrow \mdr, t \mapsto t + n$
+    die Translation um $n$.
+
+    Es gilt: $(p \circ f_n)(t) = p(f_n(t)) = p(t) \;\;\; \forall t \in \mdr$,
+    d.~h. $f_n$ ist Decktransformation.
+
+    Ist umgekehrt $g$ irgendeine Decktransformation, so gilt insbesondere
+    für $t=0$:
+    \[(\cos(2 \pi g(0)), \sin(2 \pi g(0))) = (p \circ g)(0) = p(0) = (1,0)\]
+
+    Es existiert $n \in \mdz$ mit $g(0) = n$. Da auch $f_n(0) = 0 + n = n$
+    gilt, folg mit Korollar~\ref{kor:12.14c} $g = f_n$. Damit folgt:
+    \[\Deck(\mdr/S^1) = \Set{f_n | n \in \mdz} \cong \mdz\]
+    Nach Satz~\ref{thm:12.15} also $\pi_1(S^1) \cong \Deck(\mdr/S^1) \cong \mdz$
+\end{beispiel}
 \index{Ueberlagerung@""Uberlagerung|)}
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel3-UB}
