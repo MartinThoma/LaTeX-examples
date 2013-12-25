@@ -40,8 +40,23 @@ Now get back to the original equation:
     &\hphantom{{}=} + \alpha \left (\color{red}\frac{(1+i \sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \color{black}
      \color{blue}-\frac{(1-i\sqrt{3}) t}{2\sqrt[3]{18}} \color{black} \right ) + \beta\\
     &= \frac{-2 \alpha^3}{3 t^3}
-    + \frac{\alpha^2(2(1+i\sqrt{3})-(2+\sqrt{3}i))}{2t\sqrt[3]{12}}
     + \frac{t^3}{18}
     + \beta\\
-    &= \frac{-24 \alpha^3 + (3\sqrt[3]{18}t^2)(\alpha^2\sqrt{3}i) + 2t^3+36 t^3 \beta}{36t^3}
+    &= \frac{-12 \alpha^3 + t^6+18 t^3 \beta}{18t^3}
+\end{align}
+
+Now continue with only the numerator
+\begin{align}
+    0 &\stackrel{!}{=}
+    - 12 \alpha^3 
+    + (\sqrt{3(4 \alpha^3 + 27 \beta^2)}-9\beta)^2
+    + 18 (\sqrt{3(4 \alpha^3 + 27 \beta^2)} - 9 \beta) \beta\\
+    &= 
+    \color{red}- 12 \alpha^3 \color{black}+
+    \left (
+        3(\color{red}4 \alpha^3\color{black} + \color{blue}27 \beta^2 \color{black})
+        \color{orange}- 2 \cdot \sqrt{3(4 \alpha^3 + 27 \beta^2)} \cdot 9\beta\color{black}
+        + \color{blue}81 \beta^2\color{black}
+    \right )\\
+    &\hphantom{{}=}+ 18 \beta (\color{orange}\sqrt{3(4 \alpha^3 + 27 \beta^2)}\color{black} \color{blue}- 9 \beta\color{black}) 
 \end{align}
