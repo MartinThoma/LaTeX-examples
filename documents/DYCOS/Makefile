@@ -2,6 +2,8 @@ DOKUMENT = DYCOS
 
 make:
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen erstellen
+	bibtex $(DOKUMENT)
+	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen einbinden
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen einbinden
 	make clean
 

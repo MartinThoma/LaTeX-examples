@@ -1,3 +1,46 @@
+\subsection{Motivation}
+Teilweise gelabelte Netzwerke sind allgegenwärtig. Publikationsdatenbanken
+mit Publikationen als Knoten, Literaturverweisen und Zitaten als Kanten
+sowie Tags oder Kategorien als Labels;
+Wikipedia mit Artikeln als Knoten, Links als Kanten und Kategorien
+als Labels sowie soziale Netzwerke mit Eigenschaften der Benutzer
+sind drei Beispiele dafür.
+Da Labels nur teilweise vorhanden sind, ist es wünschenswert die 
+fehlenden Labels zu ergänzen. 
+
+\subsection{Problemstellung}
+Das Knotenklassifierungsproblem sei wie folgt definiert:\\
+
+\begin{definition}[Knotenklassifierungsproblem]\label{def:Knotenklassifizierungsproblem}
+    Sei $\G_t = (\N_t, \A_t, \T_t)$ ein Netzwerk,
+    wobei $\N_t$ die Menge aller Knoten,
+    $\A_t$ die Kantenmenge und $\T_t \subseteq \N_t$ die Menge Knoten mit Labels 
+    jeweils zum Zeitpunkt $t$ bezeichne.
+    Außerdem sei $\L_t$ die Menge aller zum Zeitpunkt $t$ vergebenen
+    Labels und $f:\T_t \rightarrow \L_t$ die Funktion, die einen
+    Knoten auf sein Label abbildet.
+
+    Gesucht sind nun Labels für $\N_t \setminus \T_t$, also
+    $\tilde{f}:\N_t \rightarrow \L_t$ mit 
+    $\tilde{f}|_{\T_t} = f$.
+\end{definition}
+
+Wir haben häufig zusätzlich zu dem Graphen $\G_t$ und der Label-Funktion
+$f$ aus Definition~\ref{def:Knotenklassifizierungsproblem} noch
+textuelle Inhalte, die Knoten zugeornet werden. 
+
+
+\subsection{Herausforderungen}
+Die beispielhaft aufgeführen Netzwerke sind viele 
+$\num{10000}$~Knoten groß und dynamisch. Das bedeutet, es kommen
+neue Knoten und eventuell auch neue Kanten hinzu bzw. Kanten oder
+Knoten werden entfernt.Außerdem stehen 
+textuelle Inhalte zu den Knoten bereit, die bei der Klassifikation 
+genutzt werden können.
+
+Der DYCOS-Algorithmus nutzt diese und kann auf große, dynamische
+Netzwerken angewandt werden.
+
 Der DYCOS-Algorithmus nutzt Random Walks im Graphen, startend 
 von dem zu klassifizierenden Knoten $n$. Dabei wird pro Random Walk
 gezählt, welche Klasse $K$ am häufigsten gesehen wird. Der Knoten $n$

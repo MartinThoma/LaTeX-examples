@@ -17,13 +17,16 @@
 \usepackage{listings}
 \usepackage{subfigure}
 \usepackage{hyperref}
+\usepackage{cite}
+\usepackage{parskip}
+\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
 \usepackage{mystyle}
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
 \hypersetup{ 
-  pdftitle    = {Über die Klassifizierung von Knoten in einem dynamischen Netzwerk mit Inhalt},
+  pdftitle    = {"Uber die Klassifizierung von Knoten in dynamischen Netzwerken mit Inhalt},
   pdfauthor   = {Martin Thoma}, 
   pdfkeywords = {DYCOS}
 }
@@ -31,10 +34,10 @@
 \begin{document}
 
 \mainmatter
-\title{\"Uber die Klassifizierung von Knoten in einem dynamischen Netzwerk mit Inhalt}
-\titlerunning{Titel der Seminararbeit}
+\title{\"Uber die Klassifizierung von Knoten in dynamischen Netzwerken mit Inhalt}
+\titlerunning{\"Uber die Klassifizierung von Knoten in dynamischen Netzwerken mit Inhalt}
 \author{Martin Thoma}
-\authorrunning{Titel des Seminars}
+\authorrunning{Proseminar Netzwerkanalyse}
 \institute{Betreuer: Christopher O\ss{}ner}
 \date{17.01.2014}
 \maketitle
@@ -42,15 +45,19 @@
 \begin{abstract}%
 \input{abstract}
 \end{abstract}
+\clearpage
 
 \section{Einleitung}
 \input{Einleitung}
 
-\section{Notation}
-\input{Notation}
+\section{Abgrenzung}
+\input{Abgrenzung}
 
-\section{Inhalte}
-\input{Inhalte}
+\section{DYCOS}
+\input{DYCOS-Algorithmus}
+
+\section{Ausblick}
+\input{Ausblick}
 
 % Normaler LNCS Zitierstil
 %\bibliographystyle{splncs}
