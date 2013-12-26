@@ -1,0 +1,47 @@
+\documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
+\usepackage{etoolbox}
+\usepackage{amsmath,amssymb}% math symbols / fonts
+\usepackage{mathtools}      % \xRightarrow
+\usepackage{nicefrac}       % \nicefrac
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
+\usepackage{framed}
+\usepackage{marvosym}
+\usepackage{makeidx} % for automatically generation of an index
+\usepackage{xcolor}
+\usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
+\usepackage{enumitem}
+\usepackage{tabto}
+\usepackage{braket}         % needed for \Set
+\usepackage{csquotes}       % \enquote{}
+\usepackage{subfig}         % multiple figures in one
+\usepackage{parskip}        % nicer paragraphs
+\usepackage{xifthen}        % \isempty
+\usepackage{changepage}     % for the adjustwidth environment
+\usepackage{pst-solides3d}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\usepackage[arrow, matrix, curve]{xy}
+\usepackage{caption}        % get newlines within captions
+\usepackage{tikz}           % draw
+\usepackage{tikz-3dplot}    % draw
+\usepackage{tkz-fct}        % draw
+\usetikzlibrary{3d,calc,intersections,er,arrows,positioning,shapes.misc,patterns,fadings,decorations.pathreplacing}
+\usepackage{tqft}
+\usepackage{cleveref} % has to be after hyperref, ntheorem, amsthm
+\usepackage{xspace}   % for new commands; decides weather I want to insert a space after the command
+
+\author{Siehe \href{http://tinyurl.com/GeoTopo}{tinyurl.com/GeoTopo}}
+\title{Geometrie und Topologie\\
+        \vspace{10cm}
+        \includegraphics[width=0.9\linewidth]{figures/Torus.pdf}}
+\usepackage{microtype}
+
+\begin{document}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\maketitle
+\end{document}
