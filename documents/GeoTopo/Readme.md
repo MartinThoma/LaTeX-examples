@@ -51,5 +51,6 @@ Was noch kommen soll
 1. Alle `TODOS` auflösen
 2. Reviews (Mathematik, LaTeX und Bilder)
 3. A5-Version drucken
-  * Momentan sind es ca. 60 Seiten in A4. In A5 sind es ca. 
+  * `oneside` in `twoside` umwandeln
+  * Momentan sind es ca. 60 Seiten in A4. In A5 sind es ca.
 4. Version für Sehgeschädigte und Blinde
