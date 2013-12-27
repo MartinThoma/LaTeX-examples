@@ -1,0 +1,17 @@
+Den sehr einfach aufgebauten DYCOS-Algorithmus kann man noch an
+vielen Punkten verbessern. So könnte man vor der Auswahl des
+Vokabulars jedes Wort auf den Wortstamm zurückführen.
+Dafür könnte zum Beispiel der \todo{Wo steht was über den?}{Porter-Stemming-Algorithmus} verwendet 
+werden. Durch diese Maßnahme wird das
+Vokabular kleiner gehalten, mehr Artikel können mit einander
+durch Vokabular verbunden werden und der Gini-Koeffizient wird ein
+besseres Maß für die Gleichheit von Texten.
+
+Eine weitere Verbesserungsmöglichkeit besteht in der textanalyse.
+Momentan ist diese noch sehr einfach gestrickt und ignoriert die
+Reihenfolge von Wortern beziehungsweise Wertungen davon. So könnte
+man den DYCOS-Algorithmus in einem sozialem Netzwerk verwenden wollen,
+in dem politische Parteiaffinität von einigen Mitgliedern angegeben
+wird um die Parteiaffinität der restlichen Mitglieder zu bestimmen.
+In diesem Fall macht es jedoch einen wichtigen Unterschied, ob jemand
+über eine Partei gutes oder schlechtes schreibt.

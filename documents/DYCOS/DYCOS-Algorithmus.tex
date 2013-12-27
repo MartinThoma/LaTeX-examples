@@ -25,7 +25,7 @@ des Netzwerks für jeden der $l$ Schritte benutzt.
 
 Ein $l$-Sprung heißt inhaltlich, wenn er die Wörter benutzt.
 
-\begin{algorithm}[h]
+\begin{algorithm}[H]
     \begin{algorithmic}
         \Require \\$\G_t = (\N_t, \A_t, \T_t)$ (Netzwerk),\\
                  $r$ (Anzahl der Random Walks),\\
@@ -49,45 +49,26 @@ Ein $l$-Sprung heißt inhaltlich, wenn er die Wörter benutzt.
 \label{alg:DYCOS}
 \end{algorithm}
 
-\subsection{Vokabularbestimmung}\label{sec:vokabularbestimmung}
-Da die größe des Vokabulars die Datenmenge signifikant beeinflusst,
-liegt es in unserem Interesse so wenig Wörter wie möglich ins
-Vokabular aufzunehmen. Insbesondere sind Wörter nicht von Interesse,
-die in fast allen Texten vorkommen, wie im Deutschen z.~B.
-\enquote{und}, \enquote{mit} und die Pronomen.
+\subsection{Inhaltliche Mehrfachsprünge}
+Es ist nicht sinnvoll, direkt von einem strukturellem Knoten 
+$v \in \N_t$ zu einem mit $v$ verbundenen Wortknoten $w$ zu springen
+und von diesem wieder zu einem verbundenem strutkurellem Knoten 
+$v' \in \N_t$. Würde man dies machen, wäre zu befürchten, dass
+aufgrund von Polysemen die Qualität der Klassifizierung verringert
+wird. So hat \enquote{Brücke} im Deutschen viele Bedeutungen.
+Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
+objektorientierten Programmierung oder ein Teil des Gehirns.
 
-Nun kann man manuell eine Liste von zu beachtenden Wörtern erstellen
-oder mit Hilfe des Gini-Koeffizienten automatisch ein Vokabular erstellen.
-Der Gini-Koeffizient ist ein statistisches Maß, das die Ungleichverteilung
-bewertet. Er ist immer im Intervall $[0,1]$, wobei $0$ einer 
-Gleichverteilung entspricht und $1$ der größt möglichen Ungleichverteilung.
+Deshalb wird für jeden Knoten $v$, von dem aus man einen inhaltlichen
+Mehrfachsprung machen will folgendes vorgehen gewählt:
+\begin{enumerate}
+    \item Gehe alle in $v$ startenden Random Walks der Länge 2 durch
+          und erstelle eine Liste $L$, der erreichbaren Knoten $v'$. Speichere
+          außerdem, durch wie viele Pfade diese Knoten $v'$ jeweils erreichbar sind.
+    \item Betrachte im folgenden nur die Top-$q$ Knoten, wobei $q \in \mathbb{N}$
+          eine zu wählende Konstante des Algorithmus ist.
+    \item Wähle mit Wahrscheinlichkeit $\frac{\Call{Anzahl}{v'}}{\sum_{w \in L} \Call{Anzahl}{v'}}$
+          den Knoten $v'$ als Ziel des Mehrfachsprungs.
+\end{enumerate}
 
-Sei nun $n_i(w)$ die Häufigkeit des Wortes $w$ in allen Texten mit 
-dem $i$-ten Label.
-\todo{darf ich hier im Nenner 1 addieren?}
-\begin{align}
-    p_i(w) &:= \frac{n_i(w)}{\sum_{j=1}^{|\L_t|} n_j(w)} &\text{(Relative Häufigkeit des Wortes $w$)}\\
-    G(w)   &:= \sum_{j=1}^{|\L_t|} p_j(w)^2              &\text{(Gini-Koeffizient von $w$)}
-\end{align}
-In diesem Fall ist $G(w)=0$ nicht möglich, da zur Vokabularbestimmung
-nur Wörter betrachtet werden, die auch vorkommen.
-
-\begin{algorithm}[h]
-    \begin{algorithmic}
-        \Require \\
-                 $\T_t$ (Knoten mit Labels),\\
-                 $\L_t$ (Labels),\\
-                 $f:\T_t \rightarrow \L_t$ (Label-Funktion),\\
-                 $m$ (Gewünschte Vokabulargröße)
-        \Ensure  $\M_t$ (Vokabular)\\
-
-        \State $S_t \gets \Call{Sample}{\T_t}$ \Comment{Wähle eine Teilmenge $S_t \subseteq \T_t$ aus}
-        \State $\M_t \gets \bigcup_{v \in S_t} \Call{getText}{v}$
-        \ForAll{Wort $w \in \M_t$}
-            \State $w$.gini $\gets$ 
-        \EndFor
-        \State \Return $\M_t$
-    \end{algorithmic}
-\caption{Vokabularbestimmung}
-\label{alg:vokabularbestimmung}
-\end{algorithm}
+\input{Vokabularbestimmung}
