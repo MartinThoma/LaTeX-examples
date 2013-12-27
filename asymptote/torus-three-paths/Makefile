@@ -12,7 +12,7 @@ make:
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.data *.gnuplot *.out *.prc *.pre *.asy $(SOURCE)-1_0.pdf $(SOURCE)1+0_0.pdf $(SOURCE)-1.tex
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.data *.gnuplot *.out *.prc *.pre $(SOURCE)-1_0.pdf $(SOURCE)1+0_0.pdf $(SOURCE)-1.tex
 
 gif:
 	pdfcrop $(SOURCE).pdf
