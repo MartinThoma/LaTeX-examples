@@ -1,10 +1,10 @@
 \documentclass[runningheads]{llncs}
 
 %---- Sonderzeichen-------%
-\usepackage {ngerman}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 %---- Codierung----%
-\usepackage[utf8]{inputenc}	% for Unix and Windows
-\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{llncsdoc}
@@ -20,13 +20,16 @@
 \usepackage{cite}
 \usepackage{parskip}
 \usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
+\usepackage{algorithm,algpseudocode}
+\usepackage{csquotes}
+\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{mystyle}
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
 \hypersetup{ 
-  pdftitle    = {"Uber die Klassifizierung von Knoten in dynamischen Netzwerken mit Inhalt},
+  pdftitle    = {\"Uber die Klassifizierung von Knoten in dynamischen Netzwerken mit Inhalt},
   pdfauthor   = {Martin Thoma}, 
   pdfkeywords = {DYCOS}
 }

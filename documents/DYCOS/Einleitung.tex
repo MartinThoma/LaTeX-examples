@@ -14,8 +14,8 @@ Das Knotenklassifierungsproblem sei wie folgt definiert:\\
 \begin{definition}[Knotenklassifierungsproblem]\label{def:Knotenklassifizierungsproblem}
     Sei $\G_t = (\N_t, \A_t, \T_t)$ ein Netzwerk,
     wobei $\N_t$ die Menge aller Knoten,
-    $\A_t$ die Kantenmenge und $\T_t \subseteq \N_t$ die Menge Knoten mit Labels 
-    jeweils zum Zeitpunkt $t$ bezeichne.
+    $\A_t$ die Kantenmenge und $\T_t \subseteq \N_t$ die Menge der 
+    gelabelten Knoten jeweils zum Zeitpunkt $t$ bezeichne.
     Außerdem sei $\L_t$ die Menge aller zum Zeitpunkt $t$ vergebenen
     Labels und $f:\T_t \rightarrow \L_t$ die Funktion, die einen
     Knoten auf sein Label abbildet.
@@ -34,9 +34,8 @@ textuelle Inhalte, die Knoten zugeornet werden.
 Die beispielhaft aufgeführen Netzwerke sind viele 
 $\num{10000}$~Knoten groß und dynamisch. Das bedeutet, es kommen
 neue Knoten und eventuell auch neue Kanten hinzu bzw. Kanten oder
-Knoten werden entfernt.Außerdem stehen 
-textuelle Inhalte zu den Knoten bereit, die bei der Klassifikation 
-genutzt werden können.
+Knoten werden entfernt. Außerdem stehen textuelle Inhalte zu den 
+Knoten bereit, die bei der Klassifikation genutzt werden können.
 
 Der DYCOS-Algorithmus nutzt diese und kann auf große, dynamische
 Netzwerken angewandt werden.

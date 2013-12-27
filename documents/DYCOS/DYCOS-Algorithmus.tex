@@ -1,5 +1,93 @@
-\subsection{Notation}
-\input{Notation}
+DYCOS (\underline{DY}namic \underline{C}lassification 
+algorithm with c\underline{O}ntent and \underline{S}tructure) ist ein 
+Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011} vorgestellt 
+wurde.
 
-\subsection{Inhalte}
-\input{Inhalte}
+Sie im Folgenden die Notation wie in Definition~\ref{def:Knotenklassifizierungsproblem}.
+
+Der DYCOS-Algorithmus betrachtet Texte als eine Menge von Wörter, 
+die Reihenfolge der Wörter im Text spielt also keine Rolle. Außerdem
+werden nicht alle Wörter benutzt, sondern nur solche die auch in 
+einem festgelegtem Vokabular vorkommen. Wie dieses Vokabular bestimmt
+werden kann, wird in Abschnitt~\ref{sec:vokabularbestimmung} erklärt.
+
+Zusätzlich zu dem Netzwerk verwalltet der DYCOS-Algorithmus für jeden
+Knoten eine Liste von Wörtern. Diese Wörter stammen aus den Texten,
+die dem Knoten zugeordnet sind.
+
+Für jedes Wort des Vokabulars wird eine Liste von Knoten verwaltet, 
+in deren Texten das Wort vorkommt.
+
+Ein $l$-Sprung ist ein ein Random Walk, bei dem $l$
+Knoten besucht werden, die nicht verschieden sein müssen. Ein 
+$l$-Sprung heißt strukturell, wenn er ausschließlich die Kanten
+des Netzwerks für jeden der $l$ Schritte benutzt.
+
+Ein $l$-Sprung heißt inhaltlich, wenn er die Wörter benutzt.
+
+\begin{algorithm}[h]
+    \begin{algorithmic}
+        \Require \\$\G_t = (\N_t, \A_t, \T_t)$ (Netzwerk),\\
+                 $r$ (Anzahl der Random Walks),\\
+                 $l$ (Länge eines Random Walks),\\
+                 $p_s$ (Wahrscheinlichkeit eines strukturellen Sprungs)
+        \Ensure  Klassifikation von $\N_t \setminus \T_t$\\
+
+        \ForAll{Knoten $v$ in $\N_t \setminus \T_t$}
+            \For{$i$ von $1$ bis $l$}
+                \State $sprungTyp \gets \Call{random}{0.0, 1.0}$
+                \If{$sprungTyp \leq p_s$}
+                    \State Strukturellen $l$-Sprung ausführen
+                \Else
+                    \State Inhaltlichen $l$-Sprung ausführen
+                \EndIf
+            \EndFor
+        \EndFor
+        \State \Return Labels für $\N_t \setminus \T_t$
+    \end{algorithmic}
+\caption{DYCOS-Algorithmus}
+\label{alg:DYCOS}
+\end{algorithm}
+
+\subsection{Vokabularbestimmung}\label{sec:vokabularbestimmung}
+Da die größe des Vokabulars die Datenmenge signifikant beeinflusst,
+liegt es in unserem Interesse so wenig Wörter wie möglich ins
+Vokabular aufzunehmen. Insbesondere sind Wörter nicht von Interesse,
+die in fast allen Texten vorkommen, wie im Deutschen z.~B.
+\enquote{und}, \enquote{mit} und die Pronomen.
+
+Nun kann man manuell eine Liste von zu beachtenden Wörtern erstellen
+oder mit Hilfe des Gini-Koeffizienten automatisch ein Vokabular erstellen.
+Der Gini-Koeffizient ist ein statistisches Maß, das die Ungleichverteilung
+bewertet. Er ist immer im Intervall $[0,1]$, wobei $0$ einer 
+Gleichverteilung entspricht und $1$ der größt möglichen Ungleichverteilung.
+
+Sei nun $n_i(w)$ die Häufigkeit des Wortes $w$ in allen Texten mit 
+dem $i$-ten Label.
+\todo{darf ich hier im Nenner 1 addieren?}
+\begin{align}
+    p_i(w) &:= \frac{n_i(w)}{\sum_{j=1}^{|\L_t|} n_j(w)} &\text{(Relative Häufigkeit des Wortes $w$)}\\
+    G(w)   &:= \sum_{j=1}^{|\L_t|} p_j(w)^2              &\text{(Gini-Koeffizient von $w$)}
+\end{align}
+In diesem Fall ist $G(w)=0$ nicht möglich, da zur Vokabularbestimmung
+nur Wörter betrachtet werden, die auch vorkommen.
+
+\begin{algorithm}[h]
+    \begin{algorithmic}
+        \Require \\
+                 $\T_t$ (Knoten mit Labels),\\
+                 $\L_t$ (Labels),\\
+                 $f:\T_t \rightarrow \L_t$ (Label-Funktion),\\
+                 $m$ (Gewünschte Vokabulargröße)
+        \Ensure  $\M_t$ (Vokabular)\\
+
+        \State $S_t \gets \Call{Sample}{\T_t}$ \Comment{Wähle eine Teilmenge $S_t \subseteq \T_t$ aus}
+        \State $\M_t \gets \bigcup_{v \in S_t} \Call{getText}{v}$
+        \ForAll{Wort $w \in \M_t$}
+            \State $w$.gini $\gets$ 
+        \EndFor
+        \State \Return $\M_t$
+    \end{algorithmic}
+\caption{Vokabularbestimmung}
+\label{alg:vokabularbestimmung}
+\end{algorithm}
