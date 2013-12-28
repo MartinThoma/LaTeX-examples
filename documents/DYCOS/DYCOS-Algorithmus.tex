@@ -1,29 +1,75 @@
+\subsection{Überblick}
 DYCOS (\underline{DY}namic \underline{C}lassification 
 algorithm with c\underline{O}ntent and \underline{S}tructure) ist ein 
 Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011} vorgestellt 
-wurde.
+wurde. Er klassifiziert Knoten, indem mehrfach Random Walks startend
+bei dem zu klassifizierenden Knoten gemacht werden und die Labels
+der besuchten Knoten gezählt werden. Der DYCOS-Algorithmus nimmt 
+jedoch nicht einfach den Graphen für dieses Verfahren, sondern
+eine Erweiterung.
 
-Sie im Folgenden die Notation wie in Definition~\ref{def:Knotenklassifizierungsproblem}.
+Für diese Erweiterung wird zuerst wird Vokabular $W_t$ bestimmt, das 
+charakteristisch für eine Knotengruppe ist. Wie das gemacht werden kann, wird in 
+Abschnitt~\ref{sec:vokabularbestimmung} erläutert. Dann wird für 
+jedes Wort im Vokabular ein Wortknoten zum Graphen hinzugefügt.
+Ein Strukturknoten $v$ wird genau dann mit einem Wortknoten $w \in W_t$
+verbunden, wenn $w$ in einem Text von $v$ vorkommt.
 
-Der DYCOS-Algorithmus betrachtet Texte als eine Menge von Wörter, 
-die Reihenfolge der Wörter im Text spielt also keine Rolle. Außerdem
-werden nicht alle Wörter benutzt, sondern nur solche die auch in 
-einem festgelegtem Vokabular vorkommen. Wie dieses Vokabular bestimmt
-werden kann, wird in Abschnitt~\ref{sec:vokabularbestimmung} erklärt.
+\begin{figure}[htp]
+    \centering
+    \input{figures/graph-content-and-structure.tex}
+    \caption{Erweiterter Graph}
+    \label{fig:erweiterter-graph}
+\end{figure}
 
-Zusätzlich zu dem Netzwerk verwalltet der DYCOS-Algorithmus für jeden
-Knoten eine Liste von Wörtern. Diese Wörter stammen aus den Texten,
-die dem Knoten zugeordnet sind.
+Der DYCOS-Algorithmus betrachtet die Texte, die zu einem Knoten 
+zugeornet sind, als eine
+Multimenge von Wörtern. Das heißt, zum einen wird nicht auf die
+Reihenfolge der Wörter geachtet, zum anderen wird bei Texten
+eines Knotens nicht zwischen verschiedenen Texten unterschieden.
+Jedoch wird die Anzahl der vorkommen jedes Wortes berücksichtigt.
 
-Für jedes Wort des Vokabulars wird eine Liste von Knoten verwaltet, 
-in deren Texten das Wort vorkommt.
+\subsection{Datenstrukturen}
+Zusätzlich zu dem gerichteten Graphen $G_t = (V_t, E_t, V_{L,t})$ 
+verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
+\begin{itemize}
+    \item Für jeden Knoten $v \in V_t$ werden die vorkommenden Wörter
+          und deren Anzahl gespeichert. Das könnte z.~B. über ein 
+          assoziatives Array geschehen. Wörter, die nicht in 
+          Texten von $v$ vorkommen, sind nicht im Array. Für
+          alle vorkommenden Wörter ist der gespeicherte Wert zum 
+          Schlüssel \enquote{Wort} die Anzahl der Vorkommen von 
+          \enquote{Wort} in den Texten von $v$.
+    \item Für jedes Wort des Vokabulars $W_t$ wird eine Liste von 
+          Knoten verwaltet, in deren Texten das Wort vorkommt.
+\end{itemize}
 
-Ein $l$-Sprung ist ein ein Random Walk, bei dem $l$
-Knoten besucht werden, die nicht verschieden sein müssen. Ein 
-$l$-Sprung heißt strukturell, wenn er ausschließlich die Kanten
-des Netzwerks für jeden der $l$ Schritte benutzt.
+\subsection{Algorithmen}
+Bevor der Algorithmus formal beschrieben wird, wird eine Definition
+des strukturellen $l$-Sprungs benötigt:
+\begin{definition}
+    Sei $G_{E,t} = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
+    um die Wortknoten $W_{t}$ erweiterte Graph.
 
-Ein $l$-Sprung heißt inhaltlich, wenn er die Wörter benutzt.
+    Dann heißt ein Random Walk der Länge $l$ in diesem Graphen
+    ein \textbf{struktureller $l$-Sprung}, wenn für den Random Walk
+    nur Kanten aus $E_{S,t}$ benutzt werden.
+\end{definition}
+
+Der strukturelle $l$-Sprung ist also ein Random Walk der Länge $l$
+im Graph $G_t$. Im Gegensatz dazu benötigt der inhaltliche $l$-Multisprung
+tatsächlich die Grapherweiterung:
+
+\begin{definition}
+    Sei $G_t = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
+    um die Wortknoten $W_{t}$ erweiterte Graph.
+
+    Dann heißt ein Random Walk der Länge $l$ in diesem Graphen
+    ein \textbf{inhaltlicher $l$-Multisprung}, wenn für den Random Walk
+    in jedem der $l$ Schritte, startend von einem Knoten $v \in V_t$
+    eine Kante zu einem Wortknoten und von dem Wortknoten wieder 
+    zu einem Strukturknoten genommen wird.
+\end{definition}
 
 \begin{algorithm}[H]
     \begin{algorithmic}
