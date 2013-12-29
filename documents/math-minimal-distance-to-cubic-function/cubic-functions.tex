@@ -216,4 +216,38 @@ initial guess.
 \todo[inline]{TODO}
 \clearpage
 
+\subsubsection{Muller's method}
+Muller's method was first presented by David E. Muller in 1956.
+
+\subsubsection{Bisection method}
+The idea of the bisection method is the following:
+
+Suppose you know a finite intervall $[a,b]$ in which you have 
+exactly one root $r \in (a,b)$ with $f(r) = 0$.
+
+Then you can half that interval:
+    \[[a, b] = \left [a, \frac{a+b}{2} \right ] \cup \left [\frac{a+b}{2}, b \right ]\]
+
+Now three cases can occur:
+\begin{enumerate}
+    \item[Case 1] $f(\frac{a+b}{2})=0$: You have found the exact root.
+    \item[Case 2] $\sgn(a) = \sgn(\frac{a+b}{2})$: Continue searching in $[\frac{a+b}{2}, b]$
+    \item[Case 3] $\sgn(b) = \sgn(\frac{a+b}{2})$: Continue searching in $[a, \frac{a+b}{2}]$
+\end{enumerate}
+
+\subsubsection{Bairstow's method}
+Cite from Wikipedia:
+The algorithm first appeared in the appendix of the 1920 book "Applied Aerodynamics" by Leonard Bairstow. The algorithm finds the roots in complex conjugate pairs using only real arithmetic.
+
+[...]
+\todo[inline]{Find a source for the following!}
+A particular kind of instability is observed when the polynomial has odd degree and only one real root.
+
+
+
 \section{Defined on a closed interval $[a,b] \subseteq \mdr$}
+The point with minimum distance can be found by:
+\[\underset{x\in[a,b]}{\arg \min d_{P,f}(x)} = \begin{cases}
+ S_3(f, P) &\text{if } S_3(f, P) \cap [a,b] \neq \emptyset\\
+  TODO     &\text{if } S_3(f, P) \cap [a,b] = \emptyset
+    \end{cases}\]
