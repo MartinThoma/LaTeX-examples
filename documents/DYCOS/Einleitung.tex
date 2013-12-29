@@ -9,8 +9,8 @@ Häufig sind Labels nur teilweise vorhanden und es ist wünschenswert die
 fehlenden Labels zu ergänzen. 
 
 \subsection{Problemstellung}
-Wir haben einen Graphen, der teilweise gelabelt ist. Zustäzlich haben
-wir zu einer Teilmenge der Knoten Texte. Gesucht sind nun Labels
+Gegeben ist ein Graph, der teilweise gelabelt ist. Zustäzlich stehen
+zu einer Teilmenge der Knoten Texte bereit. Gesucht sind nun Labels
 für alle Knoten, die bisher noch nicht gelabelt sind.\\
 
 \begin{definition}[Knotenklassifierungsproblem]\label{def:Knotenklassifizierungsproblem}
@@ -19,11 +19,11 @@ für alle Knoten, die bisher noch nicht gelabelt sind.\\
     $E_t$ die Kantenmenge und $V_{L,t} \subseteq V_t$ die Menge der 
     gelabelten Knoten jeweils zum Zeitpunkt $t$ bezeichne.
     Außerdem sei $L_t$ die Menge aller zum Zeitpunkt $t$ vergebenen
-    Labels und $f:V_{L,t} \rightarrow L_t$ die Funktion, die einen
-    Knoten auf sein Label abbildet.
+    Labels und $f:V_{L,t} \rightarrow \powerset(L_t)$ die Funktion, die einen
+    Knoten auf seine Labels abbildet.
 
     Weiter sei für jeden Knoten $v \in V$ eine (eventuell leere)
-    Textmenge gegeben.
+    Textmenge $T(v)$ gegeben.
 
     Gesucht sind nun Labels für $V_t \setminus V_{L,t}$, also
     $\tilde{f}: V_t \rightarrow L_t$ mit 
@@ -31,8 +31,11 @@ für alle Knoten, die bisher noch nicht gelabelt sind.\\
 \end{definition}
 
 \subsection{Herausforderungen}
-Die in Kapitel~\ref{sec:experimentelle-analyse} aufgeführen Netzwerke 
+Die Graphen, für die dieser Algorithmus konzipiert wurde,
 sind viele $\num{10000}$~Knoten groß und dynamisch. Das bedeutet, es 
 kommen neue Knoten und eventuell auch neue Kanten hinzu bzw. Kanten 
 oder Knoten werden entfernt. Außerdem stehen textuelle Inhalte zu den 
 Knoten bereit, die bei der Klassifikation genutzt werden können.
+Das bedeutet, es ist wünschenswert bei kleinen Modifikationen nicht
+nochmals alles neu berechnen zu müssen, sondern basierend auf zuvor
+berechneten Labels die Klassifizierung modifizieren zu können.

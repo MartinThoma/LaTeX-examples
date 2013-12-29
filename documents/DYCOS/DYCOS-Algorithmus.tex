@@ -4,14 +4,20 @@ algorithm with c\underline{O}ntent and \underline{S}tructure) ist ein
 Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011} vorgestellt 
 wurde. Er klassifiziert Knoten, indem mehrfach Random Walks startend
 bei dem zu klassifizierenden Knoten gemacht werden und die Labels
-der besuchten Knoten gezählt werden. Der DYCOS-Algorithmus nimmt 
-jedoch nicht einfach den Graphen für dieses Verfahren, sondern
-eine Erweiterung.
+der besuchten Knoten gezählt werden. Das Label, das am häufigsten
+vorgekommen ist, wird zur Klassifizierung verwendet.
+Der DYCOS-Algorithmus nimmt jedoch nicht einfach den Graphen für 
+dieses Verfahren, sondern erweitert ihn mit Hilfe der zur Verfügung
+stehenden Texte.
 
 Für diese Erweiterung wird zuerst wird Vokabular $W_t$ bestimmt, das 
-charakteristisch für eine Knotengruppe ist. Wie das gemacht werden kann, wird in 
-Abschnitt~\ref{sec:vokabularbestimmung} erläutert. Dann wird für 
-jedes Wort im Vokabular ein Wortknoten zum Graphen hinzugefügt.
+charakteristisch für eine Knotengruppe ist. Wie das gemacht werden kann
+und warum nicht einfach jedes Wort in das Vokabular aufgenommen wird,
+wird in Abschnitt~\ref{sec:vokabularbestimmung} erläutert.\\
+Nach der Bestimmung des Vokabulars wird für 
+jedes Wort im Vokabular ein Wortknoten zum Graphen hinzugefügt. Alle
+Knoten, die der Graph zuvor hatte, werden nun \enquote{Strukturknoten}
+genannt.
 Ein Strukturknoten $v$ wird genau dann mit einem Wortknoten $w \in W_t$
 verbunden, wenn $w$ in einem Text von $v$ vorkommt.
 
@@ -22,18 +28,19 @@ verbunden, wenn $w$ in einem Text von $v$ vorkommt.
     \label{fig:erweiterter-graph}
 \end{figure}
 
-Der DYCOS-Algorithmus betrachtet die Texte, die zu einem Knoten 
+Der DYCOS-Algorithmus betrachtet die Texte, die einem Knoten 
 zugeornet sind, als eine
 Multimenge von Wörtern. Das heißt, zum einen wird nicht auf die
 Reihenfolge der Wörter geachtet, zum anderen wird bei Texten
 eines Knotens nicht zwischen verschiedenen Texten unterschieden.
-Jedoch wird die Anzahl der vorkommen jedes Wortes berücksichtigt.
+Jedoch wird die Anzahl der Vorkommen jedes Wortes berücksichtigt.
 
 \subsection{Datenstrukturen}
 Zusätzlich zu dem gerichteten Graphen $G_t = (V_t, E_t, V_{L,t})$ 
 verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
 \begin{itemize}
-    \item Für jeden Knoten $v \in V_t$ werden die vorkommenden Wörter
+    \item Für jeden Knoten $v \in V_t$ werden die vorkommenden Wörter,
+          die auch im Vokabular $W_t$ sind,
           und deren Anzahl gespeichert. Das könnte z.~B. über ein 
           assoziatives Array geschehen. Wörter, die nicht in 
           Texten von $v$ vorkommen, sind nicht im Array. Für
@@ -57,7 +64,7 @@ des strukturellen $l$-Sprungs benötigt:
 \end{definition}
 
 Der strukturelle $l$-Sprung ist also ein Random Walk der Länge $l$
-im Graph $G_t$. Im Gegensatz dazu benötigt der inhaltliche $l$-Multisprung
+im Graph $G_t$. Im Gegensatz dazu benötigt der inhaltliche $l$-Mehrfachsprung
 tatsächlich die Grapherweiterung:
 
 \begin{definition}
@@ -65,7 +72,7 @@ tatsächlich die Grapherweiterung:
     um die Wortknoten $W_{t}$ erweiterte Graph.
 
     Dann heißt ein Random Walk der Länge $l$ in diesem Graphen
-    ein \textbf{inhaltlicher $l$-Multisprung}, wenn für den Random Walk
+    ein \textbf{inhaltlicher $l$-Mehrfachsprung}, wenn für den Random Walk
     in jedem der $l$ Schritte, startend von einem Knoten $v \in V_t$
     eine Kante zu einem Wortknoten und von dem Wortknoten wieder 
     zu einem Strukturknoten genommen wird.
@@ -79,15 +86,37 @@ tatsächlich die Grapherweiterung:
                  $p_s$ (Wahrscheinlichkeit eines strukturellen Sprungs)
         \Ensure  Klassifikation von $\N_t \setminus \T_t$\\
 
-        \ForAll{Knoten $v$ in $\N_t \setminus \T_t$}
+        \Procedure{SturkturellerSprung}{Dictionary $d$, Startknoten $v$, Länge $l$}
             \For{$i$ von $1$ bis $l$}
-                \State $sprungTyp \gets \Call{random}{0.0, 1.0}$
-                \If{$sprungTyp \leq p_s$}
-                    \State Strukturellen $l$-Sprung ausführen
+                \State $v \gets v.\Call{Next}{}$
+                \ForAll{Label $w$ in v.\Call{GetLabels}{}}
+                    \State $d[w] = d[w] + 1$
+                \EndFor
+            \EndFor
+        \EndProcedure
+        \\
+        \Procedure{InhaltlicherMehrfachsprung}{Dictionary $d$, Startknoten $v$, Länge $l$}
+            \For{$i$ von $1$ bis $l$}
+                \State $v \gets v.\Call{Next}{}$ \Comment{TODO: Hier muss ein mehrfachsprung beschrieben werden!}
+                \ForAll{Label $w$ in v.\Call{GetLabels}{}}
+                    \State $d[w] = d[w] + 1$
+                \EndFor
+            \EndFor
+        \EndProcedure
+        \\
+
+        \ForAll{Knoten $v$ in $\N_t \setminus \T_t$}
+            \State $d \gets $ Dictionary, das für neue Einträge 0 annimmt
+            \For{$i$ von $1$ bis $r$}
+                \State $sprungTyp \gets \Call{random}{0, 1}$
+                \If{$sprungTyp \leq p_S$}
+                    \State \Call{SturkturellerSprung}{$v$, $l$}
                 \Else
-                    \State Inhaltlichen $l$-Sprung ausführen
+                    \State \Call{InhaltlicherMehrfachsprung}{$v$, $l$}
                 \EndIf
             \EndFor
+            \State $label \gets \Call{max}{d}$
+            \State $v.\Call{SetLabel}{label}$
         \EndFor
         \State \Return Labels für $\N_t \setminus \T_t$
     \end{algorithmic}
@@ -100,7 +129,7 @@ Es ist nicht sinnvoll, direkt von einem strukturellem Knoten
 $v \in \N_t$ zu einem mit $v$ verbundenen Wortknoten $w$ zu springen
 und von diesem wieder zu einem verbundenem strutkurellem Knoten 
 $v' \in \N_t$. Würde man dies machen, wäre zu befürchten, dass
-aufgrund von Polysemen die Qualität der Klassifizierung verringert
+aufgrund von Homonymen die Qualität der Klassifizierung verringert
 wird. So hat \enquote{Brücke} im Deutschen viele Bedeutungen.
 Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
 objektorientierten Programmierung oder ein Teil des Gehirns.
