@@ -1,0 +1,25 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{ntheorem}
+
+\theoremstyle{break}
+\theoremindent20pt 
+\theoremheaderfont{\normalfont\bfseries\hspace{-\theoremindent}}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+Text body. Text body. Text body.
+
+\begin{theorem}[Pythagoras]
+    Let $a,b,c$ the sides of a rectangular triangle.
+    Without loss of generality, we assume that  $a<b<c$.
+
+    Then, the following equality holds:
+           \[a^2 + b^2 = c^2\]
+\end{theorem}
+
+More text. And even more text.
+\end{document}
