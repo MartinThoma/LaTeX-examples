@@ -1,10 +1,8 @@
 $4 \alpha^3 + 27 \beta^2 \geq 0$:
-One solution of Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
-is
+The first solution of $x^3 + \alpha x + \beta = 0$ is
 \[x = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}\]
 
-When you insert this in Equation~\ref{eq:simple-cubic-equation-for-quadratic-distance}
-you get:\footnote{Remember: $(a-b)^3 = a^3-3 a^2 b+3 a b^2-b^3$}
+Let's validate this solution:
 \allowdisplaybreaks
 \begin{align}
     0 &\stackrel{!}{=} \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right )^3 + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
@@ -12,27 +10,24 @@ you get:\footnote{Remember: $(a-b)^3 = a^3-3 a^2 b+3 a b^2-b^3$}
     - 3 (\frac{t}{\sqrt[3]{18}})^2 \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} 
     + 3 (\frac{t}{\sqrt[3]{18}})(\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^2 
     - (\frac{\sqrt[3]{\frac{2}{3}} \alpha }{t})^3 
-    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+    + \frac{t \alpha}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha^2 }{t} + \beta\\
 &= \frac{t^3}{18}             
     - \frac{3t^2}{\sqrt[3]{18^2}} \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}
     + \frac{3t}{\sqrt[3]{18}} \frac{\sqrt[3]{\frac{4}{9}} \alpha^2 }{t^2} 
     - \frac{\frac{2}{3} \alpha^3 }{t^3} 
-    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+    + \frac{t \alpha }{\sqrt[3]{18}} - \frac{\sqrt[3]{2} \alpha^2 }{\sqrt[3]{3} t} + \beta\\
 &= \frac{t^3}{18}
     - \frac{\sqrt[3]{18} t \alpha}{\sqrt[3]{18^2}}
     + \frac{\sqrt[3]{12} \alpha^2}{\sqrt[3]{18} t}  
     - \frac{2 \alpha^3 }{3t^3} 
-    + \alpha \left (\frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \right ) + \beta\\
+    + \frac{t \alpha }{\sqrt[3]{18}} - \frac{\sqrt[3]{2} \alpha^2 }{\sqrt[3]{3} t} + \beta\\
 &= \frac{t^3}{18} 
-    - \frac{t \alpha}{\sqrt[3]{18}} 
-    \color{red}+ \frac{\sqrt[3]{2} \alpha^2}{\sqrt[3]{3} t} \color{black}
-    - \frac{2 \alpha^3 }{3 t^3} 
-    + \color{red}\alpha \color{black} \left (\frac{t}{\sqrt[3]{18}}  \color{red}- \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t} \color{black}\right ) 
-    + \beta\\
-&= \frac{t^3}{18} \color{blue}- \frac{t \alpha}{\sqrt[3]{18}} \color{black} 
-    - \frac{2 \alpha^3 }{3 t^3} 
-    \color{blue}+ \frac{\alpha t}{\sqrt[3]{18}} \color{black} 
-    + \beta\\
+    \color{blue} - \frac{t \alpha}{\sqrt[3]{18}}
+    \color{red}  + \frac{\sqrt[3]{2} \alpha^2}{\sqrt[3]{3} t}
+    \color{black}- \frac{2 \alpha^3 }{3 t^3} 
+    \color{blue} + \frac{t \alpha }{\sqrt[3]{18}} 
+    \color{red}  - \frac{\sqrt[3]{2} \alpha^2 }{\sqrt[3]{3} t} 
+    \color{black}+ \beta\\
 &= \frac{t^3}{18} - \frac{2 \alpha^3 }{3 t^3} + \beta\\
 &= \frac{t^6 - 12 \alpha^3 + \beta 18 t^3}{18t^3}
 \end{align}

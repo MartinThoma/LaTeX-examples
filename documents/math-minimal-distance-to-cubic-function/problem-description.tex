@@ -9,9 +9,9 @@ Now there is finite set $M = \Set{x_1, \dots, x_n} \subseteq D$ of minima for gi
 \[M = \Set{x \in D | d_{P,f}(x) = \min_{\overline{x} \in D} d_{P,f}(\overline{x})}\] 
 
 But minimizing $d_{P,f}$ is the same as minimizing 
-$d_{P,f}^2 = x_p^2 - 2x_p x + x^2 + y_p^2 - 2y_p f(x) + f(x)^2$.
+$d_{P,f}^2 = (x_p^2 - 2x_p x + x^2) + (y_p^2 - 2y_p f(x) + f(x)^2)$.
 
-In order to solve the minimal distance problem, Fermat's theorem
+In order to solve the minimal distance problem, Fermat's theorem 
 about stationary points will be tremendously usefull:
 
 \begin{theorem}[Fermat's theorem about stationary points]\label{thm:fermats-theorem}
@@ -20,10 +20,15 @@ about stationary points will be tremendously usefull:
     Then: $f'(x_0) = 0$.
 \end{theorem}
 
-So in fact you can calculate the roots of $(d_{P,f}(x))'$ to get
-candidates for minimal distance. These candidates include all points
-with minimal distance, but might also contain more. Example~\ref{ex:false-positive}
-shows such a situation.
+So in fact you can calculate the roots of $(d_{P,f}(x))'$ or $(d_{P,f}(x)^2)'$ to get
+candidates for minimal distance.
+$(d_{P,f}(x)^2)'$ is a polynomial if $f$ is a polynomial. So if $f$ 
+is a polynomial, we can always get a finite number of candidates by 
+finding roots of $(d_{P,f}(x)^2)'$. But this gets difficult when $f$
+has degree 3 or higher as explained in Theorem~\ref{thm:no-finite-solution}.
+Another problem one has to bear in mind is that these candidates 
+include all points with minimal distance, but might also contain 
+more. Example~\ref{ex:false-positive} shows such a situation.
 
 Let $S_n$ be the function that returns the set of solutions for a
 polynomial $f$ of degree $n$ and a point $P$:

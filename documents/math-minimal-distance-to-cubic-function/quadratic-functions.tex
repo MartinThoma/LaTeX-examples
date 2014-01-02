@@ -1,6 +1,6 @@
 \chapter{Quadratic functions}
 \section{Defined on $\mdr$}
-Let $f(x) = a \cdot x^2 + b \cdot x + c$ with $a \in \mdr \setminus \Set{0}$ and 
+Let $f:\mdr \rightarrow \mdr, f(x) = a \cdot x^2 + b \cdot x + c$ with $a \in \mdr \setminus \Set{0}$ and 
 $b, c \in \mdr$ be a quadratic function.
 
 \begin{figure}[htp]
@@ -41,7 +41,7 @@ $b, c \in \mdr$ be a quadratic function.
 \end{figure}
 
 \subsection{Calculate points with minimal distance}
-In this case, $d_{P,f}^2$ is polynomial of degree 4. 
+In this case, $d_{P,f}^2$ is polynomial of degree $n^2 = 4$. 
 We use Theorem~\ref{thm:fermats-theorem}:\nobreak
 \begin{align}
     0     &\overset{!}{=} (d_{P,f}^2)'\\
@@ -58,10 +58,11 @@ This is an algebraic equation of degree 3.
 There can be up to 3 solutions in such an equation. Those solutions
 can be found with a closed formula. But not every solution of the
 equation given by Theorem~\ref{thm:fermats-theorem}
-has to be a solution to the given problem.
+has to be a solution to the given problem as you can see in
+Example~\ref{ex:false-positive}.
 \goodbreak
 \begin{example}\label{ex:false-positive}
-    Let $a = 1,  b = 0,  c= 1, x_p= 0, y_p = 1$.
+    Let $a = 1,  b = 0,  c=-1, x_p= 0, y_p = 1$.
     So $f(x) = x^2 - 1$ and $P(0, 1)$.
     \begin{align}
         \xRightarrow{\text{Equation}~\ref{eq:quadratic-derivative-eq-0}} 0 &\stackrel{!}{=} 2x^3 - 3x\\
@@ -86,12 +87,13 @@ has to be a solution to the given problem.
 \begin{proof}
 The number of closests points of $f$ cannot be bigger than 3, because
 Equation~\ref{eq:quadratic-derivative-eq-0} is a polynomial function
-of degree 3. Such a function can have at most 3 roots.
+of degree 3. Such a function can have at most 3 roots. As $f$ has
+at least one point on its graph, there is at least one point with
+minimal distance.
 
 In the following, I will do some transformations with $f = f_0$ and
-$P = P_0$.
-
-Moving $f_0$ and $P_0$ simultaneously in $x$ or $y$ direction does 
+$P = P_0$. This will make it easier to calculate the minimal distance
+points. Moving $f_0$ and $P_0$ simultaneously in $x$ or $y$ direction does 
 not change the minimum distance. Furthermore, we can find the 
 points with minimum distance on the moved situation and calculate
 the minimum points in the original situation.
@@ -128,9 +130,9 @@ Then compute:
     &= \sqrt{\left (a x^2 + \nicefrac{1}{2a}- w \right )^2 + \left (w^2 - \left (\frac{1-2 a w}{2a} \right )^2 \right)}
 \end{align}
 
-The term 
+This means, the term
 \[a^2 x^2 + (\nicefrac{1}{2a}- w)\]
-should get as close to $0$ as possilbe when we want to minimize 
+has to get as close to $0$ as possilbe when we want to minimize 
 $d_{P,{f_2}}$. For $w \leq \nicefrac{1}{2a}$ you only have $x = 0$ as a minimum.
 For all other points $P = (0, w)$, there are exactly two minima $x_{1,2} = \pm \sqrt{\frac{\frac{1}{2a} - w}{a}}$.
 $\qed$
@@ -153,9 +155,9 @@ Otherwise, there is only one solution $x_1 = 0$.
     &= \sqrt{a^2x^4 + (1- 2 aw)x^2 +(- 2z)x + z^2 + w^2}\\
   0 &\stackrel{!}{=} \Big(\big(d_{P, {f_2}}(x)\big)^2\Big)' \\
     &= 4a^2x^3 + 2(1- 2 aw)x +(- 2z)\\
-    &= 2 \left (2a^2x^2 + (1- 2 aw) \right )x - 2z\\
+    &= 2 \left (2a^2x^3 + (1- 2 aw)x \right ) - 2z\\
     \Leftrightarrow 0 &\stackrel{!}{=} 2a^2x^3  + (1- 2 aw) x - z\\
-\Leftrightarrow 0 &\stackrel{!}{=} x^3 + \underbrace{\frac{1- 2 aw}{2 a^2}}_{=: \alpha} x  + \underbrace{\frac{-z}{2 a^2}}_{=: \beta}\\
+\stackrel{a \neq 0}{\Leftrightarrow} 0 &\stackrel{!}{=} x^3 + \underbrace{\frac{1- 2 aw}{2 a^2}}_{=: \alpha} x  + \underbrace{\frac{-z}{2 a^2}}_{=: \beta}\\
     &= x^3 + \alpha x + \beta\label{eq:simple-cubic-equation-for-quadratic-distance}
 \end{align}
 
@@ -166,7 +168,8 @@ I will make use of the following identities:
 \begin{align*}
     (1-i \sqrt{3})^2     &= -2 (1+i \sqrt{3})\\
     (1+i \sqrt{3})^2     &= -2 (1-i \sqrt{3})\\
-    (1 \pm i \sqrt{3})^3 &= -8
+    (1 \pm i \sqrt{3})^3 &= -8\\
+    (a-b)^3              &= a^3-3 a^2 b+3 a b^2-b^3
 \end{align*}
 
 \textbf{Case 2.1:} 
@@ -194,8 +197,6 @@ t &:= \sqrt[3]{\sqrt{3 \cdot (4 \alpha^3 + 27 \beta^2)} -9\beta}\\
      x_1 = \frac{t}{\sqrt[3]{18}} - \frac{\sqrt[3]{\frac{2}{3}} \alpha }{t}   &\text{if } x_P \neq x_S
     \end{cases}
 \end{align*}
-
-I call this function $S_2: \Set{\text{Quadratic functions}} \times \mdr^2 \rightarrow \mathcal{P}({\mdr})$.  
 \clearpage
 
 \section{Defined on a closed interval $[a,b] \subseteq \mdr$}

@@ -5,7 +5,8 @@
     $f(x) := m \cdot x + t$ with $m \in \mdr \setminus \Set{0}$ and 
     $t \in \mdr$ be a linear function.
 
-    Then the points $(x, f(x))$ with minimal distance are given by:
+    Then there is only one point $(x, f(x))$ on the graph of $f$ with
+    minimal distance to $P = (x_P, y_P)$. This point is given by
     \[x = \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )\]
 \end{theorem}
 
@@ -35,6 +36,8 @@
           \addplot[domain=-5:5, thick,samples=50, red] {0.5*x};
           \addplot[domain=-5:5, thick,samples=50, blue, dashed] {-2*x+6};
           \addplot[black, mark = *, nodes near coords=$P$,every node near coord/.style={anchor=225}] coordinates {(2, 2)};
+          \newcommand{\R}{0.9}
+          \addplot [domain=0:2*pi,samples=50, dotted]({\R*cos(deg(x))+2},{\R*sin(deg(x))+2});
           \addplot[blue, nodes near coords=$f_\bot$,every node near coord/.style={anchor=225}] coordinates {(1.5, 3)};
           \addplot[red, nodes near coords=$f$,every node near coord/.style={anchor=225}] coordinates {(0.9, 0.5)};
           \addlegendentry{$f(x)=\frac{1}{2}x$}
@@ -57,7 +60,7 @@
         &= \frac{m}{m^2+1} \left ( y_P + \frac{1}{m} \cdot x_P - t \right )\label{eq:solution-linear-r}
     \end{align}
     It is obvious that a minium has to exist, the $x$ from Equation~\ref{eq:solution-linear-r}
-    has to be this minimum.
+    has to be this minimum. $\qed$
 \end{proof}
 \clearpage
 
@@ -113,4 +116,39 @@ The point with minimum distance can be found by:
    \Set{b} &\text{if } S_1(f, P) \ni x > b
     \end{cases}\]
 
-\todo[inline]{argument? proof?}
+If $S_1(f, P) \cap [a,b] \neq \emptyset$, then $\underset{x\in[a,b]}{\arg \min d_{P,f}(x)} = S_1(f,P) \cap [a,b]$,
+because $S_1(f,P)$ gives all global minima of $f$. Those are also
+minima for the intervall $[a,b]$. There are not more minima, because
+$S_1$ gives all minima of $P$ to $f$.
+
+If $S_1(f, P) \cap [a,b] = \emptyset$, then it is not that simple. 
+But we can calculate the distance function:
+
+\begin{align}
+    d_{P,f}(x) &= \sqrt{(x-x_P)^2 + (f(x) - y_P)^2}\\
+    &= \sqrt{(x^2 - 2x x_P + x_P^2) + (mx + (t-y_P))^2}\\
+    &= \sqrt{(x^2 - 2x x_P + x_P^2) + m^2 x^2 + 2mx(t-y_P) + (t-y_P)^2}\\
+    &= \sqrt{x^2(1+m^2) + x(-2 x_P + 2m(t-y_P)) + (x_P^2 + (t-y_P)^2)}
+\end{align}
+
+This function (defined on $\mdr$) is symmetry to the axis 
+\begin{align}
+    x_S &= - \frac{-2 x_P + 2m(t-y_P)}{2(1+m^2)}\\
+    &= \frac{x_P - m(t-y_P)}{1+m^2}\\
+    &= \frac{m}{m^2+1} (y_P + \frac{1}{m} x_P - t)
+\end{align}
+
+$f$ is on $(-\infty, x_S]$ strictly monotonically decreasing and
+on $[x_S, + \infty)$ strictly monotonically increasing.
+
+Thus we can conclude: 
+\[\forall x,y \in \mdr: x \leq y < x_S \Rightarrow d_{P,f}(x_S) < d_{P,f}(y) \leq d_{P,f}(x)\]
+\[\forall x,y \in \mdr: x_S < y \leq x \Rightarrow d_{P,f}(x_S) < d_{P,f}(y) \leq d_{P,f}(x)\]
+
+When $S_1(f, P) \cap [a,b] = \emptyset$, then you can have two cases:
+\begin{itemize}
+    \item $a \leq b < x_S$: $b$ has the shortest distance in $[a,b]$
+             on the graph of $f$ to $P$.
+    \item $x_S < a \leq b$: $a$ has the shortest distance in $[a,b]$ 
+             on the graph of $f$ to $P$.
+\end{itemize}

@@ -1,8 +1,13 @@
 \chapter{Constant functions}
 \section{Defined on $\mdr$}
+\begin{lemma}
 Let $f:\mdr \rightarrow \mdr$, $f(x) := c$ with $c \in \mdr$ be a constant function. 
-The situation can be seen in Figure~\ref{fig:constant-min-distance}.
 
+Then $(x_P, f(x_P))$ is the only point on the graph of $f$ with 
+minimal distance to $P$.
+\end{lemma}
+
+The situation can be seen in Figure~\ref{fig:constant-min-distance}.
 \begin{figure}[htp]
     \centering
     \begin{tikzpicture}
@@ -43,20 +48,19 @@ The situation can be seen in Figure~\ref{fig:constant-min-distance}.
     \label{fig:constant-min-distance}
 \end{figure}
 
+\begin{proof}
 The point $(x, f(x))$ with minimal distance can be calculated directly:
 \begin{align}
-    d_{P,f}(x) &= \sqrt{(x_P - x)^2 + (y_P - f(x))^2}\\
-               &= \sqrt{(x_P^2 - 2x_P x + x^2) + (y_P^2 - 2 y_P c + c^2)} \\
-               &= \sqrt{x^2 - 2 x_P x + (x_P^2 + y_P^2 - 2 y_P c + c^2)}\label{eq:constant-function-distance}\\
+    d_{P,f}(x) &= \sqrt{(x - x_P)^2 + (f(x) - y_P)^2}\\
+               &= \sqrt{(x^2 - 2x_P x + x_P^2) + (c^2 - 2 c y_P + y_P^2)} \\
+               &= \sqrt{x^2 - 2 x_P x + (x_P^2 + c^2 - 2 c y_P + y_P^2)}\label{eq:constant-function-distance}\\
  \xRightarrow{\text{Theorem}~\ref{thm:fermats-theorem}} 0 &\stackrel{!}{=} (d_{P,f}(x)^2)'\\
               &= 2x - 2x_P\\
   \Leftrightarrow x &\stackrel{!}{=} x_P
 \end{align}
 
-Then $(x_P,f(x_P))$ has
-minimal distance to $P$. Every other point has higher distance.
-See Figure~\ref{fig:constant-min-distance} to see that intuition
-yields to the same results.
+So $(x_P,f(x_P))$ is the only point with minimal distance to $P$. $\qed$
+\end{proof}
 
 This result means:
 
@@ -124,8 +128,7 @@ given by:
 \begin{proof}
 \begin{align}
     \underset{x\in[a,b]}{\arg \min d_{P,f}(x)} &= \underset{x\in[a,b]}{\arg \min d_{P,f}(x)^2}\\
-   &=\underset{x\in[a,b]}{\arg \min} \big (x^2 - 2x_P x + x_P^2 + \overbrace{(y_P^2 - 2 y_P c + c^2)}^{\text{constant}} \big )\\
-   &=\underset{x\in[a,b]}{\arg \min} (x^2 - 2 x_P x + x_P^2)\\
+   &=\underset{x\in[a,b]}{\arg \min} \big ((x-x_P)^2 + \overbrace{(y_P^2 - 2 y_P c + c^2)}^{\text{constant}} \big )\\
    &=\underset{x\in[a,b]}{\arg \min} (x-x_P)^2
 \end{align}
 

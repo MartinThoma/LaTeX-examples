@@ -1,8 +1,8 @@
-One solution is
+The second solution of $x^3+\alpha x + \beta=0$ is
 \[x = \frac{(1+i \sqrt{3})\alpha}{\sqrt[3]{12} \cdot t}
      -\frac{(1-i\sqrt{3}) t}{2\sqrt[3]{18}}\]
 
-We will verify it in multiple steps. First, get $x^3$:
+We will verify it in multiple steps. First, calculate $x^3$:
 \begin{align}
     x^3 &= \underbrace{\left (\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^3}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}}}
            \underbrace{- 3 \left(\frac{(1+i\sqrt{3})\alpha}{\sqrt[3]{12} \cdot t} \right)^2 \left(\frac{(1-i\sqrt{3})t}{2 \sqrt[3]{18}} \right)}_{=: \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}}}\\
@@ -58,5 +58,7 @@ Now continue with only the numerator
         \color{orange}- 2 \cdot \sqrt{3(4 \alpha^3 + 27 \beta^2)} \cdot 9\beta\color{black}
         + \color{blue}81 \beta^2\color{black}
     \right )\\
-    &\hphantom{{}=}+ 18 \beta (\color{orange}\sqrt{3(4 \alpha^3 + 27 \beta^2)}\color{black} \color{blue}- 9 \beta\color{black}) 
+    &\hphantom{{}=}+ 18 \beta (\color{orange}\sqrt{3(4 \alpha^3 + 27 \beta^2)}\color{black} \color{blue}- 9 \beta\color{black}) \\
+    &= 81 \beta^2 + 81 \beta^2 - 2 \cdot 81 \beta^2\\
+    &= 0
 \end{align}

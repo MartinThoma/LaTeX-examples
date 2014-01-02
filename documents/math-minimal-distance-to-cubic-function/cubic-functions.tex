@@ -1,8 +1,8 @@
 \chapter{Cubic functions}
 \section{Defined on $\mdr$}
-Let $f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$ be a cubic function
-with $a \in \mdr \setminus \Set{0}$ and 
-$b, c, d \in \mdr$ be a function.
+Let $f:\mdr \rightarrow \mdr, f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$ 
+be a cubic function with $a \in \mdr \setminus \Set{0}$ and 
+$b, c, d \in \mdr$.
 
 \begin{figure}[htp]
     \centering
@@ -50,8 +50,8 @@ $b, c, d \in \mdr$ be a function.
 %\todo[inline]{Write this}
 
 \subsection{Calculate points with minimal distance}
-\begin{theorem}
-    There cannot be an algebraic solution to the problem of finding 
+\begin{theorem}\label{thm:no-finite-solution}
+    There cannot be a finite, closed form solution to the problem of finding 
     a closest point $(x, f(x))$ to a given point $P$ when $f$ is
     a polynomial function of degree $3$ or higher.
 \end{theorem}
@@ -71,29 +71,29 @@ $b, c, d \in \mdr$ be a function.
 
     General algebraic equations of degree 5 don't have a solution formula.\footnote{TODO: Quelle}
     Although here seems to be more structure, the resulting algebraic
-    equation can be almost any polynomial of degree 5:\footnote{Thanks to Peter Košinár on \href{http://math.stackexchange.com/a/584814/6876}{math.stackexchange.com} for this one}
+    equation can be almost any polynomial of degree 5:\footnote{Thanks to Peter Košinár on \href{http://math.stackexchange.com/a/584814/6876}{math.stackexchange.com} for the idea.}
 
     \begin{align}
         0  &\stackrel{!}{=} f'(x) \cdot \left (f(x) - y_p \right ) + (x - x_p)\\
-        &= \underbrace{3 a^2}_{= \tilde{a}} x^5 + \underbrace{5ab}_{\tilde{b}}x^4 + \underbrace{2(2ac + b^2 )}_{=: \tilde{c}}x^3 &+& \underbrace{3(ad+bc-ay_p)}_{\tilde{d}} x^2 \\
-        & &+& \underbrace{(2 b d+c^2+1-2 b y_p)}_{=: \tilde{e}}x+\underbrace{c d-c y_p-x_p}_{=: \tilde{f}}\\
+        &= \underbrace{3 a^2}_{= \tilde{a}} x^5 + \underbrace{5ab}_{= \tilde{b}}x^4 + \underbrace{2(2ac + b^2 )}_{= \tilde{c}}x^3 &+& \underbrace{3(ad+bc-ay_p)}_{= \tilde{d}} x^2 \\
+        & &+& \underbrace{(2 b d+c^2+1-2 b y_p)}_{= \tilde{e}}x+\underbrace{c d-c y_p-x_p}_{= \tilde{f}}\\
         0 &\stackrel{!}{=} \tilde{a}x^5 + \tilde{b}x^4 + \tilde{c}x^3 + \tilde{d}x^2 + \tilde{e}x + \tilde{f}
     \end{align}
 
     \begin{enumerate}
-        \item For any coefficient $\tilde{a} \in \mdr_{> 0}$ of $x^5$ we can choose $a$ such that we get $\tilde{a}$.
-        \item For any coefficient $\tilde{b} \in \mdr \setminus \Set{0}$ of $x^4$ we can choose $b$ such that we get $\tilde{b}$.
-        \item With $c$, we can get any value of $\tilde{c} \in \mdr$.
-        \item With $d$, we can get any value of $\tilde{d} \in \mdr$.
-        \item With $y_p$, we can get any value of $\tilde{e} \in \mdr$.
-        \item With $x_p$, we can get any value of $\tilde{f} \in \mdr$.
+        \item For any coefficient $\tilde{a} \in \mdr_{> 0}$ of $x^5$ we can choose $a := \frac{1}{3} \sqrt{\tilde{a}}$ such that we get $\tilde{a}$.
+        \item For any coefficient $\tilde{b} \in \mdr \setminus \Set{0}$ of $x^4$ we can choose $b := \frac{1}{5a} \cdot \tilde{b}$ such that we get $\tilde{b}$.
+        \item With $c := -2b^2 + \frac{1}{4a} \tilde{c}$, we can get any value of $\tilde{c} \in \mdr$.
+        \item With $d := -bc + a y_p + \frac{1}{a} \tilde{d}$, we can get any value of $\tilde{d} \in \mdr$.
+        \item With $y_p := \frac{1}{2b}(2bd + c^2)\cdot \tilde{e}$, we can get any value of $\tilde{e} \in \mdr$.
+        \item With $x_p := cd - c y_P+\tilde{f}$, we can get any value of $\tilde{f} \in \mdr$.
     \end{enumerate}
 
     The first restriction guaratees that we have a polynomial of 
     degree 5. The second one is necessary, to get a high range of
     $\tilde{e}$.
 
-    This means, that there is no solution formula for the problem of 
+    This means that there is no finite solution formula for the problem of 
     finding the closest points on a cubic function to a given point,
     because if there was one, you could use this formula for finding
     roots of polynomials of degree 5. $\qed$
@@ -101,9 +101,6 @@ $b, c, d \in \mdr$ be a function.
 
 
 \subsection{Another approach}
-\todo[inline]{Currently, this is only an idea. It might be usefull
-to move the cubic function $f$ such that $f$ is point symmetric
-to the origin. But I'm not sure how to make use of this symmetry.}
 Just like we moved the function $f$ and the point to get in a 
 nicer situation, we can apply this approach for cubic functions.
 
@@ -144,7 +141,7 @@ nicer situation, we can apply this approach for cubic functions.
     \caption{Cubic functions with $b = d = 0$}
 \end{figure}
 
-First, we move $f_0$ by $\frac{b}{3a}$ to the right, so
+First, we move $f_0$ by $\frac{b}{3a}$ in $x$ direction, so
 
 \[f_1(x) = ax^3 + \frac{b^2 (c-1)}{3a} x + \frac{2b^3}{27 a^2} - \frac{bc}{3a} + d \;\;\;\text{ and }\;\;\;P_1 = (x_P + \frac{b}{3a}, y_P)\]
 
@@ -160,6 +157,19 @@ because
             & \;\;\;\;\;\;\;\;\;\;\;\; + c x - \frac{bc}{3a} + d\\
             &= ax^3 + \frac{b^2}{3a}\left (1-2+c \right )x + \frac{b^3}{9a^2} \left (1-\frac{1}{3} \right )- \frac{bc}{3a} + d
 \end{align}
+
+The we move it in $y$ direction by $- (\frac{2b^3}{27 a^2} - \frac{bc}{3a} + d)$:
+
+\[f_2(x) = ax^3 + \frac{b^2 (c-1)}{3a} x \;\;\;\text{ and }\;\;\;P_2 = (x_P + \frac{b}{3a}, y_P - (\frac{2b^3}{27 a^2} - \frac{bc}{3a} + d))\]
+
+Multiply everything by $\sgn(a)$:
+
+\[f_3(x) = \underbrace{|a|}_{=: \alpha}x^3 + \underbrace{\frac{b^2 (c-1)}{3|a|}}_{=: \beta} x \;\;\;\text{ and }\;\;\;P_2 = (x_P + \frac{b}{3a}, \sgn(a) (y_P - \frac{2b^3}{27 a^2} + \frac{bc}{3a} - d))\]
+
+Now the problem seems to be much simpler. The function $\alpha x^3 + \beta x$
+with $\alpha > 0$ is centrally symmetric to $(0, 0)$.
+
+\todo[inline]{Und weiter?}
 
 \subsection{Number of points with minimal distance}
 As this leads to a polynomial of degree 5 of which we have to find
@@ -211,9 +221,6 @@ As soon as the values don't change much, you are close to a root.
 The problem of this approach is choosing a starting value that is
 close enough to the root. So we have to have a \enquote{good}
 initial guess.
-
-\subsubsection{Quadratic minimization}
-\todo[inline]{TODO}
 \clearpage
 
 \subsubsection{Muller's method}

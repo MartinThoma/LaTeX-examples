@@ -7,9 +7,8 @@ is by applying the \href{https://en.wikipedia.org/wiki/PID_algorithm}{PID algori
 This algorithm needs to know the signed current error. So you need to 
 be able to get the minimal distance of a point (the position of the car)
 to a cubic spline (the prefered path)
-combined with the direction (left or right).
-As you need to get the signed error (and one steering direction might
-be prefered), it is not only necessary to
+combined with sign (which represents the steering direction).
+As one steering direction might be prefered, it is not only necessary to
 get the minimal absolute distance, but might also help to get all points
 on the spline with minimal distance.
 
