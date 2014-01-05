@@ -115,8 +115,18 @@ tatsächlich die Grapherweiterung:
                     \State \Call{InhaltlicherMehrfachsprung}{$v$, $l$}
                 \EndIf
             \EndFor
-            \State $label \gets \Call{max}{d}$
-            \State $v.\Call{SetLabel}{label}$
+
+            \If{$d$ ist leer}
+                \State $M_H \gets \Call{HäufigsteLabelImGraph}{}$
+                \ForAll{$label$ in $M_H$}
+                    \State $v.\Call{AddLabel}{label}$
+                \EndFor
+            \Else
+                \State $M_H \gets \Call{max}{d}$
+                \ForAll{$label$ in $M_H$}
+                    \State $v.\Call{AddLabel}{label}$
+                \EndFor
+            \EndIf
         \EndFor
         \State \Return Labels für $\N_t \setminus \T_t$
     \end{algorithmic}
