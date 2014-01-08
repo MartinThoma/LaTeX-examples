@@ -15,14 +15,20 @@ gif:
 	convert -verbose -delay $(DELAY) -loop 0 -density $(DENSITY) $(SOURCE)-crop.pdf $(SOURCE).gif
 	make clean
 
-png:
+animatedGif:
 	make
-	make svg
-	inkscape $(SOURCE).svg -w $(WIDTH) --export-png=$(SOURCE).png
+	pdfcrop $(SOURCE).pdf
+	convert -verbose -delay $(DELAY) -loop 0 -density $(DENSITY) $(SOURCE)-crop.pdf $(SOURCE).gif
+	make clean
 
 transparentGif:
 	convert $(SOURCE).pdf -transparent white result.gif
 	make clean
+
+png:
+	make
+	make svg
+	inkscape $(SOURCE).svg -w $(WIDTH) --export-png=$(SOURCE).png
 
 svg:
 	make
