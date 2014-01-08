@@ -20,3 +20,4 @@ Datum      | Uhrzeit       | Bemerkung
 22.12.2013 | 14:00 - 14:45 |
 22.12.2013 | 17:00 - 18:20 |
 26.12.2013 | 18:30 - 18:45 | http://tex.stackexchange.com/q/151393/5645
+08.01.2014 | 16:15 - 17:50 | Digitalisieren der Vorlesung vom 07.01.2014

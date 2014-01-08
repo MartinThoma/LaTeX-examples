@@ -709,11 +709,11 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
               nur von $[\gamma] \in \pi_1(X,x_0)$ ab.
 
               Es gilt:
-              \begin{align}
+              \begin{align*}
                 \tilde{\gamma_0}(1) &= \tilde{\gamma_1}(1)\\
                 \Leftrightarrow [\tilde{\gamma_0} * \tilde{\gamma_1}^{-1}] &\in \pi_1(Y, y_0)\\
                 \Leftrightarrow [\gamma_0 * \gamma_1^{-1}] &\in p_* (\pi_1(Y,y_0))
-              \end{align}
+              \end{align*}
               Zu $i \in \Set{0, \dots, d-1}$ gibt es Weg $\delta_i$ in
               $Y$ mit $\delta_i(0) = y_0$ und $\sigma_i(1) = y_i$\\
               $\Rightarrow p * \delta_i$ ist geschlossener Weg in 
@@ -1005,5 +1005,160 @@ und der Fundamentalgruppe herstellen:
     Nach Satz~\ref{thm:12.15} also $\pi_1(S^1) \cong \Deck(\mdr/S^1) \cong \mdz$
 \end{beispiel}
 \index{Ueberlagerung@""Uberlagerung|)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lea's Mitschrieb vom 07.01.2014                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Gruppenaktionen}\index{Gruppenaktion|(}
+\begin{definition}\xindex{Gruppenaktion}% in Vorlesung: Definition 13.1
+    Sei $(G, \cdot)$ eine Gruppe und $X$ eine Menge.
+
+    Eine \textbf{Gruppenaktion} oder kurz \textbf{Aktion} von $G$ auf
+    $X$ ist eine Abbildung $\circ$:
+    
+    \[ \circ: G \times X \rightarrow X, (g,x) \mapsto g \cdot x,\]
+
+    für die gilt:
+    \begin{enumerate}[label=(\roman*),ref=\theplaindefinition.\roman*]
+        \item $1_G \circ x = x \;\;\; \forall x \in X$\label{def:gruppenaktion.1}
+        \item $(g \cdot h) \circ x = g \circ (h \circ x) \;\;\; \forall g,h \in G \forall x \in X$\label{def:gruppenaktion.2}
+    \end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+    \begin{enumerate}[label=\arabic*),ref=\thebeispiel.\arabic*]
+        \item $G = (\mdz, +), X = \mdr, nx = x + n$\label{bsp:gruppenaktion1}
+        \item $G$ operiert auf $X = G$ durch $g \circ h := g \cdot h$
+        \item $G$ operatiert auf $X = G$ durch $g \circ h := g \cdot h \cdot g^{-1}$, denn
+        \begin{enumerate}[label=\roman*)]
+            \item $1_G \circ h = 1_G \cdot h \cdot 1_G^{-1} = h$
+            \item \begin{align*}
+                    (g_1 \cdot g_2) \circ h &= (g_1 \cdot g_2) \cdot h \cdot (g \cdot g_2)^{-1}\\
+                        &= g_1 \cdot (g_2 \cdot h \cdot g_2^{-1}) \cdot g_1^{-1}\\
+                        &= g_1 \circ (g_2 \circ h)
+                  \end{align*}
+        \end{enumerate}
+    \end{enumerate}
+\end{beispiel}
+
+\begin{definition}
+    Sei $G$ eine Gruppe, $X$ ein topologischer Raum und
+    $\circ: G \times X \rightarrow X$ eine Gruppenaktion.
+
+    \begin{enumerate}[label=\alph*)]
+        \item $G$ operiert durch Homomorphismen, wenn für jedes $g \in G$
+              die Abbildung
+              \[m_g: X \rightarrow X, x \mapsto g \cdot X\]
+              ein Homöomorphismus ist.
+        \item Ist $G$ eine topologische Gruppe, so heißt die Aktin $\circ$
+              \textbf{stetig}\xindex{Gruppenaktion!stetige}, wenn 
+              $\circ: G \times X \rightarrow X$ stetig ist.
+    \end{enumerate}
+\end{definition}
+
+\begin{korollar}%In Vorlesung: Bemerkung 13.2
+     Jede stetige Aktion ist eine Aktion durch Homöomorphismen.
+\end{korollar}
+\begin{beweis}
+    Nach Voraussetzung ist $\circ |_{\Set{g} \times X} : X \rightarrow X, x \mapsto g \circ x$ stetig.
+
+    Die Umkehrabbildung zu $m_g$ ist $m_{g^{-1}}$: 
+    \begin{align*}
+        (m_{g^{-1}} \circ m_g)(x) &= m_{g^{-1}} (m_g (x))\\
+            &= m_{g^{-1}} (g \circ x)\\
+            &= g^{-1} \circ (g \circ x)\\
+            &\stackrel{\ref{def:gruppenaktion.2}}{=} (g^{-1} \cdot g) \circ x\\
+            &= 1_G \circ x\\
+            &\stackrel{\ref{def:gruppenaktion.1}}{=} x
+    \end{align*}
+\end{beweis}
+
+\begin{beispiel}
+    In Beispiel~\ref{bsp:gruppenaktion1} operiert $\mdz$ durch Homöomorphismen.
+\end{beispiel}
+
+\begin{korollar}\label{kor:13.3}%In Vorlesung: Bemerkung 13.3
+    Sei $G$ eine Gruppe und $X$ eine Menge.
+
+    \begin{enumerate}[label=\alph*)]
+        \item Die Gruppenaktion von $G$ auf $X$ entsprechen bijektiv
+              den Gruppenhomomorphismen $\varrho: G \rightarrow \Perm(X) = \Sym(X) = \Set{f: X \rightarrow X | f \text{ ist bijektiv}}$
+        \item Ist $X$ ein topologischer Raum, so entsprechen dabei 
+              die Aktionen durch Homöomorphismus den Gruppenhomomorphismen
+              $G \rightarrow \Homoo(X)$
+    \end{enumerate}
+\end{korollar}
+
+\begin{beweis}
+    \item Sei $\circ: G \times X \rightarrow X$ eine Aktion von $G$
+          auf $X$. Dann sei $\varrho: G \rightarrow \Perm(X)$ definiert
+          durch $\varrho(g)(X) = g \cdot x \;\;\; \forall g \in G, x \in X$,
+          also $\varrho(g) = m_g$.
+
+          $\varrho$ ist Homomorphismus: $\varrho(g_1 \cdot g_2) = m_{g_1 \cdot g_2} = m_{g_1} \circ m_{g_2} = \varrho(g_1) \circ \varrho(g_2)$,
+          denn für $x \in X: \varrho(g_1 \cdot g_2) (x) = (g_1 \cdot g_2) \circ x = g_1 \circ (g_2 \circ x) = \varrho(g_1) (\varrho(g_2)(x)) = (\varrho(g_1) \circ \varrho (g_2)) (x)$
+
+          Umgekehrt: Sei $\varrho: G \rightarrow \Perm(X)$ Gruppenhomomorphismus. Definiere $\circ: G \times X \rightarrow X$ durch $g \circ x = \varrho (g)(x)$.
+
+          z.~Z. \ref{def:gruppenaktion.2}: 
+          \begin{align*}
+            g_1 \circ (g_2 \circ x) &= \varrho (g_1) (g_2 \circ x)\\
+            &= \varrho(g_1) (\varrho(g_2)(x))\\
+            &= (\varrho(g_1) \circ \varrho(g_2))(x)\\
+            &\stackrel{\varrho \text {ist Hom.}}{=} \varrho(g_1 \cdot g_2) (x)\\
+            &= (g_1 \cdot g_2) \circ x
+          \end{align*}
+
+            z.~Z. \ref{def:gruppenaktion.1}: 
+            $1_G \cdot x = \varrho(1_G)(x) = \id_X(x) = x$, weil $\varrho$ Homomorphismus ist.
+\end{beweis}
+
+\begin{beispiel}\label{bsp:13.4}%In Vorlesung: Beispiel 13.4
+    Sei $X$ ein wegzusammenhängender topologischer Raum, $p: \tilde{X} \rightarrow X$
+    eine universelle Überlagerung, $x_0 \in X$, $\tilde{x_0} \in \tilde{X}$ mit
+    $p(\tilde{x_0}) = x_0$.
+
+    Dann operiert $\pi_1(X, x_0)$ auf $\tilde{X}$ durch Homöomorphismen wie folgt:
+
+    Für $[\gamma] \in \pi_1(X, x_0)$ und $\tilde{x} \in \tilde{X}$ sei
+    $[\gamma] \circ \tilde{x} = \tilde{\gamma * \varrho} (1)$ wobei
+    $\tilde{\gamma}$ ein Weg von $\tilde{x_0}$ nach $\tilde{x}$ in
+    $\tilde{X}$ sei, $\varrho := p(\tilde{\delta}) = p \circ \delta$.
+
+    Also: $\delta$ ist ein Weg in $X$ von $x_0$ nach $x=p(\tilde{x})$
+    und $\rtilde{\gamma * \delta}$ die Liftung von $\gamma * \delta$
+    mit Anfangspunkt $\tilde{x_0}$.
+
+    $[\gamma] \cdot \tilde{x}$ hängt nicht von der Wahl von $\tilde{\gamma}$
+    ab; ist $\tilde{\gamma}'$ ein anderer Weg von $\tilde{x_0}$ nach
+    $\tilde{x}$, so sind $\tilde{\delta}$ und $\tilde{\delta}'$ homotop,
+    also auch $\rtilde{\gamma * \delta}$ und $\rtilde{\gamma * \delta'}$
+    homotop.
+
+    Gruppenaktion, denn:
+    \begin{enumerate}[label=\roman*)]
+        \item $[e] \circ \tilde{x} = \rtilde{e * \delta} = \tilde{x}$
+        \item $\rtilde{\gamma_1 * \gamma_2 * \delta}(1) = [\gamma_1 * \gamma_2] \circ \tilde{x} = ([\gamma_1] * [\gamma_2]) \circ \tilde{x}$\\
+              $\gamma_1 * \gamma_2 * \delta(1) = [\gamma_1] \circ (\tilde{\gamma_2 * \delta})(1) = [\gamma_1] \circ ([\gamma_2] \circ \tilde{x})$ 
+    \end{enumerate}
+\end{beispiel}
+
+\textbf{Erinnerung}:% In Vorlesung: Erinnerung 13.5
+Die Konstruktion aus Korollar~\ref{kor:13.3} induziert zu der Aktion
+$\pi_1(X, x_0)$ aus Beispiel~\ref{bsp:13.4} einen Gruppenhomomorphismus
+$\varrho: \pi_1(X, x_0) \rightarrow \Homoo(X)$. Nach Satz~\ref{thm:12.15}
+ist $\varrho(\pi_1(X, x_0)) = \Deck(\tilde{X} / X) = \Set{f: \tilde{X} \rightarrow \tilde{X} \text{ Homöomorphismus} | p \circ f = p}$
+
+\begin{beispiel}% In Vorlesung: Beispiel 13.6
+    Sei $X := S^2 \subseteq \mdr^3$ und $\tau$ die Drehung um die $z$-Achse
+    um $180^\circ$.
+
+    $g = \langle \tau \rangle = \Set{\id, \tau}$ operiert auf $S^2$
+    durch Homöomorphismen.
+
+    Frage: Was ist $S^2 / G$? Ist $S^2 / G$ eine Mannigfaltigkeit?
+\end{beispiel}
+
+\index{Gruppenaktion|)}
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel3-UB}
