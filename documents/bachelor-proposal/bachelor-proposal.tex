@@ -1,0 +1,160 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[english]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage{csquotes}
+\usepackage{ifxetex,ifluatex}
+\usepackage{etoolbox}
+\usepackage[svgnames]{xcolor}
+\usepackage{tikz}
+\usepackage{framed}
+\usepackage{parskip}
+\usepackage{cite}
+\usepackage{mystyle}
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Bachelor proposal: }, 
+  pdftitle    = {Bachelor proposal} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+    \title{Proposal for a Bachelor of Science Thesis:\\Recognition of mathematical formulae in the Context of Lecture Translation}
+    \author{Martin Thoma}
+    \maketitle
+\section{The problem backgound}
+    The KIT Lecture Translator, CMUSphinx, Android voice typing and
+    many other speech recognition systems have proven that it is possible to 
+    recognize speech. But at the moment, there seems not to be a single
+    system that manages to recognize natural language math speech
+    recognition. For example, a term like
+    \[\sum_{n=1}^\infty \frac{1}{n^2} \rightarrow \infty \]
+    would naturally be spoken as
+
+\begin{shadequote}[l]{}
+The sum of one divided by n squared for n from one to infinity diverges to infinity.
+\end{shadequote}
+
+    in natural language. Today, speech recognition systems do only
+    recognize the words spoken. They don't recognize that it was a
+    mathematical term which could and should be expressed with symbols.
+
+    One way to extend an existing speech recognition $A$ systems would be
+    by the following steps:
+    \begin{enumerate}
+        \item $A$ recognizes speech and returns a text $T$. This text
+              has to contain anotations that indicate at which time
+              in the original recording the various parts of speech
+              were detected.
+        \item A math detecter parses $T$ and returns the time intervalls $I$
+              when math was detected.
+        \item A math parser tries to parse speech in $I$. This parser
+              can make use of a language model dedicated to math. It
+              returns weighted hypotheses which terms might have
+              been spoken.
+        \item Finally, a program compares the hypotheses with math
+              in a formula database. Many formulas might already been
+              written in \TeX{}, e.g. on Wikipedia, math.stackexchange.com
+              or in freely available \LaTeX{} / \TeX{} files.
+    \end{enumerate}
+\break
+
+\section{The problem statement}
+    The bachelor's thesis at KIT is worth 15 ECTS. It should be 
+    created within 4 months and at most 450 hours.
+
+    This aim of this bachelor's thesis is to answer the following 
+    questions:
+    \begin{itemize}
+        \item \textbf{Representation of Math:} How can math be expressed 
+              for speech recognition in a textual way?
+              Especially: 
+            \begin{itemize}
+                \item What reasons are there to use \TeX{}, which
+              reasons are there for MathML? 
+                \item Are there alternatives?
+            \end{itemize}
+        \item \textbf{Detection:} How can parts of speech be detected
+              that contain math?
+            \begin{itemize}
+                \item Which keywords indicate mathematics?
+                \item Is a keyword-density based approach sufficient?
+            \end{itemize}
+        \item \textbf{Evalution of math recognition strength}: 
+            \begin{itemize}
+                \item How can speech recognition systems be evaluated 
+                      for their strength in math recognition?
+                \item Is the \textbf{W}ord \textbf{E}rror \textbf{R}ate
+                      to measure how well the recognition worked?
+            \end{itemize}
+        \item \textbf{Literature research:}
+            \begin{itemize}
+                \item Can \TeX{} be used as a grammar to recognize math speech?
+                \item Can MathML be used as a grammar to recognize math speech?
+            \end{itemize}
+    \end{itemize}
+
+    Follow-up tasks, that will not be part of this bachelor's thesis,
+    include:
+    \begin{itemize}
+        \item \textbf{Other languages}: This thesis will focus on math
+            recognition for the English language. Follow-up work might
+            try to deal with math independant of the language.
+        \item \textbf{Implementation}: The aim of this thesis is not
+            to create a working math recognition.
+    \end{itemize}
+
+\section{Significance}
+This thesis will create a basis for follow-up work in speech recognition
+that contains mathematical content. It will enable people to evaluate
+various speech2math recognition ideas. Also, it will give an overview
+of the current state of art in math speech recognition and which
+questions need to be tackled in feature.
+
+\section{Time schedule}
+\begin{itemize}
+    \item[10h] Research of ways to represent math
+    \item[20h] Research ways how \TeX{} deals with math
+    \item[20h] Research how MathML deals with math
+    \item[50h] Recording math lectures
+    \item[100h] Annotating math lectures; writing the best 
+                representation for mathematical terms contained in 
+                these lectures
+    \item[10h] Finding keywords that indicate mathematical formulas
+    \item[5h] Test the keyword-approach with the annotated lectures
+\end{itemize}
+
+\renewcommand\refname{Related Literature}
+\nocite{*}
+\bibliographystyle{itmalpha}
+\bibliography{literatur}
+
+\section{Hypotheses}
+I think that MathML will be the best way to represent math, because
+it was designed to do this. MathML~3.0, the most recent version,
+is a W3C recommendation since October 2001.
+
+\TeX{} in contrast is great in rendering mathematical equations,
+but it grew over time. It existed even before the web was invented.
+
+Another reason why I think MathML might be favorable for internal
+representation is that it was created to be parsed and written by
+machines. It is an XML standard and as such you can apply XML tools
+and libraries to parse it. \TeX{} on the other hand was created
+to be written by humans.
+
+I'm pretty sure that it is hopless to create a grammar for math
+in it's general form. But for some areas like boolean logic, arithmetic
+or analysis it might work pretty well.
+
+\end{document}
