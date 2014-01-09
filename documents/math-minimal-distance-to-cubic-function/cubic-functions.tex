@@ -196,7 +196,7 @@ One way to find roots of functions is Newtons method. It gives an
 iterative computation procedure that can converge quadratically 
 if some conditions are met:
 
-\begin{theorem}[local quadratic convergence of Newton's method]
+\begin{theorem}[local quadratic convergence of Newton's method\footnotemark]
     Let $D \subseteq \mdr^n$ be open and $f: D \rightarrow \mdr^n \in C^2(\mdr)$.
     Let $x^* \in D$ with $f(x^*) = 0$ and the Jaccobi-Matrix $f'(x^*)$
     should not be invertable when evaluated at the root.
@@ -211,6 +211,8 @@ if some conditions are met:
     Also, there is a constant $C > 0$ such that
     \[\|x^* - x_{n+1} \| = C \|x^* - x_n\|^2 \text{ for } n \in \mathbb{N}_0\|\]
 \end{theorem}
+\footnotetext{Translated from German to English from lecture notes of "Numerische Mathematik für die Fachrichtung Informatik
+und Ingenieurwesen" by Dr. Weiß, KIT}
 
 The approach is extraordinary simple. You choose a starting value
 $x_0$ and compute
@@ -225,6 +227,8 @@ initial guess.
 
 \subsubsection{Muller's method}
 Muller's method was first presented by David E. Muller in 1956.
+
+\todo[inline]{Paper? Might this be worth a try?}
 
 \subsubsection{Bisection method}
 The idea of the bisection method is the following:
@@ -241,6 +245,8 @@ Now three cases can occur:
     \item[Case 2] $\sgn(a) = \sgn(\frac{a+b}{2})$: Continue searching in $[\frac{a+b}{2}, b]$
     \item[Case 3] $\sgn(b) = \sgn(\frac{a+b}{2})$: Continue searching in $[a, \frac{a+b}{2}]$
 \end{enumerate}
+
+\todo[inline]{Which intervall can I choose? How would I know that there is exactly one root?}
 
 \subsubsection{Bairstow's method}
 Cite from Wikipedia:
