@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 09.01.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Euklidische und Nichteuklidische Geometrie}
+\section{Axiome for die euklidische Ebene}
+
+\begin{itemize}
+    \item Grundbegriife
+    \item Axiome
+    \item Sätze
+\end{itemize}
+
+\textbf{Wünschenswerte Eigenschaften:}
+\begin{itemize}
+    \item widerspruchsfrei $\rightarrow$ Gödelscher Unvollständigkeitssatz
+    \item unabhängigkeit: Kein Axiom lässt sich aus einem anderem herleiten
+    \item vollständigkeit: Jede Aussage lässt sich mit Schlussfolgerungen 
+          aus dem Axiomensystem verifizieren oder falsifizieren
+\end{itemize}
+
+\textbf{Euklids Axiome}
+\begin{itemize}
+    \item \textbf{Strecke} zwischen je zwei Punkten
+    \item Jede Strecke bestimmt genau eine \textbf{Gerade}
+    \item \textbf{Kreis} (um jeden Punkt mit jedem Radius)
+    \item Je zwei rechte Winkel sind gleich (Isometrie, Bewegung)
+    \item Parallelenaxiom: Euklid:\\
+        Wird eine Gerade so von zwei Geraden geschnitten, dass die 
+        Summe der Innenwinkel zwei Rechte ist, dann schneiden sich
+        diese Geraden auf der Seite dieser Winkel.
+        \todo[inline]{Bild}
+        Man mache sich klar, dass das nur dann nicht der Fall ist, 
+        wenn beide Geraden parallel sind und senkrecht auf die erste stehen.
+\end{itemize}
+
+\begin{definition}\xindex{Ebene!euklidische}%In Vorlesung: Definition 14.2
+    Eine \textbf{euklidische Ebene} ist ein metrischer Raum $(X,d)$ 
+    zusammen mit einer Teilmenge $G \subseteq \powerset{X}$, sodass die
+    Axiome~\ref{axiom:1}~-~IV erfüllt sind:
+    \begin{enumerate}[label=§\arabic*),ref=§\arabic*]
+        \item \enquote{Inzidenzaxiome}:\label{axiom:1}
+            \begin{enumerate}[label=(\roman*),ref=\theenumi{} (\roman*)]
+                \item Zu $P \neq Q \in X$ gibt es genau ein $g \in G$ mit
+                      $\Set{P, Q} \subseteq g$.
+                \item $|g| \geq 2 \;\;\; \forall g \in G$
+                \item $X \in G$
+            \end{enumerate}
+        \item \enquote{Abstandsaxiom}: Zu $P, Q, R \in X$ gibt es \label{axiom:2}
+              genau dann ein $g \in G$ mit $\Set{P, Q, R} \subseteq g$,
+              wenn gilt: 
+              \begin{itemize}[]
+                \item $d(P, R) = d(P, Q) + d(Q, R)$ oder
+                \item $d(P, Q) = d(P, R) + d(R, Q)$ oder
+                \item $d(Q, R) = d(Q, P) + d(P, R)$
+              \end{itemize}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    \begin{enumerate}[label=\alph*)]
+        \item $P, Q, R$ liegen \textbf{kolinear}\xindex{kolinear}, 
+              wenn es $g \in G$ gibt mit $\Set{P, Q, R} \subseteq g$.
+        \item $Q$ \textbf{liegt zwischen}\xindex{liegt zwischen} $P$
+              und $R$, wenn $d(P, R) = d(P, Q) + d(Q, R)$
+        \item $\overline{PR} := \Set{Q \in X | Q \text{ liegt zwischen } P \text{ und } R}$
+        \item $PR^+ := \Set{Q \in X | Q \text{ liegt zwischen } P \text{ und } R \text{ oder } R \text{ liegt zwischen } P \text{ und } Q}$\\
+              $PR^- := \Set{Q \in X | P \text{ liegt zwischen } Q \text{ und } R}$\\ 
+    \end{enumerate}
+\end{definition}
+
+\begin{korollar}
+    \begin{enumerate}[label=(\roman*)]
+        \item $PR^+ \cup PR^- = PR$
+        \item $PR^+ \cap PR^- = \Set{P}$
+    \end{enumerate}
+\end{korollar}
+
+\begin{beweis}\leavevmode
+    \begin{enumerate}[label=(\roman*)]
+        \item \enquote{$\subseteq$} folgt direkt aus der Definition von $PR^+$ und $PR^-$\\
+              \enquote{$\supseteq$}: Sei $Q \in PR \Rightarrow P, Q, R$ 
+              sind kolinear.\\
+              $\stackrel{\ref{axiom:2}}{\Rightarrow}
+              \begin{cases} 
+                Q \text{ liegt zwischen } P \text{ und } R \Rightarrow Q \in PR\\
+                R \text{ liegt zwischen } P \text{ und } Q \Rightarrow Q \in PR\\
+                P \text{ liegt zwischen } Q \text{ und } R \Rightarrow Q \in PR
+              \end{cases}$
+        \item \enquote{$\supseteq$} ist offensichtlich\\
+              \enquote{$\subseteq$}: Sei $PR^+ \cap PR^-$. Dann ist
+              $d(Q,R) = d(P,Q) + d(P,R)$ weil $Q \in PR^-$ und
+              \begin{align*}
+                &\left \{ \begin{array}{l}
+                        d(P,R) = d(P,Q) + d(Q,R) \text{ oder }\\
+                        d(P,Q) = d(P,R) + d(R,Q)
+                       \end{array} \right \}\\
+                &\Rightarrow d(Q,R) = 2d(P,Q) + d(Q,R)\\
+                &\Rightarrow d(P,Q) = 0\\
+                &\Rightarrow P=Q\\
+                &d(P,Q) = 2d(P,R) + d(P,Q)\\
+                &\Rightarrow P=R\\
+                &\Rightarrow \text{Widerspruch}
+              \end{align*}
+    \end{enumerate}
+\end{beweis}
+
+\begin{definition}
+    \begin{enumerate}[label=§\arabic*),ref=§\arabic*,start=3]
+        \item \enquote{Anordnungsaxiom}\label{axiom:3}
+            \begin{enumerate}[label=(\roman*),ref=§\theenumi{} (\roman*)]
+                \item  Zu jedem $P \in X$ jeder Halbgerade $H$ mit \label{axiom:3.1}
+                      Anfangspunkt $P$ und jedem $r \in \mdr_{\geq 0}$
+                      gibt es genau ein $Q \in H$ mit $d(P,Q) = r$.
+                \item Jede Gerade zerlegt $X \setminus g = H_1 \dcup H_2$\label{axiom:4}
+                      in zwei nichtleere Teilmengen $H_1, H_2$.
+                      (Diese Teilmengen heißen \textbf{Halbebenen}\xindex{Halbebene} bzgl. $g$),
+                      sodass für alle $A \in H_i$, $B \in H_j$
+                      $(i,j \in \Set{1,2})$ gilt: $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$
+            \end{enumerate}
+        \item \enquote{Bewegungsaxiome}: Zu $P, Q, P', Q' \in X$
+            mit $d(P,Q) = d(P', Q')$. Isometrien $\varphi_1, \varphi_2$
+            mit $\varphi_i (P) = P'$ und $\varpi_i(Q) = Q', i=1,2$
+            (Spiegelung an der Gerade durch $P$ und $Q$ ist nach 
+             Identifizierung von $P \cong P'$ und $Q \cong Q'$ eine
+             weitere Isometrie.)
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}%In Vorlesung: Satz 14.4
+    Aus den Axiomen \ref{axiom:1}~-~\ref{axiom:3} folgt, dass es in 
+    den Situation \ref{axiom:4} höchstens zwei Isometrien mit
+    $\varphi_i(P) = P'$ und $\varphi_i(Q) = Q'$ gibt.
+\end{proposition}
+
+\begin{beweis}
+    Seien $\varphi_1, \varphi_2, \varphi_3$ Isometrien mit
+    $\varphi_i(P) = P'$, $\varphi_i(Q) = Q'$, $i=1,2,3$
+
+    \begin{behauptung}
+        Es gibt $R \in PQ$ mit $\varphi_{A_i} (R) = \varphi_{Z_j} (R)$
+        mit $i \neq j$.
+
+        \Obda sei $i=1$ und $j=2$, also $\varphi_1(R) = \varphi_2(R)$.
+    \end{behauptung}
+    \begin{behauptung}
+        Hat eine Isometrie $\varphi$ 3 Fixpunkte, die nicht kolinear sind,
+        so ist $\varphi = \id_X$.
+
+        Aus Beh. 1 und Beh. 2 folgt, dass $\varphi_2^{-1} \circ \varphi_1 = \id_X$,
+        also $\varphi_2 = \varphi_1$.
+    \end{behauptung}
+
+    \begin{beweis}\leavevmode
+        \begin{behauptung}
+            Sind $P \neq Q$ Fixpunkte einer Isometrie, so ist 
+            $\varphi(R) = R$ für jedes $R \in PQ$.
+        \end{behauptung}
+        \begin{beweis}
+            Es ist $\varphi(PQ) = \varphi(P) \varphi(Q)$ weil $\varphi$
+            wegen \ref{axiom:2} kolinearität erhält.
+
+            Sei nun $R \in PQ$. Dann ist $d(P, \varphi(R)) \stackrel{P \text{ ist Fixpunkt}}{=} d(\varphi(P), \varphi(R)) = d(P, R)$.
+            Weiter ist $\varphi (PQ^+) = \varphi(P) \varphi(Q)^+ = PQ^+$
+            $\stackrel{\ref{axiom:3.1}}{\Rightarrow} R = \varphi(R)$
+        \end{beweis}
+    \end{beweis}
+\end{beweis}
