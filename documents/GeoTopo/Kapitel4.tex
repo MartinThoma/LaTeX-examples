@@ -43,7 +43,7 @@ aufgestellt.
 \begin{definition}\xindex{Ebene!euklidische}%In Vorlesung: Definition 14.2
     Eine \textbf{euklidische Ebene} ist ein metrischer Raum $(X,d)$ 
     zusammen mit einer Teilmenge $G \subseteq \powerset{X}$, sodass die
-    Axiome~\ref{axiom:1}~-~IV erfüllt sind:
+    Axiome~\ref{axiom:1}~-~\ref{axiom:4} erfüllt sind:
     \begin{enumerate}[label=§\arabic*),ref=§\arabic*]
         \item \enquote{Inzidenzaxiome}:\label{axiom:1}
             \begin{enumerate}[label=(\roman*),ref=\theenumi{} (\roman*)]
@@ -118,13 +118,13 @@ aufgestellt.
                 \item  Zu jedem $P \in X$ jeder Halbgerade $H$ mit \label{axiom:3.1}
                       Anfangspunkt $P$ und jedem $r \in \mdr_{\geq 0}$
                       gibt es genau ein $Q \in H$ mit $d(P,Q) = r$.
-                \item Jede Gerade zerlegt $X \setminus g = H_1 \dcup H_2$\label{axiom:4}
+                \item Jede Gerade zerlegt $X \setminus g = H_1 \dcup H_2$
                       in zwei nichtleere Teilmengen $H_1, H_2$.
                       (Diese Teilmengen heißen \textbf{Halbebenen}\xindex{Halbebene} bzgl. $g$),
                       sodass für alle $A \in H_i$, $B \in H_j$
                       $(i,j \in \Set{1,2})$ gilt: $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$
             \end{enumerate}
-        \item \enquote{Bewegungsaxiome}: Zu $P, Q, P', Q' \in X$
+        \item \enquote{Bewegungsaxiome}: Zu $P, Q, P', Q' \in X$\label{axiom:4}
             mit $d(P,Q) = d(P', Q')$. Isometrien $\varphi_1, \varphi_2$
             mit $\varphi_i (P) = P'$ und $\varpi_i(Q) = Q', i=1,2$
             (Spiegelung an der Gerade durch $P$ und $Q$ ist nach 
