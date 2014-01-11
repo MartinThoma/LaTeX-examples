@@ -2,7 +2,7 @@ Nur mal aus Interesse versuche ich zu verfolgen, wie viel Zeit
 in dem Erstellen dieses Skripts steckt:
 
 |Datum      | Uhrzeit       | Bemerkung
----------------------------------------------------------------------
+|-----------|---------------|----------------------------------------
 |03.12.2013 | 11:00 - 12:00 |
 |03.12.2013 | 13:10 - 15:00 |
 |05.12.2013 | 15:50 - 17:00 |
