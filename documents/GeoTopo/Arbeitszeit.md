@@ -23,3 +23,4 @@ in dem Erstellen dieses Skripts steckt:
 |08.01.2014 | 16:15 - 17:50 | Digitalisieren der Vorlesung vom 07.01.2014
 |11.01.2014 | 20:30 - 23:00 | Digitalisieren der Vorlesung von 09.01.2014
 |11.01.2014 | 23:00 - 23:15 | Umfrage auf Doodle: http://www.doodle.com/xrscxa9rzfcrzr44
+|11.01.2014 | 23:15 - 23:50 | Überarbeitung der Einleitung zum Kapitel "Euklidische und Nichteuklidische Geometrie"
