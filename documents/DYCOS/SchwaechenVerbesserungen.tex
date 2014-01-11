@@ -37,6 +37,25 @@ $v_2$ mit $A$ gelabelt.\\
 Zum Zeitpunkt $t=3$ komme ein Knoten $v_3$, der mit $B$ gelabelt ist,
 und die Kante $(v_3, v_2)$ hinzu.
 
+\begin{figure}[ht]
+    \centering
+    \subfloat[$t=1$]{
+        \input{figures/graph-t1.tex}
+        \label{fig:graph-t1}
+    }%
+    \subfloat[$t=2$]{
+        \input{figures/graph-t2.tex}
+        \label{fig:graph-t2}
+    }
+
+    \subfloat[$t=3$]{
+        \input{figures/graph-t3.tex}
+        \label{fig:graph-t3}
+    }%
+    \label{Formen}
+    \caption{Minimalbeispiel für den Einfluss früherer DYCOS-Anwendungen}
+\end{figure}
+
 Würde man nun den DYCOS-Algorithmus erst jetzt, also anstelle von
 Zeitpunkt $t=2$ zum Zeitpunkt $t=3$ auf den Knoten $v_2$ anwenden, so
 würde eine $50\%$-Wahrscheinlichkeit bestehen, dass dieser mit $B$ 
