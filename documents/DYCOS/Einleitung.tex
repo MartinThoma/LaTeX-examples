@@ -19,8 +19,8 @@ für alle Knoten, die bisher noch nicht gelabelt sind.\\
     $E_t$ die Kantenmenge und $V_{L,t} \subseteq V_t$ die Menge der 
     gelabelten Knoten jeweils zum Zeitpunkt $t$ bezeichne.
     Außerdem sei $L_t$ die Menge aller zum Zeitpunkt $t$ vergebenen
-    Labels und $f:V_{L,t} \rightarrow \powerset(L_t)$ die Funktion, die einen
-    Knoten auf seine Labels abbildet.
+    Labels und $f:V_{L,t} \rightarrow L_t$ die Funktion, die einen
+    Knoten auf sein Label abbildet.
 
     Weiter sei für jeden Knoten $v \in V$ eine (eventuell leere)
     Textmenge $T(v)$ gegeben.
@@ -36,6 +36,6 @@ sind viele $\num{10000}$~Knoten groß und dynamisch. Das bedeutet, es
 kommen neue Knoten und eventuell auch neue Kanten hinzu bzw. Kanten 
 oder Knoten werden entfernt. Außerdem stehen textuelle Inhalte zu den 
 Knoten bereit, die bei der Klassifikation genutzt werden können.
-Das bedeutet, es ist wünschenswert bei kleinen Modifikationen nicht
-nochmals alles neu berechnen zu müssen, sondern basierend auf zuvor
-berechneten Labels die Klassifizierung modifizieren zu können.
+Bei kleinen Modifikationen sollte nicht alles nochmals berechnen 
+werden müssen, sondern basierend auf zuvor
+berechneten Labels sollte die Klassifizierung modifiziert werden.

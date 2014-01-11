@@ -5,7 +5,11 @@ Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011} vorg
 wurde. Er klassifiziert Knoten, indem mehrfach Random Walks startend
 bei dem zu klassifizierenden Knoten gemacht werden und die Labels
 der besuchten Knoten gezählt werden. Das Label, das am häufigsten
-vorgekommen ist, wird zur Klassifizierung verwendet.
+vorgekommen ist, wird als Label gewählt.
+DYCOS nutzt also die sog. Homophilie, d.~h. die Eigenschaft, dass
+Knoten, die nur wenige Hops von einander entfernt sind, häufig auch
+ähnlich sind \cite{bhagat}.
+
 Der DYCOS-Algorithmus nimmt jedoch nicht einfach den Graphen für 
 dieses Verfahren, sondern erweitert ihn mit Hilfe der zur Verfügung
 stehenden Texte.
@@ -28,6 +32,32 @@ verbunden, wenn $w$ in einem Text von $v$ vorkommt.
     \label{fig:erweiterter-graph}
 \end{figure}
 
+Entsprechend werden zwei unterschiedliche Sprungtypen unterschieden,
+die strukturellen Sprünge und inhaltliche Mehrfachsprünge:
+
+\begin{definition}
+    Sei $G_{E,t} = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
+    um die Wortknoten $W_{t}$ erweiterte Graph.
+
+    Dann heißt das zufällige wechseln des aktuell betrachteten
+    Knoten $v \in V_t$ zu einem benachbartem Knoten $w \in V_t$
+    ein \textbf{struktureller Sprung}.
+\end{definition}
+
+Im Gegensatz dazu benutzten inhaltliche Mehrfachsprünge
+tatsächlich die Grapherweiterung:
+
+\begin{definition}
+    Sei $G_t = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
+    um die Wortknoten $W_{t}$ erweiterte Graph.
+
+    Dann heißt das zufällige wechseln des aktuell betrachteten
+    Knoten $v \in V_t$ zu einem benachbartem Knoten $w \in W_t$
+    und weiter zu Nachbar von $v' \in V_t$ von $w$
+    ein \textbf{inhaltlicher Mehrfachsprung}. $v'$ ist also genau
+    einen Sprung über einen Wortknoten $w$ von $v$ entfernt.
+\end{definition}
+
 Der DYCOS-Algorithmus betrachtet die Texte, die einem Knoten 
 zugeornet sind, als eine
 Multimenge von Wörtern. Das heißt, zum einen wird nicht auf die
@@ -49,111 +79,69 @@ verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
           \enquote{Wort} in den Texten von $v$.
     \item Für jedes Wort des Vokabulars $W_t$ wird eine Liste von 
           Knoten verwaltet, in deren Texten das Wort vorkommt.
+    \item An einigen Stellen macht ein assoziatives Array, auch 
+          \enquote{dictionary} oder \enquote{map} genannt, sinn.
+          Zustätzlich ist es nützlich, wenn diese Datenstruktur für 
+          unbekannte Schlüssel keinen Fehler ausgibt, sondern für diese
+          Schlüssel den Wert 0 annimmt. Eine solche Datenstruktur
+          wird in Python \texttt{defaultdict} genannt und ich werde
+          im Folgenden diese Benennung beibehalten.
 \end{itemize}
 
-\subsection{Algorithmen}
-Bevor der Algorithmus formal beschrieben wird, wird eine Definition
-des strukturellen $l$-Sprungs benötigt:
-\begin{definition}
-    Sei $G_{E,t} = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
-    um die Wortknoten $W_{t}$ erweiterte Graph.
+\input{Sprungtypen}
+\input{Vokabularbestimmung}
 
-    Dann heißt ein Random Walk der Länge $l$ in diesem Graphen
-    ein \textbf{struktureller $l$-Sprung}, wenn für den Random Walk
-    nur Kanten aus $E_{S,t}$ benutzt werden.
-\end{definition}
+\subsection{Der Algorithmus}
+Der DYCOS-Algorithmus verwendet nun für jeden Knoten der gelabelt wird
+$r$ Random Walks der Länge $l$, wobei mit einer Wahrscheinlichkeit 
+$p_S$ ein struktureller $l$-Sprung und mit einer Wahrscheinlichkeit
+von $(1-p_S)$ ein inhaltlicher $l$-Mehrfachsprung gemacht wird.
 
-Der strukturelle $l$-Sprung ist also ein Random Walk der Länge $l$
-im Graph $G_t$. Im Gegensatz dazu benötigt der inhaltliche $l$-Mehrfachsprung
-tatsächlich die Grapherweiterung:
+Die Vokabularbestimmung kann zu jedem Zeitpunkt $t$ durchgeführt 
+werden, muss es aber nicht.
 
-\begin{definition}
-    Sei $G_t = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
-    um die Wortknoten $W_{t}$ erweiterte Graph.
-
-    Dann heißt ein Random Walk der Länge $l$ in diesem Graphen
-    ein \textbf{inhaltlicher $l$-Mehrfachsprung}, wenn für den Random Walk
-    in jedem der $l$ Schritte, startend von einem Knoten $v \in V_t$
-    eine Kante zu einem Wortknoten und von dem Wortknoten wieder 
-    zu einem Strukturknoten genommen wird.
-\end{definition}
+Im Folgenden werde ich den DYCOS-Algorithmus als Pseudocode vorstellen.
+Dafür benötigt man die beiden Hilfsfunktionen für den strukturellen
+Sprung sowie den inhaltlichen Mehrfachsprung:
 
 \begin{algorithm}[H]
-    \begin{algorithmic}
+    \begin{algorithmic}[1]
         \Require \\$\G_t = (\N_t, \A_t, \T_t)$ (Netzwerk),\\
                  $r$ (Anzahl der Random Walks),\\
                  $l$ (Länge eines Random Walks),\\
-                 $p_s$ (Wahrscheinlichkeit eines strukturellen Sprungs)
+                 $p_s$ (Wahrscheinlichkeit eines strukturellen Sprungs),\\
+                 $q$ (Anzahl der betrachteten Knoten nach der Aggregatanalyse)
         \Ensure  Klassifikation von $\N_t \setminus \T_t$\\
-
-        \Procedure{SturkturellerSprung}{Dictionary $d$, Startknoten $v$, Länge $l$}
-            \For{$i$ von $1$ bis $l$}
-                \State $v \gets v.\Call{Next}{}$
-                \ForAll{Label $w$ in v.\Call{GetLabels}{}}
-                    \State $d[w] = d[w] + 1$
-                \EndFor
-            \EndFor
-        \EndProcedure
-        \\
-        \Procedure{InhaltlicherMehrfachsprung}{Dictionary $d$, Startknoten $v$, Länge $l$}
-            \For{$i$ von $1$ bis $l$}
-                \State $v \gets v.\Call{Next}{}$ \Comment{TODO: Hier muss ein mehrfachsprung beschrieben werden!}
-                \ForAll{Label $w$ in v.\Call{GetLabels}{}}
-                    \State $d[w] = d[w] + 1$
-                \EndFor
-            \EndFor
-        \EndProcedure
         \\
 
         \ForAll{Knoten $v$ in $\N_t \setminus \T_t$}
-            \State $d \gets $ Dictionary, das für neue Einträge 0 annimmt
+            \State $d \gets $ defaultdict
             \For{$i$ von $1$ bis $r$}
-                \State $sprungTyp \gets \Call{random}{0, 1}$
-                \If{$sprungTyp \leq p_S$}
-                    \State \Call{SturkturellerSprung}{$v$, $l$}
-                \Else
-                    \State \Call{InhaltlicherMehrfachsprung}{$v$, $l$}
-                \EndIf
+                \State $w \gets v$
+                \For{$j$ von $1$ bis $l$}
+                    \State $sprungTyp \gets \Call{random}{0, 1}$
+                    \If{$sprungTyp \leq p_S$}
+                        \State $w \gets$ \Call{SturkturellerSprung}{$w$}
+                    \Else
+                        \State $w \gets$ \Call{InhaltlicherMehrfachsprung}{$w$}
+                    \EndIf
+                    \State $w \gets v.\Call{GetLabel}{ }$ \Comment{Zähle das Label}
+                    \State $d[w] \gets d[w] + 1$
+                \EndFor
             \EndFor
 
-            \If{$d$ ist leer}
-                \State $M_H \gets \Call{HäufigsteLabelImGraph}{}$
-                \ForAll{$label$ in $M_H$}
-                    \State $v.\Call{AddLabel}{label}$
-                \EndFor
+            \If{$d$ ist leer} \Comment{Es wurde kein gelabelter Knoten gesehen}
+                \State $M_H \gets \Call{HäufigsteLabelImGraph}{ }$
             \Else
                 \State $M_H \gets \Call{max}{d}$
-                \ForAll{$label$ in $M_H$}
-                    \State $v.\Call{AddLabel}{label}$
-                \EndFor
             \EndIf
+            \\
+            \State \Comment{Wähle aus der Menge der häufigsten Label $M_H$ zufällig eines aus}
+            \State $label \gets \Call{Random}{M_H}$ 
+            \State $v.\Call{AddLabel}{label}$ \Comment{und weise dieses $v$ zu}
         \EndFor
         \State \Return Labels für $\N_t \setminus \T_t$
     \end{algorithmic}
 \caption{DYCOS-Algorithmus}
 \label{alg:DYCOS}
 \end{algorithm}
-
-\subsection{Inhaltliche Mehrfachsprünge}
-Es ist nicht sinnvoll, direkt von einem strukturellem Knoten 
-$v \in \N_t$ zu einem mit $v$ verbundenen Wortknoten $w$ zu springen
-und von diesem wieder zu einem verbundenem strutkurellem Knoten 
-$v' \in \N_t$. Würde man dies machen, wäre zu befürchten, dass
-aufgrund von Homonymen die Qualität der Klassifizierung verringert
-wird. So hat \enquote{Brücke} im Deutschen viele Bedeutungen.
-Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
-objektorientierten Programmierung oder ein Teil des Gehirns.
-
-Deshalb wird für jeden Knoten $v$, von dem aus man einen inhaltlichen
-Mehrfachsprung machen will folgendes vorgehen gewählt:
-\begin{enumerate}
-    \item Gehe alle in $v$ startenden Random Walks der Länge 2 durch
-          und erstelle eine Liste $L$, der erreichbaren Knoten $v'$. Speichere
-          außerdem, durch wie viele Pfade diese Knoten $v'$ jeweils erreichbar sind.
-    \item Betrachte im folgenden nur die Top-$q$ Knoten, wobei $q \in \mathbb{N}$
-          eine zu wählende Konstante des Algorithmus ist.
-    \item Wähle mit Wahrscheinlichkeit $\frac{\Call{Anzahl}{v'}}{\sum_{w \in L} \Call{Anzahl}{v'}}$
-          den Knoten $v'$ als Ziel des Mehrfachsprungs.
-\end{enumerate}
-
-\input{Vokabularbestimmung}

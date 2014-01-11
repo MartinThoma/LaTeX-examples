@@ -13,7 +13,6 @@ Gleichverteilung entspricht und $1$ der größt möglichen Ungleichverteilung.
 
 Sei nun $n_i(w)$ die Häufigkeit des Wortes $w$ in allen Texten mit 
 dem $i$-ten Label.
-\todo{darf ich hier im Nenner 1 addieren?}
 \begin{align}
     p_i(w) &:= \frac{n_i(w)}{\sum_{j=1}^{|\L_t|} n_j(w)} &\text{(Relative Häufigkeit des Wortes $w$)}\\
     G(w)   &:= \sum_{j=1}^{|\L_t|} p_j(w)^2              &\text{(Gini-Koeffizient von $w$)}
@@ -30,7 +29,7 @@ $\mathcal{O}(|\text{Wörter in } S_t|)$, wobei dazu die Vereinigung
 von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
 
 \begin{algorithm}[H]
-    \begin{algorithmic}
+    \begin{algorithmic}[1]
         \Require \\
                  $\T_t$ (Knoten mit Labels),\\
                  $\L_t$ (Labels),\\
@@ -65,4 +64,6 @@ von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
 \label{alg:vokabularbestimmung}
 \end{algorithm}
 
-
+Die Menge $S_t$ kann durch Aus der Menge aller Dokumenten, deren 
+Knoten gelabelt sind, mithile des in \cite{Vitter} vorgestellten
+Algorithmus bestimmt werden.

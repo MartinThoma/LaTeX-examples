@@ -1,0 +1,89 @@
+Der in \cite{aggarwal2011} vorgestellte Algorithmus hat einige Probleme,
+die im Folgenden erläutert werden. Außerdem werden Verbesserungen
+vorgeschlagen, die es allerdings noch zu untersuchen gilt.
+
+\subsection{Schwächen von DYCOS}
+\subsubsection{Anzahl der Labels}
+So, wie er vorgestellt wurde, können nur Graphen bearbeitet werden, 
+deren Knoten höchstens ein Label haben. In vielen Fällen, wie z.~B. 
+Wikipedia mit Kategorien als Labels haben Knoten jedoch viele Labels.
+
+Auf einen ersten Blick ist diese Schwäche einfach zu beheben, indem 
+man beim zählen der Labels für jeden Knoten jedes Label zählt. Dann
+wäre noch die Frage zu klären, mit wie vielen Labels der betrachtete
+Knoten gelabelt werden soll.
+
+Jedoch ist z.~B. bei Wikipedia-Artikeln auf den Knoten eine 
+Hirarchie definiert. So ist die Kategorie \enquote{Klassifikationsverfahren}
+eine Unterkategorie von \enquote{Klassifikation}. Bei dem Kategorisieren
+von Artikeln sind möglichst spezifische Kategorien vorzuziehen, also
+kann man nicht einfach bei dem Auftreten der Kategorie \enquote{Klassifikationsverfahren}
+sowohl für diese Kategorie als auch für die Kategorie \enquote{Klassifikation}
+zählen.
+
+
+\subsubsection{Überanpassung und Reklassifizierung}
+Aggarwal und Li beschreiben in \cite{aggarwal2011} nicht, auf welche
+Knoten der Klassifizierungsalgorithmus angewand werden soll. Jedoch
+ist die Reihenfolge der Klassifizierung relevant. Dazu folgendes 
+minimale Beispiel:
+
+Gegeben sei ein dynamischer Graph ohne textuelle Inhalte. Zum Zeitpunkt
+$t=1$ habe dieser Graph genau einen Knoten $v_1$ und $v_1$  sei
+mit dem Label $A$ beschriftet. Zum Zeitpunkt $t=2$ komme ein nicht-gelabelter
+Knoten $v_2$ sowie die Kante $(v_1, v_2)$ hinzu.\\
+Nun wird der DYCOS-Algorithmus auf diesen Knoten angewendet und
+$v_2$ mit $A$ gelabelt.\\
+Zum Zeitpunkt $t=3$ komme ein Knoten $v_3$, der mit $B$ gelabelt ist,
+und die Kante $(v_3, v_2)$ hinzu.
+
+Würde man nun den DYCOS-Algorithmus erst jetzt, also anstelle von
+Zeitpunkt $t=2$ zum Zeitpunkt $t=3$ auf den Knoten $v_2$ anwenden, so
+würde eine $50\%$-Wahrscheinlichkeit bestehen, dass dieser mit $B$ 
+gelabelt wird. Aber in diesem Beispiel wurde der Knoten schon
+zum Zeitpunkt $t=2$ gelabelt. Obwohl es in diesem kleinem Beispiel
+noch keine Rolle spielt, wird das Problem klar, wennn man weitere
+Knoten einfügt:
+
+Wird zum Zeitpunkt $t=4$ ein ungelabelter Knoten $v_4$ und die Kanten
+$(v_1, v_4)$, $(v_2, v_4)$, $(v_3, v_4)$ hinzugefügt, so ist die 
+Wahrscheinlichkeit, dass $v_4$ mit $A$ gelabelt wird bei $75\%$.
+Werden die als ungelabelten Knoten jedoch erst jetzt und alle gemeinsam
+gelabelt, so ist die Wahrscheinlichkeit für $A$ als Label bei nur $50\%$.
+Bei dem DYCOS-Algorithmus findet also eine Überanpassung and vergangene
+Labels statt.
+
+Das Reklassifizieren von Knoten könnte eine mögliche Lösung für dieses
+Problem sein. Knoten, die durch den DYCOS-Algorithmus gelabelt wurden
+könnten eine Lebenszeit bekommen (TTL, Time to Live). Ist diese 
+abgelaufen, wird der DYCOS-Algorithmus erneut auf den Knoten angewendet.
+
+\subsection{Schwächen des Papers}
+Die Ergebnise der experimentelle Analyse können aus folgenden Gründen
+nicht überprüft werden:
+\begin{itemize}
+    \item DYCOS verwendet als Vokabular die Top-$m$-Wörter mit dem
+          höchsten Gini-Index aus einer Sample-Menge von Texten, die
+          wie in \cite{Vitter} beschrieben
+          erzeugt wird. Allerdings wird niemals erklärt, wie $m \in \mathbb{N}$
+          bestimmt wird. Es ist nicht einmal klar, ob $m$ für den
+          Algorithmus als konstant anzusehen ist oder ob $m$ sich
+          bei der Vokabularbestimmung ändern könnte.
+    \item DYCOS beschränkt sich bei inhaltlichen Mehrfachsprüngen
+          auf die Top-$q$-Wortknoten, also die $q$ ähnlichsten Knoten
+          gemessen mit der Aggregatanalyse. Auch hier wird nicht erklärt wie
+          $q \in \mathbb{N}$ bestimmt oder nach welchen Überlegungen $q$ gesetzt 
+          wurde. Allerings ist hier wenigstens klar, dass $q$ für
+          den DYCOS-Algorithmus konstant ist. Für die Experimentelle
+          Analyse wurde zwar erwähnt, dass $q$ ein Parameter des
+          Algorithmus ist\cite[S. 362]{aggarwal2011}, aber nicht welcher
+          Wert in der Analyse des DBLP-Datensatzes genutzt wurde.
+          Für den CORA-Datensatz wurde $q=10$ gewählt\cite[S. 364]{aggarwal2011}.
+    \item Für die Analyse der CORA-Datensatzes\footnote{inzwischen unter \href{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}} analysiert.
+          Dieser beinhaltet Forschungsarbeiten, wobei die 
+          Forschungsgebiete die in einen Baum mit 73 Blättern 
+          eingeordnet wurden. Aus diesen 73 Blättern wurden 5 Klassen
+          extrahiert und der Graph, der keine Zeitpunkte beinhaltet,
+          künstlich in 10 Graphen mit Zeitpunkten unterteilt. Wie
+          jedoch die TODO
+\end{itemize}
