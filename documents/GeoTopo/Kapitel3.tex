@@ -452,7 +452,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
         \item siehe \cref{fig:ueberlappung-r1-spirale-s1}
         \item siehe \cref{fig:ueberlappung-kaestchen-torus}
         \item $\mdr^n \rightarrow T^n = \mdr^n / \mdz^n$
-        \item $S^n \rightarrow \praum^n(\mdr)$
+        \item $S^n \rightarrow \praum^n(\mdr)$\xindex{Raum!projektiver}
         \item $S^1 \rightarrow S^1$, $z \mapsto z^2$, siehe \cref{fig:liftung-s1-s1}
     \end{enumerate}
 
@@ -1031,25 +1031,25 @@ und der Fundamentalgruppe herstellen:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Lea's Mitschrieb vom 07.01.2014                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Gruppenaktionen}\index{Gruppenaktion|(}
-\begin{definition}\xindex{Gruppenaktion}% in Vorlesung: Definition 13.1
+\section{Gruppenoperationen}\index{Gruppenoperation|(}\index{Aktion|see{Gruppenoperation}}\index{Gruppenaktion|see{Gruppenoperation}}
+\begin{definition}\xindex{Gruppenoperation}% in Vorlesung: Definition 13.1
     Sei $(G, \cdot)$ eine Gruppe und $X$ eine Menge.
 
-    Eine \textbf{Gruppenaktion} oder kurz \textbf{Aktion} von $G$ auf
+    Eine \textbf{Gruppenoperation} von $G$ auf
     $X$ ist eine Abbildung $\circ$:
     
-    \[ \circ: G \times X \rightarrow X, (g,x) \mapsto g \cdot x,\]
+    \[ \circ: G \times X \rightarrow X,\;\;\; (g,x) \mapsto g \cdot x,\]
 
     für die gilt:
     \begin{enumerate}[label=(\roman*),ref=\theplaindefinition.\roman*]
-        \item $1_G \circ x = x \;\;\; \forall x \in X$\label{def:gruppenaktion.1}
-        \item $(g \cdot h) \circ x = g \circ (h \circ x) \;\;\; \forall g,h \in G \forall x \in X$\label{def:gruppenaktion.2}
+        \item $1_G \circ x = x \;\;\; \forall x \in X$\label{def:gruppenoperation.1}
+        \item $(g \cdot h) \circ x = g \circ (h \circ x) \;\;\; \forall g,h \in G \forall x \in X$\label{def:gruppenoperation.2}
     \end{enumerate}
 \end{definition}
 
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*),ref=\thebeispiel.\arabic*]
-        \item $G = (\mdz, +), X = \mdr, nx = x + n$\label{bsp:gruppenaktion1}
+        \item $G = (\mdz, +), X = \mdr, nx = x + n$\label{bsp:gruppenoperation1}
         \item $G$ operiert auf $X = G$ durch $g \circ h := g \cdot h$
         \item $G$ operatiert auf $X = G$ durch $g \circ h := g \cdot h \cdot g^{-1}$, denn
         \begin{enumerate}[label=\roman*)]
@@ -1065,21 +1065,21 @@ und der Fundamentalgruppe herstellen:
 
 \begin{definition}
     Sei $G$ eine Gruppe, $X$ ein topologischer Raum und
-    $\circ: G \times X \rightarrow X$ eine Gruppenaktion.
+    $\circ: G \times X \rightarrow X$ eine Gruppenoperation.
 
     \begin{enumerate}[label=\alph*)]
         \item $G$ operiert durch Homomorphismen, wenn für jedes $g \in G$
               die Abbildung
               \[m_g: X \rightarrow X, x \mapsto g \cdot X\]
               ein Homöomorphismus ist.
-        \item Ist $G$ eine topologische Gruppe, so heißt die Aktin $\circ$
-              \textbf{stetig}\xindex{Gruppenaktion!stetige}, wenn 
+        \item Ist $G$ eine topologische Gruppe, so heißt die Gruppenoperation $\circ$
+              \textbf{stetig}\xindex{Gruppenoperation!stetige}, wenn 
               $\circ: G \times X \rightarrow X$ stetig ist.
     \end{enumerate}
 \end{definition}
 
 \begin{korollar}%In Vorlesung: Bemerkung 13.2
-     Jede stetige Aktion ist eine Aktion durch Homöomorphismen.
+     Jede stetige Gruppenoperation ist eine Gruppenoperation durch Homöomorphismen.
 \end{korollar}
 \begin{beweis}
     Nach Voraussetzung ist $\circ |_{\Set{g} \times X} : X \rightarrow X, x \mapsto g \circ x$ stetig.
@@ -1089,30 +1089,30 @@ und der Fundamentalgruppe herstellen:
         (m_{g^{-1}} \circ m_g)(x) &= m_{g^{-1}} (m_g (x))\\
             &= m_{g^{-1}} (g \circ x)\\
             &= g^{-1} \circ (g \circ x)\\
-            &\stackrel{\ref{def:gruppenaktion.2}}{=} (g^{-1} \cdot g) \circ x\\
+            &\stackrel{\ref{def:gruppenoperation.2}}{=} (g^{-1} \cdot g) \circ x\\
             &= 1_G \circ x\\
-            &\stackrel{\ref{def:gruppenaktion.1}}{=} x
+            &\stackrel{\ref{def:gruppenoperation.1}}{=} x
     \end{align*}
 \end{beweis}
 
 \begin{beispiel}
-    In Beispiel~\ref{bsp:gruppenaktion1} operiert $\mdz$ durch Homöomorphismen.
+    In Beispiel~\ref{bsp:gruppenoperation1} operiert $\mdz$ durch Homöomorphismen.
 \end{beispiel}
 
 \begin{korollar}\label{kor:13.3}%In Vorlesung: Bemerkung 13.3
     Sei $G$ eine Gruppe und $X$ eine Menge.
 
     \begin{enumerate}[label=\alph*)]
-        \item Die Gruppenaktion von $G$ auf $X$ entsprechen bijektiv
+        \item Die Gruppenoperation von $G$ auf $X$ entsprechen bijektiv
               den Gruppenhomomorphismen $\varrho: G \rightarrow \Perm(X) = \Sym(X) = \Set{f: X \rightarrow X | f \text{ ist bijektiv}}$
         \item Ist $X$ ein topologischer Raum, so entsprechen dabei 
-              die Aktionen durch Homöomorphismus den Gruppenhomomorphismen
+              die Gruppenoperationen durch Homöomorphismus den Gruppenhomomorphismen
               $G \rightarrow \Homoo(X)$
     \end{enumerate}
 \end{korollar}
 
 \begin{beweis}
-    \item Sei $\circ: G \times X \rightarrow X$ eine Aktion von $G$
+    \item Sei $\circ: G \times X \rightarrow X$ eine Gruppenoperation von $G$
           auf $X$. Dann sei $\varrho: G \rightarrow \Perm(X)$ definiert
           durch $\varrho(g)(X) = g \cdot x \;\;\; \forall g \in G, x \in X$,
           also $\varrho(g) = m_g$.
@@ -1122,7 +1122,7 @@ und der Fundamentalgruppe herstellen:
 
           Umgekehrt: Sei $\varrho: G \rightarrow \Perm(X)$ Gruppenhomomorphismus. Definiere $\circ: G \times X \rightarrow X$ durch $g \circ x = \varrho (g)(x)$.
 
-          z.~Z. \ref{def:gruppenaktion.2}: 
+          z.~Z. \ref{def:gruppenoperation.2}: 
           \begin{align*}
             g_1 \circ (g_2 \circ x) &= \varrho (g_1) (g_2 \circ x)\\
             &= \varrho(g_1) (\varrho(g_2)(x))\\
@@ -1131,7 +1131,7 @@ und der Fundamentalgruppe herstellen:
             &= (g_1 \cdot g_2) \circ x
           \end{align*}
 
-            z.~Z. \ref{def:gruppenaktion.1}: 
+            z.~Z. \ref{def:gruppenoperation.1}: 
             $1_G \cdot x = \varrho(1_G)(x) = \id_X(x) = x$, weil $\varrho$ Homomorphismus ist.
 \end{beweis}
 
@@ -1157,7 +1157,7 @@ und der Fundamentalgruppe herstellen:
     also auch $\rtilde{\gamma * \delta}$ und $\rtilde{\gamma * \delta'}$
     homotop.
 
-    Gruppenaktion, denn:
+    Gruppenoperation, denn:
     \begin{enumerate}[label=\roman*)]
         \item $[e] \circ \tilde{x} = \rtilde{e * \delta} = \tilde{x}$
         \item $\rtilde{\gamma_1 * \gamma_2 * \delta}(1) = [\gamma_1 * \gamma_2] \circ \tilde{x} = ([\gamma_1] * [\gamma_2]) \circ \tilde{x}$\\
@@ -1166,7 +1166,7 @@ und der Fundamentalgruppe herstellen:
 \end{beispiel}
 
 \textbf{Erinnerung}:% In Vorlesung: Erinnerung 13.5
-Die Konstruktion aus Korollar~\ref{kor:13.3} induziert zu der Aktion
+Die Konstruktion aus Korollar~\ref{kor:13.3} induziert zu der Gruppenoperation
 $\pi_1(X, x_0)$ aus Beispiel~\ref{bsp:13.4} einen Gruppenhomomorphismus
 $\varrho: \pi_1(X, x_0) \rightarrow \Homoo(X)$. Nach Satz~\ref{thm:12.15}
 ist $\varrho(\pi_1(X, x_0)) = \Deck(\tilde{X} / X) = \Set{f: \tilde{X} \rightarrow \tilde{X} \text{ Homöomorphismus} | p \circ f = p}$
@@ -1181,6 +1181,6 @@ ist $\varrho(\pi_1(X, x_0)) = \Deck(\tilde{X} / X) = \Set{f: \tilde{X} \rightarr
     Frage: Was ist $S^2 / G$? Ist $S^2 / G$ eine Mannigfaltigkeit?
 \end{beispiel}
 
-\index{Gruppenaktion|)}
+\index{Gruppenoperation|)}
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel3-UB}
