@@ -93,21 +93,16 @@ nicht überprüft werden:
           Analyse auf S.~362 eingeführt.
           Es ist nicht klar, wie entschieden wird welche Kanten
           gespeichert werden und welche nicht.
-    \item DYCOS beschränkt sich bei inhaltlichen Mehrfachsprüngen
-          auf die Top-$q$-Wortknoten, also die $q$ ähnlichsten Knoten
-          gemessen mit der Aggregatanalyse. Auch hier wird nicht erklärt wie
-          $q \in \mathbb{N}$ bestimmt oder nach welchen Überlegungen $q$ gesetzt 
-          wurde. Allerings ist hier wenigstens klar, dass $q$ für
-          den DYCOS-Algorithmus konstant ist. Für die Experimentelle
-          Analyse wurde zwar erwähnt, dass $q$ ein Parameter des
-          Algorithmus ist \cite[S. 362]{aggarwal2011}, aber nicht welcher
-          Wert in der Analyse des DBLP-Datensatzes genutzt wurde.
-          Für den CORA-Datensatz wurde $q=10$ gewählt\cite[S. 364]{aggarwal2011}.
     \item Für die Analyse der CORA-Datensatzes analysiert.
           Dieser beinhaltet Forschungsarbeiten, wobei die 
           Forschungsgebiete die in einen Baum mit 73 Blättern 
           eingeordnet wurden. Aus diesen 73 Blättern wurden 5 Klassen
           extrahiert und der Graph, der keine Zeitpunkte beinhaltet,
           künstlich in 10 Graphen mit Zeitpunkten unterteilt. Wie
-          jedoch die TODO
+          jedoch diese Unterteilung genau durchgeführt wurde kann nicht
+          nachvollzogen werden.
+    \item Der auf S. 360 in \enquote{Algorithm 1} vorgestellte
+          Pseudocode soll den DYCOS-Algorithmus darstellen. Allerdings
+          werden die bereits klassifizierten Knoten $\T_t$ neu klassifiziert
+          und mit $\theta$ die Klassifkationsgüte gemessen.
 \end{itemize}

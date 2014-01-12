@@ -1,8 +1,8 @@
 Den sehr einfach aufgebauten DYCOS-Algorithmus kann man noch an
 vielen Punkten verbessern. So könnte man vor der Auswahl des
 Vokabulars jedes Wort auf den Wortstamm zurückführen.
-Dafür könnte zum Beispiel der Porter-Stemming-Algorithmus verwendet 
-werden \cite{porter}. Durch diese Maßnahme wird das
+Dafür könnte zum Beispiel der in \cite{porter} vorgestellte 
+Porter-Stemming-Algorithmus verwendet werden. Durch diese Maßnahme wird das
 Vokabular kleiner gehalten, mehr Artikel können mit einander
 durch Vokabular verbunden werden und der Gini-Koeffizient wird ein
 besseres Maß für die Gleichheit von Texten.
@@ -18,3 +18,9 @@ In diesem Fall macht es jedoch einen wichtigen Unterschied, ob jemand
 
 Eine einfache Erweiterung des DYCOS-Algorithmus wäre der Umgang mit 
 mehreren Labels.
+
+DYCOS beschränkt sich bei inhaltlichen Mehrfachsprüngen
+auf die Top-$q$-Wortknoten, also die $q$ ähnlichsten Knoten
+gemessen mit der Aggregatanalyse, allerdings wurde bisher noch nicht
+untersucht, wie der Einfluss von $q \in \mathbb{N}$ auf die 
+Klassifkationsgüte ist.

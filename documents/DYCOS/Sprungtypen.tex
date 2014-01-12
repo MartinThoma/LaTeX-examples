@@ -36,7 +36,8 @@ Mehrfachsprung machen will folgendes Clusteranalyse durchgeführt:
           und erstelle eine Liste $L$, der erreichbaren Knoten $v'$. Speichere
           außerdem, durch wie viele Pfade diese Knoten $v'$ jeweils erreichbar sind.
     \item[C2] Betrachte im folgenden nur die Top-$q$ Knoten, wobei $q \in \mathbb{N}$
-          eine zu wählende Konstante des Algorithmus ist. \label{list:aggregate.2}
+          eine zu wählende Konstante des Algorithmus ist.\footnote{Sowohl für den DBLP, als auch für den 
+CORA-Datensatz wurde in \cite[S. 364]{aggarwal2011} $q=10$ gewählt.} \label{list:aggregate.2}
     \item[C3] Wähle mit Wahrscheinlichkeit $\frac{\Call{Anzahl}{v'}}{\sum_{w \in L} \Call{Anzahl}{v'}}$
           den Knoten $v'$ als Ziel des Mehrfachsprungs.
 \end{enumerate}

@@ -7,9 +7,11 @@ die in fast allen Texten vorkommen, wie im Deutschen z.~B.
 Wörter zu wählen, die die Texte möglichst start voneinander Unterscheiden.
 Der DYCOS-Algorithmus wählt die Top-$m$ dieser Wörter als Vokabular,
 wobei $m \in \mathbb{N}$ eine Festzulegende Konstante ist. In \cite[S. 365]{aggarwal2011}
-wird der Einfluss von $m \in \Set{5,10, 20}$ auf die Klassifikationsgüte
-untersucht und festegestellt, dass für $m \in \Set{5,10}$ die Klassifikationsgüte 
-sehr ähnlich ist.
+wird der Einfluss von $m \in \Set{5,10, 15,20}$ auf die Klassifikationsgüte
+untersucht und festegestellt, dass die Klassifikationsgüte mit größerem
+$m$ sinkt, sie also für $m=5$ für den DBLP-Datensatz am höchsten ist.
+Für den CORA-Datensatz wurde mit $m \in \set{3,4,5,6}$ getestet und 
+kein signifikanter Unterschied festgestellt.
 
 Nun kann man manuell eine Liste von zu beachtenden Wörtern erstellen
 oder mit Hilfe des Gini-Koeffizienten automatisch ein Vokabular erstellen.
