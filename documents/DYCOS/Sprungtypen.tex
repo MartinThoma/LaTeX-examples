@@ -22,7 +22,7 @@ Bei inhaltlichen Mehrfachsprüngen ist jedoch nicht sinnvoll so direkt
 nach der Definition vorzugehen,  also
 direkt von einem strukturellem Knoten 
 $v \in V_t$ zu einem mit $v$ verbundenen Wortknoten $w \in W_t$ zu springen
-und von diesem wieder zu einem verbundenem strutkurellem Knoten 
+und von diesem wieder zu einem verbundenem strukturellem Knoten 
 $v' \in V_t$. Würde man dies machen, wäre zu befürchten, dass
 aufgrund von Homonymen die Qualität der Klassifizierung verringert
 wird. So hat \enquote{Brücke} im Deutschen viele Bedeutungen.
@@ -43,7 +43,7 @@ CORA-Datensatz wurde in \cite[S. 364]{aggarwal2011} $q=10$ gewählt.} \label{lis
 \end{enumerate}
 
 Konkret könnte also ein Inhaltlicher Mehrfachsprung sowie wie in
-\cref{alg:DYCOS-content-multihop} beschrieben umgesetz werden.
+\cref{alg:DYCOS-content-multihop} beschrieben umgesetzt werden.
 
 \begin{algorithm}
   \caption{Inhaltlicher Mehrfachsprung}
@@ -64,7 +64,7 @@ Konkret könnte also ein Inhaltlicher Mehrfachsprung sowie wie in
             \State \textit{//Elemente aus $M_H$ zugreifen kann. Dies muss bei der konkreten Wahl}
             \State \textit{//der Datenstruktur berücksichtigt werden.}
             \State $M_H \gets \Call{max}{reachableNodes, q}$ \Comment{Also: $|M_H| = q$, falls $|reachableNodes|\geq q$}
-            \State \textit{//Generate dictionary with relative frequencies}
+            \State \textit{//Dictionary mit relativen Häufigkeiten erzeugen}
             \State $s \gets 0$
             \ForAll{Knoten $x$ in $M_H$}
                 \State $s \gets s + reachableNodes[x]$

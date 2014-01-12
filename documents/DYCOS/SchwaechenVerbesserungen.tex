@@ -14,7 +14,7 @@ wäre noch die Frage zu klären, mit wie vielen Labels der betrachtete
 Knoten gelabelt werden soll.
 
 Jedoch ist z.~B. bei Wikipedia-Artikeln auf den Knoten eine 
-Hirarchie definiert. So ist die Kategorie \enquote{Klassifikationsverfahren}
+Hierarchie definiert. So ist die Kategorie \enquote{Klassifikationsverfahren}
 eine Unterkategorie von \enquote{Klassifikation}. Bei dem Kategorisieren
 von Artikeln sind möglichst spezifische Kategorien vorzuziehen, also
 kann man nicht einfach bei dem Auftreten der Kategorie \enquote{Klassifikationsverfahren}
@@ -65,7 +65,7 @@ Zeitpunkt $t=2$ zum Zeitpunkt $t=3$ auf den Knoten $v_2$ anwenden, so
 würde eine $50\%$-Wahrscheinlichkeit bestehen, dass dieser mit $B$ 
 gelabelt wird. Aber in diesem Beispiel wurde der Knoten schon
 zum Zeitpunkt $t=2$ gelabelt. Obwohl es in diesem kleinem Beispiel
-noch keine Rolle spielt, wird das Problem klar, wennn man weitere
+noch keine Rolle spielt, wird das Problem klar, wenn man weitere
 Knoten einfügt:
 
 Wird zum Zeitpunkt $t=4$ ein ungelabelter Knoten $v_4$ und die Kanten
@@ -73,7 +73,7 @@ $(v_1, v_4)$, $(v_2, v_4)$, $(v_3, v_4)$ hinzugefügt, so ist die
 Wahrscheinlichkeit, dass $v_4$ mit $A$ gelabelt wird bei $\frac{2}{3}$.
 Werden die als ungelabelten Knoten jedoch erst jetzt und alle gemeinsam
 gelabelt, so ist die Wahrscheinlichkeit für $A$ als Label bei nur $50\%$.
-Bei dem DYCOS-Algorithmus findet also eine Überanpassung and vergangene
+Bei dem DYCOS-Algorithmus findet also eine Überanpassung an vergangene
 Labels statt.
 
 Das Reklassifizieren von Knoten könnte eine mögliche Lösung für dieses
@@ -85,7 +85,7 @@ abgelaufen, wird der DYCOS-Algorithmus erneut auf den Knoten angewendet.
 In \cite{aggarwal2011} wurde eine experimentelle Analyse mithilfe 
 des DBLP-Datensatzes\footnote{http://dblp.uni-trier.de/} und des
 CORA-Datensatzes\footnote{\href{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}} durchgeführt.
-Die Ergebnise dieser Analyse können aus folgenden Gründen
+Die Ergebnisse dieser Analyse können aus folgenden Gründen
 nicht überprüft werden:
 \begin{itemize}
     \item Der Parameter $a \in \mathbb{N}$, der die Anzahl der ausgehenden Kanten
@@ -104,5 +104,5 @@ nicht überprüft werden:
     \item Der auf S. 360 in \enquote{Algorithm 1} vorgestellte
           Pseudocode soll den DYCOS-Algorithmus darstellen. Allerdings
           werden die bereits klassifizierten Knoten $\T_t$ neu klassifiziert
-          und mit $\theta$ die Klassifkationsgüte gemessen.
+          und mit $\theta$ die Klassifikationsgüte gemessen.
 \end{itemize}

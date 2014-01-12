@@ -1,14 +1,14 @@
 \subsection{Vokabularbestimmung}\label{sec:vokabularbestimmung}
-Da die größe des Vokabulars die Datenmenge signifikant beeinflusst,
+Da die Größe des Vokabulars die Datenmenge signifikant beeinflusst,
 liegt es in unserem Interesse so wenig Wörter wie möglich ins
 Vokabular aufzunehmen. Insbesondere sind Wörter nicht von Interesse,
 die in fast allen Texten vorkommen, wie im Deutschen z.~B.
 \enquote{und}, \enquote{mit} und die Pronomen. Es ist wünschenswert
-Wörter zu wählen, die die Texte möglichst start voneinander Unterscheiden.
+Wörter zu wählen, die die Texte möglichst stark voneinander Unterscheiden.
 Der DYCOS-Algorithmus wählt die Top-$m$ dieser Wörter als Vokabular,
 wobei $m \in \mathbb{N}$ eine Festzulegende Konstante ist. In \cite[S. 365]{aggarwal2011}
 wird der Einfluss von $m \in \Set{5,10, 15,20}$ auf die Klassifikationsgüte
-untersucht und festegestellt, dass die Klassifikationsgüte mit größerem
+untersucht und festgestellt, dass die Klassifikationsgüte mit größerem
 $m$ sinkt, sie also für $m=5$ für den DBLP-Datensatz am höchsten ist.
 Für den CORA-Datensatz wurde mit $m \in \set{3,4,5,6}$ getestet und 
 kein signifikanter Unterschied festgestellt.
@@ -17,7 +17,7 @@ Nun kann man manuell eine Liste von zu beachtenden Wörtern erstellen
 oder mit Hilfe des Gini-Koeffizienten automatisch ein Vokabular erstellen.
 Der Gini-Koeffizient ist ein statistisches Maß, das die Ungleichverteilung
 bewertet. Er ist immer im Intervall $[0,1]$, wobei $0$ einer 
-Gleichverteilung entspricht und $1$ der größt möglichen Ungleichverteilung.
+Gleichverteilung entspricht und $1$ der größtmöglichen Ungleichverteilung.
 
 Sei nun $n_i(w)$ die Häufigkeit des Wortes $w$ in allen Texten mit 
 dem $i$-ten Label.
@@ -47,7 +47,7 @@ von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
 
         \State $S_t \gets \Call{Sample}{V_{L,t}}$ \Comment{Wähle eine Teilmenge $S_t \subseteq V_{L,t}$ aus}
         \State $\M_t \gets \bigcup_{v \in S_t} \Call{getTextAsSet}{v}$ \Comment{Menge aller Wörter}
-        \State $cLabelWords \gets (|\L_t|+1) \times |\M_t|$-Array, mit 0en initialisert\\
+        \State $cLabelWords \gets (|\L_t|+1) \times |\M_t|$-Array, mit 0en initialisiert\\
 
         \ForAll{$v \in V_{L,t}$} \Comment{Gehe jeden Text Wort für Wort durch}
             \State $i \gets \Call{getLabel}{v}$
@@ -73,5 +73,5 @@ von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
 \end{algorithm}
 
 Die Menge $S_t$ kann durch Aus der Menge aller Dokumenten, deren 
-Knoten gelabelt sind, mithile des in \cite{Vitter} vorgestellten
+Knoten gelabelt sind, mithilfe des in \cite{Vitter} vorgestellten
 Algorithmus bestimmt werden.

@@ -22,7 +22,7 @@ genannt.
 Ein Strukturknoten $v$ wird genau dann mit einem Wortknoten $w \in W_t$
 verbunden, wenn $w$ in einem Text von $v$ vorkommt.
 Der DYCOS-Algorithmus betrachtet also die Texte, die einem Knoten 
-zugeornet sind, als eine Multimenge von Wörtern. Das heißt, zum einen 
+zugeordnet sind, als eine Multimenge von Wörtern. Das heißt, zum einen 
 wird nicht auf die Reihenfolge der Wörter geachtet, zum anderen wird 
 bei Texten eines Knotens nicht zwischen verschiedenen 
 Texten unterschieden. Jedoch wird die Anzahl der Vorkommen 
@@ -64,9 +64,9 @@ springt über einen Wortknoten und ist ein Pfad der Länge~2.
 
 Ob in einem Sprung der Random Walks ein struktureller Sprung oder
 ein inhaltlicher Mehrfachsprung gemacht wird, wird jedes mal zufällig
-neu entschiden. Dafür wird der Parameter $0 \leq p_S \leq 1$ für den Algorithmus 
+neu entschieden. Dafür wird der Parameter $0 \leq p_S \leq 1$ für den Algorithmus 
 gewählt. Mit einer Wahrscheinlichkeit von $p_S$ wird eine struktureller
-Sprung durchgefürt und mit einer Wahrscheinlichkeit
+Sprung durchgeführt und mit einer Wahrscheinlichkeit
 von $(1-p_S)$ ein modifizierter inhaltlicher Mehrfachsprung, wie er in
 \cref{sec:sprungtypen} erklärt wird, gemacht. Dieser 
 Parameter gibt an, wie wichtig die Struktur des Graphen im Verhältnis
@@ -137,7 +137,7 @@ verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
     \item Für jedes Wort des Vokabulars $W_t$ wird eine Liste von 
           Knoten verwaltet, in deren Texten das Wort vorkommt.
     \item An einigen Stellen macht ein assoziatives Array, auch 
-          \enquote{dictionary} oder \enquote{map} genannt, sinn.
+          \enquote{dictionary} oder \enquote{map} genannt, Sinn.
           Zustätzlich ist es nützlich, wenn diese Datenstruktur für 
           unbekannte Schlüssel keinen Fehler ausgibt, sondern für diese
           Schlüssel den Wert 0 annimmt. Eine solche Datenstruktur
