@@ -25,3 +25,4 @@ in dem Erstellen dieses Skripts steckt:
 |11.01.2014 | 23:00 - 23:15 | Umfrage auf Doodle: http://www.doodle.com/xrscxa9rzfcrzr44
 |11.01.2014 | 23:15 - 23:50 | Überarbeitung der Einleitung zum Kapitel "Euklidische und Nichteuklidische Geometrie"
 |12.01.2014 | 16:00 - 16:15 | `cleveref` benutzt
+|12.01.2014 | 22:15 - 22:30 | Beweis erstellt, dass Überlagerungen surjektiv sind

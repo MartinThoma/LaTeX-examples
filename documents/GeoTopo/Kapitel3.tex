@@ -439,11 +439,11 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{figure}
 \begin{definition}\xindex{Ueberlagerung@""Uberlagerung}\label{def:12.1}%Definition 12.1 der Vorlesung
     Es seien $X, Y$ zusammenhängende topologische Räume und
-    $p: Y \rightarrow X$ eine stetige, surjektive Abbildung.
+    $p: Y \rightarrow X$ eine stetige Abbildung.
 
     $p$ heißt \textbf{Überlagerung}, wenn jedes $x \in X$ eine offene
-    Umgebung $U = U_X$ besitzt, sodass $p^{-1}(U)$ disjunkte Vereinigung
-    von offenen Teilmengen $V_j$ von $Y$ ist $(j \in I_X)$ und
+    Umgebung $U = U(x) \subseteq X$ besitzt, sodass $p^{-1}(U)$ disjunkte Vereinigung
+    von offenen Teilmengen $V_j \subseteq Y$ ist $(j \in I)$ und
     $p|_{V_j}: V_j \rightarrow U$ ein Homöomorphismus ist.
 \end{definition}
 
@@ -470,6 +470,27 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
         \caption{Beispiele für Überlagerungen}
     \end{figure}
 \end{beispiel}
+
+\begin{korollar}
+    Überlagerungen sind surjektiv.
+\end{korollar}
+
+\begin{beweis}durch Widerspruch\\
+    Sei $p$ eine Überlagerung.
+
+    \underline{Annahme}: $p$ ist nicht surjektiv
+
+    Dann $\exists x \in X$ mit $U=U(x): p^{-1}(U) = \emptyset$.
+    Da $p$ eine Überlagerung ist, existiert eine offene Umgebung $U$,
+    sodass $p^{-1}(U)$ eine disjunkte Vereinigung von offenen Teilmengen
+    $V_j \subseteq Y$ ist und $p|_{V_j}: V_j \rightarrow U$ ein
+    Homöomorphismus ist.
+
+    Da jedes $x$ eine solche Umgebung $U$ besitzt, ist $U \neq \emptyset$.
+    Da $p|_{V_j}: V_j \rightarrow U$ ein Homöomorphismus ist, kann also
+    auch $V_j$ nicht leer sein. $\Rightarrow$ Widerspruch zur Annahme.
+    $\qed$
+\end{beweis}
 
 \begin{definition}\xindex{Abbildung!offene}
     Seien $X, Y$ topologische Räume und $f:X \rightarrow Y$ eine 
@@ -523,8 +544,8 @@ Haben wir Häufungspunkt definiert?}
         $V_{j_1}$ bzw. $V_{j_2}$ die Komponente von $p^{-1}(U)$, die
         $y_1$ bzw. $y_2$ enthält.
 
-        Dann ist $V_{j_1} \neq V_{j_2}$, weil beide \todo{Was steht hier?}{} Element $p^{-1}(x)$
-        enthält.
+        Dann ist $V_{j_1} \neq V_{j_2}$, weil beide ein Element aus $p^{-1}(x)$
+        enthalten.
 
         $\Rightarrow V_{j_1} \cap V_{j_2} = \emptyset$ nach Voraussetzung.
 
@@ -540,11 +561,12 @@ Haben wir Häufungspunkt definiert?}
 
         \underline{1. Fall}: $y \in p^{-1}(x)$
 
-        Finde $v_j$, sodass kein \dots \todo{...}
+        Finde $v_j$, sodass kein \dots 
+        \todo[inline]{...}
 
         \underline{2. Fall}: $y \notin p^{-1}(x)$
 
-        \todo{...}
+        \todo[inline]{...}
     \end{enumerate}
 \end{beweis}
 
