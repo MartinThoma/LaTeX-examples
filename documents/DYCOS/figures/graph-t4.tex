@@ -2,9 +2,14 @@
 \tikzstyle{edge}=[very thick]
 \begin{tikzpicture}[scale=1,framed]
     \node (a)[vertex,label=$A$] at (0,0) {$v_1$};
-    \node (b)[vertex,label={\color{blue}$A$}] at (1,0) {$v_2$};
+    \node (b)[vertex,label=45:{\color{blue}$A$}] at (1,0) {$v_2$};
     \node (c)[vertex,label=$B$] at (2,0) {$v_3$};
+    \node (d)[vertex] at (1,1) {$v_4$};
     \draw[->] (b) -- (a);
     \draw[->] (b) -- (c);
+
+    \draw[->] (d) -- (a);
+    \draw[->] (d) -- (b);
+    \draw[->] (d) -- (c);
     \node (struktur)[label={[label distance=-0.2cm]0:$t=3$}] at (-1,1) {};
 \end{tikzpicture}

@@ -4,7 +4,7 @@ vorgeschlagen, die es allerdings noch zu untersuchen gilt.
 
 \subsection{Schwächen von DYCOS}
 \subsubsection{Anzahl der Labels}
-So, wie er vorgestellt wurde, können nur Graphen bearbeitet werden, 
+So, wie der DYCOS-Algorithmus vorgestellt wurde, können nur Graphen bearbeitet werden, 
 deren Knoten höchstens ein Label haben. In vielen Fällen, wie z.~B. 
 Wikipedia mit Kategorien als Labels haben Knoten jedoch viele Labels.
 
@@ -24,18 +24,18 @@ zählen.
 
 \subsubsection{Überanpassung und Reklassifizierung}
 Aggarwal und Li beschreiben in \cite{aggarwal2011} nicht, auf welche
-Knoten der Klassifizierungsalgorithmus angewand werden soll. Jedoch
+Knoten der Klassifizierungsalgorithmus angewendet werden soll. Jedoch
 ist die Reihenfolge der Klassifizierung relevant. Dazu folgendes 
-minimale Beispiel:
+Minimalbeispiel:
 
 Gegeben sei ein dynamischer Graph ohne textuelle Inhalte. Zum Zeitpunkt
 $t=1$ habe dieser Graph genau einen Knoten $v_1$ und $v_1$  sei
 mit dem Label $A$ beschriftet. Zum Zeitpunkt $t=2$ komme ein nicht-gelabelter
-Knoten $v_2$ sowie die Kante $(v_1, v_2)$ hinzu.\\
+Knoten $v_2$ sowie die Kante $(v_2, v_1)$ hinzu.\\
 Nun wird der DYCOS-Algorithmus auf diesen Knoten angewendet und
 $v_2$ mit $A$ gelabelt.\\
 Zum Zeitpunkt $t=3$ komme ein Knoten $v_3$, der mit $B$ gelabelt ist,
-und die Kante $(v_3, v_2)$ hinzu.
+und die Kante $(v_2, v_3)$ hinzu.
 
 \begin{figure}[ht]
     \centering
@@ -52,6 +52,10 @@ und die Kante $(v_3, v_2)$ hinzu.
         \input{figures/graph-t3.tex}
         \label{fig:graph-t3}
     }%
+    \subfloat[$t=4$]{
+        \input{figures/graph-t4.tex}
+        \label{fig:graph-t4}
+    }%
     \label{Formen}
     \caption{Minimalbeispiel für den Einfluss früherer DYCOS-Anwendungen}
 \end{figure}
@@ -66,7 +70,7 @@ Knoten einfügt:
 
 Wird zum Zeitpunkt $t=4$ ein ungelabelter Knoten $v_4$ und die Kanten
 $(v_1, v_4)$, $(v_2, v_4)$, $(v_3, v_4)$ hinzugefügt, so ist die 
-Wahrscheinlichkeit, dass $v_4$ mit $A$ gelabelt wird bei $75\%$.
+Wahrscheinlichkeit, dass $v_4$ mit $A$ gelabelt wird bei $\frac{2}{3}$.
 Werden die als ungelabelten Knoten jedoch erst jetzt und alle gemeinsam
 gelabelt, so ist die Wahrscheinlichkeit für $A$ als Label bei nur $50\%$.
 Bei dem DYCOS-Algorithmus findet also eine Überanpassung and vergangene
@@ -78,16 +82,17 @@ könnten eine Lebenszeit bekommen (TTL, Time to Live). Ist diese
 abgelaufen, wird der DYCOS-Algorithmus erneut auf den Knoten angewendet.
 
 \subsection{Schwächen des Papers}
-Die Ergebnise der experimentelle Analyse können aus folgenden Gründen
+In \cite{aggarwal2011} wurde eine experimentelle Analyse mithilfe 
+des DBLP-Datensatzes\footnote{http://dblp.uni-trier.de/} und des
+CORA-Datensatzes\footnote{\href{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}} durchgeführt.
+Die Ergebnise dieser Analyse können aus folgenden Gründen
 nicht überprüft werden:
 \begin{itemize}
-    \item DYCOS verwendet als Vokabular die Top-$m$-Wörter mit dem
-          höchsten Gini-Index aus einer Sample-Menge von Texten, die
-          wie in \cite{Vitter} beschrieben
-          erzeugt wird. Allerdings wird niemals erklärt, wie $m \in \mathbb{N}$
-          bestimmt wird. Es ist nicht einmal klar, ob $m$ für den
-          Algorithmus als konstant anzusehen ist oder ob $m$ sich
-          bei der Vokabularbestimmung ändern könnte.
+    \item Der Parameter $a \in \mathbb{N}$, der die Anzahl der ausgehenden Kanten
+          aller Wortknoten beschränkt, wird erst mit der Experimentellen
+          Analyse auf S.~362 eingeführt.
+          Es ist nicht klar, wie entschieden wird welche Kanten
+          gespeichert werden und welche nicht.
     \item DYCOS beschränkt sich bei inhaltlichen Mehrfachsprüngen
           auf die Top-$q$-Wortknoten, also die $q$ ähnlichsten Knoten
           gemessen mit der Aggregatanalyse. Auch hier wird nicht erklärt wie
@@ -95,10 +100,10 @@ nicht überprüft werden:
           wurde. Allerings ist hier wenigstens klar, dass $q$ für
           den DYCOS-Algorithmus konstant ist. Für die Experimentelle
           Analyse wurde zwar erwähnt, dass $q$ ein Parameter des
-          Algorithmus ist\cite[S. 362]{aggarwal2011}, aber nicht welcher
+          Algorithmus ist \cite[S. 362]{aggarwal2011}, aber nicht welcher
           Wert in der Analyse des DBLP-Datensatzes genutzt wurde.
           Für den CORA-Datensatz wurde $q=10$ gewählt\cite[S. 364]{aggarwal2011}.
-    \item Für die Analyse der CORA-Datensatzes\footnote{inzwischen unter \href{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}} analysiert.
+    \item Für die Analyse der CORA-Datensatzes analysiert.
           Dieser beinhaltet Forschungsarbeiten, wobei die 
           Forschungsgebiete die in einen Baum mit 73 Blättern 
           eingeordnet wurden. Aus diesen 73 Blättern wurden 5 Klassen

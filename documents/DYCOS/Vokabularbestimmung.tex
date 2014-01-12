@@ -3,7 +3,13 @@ Da die größe des Vokabulars die Datenmenge signifikant beeinflusst,
 liegt es in unserem Interesse so wenig Wörter wie möglich ins
 Vokabular aufzunehmen. Insbesondere sind Wörter nicht von Interesse,
 die in fast allen Texten vorkommen, wie im Deutschen z.~B.
-\enquote{und}, \enquote{mit} und die Pronomen.
+\enquote{und}, \enquote{mit} und die Pronomen. Es ist wünschenswert
+Wörter zu wählen, die die Texte möglichst start voneinander Unterscheiden.
+Der DYCOS-Algorithmus wählt die Top-$m$ dieser Wörter als Vokabular,
+wobei $m \in \mathbb{N}$ eine Festzulegende Konstante ist. In \cite[S. 365]{aggarwal2011}
+wird der Einfluss von $m \in \Set{5,10, 20}$ auf die Klassifikationsgüte
+untersucht und festegestellt, dass für $m \in \Set{5,10}$ die Klassifikationsgüte 
+sehr ähnlich ist.
 
 Nun kann man manuell eine Liste von zu beachtenden Wörtern erstellen
 oder mit Hilfe des Gini-Koeffizienten automatisch ein Vokabular erstellen.

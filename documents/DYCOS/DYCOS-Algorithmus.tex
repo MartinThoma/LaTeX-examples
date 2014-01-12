@@ -2,18 +2,15 @@
 DYCOS (\underline{DY}namic \underline{C}lassification 
 algorithm with c\underline{O}ntent and \underline{S}tructure) ist ein 
 Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011} vorgestellt 
-wurde. Er klassifiziert Knoten, indem mehrfach Random Walks startend
-bei dem zu klassifizierenden Knoten $v$ gemacht werden und die Labels
-der besuchten Knoten gezählt werden. Das Label, das am häufigsten
+wurde. Er klassifiziert einzelne Knoten, indem $r$ Random Walks der Länge $l$,
+startend bei dem zu klassifizierenden Knoten $v$ gemacht werden. Dabei
+werden die Labels der besuchten Knoten gezählt. Das Label, das am häufigsten
 vorgekommen ist, wird als Label für $v$ gewählt.
 DYCOS nutzt also die sog. Homophilie, d.~h. die Eigenschaft, dass
 Knoten, die nur wenige Hops von einander entfernt sind, häufig auch
-ähnlich sind \cite{bhagat}.
-
-Der DYCOS-Algorithmus nimmt jedoch nicht einfach den Graphen für 
-dieses Verfahren, sondern erweitert ihn mit Hilfe der zur Verfügung
-stehenden Texte.
-
+ähnlich sind \cite{bhagat}. Der DYCOS-Algorithmus nimmt jedoch nicht 
+einfach den Graphen für dieses Verfahren, sondern erweitert ihn mit 
+Hilfe der zur Verfügung stehenden Texte.\\
 Für diese Erweiterung wird zuerst wird Vokabular $W_t$ bestimmt, das 
 charakteristisch für eine Knotengruppe ist. Wie das gemacht werden kann
 und warum nicht einfach jedes Wort in das Vokabular aufgenommen wird,
@@ -24,6 +21,12 @@ Knoten, die der Graph zuvor hatte, werden nun \enquote{Strukturknoten}
 genannt.
 Ein Strukturknoten $v$ wird genau dann mit einem Wortknoten $w \in W_t$
 verbunden, wenn $w$ in einem Text von $v$ vorkommt.
+Der DYCOS-Algorithmus betrachtet also die Texte, die einem Knoten 
+zugeornet sind, als eine Multimenge von Wörtern. Das heißt, zum einen 
+wird nicht auf die Reihenfolge der Wörter geachtet, zum anderen wird 
+bei Texten eines Knotens nicht zwischen verschiedenen 
+Texten unterschieden. Jedoch wird die Anzahl der Vorkommen 
+jedes Wortes berücksichtigt.
 
 \begin{figure}[htp]
     \centering
@@ -43,10 +46,9 @@ die strukturellen Sprünge und inhaltliche Mehrfachsprünge:
     Knoten $v \in V_t$ zu einem benachbartem Knoten $w \in V_t$
     ein \textbf{struktureller Sprung}.
 \end{definition}
-
+\goodbreak
 Im Gegensatz dazu benutzten inhaltliche Mehrfachsprünge
 tatsächlich die Grapherweiterung:
-
 \begin{definition}
     Sei $G_t = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
     um die Wortknoten $W_{t}$ erweiterte Graph.
@@ -60,46 +62,13 @@ tatsächlich die Grapherweiterung:
 Jeder inhaltliche Mehrfachsprung beginnt und endet also in einem Strukturknoten,
 springt über einen Wortknoten und ist ein Pfad der Länge~2.
 
-Bevor der DYCOS-Algorithmus im Detail erklärt wird, sei noch auf eine
-Besonderheit hingewiesen:
-Der DYCOS-Algorithmus betrachtet die Texte, die einem Knoten 
-zugeornet sind, als eine Multimenge von Wörtern. Das heißt, zum einen 
-wird nicht auf die Reihenfolge der Wörter geachtet, zum anderen wird 
-bei Texten eines Knotens nicht zwischen verschiedenen 
-Texten unterschieden. Jedoch wird die Anzahl der Vorkommen 
-jedes Wortes berücksichtigt.
-
-\subsection{Datenstrukturen}
-Zusätzlich zu dem gerichteten Graphen $G_t = (V_t, E_t, V_{L,t})$ 
-verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
-\begin{itemize}
-    \item Für jeden Knoten $v \in V_t$ werden die vorkommenden Wörter,
-          die auch im Vokabular $W_t$ sind,
-          und deren Anzahl gespeichert. Das könnte z.~B. über ein 
-          assoziatives Array geschehen. Wörter, die nicht in 
-          Texten von $v$ vorkommen, sind nicht im Array. Für
-          alle vorkommenden Wörter ist der gespeicherte Wert zum 
-          Schlüssel \enquote{Wort} die Anzahl der Vorkommen von 
-          \enquote{Wort} in den Texten von $v$.
-    \item Für jedes Wort des Vokabulars $W_t$ wird eine Liste von 
-          Knoten verwaltet, in deren Texten das Wort vorkommt.
-    \item An einigen Stellen macht ein assoziatives Array, auch 
-          \enquote{dictionary} oder \enquote{map} genannt, sinn.
-          Zustätzlich ist es nützlich, wenn diese Datenstruktur für 
-          unbekannte Schlüssel keinen Fehler ausgibt, sondern für diese
-          Schlüssel den Wert 0 annimmt. Eine solche Datenstruktur
-          wird in Python \texttt{defaultdict} genannt und ich werde
-          im Folgenden diese Benennung beibehalten.
-\end{itemize}
-
-\input{Sprungtypen}
-\input{Vokabularbestimmung}
-
-\subsection{Der Algorithmus}
-Der DYCOS-Algorithmus verwendet nun für jeden Knoten der gelabelt wird
-$r$ Random Walks der Länge $l$, wobei mit einer Wahrscheinlichkeit 
-$p_S$ ein struktureller Sprung und mit einer Wahrscheinlichkeit
-von $(1-p_S)$ ein inhaltlicher Mehrfachsprung gemacht wird. Dieser 
+Ob in einem Sprung der Random Walks ein struktureller Sprung oder
+ein inhaltlicher Mehrfachsprung gemacht wird, wird jedes mal zufällig
+neu entschiden. Dafür wird der Parameter $0 \leq p_S \leq 1$ für den Algorithmus 
+gewählt. Mit einer Wahrscheinlichkeit von $p_S$ wird eine struktureller
+Sprung durchgefürt und mit einer Wahrscheinlichkeit
+von $(1-p_S)$ ein modifizierter inhaltlicher Mehrfachsprung, wie er in
+\cref{sec:sprungtypen} erklärt wird, gemacht. Dieser 
 Parameter gibt an, wie wichtig die Struktur des Graphen im Verhältnis
 zu den textuellen Inhalten ist. Bei $p_S = 0$ werden ausschließlich
 die Texte betrachtet, bei $p_S = 1$ ausschließlich die Struktur des
@@ -108,14 +77,12 @@ Graphen.
 Die Vokabularbestimmung kann zu jedem Zeitpunkt $t$ durchgeführt 
 werden, muss es aber nicht.
 
-In \cref{alg:DYCOS} wurde der DYCOS-Algorithmus als 
-Pseudocode vorgestellt. Dafür werden die beiden Hilfsfunktionen 
-für den strukturellen Sprung sowie den inhaltlichen Mehrfachsprung
-benötigt.
+In \cref{alg:DYCOS} wird der DYCOS-Algorithmus als 
+Pseudocode vorgestellt.
 
 \begin{algorithm}
     \begin{algorithmic}[1]
-        \Require \\$G_t = (V_t, E_t, V_{L,t})$ (Netzwerk),\\
+        \Require \\$G_{E,t} = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_t)$ (Erweiterter Graph),\\
                  $r$ (Anzahl der Random Walks),\\
                  $l$ (Länge eines Random Walks),\\
                  $p_s$ (Wahrscheinlichkeit eines strukturellen Sprungs),\\
@@ -154,3 +121,29 @@ benötigt.
 \caption{DYCOS-Algorithmus}
 \label{alg:DYCOS}
 \end{algorithm}
+
+\subsection{Datenstrukturen}
+Zusätzlich zu dem gerichteten Graphen $G_t = (V_t, E_t, V_{L,t})$ 
+verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
+\begin{itemize}
+    \item Für jeden Knoten $v \in V_t$ werden die vorkommenden Wörter,
+          die auch im Vokabular $W_t$ sind,
+          und deren Anzahl gespeichert. Das könnte z.~B. über ein 
+          assoziatives Array geschehen. Wörter, die nicht in 
+          Texten von $v$ vorkommen, sind nicht im Array. Für
+          alle vorkommenden Wörter ist der gespeicherte Wert zum 
+          Schlüssel \enquote{Wort} die Anzahl der Vorkommen von 
+          \enquote{Wort} in den Texten von $v$.
+    \item Für jedes Wort des Vokabulars $W_t$ wird eine Liste von 
+          Knoten verwaltet, in deren Texten das Wort vorkommt.
+    \item An einigen Stellen macht ein assoziatives Array, auch 
+          \enquote{dictionary} oder \enquote{map} genannt, sinn.
+          Zustätzlich ist es nützlich, wenn diese Datenstruktur für 
+          unbekannte Schlüssel keinen Fehler ausgibt, sondern für diese
+          Schlüssel den Wert 0 annimmt. Eine solche Datenstruktur
+          wird in Python \texttt{defaultdict} genannt und ich werde
+          im Folgenden diese Benennung beibehalten.
+\end{itemize}
+
+\input{Sprungtypen}
+\input{Vokabularbestimmung}
