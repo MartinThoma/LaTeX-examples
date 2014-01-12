@@ -9,11 +9,10 @@
 \usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
 \usepackage{framed}
 \usepackage{marvosym}
-\usepackage{makeidx} % for automatically generation of an index
+\usepackage{makeidx}        % for automatically generation of an index
 \usepackage{xcolor}
 \usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
-%\usepackage{enumerate}
-\usepackage{enumitem}
+\usepackage{enumitem}       % Better than \usepackage{enumerate}, because it allows to set references
 \usepackage{tabto}
 \usepackage{braket}         % needed for \Set
 \usepackage{csquotes}       % \enquote{}
@@ -51,10 +50,6 @@
 \fancyhead[LO]{\helv \rightmark}
 \fancyhead[RE]{\helv \leftmark}
 
-\author{Siehe \href{http://tinyurl.com/GeoTopo}{tinyurl.com/GeoTopo}}
-\title{Geometrie und Topologie\\
-        \vspace{10cm}
-        \includegraphics[width=0.9\linewidth]{figures/Torus.pdf}}
 \makeindex
 
 \hypersetup{ 
@@ -70,7 +65,7 @@
 \begin{document}
 \pagenumbering{roman}
 \setcounter{page}{1}
-\maketitle
+\input{titlepage}
 \input{Vorwort}
 \tableofcontents
 
