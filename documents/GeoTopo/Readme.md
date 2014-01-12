@@ -51,6 +51,10 @@ Was noch kommen soll
 1. Alle `TODOS` auflösen
 2. Reviews (Mathematik, LaTeX und Bilder)
 3. A5-Version drucken
-  * `oneside` in `twoside` umwandeln
+  * In `GeoTopo.tex`...
+      * ... replace `a4paper` by `a5paper`,
+      * ... replace `oneside` by `twoside` and
+      * ... replace `\usepackage[...]{hyperref}` by `\usepackage{nohyperref}`
+  * In `titlepage.tex`: replace `10cm` by `4cm`
   * Momentan sind es ca. 60 Seiten in A4. In A5 sind es ca.
 4. Version für Sehgeschädigte und Blinde
