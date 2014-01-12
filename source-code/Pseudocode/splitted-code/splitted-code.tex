@@ -1,0 +1,36 @@
+\documentclass[a5paper]{article}
+
+\usepackage{algorithm,algpseudocode}
+\usepackage{caption}
+
+\begin{document}
+
+\begin{algorithm}
+  \caption{My algorithm}
+  \begin{algorithmic}[1]
+    \Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+      \State $r\gets a\bmod b$
+      \While{$r\not=0$}\Comment{We have the answer if r is 0}
+        \State $a\gets b$
+        \State $b\gets r$
+
+        \algstore{myalg}
+  \end{algorithmic}
+\end{algorithm}
+
+\clearpage
+
+\begin{algorithm}
+  \ContinuedFloat
+  \caption{My algorithm (continued)}
+  \begin{algorithmic}
+      \algrestore{myalg}
+
+        \State $r\gets a\bmod b$
+      \EndWhile\label{euclidendwhile}
+      \State \textbf{return} $b$\Comment{The gcd is b}
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+
+\end{document}
