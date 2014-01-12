@@ -1,36 +1,52 @@
 \subsection{Sprungtypen}
 Die beiden bereits definierten Sprungtypen, der strukturelle Sprung
 sowie der inhaltliche Mehrfachsprung werden im folgenden erklärt.
-
+\goodbreak
 Der strukturelle Sprung entspricht einer zufälligen Wahl eines 
-Nachbarknotens. Hier gibt es nichts besonderes zu beachten.
+Nachbarknotens, wie es in \cref{alg:DYCOS-structural-hop}
+gezeigt wird.
+\begin{algorithm}[H]
+    \begin{algorithmic}[1]
+        \Procedure{SturkturellerSprung}{Knoten $v$, Anzahl $q$}
+            \State $n \gets v.\Call{NeighborCount}{}$ \Comment{Wähle aus der Liste der Nachbarknoten}
+            \State $r \gets \Call{RandomInt}{0, n-1}$ \Comment{einen zufällig aus}
+            \State $v \gets v.\Call{Next}{r}$ \Comment{Gehe zu diesem Knoten}
+            \State \Return $v$
+        \EndProcedure
+    \end{algorithmic}
+\caption{Struktureller Sprung}
+\label{alg:DYCOS-structural-hop}
+\end{algorithm}
 
-Bei inhaltlichen Mehrfachsprüngen sieht die Sache schon anders aus:
-Es ist nicht sinnvoll, direkt von einem strukturellem Knoten 
-$v \in \N_t$ zu einem mit $v$ verbundenen Wortknoten $w$ zu springen
+Bei inhaltlichen Mehrfachsprüngen ist jedoch nicht sinnvoll so direkt
+nach der Definition vorzugehen,  also
+direkt von einem strukturellem Knoten 
+$v \in V_t$ zu einem mit $v$ verbundenen Wortknoten $w \in W_t$ zu springen
 und von diesem wieder zu einem verbundenem strutkurellem Knoten 
-$v' \in \N_t$. Würde man dies machen, wäre zu befürchten, dass
+$v' \in V_t$. Würde man dies machen, wäre zu befürchten, dass
 aufgrund von Homonymen die Qualität der Klassifizierung verringert
 wird. So hat \enquote{Brücke} im Deutschen viele Bedeutungen.
 Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
 objektorientierten Programmierung oder ein Teil des Gehirns.
 
 Deshalb wird für jeden Knoten $v$, von dem aus man einen inhaltlichen
-Mehrfachsprung machen will folgendes vorgehen gewählt:
-\begin{enumerate}
-    \item Gehe alle in $v$ startenden Random Walks der Länge 2 durch
+Mehrfachsprung machen will folgendes Clusteranalyse durchgeführt:
+\begin{enumerate}[label=C\arabic*),ref=C\arabic*]
+    \item[C1] Gehe alle in $v$ startenden Random Walks der Länge 2 durch
           und erstelle eine Liste $L$, der erreichbaren Knoten $v'$. Speichere
           außerdem, durch wie viele Pfade diese Knoten $v'$ jeweils erreichbar sind.
-    \item Betrachte im folgenden nur die Top-$q$ Knoten, wobei $q \in \mathbb{N}$
-          eine zu wählende Konstante des Algorithmus ist.
-    \item Wähle mit Wahrscheinlichkeit $\frac{\Call{Anzahl}{v'}}{\sum_{w \in L} \Call{Anzahl}{v'}}$
+    \item[C2] Betrachte im folgenden nur die Top-$q$ Knoten, wobei $q \in \mathbb{N}$
+          eine zu wählende Konstante des Algorithmus ist. \label{list:aggregate.2}
+    \item[C3] Wähle mit Wahrscheinlichkeit $\frac{\Call{Anzahl}{v'}}{\sum_{w \in L} \Call{Anzahl}{v'}}$
           den Knoten $v'$ als Ziel des Mehrfachsprungs.
 \end{enumerate}
 
 Konkret könnte also ein Inhaltlicher Mehrfachsprung sowie wie in
-Algorithmus~\ref{alg:DYCOS-content-multihop} beschrieben umgesetz werden.
+\cref{alg:DYCOS-content-multihop} beschrieben umgesetz werden.
 
-\begin{algorithm}[H]
+\begin{algorithm}
+  \caption{Inhaltlicher Mehrfachsprung}
+  \label{alg:DYCOS-content-multihop}
     \begin{algorithmic}[1]
         \Procedure{InhaltlicherMehrfachsprung}{Knoten $v$}
             \State \textit{//Alle Knoten bestimmen, die von $v$ aus über Pfade der Länge 2 erreichbar sind}
@@ -43,9 +59,9 @@ Algorithmus~\ref{alg:DYCOS-content-multihop} beschrieben umgesetz werden.
                 \EndFor
             \EndFor
 
-            \State \textit{//Im folgenden gehe ich davon aus, dass ich über Indizes wahlfrei auf Elemente }
-            \State \textit{//aus $M_H$ zugreifen kann. Dies muss bei der konkreten Wahl der Datenstruktur}
-            \State \textit{//berücksichtigt werden}
+            \State \textit{//Im folgenden wird davon ausgegangen, dass man über Indizes wahlfrei auf}
+            \State \textit{//Elemente aus $M_H$ zugreifen kann. Dies muss bei der konkreten Wahl}
+            \State \textit{//der Datenstruktur berücksichtigt werden.}
             \State $M_H \gets \Call{max}{reachableNodes, q}$ \Comment{Also: $|M_H| = q$, falls $|reachableNodes|\geq q$}
             \State \textit{//Generate dictionary with relative frequencies}
             \State $s \gets 0$
@@ -56,12 +72,13 @@ Algorithmus~\ref{alg:DYCOS-content-multihop} beschrieben umgesetz werden.
             \ForAll{Knoten $x$ in $M_H$}
                 \State $relativeFrequency \gets \frac{reachableNodes[x]}{s}$
             \EndFor
-
+            \State \textit{//Wähle Knoten $i$ mit einer Wahrscheinlichkeit entsprechend seiner relativen}
+            \State \textit{//Häufigkeit an Pfaden der Länge 2}
             \State $random \gets \Call{random}{0, 1}$
-            \State $s \gets 0$
+            \State $r \gets 0.0$
             \State $i \gets 0$
             \While{$s < random$}
-                \State $s \gets s + relativeFrequency[i]$
+                \State $r \gets r + relativeFrequency[i]$
                 \State $i \gets i + 1$
             \EndWhile
             
@@ -69,19 +86,4 @@ Algorithmus~\ref{alg:DYCOS-content-multihop} beschrieben umgesetz werden.
             \State \Return $v$
         \EndProcedure
     \end{algorithmic}
-\caption{Inhaltlicher Mehrfachsprung}
-\label{alg:DYCOS-content-multihop}
-\end{algorithm}
-
-\begin{algorithm}[H]
-    \begin{algorithmic}[1]
-        \Procedure{SturkturellerSprung}{Knoten $v$, Anzahl $q$}
-            \State $n \gets v.\Call{NeighborCount}{}$ \Comment{Wähle aus der Liste der Nachbarknoten}
-            \State $r \gets \Call{RandomInt}{0, n-1}$ \Comment{einen zufällig aus}
-            \State $v \gets v.\Call{Next}{r}$ \Comment{Gehe zu diesem Knoten}
-            \State \Return $v$
-        \EndProcedure
-    \end{algorithmic}
-\caption{Struktureller Sprung}
-\label{alg:DYCOS-structural-hop}
 \end{algorithm}

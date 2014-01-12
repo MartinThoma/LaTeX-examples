@@ -21,27 +21,27 @@ In diesem Fall ist $G(w)=0$ nicht möglich, da zur Vokabularbestimmung
 nur Wörter betrachtet werden, die auch vorkommen.
 
 Ein Vorschlag, wie die Vokabularbestimmung implementiert werden kann,
-ist als Pseudocode mit Algorithmus~\ref{alg:vokabularbestimmung}
+ist als Pseudocode mit \cref{alg:vokabularbestimmung}
 gegeben. Dieser Algorithmus benötigt neben dem Speicher für den
 Graphen, die Texte sowie die $m$ Vokabeln noch $\mathcal{O}(|\text{Verschiedene Wörter in } S_t| \cdot (|\L_t| + 1))$
 Speicher. Die Average-Case Zeitkomplexität beträgt 
 $\mathcal{O}(|\text{Wörter in } S_t|)$, wobei dazu die Vereinigung
 von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
 
-\begin{algorithm}[H]
+\begin{algorithm}
     \begin{algorithmic}[1]
         \Require \\
-                 $\T_t$ (Knoten mit Labels),\\
+                 $V_{L,t}$ (Knoten mit Labels),\\
                  $\L_t$ (Labels),\\
-                 $f:\T_t \rightarrow \L_t$ (Label-Funktion),\\
+                 $f:V_{L,t} \rightarrow \L_t$ (Label-Funktion),\\
                  $m$ (Gewünschte Vokabulargröße)
         \Ensure  $\M_t$ (Vokabular)\\
 
-        \State $S_t \gets \Call{Sample}{\T_t}$ \Comment{Wähle eine Teilmenge $S_t \subseteq \T_t$ aus}
+        \State $S_t \gets \Call{Sample}{V_{L,t}}$ \Comment{Wähle eine Teilmenge $S_t \subseteq V_{L,t}$ aus}
         \State $\M_t \gets \bigcup_{v \in S_t} \Call{getTextAsSet}{v}$ \Comment{Menge aller Wörter}
         \State $cLabelWords \gets (|\L_t|+1) \times |\M_t|$-Array, mit 0en initialisert\\
 
-        \ForAll{$v \in \T_t$} \Comment{Gehe jeden Text Wort für Wort durch}
+        \ForAll{$v \in V_{L,t}$} \Comment{Gehe jeden Text Wort für Wort durch}
             \State $i \gets \Call{getLabel}{v}$
             \ForAll{$(word, occurences) \in \Call{getTextAsMultiset}{v}$}
                 \State $cLabelWords[i][word] \gets cLabelWords[i][word] + occurences$
