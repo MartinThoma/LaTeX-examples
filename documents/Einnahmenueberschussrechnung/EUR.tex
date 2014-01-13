@@ -57,7 +57,7 @@
 \begin{tabular}{|p{2.5cm}|p{2.5cm}|p{7cm}|p{2cm}|}\hline%
     \textbf{Rechnungs-\newline{}nummer} & \textbf{Rechnungs-\newline{datum}} & \textbf{Text} & \textbf{Betrag\newline{}in EUR}
 \csvreader[head to column names,separator=semicolon]{2013-einnahmen-selbststaendig.csv}{}%
-{\\\hline\Rechnungsnummer & \Rechnungsdatum & \Text &\hfill\num{\Betrag}}%
+{\\\hline\Rechnungsnummer & \Rechnungsdatum & \Text &\hfill\num[round-mode=places,round-precision=2]{\Betrag}}%
 \\\hline\hline
 \multicolumn{3}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\einnahmen}
 \\\hline
@@ -71,7 +71,7 @@
 \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}\hline%
 \textbf{Datum} & \textbf{Text} & \textbf{Betrag}
 \csvreader[head to column names,separator=semicolon]{2013-ausgaben.csv}{}%
-{\\\hline\Datum & \Text &\hfill\num{\Betrag}}%
+{\\\hline\Datum & \Text &\hfill\num[round-mode=places,round-precision=2]{\Betrag}}%
 \\\hline\hline
 \multicolumn{2}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\ausgaben}
 \\\hline
@@ -90,7 +90,7 @@
 \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}\hline%
 \textbf{Datum} & \textbf{Text} & \textbf{Betrag}
 \csvreader[head to column names,separator=semicolon]{2013-einnahmen-sonstiges.csv}{}%
-{\\\hline\Datum & \Text &\hfill\num{\Betrag}}%
+{\\\hline\Datum & \Text &\hfill\num[round-mode=places,round-precision=2]{\Betrag}}%
 \\\hline\hline
 \multicolumn{2}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\selbststaendig}
 \\\hline
@@ -104,9 +104,23 @@
 \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}\hline%
 \textbf{Datum} & \textbf{Text} & \textbf{Betrag}
 \csvreader[head to column names,separator=semicolon]{2013-kapitalertraege.csv}{}%
-{\\\hline\Datum & \Text &\hfill\num{\Betrag}}%
+{\\\hline\Datum & \Text &\hfill\num[round-mode=places,round-precision=2]{\Betrag}}%
 \\\hline\hline
 \multicolumn{2}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\kapitalsum}
+\\\hline
+\end{tabular}
+
+\subsection*{Einnahmen aus nicht-selbstständiger Tätigkeit}
+\csvreader[before reading=\def\nichstselbststaendig{0},separator=semicolon]{2013-nicht-selbststaendig.csv}{Betrag=\Betrag}{%
+\pgfmathsetmacro{\nichstselbststaendig}{\nichstselbststaendig+\Betrag}%
+}
+
+\begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}\hline%
+\textbf{Datum} & \textbf{Text} & \textbf{Betrag}
+\csvreader[head to column names,separator=semicolon]{2013-nicht-selbststaendig.csv}{}%
+{\\\hline\Datum & \Text &\hfill\num[round-mode=places,round-precision=2]{\Betrag}}%
+\\\hline\hline
+\multicolumn{2}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\nichstselbststaendig}
 \\\hline
 \end{tabular}
 
