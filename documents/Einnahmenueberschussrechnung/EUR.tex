@@ -7,6 +7,8 @@
 \usepackage{parskip}
 \usepackage{fancyhdr}
 \usepackage[rmargin=2.4cm]{geometry}
+\usepackage{csvsimple}
+\usepackage{pgfplots}
 
 % Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Year}{2013}                                            %
@@ -48,50 +50,64 @@
 \pagestyle{fancy}
 \section*{Überschussrechnung \Year}
 \subsection*{Einnahmen}
-\begin{table}[h!]
-    \begin{tabular}{|p{2.5cm}|p{2.5cm}|p{7cm}|p{2cm}|}
-    \hline
-    \textbf{Rechnungs-\newline{}nummer} & \textbf{Rechnungs-\newline{datum}} & \textbf{Text} & \textbf{Betrag\newline{}in EUR} \\ \hline\hline
-      123   &  01.03.2013 & Bla bla afasdf asdf adfas dasdf asdfa sd asdfasd & \hfill\num{17.00}      \\ \hline
-      124   &  21.12.2013 & Christmas Tree                                   & \hfill\num{99.99}      \\ \hline\hline
-    Summe          & ~    & ~                                                & ~      \\ \hline
-    \end{tabular}
-\end{table}
+\csvreader[before reading=\def\einnahmen{0},separator=semicolon]{2013-einnahmen-selbststaendig.csv}{Betrag=\Betrag}{%
+\pgfmathsetmacro{\einnahmen}{\einnahmen+\Betrag}%
+}
+
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{7cm}|p{2cm}|}\hline%
+    \textbf{Rechnungs-\newline{}nummer} & \textbf{Rechnungs-\newline{datum}} & \textbf{Text} & \textbf{Betrag\newline{}in EUR}
+\csvreader[head to column names,separator=semicolon]{2013-einnahmen-selbststaendig.csv}{}%
+{\\\hline\Rechnungsnummer & \Rechnungsdatum & \Text &\hfill\num{\Betrag}}%
+\\\hline\hline
+\multicolumn{3}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\einnahmen}
+\\\hline
+\end{tabular}
 
 \subsection*{Ausgaben}
-\begin{table}[h!]
-    \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}
-    \hline
-    \textbf{Datum} & \textbf{Text} & \textbf{Betrag} \\ \hline
-     01.12.2013    & Bla bla afasdf asdf adfas dasdf asdfa sd\newline asdfasd &\hfill\num{17.00}      \\
-    ~              & ~             & ~      \\ \hline\hline
-    Summe          & ~             & ~      \\ \hline
-    \end{tabular}
-\end{table}
-\vfill
-\textbf{Gewinn / Verlust:}\hfill\num{123.99}
+\csvreader[before reading=\def\ausgaben{0},separator=semicolon]{2013-ausgaben.csv}{Betrag=\Betrag}{%
+\pgfmathsetmacro{\ausgaben}{\ausgaben+\Betrag}%
+}
+
+\begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}\hline%
+\textbf{Datum} & \textbf{Text} & \textbf{Betrag}
+\csvreader[head to column names,separator=semicolon]{2013-ausgaben.csv}{}%
+{\\\hline\Datum & \Text &\hfill\num{\Betrag}}%
+\\\hline\hline
+\multicolumn{2}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\ausgaben}
+\\\hline
+\end{tabular}
+
+
+\vfill\pgfmathsetmacro{\gewinn}{\einnahmen-\ausgaben}
+\textbf{Gewinn / Verlust:}\hfill\num[round-mode=places,round-precision=2]{\gewinn}
 \clearpage
 
 \subsection*{Sonstige Einnahmen aus selbstständiger Tätigkeit}
-\begin{table}[h!]
-    \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}
-    \hline
-    \textbf{Datum} & \textbf{Text} & \textbf{Betrag} \\ \hline
-     01.12.2013    & Bla bla afasdf asdf adfas dasdf asdfa sd\newline asdfasd &\hfill\num{17.00}      \\
-    ~              & ~             & ~      \\ \hline\hline
-    Summe          & ~             & ~      \\ \hline
-    \end{tabular}
-\end{table}
+\csvreader[before reading=\def\selbststaendig{0},separator=semicolon]{2013-einnahmen-sonstiges.csv}{Betrag=\Betrag}{%
+\pgfmathsetmacro{\selbststaendig}{\selbststaendig+\Betrag}%
+}
+
+\begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}\hline%
+\textbf{Datum} & \textbf{Text} & \textbf{Betrag}
+\csvreader[head to column names,separator=semicolon]{2013-einnahmen-sonstiges.csv}{}%
+{\\\hline\Datum & \Text &\hfill\num{\Betrag}}%
+\\\hline\hline
+\multicolumn{2}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\selbststaendig}
+\\\hline
+\end{tabular}
 
 \subsection*{Einnahmen aus Kapitalerträgen}
-\begin{table}[h!]
-    \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}
-    \hline
-    \textbf{Datum} & \textbf{Text} & \textbf{Betrag} \\ \hline
-     01.12.2013    & Bla bla afasdf asdf adfas dasdf asdfa sd\newline asdfasd &\hfill\num{17.00}      \\
-    ~              & ~             & ~      \\ \hline\hline
-    Summe          & ~             & ~      \\ \hline
-    \end{tabular}
-\end{table}
+\csvreader[before reading=\def\kapitalsum{0},separator=semicolon]{2013-kapitalertraege.csv}{Betrag=\Betrag}{%
+\pgfmathsetmacro{\kapitalsum}{\kapitalsum+\Betrag}%
+}
+
+\begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}\hline%
+\textbf{Datum} & \textbf{Text} & \textbf{Betrag}
+\csvreader[head to column names,separator=semicolon]{2013-kapitalertraege.csv}{}%
+{\\\hline\Datum & \Text &\hfill\num{\Betrag}}%
+\\\hline\hline
+\multicolumn{2}{|l|}{Summe} & \hfill\num[round-mode=places,round-precision=2]{\kapitalsum}
+\\\hline
+\end{tabular}
 
 \end{document}

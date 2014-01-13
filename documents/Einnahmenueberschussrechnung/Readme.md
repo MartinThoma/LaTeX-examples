@@ -1,4 +1,6 @@
-Erster Versuch eine Einnahmenüberschussrechnung (EÜR) mit LaTeX
-zu machen. Die CSV-Dateien werden leider noch nicht benutzt.
+Einmalig müssen Parameter in der `EUR.tex` und der `Einnahmenueberschussrechnung.tex`
+bearbeitet werden.
+
+Dann nur noch jedes Jahr die vier `.csv`-Dateien.
 
 Tags: Steuer, Steuererklärung, LaTeX, Finanzen, EÜR
