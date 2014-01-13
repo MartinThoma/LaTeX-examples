@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Henriekes Mitschrieb vom 07.11.2013                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Mannigfaltigkeiten und Simpizidkomplexe}
+\chapter{Mannigfaltigkeiten und Simplizialkomplexe}
 \section{Topologische Mannigfaltigkeiten}
 \begin{definition}
     Sei $X$ ein topologischer Raum und $n \in \mdn$.
@@ -120,7 +120,7 @@
 
     $Z$ heißt \textbf{Verklebung} von $X$ und $Y$ längs $U$ und $V$.
     $Z$ besitzt einen Atlas aus $n$-dimensionalen Karten.
-    Falls $Z$ hausdoffsch ist, ist $Z$ eine $n$-dimensionale 
+    Falls $Z$ hausdorffsch ist, ist $Z$ eine $n$-dimensionale 
     Mannigfaltigkeit.
 \end{definition}
 
@@ -352,14 +352,14 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
 \begin{beispiel}
     $f: \mdr \rightarrow \mdr, \;\;\; x \mapsto x^3$ ist kein
-    Diffeomorphismis, aber Homöomorphismus, da mit $g(x) := \sqrt[3]{x}$
+    Diffeomorphismus, aber Homöomorphismus, da mit $g(x) := \sqrt[3]{x}$
     gilt: $f \circ g = \id_\mdr, \;\;\; g \circ f = \id_\text{\mdr}$
 \end{beispiel}
 
 \begin{bemerkung}
     Sei $X$ eine glatte Mannigfaltigkeit. Dann ist
-    \[\text{Diffeo}(X) := \Set{f:X \rightarrow X | f \text{ ist Diffeomorphismus}}\]
-    eine Untergruppe von $\text{Homöo}(X)$.
+    \[\Diffeo(X) := \Set{f:X \rightarrow X | f \text{ ist Diffeomorphismus}}\]
+    eine Untergruppe von $\Homoo(X)$.
 \end{bemerkung}
 
 \begin{definition}
@@ -390,7 +390,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
             \begin{figure}
                 \centering
-                \subfloat[Kugelkooridnaten]{
+                \subfloat[Kugelkoordinaten]{
                     \includegraphics[width=0.45\linewidth, keepaspectratio]{figures/spherical-coordinates.pdf}
                     \label{fig:spherical-coordinates}
                 }%
@@ -399,7 +399,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
                     \label{fig:solid-of-revolution}
                 }%
 
-                \subfloat[Sinus und Cosinus haben keine gemeinsamme Nullstelle]{
+                \subfloat[Sinus und Kosinus haben keine gemeinsame Nullstelle]{
                     \includegraphics[width=0.8\linewidth, keepaspectratio]{figures/sin-cos.pdf}
                     \label{fig:sin-cos}
                 }%
@@ -445,7 +445,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{korollar}
 
 \begin{beweis}
-    \todo{Hier muss ich nochmals drüberlesen.}
+    \todo{Hier muss ich nochmals drüber lesen.}
     \underline{z.Z.:} $F_j^{-1} \circ F_i$ ist Diffeomorphismus
 
     \begin{figure}[htp]
@@ -526,11 +526,11 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
                 a_{n1} & \dots  & a_{nn}
               \end{pmatrix} \in \mdr^{(n-1) \times (n-1)}\]
 
-            ist diffbar.
+            ist differenzierbar.
 
             $\det A_{ij}$ kann $0$ werden, da:
             \[\begin{pmatrix}1 & 1\\-1&0\end{pmatrix}\]
-        \item $\SL_n(\mdr) = \Set{A \in \GL_n(\mdr) | \text{det}(A) = 1} $ \todo{Besser strukturieren}
+        \item $\SL_n(\mdr) = \Set{A \in \GL_n(\mdr) | \det(A) = 1} $ \todo{Besser strukturieren}
 
               $\grad(\det-1)(A) = 0$?
 
@@ -557,23 +557,23 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \item $v_0, \dots, v_k$ sind \textbf{in allgemeiner Lage} $\gdw$ es gibt keinen $(k-1)$-dimensionalen
               affinen Untervektorraum, der $v_0, \dots, v_k$ enthält
               \gdw $v_1 - v_0, \dots, v_k - v_0$ sind linear abhängig.
-        \item $\text{conv}(v_0, \dots, v_k) = \Set{\sum_{i=0}^k \lambda_i v_i | \lambda_i \geq 0, \sum_{i=0}^k \lambda_i = 1} $
+        \item $\conv(v_0, \dots, v_k) = \Set{\sum_{i=0}^k \lambda_i v_i | \lambda_i \geq 0, \sum_{i=0}^k \lambda_i = 1} $
     \end{enumerate}
 \end{definition}
 
 \begin{definition}
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
-        \item Sei $\Delta^k = \text{conv}(e_0, \dots, e_k) \subseteq \mdr^{n+1}$
+        \item Sei $\Delta^k = \conv(e_0, \dots, e_k) \subseteq \mdr^{n+1}$
               die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_k$.
 
               Dann heißt $\Delta^k$ \textbf{Standard-Simplex}\xindex{Standard-Simplex}
               und $k$ die Dimension des Simplex.
         \item Für Punkte $v_0, \dots, v_k$ im $\mdr^n$ in allgemeiner
-              Lage heißt $\delta (v_0, \dots, v_k) = \text{conv}(v_0, \dots, v_k)$
+              Lage heißt $\delta (v_0, \dots, v_k) = \conv(v_0, \dots, v_k)$
               ein \textbf{$k$-Simplex}\xindex{Simplex} in $\mdr^n$.
         \item Ist $\Delta (v_0, \dots, v_k)$ ein $k$-Simplex und
               $I = \Set{i_0, \dots, i_r} \subseteq \Set{0, \dots, k}$,
-              so heißt $s_{i_0, \dots, i_r} := \text{conv}(v_{i_0}, \dots, v_{i_r})$
+              so heißt $s_{i_0, \dots, i_r} := \conv(v_{i_0}, \dots, v_{i_r})$
               \textbf{Teilsimplex}\xindex{Teilsimplex} oder \textbf{Seite}\xindex{Seite}
               von $\Delta$. 
 
@@ -613,15 +613,15 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \item Eine endliche Menge $K$ von Simplizes im $\mdr^n$
               heißt (endlicher) \textbf{Simplizialkomplex}\xindex{Simplizialkomplex},
               wenn gilt:
-            \begin{enumerate}[label=(\roman*)]
+            \begin{enumerate}[label=(\roman*),ref=\theenumii.\roman*]
                 \item Für $\Delta \in K$ und $S \subseteq \Delta$ Teilsimplex
                       ist $S \in K$
                 \item Für $\Delta_1, \Delta_2 \in K$ ist 
-                      $\Delta_1 \cap \Delta_2$ leer
-                      oder ein Teilsimplex von $\Delta_1$ und von 
-                      $\Delta_2$
+                      $\Delta_1 \cap \Delta_2$ leer oder ein 
+                        Teilsimplex von $\Delta_1$ und von 
+                      $\Delta_2$ \label{def:simplizialkomplex.ii}
             \end{enumerate}
-        \item $|K| := \bigcup_{\Delta \in K} \Delta$ (mit Spurtoplogie)
+        \item $|K| := \bigcup_{\Delta \in K} \Delta$ (mit Spurtopologie)
               heißt \textbf{geometrische Realisierung}\xindex{Realisierung!geometrische}
               von $K$.
         \item Ist $d = \max \Set{ k | K \text{ enthält } k-\text{Simplex}}$,
@@ -655,7 +655,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \label{fig:simplizialkomplex-cube-divided}
     }
 
-    \subfloat[$P$ ist kein Teilsimplex, da Eigenschaft (ii) verletzt ist]{
+    \subfloat[$P$ ist kein Teilsimplex, da Eigenschaft \ref{def:simplizialkomplex.ii} verletzt ist]{
         \parbox[c][4cm]{5cm}{\centering\input{figures/topology-triangle-no-simplicial-complex.tex}}
         \label{fig:no-simplizialkomplex-triangles}
     }%
@@ -852,7 +852,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{beweis}
 
 \begin{korollar}[Der Rand vom Rand ist 0]\label{kor:9.11}
-    Sei $K$ ein \todo{Warum in Klammern?}{(endlicher)} Simplizialkomplex mit Eckenmenge $V$
+    Sei $K$ ein \todo{Warum in Klammern?}{(endlicher)} Simplizialkomplex mit Knotenmenge $V$
     und $<$ eine Totalordnung auf $V$.
 
     Sei $A_n$ die Menge der $n$-Simplizes in $K$, d.~h.

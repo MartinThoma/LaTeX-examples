@@ -6,7 +6,7 @@
 Axiome\xindex{Axiom} bilden die Grundbausteine jeder mathematischen Theorie. Eine
 Sammlung aus Axiomen nennt man Axiomensystem\xindex{Axiomensystem}.
 Da der Begriff des Axiomensystems so grundlegend ist, hat man auch 
-ein paar sehr grundlegende Vorderungen an ihn: Axiomensysteme sollen
+ein paar sehr grundlegende Forderungen an ihn: Axiomensysteme sollen
 \textbf{widerspruchsfrei} sein, die Axiome sollen möglichst
 \textbf{unabhängig} sein und \textbf{Vollständigkeit} wäre auch toll.
 Mit Unabhängigkeit ist gemeint, dass kein Axiom sich aus einem anderem
@@ -19,7 +19,7 @@ Vollständigkeit. Ein Axiomensystem gilt als Vollständig, wenn
 jede Aussage innerhalb des Systems verifizierbar oder falsifizierbar
 ist. Interessant ist hierbei der Gödelsche Unvollständigkeitssatz, 
 der z.~B. für die Arithmetik beweist, dass nicht alle Aussagen
-formal bewiesen oder wiederlegt werden können.
+formal bewiesen oder widerlegt werden können.
 
 Kehren wir nun jedoch zurück zur Geometrie. Euklid hat in seiner 
 Abhandlung \enquote{Die Elemente} ein Axiomensystem für die Geometrie
@@ -65,7 +65,7 @@ aufgestellt.
 
 \begin{definition}
     \begin{enumerate}[label=\alph*)]
-        \item $P, Q, R$ liegen \textbf{kolinear}\xindex{kolinear}, 
+        \item $P, Q, R$ liegen \textbf{kollinear}\xindex{kollinear}, 
               wenn es $g \in G$ gibt mit $\Set{P, Q, R} \subseteq g$.
         \item $Q$ \textbf{liegt zwischen}\xindex{liegt zwischen} $P$
               und $R$, wenn $d(P, R) = d(P, Q) + d(Q, R)$
@@ -94,7 +94,7 @@ aufgestellt.
     \begin{enumerate}[label=(\roman*)]
         \item \enquote{$\subseteq$} folgt direkt aus der Definition von $PR^+$ und $PR^-$\\
               \enquote{$\supseteq$}: Sei $Q \in PR \Rightarrow P, Q, R$ 
-              sind kolinear.\\
+              sind kollinear.\\
               $\stackrel{\ref{axiom:2}}{\Rightarrow}
               \begin{cases} 
                 Q \text{ liegt zwischen } P \text{ und } R \Rightarrow Q \in PR\\
@@ -158,7 +158,7 @@ aufgestellt.
         \Obda sei $i=1$ und $j=2$, also $\varphi_1(R) = \varphi_2(R)$.
     \end{behauptung}
     \begin{behauptung}
-        Hat eine Isometrie $\varphi$ 3 Fixpunkte, die nicht kolinear sind,
+        Hat eine Isometrie $\varphi$ 3 Fixpunkte, die nicht kollinear sind,
         so ist $\varphi = \id_X$.
 
         Aus Beh. 1 und Beh. 2 folgt, dass $\varphi_2^{-1} \circ \varphi_1 = \id_X$,
@@ -172,7 +172,7 @@ aufgestellt.
         \end{behauptung}
         \begin{beweis}
             Es ist $\varphi(PQ) = \varphi(P) \varphi(Q)$ weil $\varphi$
-            wegen \ref{axiom:2} kolinearität erhält.
+            wegen \ref{axiom:2} Kollinearität erhält.
 
             Sei nun $R \in PQ$. Dann ist $d(P, \varphi(R)) \stackrel{P \text{ ist Fixpunkt}}{=} d(\varphi(P), \varphi(R)) = d(P, R)$.
             Weiter ist $\varphi (PQ^+) = \varphi(P) \varphi(Q)^+ = PQ^+$
