@@ -43,24 +43,25 @@
         \item $\mdc^n$ ist eine $2n$-dimensionale Mannigfaltigkeit
               mit einem Atlas aus einer Karte:
               \[(z_1, \dots, z_n) \mapsto (\operatorname{Re} z_1, \operatorname{Im}z_1, \dots, \operatorname{Re}z_n, \operatorname{Im}z_n)\]
-        \item \xindex{Raum!projektiver}$\praum^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\praum^n(\mdc)$ sind Mannigfaltigkeiten \todo{besser aufschreiben}
-              der Dimension $n$ bzw. $2n$.
+        \item \xindex{Raum!projektiver}$\praum^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\praum^n(\mdc)$ sind Mannigfaltigkeiten
+              der Dimension $n$ bzw. $2n$, da gilt:
 
-              $\praum^n(\mdr) = \bigcup_{i=0}^n U_i,$
+              Sei $U_i := \Set{(x_0: \dots : x_n) \in \praum^n(\mdr) | x_i \neq 0}\;\forall i \in 0, \dots, n$.
+              Dann ist $\praum^n(\mdr) = \bigcup_{i=0}^n U_i$ und die Abbildung
               \begin{align*}
-U_i = \Set{(x_0: \dots : x_n) \in \praum^n(\mdr) | x_i \neq 0} &\rightarrow \mdr^n\\
+                U_i &\rightarrow \mdr^n\\
                 (x_0 : \dots : x_n) &\mapsto \left (\frac{x_0}{x_i}, \dots, \frac{x_i}{x_i}, \dots, \frac{x_n}{x_i} \right )\\
                 (y_1 : \dots : y_{i-1} : 1 : y_i : \dots : y_n) &\mapsfrom (y_1, \dots, y_n)
               \end{align*}
               ist bijektiv.
-
-              Die $U_i,\; i = 0, \dots, n$ bilden einen $n$-dimensionalen Atals.
+              \todo[inline]{Was wird im Folgenden gemacht?}
+              Die $U_i$ mit $i = 0, \dots, n$ bilden einen $n$-dimensionalen Atlas:
               \begin{align*}
-                      x &= (1:0:0)            &y &= (0:1:1) \in U_2 \rightarrow \mdr^2\\
-                \in U_0 &\rightarrow \mdr^2   &y &\mapsto (0,1)\\
-                      x &\mapsto (0,0)        &&\text{Umgebung: } \fB_1 (0,1) \rightarrow \Set{(w:z:1) | w^2 + z^2 < 1} = V_2
+                      x &= (1:0:0) \in U_0 \rightarrow \mdr^2 & x &\mapsto (0,0)\\
+                      y &= (0:1:1) \in U_2 \rightarrow \mdr^2 & y &\mapsto (0,1)
               \end{align*}
-              Umgebung $\fB_1(0,1) \rightarrow \Set{(1:u:v) | \|(u,v)\| < 1} = v_1$
+              $\text{Umgebung: } \fB_1 (0,1) \rightarrow \Set{(1:u:v) | \|(u,v)\| < 1} = V_1$\\
+              $\text{Umgebung: } \fB_1 (0,1) \rightarrow \Set{(w:z:1) | w^2 + z^2 < 1} = V_2$\\
 
               $V_1 \cap V_2 = \emptyset$?
 
@@ -363,8 +364,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
 \begin{definition}
     $S \subseteq \mdr^3$ heißt \textbf{reguläre Fläche}\xindex{Fläche!reguläre} $:\gdw$
-    $\forall s \in S\;\exists $ Umgebung $V(s) \subseteq \mdr^3$ $\exists U \subseteq \mdr^2$ offen: $\exists$ differenzierbare Abbildung
-    $F: U \rightarrow V \cap S$: $\text{Rg}(J_F(u)) = 2\;\;\;\forall u \in U$.
+    $\forall s \in S\;\exists $ Umgebung $V(s) \subseteq \mdr^3$ $\exists U \subseteq \mdr^2$ offen: 
+    $\exists \text{ differenzierbare Abbildung } F: U \rightarrow V \cap S$: 
+    $\text{Rg}(J_F(u)) = 2\;\;\;\forall u \in U$.
 
     $F$ heißt (lokale) reguläre Parametrisierung von $S$.
 

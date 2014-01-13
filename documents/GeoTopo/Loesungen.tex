@@ -97,7 +97,32 @@
 \end{solution}
 
 \begin{solution}[\ref{ub3:aufg1}]
-    \todo[inline]{Kommt noch.}
+    \begin{enumerate}[label=(\alph*)]
+        \item \textbf{Beh.:} $\GL_n(\mdr)$ ist nicht kompakt.\\
+            \textbf{Bew.:} $\det: \GL_n(\mdr) \rightarrow \mdr \setminus \Set{0}$
+                ist stetig. Außerdem ist 
+                $\det(\GL_n(\mdr)) = \mdr \setminus \Set{0}$ nicht 
+                kompakt. $\stackrel{\ref{kor:5.6}}{\Rightarrow}$ 
+                $\GL_n(\mdr)$ ist nicht kompakt. $\qed$
+        \item \textbf{Beh.:} $\SL_1(\mdr)$ ist nicht kompakt, für $n > 1$ ist $\SL_n(\mdr)$ kompakt.\\
+            \textbf{Bew.:} Für $\SL_1(\mdr)$ gilt:
+                $\SL_1(\mdr) = \Set{A \in \mdr^{1 \times 1} | \det A = 1} = \begin{pmatrix}1\end{pmatrix} \cong \Set{1}$.
+                $\stackrel{\ref{kor:5.6}}{\Rightarrow} \SL_1(\mdr)$ ist
+                kompakt.\\
+
+                $\SL_n(\mdr) \subseteq \GL_n(\mdr)$ lässt sich mit einer
+                Teilmenge des $\mdr^{n^2}$ identifizieren. Nach \cref{satz:heine-borel}
+                sind diese genau dann kompakt, wenn sie beschränkt und 
+                abgeschlossen sind. Definiere nun für für $n \in \mdn_{\geq 2}, m \in \mdn: A_m = \text{diag}_n(m, \frac{1}{m}, \dots, 1)$.
+                Dann gilt: $\det A_m = 1$, d.~h. $A_m \in \SL_n(\mdr)$,
+                und $A_m$ ist unbeschränkt, da $\|A_m\|_\infty =m \xrightarrow[m \rightarrow \infty]{} \infty$.$\qed$
+        \item \textbf{Beh.:} $\praum(\mdr)$ ist kompakt.\\
+            \textbf{Bew.:} $\praum(\mdr) \cong S^n/_{x \sim -x}$.
+                Per Definition der Quotiententopologie ist die Klassenabbildung stetig.
+                Da $S^n$ als abgeschlossene und beschränkte Teilmenge
+                des $\mdr^{n+1}$ kompakt ist $\stackrel{\ref{kor:5.6}}{\Rightarrow}$
+                $\praum(\mdr)$ ist kompakt. $\qed$
+    \end{enumerate}
 \end{solution}
 
 \begin{solution}[\ref{ub4:aufg1}]
