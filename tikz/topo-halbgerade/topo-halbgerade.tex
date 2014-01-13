@@ -1,0 +1,18 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+
+\begin{document}
+\begin{tikzpicture}
+    \tikzstyle{point}=[circle,thick,draw=black,fill=black,inner sep=0pt,minimum width=4pt,minimum height=4pt]
+    \node (Pleft) at (0,0) {};
+    \node (P)[point,label=90:$P$] at (2,0) {};
+    \node (R)[point,label=90:$R$] at (4,0) {};
+    \node (Rright) at (6,0) {};
+    \draw[red,dashed,very thick] (Pleft) -- (P);
+    \draw[green,dotted,very thick] (P) -- (R) -- (Rright);
+    \draw [thick,decoration={brace,mirror,raise=0.2cm},decorate,red] (Pleft) -- (P) node [pos=0.5,anchor=north,yshift=-0.25cm,red] {$PR^-$}; 
+    \draw [thick,decoration={brace,mirror,raise=0.2cm},decorate] (P) -- (R) node [pos=0.5,anchor=north,yshift=-0.25cm] {$\overline{PR}$}; 
+    \draw [thick,decoration={brace,mirror,raise=0.8cm},decorate,green] (P) -- (Rright) node [pos=0.5,anchor=north,yshift=-0.85cm,green] {$PR^+$}; 
+\end{tikzpicture}
+\end{document}
