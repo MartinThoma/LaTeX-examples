@@ -1,0 +1,97 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
+\usepackage[locale=DE]{siunitx}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[rmargin=2.4cm]{geometry}
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Year}{2013}                                            %
+\newcommand{\Idnr}{72 DDD DDD DDD} % Deine Steuernummer (IdNr.)     %
+\newcommand{\Vorname}{Martin}     % Vorname                         %
+\newcommand{\Nachname}{Thoma}     % Nachname                        %
+\newcommand{\Strasse}{Parkstraße} % Deine Straße                    %
+\newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
+\newcommand{\PLZ}{76131}          % Deine PLZ                       %
+\newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
+                                                                    %
+\newcommand{\Empfaenger}{Finanzamt Karlsruhe-Stadt} % Der Empfänger %
+\newcommand{\EStrasse}{Schlossplatz 14}     % Straße des Empfängers %
+\newcommand{\EPLZ}{76131}                   % PLZ des Empfängers    %
+\newcommand{\EOrt}{Karlsruhe}               % Ort des Empfängers    %
+                                                                    %
+\newcommand{\DocTitle}{Einnahmenüberschussrechnung} %Titel des Dokuments%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% pdfinfo
+\pdfinfo{
+   /Author (\Nachname, \Vorname)
+   /Title  (\DocTitle)
+   /Subject (\DocTitle)
+   /Keywords (Einnahmenüberschussrechnung, EÜR, Steuern, Finanzen, Steuererklärung)
+}
+
+\fancypagestyle{appendix}{%
+    \fancyhead{}
+    \renewcommand{\headrulewidth}{0pt}
+}
+ 
+\setlength{\headheight}{15pt} % fixes \headheight warning
+\lhead{\Vorname{}~\Nachname{}, \Strasse{}, \PLZ{}~\Ort}
+\rhead{Id-Nr. \Idnr}
+
+% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagestyle{fancy}
+\section*{Überschussrechnung \Year}
+\subsection*{Einnahmen}
+\begin{table}[h!]
+    \begin{tabular}{|p{2.5cm}|p{2.5cm}|p{7cm}|p{2cm}|}
+    \hline
+    \textbf{Rechnungs-\newline{}nummer} & \textbf{Rechnungs-\newline{datum}} & \textbf{Text} & \textbf{Betrag\newline{}in EUR} \\ \hline\hline
+      123   &  01.03.2013 & Bla bla afasdf asdf adfas dasdf asdfa sd asdfasd & \hfill\num{17.00}      \\ \hline
+      124   &  21.12.2013 & Christmas Tree                                   & \hfill\num{99.99}      \\ \hline\hline
+    Summe          & ~    & ~                                                & ~      \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection*{Ausgaben}
+\begin{table}[h!]
+    \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}
+    \hline
+    \textbf{Datum} & \textbf{Text} & \textbf{Betrag} \\ \hline
+     01.12.2013    & Bla bla afasdf asdf adfas dasdf asdfa sd\newline asdfasd &\hfill\num{17.00}      \\
+    ~              & ~             & ~      \\ \hline\hline
+    Summe          & ~             & ~      \\ \hline
+    \end{tabular}
+\end{table}
+\vfill
+\textbf{Gewinn / Verlust:}\hfill\num{123.99}
+\clearpage
+
+\subsection*{Sonstige Einnahmen aus selbstständiger Tätigkeit}
+\begin{table}[h!]
+    \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}
+    \hline
+    \textbf{Datum} & \textbf{Text} & \textbf{Betrag} \\ \hline
+     01.12.2013    & Bla bla afasdf asdf adfas dasdf asdfa sd\newline asdfasd &\hfill\num{17.00}      \\
+    ~              & ~             & ~      \\ \hline\hline
+    Summe          & ~             & ~      \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection*{Einnahmen aus Kapitalerträgen}
+\begin{table}[h!]
+    \begin{tabular}{|p{2cm}|p{10.4cm}|p{2cm}|}
+    \hline
+    \textbf{Datum} & \textbf{Text} & \textbf{Betrag} \\ \hline
+     01.12.2013    & Bla bla afasdf asdf adfas dasdf asdfa sd\newline asdfasd &\hfill\num{17.00}      \\
+    ~              & ~             & ~      \\ \hline\hline
+    Summe          & ~             & ~      \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{document}
