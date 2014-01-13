@@ -4,27 +4,7 @@
 \usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
 \usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
 \usepackage{pdfpages}  % Signatureinbingung und includepdf
-
-% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Year}{2013}                                            %
-\newcommand{\Idnr}{72 DDD DDD DDD} % Deine Steuernummer (IdNr.)     %
-\newcommand{\Vorname}{Martin}     % Vorname                         %
-\newcommand{\Nachname}{Thoma}     % Nachname                        %
-\newcommand{\Strasse}{Parkstraße} % Deine Straße                    %
-\newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
-\newcommand{\PLZ}{76131}          % Deine PLZ                       %
-\newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
-                                                                    %
-\newcommand{\Empfaenger}{Finanzamt Karlsruhe-Stadt} % Der Empfänger %
-\newcommand{\EStrasse}{Schlossplatz 14}     % Straße des Empfängers %
-\newcommand{\EPLZ}{76131}                   % PLZ des Empfängers    %
-\newcommand{\EOrt}{Karlsruhe}               % Ort des Empfängers    %
-                                                                    %
-\newcommand{\DocTitle}{Einnahmenüberschussrechnung} %Titel des Dokuments%
-% Datum der Kündigung                                               %
-\newcommand{\Kuendigungsdatum}{nächstmöglichen Termin}              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
+\usepackage{myInformation}
  
 % pdfinfo
 \pdfinfo{
@@ -33,7 +13,7 @@
    /Subject (\DocTitle)
    /Keywords (Einnahmenüberschussrechnung, EÜR, Steuern, Finanzen, Steuererklärung)
 }
- 
+
 % set letter variables
 \signature{\Vorname~\Nachname}
 \setkomavar{customer}[Steuernummer (Id-Nr.)]{\Idnr}
