@@ -1,5 +1,6 @@
 \documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage{tikz}
+\usetikzlibrary{calc}
 
 \begin{document}
 \begin{tikzpicture}
@@ -12,7 +13,9 @@
     \draw[very thick] (P) edge node  {} (Q);
     \draw[very thick, red] (P) edge node {} (A);
     \draw[very thick, red] (P) edge node {} (B);
-    \draw[very thick, green] (Q) edge node {} (A);
-    \draw[very thick, green] (Q) edge node {} (B);
+    \draw[very thick, blue] (Q) edge node {} (A);
+    \draw[very thick, blue] (Q) edge node {} (B);
+
+    \draw[very thick] ($(P)!-1cm!(Q)$) -- ($(Q)!-1cm!(P)$);
 \end{tikzpicture}
 \end{document}

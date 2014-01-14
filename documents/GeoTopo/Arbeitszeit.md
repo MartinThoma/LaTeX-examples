@@ -30,3 +30,4 @@ in dem Erstellen dieses Skripts steckt:
 |13.01.2014 | 19:00 - 00:00 | TODOs erledigen; Tippfehler korrigieren
 |14.01.2014 | 11:15 - 12:45 | Digitalisieren der Vorlesung von 14.01.2014
 |14.01.2014 | 12:45 - 12:40 | TikZ'en der Bilder aus Vorlesung von 14.01.2014
+|14.01.2014 | 13:00 -       | TikZ'en der Bilder aus Vorlesung von 14.01.2014
