@@ -213,26 +213,42 @@ schneiden sich.
 \end{beweis}
 
 \begin{korollar}\label{kor:14.6}%In Vorlesung: Bemerkung 14.6
-    Seien $P, Q \in X$, $P \neq Q$, $A, B \in X \setminus PQ$
-    in der selben Halbebene bzgl. $PQ$ mit $d(A, P) = d(B, P)$
+    Seien $P, Q \in X$ mit $P \neq Q$ und $A, B \in X \setminus PQ$
+    in der selben Halbebene bzgl. $PQ$. Außerdem sei $d(A,P)=d(B,P)$
     und $d(A, Q) = d(B, Q)$.
 
     Dann ist $A = B$.
 \end{korollar}
+
+\begin{figure}[htp]
+    \centering
+    \input{figures/geometry-2.tex}
+    \caption{\cref{kor:14.6}: Die beiden roten und die beiden blauen Linien sind gleich lang. Intuitiv weiß man, dass daraus folgt, dass $A = B$ gilt.}
+    \label{fig:bild-2}
+\end{figure}
+
 \begin{beweis} durch Widerspruch\\
     \underline{Annahme}: $A \neq B$
 
     Dann ist $B \notin (PA \cup QA)$ wegen \ref{axiom:2}.
 
+    \begin{figure}[ht]
+        \centering
+        \subfloat[1. Fall]{
+            \input{figures/geometry-3.tex}
+            \label{fig:bild-3}
+        }%
+        \subfloat[2. Fall]{
+            \input{figures/geometry-4.tex}
+            \label{fig:bild-4}
+        }%
+        \label{Formen}
+        \caption{Fallunterscheidung aus \cref{kor:14.6}}
+    \end{figure}
+
     \underline{1. Fall}: $Q$ und $B$ liegen in derselben Halbebene bzgl. $PA$
 
     $\overset{\cref{kor:beh3}}{\Rightarrow} PB^+ \cap \overline{AQ} \neq \emptyset$.
-    \begin{figure}[htp]
-        \centering
-        \input{figures/geometry-3.tex}
-        \caption{1. Fall}
-        \label{fig:bild-3}
-    \end{figure}
 
     Sei $C$ der Schnittpunkt vom $PB$ und $AQ$.
 
@@ -254,16 +270,9 @@ schneiden sich.
 
     \underline{2. Fall}: $Q$ und $B$ liegen auf verscheiden Halbebenen bzgl. $PA$.
 
-    \begin{figure}[htp]
-        \centering
-        \input{figures/geometry-4.tex}
-        \caption{2. Fall}
-        \label{fig:bild-4}
-    \end{figure}
-
     Dann liegen $A$ und $Q$ in derselben Halbebene bzgl. $PB$.
 
-    Tausche $A$ und $B \Rightarrow$  Fall 1
+    Tausche $A$ und $B \Rightarrow$  Fall 1 $\qed$
 \end{beweis}
 
 \begin{proposition}%In Vorlesung: Satz 14.4
@@ -322,7 +331,7 @@ schneiden sich.
             nach Beh.~2' $\Rightarrow \varphi(A) = A$.
         \end{beweis}
 
-        \begin{beweis}[von Beh. 1 mit \cref{kor:14.6}]
+        \begin{beweis}[von Beh. 1]
             Sei $R \in X \setminus PQ$. Von den drei Punkten 
             $\varphi_1(R), \varphi_2(R), \varphi_3(R)$ liegen zwei
             in der selben Halbebene bzgl. $P'Q' = \varphi_i(PQ)$.
@@ -339,16 +348,7 @@ schneiden sich.
                     &= d(Q', \varphi_2(R))
             \end{align}
             und analog $d(Q', \varphi_1(R)) = d(Q', \varphi_2(R))$
-
-            \begin{figure}[htp]
-                \centering
-                \input{figures/geometry-2.tex}
-                \caption{Die beiden roten und die beiden blauen Linien sind gleich lang. Intuitiv weiß man, dass daraus folgt, dass $\varphi_1(R) = \varphi_2(R)$ gilt.}
-                \label{fig:bild-2}
-            \end{figure}
         \end{beweis}
-
-        \Cref{fig:bild-2} beschreibt die Situation in \cref{kor:14.6}:
     \end{beweis}
 \end{beweis}
 
