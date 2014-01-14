@@ -45,14 +45,14 @@ aufgestellt.
     zusammen mit einer Teilmenge $G \subseteq \powerset{X}$, sodass die
     Axiome~\ref{axiom:1}~-~\ref{axiom:4} erfüllt sind:
     \begin{enumerate}[label=§\arabic*),ref=§\arabic*]
-        \item \enquote{Inzidenzaxiome}:\label{axiom:1}
+        \item \textbf{Inzidenzaxiome}:\label{axiom:1}
             \begin{enumerate}[label=(\roman*),ref=\theenumi{} (\roman*)]
                 \item Zu $P \neq Q \in X$ gibt es genau ein $g \in G$ mit
                       $\Set{P, Q} \subseteq g$.
                 \item $|g| \geq 2 \;\;\; \forall g \in G$
                 \item $X \in G$
             \end{enumerate}
-        \item \enquote{Abstandsaxiom}: Zu $P, Q, R \in X$ gibt es \label{axiom:2}
+        \item \textbf{Abstandsaxiom}: Zu $P, Q, R \in X$ gibt es \label{axiom:2}
               genau dann ein $g \in G$ mit $\Set{P, Q, R} \subseteq g$,
               wenn gilt: 
               \begin{itemize}[]
@@ -121,7 +121,7 @@ aufgestellt.
 
 \begin{definition}
     \begin{enumerate}[label=§\arabic*),ref=§\arabic*,start=3]
-        \item \enquote{Anordnungsaxiom}\label{axiom:3}
+        \item \textbf{Anordnungsaxiome}\label{axiom:3}
             \begin{enumerate}[label=(\roman*),ref=§\theenumi{} (\roman*)]
                 \item  Zu jedem $P \in X$ jeder Halbgerade $H$ mit \label{axiom:3.1}
                       Anfangspunkt $P$ und jedem $r \in \mdr_{\geq 0}$
@@ -130,19 +130,46 @@ aufgestellt.
                       in zwei nichtleere Teilmengen $H_1, H_2$.
                       (Diese Teilmengen heißen \textbf{Halbebenen}\xindex{Halbebene} bzgl. $g$),
                       sodass für alle $A \in H_i$, $B \in H_j$
-                      $(i,j \in \Set{1,2})$ gilt: $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$
+                      $(i,j \in \Set{1,2})$ gilt: $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$\label{axiom:3.2}
             \end{enumerate}
-        \item \enquote{Bewegungsaxiome}: Zu $P, Q, P', Q' \in X$\label{axiom:4}
+        \item \textbf{Bewegungsaxiome}: Zu $P, Q, P', Q' \in X$\label{axiom:4}
             mit $d(P,Q) = d(P', Q')$. Isometrien $\varphi_1, \varphi_2$
             mit $\varphi_i (P) = P'$ und $\varpi_i(Q) = Q', i=1,2$
             (Spiegelung an der Gerade durch $P$ und $Q$ ist nach 
              Identifizierung von $P \cong P'$ und $Q \cong Q'$ eine
              weitere Isometrie.)
+        \item \textbf{Parallelenaxiom}: Für jedes $g \in G$ und jedes
+            $P \in X \setminus g$ gibt es höchstens ein $k \in G$ mit
+            $h \cap g = \emptyset$.\footnote{$h$ heißt \enquote{Parallele zu $g$ durch $P$}.}
     \end{enumerate}
 \end{definition}
 
+\todo[inline]{Bilder zu Parallelenaxiom, Inzidenzaxiom und Bewegungsaxiom}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 14.01.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{satz}[Satz von Rasch]\label{satz:rasch} %In Vorlesung: Bemerkung 14.5
+    Seien $P$, $Q$, $R$ nicht kollinear, $g \in G$ mit $g \cap \Set{P, Q, R} = \emptyset$
+    und $g \cap \overline{PQ} \neq \emptyset$. Dann ist
+    $g \cap \overline{PR} \neq \emptyset$ oder $g \cap \overline{QR} \neq \emptyset$.
+\end{satz}
+
+\begin{beweis}
+    $g \cap \overline{PQ} \neq \emptyset \stackrel{\ref{axiom:3.2}}{\Rightarrow}$
+    $P$ und $Q$ liegen in verschiedenen Halbebenen bzgl. $g$
+    $\Rightarrow$ \obda $R$ und $P$ liegen in verschieden
+    Halbebenen bzgl. $P$.
+    $\Rightarrow g \cap \overline{RP} \neq \emptyset$
+\end{beweis}
+
 \begin{proposition}%In Vorlesung: Satz 14.4
-    Aus den Axiomen \ref{axiom:1}~-~\ref{axiom:3} folgt, dass es in 
+    In einer Geometrie, die \ref{axiom:1}~-~\ref{axiom:3} erfüllt,
+    gibt es zu $P, P', Q, Q'$ mit $d(P, Q) = d(P', Q')$ höchstens
+    zwei Isometrien mit $\varphi(P) = P'$ und $\varphi(Q) = Q'$
+
+    Aus den Axiomen  folgt, dass es in 
     den Situation \ref{axiom:4} höchstens zwei Isometrien mit
     $\varphi_i(P) = P'$ und $\varphi_i(Q) = Q'$ gibt.
 \end{proposition}
@@ -151,19 +178,20 @@ aufgestellt.
     Seien $\varphi_1, \varphi_2, \varphi_3$ Isometrien mit
     $\varphi_i(P) = P'$, $\varphi_i(Q) = Q'$, $i=1,2,3$
 
-    \begin{behauptung}
-        Es gibt $R \in PQ$ mit $\varphi_{A_i} (R) = \varphi_{Z_j} (R)$
-        mit $i \neq j$.
-
-        \Obda sei $i=1$ und $j=2$, also $\varphi_1(R) = \varphi_2(R)$.
+    \begin{behauptung}[1]
+        $\exists R \in X \setminus PQ$ mit $\varphi_{1} (R) = \varphi_{2} (R)$.
     \end{behauptung}
-    \begin{behauptung}
-        Hat eine Isometrie $\varphi$ 3 Fixpunkte, die nicht kollinear sind,
+    \begin{behauptung}[2]
+        Hat $\varphi$ 3 Fixpunkte, die nicht kollinear sind,
         so ist $\varphi = \id_X$.
-
-        Aus Beh. 1 und Beh. 2 folgt, dass $\varphi_2^{-1} \circ \varphi_1 = \id_X$,
-        also $\varphi_2 = \varphi_1$.
     \end{behauptung}
+
+    \begin{behauptung}[2']
+        $(\varphi(P) = P \land \varphi(Q) = Q) \Rightarrow (\varphi(S) = S\;\forall S \in PQ)$
+    \end{behauptung}
+
+    Aus Beh. 1 und Beh. 2 folgt, dass $\varphi_2^{-1} \circ \varphi_1 = \id_X$,
+    also $\varphi_2 = \varphi_1$.
 
     \begin{beweis}\leavevmode
         \begin{behauptung}
@@ -171,12 +199,174 @@ aufgestellt.
             $\varphi(R) = R$ für jedes $R \in PQ$.
         \end{behauptung}
         \begin{beweis}
-            Es ist $\varphi(PQ) = \varphi(P) \varphi(Q)$ weil $\varphi$
-            wegen \ref{axiom:2} Kollinearität erhält.
+            Seien $P$, $Q$ und $R$ Fixpunkte von $\varphi$, $R \in PG$
+            und $A \notin \overline{PQ} \cup \overline{PR} \cup \overline{QR}$.
+            Sei $B \in \overline{PQ} \setminus \Set{P, Q}$. Dann ist
+            $\varphi(B) = B$ wegen Beh.~2'.
 
-            Sei nun $R \in PQ$. Dann ist $d(P, \varphi(R)) \stackrel{P \text{ ist Fixpunkt}}{=} d(\varphi(P), \varphi(R)) = d(P, R)$.
-            Weiter ist $\varphi (PQ^+) = \varphi(P) \varphi(Q)^+ = PQ^+$
-            $\stackrel{\ref{axiom:3.1}}{\Rightarrow} R = \varphi(R)$
+            Ist $R \in AB$, so enthält $AB$ 2 Fixpunkte von $\varphi$
+            $\stackrel{Beh.~2'}{\Rightarrow} \varphi(A) = A$.
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/bild-1.jpg}
+                \caption{TODO}.
+                \label{fig:bild-1}
+            \end{figure}
+
+            Ist $R \notin AB$, so ist $AB \cap \overline{PR} \neq \emptyset$
+            oder $AB \in \overline{RQ} \neq \emptyset$ nach \cref{satz:rasch}.
+            Der Schnittpunkt $C$ ist dann Fixpunkt von $\varphi'$
+            nach Beh.~2' $\Rightarrow \varphi(A) = A$.
+        \end{beweis}
+
+        \begin{beweis}[Beweis 1]
+            Sei $R \in X \setminus PQ$. Von den drei Punkten 
+            $\varphi_1(R), \varphi_2(R), \varphi_3(R)$ liegen zwei
+            in der selben Halbebene bzgl. $P'Q' = \varphi_i(PQ)$.
+
+            \Obda seien $\varphi_1(R)$ und $\varphi_2(R)$ in der 
+            selben Halbebene.
+
+            Es gilt: 
+            \begin{align}
+                d(P', \varphi_1(R)) &= d(\varphi_1(P), \varphi_1(R))\\
+                    &= d(P, R)\\
+                    &= d(\varphi_2(P), \varphi_2(R))\\
+                    &= d(P', \varphi_2(R))\\
+                    &= d(Q', \varphi_2(R))
+            \end{align}
+            und analog $d(Q', \varphi_1(R)) = d(Q', \varphi_2(R))$
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/bild-2.jpg}
+                \caption{Die beiden roten und die beiden blauen Linien sind gleich. Intuitiv weiß man, dass daraus folgt, dass $\varphi_1(R) = \varphi_2(R)$ gilt.}.
+                \label{fig:bild-1}
+            \end{figure}
+        \end{beweis}
+
+        \begin{korollar}\label{kor:14.6}%In Vorlesung: Bemerkung 14.6
+            Seien $P, Q \in X$, $P \neq Q$, $A, B \in X \setminus PQ$
+            in der selben Halbebene bzgl. $PQ$ mit $d(A, P) = d(B, P)$
+            und $d(A, Q) = d(B, Q)$. Dann ist $A = B$.
+        \end{korollar}
+        \begin{beweis} durch Widerspruch\\
+            \underline{Annahme}: $A \neq B$
+
+            Dann ist $B \notin (PA \cup QA)$ wegen \ref{axiom:2}.
+
+            \underline{1. Fall}: $Q$ und $B$ liegen in derselben Halbebene bzgl. $PA$
+            \begin{behauptung}[Beh. 3]
+                Dann ist $PB^+ \cap \overline{AQ} \neq \emptyset$
+            \end{behauptung}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/bild-3.jpg}
+                \caption{TODO}.
+                \label{fig:bild-3}
+            \end{figure}
+
+            Sei $C$ der Schnittpunkt.
+
+            Dann gilt:
+            \begin{enumerate}[label=(\roman*)]
+                \item $d(A, C) + d(A, Q) = d(B, Q) < d(B, C) + d(C, Q) \Rightarrow d(A, C) < d(B, C)$ \label{enum:komischer-beweis-i}
+                \item \begin{enumerate}[label=\alph*)]
+                        \item $B$ liegt zwischen $P$ und $C$.
+
+                              $d(P,A) + d(A, C) > d(P,C) = d(P,B) + d(B,c) = d(P,A) + d(B,C)$
+                              $\Rightarrow d(A,c) > d(B,C) \Rightarrow$ Widerspruch zu \ref{enum:komischer-beweis-i}
+                        \item $C$ liegt zwischen $P$ und $B$
+
+                              $d(P,C) + d(C,A) > d(P,A) = d(P,B) = d(P,C) + d(C, B)$\\
+                              $\Rightarrow d(C, A) > d(C, B)$\\
+                              $\Rightarrow$ Widerspruch zu \ref{enum:komischer-beweis-i}
+                    \end{enumerate}
+            \end{enumerate}
+
+            \underline{2. Fall}: $Q$ und $B$ liegen auf verscheiden Halbebenen bzgl. $PA$.
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/bild-4.jpg}
+                \caption{TODO}.
+                \label{fig:bild-4}
+            \end{figure}
+
+            Dann liegen $A$ und $Q$ in derselben Halbebene bzgl. $PB$.
+
+            Tausche $A$ und $B \Rightarrow$  Fall 1
+        \end{beweis}
+
+        \begin{beweis}[Beweis 3]
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/bild-5.jpg}
+                \caption{TODO}.
+                \label{fig:bild-5}
+            \end{figure}
+
+            Sei $P' \in PQ^-, P' \neq P$
+            $\stackrel{\cref{satz:rasch}}{\Rightarrow} PB$ schneidet
+            $\overline{AP'} \cup \overline{AQ}$
+
+            Sei $C$ der Schnittpunkt. Dann gilt:
+            \begin{enumerate}[label=(\roman*)]
+                \item $C \in PB^+$, denn $A$ und $B$ liegen in derselben
+                      Halbebene bzgl. $PQ = P'Q$, also auch
+                      $\overline{AP'}$ und $\overline{AQ}$.
+                \item $C$ liegt in derselben Halbebene bzgl. $PA$ wie
+                      $B$, weil das für $Q$ gilt.
+
+                      $\overline{AP'}$ liegt in der anderen Halbebene
+                      bzgl. $PA \Rightarrow C \notin \overline{P'A} \Rightarrow C \in \overline{AQ}$
+            \end{enumerate}
         \end{beweis}
     \end{beweis}
 \end{beweis}
+
+\begin{bemerkung}
+    Mit \ref{kor:14.6} lassen sich die Kongruenzsätze für Dreiecke,
+    wie man sie aus der Schule kennt, beweisen.
+\end{bemerkung}
+
+\begin{proposition}%In Vorlesung: Proposition 14.7
+    Sei $(X, d, G)$ eine Geometrie mit den Axiomen \ref{axiom:1}~-~\ref{axiom:4}.
+    Dannn gibt es zu jedem $g \in G$ und jedem $P \in X \setminus g$ ein
+    $k \in G$ mit $P \in h$ und $g \cap h \neq \emptyset$.
+\end{proposition}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/bild-6.jpg}
+    \caption{TODO}.
+    \label{fig:bild-6}
+\end{figure}
+
+\begin{beweis}
+    Sei $f \in G$ mit $P \in f$. Ist $f \cap g = \emptyset$, so setze
+    $h := f$. Andernfalls sei $\Set{Q} : = f \cap g$.
+
+    Sei $\varphi$ \underline{die} Isometrie mit $\varphi(Q) = P$,
+    $\varphi(P) = P'$, die die Halbebenen bzgl. $f$ nicht vertauscht.
+    
+    Setze $h := \varphi(g)$.
+
+    \underline{Z.~Z.:} $h \cap g = \emptyset$.
+
+    Andernfalls sei $\Set{R} = h \cap g$.
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/bild-7.jpg}
+        \caption{TODO}.
+        \label{fig:bild-6}
+    \end{figure}
+\end{beweis}
+
+\begin{bemerkung}
+    Jder Innenwinkel eines Dreiecks ist kleiner als alle nicht-anliegenden
+    Außenwinkel.
+\end{bemerkung}

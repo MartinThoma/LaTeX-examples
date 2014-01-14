@@ -28,3 +28,4 @@ in dem Erstellen dieses Skripts steckt:
 |12.01.2014 | 22:15 - 22:30 | Beweis erstellt, dass Überlagerungen surjektiv sind
 |12.01.2014 | 23:30 - 00:00 | Gruppenaktion -> Gruppenoperation; Projektiver Raum zu Index hinzugefügt
 |13.01.2014 | 19:00 - 00:00 | TODOs erledigen; Tippfehler korrigieren
+|14.01.2014 | 11:15 - 12:45 | Digitalisieren der Vorlesung von 14.01.2014
