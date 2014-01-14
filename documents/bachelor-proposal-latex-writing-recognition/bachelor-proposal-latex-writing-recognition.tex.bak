@@ -33,25 +33,25 @@
     \title{Proposal for a Bachelor of Science Thesis:\\Interactive on-line handwriting recognition of mathematical formulae}
     \author{Martin Thoma}
     \maketitle
-\section{The problem background}
+\section{The problem backgound}
     There are people who don't know how to write even
     simple mathematical formulae with \LaTeX{} like
     \[\pi/\alpha=\sum_{n=-\infty}^\infty \frac{\sin^2 (c+n)\alpha}{(c+n)^2}=\int_{-\infty}^\infty \frac{\sin^2 (c+n)\alpha}{(c+n)^2}\, \text{d}n\]
     or who need much time to do so. Currently, there are several online
-    services, programs and apps that help to write mathematical 
-    formulae, but all programs I know have serious disadvantages:
+    services, programms and apps that help to write mathematical 
+    formulae, but all programms I know have serious disadvantages:
     \begin{itemize}
         \item \href{http://detexify.kirelabs.org/classify.html}{detexify.kirelabs.org}
               recognizes \textbf{only symbols},
-        \item the formula editor of LibreOffice Writer 3.6 as shown 
+        \item the formel editor of LibreOffice Writer 3.6 as showen 
               in \Fref{fig:libre-office-3.6} offers some
-              guidance by grouping common operations while showing
+              guidiance by grouping common operations while showing
               a WYSIWYG editor, but it has \textbf{no handwriting recognition}.
               Another drawback is the fact that it is \textbf{not available 
               as an online service}, so you have to install LibreOffice
               which might not be possible on all devices.
         \item The \enquote{Daum Equation Editor} (see \Fref{fig:daum-editor}) is available online
-              and offers guidance through the creation of equations,
+              and offers guidiance through the creation of equations,
               but does not offer handwriting recognition. Although
               it might be OpenSource, the \textbf{source code is difficult to
               find}. This means if you want to improve the recognition,
@@ -66,7 +66,7 @@
               single symbols.
         \item Wolfram Mathematica seems to be able to do complete
               formula recognition at least for simple formulae (\href{http://reference.wolfram.com/mathematica/tutorial/HandwrittenMathRecognition.html}{source})
-              by using Microsoft's \href{http://windows.microsoft.com/en-ph/windows7/use-math-input-panel-to-write-and-correct-math-equations}{Math Input Panel},
+              by using Microsofts \href{http://windows.microsoft.com/en-ph/windows7/use-math-input-panel-to-write-and-correct-math-equations}{Math Input Panel},
               but this is neither OpenSource nor available as an
               online service. Additionally it is not
               available for Linux systems, so I can't test it.
@@ -80,7 +80,7 @@
     \begin{figure}[h]
         \centering
         \includegraphics*[width=5cm, keepaspectratio]{figures/libreoffice-writer.png}
-        \caption{LibreOffice Writer 3.6 - Formula Editor}
+        \caption{LibreOffice Writer 3.6 - Formel Editor}
         \label{fig:libre-office-3.6}
     \end{figure}
 
@@ -106,7 +106,7 @@
               starts recognizing while the user enters a formula.
         \item \textbf{Interactive}: The service offers symbols and constructs
               to the user before the user starts typing. These suggestions
-              might change depending on what the user has typed before.
+              might chage depending on what the user has typed before.
         \item \textbf{OpenSource}: Any license in this list: \href{http://opensource.org/licenses}{http://opensource.org/licenses}
         \item \textbf{Easy to find}: Ideally, the project should have
               an own domain that contains the source code, the service
@@ -116,7 +116,7 @@
     \end{itemize}
 
     This service should also encourage the users by techniques
-    of \enquote{Gamification} to give as much
+    of \enquote{gamification} to give as much
     meta information about their formulae as possible:
     \begin{itemize}
         \item Which problem domain does the formula belong to, e.~g. \enquote{Euclidean geometry}, \enquote{analysis} or \enquote{calculus}?
@@ -131,8 +131,8 @@ offers on-line, interactive math handwriting recognition. But the
 need of such a software is there.
 
 But there are more reasons why this bachelor's thesis matters:
-Projects like \LaTeX{}, Linux, Apache or Firefox have shown that
-OpenSource software can enrich the development in specific areas. The
+Projects like \LaTeX{}, Linux, Apache or FireFox have shown that
+OpenSoure software can enrich the develpment in specific areas. The
 \enquote{Browser Wars} might be the most famous result of an active
 OpenSource community. Internet Explorer 6 had
 a market share of over 80\% in 2003. Prequels of Firefox and the Mozilla 
@@ -158,14 +158,14 @@ e.~g. a formula spotter for presentations or a math detector for speech.
 \section{Time schedule}
 \begin{itemize}
     \item[70h] Literature research about on-line handwriting recognition 
-               techniques and Gamification.
+               techniques and gamification.
     \item[5h]  Defining browsers and devices that should get supported
                and required client side software like HTML5, CSS 3
                and ECMAScript (better known as JavaScript). Also,
                required input methods like touchscreens and stylus
                should be mentioned.
     \item[20h] Writing use cases. This is includes writing example 
-               formula that the user should type and the system should
+               formula that the user shoud type and the system should
                be able to recognize; finding people with different 
                knowledge of \LaTeX{} and from different fields who 
                want to participate in user tests.
@@ -182,8 +182,8 @@ e.~g. a formula spotter for presentations or a math detector for speech.
                in the thesis, but the improvements will get documented.
     \item[60h] Finding structures and ways how to enter them. Examples
                of structures that can be nested are sums:
-               \begin{verbatim}\sum_{<some structure>}^{<another structure>} <a third structure>\end{verbatim}
-               Implement the recognition of those structures.
+               \begin{verbatim}\sum_{<some structure>}^{<another strcuture>} <a third structure>\end{verbatim}
+               Implement the recognition of those strucutres.
     \item[30h] Observe \enquote{fresh} testers while they try to use
                the system. 
     \item[70h] Improving the software to fix problems that were found
@@ -242,8 +242,8 @@ A first draft of the outline could be like this:
 \bibliography{literatur}
 
 This literature list is only a list that seems to make sense to me
-by now. As I proceed I might find more useful sources for the different
+by now. As I proceed I might find more usefull sources for the different
 topics. So I might add, but also remove elements from this list.
-Especially for Gamification I might read documents from
+Especially for gamification I might read documents from
 \href{http://gamification-research.org/}{gamification-research.org}.
 \end{document}
