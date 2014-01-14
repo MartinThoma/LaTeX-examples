@@ -1,0 +1,27 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tkz-euclide}
+
+\begin{document}
+\usetkzobj{all}
+\begin{tikzpicture}
+    \tkzSetUpPoint[shape=circle,size=10,color=black,fill=black]
+    \tkzSetUpLine[line width=1]
+    \tkzDefPoints{0/0/Q, 2/0/P, 1/2/R}
+
+
+    \pgfmathsetmacro{\firstAngle}{0}
+    \pgfmathsetmacro{\secondAngle}{-120}
+    \path[draw,red, fill=red!40] (Q) -- ++(\firstAngle:.4) arc[start angle=\firstAngle, delta angle=\secondAngle,radius=.4];
+
+    \tkzMarkAngle[arc=l,size=0.8cm,color=green,fill=green!20](Q,R,P)
+    \path[draw] ++(-50:.2) node[rotate=-50] {$\alpha$};
+    \node at (1,1.5) {$\beta$};
+    \tkzDrawLine(Q,P)
+    \tkzDrawLine(Q,R)
+    \tkzDrawLine(P,R)
+    \tkzDrawPoints(P,Q,R)
+    \tkzLabelPoint[below left](P){$P$}
+    \tkzLabelPoint[above left](Q){$Q$}
+    \tkzLabelPoint[above=0.2cm](R){$R$}
+\end{tikzpicture}
+\end{document}
