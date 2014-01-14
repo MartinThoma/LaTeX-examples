@@ -139,12 +139,10 @@ aufgestellt.
              Identifizierung von $P \cong P'$ und $Q \cong Q'$ eine
              weitere Isometrie.)
         \item \textbf{Parallelenaxiom}: Für jedes $g \in G$ und jedes
-            $P \in X \setminus g$ gibt es höchstens ein $k \in G$ mit
+            $P \in X \setminus g$ gibt es höchstens ein $h \in G$ mit
             $h \cap g = \emptyset$.\footnote{$h$ heißt \enquote{Parallele zu $g$ durch $P$}.}
     \end{enumerate}
 \end{definition}
-
-\todo[inline]{Bilder zu Parallelenaxiom, Inzidenzaxiom und Bewegungsaxiom}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 14.01.2014                                         %
@@ -152,8 +150,10 @@ aufgestellt.
 
 \begin{satz}[Satz von Rasch]\label{satz:rasch} %In Vorlesung: Bemerkung 14.5
     Seien $P$, $Q$, $R$ nicht kollinear, $g \in G$ mit $g \cap \Set{P, Q, R} = \emptyset$
-    und $g \cap \overline{PQ} \neq \emptyset$. Dann ist
-    $g \cap \overline{PR} \neq \emptyset$ oder $g \cap \overline{QR} \neq \emptyset$.
+    und $g \cap \overline{PQ} \neq \emptyset$. 
+
+    Dann ist $g \cap \overline{PR} \neq \emptyset$ oder 
+             $g \cap \overline{QR} \neq \emptyset$.
 \end{satz}
 
 \begin{beweis}
@@ -198,7 +198,7 @@ aufgestellt.
             Sind $P \neq Q$ Fixpunkte einer Isometrie, so ist 
             $\varphi(R) = R$ für jedes $R \in PQ$.
         \end{behauptung}
-        \begin{beweis}
+        \begin{beweis}[zu Beh. 2]
             Seien $P$, $Q$ und $R$ Fixpunkte von $\varphi$, $R \in PG$
             und $A \notin \overline{PQ} \cup \overline{PR} \cup \overline{QR}$.
             Sei $B \in \overline{PQ} \setminus \Set{P, Q}$. Dann ist
@@ -210,7 +210,7 @@ aufgestellt.
             \begin{figure}[htp]
                 \centering
                 \input{figures/geometry-1.tex}
-                \caption{$P, Q, R$ sind Fixpunke, $B \in \overline{PQ} \setminus \Set{P,Q}$, $A \notin PQ \cup PR \cup QR$}
+                \caption{$P, Q, R$ sind Fixpunkte, $B \in \overline{PQ} \setminus \Set{P,Q}$, $A \notin PQ \cup PR \cup QR$}
                 \label{fig:geometry-1}
             \end{figure}
 
@@ -241,7 +241,7 @@ aufgestellt.
             \begin{figure}[htp]
                 \centering
                 \input{figures/geometry-2.tex}
-                \caption{Die beiden roten und die beiden blauen Linien sind gleich lang. Intuitiv weiß man, dass daraus folgt, dass $\varphi_1(R) = \varphi_2(R)$ gilt.}.
+                \caption{Die beiden roten und die beiden blauen Linien sind gleich lang. Intuitiv weiß man, dass daraus folgt, dass $\varphi_1(R) = \varphi_2(R)$ gilt.}
                 \label{fig:bild-2}
             \end{figure}
         \end{beweis}
@@ -249,7 +249,9 @@ aufgestellt.
         \begin{korollar}\label{kor:14.6}%In Vorlesung: Bemerkung 14.6
             Seien $P, Q \in X$, $P \neq Q$, $A, B \in X \setminus PQ$
             in der selben Halbebene bzgl. $PQ$ mit $d(A, P) = d(B, P)$
-            und $d(A, Q) = d(B, Q)$. Dann ist $A = B$.
+            und $d(A, Q) = d(B, Q)$.
+
+            Dann ist $A = B$.
         \end{korollar}
         \begin{beweis} durch Widerspruch\\
             \underline{Annahme}: $A \neq B$
@@ -332,17 +334,18 @@ aufgestellt.
     wie man sie aus der Schule kennt, beweisen.
 \end{bemerkung}
 
-\begin{proposition}%In Vorlesung: Proposition 14.7
+\begin{proposition}\label{prop:14.7}%In Vorlesung: Proposition 14.7
     Sei $(X, d, G)$ eine Geometrie mit den Axiomen \ref{axiom:1}~-~\ref{axiom:4}.
-    Dannn gibt es zu jedem $g \in G$ und jedem $P \in X \setminus g$ ein
-    $k \in G$ mit $P \in h$ und $g \cap h \neq \emptyset$.
+
+    Dann gibt es zu jedem $g \in G$ und jedem $P \in X \setminus g$ ein
+    $h \in G$ mit $P \in h$ und $g \cap h \neq \emptyset$.
 \end{proposition}
 
 \begin{figure}[htp]
     \centering
     %\input{figures/geometry-6.tex}
     \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/geometry-6.pdf}
-    \caption{TODO}
+    \caption{Situation aus \cref{prop:14.7}}
     \label{fig:bild-6}
 \end{figure}
 
@@ -350,7 +353,7 @@ aufgestellt.
     Sei $f \in G$ mit $P \in f$. Ist $f \cap g = \emptyset$, so setze
     $h := f$. Andernfalls sei $\Set{Q} : = f \cap g$.
 
-    Sei $\varphi$ \underline{die} Isometrie mit $\varphi(Q) = P$,
+    Sei $\varphi$ die eindeutige Isometrie mit $\varphi(Q) = P$,
     $\varphi(P) = P'$, die die Halbebenen bzgl. $f$ nicht vertauscht.
     
     Setze $h := \varphi(g)$.
@@ -369,6 +372,6 @@ aufgestellt.
 \end{beweis}
 
 \begin{bemerkung}
-    Jder Innenwinkel eines Dreiecks ist kleiner als alle nicht-anliegenden
+    Jeder Innenwinkel eines Dreiecks ist kleiner als alle nicht-anliegenden
     Außenwinkel.
 \end{bemerkung}
