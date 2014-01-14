@@ -212,6 +212,60 @@ schneiden sich.
     $\emptyset \neq \Set{C} \subseteq PB^+ \cap \overline{AQ} \qed$
 \end{beweis}
 
+\begin{korollar}\label{kor:14.6}%In Vorlesung: Bemerkung 14.6
+    Seien $P, Q \in X$, $P \neq Q$, $A, B \in X \setminus PQ$
+    in der selben Halbebene bzgl. $PQ$ mit $d(A, P) = d(B, P)$
+    und $d(A, Q) = d(B, Q)$.
+
+    Dann ist $A = B$.
+\end{korollar}
+\begin{beweis} durch Widerspruch\\
+    \underline{Annahme}: $A \neq B$
+
+    Dann ist $B \notin (PA \cup QA)$ wegen \ref{axiom:2}.
+
+    \underline{1. Fall}: $Q$ und $B$ liegen in derselben Halbebene bzgl. $PA$
+
+    $\overset{\cref{kor:beh3}}{\Rightarrow} PB^+ \cap \overline{AQ} \neq \emptyset$.
+    \begin{figure}[htp]
+        \centering
+        \input{figures/geometry-3.tex}
+        \caption{1. Fall}
+        \label{fig:bild-3}
+    \end{figure}
+
+    Sei $C$ der Schnittpunkt vom $PB$ und $AQ$.
+
+    Dann gilt:
+    \begin{enumerate}[label=(\roman*)]
+        \item $d(A, C) + d(A, Q) = d(B, Q) < d(B, C) + d(C, Q) \Rightarrow d(A, C) < d(B, C)$ \label{enum:komischer-beweis-i}
+        \item \begin{enumerate}[label=\alph*)]
+                \item $B$ liegt zwischen $P$ und $C$.
+
+                      $d(P,A) + d(A, C) > d(P,C) = d(P,B) + d(B,c) = d(P,A) + d(B,C)$
+                      $\Rightarrow d(A,c) > d(B,C) \Rightarrow$ Widerspruch zu \ref{enum:komischer-beweis-i}
+                \item $C$ liegt zwischen $P$ und $B$
+
+                      $d(P,C) + d(C,A) > d(P,A) = d(P,B) = d(P,C) + d(C, B)$\\
+                      $\Rightarrow d(C, A) > d(C, B)$\\
+                      $\Rightarrow$ Widerspruch zu \ref{enum:komischer-beweis-i}
+            \end{enumerate}
+    \end{enumerate}
+
+    \underline{2. Fall}: $Q$ und $B$ liegen auf verscheiden Halbebenen bzgl. $PA$.
+
+    \begin{figure}[htp]
+        \centering
+        \input{figures/geometry-4.tex}
+        \caption{2. Fall}
+        \label{fig:bild-4}
+    \end{figure}
+
+    Dann liegen $A$ und $Q$ in derselben Halbebene bzgl. $PB$.
+
+    Tausche $A$ und $B \Rightarrow$  Fall 1
+\end{beweis}
+
 \begin{proposition}%In Vorlesung: Satz 14.4
     In einer Geometrie, die \ref{axiom:1}~-~\ref{axiom:3} erfüllt,
     gibt es zu $P, P', Q, Q'$ mit $d(P, Q) = d(P', Q')$ höchstens
@@ -295,60 +349,6 @@ schneiden sich.
         \end{beweis}
 
         \Cref{fig:bild-2} beschreibt die Situation in \cref{kor:14.6}:
-
-        \begin{korollar}\label{kor:14.6}%In Vorlesung: Bemerkung 14.6
-            Seien $P, Q \in X$, $P \neq Q$, $A, B \in X \setminus PQ$
-            in der selben Halbebene bzgl. $PQ$ mit $d(A, P) = d(B, P)$
-            und $d(A, Q) = d(B, Q)$.
-
-            Dann ist $A = B$.
-        \end{korollar}
-        \begin{beweis} durch Widerspruch\\
-            \underline{Annahme}: $A \neq B$
-
-            Dann ist $B \notin (PA \cup QA)$ wegen \ref{axiom:2}.
-
-            \underline{1. Fall}: $Q$ und $B$ liegen in derselben Halbebene bzgl. $PA$
-
-            $\overset{\cref{kor:beh3}}{\Rightarrow} PB^+ \cap \overline{AQ} \neq \emptyset$.
-            \begin{figure}[htp]
-                \centering
-                \input{figures/geometry-3.tex}
-                \caption{1. Fall}
-                \label{fig:bild-3}
-            \end{figure}
-
-            Sei $C$ der Schnittpunkt vom $PB$ und $AQ$.
-
-            Dann gilt:
-            \begin{enumerate}[label=(\roman*)]
-                \item $d(A, C) + d(A, Q) = d(B, Q) < d(B, C) + d(C, Q) \Rightarrow d(A, C) < d(B, C)$ \label{enum:komischer-beweis-i}
-                \item \begin{enumerate}[label=\alph*)]
-                        \item $B$ liegt zwischen $P$ und $C$.
-
-                              $d(P,A) + d(A, C) > d(P,C) = d(P,B) + d(B,c) = d(P,A) + d(B,C)$
-                              $\Rightarrow d(A,c) > d(B,C) \Rightarrow$ Widerspruch zu \ref{enum:komischer-beweis-i}
-                        \item $C$ liegt zwischen $P$ und $B$
-
-                              $d(P,C) + d(C,A) > d(P,A) = d(P,B) = d(P,C) + d(C, B)$\\
-                              $\Rightarrow d(C, A) > d(C, B)$\\
-                              $\Rightarrow$ Widerspruch zu \ref{enum:komischer-beweis-i}
-                    \end{enumerate}
-            \end{enumerate}
-
-            \underline{2. Fall}: $Q$ und $B$ liegen auf verscheiden Halbebenen bzgl. $PA$.
-
-            \begin{figure}[htp]
-                \centering
-                \input{figures/geometry-4.tex}
-                \caption{2. Fall}
-                \label{fig:bild-4}
-            \end{figure}
-
-            Dann liegen $A$ und $Q$ in derselben Halbebene bzgl. $PB$.
-
-            Tausche $A$ und $B \Rightarrow$  Fall 1
-        \end{beweis}
     \end{beweis}
 \end{beweis}
 
