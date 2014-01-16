@@ -15,7 +15,7 @@
     \tkzDrawLine(Q,R)
     \tkzDrawLine(P,R)
     \tkzDrawPoints(P,Q,R)
-    \tkzLabelPoint[below left](P){$P$}
-    \tkzLabelPoint[above left](Q){$Q$}
-    \tkzLabelPoint[above=0.2cm](R){$R$}
+    \node at ($(R) + (0.03,0.4)$)    {$R$}; %top
+    \node at ($(Q) + (-0.3,-0.22)$)  {$Q$}; %left
+    \node at ($(P) + ( 0.3,-0.18)$)  {$P$}; %right
 \end{tikzpicture}

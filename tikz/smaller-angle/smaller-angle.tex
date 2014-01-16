@@ -1,0 +1,27 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+
+\begin{document}
+\begin{tikzpicture}
+    \tkzSetUpPoint[shape=circle,size=10,color=black,fill=black]
+    \tkzSetUpLine[line width=1]
+    \tkzDefPoints{0/0/P, 1.5/0/R1S, 3/0/R1, 1/1/G, 1/2/R2}
+
+    \tkzMarkAngle[arc=lll,size=1.2cm,color=red,fill=red!20](R1S,P,R2)
+    \tkzDrawLine[add=0 and 0.3,color=green](P,R1)
+    \tkzDrawLine[add=0 and 0.6](P,R2)
+    \tkzLabelPoint[below left](P){$P$}
+    \tkzLabelPoint[below](R1S){$R_1'$}
+    \tkzLabelPoint[below](R1){$R_1$}
+
+    \tkzInterLC(P,R1)(R1S,P) \tkzGetPoints{D}{E}
+    \tkzInterLC(P,G)(R1S,P) \tkzGetPoints{F}{R2S}
+    %\tkzDrawCircle(R1S,D)
+    \tkzLabelPoint[below](R2S){$R_2'$}
+    \tkzLabelPoint[above left](R2){$R_2$}
+    \tkzDrawLine[add=0 and 1,color=green](P,R2S)
+    \tkzMarkAngle[arc=l,size=0.8cm,color=green,fill=green!20](R1S,P,R2S)
+    \tkzDrawPoints(P, R1S, R1, R2,R2S)
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+    \tkzSetUpPoint[shape=circle,size=10,color=black,fill=black]
+    \tkzSetUpLine[line width=1]
+    \tkzDefPoints{0/1/P, -1/-1/Q, 1/-1/R, -2/-1/links, 2/-1/rechts, -1.5/-2/helperLeft, 1.5/-2/helperRight, -0.25/1.5/helperTopLeft, 0.25/1.5/helperTopRight}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,color=green,fill=green!20](R,Q,P)
+    \tkzMarkAngle[arc=l,size=0.6cm,color=green,fill=green!20](P,R,Q)
+    \tkzMarkAngle[arc=l,size=0.6cm,color=green,fill=green!20](Q,P,R)
+    \tkzMarkAngle[arc=lll,size=0.6cm,color=blue,fill=blue!20](P,Q,links)
+    \tkzMarkAngle[arc=lll,size=0.6cm,color=blue,fill=blue!20](helperLeft,Q,R)
+    \tkzMarkAngle[arc=lll,size=0.6cm,color=blue,fill=blue!20](helperTopLeft,P,Q)
+    \tkzMarkAngle[arc=lll,size=0.6cm,color=blue,fill=blue!20](R,P,helperTopRight)
+    \tkzMarkAngle[arc=lll,size=0.6cm,color=blue,fill=blue!20](rechts,R,P)
+    \tkzMarkAngle[arc=lll,size=0.6cm,color=blue,fill=blue!20](Q,R,helperRight)
+    \tkzDrawLine[add=0.35 and 0.35](P,Q)
+    \tkzDrawLine[add=0.35 and 0.35](P,R)
+    \tkzDrawLine[add=0.4 and 0.4](Q,R)
+
+
+
+    \node at ($(P) + (0.03,0.4)$)  {$P$};
+    \node at ($(Q) + (-0.3,-0.22)$)  {$Q$};
+    \node at ($(R) + ( 0.3,-0.18)$)  {$R$};
+    %\tkzLabelPoint[above=0.2cm](P){$P$}
+    %\tkzLabelPoint[below left](Q){$Q$}
+    %\tkzLabelPoint[below right](R){$R$}
+    \tkzDrawPoints(P, Q, R)
+\end{tikzpicture}

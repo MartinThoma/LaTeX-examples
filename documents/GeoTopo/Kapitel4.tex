@@ -168,7 +168,7 @@ scheiden.
     $g \cap \overline{PQ} \neq \emptyset$\\
     $\overset{\mathclap{\ref{axiom:3.2}}}{\Rightarrow} P$ und $Q$ liegen in verschiedenen Halbebenen bzgl. $g$\\
     $\Rightarrow$ \obda $R$ und $P$ liegen in verschieden
-    Halbebenen bzgl. $P$\todo{bzgl. P? Nicht PQ?}\\
+    Halbebenen bzgl. $g$\\
     $\Rightarrow g \cap \overline{RP} \neq \emptyset$
 \end{beweis}
 
@@ -364,12 +364,12 @@ schneiden sich.
     $h \in G$ mit $P \in h$ und $g \cap h \neq \emptyset$.
 \end{proposition}
 
-    \begin{figure}[htp]
-        \centering
-        \input{figures/geometry-6.tex}
-        \caption{Situation aus \cref{prop:14.7}}
-        \label{fig:bild-6}
-    \end{figure}
+\begin{figure}[htp]
+    \centering
+    \input{figures/geometry-6.tex}
+    \caption{Situation aus \cref{prop:14.7}}
+    \label{fig:bild-6}
+\end{figure}
 
 \begin{beweis}
     Sei $f \in G$ mit $P \in f$. Ist $f \cap g = \emptyset$, so setze
@@ -383,13 +383,6 @@ schneiden sich.
     \underline{Z.~Z.:} $h \cap g = \emptyset$.
 
     Andernfalls sei $\Set{R} = h \cap g$.
-
-    \begin{figure}[htp]
-        \centering
-        \input{figures/geometry-7.tex}
-        \caption{TODO}
-        \label{fig:bild-6}
-    \end{figure}
 \end{beweis}
 
 \begin{bemerkung}
@@ -400,21 +393,13 @@ schneiden sich.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 16.01.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{proposition}\label{prop:14.7}%In Vorlesung: Proposition 14.7
-    Gelten \cref{axiom:1}~-~\cref{axiom:4}, so gibt es zu $g \in G$
-    und $P \in X \setminus g$ stets ein $h \in G$ mit $P \in h$ und
-    $h \cap g = \emptyset$.
-\end{proposition}
-
-\todo[inline]{Bild mit paralleler gerade ... das hatte ich doch schon mal}
-
 \begin{beweis}
     Sei $\varphi$ die Isometrie, die $Q$ auf $P$ und $P$ auf $P'$
     mit $P' \in f, d(P,P') = d(P, Q)$ abbildet und die Halbebenen
     bzgl. $f$ erhält.
 \end{beweis}
 
-\begin{behauptung}[Herz]
+\begin{behauptung}[Herz]\label{beh:herz}
     $\varphi(g) \cap g = \emptyset$
 \end{behauptung}
 
@@ -422,28 +407,44 @@ schneiden sich.
     Ist $\varphi(g) \cap g \neq \emptyset$, so ist $R$ der Schnittpunkt.
 \end{beweis}
 
-\todo[inline]{Skizze zu Behauptung Herz}
+\begin{figure}[htp]
+    \centering
+    \input{figures/geometry-7.tex}
+    \caption{Skizze zu \cref{beh:herz}}
+    \label{fig:bild-6}
+\end{figure}
 
-\begin{definition}%In Vorlesung: 14.8
+\begin{definition}\label{def:14.8}%In Vorlesung: 14.8
     \begin{enumerate}[label=\alph*),ref=\alph*]
-        \item Ein \textbf{Winkel}\xindex{Winkel} ist ein Punkt $P \in X$ \label{def:14.8a}
+        \item \label{def:14.8a} Ein \textbf{Winkel}\xindex{Winkel} ist ein Punkt $P \in X$ 
               zusammen mit $2$ Halbgeraden mit Anfangspunkt $P$.\\
               Man schreibt: $\angle R_1 P R_2$ bzw. $\angle R_2 P R_1$\footnote{Für dieses Skript gilt: $\angle R_1 P R_2 = \angle R_2 P R_1$. Also sind insbesondere alle Winkel $ \leq 180^\circ$.}
         \item Zwei Winkel sind \textbf{gleich}, wenn es eine Isometrie gibt, 
               die den einen Winkel auf den anderen abbildet.
-        \item \label{def:14.8c}$\angle R_1' P' R_2'$ heißt \textbf{kleiner} als
+        \item \label{def:14.8c} $\angle R_1' P' R_2'$ heißt \textbf{kleiner} als
               $\angle R_1 P R_2$, wenn es eine Isometrie $\varphi$
               gibt, mit $\varphi(P) = P'$, $\varphi(PR'_1+) = P' R_1 +$
               und $\varphi(R_2')$ liegt in der gleichen Halbebene 
               bzgl. $PR_1$ wie $R_2$ und in der gleichen Halbebene
               bzgl. $PR_2$ wie $R_1$
-        \item \label{def:14.8d} \ref{def:14.8d} Im Dreieck $\triangle PQR$ gibt es {\color{green} Innenwinkel} und
-              {\color{red} Außenwinkel}.
+        \item \label{def:14.8d} Im Dreieck $\triangle PQR$ gibt es Innenwinkel und
+              Außenwinkel.
     \end{enumerate}
 \end{definition}
 
-\todo[inline]{$\angle R_1' P' R_2'$ ist kleiner als $\angle R_1 P R_2$, vgl. \cref{def:14.8c} (Bild 4)}
-\todo[inline]{{\color{green} Innenwinkel} und {\color{red} Außenwinkel} in $\triangle PQR$, vgl. \cref{def:14.8d} (Bild 5)}
+\begin{figure}[ht]
+    \centering
+    \subfloat[$\angle R_1' P' R_2'$ ist kleiner als $\angle R_1 P R_2$, vgl. \cref{def:14.8c}]{
+        \input{figures/smaller-angle.tex}
+        \label{fig:def.14.8.1}
+    }%
+    \subfloat[{\color{green} Innenwinkel} und {\color{blue} Außenwinkel} in $\triangle PQR$, vgl. \cref{def:14.8d} (Bild 5)]{
+        \input{figures/interiour-exteriour-angles-triangle.tex}
+        \label{fig:def.14.8.2}
+    }
+    \label{fig:def.14.8.0}
+    \caption{Situation aus \cref{def:14.8}}
+\end{figure}
 
 \begin{korollar}\label{kor:14.9}%In Vorlesung: Bemerkung 14.9
     In einem Dreieck ist jeder Innenwinkel kleiner als jeder nicht 
@@ -527,8 +528,8 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
 
     \begin{figure}[ht]
         \centering
-        \subfloat[Summe der Winkel $\alpha$, $\beta$ und $\gamma$ (Bild 11)]{
-            \input{figures/todo.tex}
+        \subfloat[Summe der Winkel $\alpha$, $\beta$ und $\gamma$]{
+            \input{figures/three-angles.tex}
             \label{fig:prop14.11.1}
         }%
         \subfloat[Situation aus \cref{prop:14.11} (Bild 12)]{
