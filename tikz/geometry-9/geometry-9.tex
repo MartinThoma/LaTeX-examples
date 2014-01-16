@@ -1,0 +1,25 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tkz-euclide}
+
+\begin{document}
+\usetkzobj{all}
+\begin{tikzpicture}
+    \tkzSetUpPoint[shape=circle,size=10,color=black,fill=black]
+    \tkzSetUpLine[line width=1]
+    \tkzDefPoints{-1/0/Q, 0/0/M, 0/-2/A, 0/2/P, 1/0/R, -1.2/-0.5/helper}
+    \tkzFillPolygon[color = green!10](Q,M,A)
+    \tkzFillPolygon[color = green!10](M,P,R)
+    \tkzMarkAngle[arc=l,size=0.4cm,color=red,fill=red!20](P,R,M)
+    \tkzMarkAngle[arc=lll,size=0.4cm,color=green,fill=green!20](helper,Q,M)
+    %\path[draw] ++(25:.3) node[rotate=0] {$\alpha$};
+    %\node at (1,1.5) {$\beta$};
+    \tkzDrawSegments(Q,A)
+    \tkzDrawLines(Q,R A,P Q,P P,R)
+    \tkzDrawPoints(Q,M,A,P,R)
+    \tkzLabelPoint[below left](Q){$Q$}
+    \tkzLabelPoint[below right](M){$M$}
+    \tkzLabelPoint[above left](A){$A$}
+    \tkzLabelPoint[above right](P){$P$}
+    \tkzLabelPoint[above right](R){$R$}
+\end{tikzpicture}
+\end{document}

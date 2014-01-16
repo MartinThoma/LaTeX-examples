@@ -34,4 +34,4 @@ in dem Erstellen dieses Skripts steckt:
 |16.01.2014 | 12:15 - 12:30 | Verbesserung an 2 Bildern
 |16.01.2014 | 12:45 - 13:30 | TikZ'en eines Bildes
 |16.01.2014 | 17:00 - 19:30 | Digitalisieren der Vorlesung von 14.01.2014
-|16.01.2014 | 21:30 -       | TikZ'en von Bildern
+|16.01.2014 | 21:30 - 23:50 | TikZ'en von Bildern
