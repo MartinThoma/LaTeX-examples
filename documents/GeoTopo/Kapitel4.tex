@@ -396,3 +396,169 @@ schneiden sich.
     Jeder Innenwinkel eines Dreiecks ist kleiner als alle nicht-anliegenden
     Außenwinkel.
 \end{bemerkung}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 16.01.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{proposition}\label{prop:14.7}%In Vorlesung: Proposition 14.7
+    Gelten \cref{axiom:1}~-~\cref{axiom:4}, so gibt es zu $g \in G$
+    und $P \in X \setminus g$ stets ein $h \in G$ mit $P \in h$ und
+    $h \cap g = \emptyset$.
+\end{proposition}
+
+\todo[inline]{Bild mit paralleler gerade ... das hatte ich doch schon mal}
+
+\begin{beweis}
+    Sei $\varphi$ die Isometrie, die $Q$ auf $P$ und $P$ auf $P'$
+    mit $P' \in f, d(P,P') = d(P, Q)$ abbildet und die Halbebenen
+    bzgl. $f$ erhält.
+\end{beweis}
+
+\begin{behauptung}[Herz]
+    $\varphi(g) \cap g = \emptyset$
+\end{behauptung}
+
+\begin{beweis}
+    Ist $\varphi(g) \cap g \neq \emptyset$, so ist $R$ der Schnittpunkt.
+\end{beweis}
+
+\todo[inline]{Skizze zu Behauptung Herz}
+
+\begin{definition}%In Vorlesung: 14.8
+    \begin{enumerate}[label=\alph*),ref=\alph*]
+        \item Ein \textbf{Winkel}\xindex{Winkel} ist ein Punkt $P \in X$ \label{def:14.8a}
+              zusammen mit $2$ Halbgeraden mit Anfangspunkt $P$.\\
+              Man schreibt: $\angle R_1 P R_2$ bzw. $\angle R_2 P R_1$\footnote{Für dieses Skript gilt: $\angle R_1 P R_2 = \angle R_2 P R_1$. Also sind insbesondere alle Winkel $ \leq 180^\circ$.}
+        \item Zwei Winkel sind \textbf{gleich}, wenn es eine Isometrie gibt, 
+              die den einen Winkel auf den anderen abbildet.
+        \item \label{def:14.8c}$\angle R_1' P' R_2'$ heißt \textbf{kleiner} als
+              $\angle R_1 P R_2$, wenn es eine Isometrie $\varphi$
+              gibt, mit $\varphi(P) = P'$, $\varphi(PR'_1+) = P' R_1 +$
+              und $\varphi(R_2')$ liegt in der gleichen Halbebene 
+              bzgl. $PR_1$ wie $R_2$ und in der gleichen Halbebene
+              bzgl. $PR_2$ wie $R_1$
+        \item \label{def:14.8d} \ref{def:14.8d} Im Dreieck $\triangle PQR$ gibt es {\color{green} Innenwinkel} und
+              {\color{red} Außenwinkel}.
+    \end{enumerate}
+\end{definition}
+
+\todo[inline]{$\angle R_1' P' R_2'$ ist kleiner als $\angle R_1 P R_2$, vgl. \cref{def:14.8c} (Bild 4)}
+\todo[inline]{{\color{green} Innenwinkel} und {\color{red} Außenwinkel} in $\triangle PQR$, vgl. \cref{def:14.8d} (Bild 5)}
+
+\begin{korollar}\label{kor:14.9}%In Vorlesung: Bemerkung 14.9
+    In einem Dreieck ist jeder Innenwinkel kleiner als jeder nicht 
+    anliegende Außenwinkel.
+\end{korollar}
+
+\begin{figure}[htp]
+    \centering
+    \input{figures/todo.tex}
+    \caption{Situation aus \cref{kor:14.9}}
+    \label{fig:bem.14.9}
+\end{figure}
+
+\begin{beweis}
+    Zeige $\angle PRQ < \angle RQP'$.
+
+    Sei $M$ der Mittelpunkt der Strecke $\overline{QR}$. Sei
+    $A \in MP^-$ mit $d(P,M) = d(M,A)$.
+
+    Es gilt: $d(Q,M) = d(M,R)$ und $d(P,M) = d(M,A)$ sowie 
+    $\angle PMR = \angle AMQ \Rightarrow \triangle MRQ$ ist
+    kongruent zu $\triangle AMQ$, denn eine der beiden Isometrien, die
+    $\angle PMR$ auf $\angle AMQ$ abbildet, bildet $R$ auf $Q$ und
+    $P$ auf $A$ ab.
+
+    $\Rightarrow \angle MQA = \angle MRP = \angle QRP = \angle PRQ$.
+
+    Noch zu zeigen: $\angle MQA < \angle RQP'$, denn $A$ liegt in der
+    selben Halbebene bzgl. $PQ$ wie $M$.
+\end{beweis}
+
+\begin{beweis}[von \cref{prop:14.7}]
+    Wäre $\varphi(g)$ nicht parallel zu $g$, so gäbe es einen 
+    Schnittpunkt $R$. Dann ist $\angle QPR < \angle RQP^-$ nach
+    \cref{kor:14.9} und $\angle QPR = \angle RQP^-$, weil
+    $\varphi(\angle RQP') = \angle RPQ$
+\end{beweis}
+
+\begin{folgerung}\label{folgerung:14.10}%In Vorlesung: Folgerung 14.10
+    Die Summe zweier Innenwinkel in einem Dreieck ist kleiner als
+    $\pi$, d.~h. es gibt eine Isometrie $\varphi$ mit $\varphi(Q) = P$
+    und $\varphi(QP^+) = PR^+$, sodass $\varphi(R)$ in der gleichen
+    Halbebene bzgl. $PQ$ liegt wie $R$.
+\end{folgerung}
+
+\begin{figure}[ht]
+    \centering
+    \subfloat[Situation aus \cref{folgerung:14.10} (Bild 8)]{
+        \input{figures/todo.tex}
+        \label{fig:bem.14.9.1}
+    }%
+    \subfloat[Situation aus \cref{folgerung:14.10} (Bild 9)]{
+        \input{figures/todo.tex}
+        \label{fig:bem.14.9.2}
+    }
+    \label{fig:14.10.0}
+    \caption{Situation aus \cref{folgerung:14.10}}
+\end{figure}
+
+\begin{beweis}
+    Die Summe eines Innenwinkels mit den anliegenden Außenwinkeln ist
+    $\pi$, d.~h. die beiden Halbgeraden bilden eine Gerade.
+\end{beweis}
+
+\begin{figure}[htp]
+    \centering
+    \input{figures/todo.tex}
+    \caption{In der sphärischen Geometrie gibt es, im Gegensatz zur euklidischen Geometrie, Dreiecke mit drei $90^\circ$-Winkeln.}
+    \label{fig:bem.14.9}
+\end{figure}
+
+\begin{proposition}\label{prop:14.11}%In Vorlesung: Proposition 14.11
+    In einer Geometrie mit den Axiomen \ref{axiom:1}~-~\ref{axiom:4}
+    ist in jedem Dreieck die Summe der Innenwinkel $\leq \pi$.
+\end{proposition}
+
+Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
+
+\begin{beweis}
+    Sei $\triangle$ ein Dreieck mit $\IWS(\triangle) = \pi + \varepsilon$
+
+    \begin{figure}[ht]
+        \centering
+        \subfloat[Summe der Winkel $\alpha$, $\beta$ und $\gamma$ (Bild 11)]{
+            \input{figures/todo.tex}
+            \label{fig:prop14.11.1}
+        }%
+        \subfloat[Situation aus \cref{prop:14.11} (Bild 12)]{
+            \input{figures/todo.tex}
+            \label{fig:prop14.11.2}
+        }
+        \label{fig:prop14.11.0}
+        \caption{Situation aus \cref{prop:14.11}}
+    \end{figure}
+
+    Sei $\alpha$ ein Innenwinkel von $\triangle$.
+
+    \begin{behauptung}
+        Es gibt ein Dreieck $\triangle'$ mit \todo{Was steht hier?}
+        $\cos(\triangle') = \IWS(\triangle)$ und einem Innenwinkel
+        $\alpha' \leq \frac{\alpha}{2}$.
+
+        Dann gibt es für jedes $n$ ein $\triangle_n$ mit $\IWS(\triangle_n) = \IWS(\triangle)$
+        und Innenwinkel $\leq \frac{\alpha}{2^n}$. Für $\frac{\alpha}{2^n} < \varepsilon$
+        ist dann die Summe der \todo{Was steht hier?} anderen Innenwinkel
+        um $\triangle_n$ größer als $\pi \Rightarrow$ Widerspruch zu
+        \cref{folgerung:14.10}.
+    \end{behauptung}
+
+    \begin{beweis}[der Behauptung]
+        Sei $M$ der Mittelpunkt $\overline{RC}$ und $A' \in MA^-$ mit
+        $d(A', M) = d(A, M) \Rightarrow \triangle(MA'C)$ und
+        $\triangle(MAB)$ sind kongruent.
+        $\Rightarrow \angle ABM = \angle A'CM$ und $\angle MA'C = \angle MAB$.
+        $\Rightarrow \alpha + \beta + \gamma =\IWS(\triangle ABC) = \IWS(\triangle AA'C)$
+        und $\alpha_1 + \alpha_2 = \alpha$, also \obda $\alpha_1 \leq \frac{\alpha}{2}$
+    \end{beweis}
+\end{beweis}

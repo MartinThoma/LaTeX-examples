@@ -41,6 +41,7 @@
 \newframedtheorem{lemma}[satz]{Lemma}
 \newframedtheorem{proposition}[satz]{Proposition}
 \newtheorem{korollar}[satz]{Korollar}
+\newtheorem{folgerung}[satz]{Folgerung}
 \newtheorem{plaindefinition}{Definition}
 \newenvironment{definition}{\begin{plaindefinition}}{\end{plaindefinition}}
 \newenvironment{definition*}{\begin{plaindefinition*}}{\end{plaindefinition*}}
@@ -82,6 +83,7 @@
 \DeclareMathOperator{\Homoo}{\textnormal{Homöo}}
 \DeclareMathOperator{\Diffeo}{Diffeo}
 \DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\IWS}{IWS}
 
 %%%Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\obda{o.~B.~d.~A.\xspace}
@@ -95,3 +97,6 @@
 \crefname{proposition}{Proposition}{Propositionen}
 \crefname{lemma}{Lemma}{Lemmata}
 \crefname{korollar}{Korollar}{Korollare}
+\crefname{folgerung}{Folgerung}{Folgerungen}
+\let\OldAngle\angle
+\let\angle\sphericalangle
