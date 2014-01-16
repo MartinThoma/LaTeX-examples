@@ -6,8 +6,10 @@
     \tkzDrawSegments(P,Q Q,A A,P)
     \tkzDrawSegments[dashed](P,B B,Q)
     \tkzDrawLine(P,Q)
+    \tkzDrawLine[color=red](P,A)
 
-    \tkzDrawPoints(P,Q,A,B)
+    \tkzDrawPoints(P,C,A)
+    \tkzDrawPoints[fill=red,color=red](Q,B)
     \tkzLabelPoint[below](P){$P$}
     \tkzLabelPoint[below](Q){$Q$}
     \tkzLabelPoint[above](A){$A$}

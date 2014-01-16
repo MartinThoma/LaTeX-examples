@@ -4,13 +4,15 @@
     \tkzDefPoints{0/0/P, 4/0/Q, 1/0.5/B, 1/2/A}
     \tkzInterLL(P,B)(Q,A) \tkzGetPoint{C}
 
-    \tkzDrawLine(P,A)
+    \tkzDrawLine[color=red](P,A)
     \tkzDrawLine(Q,A)
     \tkzDrawLine(P,Q)
     \tkzDrawLine[add=0 and 0.5](P,C)
     \tkzDrawSegments(B,Q)
+    \tkzDrawLine(P,Q)
 
-    \tkzDrawPoints(P,Q,B,C,A)
+    \tkzDrawPoints(P,C,A)
+    \tkzDrawPoints[fill=red,color=red](Q,B)
     \tkzLabelPoint[below](P){$P$}
     \tkzLabelPoint[below](Q){$Q$}
     \tkzLabelPoint[below](B){$B$}
