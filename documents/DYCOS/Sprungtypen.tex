@@ -18,7 +18,7 @@ gezeigt wird.
 \label{alg:DYCOS-structural-hop}
 \end{algorithm}
 
-Bei inhaltlichen Mehrfachsprüngen ist jedoch nicht sinnvoll so direkt
+Bei inhaltlichen Mehrfachsprüngen ist jedoch nicht sinnvoll so strikt
 nach der Definition vorzugehen,  also
 direkt von einem strukturellem Knoten 
 $v \in V_t$ zu einem mit $v$ verbundenen Wortknoten $w \in W_t$ zu springen
@@ -30,52 +30,66 @@ Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
 objektorientierten Programmierung oder ein Teil des Gehirns.
 
 Deshalb wird für jeden Knoten $v$, von dem aus man einen inhaltlichen
-Mehrfachsprung machen will folgendes Clusteranalyse durchgeführt:
-\begin{enumerate}[label=C\arabic*),ref=C\arabic*]
-    \item[C1] Gehe alle in $v$ startenden Random Walks der Länge 2 durch
-          und erstelle eine Liste $L$, der erreichbaren Knoten $v'$. Speichere
+Mehrfachsprung machen will folgende Textanalyse durchgeführt:
+\begin{enumerate}[label=C\arabic*,ref=C\arabic*]
+    \item \label{step:c1} Gehe alle in $v$ startenden Random Walks der Länge $2$ durch
+          und erstelle eine Liste $L$ der erreichbaren Knoten $v'$. Speichere
           außerdem, durch wie viele Pfade diese Knoten $v'$ jeweils erreichbar sind.
-    \item[C2] Betrachte im folgenden nur die Top-$q$ Knoten, wobei $q \in \mathbb{N}$
-          eine zu wählende Konstante des Algorithmus ist.\footnote{Sowohl für den DBLP, als auch für den 
-CORA-Datensatz wurde in \cite[S. 364]{aggarwal2011} $q=10$ gewählt.} \label{list:aggregate.2}
-    \item[C3] Wähle mit Wahrscheinlichkeit $\frac{\Call{Anzahl}{v'}}{\sum_{w \in L} \Call{Anzahl}{v'}}$
-          den Knoten $v'$ als Ziel des Mehrfachsprungs.
+    \item \label{step:c2} Betrachte im folgenden nur die Top-$q$ Knoten bzgl. der
+          Anzahl der Pfade von $v$ nach $v'$, wobei $q \in \mathbb{N}$
+          eine zu wählende Konstante des DYCOS-Algorithmus ist.\footnote{Sowohl für den DBLP, als auch für den 
+CORA-Datensatz wurde in \cite[S. 364]{aggarwal2011} $q=10$ gewählt.}
+          Diese Knotenmenge heiße im Folgenden $T(v)$ und $p(v, v')$
+          sei die Anzahl der Pfade von $v$ über einen Wortknoten nach $v'$.
+    \item \label{step:c3} Wähle mit Wahrscheinlichkeit $\frac{p(v, v')}{\sum_{w \in T(v)} p(v, w)}$
+          den Knoten $v' \in T(v)$ als Ziel des Mehrfachsprungs.
 \end{enumerate}
 
-Konkret könnte also ein Inhaltlicher Mehrfachsprung sowie wie in
+Konkret könnte also ein inhaltlicher Mehrfachsprung sowie wie in
 \cref{alg:DYCOS-content-multihop} beschrieben umgesetzt werden.
+Der Algorithmus bekommt einen Startknoten $v \in V_T$ und
+einen $q \in \mathbb{N}$ als Parameter. $q$ ist ein Parameter der
+für den DYCOS-Algorithmus zu wählen ist. Dieser Parameter beschränkt 
+die Anzahl der möglichen Zielknoten $v' \in V_T$ auf diejenigen
+$q$ Knoten, die $v$ bzgl. der Textanalyse am ähnlichsten sind.
+
+In \cref{alg:l2} bis \cref{alg:l5} wird \cref{step:c1} durchgeführt.
+In \cref{alg:l6} wird \cref{step:c2} durchgeführt. Bei der
+Wahl der Datenstruktur $M_H$ ist zu beachten, dass man in
+\cref{alg:21} über Indizes auf Elemente aus $M_H$ zugreifen können muss.
+
+In \cref{alg:l8} bis \cref{alg:l13} wird ein Wörterbuch erstellt,
+das von $v' \in T(v)$ auf die relative
+Häufigkeit bzgl. aller Pfade von $v$ zu Knoten aus den Top-$q$ abbildet.
+
+In \cref{alg:15} bis \cref{alg:22} wird ein Knoten $v' \in T(v)$ mit
+einer Wahrscheinlichkeit, die seiner relativen Häufigkeit am Anteil
+der Pfaden der Länge 2 von $v$ nach $v'$ über einen beliebigen 
+Wortknoten entspricht ausgewählt und schließlich zurückgegeben.
 
 \begin{algorithm}
   \caption{Inhaltlicher Mehrfachsprung}
   \label{alg:DYCOS-content-multihop}
     \begin{algorithmic}[1]
-        \Procedure{InhaltlicherMehrfachsprung}{Knoten $v$}
-            \State \textit{//Alle Knoten bestimmen, die von $v$ aus über Pfade der Länge 2 erreichbar sind}
-            \State \textit{//Zusätzlich wird für diese Knoten die Anzahl der Pfade der Länge 2 bestimmt,}
-            \State \textit{//durch die sie erreichbar sind}
-            \State $reachableNodes \gets$ defaultdict
+        \Procedure{InhaltlicherMehrfachsprung}{Knoten $v \in V_T$, $q \in \mathbb{N}$}
+            \State $reachableNodes \gets$ defaultdict\label{alg:l2}
             \ForAll{Wortknoten $w$ in $v.\Call{getWordNodes}{ }$}
                 \ForAll{Strukturknoten $x$ in $w.\Call{getStructuralNodes}{ }$}
                     \State $reachableNodes[x] \gets reachableNodes[x] + 1$
                 \EndFor
-            \EndFor
-
-            \State \textit{//Im folgenden wird davon ausgegangen, dass man über Indizes wahlfrei auf}
-            \State \textit{//Elemente aus $M_H$ zugreifen kann. Dies muss bei der konkreten Wahl}
-            \State \textit{//der Datenstruktur berücksichtigt werden.}
-            \State $M_H \gets \Call{max}{reachableNodes, q}$ \Comment{Also: $|M_H| = q$, falls $|reachableNodes|\geq q$}
-            \State \textit{//Dictionary mit relativen Häufigkeiten erzeugen}
-            \State $s \gets 0$
+            \EndFor\label{alg:l5}
+            \State \label{alg:l6} $M_H \gets \Call{max}{reachableNodes, q}$ \Comment{Also: $|M_H| = q$, falls $|reachableNodes|\geq q$}
+            \\
+            \State \label{alg:l8} $s \gets 0$
             \ForAll{Knoten $x$ in $M_H$}
                 \State $s \gets s + reachableNodes[x]$
             \EndFor
             \State $relativeFrequency \gets $ Dictionary
             \ForAll{Knoten $x$ in $M_H$}
                 \State $relativeFrequency \gets \frac{reachableNodes[x]}{s}$
-            \EndFor
-            \State \textit{//Wähle Knoten $i$ mit einer Wahrscheinlichkeit entsprechend seiner relativen}
-            \State \textit{//Häufigkeit an Pfaden der Länge 2}
-            \State $random \gets \Call{random}{0, 1}$
+            \EndFor\label{alg:l13} 
+            \\
+            \State \label{alg:15} $random \gets \Call{random}{0, 1}$
             \State $r \gets 0.0$
             \State $i \gets 0$
             \While{$s < random$}
@@ -83,8 +97,8 @@ Konkret könnte also ein Inhaltlicher Mehrfachsprung sowie wie in
                 \State $i \gets i + 1$
             \EndWhile
             
-            \State $v \gets M_H[i-1]$ 
-            \State \Return $v$
+            \State $v \gets M_H[i-1]$ \label{alg:21}
+            \State \Return $v$ \label{alg:22} 
         \EndProcedure
     \end{algorithmic}
 \end{algorithm}

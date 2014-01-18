@@ -1,14 +1,20 @@
-\subsection{Motivation}
-Teilweise gelabelte Netzwerke sind allgegenwärtig. Publikationsdatenbanken
+Im Folgenden werden in \cref{sec:Motivation} einge Beispiele, in denen
+der DYCOS-Algorithmus anwendung finden könnte, dargelegt. In
+\cref{sec:Problemstellung} wird die Problemstellung formal definiert
+und in \cref{sec:Herausforderungen} wird auf besondere Herausforderungen
+der Aufgabenstellung hingewiesen.
+
+\subsection{Motivation}\label{sec:Motivation}
+Teilweise beschriftete Graphen sind allgegenwärtig. Publikationsdatenbanken
 mit Publikationen als Knoten, Literaturverweisen und Zitaten als Kanten
-sowie Tags oder Kategorien als Labels;
+sowie von Nutzern vergebene Beschriftungen (sog. {\it Tags}) oder Kategorien als Labels;
 Wikipedia mit Artikeln als Knoten, Links als Kanten und Kategorien
 als Labels sowie soziale Netzwerke mit Eigenschaften der Benutzer
 als Labels sind drei Beispiele dafür.
 Häufig sind Labels nur teilweise vorhanden und es ist wünschenswert die 
-fehlenden Labels zu ergänzen. 
+fehlenden Labels automatisiert zu ergänzen. 
 
-\subsection{Problemstellung}
+\subsection{Problemstellung}\label{sec:Problemstellung}
 Gegeben ist ein Graph, der teilweise gelabelt ist. Zusätzlich stehen
 zu einer Teilmenge der Knoten Texte bereit. Gesucht sind nun Labels
 für alle Knoten, die bisher noch nicht gelabelt sind.\\
@@ -30,12 +36,13 @@ für alle Knoten, die bisher noch nicht gelabelt sind.\\
     $\tilde{f}|_{V_{L,t}} = f$.
 \end{definition}
 
-\subsection{Herausforderungen}
+\subsection{Herausforderungen}\label{sec:Herausforderungen}
 Die Graphen, für die dieser Algorithmus konzipiert wurde,
-sind viele $\num{10000}$~Knoten groß und dynamisch. Das bedeutet, es 
-kommen neue Knoten und eventuell auch neue Kanten hinzu bzw. Kanten 
-oder Knoten werden entfernt. Außerdem stehen textuelle Inhalte zu den 
+sind viele $\num{10000}$~Knoten groß und dynamisch. \enquote{Dynamisch}
+bedeutet in diesem Kontext, dass neue Knoten und eventuell auch neue 
+Kanten hinzu kommen bzw. Kanten oder Knoten werden entfernt werden. 
+Außerdem stehen textuelle Inhalte zu den 
 Knoten bereit, die bei der Klassifikation genutzt werden können.
-Bei kleinen Modifikationen sollte nicht alles nochmals berechnen 
+Bei kleinen Änderungen sollte nicht alles nochmals berechnen 
 werden müssen, sondern basierend auf zuvor
-berechneten Labels sollte die Klassifizierung modifiziert werden.
+berechneten Labels sollte die Klassifizierung angepasst werden.
