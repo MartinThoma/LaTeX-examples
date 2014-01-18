@@ -35,3 +35,4 @@ in dem Erstellen dieses Skripts steckt:
 |16.01.2014 | 12:45 - 13:30 | TikZ'en eines Bildes
 |16.01.2014 | 17:00 - 19:30 | Digitalisieren der Vorlesung von 14.01.2014
 |16.01.2014 | 21:30 - 23:50 | TikZ'en von Bildern
+|18.01.2014 | 14:15 - 14:30 | Neuer Korollar; Tippfehler verbessert
