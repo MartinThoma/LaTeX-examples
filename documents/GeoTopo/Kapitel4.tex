@@ -42,7 +42,7 @@ aufgestellt.
 
 \begin{definition}\xindex{Ebene!euklidische}%In Vorlesung: Definition 14.2
     Eine \textbf{euklidische Ebene} ist ein metrischer Raum $(X,d)$ 
-    zusammen mit einer Teilmenge $G \subseteq \powerset{X}$, sodass die
+    zusammen mit einer Teilmenge $\emptyset \neq G \subseteq \powerset{X}$, sodass die
     Axiome~\ref{axiom:1}~-~\ref{axiom:4} erfüllt sind:
     \begin{enumerate}[label=§\arabic*),ref=§\arabic*]
         \item \textbf{Inzidenzaxiome}\xindex{Inzidenzaxiome}:\label{axiom:1}
@@ -50,7 +50,7 @@ aufgestellt.
                 \item Zu $P \neq Q \in X$ gibt es genau ein $g \in G$ mit
                       $\Set{P, Q} \subseteq g$.
                 \item $|g| \geq 2 \;\;\; \forall g \in G$
-                \item $X \in G$
+                \item $X \notin G$
             \end{enumerate}
         \item \textbf{Abstandsaxiom}\xindex{Abstandsaxiom}: Zu $P, Q, R \in X$ gibt es \label{axiom:2}
               genau dann ein $g \in G$ mit $\Set{P, Q, R} \subseteq g$,
@@ -529,13 +529,13 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
     Sei $\alpha$ ein Innenwinkel von $\triangle$.
 
     \begin{behauptung}
-        Es gibt ein Dreieck $\triangle'$ mit \todo{Was steht hier?}
-        $\cos(\triangle') = \IWS(\triangle)$ und einem Innenwinkel
+        Es gibt ein Dreieck $\triangle'$ mit 
+        $\IWS(\triangle') = \IWS(\triangle)$ und einem Innenwinkel
         $\alpha' \leq \frac{\alpha}{2}$.
 
         Dann gibt es für jedes $n$ ein $\triangle_n$ mit $\IWS(\triangle_n) = \IWS(\triangle)$
-        und Innenwinkel $\leq \frac{\alpha}{2^n}$. Für $\frac{\alpha}{2^n} < \varepsilon$
-        ist dann die Summe der \todo{Was steht hier?} anderen Innenwinkel
+        und Innenwinkel $\alpha' \leq \frac{\alpha}{2^n}$. Für $\frac{\alpha}{2^n} < \varepsilon$
+        ist dann die Summe der beiden Innenwinkel
         um $\triangle_n$ größer als $\pi \Rightarrow$ Widerspruch zu
         \cref{folgerung:14.10}.
     \end{behauptung}
