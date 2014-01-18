@@ -10,3 +10,6 @@ TODO
 * Abschnitt "Problemstellung" überarbeiten
 * Abbildung verlinken
 * Algorithmen erklären
+* Warum sind Stellenangaben überflüssig?
+* Map erklären
+* Algorithmus 4, S. 9

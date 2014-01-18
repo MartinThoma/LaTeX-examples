@@ -62,7 +62,11 @@ von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
             \ForAll{Label $i \in \L_t$}
                 \State $p[i] \gets \frac{cLabelWords[i][w]}{cLabelWords[i][|\L_t|]}$
             \EndFor
-            \State $w$.gini $\gets$ \Call{sum}{{\sc map}({\sc square}, $p$)}
+
+            \State $w$.gini $\gets 0$
+            \ForAll{$i \in 1, \dots, |\L_t|$}
+                \State $w$.gini $\gets$ $w$.gini + $p[i]^2$
+            \EndFor
         \EndFor
 
         \State $\M_t \gets \Call{SortDescendingByGini}{\M_t}$
@@ -72,6 +76,6 @@ von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
 \label{alg:vokabularbestimmung}
 \end{algorithm}
 
-Die Menge $S_t$ kann durch Aus der Menge aller Dokumenten, deren 
-Knoten gelabelt sind, mithilfe des in \cite{Vitter} vorgestellten
+Die Menge $S_t$ kann aus der Menge aller Dokumente, deren 
+Knoten beschriftet sind, mithilfe des in \cite{Vitter} vorgestellten
 Algorithmus bestimmt werden.

@@ -2,10 +2,9 @@ Der in \cite{aggarwal2011} vorgestellte Algorithmus hat einige Probleme,
 die im Folgenden erläutert werden. Außerdem werden Verbesserungen
 vorgeschlagen, die es allerdings noch zu untersuchen gilt.
 
-\subsection{Schwächen von DYCOS}
-\subsubsection{Anzahl der Labels}
+\subsection{Anzahl der Labels}
 So, wie der DYCOS-Algorithmus vorgestellt wurde, können nur Graphen bearbeitet werden, 
-deren Knoten höchstens ein Label haben. In vielen Fällen, wie z.~B. 
+deren Knoten jeweils höchstens ein Label haben. In vielen Fällen, wie z.~B. 
 Wikipedia mit Kategorien als Labels haben Knoten jedoch viele Labels.
 
 Auf einen ersten Blick ist diese Schwäche einfach zu beheben, indem 
@@ -22,7 +21,7 @@ sowohl für diese Kategorie als auch für die Kategorie \enquote{Klassifikation}
 zählen.
 
 
-\subsubsection{Überanpassung und Reklassifizierung}
+\subsection{Überanpassung und Reklassifizierung}
 Aggarwal und Li beschreiben in \cite{aggarwal2011} nicht, auf welche
 Knoten der Klassifizierungsalgorithmus angewendet werden soll. Jedoch
 ist die Reihenfolge der Klassifizierung relevant. Dazu folgendes 
@@ -71,7 +70,7 @@ Knoten einfügt:
 Wird zum Zeitpunkt $t=4$ ein ungelabelter Knoten $v_4$ und die Kanten
 $(v_1, v_4)$, $(v_2, v_4)$, $(v_3, v_4)$ hinzugefügt, so ist die 
 Wahrscheinlichkeit, dass $v_4$ mit $A$ gelabelt wird bei $\frac{2}{3}$.
-Werden die als ungelabelten Knoten jedoch erst jetzt und alle gemeinsam
+Werden die ungelabelten Knoten jedoch erst jetzt und alle gemeinsam
 gelabelt, so ist die Wahrscheinlichkeit für $A$ als Label bei nur $50\%$.
 Bei dem DYCOS-Algorithmus findet also eine Überanpassung an vergangene
 Labels statt.
@@ -81,28 +80,4 @@ Problem sein. Knoten, die durch den DYCOS-Algorithmus gelabelt wurden
 könnten eine Lebenszeit bekommen (TTL, Time to Live). Ist diese 
 abgelaufen, wird der DYCOS-Algorithmus erneut auf den Knoten angewendet.
 
-\subsection{Schwächen des Papers}
-In \cite{aggarwal2011} wurde eine experimentelle Analyse mithilfe 
-des DBLP-Datensatzes\footnote{http://dblp.uni-trier.de/} und des
-CORA-Datensatzes\footnote{\href{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}} durchgeführt.
-Die Ergebnisse dieser Analyse können aus folgenden Gründen
-nicht überprüft werden:
-\begin{itemize}
-    \item Der Parameter $a \in \mathbb{N}$, der die Anzahl der ausgehenden Kanten
-          aller Wortknoten beschränkt, wird erst mit der Experimentellen
-          Analyse auf S.~362 eingeführt.
-          Es ist nicht klar, wie entschieden wird welche Kanten
-          gespeichert werden und welche nicht.
-    \item Für die Analyse der CORA-Datensatzes analysiert.
-          Dieser beinhaltet Forschungsarbeiten, wobei die 
-          Forschungsgebiete die in einen Baum mit 73 Blättern 
-          eingeordnet wurden. Aus diesen 73 Blättern wurden 5 Klassen
-          extrahiert und der Graph, der keine Zeitpunkte beinhaltet,
-          künstlich in 10 Graphen mit Zeitpunkten unterteilt. Wie
-          jedoch diese Unterteilung genau durchgeführt wurde kann nicht
-          nachvollzogen werden.
-    \item Der auf S. 360 in \enquote{Algorithm 1} vorgestellte
-          Pseudocode soll den DYCOS-Algorithmus darstellen. Allerdings
-          werden die bereits klassifizierten Knoten $\T_t$ neu klassifiziert
-          und mit $\theta$ die Klassifikationsgüte gemessen.
-\end{itemize}
+

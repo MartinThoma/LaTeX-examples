@@ -54,14 +54,16 @@ die Anzahl der möglichen Zielknoten $v' \in V_T$ auf diejenigen
 $q$ Knoten, die $v$ bzgl. der Textanalyse am ähnlichsten sind.
 
 In \cref{alg:l2} bis \cref{alg:l5} wird \cref{step:c1} durchgeführt.
+
 In \cref{alg:l6} wird \cref{step:c2} durchgeführt. Bei der
-Wahl der Datenstruktur $M_H$ ist zu beachten, dass man in
-\cref{alg:21} über Indizes auf Elemente aus $M_H$ zugreifen können muss.
+Wahl der Datenstruktur von $T$ ist zu beachten, dass man in
+\cref{alg:21} über Indizes auf Elemente aus $T$ zugreifen können muss.
 
 In \cref{alg:l8} bis \cref{alg:l13} wird ein Wörterbuch erstellt,
 das von $v' \in T(v)$ auf die relative
 Häufigkeit bzgl. aller Pfade von $v$ zu Knoten aus den Top-$q$ abbildet.
 
+In allen folgenden Zeilen wird \cref{step:c3} durchgeführt. 
 In \cref{alg:15} bis \cref{alg:22} wird ein Knoten $v' \in T(v)$ mit
 einer Wahrscheinlichkeit, die seiner relativen Häufigkeit am Anteil
 der Pfaden der Länge 2 von $v$ nach $v'$ über einen beliebigen 
@@ -78,14 +80,14 @@ Wortknoten entspricht ausgewählt und schließlich zurückgegeben.
                     \State $reachableNodes[x] \gets reachableNodes[x] + 1$
                 \EndFor
             \EndFor\label{alg:l5}
-            \State \label{alg:l6} $M_H \gets \Call{max}{reachableNodes, q}$ \Comment{Also: $|M_H| = q$, falls $|reachableNodes|\geq q$}
+            \State \label{alg:l6} $T \gets \Call{max}{reachableNodes, q}$ \Comment{Also: $|T| = q$, falls $|reachableNodes|\geq q$}
             \\
             \State \label{alg:l8} $s \gets 0$
-            \ForAll{Knoten $x$ in $M_H$}
+            \ForAll{Knoten $x \in T$}
                 \State $s \gets s + reachableNodes[x]$
             \EndFor
             \State $relativeFrequency \gets $ Dictionary
-            \ForAll{Knoten $x$ in $M_H$}
+            \ForAll{Knoten $x \in T$}
                 \State $relativeFrequency \gets \frac{reachableNodes[x]}{s}$
             \EndFor\label{alg:l13} 
             \\
@@ -97,7 +99,7 @@ Wortknoten entspricht ausgewählt und schließlich zurückgegeben.
                 \State $i \gets i + 1$
             \EndWhile
             
-            \State $v \gets M_H[i-1]$ \label{alg:21}
+            \State $v \gets T[i-1]$ \label{alg:21}
             \State \Return $v$ \label{alg:22} 
         \EndProcedure
     \end{algorithmic}
