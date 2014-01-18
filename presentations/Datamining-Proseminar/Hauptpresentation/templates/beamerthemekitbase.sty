@@ -1,0 +1,63 @@
+%% LaTeX-Beamer template for KIT design
+%% Widescreen
+%% by Erik Burger, Christian Hammer, David Dauer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.2 for Beamer v3.30
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\usepackage[english,ngerman]{babel}
+\usepackage{ifthen} %For choosing the language, see below
+\usepackage{hyperref}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{../templates/semirounded}
+\usepackage[abs]{overpic}
+
+\usepackage[scaled=.92]{helvet}
+
+\setbeamercovered{transparent}
+\setbeamersize{text margin left=6mm,text margin right=6mm} 
+
+\useinnertheme{rounded}
+\usepackage{../templates/beamercolorthemekit}
+
+%save space in the footer
+\beamer@compresstrue
+
+%title image and logo
+\def\titleimage#1{\def\@titleimage{#1}}
+\def\titlelogo#1{\def\@titlelogo{#1}}
+
+\titleimage{bauplan}
+\titlelogo{sdq_logo}
+
+%CH: KIT-point
+\setbeamertemplate{itemize items}{
+\begin{pgfpicture}{0mm}{0mm}{1ex}{1ex}
+{\pgfsetcornersarced{\pgfpoint{.3ex}{.3ex}} 
+\pgfpathmoveto{\pgfpoint{0cm}{1ex}} 
+\pgfpathlineto{\pgfpoint{1ex}{1ex}}
+\pgfpathlineto{\pgfpoint{1ex}{0cm}}}
+{\pgfsetcornersarced{\pgfpoint{.3ex}{.3ex}}
+\pgfpathmoveto{\pgfpoint{1ex}{0cm}}
+\pgfpathlineto{\pgfpointorigin}
+\pgfpathlineto{\pgfpoint{0cm}{1ex}}}
+\color{kit-green100}
+\pgfusepath{fill}
+\end{pgfpicture}%
+}
+
+%% use this for setting the total page number
+\newcommand{\beginbackup}{
+   \newcounter{framenumbervorappendix}
+   \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}

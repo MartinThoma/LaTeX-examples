@@ -1,0 +1,222 @@
+%% LaTeX-Beamer template for KIT design
+%% Widescreen
+%% by Erik Burger, Christian Hammer, David Dauer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.2 for Beamer v3.30
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\usepackage{templates/beamerthemekitbase}
+
+\usepackage{geometry}
+\geometry{papersize={15.36cm,9.6cm}}
+\setlength{\unitlength}{1mm}
+\useoutertheme[height=0pt,width=2.57cm,left]{sidebar}
+
+\setbeamertemplate{title page}
+{
+\thispagestyle{empty}
+
+%middle block with name of institute
+\begin{textblock*}{\paperwidth}(1mm,47mm)
+\begin{pgfpicture}{0mm}{0mm}{\paperwidth-2mm}{6mm}
+	\color{black!50}
+	\pgfpathrectangle{\pgfpoint{0mm}{0mm}}{\pgfpoint{\paperwidth-2mm}{6mm}}
+	\pgfusepath{fill}
+	\pgftext[at=\pgfpoint{5mm}{3mm},left]{\textcolor{white}{\tiny\uppercase\expandafter{\insertinstitute}}}
+\end{pgfpicture}
+\end{textblock*}
+
+%elements on title page
+
+%KIT logo
+\begin{textblock*}{24mm}(6mm,5mm)
+\iflanguage{english}{%
+\includegraphics[width=23mm]{logos/kitlogo_en_rgb} 
+}{%
+\includegraphics[width=23mm]{logos/kitlogo_de_rgb} 
+}%
+\end{textblock*}
+
+%institute logo
+\begin{textblock*}{20mm}(127mm,4mm)
+\includegraphics[width=20mm]{logos/\@titlelogo} 
+\end{textblock*}
+
+%title
+\begin{textblock*}{143mm}(6mm,19mm)
+\begin{beamercolorbox}[wd=118mm,ht=14mm,dp=3mm]{white}%
+\Large\textbf{\inserttitle}
+\end{beamercolorbox}
+\end{textblock*}
+
+%subtitle
+\begin{textblock*}{143mm}(6mm,36mm)
+\scriptsize \insertsubtitle
+\end{textblock*}
+
+%author
+\begin{textblock*}{143mm}(6mm,40mm)
+\scriptsize\insertauthor~\textbar~\insertshortdate
+\end{textblock*}
+
+%legal KIT text
+\begin{textblock*}{70mm}[0,1](6mm,94.5mm)
+\fontsize{4pt}{6pt}\selectfont
+\iflanguage{english}{
+KIT -- University of the State of Baden-Wuerttemberg and National Laboratory of the Helmholtz Association}
+{KIT -- Universit{\"a}t des Landes Baden-W{\"u}rttemberg und nationales Forschungszentrum in der Helmholtz-Gemeinschaft}
+\end{textblock*}
+
+\begin{textblock*}{16mm}(120mm,90mm)
+\fontsize{8pt}{8pt}\selectfont
+\bfseries
+\textcolor{white}{
+	\href{http://www.kit.edu}{www.kit.edu}
+}
+\end{textblock*}
+
+% title image
+
+\begin{textblock*}{\paperwidth}(1mm,53.5mm)
+\begin{overpic}[width=151.6mm,height=40mm]{logos/\@titleimage}
+\put(-2,-1){
+	%mask curve for lower left corner of title image
+	\begin{pgfpicture}{0mm}{0mm}{3mm}{3mm}
+		\pgfpathqmoveto{0mm}{0mm}
+		\pgfpathlineto{\pgfpoint{3mm}{0mm}}
+		\pgfpathlineto{\pgfpoint{3mm}{1mm}}
+
+		{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}} 
+		\pgfpathlineto{\pgfpoint{1mm}{1mm}}
+		\pgfpathlineto{\pgfpoint{1mm}{3mm}}}
+
+		\pgfpathmoveto{\pgfpoint{1mm}{3mm}}
+		\pgfpathlineto{\pgfpoint{0mm}{3mm}}
+		\pgfpathlineto{\pgfpoint{0mm}{0mm}}
+		\pgfpathclose
+
+		\color{black!15}
+		\pgfusepath{fill}
+	\end{pgfpicture}
+}
+\end{overpic}
+\end{textblock*}
+
+}
+
+%background for pages
+%CH: for plain frames
+\newlength{\kitbottom}
+\usebackgroundtemplate{
+	\setlength{\kitbottom}{\ifbeamer@plainframe1mm\else4mm\fi}%
+\begin{pgfpicture}{0mm}{0mm}{\paperwidth}{\paperheight}
+
+	{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
+	\pgfpathmoveto{\pgfpoint{\paperwidth-1mm}{\kitbottom}}
+	\pgfpathlineto{\pgfpoint{1mm}{\kitbottom}}
+	\pgfpathlineto{\pgfpoint{1mm}{\paperheight-1mm}}}
+
+	{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
+	\pgfpathmoveto{\pgfpoint{1mm}{\paperheight-1mm}}
+	\pgfpathlineto{\pgfpoint{\paperwidth-1mm}{\paperheight-1mm}}
+	\pgfpathlineto{\pgfpoint{\paperwidth-1mm}{\kitbottom}}}
+
+	\color{white}
+	\pgfusepath{fill}
+
+\end{pgfpicture}%
+}
+
+%frametitle
+\setbeamertemplate{frametitle}
+{
+\vspace{2mm} %\hspace*{-4mm}
+\vbox{\hsize=9cm\bfseries\insertframetitle}
+
+\begin{textblock*}{15mm}(133.6mm,4mm)
+\iflanguage{english}{%
+\includegraphics[width=14mm]{logos/kitlogo_en_rgb} 
+}{%
+\includegraphics[width=14mm]{logos/kitlogo_de_rgb} 
+}%
+
+\end{textblock*}
+
+% obsolete as of KIT-CD v2.0
+%\begin{textblock*}{1.5mm}(1mm,1mm)
+%\begin{pgfpicture}{0mm}{0mm}{1.5mm}{9mm}
+	%\color{kit-green100}
+	%\pgfpathrectangle{\pgfpoint{0mm}{0mm}}{\pgfpoint{1.5mm}{9mm}}
+	%\pgfusepath{fill}
+%\end{pgfpicture}%
+%\end{textblock*}
+
+}
+
+\setbeamertemplate{headline}
+{
+}
+
+%footer
+\setbeamertemplate{footline}
+{
+
+\hbox{
+\begin{beamercolorbox}[wd=0.7\textwidth,ht=2.2mm,dp=2mm,leftskip=1.3em]{author in head/foot}%
+\usebeamerfont{author in head/foot}%
+\fontsize{4pt}{6pt}\selectfont
+\iflanguage{english}{
+KIT -- University of the State of Baden-Wuerttemberg and National Laboratory of the Helmholtz Association}
+{KIT -- Universit{\"a}t des Landes Baden-W{\"u}rttemberg und nationales Forschungszentrum in der Helmholtz-Gemeinschaft}
+\end{beamercolorbox}%
+\vspace*{-4mm}\hspace*{0.8\textwidth}%
+\begin{beamercolorbox}[wd=0.2\textwidth,ht=2.2mm,dp=1.5mm,left,leftskip=.5em]{title in head/foot}%
+\usebeamerfont{title in head/foot}%
+\insertshortdate
+\end{beamercolorbox}%
+
+\begin{beamercolorbox}[wd=0.05\paperwidth,ht=2.2mm,dp=2mm,right]{date in head/foot}%
+\usebeamerfont{date in head/foot}%
+\insertframenumber{}/\inserttotalframenumber
+\end{beamercolorbox}%
+}
+\vskip -0.75mm
+}
+
+\setbeamerfont{title in sidebar}{family=\sffamily,series=\mdseries,size={\fontsize{10}{12}}}
+\setbeamerfont{section in sidebar}{family=\sffamily,series=\mdseries,size={\fontsize{9}{12}}}
+\setbeamerfont{subsection in sidebar}{family=\sffamily,series=\mdseries,size={\fontsize{8}{12}}}
+
+\setbeamertemplate{sidebar \beamer@sidebarside}
+  {
+    \beamer@tempdim=\beamer@sidebarwidth%
+    \advance\beamer@tempdim by -6pt%
+    {\usebeamerfont{title in sidebar}%
+      \vskip1.5em%
+      \hskip3mm%
+      \usebeamercolor[fg]{title in sidebar}%
+      \insertshorttitle[width=\beamer@tempdim,respectlinebreaks]\par%
+      \vskip1.25em%
+    }%
+    {%
+      \hskip3mm%
+      \usebeamercolor[fg]{author in sidebar}%
+      \usebeamerfont{author in sidebar}%
+      \insertshortauthor[width=\beamer@tempdim,respectlinebreaks]\par%
+      \vskip1.25em%
+    }%
+    \hskip3mm\insertverticalnavigation{\beamer@sidebarwidth}%
+    \vfill
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \usebeamercolor{normal text}%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt%
+    \fi%
+  }%

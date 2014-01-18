@@ -1,0 +1,189 @@
+%% LaTeX-Beamer template for KIT design
+%% Widescreen
+%% by Erik Burger, Christian Hammer, David Dauer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.2 for Beamer v3.30
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\usepackage{../templates/beamerthemekitbase}
+
+\setbeamertemplate{title page}
+{
+\thispagestyle{empty}
+
+%middle block with name of institute
+\begin{textblock*}{\paperwidth}(1mm,42mm)
+\begin{pgfpicture}{0mm}{0mm}{\paperwidth-2mm}{6mm}
+	\color{black!50}
+	\pgfpathrectangle{\pgfpoint{0mm}{0mm}}{\pgfpoint{\paperwidth-2mm}{6mm}}
+	\pgfusepath{fill}
+	\pgftext[at=\pgfpoint{5mm}{3mm},left,center]{\textcolor{white}{\tiny\uppercase\expandafter{\insertinstitute}}}
+\end{pgfpicture}
+\end{textblock*}
+
+
+%elements on title page
+
+%KIT logo
+\begin{textblock*}{24mm}(6mm,5mm)
+\iflanguage{english}{%
+\includegraphics[width=23mm]{../logos/kitlogo_en_rgb} 
+}{%
+\includegraphics[width=23mm]{../logos/kitlogo_de_rgb} 
+}%
+\end{textblock*}
+
+%institute logo
+\begin{textblock*}{20mm}(104mm,4mm)
+\includegraphics[width=20mm]{../logos/\@titlelogo} 
+\end{textblock*}
+
+%title
+\begin{textblock*}{120mm}(6mm,14mm)
+\begin{beamercolorbox}[wd=118mm,ht=14mm,dp=3mm,left]{white}%
+\Large\textbf{\inserttitle}
+\end{beamercolorbox}
+\end{textblock*}
+
+%subtitle
+\begin{textblock*}{120mm}(6mm,31mm)
+\scriptsize \insertsubtitle
+\end{textblock*}
+
+%author
+\begin{textblock*}{120mm}(6mm,35mm)
+\scriptsize\insertauthor~\textbar~\insertshortdate
+\end{textblock*}
+
+%legal KIT text
+\begin{textblock*}{80mm}[0,1](6mm,94mm)
+\fontsize{4pt}{6pt}\selectfont
+\iflanguage{english}{
+KIT -- University of the State of Baden-Wuerttemberg and\\National Laboratory of the Helmholtz Association}
+{KIT -- Universit{\"a}t des Landes Baden-W{\"u}rttemberg und\\nationales Forschungszentrum in der Helmholtz-Gemeinschaft}
+\end{textblock*}
+
+\begin{textblock*}{16mm}(110mm,90mm)
+\fontsize{8pt}{8pt}\selectfont
+\bfseries
+\textcolor{white}{
+	\href{http://www.kit.edu}{www.kit.edu}
+}
+\end{textblock*}
+
+% title image
+
+\begin{textblock*}{\paperwidth}(1mm,48.5mm)
+\begin{overpic}[width=126mm,height=40mm]{../logos/\@titleimage}
+\put(-6,-3){
+	%mask curve for lower left corner of title image
+	\begin{pgfpicture}{0mm}{0mm}{3mm}{3mm}
+		\pgfpathqmoveto{0mm}{0mm}
+		\pgfpathlineto{\pgfpoint{3mm}{0mm}}
+		\pgfpathlineto{\pgfpoint{3mm}{1mm}}
+
+		{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}} 
+		\pgfpathlineto{\pgfpoint{1mm}{1mm}}
+		\pgfpathlineto{\pgfpoint{1mm}{3mm}}}
+
+		\pgfpathmoveto{\pgfpoint{1mm}{3mm}}
+		\pgfpathlineto{\pgfpoint{0mm}{3mm}}
+		\pgfpathlineto{\pgfpoint{0mm}{0mm}}
+		\pgfpathclose
+
+		\color{black!15}
+		\pgfusepath{fill}
+	\end{pgfpicture}
+}
+\end{overpic}
+\end{textblock*}
+
+}
+
+%background for pages
+%CH: for plain frames
+\newskip{\kitbottom}
+\usebackgroundtemplate{
+	\setlength{\kitbottom}{\ifbeamer@plainframe1mm\else9mm\fi}%
+\begin{pgfpicture}{0mm}{0mm}{\paperwidth}{\paperheight}
+
+	{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
+	\pgfpathmoveto{\pgfpoint{\paperwidth-1mm}{\kitbottom}}
+	\pgfpathlineto{\pgfpoint{1mm}{\kitbottom}}
+	\pgfpathlineto{\pgfpoint{1mm}{\paperheight-1mm}}}
+
+	{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
+	\pgfpathmoveto{\pgfpoint{1mm}{\paperheight-1mm}}
+	\pgfpathlineto{\pgfpoint{\paperwidth-1mm}{\paperheight-1mm}}
+	\pgfpathlineto{\pgfpoint{\paperwidth-1mm}{\kitbottom}}}
+
+	\color{white}
+	\pgfusepath{fill}
+
+\end{pgfpicture}%
+}
+
+%frametitle
+\setbeamertemplate{frametitle}
+{
+\vspace{2mm} %\hspace*{-4mm}
+\vbox{\hsize=9cm\bfseries\insertframetitle}
+
+\begin{textblock*}{15mm}(108mm,4mm)
+\iflanguage{english}{%
+\includegraphics[width=14mm]{../logos/kitlogo_en_rgb} 
+}{%
+\includegraphics[width=14mm]{../logos/kitlogo_de_rgb} 
+}%
+
+\end{textblock*}
+
+% obsolete as of KIT-CD v2.0
+%\begin{textblock*}{1.5mm}(1mm,1mm)
+%\begin{pgfpicture}{0mm}{0mm}{1.5mm}{9mm}
+	%\color{kit-green100}
+	%\pgfpathrectangle{\pgfpoint{0mm}{0mm}}{\pgfpoint{1.5mm}{9mm}}
+	%\pgfusepath{fill}
+%\end{pgfpicture}%
+%\end{textblock*}
+
+}
+
+
+\setbeamertemplate{headline}
+{
+}
+
+%footer
+\setbeamertemplate{footline}
+{
+\vskip.4mm
+\begin{beamercolorbox}[ht=2.2mm, dp=3mm]{section in head/foot}
+	%include mini frame navigation
+	\insertnavigation{\paperwidth}
+	\vskip -2.2mm
+\end{beamercolorbox}
+
+\hbox{
+\begin{beamercolorbox}[wd=0.7\textwidth,ht=2.2mm,dp=2mm,left,leftskip=1.3em]{author in head/foot}%
+\usebeamerfont{author in head/foot}%
+\insertshortauthor\hspace{2.5pt}--\hspace{2.5pt}\insertshorttitle
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=0.2\textwidth,ht=2.2mm,dp=2mm,center]{title in head/foot}%
+\usebeamerfont{title in head/foot}%
+\insertshortdate
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=0.05\paperwidth,ht=2.2mm,dp=2mm,right]{date in head/foot}%
+\usebeamerfont{date in head/foot}%
+\insertframenumber{}/\inserttotalframenumber
+\end{beamercolorbox}%
+
+}
+\vskip -0.75mm
+}

@@ -1,9 +1,15 @@
 In dieser Arbeit wird der DYCOS-Algorithmus, wie er in \cite{aggarwal2011} vorgestellt wurde, erklärt.
-Er klassifiziert automatisch Knoten in 
-Netzwerken, die bereits teilweise mit Labels versehen sind. Zur 
-Klassifizierung kann er textuelle Informationen, die den Knoten 
-zugeordnet sind, nutzen. Er ist auch für für viele $\num{10000}$ 
-Knoten große, dynamische Netzwerke geeignet.\\
+Er arbeitet auf Graphen, deren Knoten teilweise mit 
+Beschriftungen versehen sind und ergänzt automatisch Beschriftungen
+für Knoten, die bisher noch keine Beschriftung haben. Dieser Vorgang
+wird \enquote{Klassifizierung} genannt. Dazu verwendet er die
+Struktur des Graphen sowie textuelle Informationen, die den Knoten 
+zugeordnet sind. Die in \cite{aggarwal2011} beschriebene experimentelle
+Analyse ergab, dass er auch auf dynamischen Graphen mit $\num{19396}$ 
+bzw. $\num{806635}$ Knoten, von denen nur $\num{14814}$ bzw. $\num{18999}$
+beschriftet waren, innerhalb von weniger als einer Minute auf einer
+CPU eines Intel Xeon 2.5GHz mit 32G RAM ausgeführt
+werden kann.\\
 Zusätzlich wird auf Schwächen von \cite{aggarwal2011} hingewiesen
 und mögliche Verbesserungen vorgeschlagen.
 
