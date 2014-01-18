@@ -137,9 +137,9 @@ aufgestellt.
                       \textbf{Halbebenen}\xindex{Halbebene} bzgl. 
                       $g$.
             \end{enumerate}
-        \item \textbf{Bewegungsaxiome}\xindex{Bewegungsaxiome}: Zu $P, Q, P', Q' \in X$\label{axiom:4}
+        \item \textbf{Bewegungsaxiom}\xindex{Bewegungsaxiom}: Zu $P, Q, P', Q' \in X$\label{axiom:4}
             mit $d(P,Q) = d(P', Q')$. Isometrien $\varphi_1, \varphi_2$
-            mit $\varphi_i (P) = P'$ und $\varpi_i(Q) = Q', i=1,2$
+            mit $\varphi_i (P) = P'$ und $\varphi_i(Q) = Q', i=1,2$
             (Spiegelung an der Gerade durch $P$ und $Q$ ist nach 
              Identifizierung von $P \cong P'$ und $Q \cong Q'$ eine
              weitere Isometrie.)
@@ -152,12 +152,12 @@ aufgestellt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 14.01.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{satz}[Satz von Rasch]\label{satz:rasch} %In Vorlesung: Bemerkung 14.5
+\begin{satz}[Satz von Pasch]\label{satz:pasch} %In Vorlesung: Bemerkung 14.5
     Seien $P$, $Q$, $R$ nicht kollinear, $g \in G$ mit $g \cap \Set{P, Q, R} = \emptyset$
     und $g \cap \overline{PQ} \neq \emptyset$. 
 
-    Dann ist $g \cap \overline{PR} \neq \emptyset$ oder 
-             $g \cap \overline{QR} \neq \emptyset$.
+    Dann ist entweder $g \cap \overline{PR} \neq \emptyset$ oder 
+                      $g \cap \overline{QR} \neq \emptyset$.
 \end{satz}
 
 Dieser Satz besagt, dass Geraden, die eine Seite eines Dreiecks 
@@ -194,7 +194,7 @@ schneiden sich.
 
 \begin{beweis}%In Vorlesung: Behauptung 3
     Sei $P' \in PQ^-, P' \neq P$
-    $\overset{\cref{satz:rasch}}{\Rightarrow} PB$ schneidet
+    $\overset{\cref{satz:pasch}}{\Rightarrow} PB$ schneidet
     $\overline{AP'} \cup \overline{AQ}$
 
     Sei $C$ der Schnittpunkt. Dann gilt:
@@ -275,6 +275,25 @@ schneiden sich.
     Tausche $A$ und $B \Rightarrow$  Fall 1 $\qed$
 \end{beweis}
 
+\begin{korollar}\label{kor:beh2'}
+    Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:3}
+    erfüllt und $\varphi$ eine Isometrie mit $\varphi(P) = P$ und $\varphi(Q) = Q$.
+
+    Dann gilt $\varphi(S) = S\;\;\;\forall S \in PQ$.
+\end{korollar}
+
+\begin{beweis}
+    \begin{align}
+        \text{\Obda sei } S \in \overline{PQ} &\Leftrightarrow d(P,Q) = d(P,S) + d(S,Q)\\
+        &\overset{\varphi \in \Iso(X)}{\Rightarrow} d(\varphi(P),\varphi(Q)) = d(\varphi(P),\varphi(S)) + d(\varphi(S),\varphi(Q))\\
+        &\overset{P, Q \in \Fix(\varphi)}{\Rightarrow} d(P, Q) = d(P,\varphi(S)) + d(\varphi(S), Q)\\
+        &\Rightarrow \varphi(S) \text{ liegt zwischen } P \text{ und } Q \text{. Es gilt } d(P, \varphi(S)) = d(P,S)\\
+        &\overset{\ref{axiom:3.1}}{\Rightarrow} \varphi(S) = S
+    \end{align}
+
+    $\qed$ 
+\end{beweis}
+
 \begin{proposition}%In Vorlesung: Satz 14.4
     In einer Geometrie, die \ref{axiom:1}~-~\ref{axiom:3} erfüllt,
     gibt es zu $P, P', Q, Q'$ mit $d(P, Q) = d(P', Q')$ höchstens
@@ -297,26 +316,23 @@ schneiden sich.
         so ist $\varphi = \id_X$.
     \end{behauptung}
 
-    \begin{behauptung}[2']
-        $(\varphi(P) = P \land \varphi(Q) = Q) \Rightarrow (\varphi(S) = S\;\forall S \in PQ)$
-    \end{behauptung}
-
-    Aus Beh. 1 und Beh. 2 folgt, dass $\varphi_2^{-1} \circ \varphi_1 = \id_X$,
-    also $\varphi_2 = \varphi_1$.\todo{Wieso?}
+    Aus Beh.~1 und Beh.~2 folgt, dass $\varphi_2^{-1} \circ \varphi_1 = \id_X$,
+    also $\varphi_2 = \varphi_1$, da $P$, $Q$ und $R$ in diesem Fall
+    Fixpunkte sind.
 
     \begin{beweis}\leavevmode
         \begin{behauptung}
             Sind $P \neq Q$ Fixpunkte einer Isometrie, so ist 
             $\varphi(R) = R$ für jedes $R \in PQ$.
         \end{behauptung}
-        \begin{beweis}[von Beh. 2 mit Beh. 2']
+        \begin{beweis}[von Beh. 2 mit \cref{kor:beh2'}]
             Seien $P$, $Q$ und $R$ Fixpunkte von $\varphi$, $R \in PG$
             und $A \notin \overline{PQ} \cup \overline{PR} \cup \overline{QR}$.
             Sei $B \in \overline{PQ} \setminus \Set{P, Q}$. Dann ist
-            $\varphi(B) = B$ wegen Beh.~2'.
+            $\varphi(B) = B$ wegen \cref{kor:beh2'}.
 
             Ist $R \in AB$, so enthält $AB$ 2 Fixpunkte von $\varphi$
-            $\overset{Beh.~2'}{\Rightarrow} \varphi(A) = A$.
+            $\overset{\cref{kor:beh2'}}{\Rightarrow} \varphi(A) = A$.
 
             \begin{figure}[htp]
                 \centering
@@ -326,9 +342,9 @@ schneiden sich.
             \end{figure}
 
             Ist $R \notin AB$, so ist $AB \cap \overline{PR} \neq \emptyset$
-            oder $AB \in \overline{RQ} \neq \emptyset$ nach \cref{satz:rasch}.
+            oder $AB \in \overline{RQ} \neq \emptyset$ nach \cref{satz:pasch}.
             Der Schnittpunkt $C$ ist dann Fixpunkt von $\varphi'$
-            nach Beh.~2' $\Rightarrow \varphi(A) = A$.
+            nach \cref{kor:beh2'} $\Rightarrow \varphi(A) = A$.
         \end{beweis}
 
         \begin{beweis}[von Beh. 1]
