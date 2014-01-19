@@ -7,31 +7,31 @@ der Aufgabenstellung hingewiesen.
 \subsection{Motivation}\label{sec:Motivation}
 Teilweise beschriftete Graphen sind allgegenwärtig. Publikationsdatenbanken
 mit Publikationen als Knoten, Literaturverweisen und Zitaten als Kanten
-sowie von Nutzern vergebene Beschriftungen (sog. {\it Tags}) oder Kategorien als Labels;
+sowie von Nutzern vergebene Beschriftungen (sog. {\it Tags}) oder Kategorien als Knotenbeschriftungen;
 Wikipedia mit Artikeln als Knoten, Links als Kanten und Kategorien
-als Labels sowie soziale Netzwerke mit Eigenschaften der Benutzer
-als Labels sind drei Beispiele dafür.
-Häufig sind Labels nur teilweise vorhanden und es ist wünschenswert die 
-fehlenden Labels automatisiert zu ergänzen. 
+als Knotenbeschriftungen sowie soziale Netzwerke mit Eigenschaften der Benutzer
+als Knotenbeschriftungen sind drei Beispiele dafür.
+Häufig sind Knotenbeschriftungen nur teilweise vorhanden und es ist wünschenswert die 
+fehlenden Knotenbeschriftungen automatisiert zu ergänzen. 
 
 \subsection{Problemstellung}\label{sec:Problemstellung}
-Gegeben ist ein Graph, der teilweise gelabelt ist. Zusätzlich stehen
-zu einer Teilmenge der Knoten Texte bereit. Gesucht sind nun Labels
-für alle Knoten, die bisher noch nicht gelabelt sind.\\
+Gegeben ist ein Graph, dessen Knoten teilweise beschriftet sind. Zusätzlich stehen
+zu einer Teilmenge der Knoten Texte bereit. Gesucht sind nun Knotenbeschriftungen
+für alle Knoten, die bisher noch nicht beschriftet sind.\\
 
 \begin{definition}[Knotenklassifierungsproblem]\label{def:Knotenklassifizierungsproblem}
     Sei $G_t = (V_t, E_t, V_{L,t})$ ein gerichteter Graph,
     wobei $V_t$ die Menge aller Knoten,
     $E_t$ die Kantenmenge und $V_{L,t} \subseteq V_t$ die Menge der 
-    gelabelten Knoten jeweils zum Zeitpunkt $t$ bezeichne.
+    beschrifteten Knoten jeweils zum Zeitpunkt $t$ bezeichne.
     Außerdem sei $L_t$ die Menge aller zum Zeitpunkt $t$ vergebenen
-    Labels und $f:V_{L,t} \rightarrow L_t$ die Funktion, die einen
-    Knoten auf sein Label abbildet.
+    Knotenbeschriftungen und $f:V_{L,t} \rightarrow L_t$ die Funktion, die einen
+    Knoten auf seine Beschriftung abbildet.
 
     Weiter sei für jeden Knoten $v \in V$ eine (eventuell leere)
     Textmenge $T(v)$ gegeben.
 
-    Gesucht sind nun Labels für $V_t \setminus V_{L,t}$, also
+    Gesucht sind nun Beschriftungen für $V_t \setminus V_{L,t}$, also
     $\tilde{f}: V_t \rightarrow L_t$ mit 
     $\tilde{f}|_{V_{L,t}} = f$.
 \end{definition}
@@ -45,4 +45,4 @@ Außerdem stehen textuelle Inhalte zu den
 Knoten bereit, die bei der Klassifikation genutzt werden können.
 Bei kleinen Änderungen sollte nicht alles nochmals berechnen 
 werden müssen, sondern basierend auf zuvor
-berechneten Labels sollte die Klassifizierung angepasst werden.
+berechneten Knotenbeschriftungen sollte die Klassifizierung angepasst werden.

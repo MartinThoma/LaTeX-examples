@@ -20,7 +20,7 @@ bewertet. Er ist immer im Intervall $[0,1]$, wobei $0$ einer
 Gleichverteilung entspricht und $1$ der größtmöglichen Ungleichverteilung.
 
 Sei nun $n_i(w)$ die Häufigkeit des Wortes $w$ in allen Texten mit 
-dem $i$-ten Label.
+der $i$-ten Knotenbeschriftung.
 \begin{align}
     p_i(w) &:= \frac{n_i(w)}{\sum_{j=1}^{|\L_t|} n_j(w)} &\text{(Relative Häufigkeit des Wortes $w$)}\\
     G(w)   &:= \sum_{j=1}^{|\L_t|} p_j(w)^2              &\text{(Gini-Koeffizient von $w$)}
@@ -39,9 +39,9 @@ von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
 \begin{algorithm}
     \begin{algorithmic}[1]
         \Require \\
-                 $V_{L,t}$ (Knoten mit Labels),\\
-                 $\L_t$ (Labels),\\
-                 $f:V_{L,t} \rightarrow \L_t$ (Label-Funktion),\\
+                 $V_{L,t}$ (beschriftete Knoten),\\
+                 $\L_t$ (Beschriftungen),\\
+                 $f:V_{L,t} \rightarrow \L_t$ (Beschriftungsfunktion),\\
                  $m$ (Gewünschte Vokabulargröße)
         \Ensure  $\M_t$ (Vokabular)\\
 

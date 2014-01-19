@@ -2,15 +2,15 @@ Der in \cite{aggarwal2011} vorgestellte Algorithmus hat einige Probleme,
 die im Folgenden erläutert werden. Außerdem werden Verbesserungen
 vorgeschlagen, die es allerdings noch zu untersuchen gilt.
 
-\subsection{Anzahl der Labels}
+\subsection{Anzahl der Knotenbeschriftungen}
 So, wie der DYCOS-Algorithmus vorgestellt wurde, können nur Graphen bearbeitet werden, 
-deren Knoten jeweils höchstens ein Label haben. In vielen Fällen, wie z.~B. 
-Wikipedia mit Kategorien als Labels haben Knoten jedoch viele Labels.
+deren Knoten jeweils höchstens eine Beschriftung haben. In vielen Fällen, wie z.~B. 
+Wikipedia mit Kategorien als Knotenbeschriftungen haben Knoten jedoch viele Beschriftungen.
 
 Auf einen ersten Blick ist diese Schwäche einfach zu beheben, indem 
-man beim zählen der Labels für jeden Knoten jedes Label zählt. Dann
-wäre noch die Frage zu klären, mit wie vielen Labels der betrachtete
-Knoten gelabelt werden soll.
+man beim zählen der Knotenbeschriftungen für jeden Knoten jedes Beschriftung zählt. Dann
+wäre noch die Frage zu klären, mit wie vielen Beschriftungen der betrachtete
+Knoten beschriftet werden soll.
 
 Jedoch ist z.~B. bei Wikipedia-Artikeln auf den Knoten eine 
 Hierarchie definiert. So ist die Kategorie \enquote{Klassifikationsverfahren}
@@ -29,11 +29,11 @@ Minimalbeispiel:
 
 Gegeben sei ein dynamischer Graph ohne textuelle Inhalte. Zum Zeitpunkt
 $t=1$ habe dieser Graph genau einen Knoten $v_1$ und $v_1$  sei
-mit dem Label $A$ beschriftet. Zum Zeitpunkt $t=2$ komme ein nicht-gelabelter
+mit dem $A$ beschriftet. Zum Zeitpunkt $t=2$ komme ein nicht beschrifteter
 Knoten $v_2$ sowie die Kante $(v_2, v_1)$ hinzu.\\
 Nun wird der DYCOS-Algorithmus auf diesen Knoten angewendet und
-$v_2$ mit $A$ gelabelt.\\
-Zum Zeitpunkt $t=3$ komme ein Knoten $v_3$, der mit $B$ gelabelt ist,
+$v_2$ mit $A$ beschriftet.\\
+Zum Zeitpunkt $t=3$ komme ein Knoten $v_3$, der mit $B$ beschriftet ist,
 und die Kante $(v_2, v_3)$ hinzu.
 
 \begin{figure}[ht]
@@ -62,21 +62,21 @@ und die Kante $(v_2, v_3)$ hinzu.
 Würde man nun den DYCOS-Algorithmus erst jetzt, also anstelle von
 Zeitpunkt $t=2$ zum Zeitpunkt $t=3$ auf den Knoten $v_2$ anwenden, so
 würde eine $50\%$-Wahrscheinlichkeit bestehen, dass dieser mit $B$ 
-gelabelt wird. Aber in diesem Beispiel wurde der Knoten schon
-zum Zeitpunkt $t=2$ gelabelt. Obwohl es in diesem kleinem Beispiel
+beschriftet wird. Aber in diesem Beispiel wurde der Knoten schon
+zum Zeitpunkt $t=2$ beschriftet. Obwohl es in diesem kleinem Beispiel
 noch keine Rolle spielt, wird das Problem klar, wenn man weitere
 Knoten einfügt:
 
-Wird zum Zeitpunkt $t=4$ ein ungelabelter Knoten $v_4$ und die Kanten
+Wird zum Zeitpunkt $t=4$ ein unbeschrifteter Knoten $v_4$ und die Kanten
 $(v_1, v_4)$, $(v_2, v_4)$, $(v_3, v_4)$ hinzugefügt, so ist die 
-Wahrscheinlichkeit, dass $v_4$ mit $A$ gelabelt wird bei $\frac{2}{3}$.
-Werden die ungelabelten Knoten jedoch erst jetzt und alle gemeinsam
-gelabelt, so ist die Wahrscheinlichkeit für $A$ als Label bei nur $50\%$.
+Wahrscheinlichkeit, dass $v_4$ mit $A$ beschriftet wird bei $\frac{2}{3}$.
+Werden die unbeschrifteten Knoten jedoch erst jetzt und alle gemeinsam
+beschriftet, so ist die Wahrscheinlichkeit für $A$ als Beschriftung bei nur $50\%$.
 Bei dem DYCOS-Algorithmus findet also eine Überanpassung an vergangene
-Labels statt.
+Beschriftungen statt.
 
 Das Reklassifizieren von Knoten könnte eine mögliche Lösung für dieses
-Problem sein. Knoten, die durch den DYCOS-Algorithmus gelabelt wurden
+Problem sein. Knoten, die durch den DYCOS-Algorithmus beschriftet wurden
 könnten eine Lebenszeit bekommen (TTL, Time to Live). Ist diese 
 abgelaufen, wird der DYCOS-Algorithmus erneut auf den Knoten angewendet.
 

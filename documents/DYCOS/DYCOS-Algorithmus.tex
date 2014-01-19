@@ -24,8 +24,8 @@ Ein zentrales Element des DYCOS-Algorithmus ist der sog.
 
 Der DYCOS-Algorithmus klassifiziert einzelne Knoten, indem $r$ Random Walks der Länge $l$,
 startend bei dem zu klassifizierenden Knoten $v$ gemacht werden. Dabei
-werden die Labels der besuchten Knoten gezählt. Das Label, das am häufigsten
-vorgekommen ist, wird als Label für $v$ gewählt.
+werden die Beschriftungen der besuchten Knoten gezählt. Die Beschriftung, die am häufigsten
+vorgekommen ist, wird als Beschriftung für $v$ gewählt.
 DYCOS nutzt also die sog. Homophilie, d.~h. die Eigenschaft, dass
 Knoten, die nur wenige Hops von einander entfernt sind, häufig auch
 ähnlich sind \cite{bhagat}. Der DYCOS-Algorithmus arbeitet jedoch nicht 
@@ -122,22 +122,22 @@ Pseudocode vorgestellt.
                     \Else
                         \State $w \gets$ \Call{InhaltlicherMehrfachsprung}{$w$}
                     \EndIf
-                    \State $w \gets v.\Call{GetLabel}{ }$ \Comment{Zähle das Label}
+                    \State $w \gets v.\Call{GetLabel}{ }$ \Comment{Zähle die Beschriftung}
                     \State $d[w] \gets d[w] + 1$
                 \EndFor
             \EndFor
 
-            \If{$d$ ist leer} \Comment{Es wurde kein gelabelter Knoten gesehen}
+            \If{$d$ ist leer} \Comment{Es wurde kein beschrifteter Knoten gesehen}
                 \State $M_H \gets \Call{HäufigsteLabelImGraph}{ }$
             \Else
                 \State $M_H \gets \Call{max}{d}$
             \EndIf
             \\
-            \State \textit{//Wähle aus der Menge der häufigsten Label $M_H$ zufällig eines aus}
+            \State \textit{//Wähle aus der Menge der häufigsten Beschriftungen $M_H$ zufällig eine aus}
             \State $label \gets \Call{Random}{M_H}$ 
             \State $v.\Call{AddLabel}{label}$ \Comment{und weise dieses $v$ zu}
         \EndFor
-        \State \Return Labels für $V_t \setminus V_{L,t}$
+        \State \Return Beschriftungen für $V_t \setminus V_{L,t}$
     \end{algorithmic}
 \caption{DYCOS-Algorithmus}
 \label{alg:DYCOS}
