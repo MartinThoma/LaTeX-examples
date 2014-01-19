@@ -1,0 +1,27 @@
+\subsection{Vokabular}
+\begin{frame}{Vokabular}
+    \begin{itemize}
+        \item<1-> Viele Texte $\Rightarrow$ Komplette Textanalyse nicht möglich
+        \item<2-> Füllwörter: und, oder, im, in, \dots
+        \item[$\Rightarrow$]<3-> Beschränkung des Vokabulars sinnvoll
+    \end{itemize}
+
+    \uncover<4->{
+    \textbf{Idee}:
+    \begin{itemize}
+        \item<5-> Gini-Koeffizient nutzen
+        \item<6-> Zufällige Beispielmenge von Texten für Vokabularbildung betrachten
+    \end{itemize}
+    }
+\end{frame}
+
+\begin{frame}{Gini-Koeffizient}
+    \begin{itemize}
+        \item<1-> statistisches Maß für Ungleichverteilung
+        \item<2-> $g = \sum_i p_i^2$ mit $p_i$ als relative Häufigkeit
+        \item<3-> $g \in (0, 1]$
+        \item<4-> $g$ nahe bei $1$ $\Rightarrow$ Wort kommt selten vor
+        \item[$\Rightarrow$]<5-> Nehme Top-$m$ Wörter mit höchstem
+                  Gini-Koeffizient
+    \end{itemize}
+\end{frame}
