@@ -6,10 +6,7 @@ Die Ausarbeitung soll 10-12 Seiten haben und die Präsentation
 TODO
 -----
 
-* label -> Beschriftung
 * Abschnitt "Problemstellung" überarbeiten
-* Abbildung verlinken
 * Algorithmen erklären
 * Warum sind Stellenangaben überflüssig?
-* Map erklären
 * Algorithmus 4, S. 9

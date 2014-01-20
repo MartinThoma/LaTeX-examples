@@ -53,10 +53,16 @@ für den DYCOS-Algorithmus zu wählen ist. Dieser Parameter beschränkt
 die Anzahl der möglichen Zielknoten $v' \in V_T$ auf diejenigen
 $q$ Knoten, die $v$ bzgl. der Textanalyse am ähnlichsten sind.
 
-In \cref{alg:l2} bis \cref{alg:l5} wird \cref{step:c1} durchgeführt.
+In \cref{alg:l2} bis \cref{alg:l5} wird \cref{step:c1} durchgeführt
+und alle erreichbaren Knoten in $reachableNodes$ mit der Anzahl
+der Pfade, durch die sie erreicht werden können, gespeichert.
 
-In \cref{alg:l6} wird \cref{step:c2} durchgeführt. Bei der
-Wahl der Datenstruktur von $T$ ist zu beachten, dass man in
+In \cref{alg:l6} wird \cref{step:c2} durchgeführt. 
+Ab hier gilt
+\[ |T| = \begin{cases}q               &\text{falls } |reachableNodes|\geq q\\
+                     |reachableNodes| &\text{sonst }\end{cases}\]
+
+Bei der Wahl der Datenstruktur von $T$ ist zu beachten, dass man in
 \cref{alg:21} über Indizes auf Elemente aus $T$ zugreifen können muss.
 
 In \cref{alg:l8} bis \cref{alg:l13} wird ein Wörterbuch erstellt,
@@ -80,7 +86,7 @@ Wortknoten entspricht ausgewählt und schließlich zurückgegeben.
                     \State $reachableNodes[x] \gets reachableNodes[x] + 1$
                 \EndFor
             \EndFor\label{alg:l5}
-            \State \label{alg:l6} $T \gets \Call{max}{reachableNodes, q}$ \Comment{Also: $|T| = q$, falls $|reachableNodes|\geq q$}
+            \State \label{alg:l6} $T \gets \Call{max}{reachableNodes, q}$
             \\
             \State \label{alg:l8} $s \gets 0$
             \ForAll{Knoten $x \in T$}

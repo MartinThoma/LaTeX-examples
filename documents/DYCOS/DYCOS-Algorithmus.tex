@@ -41,7 +41,8 @@ jedes Wort im Vokabular ein Wortknoten zum Graphen hinzugefügt. Alle
 Knoten, die der Graph zuvor hatte, werden nun \enquote{Strukturknoten}
 genannt.
 Ein Strukturknoten $v$ wird genau dann mit einem Wortknoten $w \in W_t$
-verbunden, wenn $w$ in einem Text von $v$ vorkommt.
+verbunden, wenn $w$ in einem Text von $v$ vorkommt. \Cref{fig:erweiterter-graph}
+zeigt beispielhaft den so entstehenden, bipartiten Graphen.
 Der DYCOS-Algorithmus betrachtet also die Texte, die einem Knoten 
 zugeordnet sind, als eine Multimenge von Wörtern. Das heißt, zum einen 
 wird nicht auf die Reihenfolge der Wörter geachtet, zum anderen wird 
@@ -65,7 +66,7 @@ die strukturellen Sprünge und inhaltliche Mehrfachsprünge:
 
     Dann heißt das zufällige wechseln des aktuell betrachteten
     Knoten $v \in V_t$ zu einem benachbartem Knoten $w \in V_t$
-    ein struktureller Sprung.
+    ein \textit{struktureller Sprung}.
 \end{definition}
 \goodbreak
 Im Gegensatz dazu benutzten inhaltliche Mehrfachsprünge
