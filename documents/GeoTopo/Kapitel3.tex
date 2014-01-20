@@ -157,7 +157,7 @@
         \caption{Das Zusammensetzen von Wegen ist nicht assoziativ}
     \end{figure}
 
-    Das Zusammensetzen von Wegen ist wegen Korollar~\ref{kor:homotope-wege}
+    Das Zusammensetzen von Wegen ist wegen \cref{kor:homotope-wege}
     bis auf Homotopie assoziativ, da
 
     \[\gamma(t) = \begin{cases}
@@ -177,8 +177,9 @@
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/skizze-bemerkung-10-6.jpg}
-    \caption{Situation aus Korollar~\ref{kor:bemerkung-10-6}}.
+    %\includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/skizze-bemerkung-10-6.jpg}
+    \input{figures/topology-homotop-paths-2.tex}
+    \caption{Situation aus \cref{kor:bemerkung-10-6}}.
     \label{fig:situation-bemerkung-10-6}
 \end{figure}
 
@@ -215,7 +216,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \begin{beweis}[Fundamentalgruppe ist eine Gruppe]\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item Abgeschlossenheit folgt direkt aus der Definition von $*_G$
-        \item Assoziativität folgt aus Korollar~\ref{kor:assoziativitaet-von-zusammensetzen-von-wegen}
+        \item Assoziativität folgt aus \cref{kor:assoziativitaet-von-zusammensetzen-von-wegen}
         \item Neutrales Element $e = [\gamma_0], \gamma_0(t) = x \;\;\; \forall t \in I$.
               $e * [\gamma] = [\gamma] = [\gamma] * e$, da $\gamma_0 * \gamma \sim \gamma$
         \item Inverses Element  $[\gamma]^{-1} = [\overline{\gamma}] = [\gamma(1-t)]$, 
@@ -267,7 +268,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \begin{figure}
     \centering
     \input{figures/todo.tex}
-    \caption{Situation aus Korollar~\ref{kor:gruppenisomorphismus-wege}}.
+    \caption{Situation aus \cref{kor:gruppenisomorphismus-wege}}.
     \label{fig:situation-gruppenisomorphismus-wege}
 \end{figure}
 
@@ -540,7 +541,7 @@ Haben wir Häufungspunkt definiert?}
 
         \underline{1. Fall}: $p(y_1) = p(y_2) = x$.
 
-        Sei $U$ Umgebung von $x$ wie in Definition~\ref{def:12.1},
+        Sei $U$ Umgebung von $x$ wie in \cref{def:12.1},
         $V_{j_1}$ bzw. $V_{j_2}$ die Komponente von $p^{-1}(U)$, die
         $y_1$ bzw. $y_2$ enthält.
 
@@ -611,7 +612,7 @@ Haben wir Häufungspunkt definiert?}
 \begin{figure}
     \centering
     \input{figures/commutative-diagram-2.tex}
-    \caption{Situation aus Korollar~\ref{kor:12.5}}
+    \caption{Situation aus \cref{kor:12.5}}
     \label{fig:situation-kor-12.5}
 \end{figure}
 
@@ -694,7 +695,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
 
     Dann gilt:
     \begin{enumerate}[label=(\roman*)]
-        \item $\tilde{H}$ ist stetig (Beweis wie für Korollar~\ref{kor:12.5})
+        \item $\tilde{H}$ ist stetig (Beweis wie für \cref{kor:12.5})
         \item $\tilde{H}(t,0) = \tilde{\gamma_s}(t) = \tilde{H}(t,1) = \tilde{\gamma_1}(t)$
         \item $\tilde{H}(0,s) = \tilde{\gamma_s}(0) = \tilde{0}$
         \item $\tilde{H}(1,s) \in p^{-1}(b)$
@@ -845,7 +846,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     $p:\tilde{X} \rightarrow X$ mit $(g \circ f) (\tilde{x_0}) = \tilde{x_0}$.
 
     Da auch $\id_{\tilde{x}}$ diese Eigenschaft hat, folgt mit
-    Korollar~\ref{kor:12.4}: $g \circ f = \id_{\tilde{X}}$.
+    \cref{kor:12.4}: $g \circ f = \id_{\tilde{X}}$.
     Analog $f \circ g = \id_{\tilde{Y}}$. $\qed$
 \end{beweis}
 
@@ -1166,8 +1167,8 @@ und der Fundamentalgruppe herstellen:
 \end{beispiel}
 
 \textbf{Erinnerung}:% In Vorlesung: Erinnerung 13.5
-Die Konstruktion aus Korollar~\ref{kor:13.3} induziert zu der Gruppenoperation
-$\pi_1(X, x_0)$ aus Beispiel~\ref{bsp:13.4} einen Gruppenhomomorphismus
+Die Konstruktion aus \cref{kor:13.3} induziert zu der Gruppenoperation
+$\pi_1(X, x_0)$ aus \cref{bsp:13.4} einen Gruppenhomomorphismus
 $\varrho: \pi_1(X, x_0) \rightarrow \Homoo(X)$. Nach Satz~\ref{thm:12.15}
 ist $\varrho(\pi_1(X, x_0)) = \Deck(\tilde{X} / X) = \Set{f: \tilde{X} \rightarrow \tilde{X} \text{ Homöomorphismus} | p \circ f = p}$
 
