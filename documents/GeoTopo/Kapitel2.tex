@@ -124,10 +124,10 @@
     Mannigfaltigkeit.
 \end{definition}
 
-\begin{korollar}
+\begin{folgerung}
     Sind $X, Y$ Mannigfaltigkeiten der Dimension $n$ bzw. $m$, so ist
     $X \times Y$ eine Mannigfaltigkeit der Dimension $n+m$.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Produkte von Karten sind Karten. $\qed$
@@ -156,7 +156,7 @@
     \end{figure}
 \end{beispiel}
 
-\begin{korollar}
+\begin{folgerung}
     Sei $n \in \mdn, F:\mdr^n \rightarrow \mdr$ stetig differenzierbar
     und $X = V(F) := \Set{x \in \mdr^n | F(x) = 0}$ das \enquote{vanishing set}.
 
@@ -166,7 +166,7 @@
         \item Ist $\grad(F)(X) \neq 0 \;\;\;\forall{x \in X}$, so ist
               $X$ eine Mannigfaltigkeit der Dimension $n-1$.  \label{Mannigfaltigkeitskriterium}
     \end{enumerate}
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
@@ -208,7 +208,7 @@
                 \caption{Rechts ist die Neilsche Parabel für verschiedene Parameter $a$.}
             \end{figure}
               Es gilt: $\grad(F) = (-3x^2, 2y)$. Also: $\grad(0,0) = (0,0)$.
-              Daher ist Korollar \ref{Mannigfaltigkeitskriterium}
+              Daher ist \cref{Mannigfaltigkeitskriterium}
               nicht anwendbar, aber $V(F)$ ist trotzdem
               eine 1-dimensionale topologische Mannigfaltigkeit.
     \end{enumerate}
@@ -334,10 +334,10 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{definition}
 
-\begin{korollar}
+\begin{folgerung}
     Die Bedingung in Definition~\ref{def:stetigeAbbildungDiffbar} hängt nicht
     von den gewählten Karten ab.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Seien $(U', \varphi')$ und $(V', \psi')$ Karten von $X$ bzw. $Y$
@@ -439,10 +439,10 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 21.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{korollar}\label{kor:regular-surface-mannigfaltigkeit}
+\begin{folgerung}\label{kor:regular-surface-mannigfaltigkeit}
     Jede reguläre Fläche $S \subseteq \mdr^3$ ist eine 2-dimensionale,
     differenzierbare Mannigfaltigkeit.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     \todo{Hier muss ich nochmals drüber lesen.}
@@ -451,7 +451,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \begin{figure}[htp]
         \centering
         \input{figures/topology-parametric-surface-mapping.tex}
-        \caption{Reguläre Fläche $S$ zum Beweis von Korollar~\ref{kor:regular-surface-mannigfaltigkeit}}
+        \caption{Reguläre Fläche $S$ zum Beweis von \cref{kor:regular-surface-mannigfaltigkeit}}
         \label{fig:parametric-surface-mapping}
     \end{figure}
     
@@ -719,9 +719,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{beispiel}
 
-\begin{korollar}
+\begin{folgerung}
     $\chi(\Delta^n) = 1$ für jedes $n \in \mdn_0$
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     $\Delta^n$ ist die konvexe Hülle von $(e_0, \dots, e_n)$ in $\mdr^{n+1}$.
@@ -769,22 +769,22 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \caption{Beispiele für Graphen}
 \end{figure}
 
-\begin{korollar}
+\begin{folgerung}
     Für jeden Baum $T$ gilt $\gamma(T) = 1$.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Induktion über die Anzahl der Ecken.
 \end{beweis}
 
-\begin{korollar}
+\begin{folgerung}
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item Jeder zusammenhängende Graph $\Gamma$ enthält einen
               Teilbaum $T$, der alle Ecken von $\Gamma$ enthält.%
               \footnote{$T$ wird \enquote{Spannbaum} genannt.}
         \item Ist $n = a_1(\Gamma) = a_1(T)$, so ist $\chi(\Gamma) = 1 - n$.
     \end{enumerate}
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
@@ -798,11 +798,11 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{beweis}
 
-\begin{korollar}\label{kor:simplex-unterteilung}
+\begin{folgerung}\label{kor:simplex-unterteilung}
     Sei $\Delta$ ein $n$-Simplex und $x \in \Delta^\circ \subseteq \mdr^n$.
     Sei $K$ der Simplizialkomplex, der aus $\Delta$ durch 
     \enquote{Unterteilung} in $x$ entsteht. Dann ist $\chi(K) = \chi(\Delta) = 1$.
-\end{korollar}
+\end{folgerung}
 
 \begin{figure}[ht]
     \centering
@@ -814,8 +814,8 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \parbox{4cm}{\centering\input{figures/topology-graph-tetraeder-area-2.tex}}
         \label{fig:topology-simplizial-complex-k-division}
     }%
-    \label{fig:korollar-beispiel}
-    \caption{Beispiel für Korollar~\ref{kor:simplex-unterteilung}.}
+    \label{fig:simplex-unterteilung-beispiel}
+    \caption{Beispiel für \cref{kor:simplex-unterteilung}.}
 \end{figure}
 
 \begin{beweis}
@@ -845,13 +845,13 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
                   \input{figures/topology-3.tex}\todo{Was bedeutet diese Zeichnung?}
               \end{center}
 
-              Nach Korollar~\ref{kor:simplex-unterteilung} ist
+              Nach \cref{kor:simplex-unterteilung} ist
               $\chi(\partial P_1) = \chi(T_1) = \chi(T) = \chi(T_2) = \chi(\partial P_2) = 2$,
               weil \obda{} $P_2$ ein Tetraeder ist.
     \end{enumerate}
 \end{beweis}
 
-\begin{korollar}[Der Rand vom Rand ist 0]\label{kor:9.11}
+\begin{folgerung}[Der Rand vom Rand ist 0]\label{kor:9.11}
     Sei $K$ ein \todo{Warum in Klammern?}{(endlicher)} Simplizialkomplex mit Knotenmenge $V$
     und $<$ eine Totalordnung auf $V$.
 
@@ -870,7 +870,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     Abbildung.
 
     Dann gilt: $d_{n-1} \circ d_n = 0$
-\end{korollar}
+\end{folgerung}
 
 \begin{beispiel}
     \begin{figure}[h!]
@@ -914,7 +914,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{definition}
 
 \begin{bemerkung}
-    Nach Korollar~\ref{kor:9.11} ist $B_n \subseteq Z_n$, denn
+    Nach \cref{kor:9.11} ist $B_n \subseteq Z_n$, denn
     $d_{n+1}(C) \in \text{Kern}(d_n)$ für $C \in C_{n+1}$.
 \end{bemerkung}
 

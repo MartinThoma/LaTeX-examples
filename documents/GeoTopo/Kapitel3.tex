@@ -37,10 +37,10 @@
     \end{enumerate}
 \end{definition}
 
-\begin{korollar}
+\begin{folgerung}
     \enquote{Homotop} ist eine Äquivalenzrelation auf der Menge aller
     Wege in $X$ von $a$ nach $b$.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}\leavevmode
     \begin{itemize}
@@ -105,12 +105,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 05.12.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{korollar}\label{kor:homotope-wege}
+\begin{folgerung}\label{kor:homotope-wege}
     Sei $X$ ein topologischer Raum, $\gamma: I \rightarrow X$ ein 
     Weg und $\varphi: I \rightarrow I$ stetig mit $\varphi(0) = 0$,
     $\varphi(1) = 1$. Dann sind $\gamma$ und $\gamma \circ \varphi$
     homotop.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Sei $H (t,s) = \gamma ((1-s) t + s \cdot \varphi(t))$.
@@ -131,7 +131,7 @@
     schreibt $\gamma = \gamma_1 * \gamma_2$.
 \end{definition}
 
-\begin{korollar}\label{kor:assoziativitaet-von-zusammensetzen-von-wegen}
+\begin{folgerung}\label{kor:assoziativitaet-von-zusammensetzen-von-wegen}
     Das zusammensetzen von Wegen ist nur bis auf 
     Homotopie assoziativ, d.~h.:
     \begin{align*}
@@ -139,7 +139,7 @@
         \gamma_1 * (\gamma_2 * \gamma_3) &\sim (\gamma_1 * \gamma_2) * \gamma_3
     \end{align*}
     mit $\gamma_1(1)=\gamma_2(0)$ und $\gamma_2(1) = \gamma_3(0)$.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     \begin{figure}[ht]
@@ -167,13 +167,13 @@
         \end{cases}\]
 \end{beweis}
 
-\begin{korollar}\label{kor:bemerkung-10-6}
+\begin{folgerung}\label{kor:bemerkung-10-6}
     Sei $X$ ein topologischer Raum, $a,b,c \in X$, $\gamma_1, \gamma_1'$
     Wege von $a$ nach $b$ und $\gamma_2, \gamma_2'$ Wege von $b$ nach $c$.
 
     Sind $\gamma_1 \sim \gamma_1'$ und $\gamma_2 \sim \gamma_2'$, so
     ist $\gamma_1 * \gamma_2 \sim \gamma_1 ' * \gamma_2'$.
-\end{korollar}
+\end{folgerung}
 
 \begin{figure}
     \centering
@@ -256,14 +256,14 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     \end{enumerate}
 \end{beispiel}
 
-\begin{korollar}\label{kor:gruppenisomorphismus-wege}
+\begin{folgerung}\label{kor:gruppenisomorphismus-wege}
     Sei $X$ ein topologischer Raum, $a,b \in X$, $\delta: I \rightarrow X$
     ein Weg von $a$ nach $b$.
 
     Dann ist die Abbildung
     \[\alpha: \pi_1 (X, a) \rightarrow \pi_1(X,b)\;\;\;[\gamma] \mapsto [\overline{\delta} * \gamma * \delta]\]
     ein Gruppenisomorphismus.
-\end{korollar}
+\end{folgerung}
 
 \begin{figure}
     \centering
@@ -290,7 +290,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     für ein \todo{was denn nun?}{(jedes)} $x \in X$.
 \end{definition}
 
-\begin{korollar}\label{korr:11.5}
+\begin{folgerung}\label{korr:11.5}
     Es seien $X, Y$ topologische Räume, $f:X \rightarrow Y$ eine
     stetige Abbildung, $x \in X, y := f(x) \in Y$.
 
@@ -301,7 +301,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
               eine stetige Abbildung $z:= g(y)$. Dann ist
               $(g \circ f)_* = g_* \circ f_*: \pi_1(X,x) \rightarrow \pi_1(Z,z)$
     \end{enumerate}
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
@@ -329,13 +329,13 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     \end{enumerate}
 \end{beispiel}
 
-\begin{korollar}%Folgerung 11.6
+\begin{folgerung}%Folgerung 11.6
     Sei $f:X \rightarrow Y$ ein Homöomorphismus zwischen topologischen
     Räumen $X, Y$. Dann gilt:
 
     \[f_*: \pi_1(X,x) \rightarrow \pi_1(Y, f(x))\]
     ist ein Isomorphismus für jedes $x \in X$.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Sei $g: Y \rightarrow X$ die Umkehrabbildung, d.~h. $g$ ist stetig
@@ -354,9 +354,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     für alle $x \in X$ und $H(x_0, S) = y_0$ für alle $s \in I$.
 \end{definition}
 
-\begin{korollar}
+\begin{folgerung}
     Sind $f$ und $g$ homotop, so ist $f_* = g_*: \pi_1 (X, x_0) \rightarrow \pi_1(Y, y_0)$.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Sei $\gamma$ ein geschlossener Weg in $X$ um $x_0$, d.~h.
@@ -472,9 +472,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     \end{figure}
 \end{beispiel}
 
-\begin{korollar}
+\begin{folgerung}
     Überlagerungen sind surjektiv.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}durch Widerspruch\\
     Sei $p$ eine Überlagerung.
@@ -500,9 +500,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     $f$ heißt \textbf{offen} $:\gdw \forall V \subseteq X$ offen: $f(V)$ ist offen in $Y$.
 \end{definition}
 
-\begin{korollar} % Bemerkung 12.2 der Vorlesung
+\begin{folgerung} % Bemerkung 12.2 der Vorlesung
     Überlappungen sind offene Abbildungen.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Sei $y \in V$ und $x \in p(V)$, sodass $x=p(y)$ gilt.
@@ -527,13 +527,13 @@ Haben wir Häufungspunkt definiert?}
     Häufungspunkt hat.
 \end{definition}
 
-\begin{korollar} % Bemerkung 12.3 der Vorlesung
+\begin{folgerung} % Bemerkung 12.3 der Vorlesung
     Sei $p: Y \rightarrow X$ Überlagerung, $x \in X$.
     \begin{enumerate}[label=\alph*)]
         \item $X$ hausdorffsch $\Rightarrow Y$ hausdorffsch
         \item $p^{-1}(X)$ ist diskret in $Y$
     \end{enumerate}
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
@@ -571,11 +571,11 @@ Haben wir Häufungspunkt definiert?}
     \end{enumerate}
 \end{beweis}
 
-\begin{korollar}[Eindeutigkeit der Liftung]\label{kor:12.4}%Bemerkung 12.4 der Vorlesung
+\begin{folgerung}[Eindeutigkeit der Liftung]\label{kor:12.4}%Bemerkung 12.4 der Vorlesung
     Sei $p: Y \rightarrow X$ Überlagerung, $x_1, x_2 \in X$.
 
     Dann ist $|p^{-1} (x_1)| = |p^{-1}(x_2)|$.\footnote{$|p^{-1} (x_1)| = \infty$ ist erlaubt!}
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Sei $U$ Umgebung von $x_1$ wie in Definition~\ref{def:12.1}, $x \in U$.
@@ -602,12 +602,12 @@ Haben wir Häufungspunkt definiert?}
     \label{fig:satz-seifert-van-kampen}
 \end{figure}
 
-\begin{korollar}\label{kor:12.5}%Bemerkung 12.5 aus Vorlesung
+\begin{folgerung}\label{kor:12.5}%Bemerkung 12.5 aus Vorlesung
     Sei $Z$ zusammenhängend und $f_0, \dots, f_1: Z \rightarrow Y$
     Liftungen von $f$.
 
     $\exists z_0 \in Z: f_0(z) = f_1(z) \Rightarrow f_0 = f_1$
-\end{korollar}
+\end{folgerung}
 
 \begin{figure}
     \centering
@@ -707,13 +707,13 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     zwischen $\tilde{\gamma_0}$ und $\tilde{\gamma_1}$. $\qed$
 \end{beweis}
 
-\begin{korollar}%In Vorlesung: "Folgerung 12.8"
+\begin{folgerung}%In Vorlesung: "Folgerung 12.8"
     Sei $p: Y \rightarrow X$ eine Überlagerung, $x_0 \in X, y_0 \in p^{-1}(x_0)$
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item $p_1: \pi_1(Y, y_0) \rightarrow \pi_1(X, x_0)$ ist injektiv\label{kor:12.8a}
         \item $[\pi_1(X, x_0): p_* (\pi_1(Y, y_0))] = \deg(p)$\label{kor:12.8b}
     \end{enumerate}
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
@@ -747,15 +747,15 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     \end{enumerate}
 \end{beweis}
 
-\begin{korollar}%In Vorlesung: "Folgerung 12.9"
+\begin{folgerung}%In Vorlesung: "Folgerung 12.9"
     Sei $p: Y \rightarrow X$ Überlagerung und $X$ einfach zusammenhängend.
 
     Dann ist $p$ ein Homöomorphismus.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
-    Wegen Korollar~\ref{kor:12.8a} ist auch $Y$ einfach zusammenhängend
-    und wegen Korollar~\ref{kor:12.8b} ist $\deg(p)=1$, $p$ ist also
+    Wegen Folgerung~\ref{kor:12.8a} ist auch $Y$ einfach zusammenhängend
+    und wegen Folgerung~\ref{kor:12.8b} ist $\deg(p)=1$, $p$ ist also
     bijektiv.
 
     Nach \todo{Was ist das?}{12.2} ist $p$ offen $\Rightarrow p^{-1}$
@@ -824,12 +824,12 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 19.12.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{korollar}%Vorlesung: Folgerung 12.12
+\begin{folgerung}%Vorlesung: Folgerung 12.12
     \todo{Hier stimmt was mit den Tilden nicht}
     Sind $p:X \rightarrow X$ und $y: \tilde{Y} \rightarrow X$
     universelle Überlagerungen, so sind $\tilde{X}$ und $\tilde{Y}$
     homöomorph.
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     Seien $x_0 \in X, \tilde{x_0} \in \tilde{X}$ mit 
@@ -887,7 +887,7 @@ der folgende Satz:
 
     \underline{Annahme}: $[\tilde{\gamma}] \neq e$
 
-    Mit Korollar~\ref{kor:12.8a} folgt dann: $[\gamma] \neq e$.
+    Mit Folgerung~\ref{kor:12.8a} folgt dann: $[\gamma] \neq e$.
 
     Dann ist der Lift von $\gamma$ nach $\tilde{x}$ mit Anfangspunkt
     $\tilde{x_0}$ ein Weg von $\tilde{x_0}$ nach $(x_0, [\gamma])$.
@@ -904,7 +904,7 @@ der folgende Satz:
     so heißt $p$ \textbf{regulär}.\xindex{Decktransformation!reguläre}
 \end{definition}
 
-\begin{korollar}%In Vorlesung:12.14
+\begin{folgerung}%In Vorlesung:12.14
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item Die Decktransformationen von $p$ bilden eine Gruppe, 
               die sog. \textbf{Decktransformationsgruppe}\xindex{Decktransformationsgruppe}
@@ -916,7 +916,7 @@ der folgende Satz:
               $\forall x \in X: \Deck(Y/X)$ operiert transitiv
               auf der Menge der Urbilder $p^{-1}(x)$.
     \end{enumerate}
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
@@ -1023,7 +1023,7 @@ und der Fundamentalgruppe herstellen:
     \[(\cos(2 \pi g(0)), \sin(2 \pi g(0))) = (p \circ g)(0) = p(0) = (1,0)\]
 
     Es existiert $n \in \mdz$ mit $g(0) = n$. Da auch $f_n(0) = 0 + n = n$
-    gilt, folgt mit Korollar~\ref{kor:12.14c} $g = f_n$. Damit folgt:
+    gilt, folgt mit Folgerung~\ref{kor:12.14c} $g = f_n$. Damit folgt:
     \[\Deck(\mdr/S^1) = \Set{f_n | n \in \mdz} \cong \mdz\]
     Nach Satz~\ref{thm:12.15} also $\pi_1(S^1) \cong \Deck(\mdr/S^1) \cong \mdz$
 \end{beispiel}
@@ -1079,9 +1079,9 @@ und der Fundamentalgruppe herstellen:
     \end{enumerate}
 \end{definition}
 
-\begin{korollar}%In Vorlesung: Bemerkung 13.2
+\begin{folgerung}%In Vorlesung: Bemerkung 13.2
      Jede stetige Gruppenoperation ist eine Gruppenoperation durch Homöomorphismen.
-\end{korollar}
+\end{folgerung}
 \begin{beweis}
     Nach Voraussetzung ist $\circ |_{\Set{g} \times X} : X \rightarrow X, x \mapsto g \circ x$ stetig.
 
@@ -1100,7 +1100,7 @@ und der Fundamentalgruppe herstellen:
     In Beispiel~\ref{bsp:gruppenoperation1} operiert $\mdz$ durch Homöomorphismen.
 \end{beispiel}
 
-\begin{korollar}\label{kor:13.3}%In Vorlesung: Bemerkung 13.3
+\begin{folgerung}\label{kor:13.3}%In Vorlesung: Bemerkung 13.3
     Sei $G$ eine Gruppe und $X$ eine Menge.
 
     \begin{enumerate}[label=\alph*)]
@@ -1110,7 +1110,7 @@ und der Fundamentalgruppe herstellen:
               die Gruppenoperationen durch Homöomorphismus den Gruppenhomomorphismen
               $G \rightarrow \Homoo(X)$
     \end{enumerate}
-\end{korollar}
+\end{folgerung}
 
 \begin{beweis}
     \item Sei $\circ: G \times X \rightarrow X$ eine Gruppenoperation von $G$
