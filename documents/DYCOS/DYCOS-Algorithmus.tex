@@ -142,7 +142,7 @@ struktureller Sprung durchgeführt wird.
                 \EndFor\label{alg1:l21}
             \EndFor
 
-            \If{$d$ ist leer} \Comment{Es wurde kein beschrifteter Knoten gesehen}
+            \If{$d$.\Call{isEmpty}{ }} \Comment{Es wurde kein beschrifteter Knoten gesehen}
                 \State $M_H \gets \Call{HäufigsteLabelImGraph}{ }$
             \Else
                 \State $M_H \gets \Call{max}{d}$
