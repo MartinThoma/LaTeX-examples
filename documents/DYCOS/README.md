@@ -1,3 +1,5 @@
+About
+=====
 Ausarbeitung zum Proseminar "Netzwerkanalyse" am KIT.
 
 Die Ausarbeitung soll 10-12 Seiten haben und die Präsentation
@@ -8,5 +10,4 @@ TODO
 
 * Abschnitt "Problemstellung" überarbeiten
 * Algorithmen erklären
-* Warum sind Stellenangaben überflüssig?
 * Algorithmus 4, S. 9

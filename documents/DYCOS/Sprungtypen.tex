@@ -80,28 +80,31 @@ Wortknoten entspricht ausgewählt und schließlich zurückgegeben.
   \label{alg:DYCOS-content-multihop}
     \begin{algorithmic}[1]
         \Procedure{InhaltlicherMehrfachsprung}{Knoten $v \in V_T$, $q \in \mathbb{N}$}
-            \State $reachableNodes \gets$ defaultdict\label{alg:l2}
+            \State $erreichbareKnoten \gets$ leeres assoziatives Array\label{alg:l2}
             \ForAll{Wortknoten $w$ in $v.\Call{getWordNodes}{ }$}
                 \ForAll{Strukturknoten $x$ in $w.\Call{getStructuralNodes}{ }$}
-                    \State $reachableNodes[x] \gets reachableNodes[x] + 1$
+                    \If{$!erreichbareKnoten.\Call{hasKey}{x}$}
+                        \State $erreichbareKnoten[x] \gets 0$
+                    \EndIf
+                    \State $erreichbareKnoten[x] \gets erreichbareKnoten[x] + 1$
                 \EndFor
             \EndFor\label{alg:l5}
-            \State \label{alg:l6} $T \gets \Call{max}{reachableNodes, q}$
+            \State \label{alg:l6} $T \gets \Call{max}{erreichbareKnoten, q}$
             \\
             \State \label{alg:l8} $s \gets 0$
             \ForAll{Knoten $x \in T$}
-                \State $s \gets s + reachableNodes[x]$
+                \State $s \gets s + erreichbareKnoten[x]$
             \EndFor
-            \State $relativeFrequency \gets $ Dictionary
+            \State $relativeHaeufigkeit \gets $ leeres assoziatives Array
             \ForAll{Knoten $x \in T$}
-                \State $relativeFrequency \gets \frac{reachableNodes[x]}{s}$
+                \State $relativeHaeufigkeit \gets \frac{erreichbareKnoten[x]}{s}$
             \EndFor\label{alg:l13} 
             \\
             \State \label{alg:15} $random \gets \Call{random}{0, 1}$
             \State $r \gets 0.0$
             \State $i \gets 0$
             \While{$s < random$}
-                \State $r \gets r + relativeFrequency[i]$
+                \State $r \gets r + relativeHaeufigkeit[i]$
                 \State $i \gets i + 1$
             \EndWhile
             

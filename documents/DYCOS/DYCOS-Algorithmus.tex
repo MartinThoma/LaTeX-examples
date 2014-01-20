@@ -100,7 +100,18 @@ Die Vokabularbestimmung kann zu jedem Zeitpunkt $t$ durchgeführt
 werden, muss es aber nicht.
 
 In \cref{alg:DYCOS} wird der DYCOS-Algorithmus als 
-Pseudocode vorgestellt.
+Pseudocode vorgestellt:
+In \cref{alg1:l8} wird für jeden unbeschrifteten Knoten
+durch die folgenden Zeilen eine Beschriftung gewählt.
+
+\Cref{alg1:l10} führt $r$ Random Walks durch.
+In \cref{alg1:l11} wird eine temporäre Variable für den aktuell
+betrachteten Knoten angelegt.
+
+In \cref{alg1:l12} bis \cref{alg1:l21} werden einzelne Random Walks
+der Länge $l$ durchgeführt, wobei die beobachteten Beschriftungen 
+gezählt werden und mit einer Wahrscheinlichkeit von $p_S$ ein 
+struktureller Sprung durchgeführt wird.
 
 \begin{algorithm}
     \begin{algorithmic}[1]
@@ -112,20 +123,23 @@ Pseudocode vorgestellt.
         \Ensure  Klassifikation von $V_t \setminus V_{L,t}$\\
         \\
 
-        \ForAll{Knoten $v \in V_t \setminus V_{L,t}$}
-            \State $d \gets $ defaultdict
-            \For{$i = 1, \dots,r$}
-                \State $w \gets v$
-                \For{$j= 1, \dots, l$}
+        \ForAll{Knoten $v \in V_t \setminus V_{L,t}$}\label{alg1:l8}
+            \State $d \gets $ leeres assoziatives Array
+            \For{$i = 1, \dots,r$}\label{alg1:l10}
+                \State $w \gets v$\label{alg1:l11}
+                \For{$j= 1, \dots, l$}\label{alg1:l12}
                     \State $sprungTyp \gets \Call{random}{0, 1}$
                     \If{$sprungTyp \leq p_S$}
                         \State $w \gets$ \Call{SturkturellerSprung}{$w$}
                     \Else
                         \State $w \gets$ \Call{InhaltlicherMehrfachsprung}{$w$}
                     \EndIf
-                    \State $w \gets v.\Call{GetLabel}{ }$ \Comment{Zähle die Beschriftung}
-                    \State $d[w] \gets d[w] + 1$
-                \EndFor
+                    \State $beschriftung \gets w.\Call{GetLabel}{ }$
+                    \If{$!d.\Call{hasKey}{beschriftung}$}
+                        \State $d[beschriftung] \gets 0$
+                    \EndIf
+                    \State $d[beschriftung] \gets d[beschriftung] + 1$
+                \EndFor\label{alg1:l21}
             \EndFor
 
             \If{$d$ ist leer} \Comment{Es wurde kein beschrifteter Knoten gesehen}
@@ -151,7 +165,8 @@ verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
     \item Für jeden Knoten $v \in V_t$ werden die vorkommenden Wörter,
           die auch im Vokabular $W_t$ sind,
           und deren Anzahl gespeichert. Das könnte z.~B. über ein 
-          assoziatives Array geschehen. Wörter, die nicht in 
+          assoziatives Array (auch \enquote{dictionary} oder 
+            \enquote{map} genannt) geschehen. Wörter, die nicht in 
           Texten von $v$ vorkommen, sind nicht im Array. Für
           alle vorkommenden Wörter ist der gespeicherte Wert zum 
           Schlüssel $w \in W_t$ die Anzahl der Vorkommen von 
@@ -161,13 +176,6 @@ verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
           Diese Liste wird bei den inhaltlichen Mehrfachsprung,
           der in \cref{sec:sprungtypen} erklärt wird,
           verwendet.
-    \item An einigen Stellen macht ein assoziatives Array, auch 
-          \enquote{dictionary} oder \enquote{map} genannt, Sinn.
-          Zustätzlich ist es nützlich, wenn diese Datenstruktur für 
-          unbekannte Schlüssel keinen Fehler ausgibt, sondern für diese
-          Schlüssel den Wert 0 annimmt. Eine solche Datenstruktur
-          wird in Python \texttt{defaultdict} genannt und ich werde
-          im Folgenden diese Benennung beibehalten.
 \end{itemize}
 
 \input{Sprungtypen}
