@@ -30,47 +30,56 @@ nur Wörter betrachtet werden, die auch vorkommen.
 
 Ein Vorschlag, wie die Vokabularbestimmung implementiert werden kann,
 ist als Pseudocode mit \cref{alg:vokabularbestimmung}
-gegeben. Dieser Algorithmus benötigt neben dem Speicher für den
-Graphen, die Texte sowie die $m$ Vokabeln noch $\mathcal{O}(|\text{Verschiedene Wörter in } S_t| \cdot (|\L_t| + 1))$
-Speicher. Die Average-Case Zeitkomplexität beträgt 
-$\mathcal{O}(|\text{Wörter in } S_t|)$, wobei dazu die Vereinigung
-von Mengen $M,N$ in $\mathcal{O}(\min{|M|, |N|})$ sein muss.
+gegeben. In \cref{alg4:l6} wird eine Teilmenge $S_t \subseteq V_{L,t}$
+zum Generieren des Vokabulars gewählt. In \cref{alg4:l8} wird ein Array $cLabelWords$ erstellt, das $(|\L_t|+1)$ Felder hat.
+Die Elemente dieser Felder sind jeweils assoziative Arrays, deren
+Schlüssel Wörter und deren Werte natürliche Zahlen sind. Die ersten 
+$|\L_t|$ Elemente von $cLabelWords$ dienem dem Zählen der Häufigkeit
+der Wörter von Texten aus $S_t$, wobei für jede Beschriftung die
+Häufigkeit einzeln gezählt wird. Das letzte Element aus $cLabelWords$
+zählt die Summe der Wörter. Diese Datenstruktur wird in
+\cref{alg4:l10} bis \ref{alg4:l12} gefüllt. 
 
-\begin{algorithm}
+In \cref{alg4:l17} bis \ref{alg4:l19} wird die relative Häufigkeit
+der Wörter bzgl. der Beschriftungen bestimmt. Daraus wird in  
+\cref{alg4:l20} bis \ref{alg4:l22} der Gini-Koeffizient berechnet.
+Schließlich werden in \cref{alg4:l23} bis \ref{alg4:l24} die Top-$q$
+Wörter mit den höchsten Gini-Koeffizienten zurückgegeben.
+
+\begin{algorithm}[ht]
     \begin{algorithmic}[1]
         \Require \\
                  $V_{L,t}$ (beschriftete Knoten),\\
-                 $\L_t$ (Beschriftungen),\\
+                 $\L_t$ (Menge der Beschriftungen),\\
                  $f:V_{L,t} \rightarrow \L_t$ (Beschriftungsfunktion),\\
                  $m$ (Gewünschte Vokabulargröße)
         \Ensure  $\M_t$ (Vokabular)\\
-
-        \State $S_t \gets \Call{Sample}{V_{L,t}}$ \Comment{Wähle eine Teilmenge $S_t \subseteq V_{L,t}$ aus}
-        \State $\M_t \gets \bigcup_{v \in S_t} \Call{getTextAsSet}{v}$ \Comment{Menge aller Wörter}
-        \State $cLabelWords \gets (|\L_t|+1) \times |\M_t|$-Array, mit 0en initialisiert\\
-
-        \ForAll{$v \in V_{L,t}$} \Comment{Gehe jeden Text Wort für Wort durch}
+        \State $S_t \gets \Call{Sample}{V_{L,t}}$\label{alg4:l6} \Comment{Wähle eine Teilmenge $S_t \subseteq V_{L,t}$ aus}
+        \State $\M_t \gets \emptyset$ \Comment{Menge aller Wörter}
+        \State $cLabelWords \gets$ Array aus $(|\L_t|+1)$ assoziativen Arrays\label{alg4:l8}
+        \ForAll{$v \in S_t$} \label{alg4:l10}\Comment{Gehe jeden Text Wort für Wort durch}
             \State $i \gets \Call{getLabel}{v}$
-            \ForAll{$(word, occurences) \in \Call{getTextAsMultiset}{v}$}
-                \State $cLabelWords[i][word] \gets cLabelWords[i][word] + occurences$
-                \State $cLabelWords[i][|\L_t|] \gets cLabelWords[i][|\L_t|] + occurences$
+            \ForAll{$(word, haeufigkeit) \in \Call{getTextAsMultiset}{v}$}
+                \State $cLabelWords[i][word] \gets cLabelWords[i][word] + haeufigkeit$
+                \State $cLabelWords[|\L_t|][word] \gets cLabelWords[i][|\L_t|] + haeufigkeit$
+                \State $\M_t = \M_t \cup \Set{word}$
             \EndFor
-        \EndFor
-        \\
+        \EndFor\label{alg4:l12}
+		\\
         \ForAll{Wort $w \in \M_t$}
-            \State $p \gets $ Array aus $|\L_t|$ Zahlen in $[0, 1]$
+            \State $p \gets $ Array aus $|\L_t|$ Zahlen in $[0, 1]$\label{alg4:l17}
             \ForAll{Label $i \in \L_t$}
                 \State $p[i] \gets \frac{cLabelWords[i][w]}{cLabelWords[i][|\L_t|]}$
-            \EndFor
+            \EndFor\label{alg4:l19}
 
-            \State $w$.gini $\gets 0$
+            \State $w$.gini $\gets 0$ \label{alg4:l20}
             \ForAll{$i \in 1, \dots, |\L_t|$}
                 \State $w$.gini $\gets$ $w$.gini + $p[i]^2$
-            \EndFor
+            \EndFor\label{alg4:l22}
         \EndFor
 
-        \State $\M_t \gets \Call{SortDescendingByGini}{\M_t}$
-        \State \Return $\Call{Top}{\M_t, m}$
+        \State $\M_t \gets \Call{SortDescendingByGini}{\M_t}$\label{alg4:l23}
+        \State \Return $\Call{Top}{\M_t, m}$\label{alg4:l24}
     \end{algorithmic}
 \caption{Vokabularbestimmung}
 \label{alg:vokabularbestimmung}
