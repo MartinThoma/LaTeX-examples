@@ -19,7 +19,7 @@
 Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
 Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
-\begin{folgerung}[Mengen, die offen und abgeschlossen sind, existieren]
+\begin{bemerkung}[Mengen, die offen und abgeschlossen sind, existieren]
     Betrachte $\emptyset$ und $X$ mit der \enquote{trivialen Topologie}
     \xindex{Topologie!triviale}\index{Klumpentopologie|see{triviale Topologie}} $\fT_{\ts{triv}} = \Set{\emptyset, X}$.
 
@@ -27,7 +27,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     sind offen. Außerdem $X^C = X \setminus X = \emptyset \in \fT$
     und $X \setminus \emptyset = X \in \fT$, d.~h. $X$ und $\emptyset$
     sind als Komplement offener Mengen abgeschlossen.$\qed$
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beispiel}
     \begin{enumerate}[label=\arabic*)]
@@ -286,10 +286,10 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     sodass $x_n \in U$ für alle $n \geq n_0$.
 \end{definition}
 
-\begin{folgerung}
+\begin{bemerkung}
     Ist $X$ hausdorffsch, so hat jede Folge in $X$ höchstens einen
     Grenzwert.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Sei $(x_n)$ eine konvergierende Folge und $x$ und $y$ Grenzwerte der Folge.
@@ -316,7 +316,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begingroup
 \renewcommand{\thmfoot}{\footnotemark}
-\begin{folgerung}
+\begin{bemerkung}
   \footnotetext[\thefootnote]{Im Grunde wird die Äquivalenz
   von Stetigkeit im Sinne der Analysis und Topologie auf metrischen
   Räumen gezeigt.}
@@ -327,7 +327,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
   jedem $\varepsilon > 0$ gibt es $\delta(x, \varepsilon) > 0$, sodass
   für alle $y \in X$ mit $d(x,y) < \delta $ gilt $d_Y(f(x), f(y)) <
   \varepsilon$.
-\end{folgerung}
+\end{bemerkung}
 \endgroup
 
 \begin{beweis}
@@ -377,7 +377,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \end{enumerate}
 \end{beispiel}
 
-\begin{folgerung}[Verkettungen stetiger Abbildungen sind stetig]
+\begin{bemerkung}[Verkettungen stetiger Abbildungen sind stetig]
     Seien $X, Y, Z$ topologische Räume, $f:X \rightarrow Y$ und 
     $g:Y \rightarrow Z$ stetige Abbildungen.
 
@@ -391,7 +391,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
           }
         \end{xy}
     }
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Sei $U \subseteq Z$ offen $\Rightarrow (g \circ f)^{-1} (U) = f^{-1} (g^{-1}(U))$.
@@ -412,26 +412,26 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \end{enumerate}
 \end{bemerkung}
 
-\begin{folgerung}
+\begin{bemerkung}
     Seien $X, Y$ topologische Räume. $\pi_X: X \times Y \rightarrow X$
     und $\pi_Y: X \times Y \rightarrow Y$ die Projektionen 
     \[\pi_X: (x,y) \mapsto x \text{ und } \pi_Y: (x,y) \mapsto y\]
     Wird $X \times Y$ mit der Produkttopologie versehen, so sind $\pi_X$
     und $\pi_Y$ stetig.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Sei $U \subseteq X$ offen $\Rightarrow \pi_x^{-1} (U) = U \times Y$ 
     ist offen in $X \times Y$. $\qed$
 \end{beweis}
 
-\begin{folgerung}
+\begin{bemerkung}
     Sei $X$ ein topologischer Raum, $\sim$ eine Äquivalenzrelation auf
     $X$, $\overline{X} = X /_\sim$ der Bahnenraum versehen mit der
     Quotiententopologie, $\pi:X \rightarrow \overline{X}$, $x \mapsto [x]_\sim$.
 
     Dann ist $\pi$ stetig.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Nach Definition ist 
@@ -529,10 +529,10 @@ sodass $\pi$ stetig wird.
     \end{enumerate}
 \end{beispiel}
 
-\begin{folgerung}\label{zusammenhangAbschluss}
+\begin{bemerkung}\label{zusammenhangAbschluss}
     Sei $X$ ein topologischer Raum und $A \subseteq X$ zusammenhängend.
     Dann ist auch $\overline{A}$ zusammenhängend.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     \underline{Annahme}: $\overline{A} = A_1 \cup A_2,\; A_i$ abgeschlossen, $\neq \emptyset$,
@@ -551,11 +551,11 @@ sodass $\pi$ stetig wird.
     $\Rightarrow$ Widerspruch zu $A$ ist zusammenhängend $ \qed$
 \end{beweis}
 
-\begin{folgerung}\label{zusammenhangVereinigung}
+\begin{bemerkung}\label{zusammenhangVereinigung}
     Sei $X$ ein topologischer Raum und $A, B \subseteq X$ zusammenhängend.
 
     Ist $A \cap B \neq \emptyset$, dann ist $A \cup B$ zusammenhängend.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Sei $A \cup B = U_1 \cup U_2, U_i \neq \emptyset$ offen, disjunkt
@@ -577,7 +577,7 @@ sodass $\pi$ stetig wird.
      $Z(x)$ heißt \textbf{Zusammenhangskomponente}.
 \end{definition}
 
-\begin{folgerung}
+\begin{bemerkung}
     Sei $X$ ein topologischer Raum. Dann gilt:
     \begin{enumerate}[label=\alph*)]
         \item $Z(X)$ ist die größte zusammenhängende Teilmenge von $X$,
@@ -585,7 +585,7 @@ sodass $\pi$ stetig wird.
         \item $Z(X)$ ist abgeschlossen.
         \item $X$ ist disjunkte Vereinigung von Zusammenhangskomponenten.
     \end{enumerate}
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
@@ -610,10 +610,10 @@ sodass $\pi$ stetig wird.
     $\qed$
 \end{beweis}
 
-\begin{folgerung}
+\begin{bemerkung}
     Sei $f:X \rightarrow Y$ stetig. Ist $A \subseteq X$ zusammenhängend,
     so ist $f(A) \subseteq y$ zusammenhängend.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Sei $f(A) = U_1 \cup U_2, U_i \neq \emptyset,$ offen, disjunkt.
@@ -643,9 +643,9 @@ sodass $\pi$ stetig wird.
 % Mitschrieb vom 05.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{folgerung}\label{abgeschlossen01IstKompakt}
+\begin{bemerkung}\label{abgeschlossen01IstKompakt}
     $I = [0, 1]$ ist kompakt bezüglich der euklidischen Topologie.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
 \todo{Der Beweis ist komisch. Das würde ich gerne mit jemanden durchsprechen.}
@@ -683,10 +683,10 @@ $\qed$
     \end{enumerate}
 \end{beispiel}
 
-\begin{folgerung}\label{abgeschlossenInKomaktIstKompakt}
+\begin{bemerkung}\label{abgeschlossenInKomaktIstKompakt}
     Sei $X$ kompakter Raum, $A \subseteq X$ abgeschlossen. Dann ist
     $A$ kompakt.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Sei $(V_{i})_{i \in I}$ offene Überdeckung von A.\\
@@ -702,10 +702,10 @@ $\qed$
     $\qed$
 \end{beweis}
 
-\begin{folgerung}\label{kompaktTimesKompaktIstKompakt}
+\begin{bemerkung}\label{kompaktTimesKompaktIstKompakt}
     Seien $X, Y$ kompakte topologische Räume. Dann ist $X \times Y$
     mit der Produkttopologie kompakt.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Sei $(W_i)_{i \in I}$ eine offene Überdeckung von $X \times Y$.
@@ -732,10 +732,10 @@ $\qed$
     $\Rightarrow \bigcup_j \bigcup_i W_i (x_j, y_i) = X \times Y \qed$
 \end{beweis}
 
-\begin{folgerung}\label{hausdorffraumKompakteTeilmengeAbgeschlossen}
+\begin{bemerkung}\label{hausdorffraumKompakteTeilmengeAbgeschlossen}
     Sei $X$ ein Hausdorffraum und $K \subseteq X$ kompakt.
     Dann ist $K$ abgeschlossen.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     \underline{z.~Z.:} Komplement ist offen
@@ -762,10 +762,10 @@ $\qed$
     Damit ist $K$ abgeschlossen. $\qed$
 \end{beweis}
 
-\begin{folgerung}\label{kor:5.6}%In Vorlesung: Bemerkung 5.6
+\begin{bemerkung}\label{kor:5.6}%In Vorlesung: Bemerkung 5.6
     Seien $X, Y$ topologische Räume, $f: X \rightarrow Y$ stetig.
     Ist $K \subseteq X$ kompakt, so ist $f(K) \subseteq Y$ kompakt.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Sei $(V_i)_{i \in I}$ offene Überdeckung von $f(K)$\\
@@ -836,14 +836,14 @@ $\qed$
     gibt mit $\gamma(0)=x$ und $\gamma(1)=y$.
 \end{definition}
 
-\begin{folgerung}\label{kor:wegzusammehang-impliziert-zusammenhang}
+\begin{bemerkung}\label{kor:wegzusammehang-impliziert-zusammenhang}
     Sei $X$ ein topologischer Raum.
 
     \begin{enumerate}[label=(\roman*)]
         \item $X$ ist wegzusammenhängend $\Rightarrow X$ ist zusammenhängend
         \item $X$ ist wegzusammenhängend $\not\Leftarrow X$ ist zusammenhängend
     \end{enumerate}
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}~\\
     \begin{enumerate}[label=(\roman*)]

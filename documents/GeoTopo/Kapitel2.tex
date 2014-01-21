@@ -124,10 +124,10 @@
     Mannigfaltigkeit.
 \end{definition}
 
-\begin{folgerung}
+\begin{bemerkung}
     Sind $X, Y$ Mannigfaltigkeiten der Dimension $n$ bzw. $m$, so ist
     $X \times Y$ eine Mannigfaltigkeit der Dimension $n+m$.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Produkte von Karten sind Karten. $\qed$
@@ -156,7 +156,7 @@
     \end{figure}
 \end{beispiel}
 
-\begin{folgerung}
+\begin{bemerkung}
     Sei $n \in \mdn, F:\mdr^n \rightarrow \mdr$ stetig differenzierbar
     und $X = V(F) := \Set{x \in \mdr^n | F(x) = 0}$ das \enquote{vanishing set}.
 
@@ -166,7 +166,7 @@
         \item Ist $\grad(F)(X) \neq 0 \;\;\;\forall{x \in X}$, so ist
               $X$ eine Mannigfaltigkeit der Dimension $n-1$.  \label{Mannigfaltigkeitskriterium}
     \end{enumerate}
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
@@ -334,10 +334,10 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{definition}
 
-\begin{folgerung}
+\begin{bemerkung}
     Die Bedingung in Definition~\ref{def:stetigeAbbildungDiffbar} hängt nicht
     von den gewählten Karten ab.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Seien $(U', \varphi')$ und $(V', \psi')$ Karten von $X$ bzw. $Y$
@@ -439,10 +439,10 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 21.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{folgerung}\label{kor:regular-surface-mannigfaltigkeit}
+\begin{bemerkung}\label{kor:regular-surface-mannigfaltigkeit}
     Jede reguläre Fläche $S \subseteq \mdr^3$ ist eine 2-dimensionale,
     differenzierbare Mannigfaltigkeit.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     \todo{Hier muss ich nochmals drüber lesen.}
@@ -719,9 +719,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{beispiel}
 
-\begin{folgerung}
+\begin{bemerkung}
     $\chi(\Delta^n) = 1$ für jedes $n \in \mdn_0$
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     $\Delta^n$ ist die konvexe Hülle von $(e_0, \dots, e_n)$ in $\mdr^{n+1}$.
@@ -769,22 +769,22 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \caption{Beispiele für Graphen}
 \end{figure}
 
-\begin{folgerung}
+\begin{bemerkung}
     Für jeden Baum $T$ gilt $\gamma(T) = 1$.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     Induktion über die Anzahl der Ecken.
 \end{beweis}
 
-\begin{folgerung}
+\begin{bemerkung}
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
         \item Jeder zusammenhängende Graph $\Gamma$ enthält einen
               Teilbaum $T$, der alle Ecken von $\Gamma$ enthält.%
               \footnote{$T$ wird \enquote{Spannbaum} genannt.}
         \item Ist $n = a_1(\Gamma) = a_1(T)$, so ist $\chi(\Gamma) = 1 - n$.
     \end{enumerate}
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
@@ -798,11 +798,11 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{beweis}
 
-\begin{folgerung}\label{kor:simplex-unterteilung}
+\begin{bemerkung}\label{kor:simplex-unterteilung}
     Sei $\Delta$ ein $n$-Simplex und $x \in \Delta^\circ \subseteq \mdr^n$.
     Sei $K$ der Simplizialkomplex, der aus $\Delta$ durch 
     \enquote{Unterteilung} in $x$ entsteht. Dann ist $\chi(K) = \chi(\Delta) = 1$.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{figure}[ht]
     \centering
@@ -851,7 +851,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{enumerate}
 \end{beweis}
 
-\begin{folgerung}[Der Rand vom Rand ist 0]\label{kor:9.11}
+\begin{bemerkung}[Der Rand vom Rand ist 0]\label{kor:9.11}
     Sei $K$ ein \todo{Warum in Klammern?}{(endlicher)} Simplizialkomplex mit Knotenmenge $V$
     und $<$ eine Totalordnung auf $V$.
 
@@ -870,7 +870,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     Abbildung.
 
     Dann gilt: $d_{n-1} \circ d_n = 0$
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beispiel}
     \begin{figure}[h!]

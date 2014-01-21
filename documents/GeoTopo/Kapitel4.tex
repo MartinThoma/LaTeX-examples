@@ -83,12 +83,12 @@ aufgestellt.
     \label{fig:halbgeraden}
 \end{figure}
 
-\begin{folgerung}
+\begin{bemerkung}
     \begin{enumerate}[label=(\roman*)]
         \item $PR^+ \cup PR^- = PR$
         \item $PR^+ \cap PR^- = \Set{P}$
     \end{enumerate}
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=(\roman*)]
@@ -172,14 +172,14 @@ scheiden.
     $\Rightarrow g \cap \overline{RP} \neq \emptyset$
 \end{beweis}
 
-\begin{folgerung}\label{kor:beh3}
+\begin{bemerkung}\label{kor:beh3}
     Sei $P, Q \in X$ mit $P \neq Q$ sowie $A, B \in X \setminus PQ$ 
     mit $A \neq B$.
     Außerdem seien $A$ und $B$ in der selben Halbebene bzgl. $PQ$ sowie
     $Q$ und $B$ in der selben Halbenebe bzgl. $PA$.
 
     Dann gilt: $PB^+ \cap \overline{AQ} \neq \emptyset$
-\end{folgerung}
+\end{bemerkung}
 
 \begin{figure}[htp]
     \centering
@@ -212,13 +212,13 @@ schneiden sich.
     $\emptyset \neq \Set{C} \subseteq PB^+ \cap \overline{AQ} \qed$
 \end{beweis}
 
-\begin{folgerung}\label{kor:14.6}%In Vorlesung: Bemerkung 14.6
+\begin{bemerkung}\label{kor:14.6}%In Vorlesung: Bemerkung 14.6
     Seien $P, Q \in X$ mit $P \neq Q$ und $A, B \in X \setminus PQ$
     in der selben Halbebene bzgl. $PQ$. Außerdem sei $d(A,P)=d(B,P)$
     und $d(A, Q) = d(B, Q)$.
 
     Dann ist $A = B$.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{figure}[htp]
     \centering
@@ -275,12 +275,12 @@ schneiden sich.
     Tausche $A$ und $B \Rightarrow$  Fall 1 $\qed$
 \end{beweis}
 
-\begin{folgerung}\label{kor:beh2'}
+\begin{bemerkung}\label{kor:beh2'}
     Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:3}
     erfüllt und $\varphi$ eine Isometrie mit $\varphi(P) = P$ und $\varphi(Q) = Q$.
 
     Dann gilt $\varphi(S) = S\;\;\;\forall S \in PQ$.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{beweis}
     \begin{align}
@@ -462,10 +462,10 @@ schneiden sich.
     \caption{Situation aus \cref{def:14.8}}
 \end{figure}
 
-\begin{folgerung}\label{kor:14.9}%In Vorlesung: Bemerkung 14.9
+\begin{bemerkung}\label{kor:14.9}%In Vorlesung: Bemerkung 14.9
     In einem Dreieck ist jeder Innenwinkel kleiner als jeder nicht 
     anliegende Außenwinkel.
-\end{folgerung}
+\end{bemerkung}
 
 \begin{figure}[htp]
     \centering
@@ -565,3 +565,22 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
         und $\alpha_1 + \alpha_2 = \alpha$, also \obda $\alpha_1 \leq \frac{\alpha}{2}$
     \end{beweis}
 \end{beweis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 21.01.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bemerkung}%In Vorlesung: Bemerkung 14.12
+    In einer euklidischen Ebene ist in jedem Dreieck die Innenwinkelsumme
+    gleich $\pi$.
+\end{bemerkung}
+\todo[inline]{Bild 1}
+\begin{beweis}
+    Sei $g$ eine Parallele von $AB$ durch $C$. 
+
+    \begin{itemize}
+        \item Es gibt $\alpha' = \alpha$ wegen \cref{prop:14.7}.
+        \item Es gibt $\beta' = \beta$ wegen \cref{prop:14.7}.
+        \item Es gibt $\alpha'' = \alpha'$ wegen \cref{ub11:aufg1}.
+    \end{itemize}
+\end{beweis}
+
+\input{Kapitel4-UB}
