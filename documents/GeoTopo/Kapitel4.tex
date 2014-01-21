@@ -581,6 +581,155 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
         \item Es gibt $\beta' = \beta$ wegen \cref{prop:14.7}.
         \item Es gibt $\alpha'' = \alpha'$ wegen \cref{ub11:aufg1}.
     \end{itemize}
+    $\Rightarrow \IWS(\triangle ABC) = \gamma + \alpha'' + \beta' = \pi$
 \end{beweis}
 
+\section{Weitere Eigenschaften einer euklidischen Ebene}
+\subsection{Strahlensatz}
+\begin{satz}
+    In ähnlichen Dreiecken sind Verhältnisse entsprechender Seiten gleich.
+\end{satz}
+
+\todo[inline]{Bild 2}
+
+\begin{beweis}
+    TODO
+\end{beweis}
+
+\todo[inline]{Bild 3}
+
+\subsection{Flächeninhalt}
+\begin{definition}
+    \enquote{Simplizialkomplexe} in euklidischer Ebene $(X,d)$ heißen
+    \textbf{flächengleich}\xindex{Simplizialkomplexe!flächengleiche},
+    wenn sie sich in kongruente Dreiecke zerlegen lassen.
+\end{definition}
+
+\begin{figure}[ht]
+    \centering
+    \subfloat[TODO]{
+        \input{figures/todo.tex}
+        \label{fig:bild-4}
+    }%
+    \subfloat[TODO]{
+        \input{figures/todo.tex}
+        \label{fig:bild-5}
+    }%
+    \label{fig:flaechengleichheit}
+    \caption{Flächengleichheit}
+\end{figure}
+
+Der Flächeninhalt eines Dreiecks ist $\nicefrac{1}{2} \cdot \text{Grundseite} \cdot \text{Höhe}$.
+
+\begin{figure}
+    \centering
+    \input{figures/todo.tex}
+    \caption{Flächenberechnung im Dreiecks}
+    \label{fig:flaechenberechnung-dreieck}
+\end{figure}
+
+\underline{Zu zeigen:} Unabhängigkeit von der gewählten Grundseite.
+
+\begin{figure}
+    \centering
+    \input{figures/todo.tex}
+    \caption{Flächenberechnung im Dreiecks (Bild 7)}
+    \label{fig:flaechenberechnung-dreieck-2}
+\end{figure}
+
+$\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \cdot h_a = c \cdot h_c$
+
+\begin{satz}[Satz des Pythagoras]
+    Im rechtwinkligen Dreieck gilt $a^2 + b^2 = c^2$, wobei $c$ die
+    Hypothenuse und $a, b$ die beiden Katheten sind.
+\end{satz}
+
+\begin{figure}[ht]
+    \centering
+    \subfloat[$a,b$ sind Katheten und $c$ ist die Hypothenuse]{
+        \input{figures/todo.tex}
+        \label{fig:pythagoras-bezeichnungen}
+    }%
+    \subfloat[Beweisskizze]{
+        \input{figures/todo.tex}
+        \label{fig:bild-5}
+    }%
+    \label{fig:flaechengleichheit}
+    \caption{Satz des Pythagoras}
+\end{figure}
+
+\begin{beweis}
+    $(a+b) \cdot (a+b) = a^2 + 2ab + b^2 = c^2 +4 \cdot (\frac{1}{2} \cdot a \cdot b)$
+\end{beweis}
+
+\begin{satz}\label{satz:14.13} %In Vorlesung: Satz 14.13
+    Bis auf Isometrie gibt es genau eine euklidische Ebene, nämlich
+    $X=\mdr^2$, $d = \text{euklidischer Abstand}$, $G = \text{Menge der üblichen Geraden}$.
+\end{satz}
+
+\begin{beweis}
+    \begin{enumerate}[label=(\roman*)]
+        \item $(\mdr^2, d_\text{Euklid})$ ist offensichtlich eine euklidische Ebene.
+        \item Sei $(X,d)$ eine euklidische Ebene und $g_1, g_2$ Geraden
+              in $X$, die sich in einem Punkt $0$ im rechten Winkel
+              schneiden. Sei $X$ der Fußpunkt des Lots von $P$ auf
+              $g_1$ (vgl. \cref{ub11:aufg3.c}).
+
+              Sei $Y$ der Fußpunkt des Lots von $P$ auf $g_2$.
+
+              Setze $h(P) := (x_P, y_P)$ mit 
+              $x_P := d(X, 0)$ und $y_P := d(Y, 0)$.
+
+            \begin{figure}[ht]
+                \centering
+                \subfloat[Schritt 1 (Bild 10)]{
+                    \input{figures/todo.tex}
+                    \label{fig:14.13.1}
+                }%
+                \subfloat[Schritt 2 (Bild 11)]{
+                    \input{figures/todo.tex}
+                    \label{fig:14.13.2}
+                }%
+                \label{fig:14.13.0.1}
+                \caption{Beweis zu \cref{satz:14.13}}
+            \end{figure}
+
+            Dadurch wird $h:X \rightarrow \mdr^2$ auf dem Quadranten
+            definiert, in dem $P$ liegt (d.~h. $\forall Q \in X \text{ mit } \overline{PQ} \cap g_1 = \emptyset = \overline{PQ} \cap g_2$)
+            Fortsetzung auf ganz $X$ durch konsistente Vorzeichenwahl.
+
+            \begin{behauptung}[1]
+                $h$ ist surjektiv
+            \end{behauptung}
+            \begin{behauptung}[2]
+                $h$ ist abstandserhaltend ($\rightarrow$ injektiv)
+            \end{behauptung}
+            \begin{beweis}[von 1]
+                Sei $(x, y) \in \mdr^2$, z.~B. $x \geq 0, y \geq 0$.
+                Sei $P' \in g_1$ mit $d(0, P') = x$ und
+                $P'$ auf der gleichen Seite von $g_2$ wie $P$.
+            \end{beweis}
+            \begin{beweis}[von 2]
+                \begin{figure}[ht]
+                    \centering
+                    \subfloat[Schritt 1 (Bild 12)]{
+                        \input{figures/todo.tex}
+                        \label{fig:14.13.3}
+                    }%
+                    \subfloat[Schritt 2 (Bild 13)]{
+                        \input{figures/todo.tex}
+                        \label{fig:14.13.4}
+                    }%
+                    \label{fig:14.13.0.2}
+                    \caption{Beweis zu \cref{satz:14.13}}
+                \end{figure}
+                Zu Zeigen: $d(P, Q) = d(h(P), h(Q))$
+
+                $d(P, Q)^2 \overset{\text{Pythagoras}}{=} d(P, R)^2 + d(R, Q)^2 = (y_Q - y_P)^2 + (x_Q - x_P)^2$.
+
+                $h(Q) = (x_Q, y_Q)$
+            \end{beweis}
+    \end{enumerate}
+\end{beweis}
+% Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel4-UB}
