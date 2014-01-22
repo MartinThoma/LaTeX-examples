@@ -1,3 +1,3 @@
 Compiled example
 ----------------
-![Example](triangle-similar.png)
+![Example](rectangle-2.png)

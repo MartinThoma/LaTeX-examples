@@ -1,4 +1,4 @@
-SOURCE  = triangle-similar
+SOURCE  = rectangle-2.2
 DELAY   = 80
 DENSITY = 300
 WIDTH   = 512
