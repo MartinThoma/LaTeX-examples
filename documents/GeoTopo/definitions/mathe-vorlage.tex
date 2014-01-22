@@ -1,4 +1,4 @@
-\documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
+\documentclass[a4paper,9pt]{scrartcl}
 \usepackage{etoolbox}
 \usepackage{amsmath,amssymb}% math symbols / fonts
 \usepackage{mathtools}      % \xRightarrow
@@ -37,52 +37,18 @@
 \usepackage[german,nameinlink]{cleveref} % has to be after hyperref, ntheorem, amsthm
 \usepackage{shortcuts}
 
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]%
-{\markboth{\MakeUppercase{\thechapter.\ #1}}{}}
-\renewcommand{\sectionmark}[1]%
-{\markright{\MakeUppercase{\thesection.\ #1}}}
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0pt}
-\newcommand{\helv}{%
-\fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
-\fancyhf{}
-\fancyhead[LE,RO]{\helv \thepage}
-\fancyhead[LO]{\helv \rightmark}
-\fancyhead[RE]{\helv \leftmark}
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
 
 \hypersetup{ 
-  pdfauthor   = {Siehe tinyurl.com/GeoTopo}, 
-  pdfkeywords = {Geometrie, Topologie}, 
-  pdftitle    = {Geometrie und Topologie} 
-}
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Geometrie und Topologie}, 
+  pdftitle    = {Geometrie und Topologie - Definitionen} 
+} 
 
-\makeindex
-
-\usepackage{microtype}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\pagenumbering{roman}
-\setcounter{page}{1}
-\input{titlepage}
-\input{Vorwort}
-\tableofcontents
-
-\pagenumbering{arabic}
-\setcounter{page}{1}
-\input{Kapitel1}
-\input{Kapitel2}
-\input{Kapitel3}
-\input{Kapitel4}
-\input{Loesungen}
-
-\appendix
-\input{Bildquellen}
-\clearpage
-\input{Symbolverzeichnis} 
-\clearpage
-\addcontentsline{toc}{chapter}{Stichwortverzeichnis}
-\renewcommand{\indexname}{Stichwortverzeichnis}
-\printindex
+%CONTENT%
 \end{document}
