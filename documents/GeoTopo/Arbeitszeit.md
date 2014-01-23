@@ -40,4 +40,5 @@ in dem Erstellen dieses Skripts steckt:
 |21.01.2014 | 19:30 - 21:30 | Digitalisieren der Vorlesung von 21.01.2014
 |22.01.2014 | 06:00 - 06:30 | TikZ'en eines Bildes
 |22.01.2014 | 07:15 - 07:35 | TikZ'en eines Bildes
-|22.01.2014 | 00:00 - 10:00 | TikZ'en eines Bildes und Bemerkungen
+|23.01.2014 | 09:00 - 10:00 | TikZ'en eines Bildes und Bemerkungen
+|23.01.2014 | 10:30 - 12:15 | TikZ'en von Bildern
