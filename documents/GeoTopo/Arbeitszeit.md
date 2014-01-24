@@ -43,3 +43,4 @@ in dem Erstellen dieses Skripts steckt:
 |23.01.2014 | 09:00 - 10:00 | TikZ'en eines Bildes und Bemerkungen
 |23.01.2014 | 10:30 - 12:15 | TikZ'en von Bildern
 |24.01.2014 | 15:00 - 15:15 | Flag um Dokument in A4 (für den Bildschirm) bzw. A5 (zum drucken und binden)
+|24.01.2014 | 23:00 - 00:15 | Digitalisieren der Vorlesung von 23.01.2014
