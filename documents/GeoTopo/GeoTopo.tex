@@ -1,4 +1,10 @@
-\documentclass[a4paper,oneside,DIV15,BCOR12mm]{scrbook}
+\documentclass[DIV15,BCOR12mm]{scrbook}
+\newif\ifAFive\AFivefalse
+\ifAFive
+  \KOMAoptions{paper=a5,twoside=true}
+\else
+  \KOMAoptions{paper=a4,twoside=false}
+\fi
 \usepackage{etoolbox}
 \usepackage{amsmath,amssymb}% math symbols / fonts
 \usepackage{mathtools}      % \xRightarrow
@@ -12,6 +18,10 @@
 \usepackage{makeidx}        % for automatically generation of an index
 \usepackage{xcolor}
 \usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
+\ifAFive
+  \hypersetup{hidelinks=true}
+% no \else branch needed in this case
+\fi
 \usepackage{enumitem}       % Better than \usepackage{enumerate}, because it allows to set references
 \usepackage{tabto}
 \usepackage{braket}         % needed for \Set
