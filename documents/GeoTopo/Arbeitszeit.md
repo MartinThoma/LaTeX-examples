@@ -45,3 +45,4 @@ in dem Erstellen dieses Skripts steckt:
 |24.01.2014 | 15:00 - 15:15 | Flag um Dokument in A4 (für den Bildschirm) bzw. A5 (zum drucken und binden)
 |24.01.2014 | 23:00 - 00:15 | Digitalisieren der Vorlesung von 23.01.2014
 |25.01.2014 | 09:30 - 12:45 | Digitalisieren der Vorlesung von 23.01.2014
+|25.01.2014 | 13:05 - 13:35 | Aufgabe aus Tutorium hinzugefügt

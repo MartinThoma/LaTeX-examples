@@ -212,3 +212,31 @@
 %\begin{solution}[\ref{ub7:aufg3}]
 %
 %\end{solution}
+
+\begin{solution}[\ref{ub-tut-24:a1}]
+    Sei $f \parallel h$ und \obda $f \parallel g$.
+
+    $f \nparallel h \Rightarrow f \cap h \neq \emptyset$, sei also $x \in f \cap h$.
+    Mit Axiom \ref{axiom:5} folgt: Es gibt höchstens eine Parallele
+    zu $g$ durch $x$, da $x \notin g$. Diese ist $f$, da $x \in f$
+    und $f \parallel g$. Da aber $x \in h$, kann $h$ nicht parallel
+    zu $g$ sein, denn ansonsten gäbe es zwei Parallelen zu $g$ durch
+    $x$ ($f \neq h$).
+    $\Rightarrow g \nparallel h$ $\qed$
+\end{solution}
+
+\begin{solution}[\ref{ub-tut-24:a3}]
+    Seien $\triangle ABC$ und $\triangle AB' C'$ Dreiecke mit
+    \begin{align*}
+        d(A, B)  &= d(A', B')\\
+        d(B, C)  &= d(B', C')\\
+        d(C, A)  &= d(C', A')
+    \end{align*}
+
+    Dann existiert nach \ref{axiom:4} genau eine Isometrie $\varphi$
+    mit $\varphi(A) = A', \varphi(B) = B'$ und $\varphi(C) \in A' B' C'^+$.
+
+    Da $d(A',C') = d(A,C) = d(\varphi(A), \varphi(C)) = d(A', \varphi(C))$
+    und $d(B', C') = d(B', \varphi(C))$
+    \todo[inline]{da fehlt was}
+\end{solution}
