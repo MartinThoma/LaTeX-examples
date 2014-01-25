@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \tkzSetUpPoint[shape=circle,size=3,color=black,fill=black]
+    \tkzSetUpLine[line width=0.5]
+    \tkzInit[xmax=4.5,ymax=3,xmin=-1,ymin=0]
+    \tkzDefPoints{0/0/O, 3/3/lz, 2/2/z, 3/0/lzx, 2/0/zx}
+    \tkzDrawLines(O,lz zx,z)
+    \tkzDrawLine[add=0 and 0.2](lzx,lz)
+    \tkzAxeXY[ticks=false]
+
+    %\tkzDrawArc[R,line width=1pt,color=red](m1,1.5 cm)(0,180)
+    %\tkzDrawArc[R,line width=1pt](m2,2.5 cm)(0,180)
+    \tkzDrawPoints(z,lz)
+    \tkzLabelPoint[left](z) {$z$}
+    \tkzLabelPoint[above right](zx) {$x$}
+    \tkzLabelPoint[right](lz) {$\lambda^2 z$}
+    \tkzLabelPoint[above right](lzx) {$\lambda^2 x$}
+    %\node[red] at ($(m1)+(1.5,-0.2)$)  {$m+1$};
+\end{tikzpicture}
