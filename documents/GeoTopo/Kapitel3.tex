@@ -464,7 +464,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
             \label{fig:ueberlappung-kaestchen-torus}
         }%
         \subfloat[$t \mapsto (\cos 4 \pi t, \sin 4 \pi t)$]{
-            \resizebox{0.3\linewidth}{!}{\input{figures/topology-ueberlagerung.tex}}
+            \input{figures/topology-ueberlagerung.tex}
             \label{fig:liftung-s1-s1}
         }%
         \label{fig:ueberlagerungen}
@@ -597,7 +597,7 @@ Haben wir Häufungspunkt definiert?}
 
 \begin{figure}
     \centering
-    \input{figures/liftung-torus-r.tex}
+    \resizebox{0.95\linewidth}{!}{\input{figures/liftung-torus-r.tex}}
     \caption{Beim Liften eines Weges bleiben geschlossene Wege im allgemeinen nicht geschlossen}
     \label{fig:satz-seifert-van-kampen}
 \end{figure}
@@ -1170,7 +1170,9 @@ und der Fundamentalgruppe herstellen:
 Die Konstruktion aus \cref{kor:13.3} induziert zu der Gruppenoperation
 $\pi_1(X, x_0)$ aus \cref{bsp:13.4} einen Gruppenhomomorphismus
 $\varrho: \pi_1(X, x_0) \rightarrow \Homoo(X)$. Nach Satz~\ref{thm:12.15}
-ist $\varrho(\pi_1(X, x_0)) = \Deck(\tilde{X} / X) = \Set{f: \tilde{X} \rightarrow \tilde{X} \text{ Homöomorphismus} | p \circ f = p}$
+ist \begin{align*}\varrho(\pi_1(X, x_0)) &= \Deck(\tilde{X} / X)\\
+                                         &= \Set{f: \tilde{X} \rightarrow \tilde{X} \text{ Homöomorphismus} | p \circ f = p}
+    \end{align*}
 
 \begin{beispiel}% In Vorlesung: Beispiel 13.6
     Sei $X := S^2 \subseteq \mdr^3$ und $\tau$ die Drehung um die $z$-Achse
