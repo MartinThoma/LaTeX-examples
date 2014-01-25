@@ -2,6 +2,13 @@
 % Mitschrieb vom 09.01.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Euklidische und nichteuklidische Geometrie}
+
+\begin{definition}
+    Das Tripel $(X, d, G)$ heißt genau dann eine \textbf{Geometrie}\xindex{Geometrie},
+    wenn $(X, d)$ ein metrischer Raum und $\emptyset \neq G \subseteq \powerset{X}$
+    die Menge aller \textbf{Geraden}\xindex{Gerade} ist.
+\end{definition}
+
 \section{Axiome für die euklidische Ebene}
 Axiome\xindex{Axiom} bilden die Grundbausteine jeder mathematischen Theorie. Eine
 Sammlung aus Axiomen nennt man Axiomensystem\xindex{Axiomensystem}.
@@ -758,8 +765,8 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     die obere Halbebene bzw. Poincaré-Halbebene und $G = G_1 \cup G_2$
     mit
         \begin{align*}
-            G_1 &= \Set{g_1 \subseteq \mdh | \exists m \in \mdr, r \in \mdr_{>0}: g_1 \in \mdc: g_1 = \Set{|z-m|=r}}\\
-            G_2 &= \Set{g_2 \subseteq \mdh | \exists x \in \mdr: g_2 = \Set{z \in \mdc: \Re{z} = x} \cap \mdh}
+            G_1 &= \Set{g_1 \subseteq \mdh | \exists m \in \mdr, r \in \mdr_{>0}: g_1 = \Set{z \in \mdc : |z-m|=r}}\\
+            G_2 &= \Set{g_2 \subseteq \mdh | \exists x \in \mdr: g_2 = \Set{z \in \mdc: \Re(z) = x} \cap \mdh}
         \end{align*}
 
     Die Elemente von $\mdh$ heißen \textbf{hyperbolische Geraden}\xindex{Gerade!hyperbolische}
@@ -781,7 +788,21 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
               Gegeben $z_1, z_2 \in \mdh$\\
               \textbf{Existenz:} $\Re(z_1) = \Re(z_2)$
               $\Rightarrow z_1$ und $z_2$ liegen auf
-              \[g = \Set{z \in \mdc | \Re(z) = \Re{z_1} \land \mdh}\]
+              \[g = \Set{z \in \mdc | \Re(z) = \Re(z_1) \land \mdh}\]
+
+            \begin{figure}[ht]
+                \centering
+                \subfloat[Fall 1]{
+                    \input{figures/hyperbolische-geometrie-axiom-1-1.tex}
+                    \label{fig:hyperbolische-geometrie-axiom-1-1}
+                }%
+                \subfloat[Fall1]{
+                    \input{figures/hyperbolische-geometrie-axiom-1-2.tex}
+                    \label{fig:hyperbolische-geometrie-axiom-1-2}
+                }%
+                \label{fig:hyperbolische-geometrie-axiom-1-0}
+                \caption{Zwei Punkte liegen in der hyperbolischen Geometrie immer auf genau einer Geraden}
+            \end{figure}
         \item TODO
         \item Siehe \cref{fig:hyperbolische-halbebene-axiom-5}.
             \begin{figure}[htp]
@@ -806,9 +827,9 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
               $\sigma \in \PSL_2(\mdr)$ mit $\sigma(x_0) = 0$,
               $\sigma(x_1) = 1$, $\sigma(x_\infty) = \infty$
         \item \label{prop:15.2d} $\SL_2(\mdr)$ wird von den Matrizen
-              \[\begin{pmatrix}\lambda & 0\\ 0 & \lambda^-1\end{pmatrix}, \lambda \in \mdr\]
-              \[\begin{pmatrix}1 & a\\ 0 & 1\end{pmatrix}, a \in \mdr\]
-              \[\begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix}\]
+              \[\begin{pmatrix}\lambda & 0\\ 0 & \lambda^-1\end{pmatrix}, \lambda \in \mdr \;\;\; 
+                \begin{pmatrix}1 & a\\ 0 & 1\end{pmatrix}, a \in \mdr\;\;\; 
+                \begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix}\]
               erzeugt
         \item $\PSL_2(\mdr)$ operiert auf $G$
     \end{enumerate}
@@ -816,23 +837,53 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
-        \item Sei $z = x + iy \in \mdh$, d.~h. $y>0$ und
+        \item Sei $z = x + \iu y \in \mdh$, d.~h. $y>0$ und
               $\sigma=\begin{pmatrix}a&b\\c&d\end{pmatrix} \in \SL_2(\mdr)$
+              \todo{Hier stimmt was nicht}
               \begin{align}
                 \Rightarrow \sigma(z) &= \frac{ax + aiy + b}{cx + ciy +d}\\
-                &= \frac{ax + aiy + b}{cx + ciy +d} \cdot \frac{cx+d-iy}{cx+d-iy}\\
-                &= \frac{\Re(...) + i(aycx + ayd - ciyax - cyb)}{(cx+d)^2 + (cy)^2}\\
-                &= \frac{\Re(...) + i(ad-bc)y}{(cx+d)^2 + (cy)^2}
-                &\overset{\mathclap{\SL_2(\mdr)}}{=} \frac{\Re(...) + iy}{(cx+d)^2 + (cy)^2}
+                &= \frac{ax + aiy + b}{cx + c \iu y +d} \cdot \frac{cx+d-\iu y}{cx+d-\iu y}\\
+                &= \frac{\Re(...) + \iu (aycx + ayd - axy - yb)}{(cx+d)^2 + (cy)^2}\\
+                &= \frac{\Re(...) + \iu (ad-bc)y}{(cx+d)^2 + (cy)^2}\\
+                &\overset{\mathclap{\SL_2(\mdr)}}{=} \frac{\Re(...) + \iu y}{(cx+d)^2 + (cy)^2}
               \end{align}
                 $\Rightarrow \Im(\sigma(z)) = \frac{y}{(cx+d)^2 + (cy)^2} > 0$
         \item TODO b)
-        \item TODO c)
+        \item Ansatz: $\sigma = \begin{pmatrix}a & b\\c & d\end{pmatrix}$
+              $\sigma(x_0) = \frac{ax_0 + b}{c x_0 + d} \overset{!}{=} 0$
+              $\Rightarrow a x_0 + b = 0 \Rightarrow b = -a x_0$\\
+              $\sigma(x_\infty) = \infty \Rightarrow c x_\infty + d = 0 \Rightarrow d = - x_\infty$\\
+              $\sigma(x_1) = 1 \Rightarrow a x_1 + b = c x_1 + d$\\
+              $a (x_1 - x_0) = c (x_1 - x_\infty) \Rightarrow c = a \frac{x_1 - x_0}{x_1 - x_\infty}$\\
+              $\Rightarrow - a^2 \cdot x_\infty \frac{x_1 - x_0}{x_1 - x_\infty} + a^2 x_0 \frac{x_1 - x_0}{x_1 - x_\infty} = 1$\\
+              $\Rightarrow a^2 \frac{x_1 - x_0}{x_1 - x_\infty} (x_0 - x_\infty) = 1$
+              $\Rightarrow a^2 = \frac{x_1 - x_\infty}{(x_1 - x_\infty) (x_1 - x_0)}$
         \item TODO d)
         \item Es genügt die Aussage für Matrizen aus \cref{prop:15.2d}
               zu zeigen.
             \begin{itemize}
                 \item $\sigma = \begin{pmatrix}\lambda & 0\\ 0 & \lambda^{-1}\end{pmatrix}$, also $\sigma(z) = \lambda^2 z$
+                    \begin{figure}[ht]
+                        \centering
+                        \subfloat[Fall 1]{
+                            \input{figures/hyberbolische-geometrie-1.tex}
+                            \label{fig:prop15.2.e.fall1.1}
+                        }%
+                        \subfloat[Fall 2 (Strahlensatz)]{
+                            \input{figures/hyberbolische-geometrie-2.tex}
+                            \label{fig:prop15.2.e.fall1.1}
+                        }%
+                        \label{fig:prop15.2.e.fall1.0}
+                        \caption{TODO}
+                    \end{figure}
+                \item Offensichtlich gilt die Aussage für $\sigma = \begin{pmatrix}1 & a\\0 & 1\end{pmatrix}$
+                \item Sei nun $\sigma = \begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix}$, also $\sigma(z) = - \frac{1}{z}$
+                    \begin{figure}[htp]
+                        \centering
+                        \input{figures/inversion-am-kreis.tex}
+                        \caption{Inversion am Kreis}
+                        \label{fig:inversion-am-kreis}
+                    \end{figure}
             \end{itemize}
     \end{enumerate}
 \end{beweis}
