@@ -49,6 +49,8 @@ Was noch kommen soll
 ====================
 
 1. Alle `TODOS` auflösen
+    * "Punkt" suchen
+    * Checken, ob alle Seitenumbrüche / Bildgrößen stimmen
 2. Reviews (Mathematik, LaTeX und Bilder)
 3. A5-Version drucken
   * In `GeoTopo.tex`...

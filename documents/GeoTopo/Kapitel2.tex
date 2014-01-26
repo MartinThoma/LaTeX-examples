@@ -5,7 +5,7 @@
 \section{Topologische Mannigfaltigkeiten}
 \begin{definition}
     Sei $X$ ein topologischer Raum und $n \in \mdn$.
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item Eine $n$-dimensionale \textbf{Karte}\xindex{Karte} auf
               $X$ ist ein Paar $(U, \varphi)$, wobei $U \subseteq X$
               offen und $\varphi: U \rightarrow V$ Homöomorphismus
@@ -16,11 +16,11 @@
         \item $X$ heißt (topologische) $n$-dimensionale \textbf{Mannigfaltigkeit}\xindex{Mannigfaltigkeit},
               wenn $X$ hausdorffsch ist, eine abzählbare Basis der 
               Topologie hat und ein $n$-dimensionalen Atlas besitzt.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{bemerkung}
-    \begin{enumerate}[label=(\alph*)]
+    \begin{bemenum}
         \item Es gibt surjektive, stetige Abbildungen $[0,1] \rightarrow [0,1] \times [0,1]$
         \item Für $n \neq m$ sind $\mdr^n$ und $\mdr^m$ nicht homöomorph.
               Zum Beweis benutzt man den \enquote{Satz von der Gebietstreue} (Brouwer):
@@ -32,11 +32,11 @@
               \[f:\mdr^n \rightarrow \mdr^m \rightarrow \mdr^n, \;\;\; (x_1, \dots, x_n) \mapsto (x_1, x_2, \dots, x_n, 0, \dots, 0)\]
               eine stetige injektive Abbildung. Also müsste $f(\mdr^n)$
               offen sein $\Rightarrow$ Widerspruch
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item Jede offene Teilmenge $U \subseteq \mdr^n$ ist eine 
               $n$-dimensionale Mannigfaltigkeit mit einem Atlas aus 
               einer Karte.
@@ -105,7 +105,7 @@
         \item $\GL_n(\mdr)$ ist eine Mannigfaltigkeit der Dimension 
               $n^2$, weil offene Teilmengen von $\mdr^{n^2}$ eine
               Mannigfaltigkeit bilden.
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,7 +148,7 @@
         \item oder mehr Henkel, wie z.B. der Zweifachtorus in \cref{fig:double-torus}
     \end{enumerate}
 
-    \begin{figure}
+    \begin{figure}[htp]
         \centering
         \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/Double-torus-illustration.png}
         \caption{Zweifachtorus}
@@ -161,15 +161,15 @@
     und $X = V(F) := \Set{x \in \mdr^n | F(x) = 0}$ das \enquote{vanishing set}.
 
     Dann gilt:
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{bemenum}
         \item $X$ ist abgeschlossen in $\mdr^n$
         \item Ist $\grad(F)(X) \neq 0 \;\;\;\forall{x \in X}$, so ist
-              $X$ eine Mannigfaltigkeit der Dimension $n-1$.  \label{Mannigfaltigkeitskriterium}
-    \end{enumerate}
+              $X$ eine Mannigfaltigkeit der Dimension $n-1$.  \label{bem:Mannigfaltigkeitskriterium}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{enumerate}[label=\alph*),ref=\thedefinition.\alph*]
         \item Sei $y \in \mdr^n \setminus V(F)$. Weil $F$ stetig ist,
               gibt es $\delta > 0$, sodass $F(\fB_\delta(y)) \subseteq \fB_\varepsilon(F(y))$
               mit $\varepsilon = \frac{1}{2} \|F(y)\|$. Folgt
@@ -189,9 +189,9 @@
 \end{beweis}
 
 \begin{beispiel}\xindex{Neilsche Parabel}
-    \begin{enumerate}[label=\alph*)]
+    \begin{bspenum}
         \item $F: \mdr^3 \rightarrow \mdr,\;\;\; (x, y, z) \mapsto x^2 + y^2 + z^2 - 1$,
-              $V(F) = S^2$, $\grad(F) = (2x, 2y, 2z) \xRightarrow{\ref{Mannigfaltigkeitskriterium}} S^n$
+              $V(F) = S^2$, $\grad(F) = (2x, 2y, 2z) \xRightarrow{\text{Bem. }\ref{bem:Mannigfaltigkeitskriterium}} S^n$
               ist $n$-dimensionale Mannigfaltigkeit in $\mdr^{n+1}$
         \item $F: \mdr^2 \rightarrow \mdr, \;\;\; (x,y) \mapsto y^2 - x^3$
             \begin{figure}[ht]
@@ -208,10 +208,10 @@
                 \caption{Rechts ist die Neilsche Parabel für verschiedene Parameter $a$.}
             \end{figure}
               Es gilt: $\grad(F) = (-3x^2, 2y)$. Also: $\grad(0,0) = (0,0)$.
-              Daher ist \cref{Mannigfaltigkeitskriterium}
+              Daher ist \cref{bem:Mannigfaltigkeitskriterium}
               nicht anwendbar, aber $V(F)$ ist trotzdem
               eine 1-dimensionale topologische Mannigfaltigkeit.
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{definition}\xindex{Mannigfaltigkeit!mit Rand}
@@ -278,21 +278,21 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \begin{definition}
     Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Atlas $(U_i, \varphi_i)_{i \in I}$.
 
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item $X$ heißt \textbf{differenzierbare Mannigfaltigkeit der Klasse $C^k$}\xindex{Mannigfaltigkeit!differenzierbare},
               wenn jede Kartenwechselabbildung $\varphi_{ij},\;i,j \in I$
               $k$-mal stetig differenzierbar ist.
         \item $X$ heißt \textbf{differenzierbare Mannigfaltigkeit}\xindex{Mannigfaltigkeit!glatte},
               wenn $X$ eine differenzierbare Mannigfaltigkeit der
               Klasse $C^\infty$ ist.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{definition}
     Sei $X$ eine differenzierbare Mannigfaltigkeit der Klasse $C^k$ 
     ($k \in \mdn \cup \Set{\infty}$) mit Atlas $(U_i, \varphi_i)_{i \in I}$.
 
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item Eine Karte $(U, \varphi)$ auf $X$ heißt \textbf{verträglich}\xindex{verträglich}
               mit $\atlas$, wenn alle Kartenwechsel $\varphi \circ \varphi_i^{-1}$
               und $\varphi_i \circ \varphi^{-1}$ ($i \in I$ mit $U_i \cap U \neq \emptyset$)
@@ -303,7 +303,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
             
               Eine $C^\infty$-Struktur heißt auch \textbf{differenzierbare Struktur}\xindex{Struktur!differenzierbare}
               auf $X$.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{bemerkung}
@@ -315,7 +315,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     Seien $X, Y$ differenzierbare Mannigfaltigkeiten der Dimension
     $n$ bzw. $m$, $x \in X$.
 
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{defenum}
         \item Eine stetige Abbildung $f:X \rightarrow Y$ heißt\label{def:stetigeAbbildungDiffbar}
               \textbf{differenzierbar}\xindex{Abbildung!differenzierbare}
               in $x$ (von Klasse $C^k$),
@@ -331,11 +331,11 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               es eine differenzierbare Abbildung $g: Y \rightarrow X$
               von Klasse $C^\infty$ gibt mit $g \circ f = \id_X$
               und $f \circ g = \id_Y$.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{bemerkung}
-    Die Bedingung in Definition~\ref{def:stetigeAbbildungDiffbar} hängt nicht
+    Die Bedingung in \cref{def:stetigeAbbildungDiffbar} hängt nicht
     von den gewählten Karten ab.
 \end{bemerkung}
 
@@ -381,14 +381,14 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{definition}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item Rotationsflächen: Sei $r:\mdr \rightarrow \mdr_{> 0}$
               eine differenzierbare Funktion.
 
               $F: \mdr^2 \rightarrow \mdr^3 \;\;\; (u,v) \mapsto (r(u) \cos (u), r(v) \sin(u), v)$
 
 
-            \begin{figure}
+            \begin{figure}[htp]
                 \centering
                 \subfloat[Kugelkoordinaten]{
                     \includegraphics[width=0.45\linewidth, keepaspectratio]{figures/spherical-coordinates.pdf}
@@ -433,7 +433,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
                 \end{pmatrix}\]
                 hat Rang 2 für $\cos v \neq 0$. In $N$ und $S$ ist
                 $\cos v = 0$.
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -497,7 +497,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     eine Abbildung, $(g,h) \mapsto g \cdot h$, sodass $(G, \circ)$
     eine Gruppe ist.
 
-    \begin{enumerate}[label=(\alph*)]
+    \begin{defenum}
         \item $G$ heißt \textbf{topologische Gruppe}\xindex{Gruppe!topologische},
               wenn die Abbildungen $\circ: G \times G \rightarrow G$
               und $\iota: G \rightarrow G$.
@@ -506,11 +506,11 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \item Ist $G$ eine differenzierbare Mannigfaltigkeit, so heißt
               $G$ \textbf{Lie-Gruppe}\xindex{Lie-Gruppe}, wenn
               $(G, \circ)$ und $(G, \iota)$ differenzierbar sind.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item Alle endlichen Gruppen sind 0-dimensionale Lie-Gruppen.
         \item $\GL_n(\mdr)$
         \item $(\mdr^\times, \cdot)$
@@ -537,7 +537,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               $\frac{\partial}{\partial a_{11}} (\det -1) = 1 \cdot \det A_{11}$
 
               Es gibt $i \in \Set{1, \dots, n}$ mit $\frac{\partial}{\partial a_{1i}} (\det -1) A \neq 0$
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}
@@ -553,16 +553,16 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \section{Simplizialkomplex}
 \begin{definition}\xindex{Lage!allgemeine}
     Seien $v_0, \dots, v_k \in \mdr^n$ Punkte.
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{defenum}
         \item $v_0, \dots, v_k$ sind \textbf{in allgemeiner Lage} $\gdw$ es gibt keinen $(k-1)$-dimensionalen
               affinen Untervektorraum, der $v_0, \dots, v_k$ enthält
               \gdw $v_1 - v_0, \dots, v_k - v_0$ sind linear abhängig.
         \item $\conv(v_0, \dots, v_k) = \Set{\sum_{i=0}^k \lambda_i v_i | \lambda_i \geq 0, \sum_{i=0}^k \lambda_i = 1} $
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{definition}
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{defenum}
         \item Sei $\Delta^k = \conv(e_0, \dots, e_k) \subseteq \mdr^{n+1}$
               die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_k$.
 
@@ -578,7 +578,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               von $\Delta$. 
 
               $s_{i_0, \dots, i_r}$ ist $r$-Simplex.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{figure}[ht]
@@ -609,7 +609,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 % Mitschrieb vom 21.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{enumerate}[label=\alph*),ref=\thedefinition.\alph*]
         \item Eine endliche Menge $K$ von Simplizes im $\mdr^n$
               heißt (endlicher) \textbf{Simplizialkomplex}\xindex{Simplizialkomplex},
               wenn gilt:
@@ -655,7 +655,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \label{fig:simplizialkomplex-cube-divided}
     }
 
-    \subfloat[$P$ ist kein Teilsimplex, da Eigenschaft \ref{def:simplizialkomplex.ii} verletzt ist]{
+    \subfloat[$P$ ist kein Teilsimplex, da Eigenschaft \cref{def:simplizialkomplex.ii} verletzt ist]{
         \parbox[c][4cm]{5cm}{\centering\input{figures/topology-triangle-no-simplicial-complex.tex}}
         \label{fig:no-simplizialkomplex-triangles}
     }%
@@ -672,15 +672,15 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \[f:|K| \rightarrow |L|\]
     heißt \textbf{simplizial}\xindex{Abbildung!simpliziale}, wenn für
     jedes $\Delta \in K$ gilt:
-    \begin{enumerate}[label=(\roman*)]
+    \begin{defenum}
         \item $f(\Delta) \in L$
         \item $f|_{\Delta} : \Delta \rightarrow f(\Delta)$ ist eine
               affine Abbildung.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item $\varphi(e_1) := b_1$, $\varphi(e_2) := b_2$\\
               $\varphi$ ist eine eindeutig bestimmte lineare Abbildung
 
@@ -693,7 +693,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \item \todo[inline]{Wozu dient das Beispiel?}
 
             \resizebox{0.9\linewidth}{!}{\input{figures/topology-2.tex}}
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{definition}
@@ -707,7 +707,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{definition}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item $\chi(\Delta^1) = 2 - 1 = 1$\\
               $\chi(\Delta^2) = 3 - 3 + 1 = 1$\\
               $\chi(\Delta^3) = 4 - 6 + 4 - 1 = 1$
@@ -716,7 +716,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               $\chi(\text{Ikosaeder}) = 12 - 30 + 20 = 2$
         \item $\chi(\text{Würfel}) = 8 - 12 + 6 = 2$\\
               $\chi(\text{Würfel, unterteilt in Dreiecksflächen}) = 8 - (12 + 6) + (6 \cdot 2) = 2$
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}
@@ -729,7 +729,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     definiert ein $k$-Simplex.\\
     $\Rightarrow a_k(\Delta^n) = \binom{n+1}{k+1}, \;\;\; k = 0, \dots, n$\\
     $\Rightarrow \chi(\Delta^n) = \sum_{k=0}^n (-1)^k \binom{n+1}{k+1}$\\
-    $f(x) = (x+1)^{n+1} \stackrel{\substack{\text{\tiny{Binomischer}}\\\text{\tiny{Lehrsatz}}}}{=} \sum_{k=0}^{n+1} \binom{n+1}{k} x^k$\\
+    $f(x) = (x+1)^{n+1} \overset{\substack{\text{\tiny{Binomischer}}\\\text{\tiny{Lehrsatz}}}}{=} \sum_{k=0}^{n+1} \binom{n+1}{k} x^k$\\
     $\Rightarrow 0 = \sum_{k=0}^{n+1} \binom{n+1}{k} (-1)^k = \chi(\Delta^n) -1$\\
     $\Rightarrow \chi(\Delta^n) = 1 \qed$
 \end{beweis}
@@ -738,12 +738,12 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 % Mitschrieb vom 28.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{defenum}
         \item Ein 1D-Simplizialkomplex heißt \textbf{Graph}\xindex{Graph}.
         \item Ein Graph, der homöomorph zu $S^1$ ist, heißt \textbf{Kreis}\xindex{Kreis}.
         \item Ein zusammenhängender Graph heißt \textbf{Baum}\xindex{Baum},
               wenn er keinen Kreis enthält.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{figure}[ht]
@@ -778,16 +778,16 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{beweis}
 
 \begin{bemerkung}
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{bemenum}
         \item Jeder zusammenhängende Graph $\Gamma$ enthält einen
               Teilbaum $T$, der alle Ecken von $\Gamma$ enthält.%
               \footnote{$T$ wird \enquote{Spannbaum} genannt.}
         \item Ist $n = a_1(\Gamma) = a_1(T)$, so ist $\chi(\Gamma) = 1 - n$.
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{enumerate}[label=\alph*),ref=\thedefinition.\alph*]
         \item Siehe \enquote{Algorithmus von Kruskal}.
         \item $\begin{aligned}[t]\chi(\Gamma) &= a_0(\Gamma) - a_1(\Gamma)\\
                                         &= a_0(\Gamma) - (n+a_1(T))\\
@@ -905,12 +905,12 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     Sei $Z_n := \text{Kern}(d_n) \subseteq C_n$ und 
     $B_n := \text{Bild}(d_{n+1}) \subseteq C_n$.
 
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item $H_n = H_n(K, \mdr) := Z_n / B_n$ heißt $n$-te 
               \textbf{Homotopiegruppe}\xindex{Homotopiegruppe} von $K$.
         \item $b_n(K) := \dim_{\mdr} H_n$ heißt $n$-te 
               \textbf{Belti-Zahl}\xindex{Belit-Zahl} von $K$.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{bemerkung}

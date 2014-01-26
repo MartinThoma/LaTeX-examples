@@ -23,7 +23,7 @@
     $\gamma_1, \gamma_2: [0,1] \rightarrow X$ Wege von $a$ nach $b$,
     d.~h. $\gamma_1(0) = \gamma_2(0) = a$, $\gamma_1(1) = \gamma_2(1) = b$
 
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{Weg!homotope},
               wenn es eine stetige Abbildung
               \[H(t,0) = \gamma_1(t), H(t,1) = \gamma_2(t) \;\;\; \forall t \in [0,1] =: I \]
@@ -34,7 +34,7 @@
               $\gamma_1$ und $\gamma_2$.
         \item $\gamma_s: I \rightarrow X, \gamma_s(t) = H(t,s)$ ist
               Weg in $X$ von $a$ nach $b$ für jedes $s \in I$.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{bemerkung}
@@ -60,7 +60,7 @@
 \end{beweis}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item Sei $X = S^1$. $\gamma_1$ und $\gamma_2$ aus 
               \cref{fig:circle-two-paths} nicht homöotop.
         \item Sei $X = T^2$. $\gamma_1, \gamma_2$ und $\gamma_3$
@@ -71,7 +71,7 @@
               Je zwei Wege im $\mdr^2$ mit Anfangs- und Endpunkt $(0,0)$
               sind homöotop.
 
-              \begin{figure}
+              \begin{figure}[htp]
                 \centering
                 \input{figures/topology-paths-in-r2.tex}
                 \caption{Zwei Wege im $\mdr^2$ mit Anfangs- und Endpunkt $(0,0)$}
@@ -85,7 +85,7 @@
               $H(t,s) := (1-s) \gamma(t)$ ist stetig, 
               $H(t,0) = \gamma(t)\; \forall t \in I$ und
               $H(t,1) = 0 \; \forall t \in I$
-    \end{enumerate}
+    \end{bspenum}
 
     \begin{figure}[ht]
         \centering
@@ -175,7 +175,7 @@
     ist $\gamma_1 * \gamma_2 \sim \gamma_1 ' * \gamma_2'$.
 \end{bemerkung}
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
     %\includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/skizze-bemerkung-10-6.jpg}
     \input{figures/topology-homotop-paths-2.tex}
@@ -225,7 +225,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{beweis}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item $S^1 = \Set{z \in \mdc | {|z|} = 1} = \Set{(\cos \varphi, \sin \varphi) \in \mdr^2 | 0 \leq \varphi \leq 2 \pi}$
 
               $\pi_1 (S^1, 1) = \Set{[\gamma^k] | k \in \mdz} \cong \mdz$
@@ -240,7 +240,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
             Für jedes sternförmige $G \subseteq \mdr^n$ ist
             $\pi_1(G,x) = \Set{e}$
 
-            \begin{figure}
+            \begin{figure}[htp]
                 \centering
                 \input{figures/star-shaped-domain.tex}
                 \caption{Sternförmiges Gebiet}.
@@ -253,7 +253,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
               Dieses Argument funktioniert nicht mehr bei flächendeckenden
               Wegen!
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}\label{kor:gruppenisomorphismus-wege}
@@ -265,7 +265,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     ein Gruppenisomorphismus.
 \end{bemerkung}
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
     \input{figures/todo.tex}
     \caption{Situation aus \cref{kor:gruppenisomorphismus-wege}}.
@@ -294,13 +294,13 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     Es seien $X, Y$ topologische Räume, $f:X \rightarrow Y$ eine
     stetige Abbildung, $x \in X, y := f(x) \in Y$.
 
-    \begin{enumerate}[label=\alph*)]
+    \begin{bemenum}
         \item Dann ist die Abbildung $f_* : \pi_1(X,x) \rightarrow \pi_1(Y, y),
         [y] \rightarrow [f \circ y]$ ein Gruppenhomomorphismus.
         \item Ist $Z$ ein weiterer topologischer Raum und $g: Y \rightarrow Z$
               eine stetige Abbildung $z:= g(y)$. Dann ist
               $(g \circ f)_* = g_* \circ f_*: \pi_1(X,x) \rightarrow \pi_1(Z,z)$
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -319,14 +319,14 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{beweis}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item $f:S^1 \hookrightarrow \mdr^2$ ist injektiv, aber 
               $f_*:\pi_1(S^1, 1) \cong \mdz \rightarrow \pi_1(\mdr^2, 1) -0 \Set{e}$
               ist nicht injektiv
         \item $f: \mdr \rightarrow S^1, t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$
               ist surjektiv, aber $f_*: \pi_1(\mdr, 0) = \Set{e} \rightarrow \pi_1(S^2, 1) \cong \mdz$
               ist nicht surjektiv
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}%Folgerung 11.6
@@ -406,9 +406,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{beweis}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item
-            \begin{figure}
+            \begin{figure}[htp]
                 \centering
                 \input{figures/topologischer-raum-x.tex}
                 \caption{Topologischer Raum $X$}
@@ -419,20 +419,20 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
             $\pi_1(U,x) = <a> \cong \mdz, \pi_1(V,x) = <b> \cong \mdz$,
             insbesondere ist $a*b$ nicht homotop zu $b*a$.
         \item Torus: $\pi_1(T^2, X)$ wird erzeugt von $a$ und $b$.
-            \begin{figure}
+            \begin{figure}[htp]
                 \centering
                 \input{figures/topology-4.tex}
                 \caption{$a*b = b*a \Leftrightarrow a * b * \overline{a} * \overline{b} \sim e$}
                 \label{fig:torous-a-b}
             \end{figure}
-            \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 12.12.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Überlagerungen}\index{Ueberlagerung@""Uberlagerung|(}
-\begin{figure}
+\begin{figure}[htp]
     \centering
     \includegraphics[width=4cm, keepaspectratio]{figures/topology-r-spiral-covering-s.pdf}
     \caption{$\mdr \rightarrow S^1$,\\$t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$}
@@ -449,13 +449,13 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{definition}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item siehe \cref{fig:ueberlappung-r1-spirale-s1}
         \item siehe \cref{fig:ueberlappung-kaestchen-torus}
         \item $\mdr^n \rightarrow T^n = \mdr^n / \mdz^n$
         \item $S^n \rightarrow \praum^n(\mdr)$\xindex{Raum!projektiver}
         \item $S^1 \rightarrow S^1$, $z \mapsto z^2$, siehe \cref{fig:liftung-s1-s1}
-    \end{enumerate}
+    \end{bspenum}
 
     \begin{figure}[ht]
         \centering
@@ -506,7 +506,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
 \begin{beweis}
     Sei $y \in V$ und $x \in p(V)$, sodass $x=p(y)$ gilt.
-    Sei weiter $U = U_x$ die offene Umgebung von $x$ wie in Definition~\ref{def:12.1}
+    Sei weiter $U = U_x$ die offene Umgebung von $x$ wie in \cref{def:12.1}
     und $V_j$ die Komponente von $p^{-1}(U)$, die $y$ enthält.
 
     Dann ist $V \cap V_j$ offene Umgebung von $y$.
@@ -529,10 +529,10 @@ Haben wir Häufungspunkt definiert?}
 
 \begin{bemerkung} % Bemerkung 12.3 der Vorlesung
     Sei $p: Y \rightarrow X$ Überlagerung, $x \in X$.
-    \begin{enumerate}[label=\alph*)]
+    \begin{bemenum}
         \item $X$ hausdorffsch $\Rightarrow Y$ hausdorffsch
         \item $p^{-1}(X)$ ist diskret in $Y$
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -578,7 +578,7 @@ Haben wir Häufungspunkt definiert?}
 \end{bemerkung}
 
 \begin{beweis}
-    Sei $U$ Umgebung von $x_1$ wie in Definition~\ref{def:12.1}, $x \in U$.
+    Sei $U$ Umgebung von $x_1$ wie in \cref{def:12.1}, $x \in U$.
     Dann enthält jedes $V_j, j \in I_X$ genau ein Element von
     $p^{-1}(x)$
 
@@ -595,7 +595,7 @@ Haben wir Häufungspunkt definiert?}
     \textbf{Liftung} von $f$, wenn $p \circ \tilde{f} = f$ ist.
 \end{definition}
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
     \resizebox{0.95\linewidth}{!}{\input{figures/liftung-torus-r.tex}}
     \caption{Beim Liften eines Weges bleiben geschlossene Wege im allgemeinen nicht geschlossen}
@@ -609,7 +609,7 @@ Haben wir Häufungspunkt definiert?}
     $\exists z_0 \in Z: f_0(z) = f_1(z) \Rightarrow f_0 = f_1$
 \end{bemerkung}
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
     \input{figures/commutative-diagram-2.tex}
     \caption{Situation aus \cref{kor:12.5}}
@@ -621,7 +621,7 @@ Haben wir Häufungspunkt definiert?}
 
     \underline{Z.~Z.}: $T$ ist offen und $Z \setminus T$ ist auch offen.
 
-    Sei $z \in T, x = f(z), U$ Umgebung von $x$ wie in Definition~\ref{def:12.1},
+    Sei $z \in T, x = f(z), U$ Umgebung von $x$ wie in \cref{def:12.1},
     $V$ die Komponente von $p^{-1}(U)$, die $y:=f_0(z) = f_1(z)$.\todo{deutsch?}
 
     Sei $q:U \rightarrow V$ die Umkehrabbildung zu $p|_V$.
@@ -648,10 +648,10 @@ Haben wir Häufungspunkt definiert?}
 
 \begin{beweis}
 Existenz: Siehe \Cref{fig:satz-12.6}.
-    \begin{figure}
+    \begin{figure}[htp]
         \centering
         \includegraphics[width=0.6\linewidth, keepaspectratio]{figures/todo/skizze-1.jpg}
-        \caption{Skizze für den Beweis von Satz~\ref{thm:ueberlagerung-weg-satz-12.6}}
+        \caption{Skizze für den Beweis von \cref{thm:ueberlagerung-weg-satz-12.6}}
         \label{fig:satz-12.6}
     \end{figure}
 \end{beweis}
@@ -709,10 +709,10 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
 
 \begin{bemerkung}%In Vorlesung: "Folgerung 12.8"
     Sei $p: Y \rightarrow X$ eine Überlagerung, $x_0 \in X, y_0 \in p^{-1}(x_0)$
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{bemenum}
         \item $p_1: \pi_1(Y, y_0) \rightarrow \pi_1(X, x_0)$ ist injektiv\label{kor:12.8a}
         \item $[\pi_1(X, x_0): p_* (\pi_1(Y, y_0))] = \deg(p)$\label{kor:12.8b}
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -720,7 +720,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
         \item Sei $\tilde{\gamma}$ ein Weg in $Y$ um $y_0$ und
               $p_* ([\tilde{\gamma}]) = e$, also $p \circ \tilde{\gamma} \sim \gamma_{x_0}$
 
-              Nach Proposition~\ref{proposition:12.7} ist dann 
+              Nach \cref{proposition:12.7} ist dann 
               $\tilde{\gamma}$ homotop zum Lift des konstanten Wegs
               $\gamma_{x_0}$ mit Anfangspunkt $y_0$, also zu
               $\gamma_{y_0} \Rightarrow [\tilde{\gamma}] = e$
@@ -754,8 +754,8 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
 \end{bemerkung}
 
 \begin{beweis}
-    Wegen Folgerung~\ref{kor:12.8a} ist auch $Y$ einfach zusammenhängend
-    und wegen Folgerung~\ref{kor:12.8b} ist $\deg(p)=1$, $p$ ist also
+    Wegen \cref{kor:12.8a} ist auch $Y$ einfach zusammenhängend
+    und wegen \cref{kor:12.8b} ist $\deg(p)=1$, $p$ ist also
     bijektiv.
 
     Nach \todo{Was ist das?}{12.2} ist $p$ offen $\Rightarrow p^{-1}$
@@ -806,7 +806,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
 
     $\xRightarrow{q \text{ offen}} q(W)$ ist offene Umgebung von $p(z) \cdot d(\tilde{p}(z))$.
 
-    Sei $U \subseteq q(W)$ offen wie in Definition~\ref{def:12.1} und
+    Sei $U \subseteq q(W)$ offen wie in \cref{def:12.1} und
     $V \subseteq q^{-1}(U)$ die \todo{Was?}{Komp.} die $\tilde{p}(z)$
     enthält.
 
@@ -836,7 +836,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     $p(\tilde{x_0}) = x_0$ und 
     $\tilde{y_0} \in q^{-1}(x_0) \subseteq \tilde{Y}$.
 
-    Nach Satz~\ref{thm:12.11} gibt es genau eine Überlagerung
+    Nach \cref{thm:12.11} gibt es genau eine Überlagerung
     \[f:\tilde{X} \rightarrow \tilde{Y} \text{ mit } f(x_0) = \tilde{Y_0} \text{ und } q \circ f = p\]
     und genau eine Überlagerung
     \[g: \tilde{Y} \rightarrow \tilde{X} \text{ mit } g(\tilde{y_0}) = \tilde{x_0} \text{ und } p \circ g = q\]
@@ -887,7 +887,7 @@ der folgende Satz:
 
     \underline{Annahme}: $[\tilde{\gamma}] \neq e$
 
-    Mit Folgerung~\ref{kor:12.8a} folgt dann: $[\gamma] \neq e$.
+    Mit \cref{kor:12.8a} folgt dann: $[\gamma] \neq e$.
 
     Dann ist der Lift von $\gamma$ nach $\tilde{x}$ mit Anfangspunkt
     $\tilde{x_0}$ ein Weg von $\tilde{x_0}$ nach $(x_0, [\gamma])$.
@@ -905,7 +905,7 @@ der folgende Satz:
 \end{definition}
 
 \begin{bemerkung}%In Vorlesung:12.14
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{bemenum}
         \item Die Decktransformationen von $p$ bilden eine Gruppe, 
               die sog. \textbf{Decktransformationsgruppe}\xindex{Decktransformationsgruppe}
               $\Deck(p) = \Deck(Y/X) = \Deck(Y \rightarrow X)$
@@ -915,7 +915,7 @@ der folgende Satz:
         \item Ist $p$ eine reguläre Decktransformation, dann gilt:
               $\forall x \in X: \Deck(Y/X)$ operiert transitiv
               auf der Menge der Urbilder $p^{-1}(x)$.
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -935,7 +935,7 @@ der folgende Satz:
               $\Delta \subseteq Y \times Y$ unter der stetigen
               Abbildung $y \mapsto (f(y),y)$. Außerdem ist $\Fix(f)$
               offen, denn ist $y \in \Fix(f)$, so sei $U$ eine 
-              Umgebung von $p(y) \in X$ wie in Definition~\ref{def:12.1}
+              Umgebung von $p(y) \in X$ wie in \cref{def:12.1}
               und $U \subseteq p^{-1}(U)$ die Komponente, die $y$
               enthält; also $p:V \rightarrow U$ ein Homöomorphismus.
               Dann ist $W := f^{-1}(V) \cap V$ offene Umgebung von $y$.
@@ -952,16 +952,16 @@ der folgende Satz:
               Zu $i \in \Set{0, \dots, d-1}$ gibt es höchstens ein 
               $f \in \Deck(Y/X)$ mit $f(y_0) = y_1$, denn ist
               $f(y_0) = g(y_0)$, so ist \todo{Was steht hier?}{$(g^{-1} - f) y_0 = y_0$},
-              also nach \ref{kor:12.14c} $g^{-1} \circ f = \id_Y$.
+              also nach \cref{kor:12.14c} $g^{-1} \circ f = \id_Y$.
     \end{enumerate}
 \end{beweis}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item $p: \mdr \rightarrow S^1: \Deck(\mdr / S^1) = \Set{t \mapsto t + n | n \in \mdz} \cong \mdz$
         \item $p: \mdr^2 \rightarrow T^2: \Deck(\mdr^2 / T^2) \cong \mdz \times \mdz = \mdz^2$
         \item $p: S^n \rightarrow \praum^n(\mdr): \Deck(g^n / \praum^n(\mdr)) = \Set{x \mapsto \pm x} \cong \mdz / 2 \mdz$
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 Nun werden wir eine Verbindung zwischen der Decktransformationsgruppe
@@ -985,8 +985,8 @@ und der Fundamentalgruppe herstellen:
             $f, g \in \Deck(\tilde{X}/ X) \Rightarrow \gamma_{g \circ f} = \gamma_g * g(\gamma_f)$
             $\Rightarrow p(\gamma_{g \circ f}) = p(\gamma_g) * \underbrace{(p \circ g)}_{=p} (\gamma_f) = \rho(g) \neq \rho(f)$
         \item \underline{$\rho$ ist injektiv}: $\rho(f) = e \Rightarrow p (\gamma_f) \sim \gamma_{x_0}$
-            $\xRightarrow{\ref{thm:ueberlagerung-weg-satz-12.6}} \gamma_f \sim \gamma_{\tilde{x_0}}$ 
-            $\Rightarrow f(x_0) = \tilde{x_0} \xRightarrow{\ref{kor:12.14c}} f = \id_{\tilde{x}}$.
+            $\xRightarrow{\cref{thm:ueberlagerung-weg-satz-12.6}} \gamma_f \sim \gamma_{\tilde{x_0}}$ 
+            $\Rightarrow f(x_0) = \tilde{x_0} \xRightarrow{\text{Bem. }\cref{kor:12.14c}} f = \id_{\tilde{x}}$.
         \item \underline{$\rho$ ist surjektiv}: Sei $[\gamma] \in \pi_1(X, x_0)$,
             $\tilde{\gamma}$ Lift von $\gamma$ nach $\tilde{x}$ mit
             Anfangspunkt $\tilde{x_0}$. Der Endpunkt von $\tilde{\gamma}$
@@ -994,7 +994,7 @@ und der Fundamentalgruppe herstellen:
 
             \underline{$p$ ist reguläre Überlagerung}: Seien
             $\tilde{x_0}, \tilde{x_1} \in \tilde{X}$ mit 
-            $p(\tilde{x_0}) = p(\tilde{x_1})$. Nach Satz~\ref{thm:12.11}
+            $p(\tilde{x_0}) = p(\tilde{x_1})$. Nach \cref{thm:12.11}
             gibt es genau eine Überlagerung $\tilde{p}: \tilde{X} \rightarrow X$
             mit $p=p \circ \tilde{p}$ und $\tilde{p}(\tilde{x_0}) = \tilde{x_1}$.
             Somit ist $\tilde{p}$ eine Decktransformation und damit
@@ -1023,9 +1023,9 @@ und der Fundamentalgruppe herstellen:
     \[(\cos(2 \pi g(0)), \sin(2 \pi g(0))) = (p \circ g)(0) = p(0) = (1,0)\]
 
     Es existiert $n \in \mdz$ mit $g(0) = n$. Da auch $f_n(0) = 0 + n = n$
-    gilt, folgt mit Folgerung~\ref{kor:12.14c} $g = f_n$. Damit folgt:
+    gilt, folgt mit \cref{kor:12.14c} $g = f_n$. Damit folgt:
     \[\Deck(\mdr/S^1) = \Set{f_n | n \in \mdz} \cong \mdz\]
-    Nach Satz~\ref{thm:12.15} also $\pi_1(S^1) \cong \Deck(\mdr/S^1) \cong \mdz$
+    Nach \cref{thm:12.15} also $\pi_1(S^1) \cong \Deck(\mdr/S^1) \cong \mdz$
 \end{beispiel}
 \index{Ueberlagerung@""Uberlagerung|)}
 
@@ -1042,10 +1042,10 @@ und der Fundamentalgruppe herstellen:
     \[ \circ: G \times X \rightarrow X,\;\;\; (g,x) \mapsto g \cdot x,\]
 
     für die gilt:
-    \begin{enumerate}[label=(\roman*),ref=\theplaindefinition.\roman*]
+    \begin{defenum}
         \item $1_G \circ x = x \;\;\; \forall x \in X$\label{def:gruppenoperation.1}
         \item $(g \cdot h) \circ x = g \circ (h \circ x) \;\;\; \forall g,h \in G \forall x \in X$\label{def:gruppenoperation.2}
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{beispiel}
@@ -1068,7 +1068,7 @@ und der Fundamentalgruppe herstellen:
     Sei $G$ eine Gruppe, $X$ ein topologischer Raum und
     $\circ: G \times X \rightarrow X$ eine Gruppenoperation.
 
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item $G$ operiert durch Homomorphismen, wenn für jedes $g \in G$
               die Abbildung
               \[m_g: X \rightarrow X, x \mapsto g \cdot X\]
@@ -1076,7 +1076,7 @@ und der Fundamentalgruppe herstellen:
         \item Ist $G$ eine topologische Gruppe, so heißt die Gruppenoperation $\circ$
               \textbf{stetig}\xindex{Gruppenoperation!stetige}, wenn 
               $\circ: G \times X \rightarrow X$ stetig ist.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{bemerkung}%In Vorlesung: Bemerkung 13.2
@@ -1090,9 +1090,9 @@ und der Fundamentalgruppe herstellen:
         (m_{g^{-1}} \circ m_g)(x) &= m_{g^{-1}} (m_g (x))\\
             &= m_{g^{-1}} (g \circ x)\\
             &= g^{-1} \circ (g \circ x)\\
-            &\stackrel{\ref{def:gruppenoperation.2}}{=} (g^{-1} \cdot g) \circ x\\
+            &\overset{\mathclap{\cref{def:gruppenoperation.2}}}{=} (g^{-1} \cdot g) \circ x\\
             &= 1_G \circ x\\
-            &\stackrel{\ref{def:gruppenoperation.1}}{=} x
+            &\overset{\mathclap{\cref{def:gruppenoperation.1}}}{=} x
     \end{align*}
 \end{beweis}
 
@@ -1103,13 +1103,13 @@ und der Fundamentalgruppe herstellen:
 \begin{bemerkung}\label{kor:13.3}%In Vorlesung: Bemerkung 13.3
     Sei $G$ eine Gruppe und $X$ eine Menge.
 
-    \begin{enumerate}[label=\alph*)]
+    \begin{bemenum}
         \item Die Gruppenoperation von $G$ auf $X$ entsprechen bijektiv
               den Gruppenhomomorphismen $\varrho: G \rightarrow \Perm(X) = \Sym(X) = \Set{f: X \rightarrow X | f \text{ ist bijektiv}}$
         \item Ist $X$ ein topologischer Raum, so entsprechen dabei 
               die Gruppenoperationen durch Homöomorphismus den Gruppenhomomorphismen
               $G \rightarrow \Homoo(X)$
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}
@@ -1123,16 +1123,16 @@ und der Fundamentalgruppe herstellen:
 
           Umgekehrt: Sei $\varrho: G \rightarrow \Perm(X)$ Gruppenhomomorphismus. Definiere $\circ: G \times X \rightarrow X$ durch $g \circ x = \varrho (g)(x)$.
 
-          z.~Z. \ref{def:gruppenoperation.2}: 
+          z.~Z. \cref{def:gruppenoperation.2}: 
           \begin{align*}
             g_1 \circ (g_2 \circ x) &= \varrho (g_1) (g_2 \circ x)\\
             &= \varrho(g_1) (\varrho(g_2)(x))\\
             &= (\varrho(g_1) \circ \varrho(g_2))(x)\\
-            &\stackrel{\varrho \text {ist Hom.}}{=} \varrho(g_1 \cdot g_2) (x)\\
+            &\overset{\varrho \text {ist Hom.}}{=} \varrho(g_1 \cdot g_2) (x)\\
             &= (g_1 \cdot g_2) \circ x
           \end{align*}
 
-            z.~Z. \ref{def:gruppenoperation.1}: 
+            z.~Z. \cref{def:gruppenoperation.1}: 
             $1_G \cdot x = \varrho(1_G)(x) = \id_X(x) = x$, weil $\varrho$ Homomorphismus ist.
 \end{beweis}
 
@@ -1169,7 +1169,7 @@ und der Fundamentalgruppe herstellen:
 \textbf{Erinnerung}:% In Vorlesung: Erinnerung 13.5
 Die Konstruktion aus \cref{kor:13.3} induziert zu der Gruppenoperation
 $\pi_1(X, x_0)$ aus \cref{bsp:13.4} einen Gruppenhomomorphismus
-$\varrho: \pi_1(X, x_0) \rightarrow \Homoo(X)$. Nach Satz~\ref{thm:12.15}
+$\varrho: \pi_1(X, x_0) \rightarrow \Homoo(X)$. Nach \cref{thm:12.15}
 ist \begin{align*}\varrho(\pi_1(X, x_0)) &= \Deck(\tilde{X} / X)\\
                                          &= \Set{f: \tilde{X} \rightarrow \tilde{X} \text{ Homöomorphismus} | p \circ f = p}
     \end{align*}

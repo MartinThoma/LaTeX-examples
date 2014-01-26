@@ -46,3 +46,4 @@ in dem Erstellen dieses Skripts steckt:
 |24.01.2014 | 23:00 - 00:15 | Digitalisieren der Vorlesung von 23.01.2014
 |25.01.2014 | 09:30 - 12:45 | Digitalisieren der Vorlesung von 23.01.2014
 |25.01.2014 | 13:05 - 13:35 | Aufgabe aus Tutorium hinzugefügt
+|26.01.2014 | 19:00 - 22:00 | Textsetzung: Figure bekommt htp; stackrel -> overset; \ref -> \cref; enumerate

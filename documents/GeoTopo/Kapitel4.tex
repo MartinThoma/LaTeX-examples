@@ -71,7 +71,7 @@ aufgestellt.
 \end{definition}
 
 \begin{definition}
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item $P, Q, R$ liegen \textbf{kollinear}\xindex{kollinear}, 
               wenn es $g \in G$ gibt mit $\Set{P, Q, R} \subseteq g$.
         \item $Q$ \textbf{liegt zwischen}\xindex{liegt zwischen} $P$
@@ -80,7 +80,7 @@ aufgestellt.
         \item \textbf{Halbgeraden}\xindex{Halbgerade}:\\
               $PR^+ := \Set{Q \in X | Q \text{ liegt zwischen } P \text{ und } R \text{ oder } R \text{ liegt zwischen } P \text{ und } Q}$\\
               $PR^- := \Set{Q \in X | P \text{ liegt zwischen } Q \text{ und } R}$\\ 
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{figure}[htp]
@@ -91,10 +91,10 @@ aufgestellt.
 \end{figure}
 
 \begin{bemerkung}
-    \begin{enumerate}[label=(\roman*)]
+    \begin{bemenum}
         \item $PR^+ \cup PR^- = PR$
         \item $PR^+ \cap PR^- = \Set{P}$
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -266,12 +266,12 @@ schneiden sich.
                 \item $B$ liegt zwischen $P$ und $C$.
 
                       $d(P,A) + d(A, C) > d(P,C) = d(P,B) + d(B,c) = d(P,A) + d(B,C)$
-                      $\Rightarrow d(A,c) > d(B,C) \Rightarrow$ Widerspruch zu \ref{enum:komischer-beweis-i}
+                      $\Rightarrow d(A,c) > d(B,C) \Rightarrow$ Widerspruch zu \cref{enum:komischer-beweis-i}
                 \item $C$ liegt zwischen $P$ und $B$
 
                       $d(P,C) + d(C,A) > d(P,A) = d(P,B) = d(P,C) + d(C, B)$\\
                       $\Rightarrow d(C, A) > d(C, B)$\\
-                      $\Rightarrow$ Widerspruch zu \ref{enum:komischer-beweis-i}
+                      $\Rightarrow$ Widerspruch zu \cref{enum:komischer-beweis-i}
             \end{enumerate}
     \end{enumerate}
 
@@ -438,7 +438,7 @@ schneiden sich.
 \end{figure}
 
 \begin{definition}\label{def:14.8}%In Vorlesung: 14.8
-    \begin{enumerate}[label=\alph*),ref=\alph*]
+    \begin{defenum}
         \item \label{def:14.8a} Ein \textbf{Winkel}\xindex{Winkel} ist ein Punkt $P \in X$ 
               zusammen mit $2$ Halbgeraden mit Anfangspunkt $P$.\\
               Man schreibt: $\angle R_1 P R_2$ bzw. $\angle R_2 P R_1$\footnote{Für dieses Skript gilt: $\angle R_1 P R_2 = \angle R_2 P R_1$. Also sind insbesondere alle Winkel $ \leq 180^\circ$.}
@@ -452,7 +452,7 @@ schneiden sich.
               bzgl. $PR_2$ wie $R_1$
         \item \label{def:14.8d} Im Dreieck $\triangle PQR$ gibt es Innenwinkel und
               Außenwinkel.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{figure}[ht]
@@ -580,7 +580,7 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
     gleich $\pi$.
 \end{bemerkung}
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
     \input{figures/triangle-2.tex}
     \caption{Situation aus \cref{bem:14.12}}
@@ -604,10 +604,10 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
     In ähnlichen Dreiecken sind Verhältnisse entsprechender Seiten gleich.
 \end{satz}
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
-    \input{figures/todo.tex}
-    \caption{Bild 2}
+    \input{figures/hyberbolische-geometrie-2.tex}
+    \caption{Strahlensatz}
     \label{fig:bild-2}
 \end{figure}
 
@@ -615,7 +615,7 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
     TODO
 \end{beweis}
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
     \input{figures/triangle-similar.tex}
     \caption{Die Dreiecke $\triangle ABC$ und $\triangle AB'C'$ sind ähnlich.}
@@ -645,7 +645,7 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
 
 Der Flächeninhalt eines Dreiecks ist $\nicefrac{1}{2} \cdot \text{Grundseite} \cdot \text{Höhe}$.
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
     \input{figures/todo.tex}
     \caption{Flächenberechnung im Dreiecks}
@@ -654,7 +654,7 @@ Der Flächeninhalt eines Dreiecks ist $\nicefrac{1}{2} \cdot \text{Grundseite} \
 
 \underline{Zu zeigen:} Unabhängigkeit von der gewählten Grundseite.
 
-\begin{figure}
+\begin{figure}[htp]
     \centering
     \input{figures/triangle-3.tex}
     \caption{$\triangle ABL_a$ und $\triangle C{L_C}B$ sind ähnlich, weil $\IWS = \pi$}
@@ -774,15 +774,15 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
 
 \begin{bemerkung}[Eigenschaften der hyperbolischen Geraden]
     Die hyperbolischen Geraden erfüllen\dots
-    \begin{enumerate}[label=\alph*)]
+    \begin{bemenum}
         \item \dots die Inzidenzaxiome \ref{axiom:1}
         \item \dots das Anordnungsaxiom \ref{axiom:3.2}
         \item \dots nicht das Parallelenaxiom \ref{axiom:5}
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
-    \begin{enumerate}[label=\alph*)]
+    \begin{enumerate}[label=\alph*), ref=\theproposition (\alph*)]
         \item Offensichtlich sind \ref{axiom:1.3} und \ref{axiom:1.2}
               erfüllt. Für \ref{axiom:1.1} gilt:\\
               Gegeben $z_1, z_2 \in \mdh$\\
@@ -815,7 +815,7 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
 \end{beweis}
 
 \begin{proposition}%In Vorlesung: Proposition 15.2
-    \begin{enumerate}[label=\alph*)]
+    \begin{propenum}
         \item Die Gruppe $\SL_2(\mdr)$ operiert auf $\mdh$ durch
               \[\sigma(z):= \begin{pmatrix}a & b\\c & d\end{pmatrix} \circ z := \frac{az + b}{cz + d}\]
         \item Es ist $\sigma(z) = (-\sigma)(z)$ für alle $\sigma \in \SL_2(\mdr)$
@@ -831,8 +831,8 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
                 \begin{pmatrix}1 & a\\ 0 & 1\end{pmatrix}, a \in \mdr\;\;\; 
                 \begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix}\]
               erzeugt
-        \item $\PSL_2(\mdr)$ operiert auf $G$
-    \end{enumerate}
+        \item \label{prop:15.2e} $\PSL_2(\mdr)$ operiert auf $G$
+    \end{propenum}
 \end{proposition}
 
 \begin{beweis}\leavevmode
@@ -862,7 +862,9 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
         \item Es genügt die Aussage für Matrizen aus \cref{prop:15.2d}
               zu zeigen.
             \begin{itemize}
-                \item $\sigma = \begin{pmatrix}\lambda & 0\\ 0 & \lambda^{-1}\end{pmatrix}$, also $\sigma(z) = \lambda^2 z$
+                \item $\sigma = \begin{pmatrix}\lambda & 0\\ 0 & \lambda^{-1}\end{pmatrix}$, also $\sigma(z) = \lambda^2 z$.
+                      Daraus ergeben sich die Situationen, die in \cref{fig:prop15.2.e.fall1.1} und
+                      \cref{fig:prop15.2.e.fall1.2} dargestellt sind.
                     \begin{figure}[ht]
                         \centering
                         \subfloat[Fall 1]{
@@ -871,10 +873,10 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
                         }%
                         \subfloat[Fall 2 (Strahlensatz)]{
                             \resizebox{0.45\linewidth}{!}{\input{figures/hyberbolische-geometrie-2.tex}}
-                            \label{fig:prop15.2.e.fall1.1}
+                            \label{fig:prop15.2.e.fall1.2}
                         }%
                         \label{fig:prop15.2.e.fall1.0}
-                        \caption{TODO}
+                        \caption{Beweis von \cref{prop:15.2e} für eine Diagonalmatrix}
                     \end{figure}
                 \item Offensichtlich gilt die Aussage für $\sigma = \begin{pmatrix}1 & a\\0 & 1\end{pmatrix}$
                 \item Sei nun $\sigma = \begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix}$, also $\sigma(z) = - \frac{1}{z}$

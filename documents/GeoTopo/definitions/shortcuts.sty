@@ -42,9 +42,7 @@
 \newframedtheorem{proposition}[satz]{Proposition}
 \newtheorem{korollar}[satz]{Korollar}
 \newtheorem{folgerung}[satz]{Folgerung}
-\newtheorem{plaindefinition}{Definition}
-\newenvironment{definition}{\begin{plaindefinition}}{\end{plaindefinition}}
-\newenvironment{definition*}{\begin{plaindefinition*}}{\end{plaindefinition*}}
+\newtheorem{definition}{Definition}
 \newtheorem{beispiel}{Beispiel}
 \newtheorem{bemerkung}{Bemerkung}
 \theoremstyle{nonumberplain}
@@ -64,6 +62,7 @@
 \def\mdq{\ensuremath{\mathbb{Q}}}
 \def\mdz{\ensuremath{\mathbb{Z}}}
 \def\mdn{\ensuremath{\mathbb{N}}}
+\def\mdh{\ensuremath{\mathbb{H}}}
 \def\gdw{\ensuremath{\Leftrightarrow}}
 
 \def\atlas{\ensuremath{\mathcal{A}}}
@@ -71,6 +70,7 @@
 
 \def\GL{\ensuremath{\mathrm{GL}}}
 \def\SL{\ensuremath{\mathrm{SL}}}
+\def\PSL{\ensuremath{\mathrm{PSL}}}
 \newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
 \newcommand\dcup{\mathbin{\dot{\cup}}}
 \newcommand{\id}{\textnormal{id}}
@@ -84,6 +84,9 @@
 \DeclareMathOperator{\Diffeo}{Diffeo}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\IWS}{IWS}
+\newcommand{\iu}{{i\mkern1mu}} % imaginary unit
+%\DeclareMathOperator{\Re}{Re}
+%\DeclareMathOperator{\Im}{Im}
 
 %%%Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\obda{o.~B.~d.~A.\xspace}
@@ -99,7 +102,6 @@
 \crefname{korollar}{Korollar}{Korollare}
 \crefname{folgerung}{Folgerung}{Folgerungen}
 \crefname{definition}{Definition}{Definitionen}
-\crefname{plaindefinition}{Definition}{Definitionen}
 \crefname{behauptung}{Behauptung}{Behauptungen}
 \crefname{beispiel}{Beispiel}{Beispiele}
 \crefname{aufgabe}{Aufgabe}{Aufgaben}

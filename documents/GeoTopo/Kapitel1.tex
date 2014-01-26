@@ -62,8 +62,8 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \begin{definition}
     Sei $(X, \fT)$ ein topologischer Raum und $M \subseteq X$ eine Teilmenge.
     \begin{enumerate}[label=\alph*)]
-        \item $\displaystyle M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x} = \bigcup_{\stackrel{U \subseteq M} {U \in \fT}} U $ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \xindex{Inneres} \xindex{Kern!offener}
-        \item $\displaystyle \overline{M} := \bigcap_{\stackrel{M \subseteq A}{A \text{ abgeschlossen}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \xindex{Abschluss}
+        \item $\displaystyle M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x} = \bigcup_{\overset{U \subseteq M} {U \in \fT}} U $ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \xindex{Inneres} \xindex{Kern!offener}
+        \item $\displaystyle \overline{M} := \bigcap_{\overset{M \subseteq A}{A \text{ abgeschlossen}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \xindex{Abschluss}
         \item $\partial M := \overline{M} \setminus M^\circ$ heißt \textbf{Rand} von $M$. \xindex{Rand}
         \item $M$ heißt \textbf{dicht} in $X$, wenn $\overline{M} = X$ ist. \xindex{dicht}
     \end{enumerate}
@@ -303,14 +303,14 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \begin{definition}
     Seien $X, Y$ topologische Räume und $f:X \rightarrow Y$ eine Abbildung.
 
-    \begin{enumerate}[label=\alph*),ref=\theplaindefinition.\alph*]
+    \begin{defenum}
         \item $f$ heißt \textbf{stetig}\xindex{Abbildung!stetige}, wenn für jedes offene 
               $U \subseteq Y$ auch $f^{-1} (U) \subseteq X$ offen ist. \label{def:stetigkeit}
         \item $f$ heißt \textbf{Homöomorphismus}\xindex{Homöomorphismus}, wenn $f$ stetig ist
               und es eine 
               stetige Abbildung  $g: Y \rightarrow X$ gibt, sodass
               $g \circ f = \id_X$ und $f \circ g = \id_Y$.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begingroup
@@ -333,7 +333,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \enquote{$\Rightarrow$}: Sei $x \in X, \varepsilon > 0$ gegeben
     und $U := \fB_\varepsilon(f(x))$.\\
     Dann ist $U$ offen in $Y$.\\
-    $\xRightarrow{\ref{def:stetigkeit}} f^{-1}(U)$  ist 
+    $\xRightarrow{\text{Def. }\ref{def:stetigkeit}} f^{-1}(U)$  ist 
     offen in $X$. Dann ist $x \in f^{-1}(U)$.\\
     $\Rightarrow \exists \delta > 0$, sodass 
     $\fB_\delta(x) \subseteq f^{-1} (U)$\\
@@ -364,7 +364,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
               stetig für jeden topologischen Raum $Y$ und jede Abbildung $f$.
         \item Sei $X = [0, 1), Y = S^1 = \Set{z \in \mdc | \|z\| = 1}$
               und $f(t) = e^{2 \pi i t}$
-              \begin{figure}
+              \begin{figure}[htp]
                 \centering
                 \input{figures/topology-continuous-mapping}
                 \caption{Beispiel einer stetigen Funktion $f$, deren 
@@ -476,11 +476,10 @@ sodass $\pi$ stetig wird.
     Es gilt: $f$ ist bijektiv und die Umkehrabbildung ist ebenfalls
     stetig.    
 \end{beispiel}
-
+\index{Stetigkeit|)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 31.10.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Stetigkeit|)}
 \section{Zusammenhang}\index{Zusammenhang|(}
 \begin{definition}\xindex{zusammenhaengend@zusammenhängend}
     Ein Raum $X$ heißt \textbf{zusammenhängend}, wenn es keine offenen,
@@ -550,7 +549,7 @@ sodass $\pi$ stetig wird.
     $\Rightarrow$ Widerspruch zu $A$ ist zusammenhängend $ \qed$
 \end{beweis}
 
-\begin{bemerkung}\label{zusammenhangVereinigung}
+\begin{bemerkung}\label{bem:zusammenhangVereinigung}
     Sei $X$ ein topologischer Raum und $A, B \subseteq X$ zusammenhängend.
 
     Ist $A \cap B \neq \emptyset$, dann ist $A \cup B$ zusammenhängend.
@@ -597,8 +596,8 @@ sodass $\pi$ stetig wird.
             ist unerlaubte Zerlegung.
         \item Nach \cref{zusammenhangAbschluss} ist $\overline{Z(x)}$
               zusammenhängend $\Rightarrow \overline{Z(x)} \subseteq Z(x)$
-              $\Rightarrow Z(x) = \overline{Z(x}$
-        \item Ist $Z(y) \cap Z(x) \neq \emptyset \xRightarrow{\ref{zusammenhangVereinigung}} Z(y) \cup Z(x)$
+              $\Rightarrow Z(x) = \overline{Z(x)}$
+        \item Ist $Z(y) \cap Z(x) \neq \emptyset \xRightarrow{\text{Bem. }\ref{bem:zusammenhangVereinigung}} Z(y) \cup Z(x)$
               ist zusammenhängend. \\
               \begin{align*}
                 \Rightarrow Z(x) \cup Z(y) &\subseteq Z(x) \Rightarrow Z(y) \subseteq Z(x)\\
