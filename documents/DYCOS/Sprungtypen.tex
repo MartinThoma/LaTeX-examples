@@ -1,6 +1,6 @@
 \subsection{Sprungtypen}\label{sec:sprungtypen}
 Die beiden bereits definierten Sprungtypen, der strukturelle Sprung
-sowie der inhaltliche Mehrfachsprung werden im folgenden erklärt.
+sowie der inhaltliche Zweifachsprung werden im folgenden erklärt.
 \goodbreak
 Der strukturelle Sprung entspricht einer zufälligen Wahl eines 
 Nachbarknotens, wie es in \cref{alg:DYCOS-structural-hop}
@@ -18,7 +18,7 @@ gezeigt wird.
 \label{alg:DYCOS-structural-hop}
 \end{algorithm}
 
-Bei inhaltlichen Mehrfachsprüngen ist jedoch nicht sinnvoll so strikt
+Bei inhaltlichen Zweifachsprüngen ist jedoch nicht sinnvoll so strikt
 nach der Definition vorzugehen,  also
 direkt von einem strukturellem Knoten 
 $v \in V_t$ zu einem mit $v$ verbundenen Wortknoten $w \in W_t$ zu springen
@@ -30,7 +30,7 @@ Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
 objektorientierten Programmierung oder ein Teil des Gehirns.
 
 Deshalb wird für jeden Knoten $v$, von dem aus man einen inhaltlichen
-Mehrfachsprung machen will folgende Textanalyse durchgeführt:
+Zweifachsprung machen will folgende Textanalyse durchgeführt:
 \begin{enumerate}[label=C\arabic*,ref=C\arabic*]
     \item \label{step:c1} Gehe alle in $v$ startenden Random Walks der Länge $2$ durch
           und erstelle eine Liste $L$ der erreichbaren Knoten $v'$. Speichere
@@ -42,10 +42,10 @@ CORA-Datensatz wurde in \cite[S. 364]{aggarwal2011} $q=10$ gewählt.}
           Diese Knotenmenge heiße im Folgenden $T(v)$ und $p(v, v')$
           sei die Anzahl der Pfade von $v$ über einen Wortknoten nach $v'$.
     \item \label{step:c3} Wähle mit Wahrscheinlichkeit $\frac{p(v, v')}{\sum_{w \in T(v)} p(v, w)}$
-          den Knoten $v' \in T(v)$ als Ziel des Mehrfachsprungs.
+          den Knoten $v' \in T(v)$ als Ziel des Zweifachsprungs.
 \end{enumerate}
 
-Konkret könnte also ein inhaltlicher Mehrfachsprung sowie wie in
+Konkret könnte also ein inhaltlicher Zweifachsprung sowie wie in
 \cref{alg:DYCOS-content-multihop} beschrieben umgesetzt werden.
 Der Algorithmus bekommt einen Startknoten $v \in V_T$ und
 einen $q \in \mathbb{N}$ als Parameter. $q$ ist ein Parameter der
@@ -76,10 +76,10 @@ der Pfaden der Länge 2 von $v$ nach $v'$ über einen beliebigen
 Wortknoten entspricht ausgewählt und schließlich zurückgegeben.
 
 \begin{algorithm}
-  \caption{Inhaltlicher Mehrfachsprung}
+  \caption{Inhaltlicher Zweifachsprung}
   \label{alg:DYCOS-content-multihop}
     \begin{algorithmic}[1]
-        \Procedure{InhaltlicherMehrfachsprung}{Knoten $v \in V_T$, $q \in \mathbb{N}$}
+        \Procedure{InhaltlicherZweifachsprung}{Knoten $v \in V_T$, $q \in \mathbb{N}$}
             \State $erreichbareKnoten \gets$ leeres assoziatives Array\label{alg:l2}
             \ForAll{Wortknoten $w$ in $v.\Call{getWordNodes}{ }$}
                 \ForAll{Strukturknoten $x$ in $w.\Call{getStructuralNodes}{ }$}

@@ -58,7 +58,7 @@ jedes Wortes berücksichtigt.
 \end{figure}
 
 Entsprechend werden zwei unterschiedliche Sprungtypen unterschieden,
-die strukturellen Sprünge und inhaltliche Mehrfachsprünge:
+die strukturellen Sprünge und inhaltliche Zweifachsprünge:
 
 \begin{definition}[struktureller Sprung]
     Sei $G_{E,t} = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
@@ -69,27 +69,27 @@ die strukturellen Sprünge und inhaltliche Mehrfachsprünge:
     ein \textit{struktureller Sprung}.
 \end{definition}
 \goodbreak
-Im Gegensatz dazu benutzten inhaltliche Mehrfachsprünge
+Im Gegensatz dazu benutzten inhaltliche Zweifachsprünge
 tatsächlich die Grapherweiterung:
-\begin{definition}[inhaltlicher Mehrfachsprung]
+\begin{definition}[inhaltlicher Zweifachsprung]
     Sei $G_t = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
     um die Wortknoten $W_{t}$ erweiterte Graph.
 
     Dann heißt das zufällige wechseln des aktuell betrachteten
     Knoten $v \in V_t$ zu einem benachbartem Knoten $w \in W_t$
     und weiter zu einem zufälligem Nachbar $v' \in V_t$ von $w$
-    ein inhaltlicher Mehrfachsprung.
+    ein inhaltlicher Zweifachsprung.
 \end{definition}
 
-Jeder inhaltliche Mehrfachsprung beginnt und endet also in einem Strukturknoten,
+Jeder inhaltliche Zweifachsprung beginnt und endet also in einem Strukturknoten,
 springt über einen Wortknoten und ist ein Pfad der Länge~2.
 
 Ob in einem Sprung der Random Walks ein struktureller Sprung oder
-ein inhaltlicher Mehrfachsprung gemacht wird, wird jedes mal zufällig
+ein inhaltlicher Zweifachsprung gemacht wird, wird jedes mal zufällig
 neu entschieden. Dafür wird der Parameter $0 \leq p_S \leq 1$ für den Algorithmus 
 gewählt. Mit einer Wahrscheinlichkeit von $p_S$ wird ein struktureller
 Sprung durchgeführt und mit einer Wahrscheinlichkeit
-von $(1-p_S)$ ein modifizierter inhaltlicher Mehrfachsprung, wie er in
+von $(1-p_S)$ ein modifizierter inhaltlicher Zweifachsprung, wie er in
 \cref{sec:sprungtypen} erklärt wird, gemacht. Der 
 Parameter $p_S$ gibt an, wie wichtig die Struktur des Graphen im Verhältnis
 zu den textuellen Inhalten ist. Bei $p_S = 0$ werden ausschließlich
@@ -132,7 +132,7 @@ struktureller Sprung durchgeführt wird.
                     \If{$sprungTyp \leq p_S$}
                         \State $w \gets$ \Call{SturkturellerSprung}{$w$}
                     \Else
-                        \State $w \gets$ \Call{InhaltlicherMehrfachsprung}{$w$}
+                        \State $w \gets$ \Call{InhaltlicherZweifachsprung}{$w$}
                     \EndIf
                     \State $beschriftung \gets w.\Call{GetLabel}{ }$
                     \If{$!d.\Call{hasKey}{beschriftung}$}
@@ -173,7 +173,7 @@ verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
           $w$ in den Texten von $v$.
     \item Für jedes Wort des Vokabulars $W_t$ wird eine Liste von 
           Knoten verwaltet, in deren Texten das Wort vorkommt.
-          Diese Liste wird bei den inhaltlichen Mehrfachsprung,
+          Diese Liste wird bei den inhaltlichen Zweifachsprung,
           der in \cref{sec:sprungtypen} erklärt wird,
           verwendet.
 \end{itemize}
