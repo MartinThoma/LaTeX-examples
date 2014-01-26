@@ -1,0 +1,27 @@
+Für den DYCOS-Algorithmus wurde in \cite{aggarwal2011} bewiesen,
+dass sich nach Ausführung von DYCOS für einen unbeschrifteten
+Knoten mit einer Wahrscheinlichkeit von höchstens
+$(1-k)\cdot e^{-l \cdot b^2 / 2}$ eine Knotenbeschriftung ergibt, deren
+relative Häufigkeit weniger als $b$ der häufigsten Beschriftung ist.
+Dabei ist $k$ die Anzahl der Klassen und $l$ die Länge der 
+Random-Walks.
+
+Außerdem wurde experimentell anhand des DBLP-Datensatzes\footnote{http://dblp.uni-trier.de/}
+und des CORA-Datensatzes\footnote{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}
+gezeigt, dass die Klassifikationsgüte nicht wesentlich von der
+maximalen Listenlänge $a$ und der Anzahl der Wörter mit
+höchstem Gini-Koeffizient $m$ abhängt. Obwohl es sich nicht sagen lässt,
+wie genau die Ergebnisse aus \cite{aggarwal2011} zustande gekommen sind,
+eignet sich das Kreuzvalidierungsverfahren zur Bestimmung der Klassifikationsgüte
+wie es in \cite{Lavesson,Stone1974} vorgestellt wird:
+\begin{enumerate}
+    \item Betrachte nur $V_{L,T}$.
+    \item Unterteile $V_{L,T}$ zufällig in $k$ disjunkte Mengen $M_1, \dots, M_k$.
+    \item \label{schritt3} Teste die Klassifikationsgüte, wenn die Knotenbeschriftungen
+          aller Knoten in $M_i$ für DYCOS verborgen werden für $i=1,\dots, k$.
+    \item Bilde den Durchschnitt der Klassifikationsgüten aus \cref{schritt3}.
+\end{enumerate}
+
+Es wird $k=10$ vorgeschlagen.
+
+
