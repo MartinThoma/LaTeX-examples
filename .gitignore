@@ -29,7 +29,7 @@
 *.thm
 *.xdy
 *.dvi
-
+*.pyg
 *.pdf
 
 ## I want to keep some PDFs
