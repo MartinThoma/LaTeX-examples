@@ -1,4 +1,4 @@
-DOKUMENT = DYCOS
+DOKUMENT = Ausarbeitung-Thoma
 
 make:
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen erstellen
