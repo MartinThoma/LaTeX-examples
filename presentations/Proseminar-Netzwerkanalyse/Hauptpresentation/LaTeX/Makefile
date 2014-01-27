@@ -1,4 +1,4 @@
-SOURCE = Datamining-Proseminar-Hauptpresentation
+SOURCE = Presentation-Thoma
 
 make:
 	pdflatex -shell-escape $(SOURCE).tex -output-format=pdf # shellescape wird fürs logo benötigt
