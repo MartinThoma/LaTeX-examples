@@ -1,15 +1,33 @@
 Für den DYCOS-Algorithmus wurde in \cite{aggarwal2011} bewiesen,
 dass sich nach Ausführung von DYCOS für einen unbeschrifteten
 Knoten mit einer Wahrscheinlichkeit von höchstens
-$(1-k)\cdot e^{-l \cdot b^2 / 2}$ eine Knotenbeschriftung ergibt, deren
+$(|\L_t|-1)\cdot e^{-l \cdot b^2 / 2}$ eine Knotenbeschriftung ergibt, deren
 relative Häufigkeit weniger als $b$ der häufigsten Beschriftung ist.
-Dabei ist $k$ die Anzahl der Klassen und $l$ die Länge der 
+Dabei ist $|\L_t|$ die Anzahl der Beschriftungen und $l$ die Länge der 
 Random-Walks.
 
 Außerdem wurde experimentell anhand des DBLP-Datensatzes\footnote{http://dblp.uni-trier.de/}
 und des CORA-Datensatzes\footnote{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}
-gezeigt, dass die Klassifikationsgüte nicht wesentlich von der Anzahl der Wörter mit
-höchstem Gini-Koeffizient $m$ abhängt.  Obwohl es sich nicht sagen lässt,
+gezeigt (vgl. \cref{tab:datasets}), dass die Klassifikationsgüte nicht wesentlich von der Anzahl der Wörter mit
+höchstem Gini-Koeffizient $m$ abhängt. Des Weiteren betrug die Ausführungszeit
+auf einem Kern eines Intel Xeon $\SI{2.5}{\GHz}$ Servers mit 
+$\SI{32}{\giga\byte}$ RAM für den DBLP-Datensatz unter $\SI{25}{\second}$,
+für den CORA-Datensatz sogar unter $\SI{5}{\second}$. Dabei wurde eine
+für CORA eine Klassifikationsgüte von 82\% - 84\% und auf den DBLP-Daten
+von 61\% - 66\% erreicht.
+
+\begin{table}[htp]
+    \centering
+    \begin{tabular}{|l||r|r|r|r|}\hline
+    \textbf{Name} & \textbf{Knoten} & \textbf{davon beschriftet} & \textbf{Kanten}  & \textbf{Beschriftungen} \\ \hline\hline
+    \textbf{CORA} & \num{19396}  & \num{14814}             & \num{75021}   & 5              \\
+    \textbf{DBLP} & \num{806635} & \num{18999 }            & \num{4414135} & 5              \\\hline
+    \end{tabular}
+    \caption{Datensätze, die für die experimentelle analyse benutzt wurden}
+    \label{tab:datasets}
+\end{table}
+
+Obwohl es sich nicht sagen lässt,
 wie genau die Ergebnisse aus \cite{aggarwal2011} zustande gekommen sind,
 eignet sich das Kreuzvalidierungsverfahren zur Bestimmung der Klassifikationsgüte
 wie es in \cite{Lavesson,Stone1974} vorgestellt wird:
