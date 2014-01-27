@@ -1,6 +1,6 @@
 Über die Präsentation
 ---------------------
-Zur [Ausarbeitung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/DYCOS).
+Zur [Ausarbeitung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Proseminar-Netzwerkanalyse).
 
 KIT-Style
 ---------
