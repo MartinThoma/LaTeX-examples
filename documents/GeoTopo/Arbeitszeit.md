@@ -48,3 +48,4 @@ in dem Erstellen dieses Skripts steckt:
 |25.01.2014 | 13:05 - 13:35 | Aufgabe aus Tutorium hinzugefügt
 |26.01.2014 | 19:00 - 20:00 | Textsetzung: Figure bekommt htp; stackrel -> overset; \ref -> \cref
 |26.01.2014 | 21:30 - 22:45 | Textsetzung: enumerate
+|28.01.2014 | 06:45 - 07:45 | Textsetzung (http://tex.stackexchange.com/q/156058/5645); Lösung von Übungsaufgabe geTeXt

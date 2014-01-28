@@ -115,7 +115,18 @@
 
 \newlist{bemenum}{enumerate}{1}
 \setlist[bemenum]{label=\alph*),ref=\textup{\thebemerkung.\alph*}}
-\crefalias{bemenumi}{bemerkung} 
+\crefalias{bemenumi}{bemerkung}
+% Commands for local abbreviations
+\newcommand\crefabbr[1]{%
+\begingroup
+  \crefname{bemerkung}{\text{Bem.}}{\text{Bem.}}\cref{#1}
+\endgroup%
+}
+\newcommand\Crefabbr[1]{%
+\begingroup
+  \Crefname{bemerkung}{Bem.}{Bem.}\Cref{#1}
+\endgroup%
+}
 
 \newlist{bspenum}{enumerate}{1}
 \setlist[bspenum]{label=\arabic*),ref=\textup{\thebeispiel.\arabic*}}

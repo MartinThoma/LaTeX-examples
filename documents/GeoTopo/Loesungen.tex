@@ -213,6 +213,43 @@
 %
 %\end{solution}
 
+\begin{solution}[\ref{ub11:aufg3}]
+    \textbf{Vor.:} Sei $(X, d)$ eine absolute Ebene, $A, B, C \in X$
+        und $\triangle ABC$ ein Dreieck.
+
+    \begin{enumerate}[label=(\alph*)]
+        \item \textbf{Beh.:} $\overline{AB} \cong \overline{AC} \Rightarrow \angle ABC \cong \angle ACB$\\
+              \textbf{Bew.:} Sei $\overline{AB} \cong \overline{AC}$.\\
+              $\Rightarrow \exists$ Isometrie $\varphi$ mit $\varphi(B) = C$ und
+              $\varphi(C) = B$ und $\varphi(A) = A$.\\
+              $\Rightarrow \varphi(\angle ABC) = \angle ACB$\\
+              $\Rightarrow \angle ABC \cong \angle ACB \qed$
+        \item \textbf{Beh.:} Der längeren Seite von $\triangle ABC$ liegt der größere Winkel gegenüber und
+              umgekehrt.\\
+              \textbf{Bew.:} Sei $d(A,C) > d(A,B)$. Nach \ref{axiom:3.1}
+              gibt es $C' \in AC^+$ mit $d(A, C') = d(A,B)$\\
+              $\Rightarrow C'$ liegt zwischen $A$ und $C$.\\
+              Es gilt $\measuredangle ABC' < \measuredangle ABC$ und
+              aus \cref{ub11:aufg3.a} folgt: $\measuredangle ABC' = \measuredangle AC' B$.\\
+              $\angle BC' A$ ist ein nicht anliegender Außenwinkel zu
+              $\angle BCA \xRightarrow{\crefabbr{bem:14.9}} \measuredangle BC' A > \measuredangle BCA$\\
+              $\Rightarrow \measuredangle BCA < \measuredangle BC' A = \measuredangle ABC' < \measuredangle ABC $
+              Sei umgekehrt $\measuredangle ABC > \measuredangle BCA$,
+              kann wegen 1. Teil von \cref{ub11:aufg3.b} nicht 
+              $d(A,B) > d(A,C)$ gelten.\\
+              Wegen \cref{ub11:aufg3.a} kann nicht $d(A,B) = d(A,C)$
+              gelten.\\
+              $\Rightarrow d(A,B) < d(A, C) \qed$
+        \item \textbf{Vor.:} Sei $g$ eine Gerade, $P \in X$ und $P \notin g$\\
+              \textbf{Beh.:} $\exists!$ Lot\\
+              \textbf{Bew.:} ÜB10 A4(a): Es gibt Geradenspiegelung $\varphi$
+              an $g$. $\varphi$ vertauscht die beiden Halbebenen bzgl.
+              $g$.\\
+              $\Rightarrow \varphi(P)P$ schneidet $g$ in $F$.
+              \todo[inline]{Noch ca. eine halbe Seite}
+    \end{enumerate}
+\end{solution}
+
 \begin{solution}[\ref{ub-tut-24:a1}]
     Sei $f \parallel h$ und \obda $f \parallel g$.
 
