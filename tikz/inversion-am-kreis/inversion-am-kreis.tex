@@ -8,14 +8,22 @@
     \tkzSetUpPoint[shape=circle,size=3,color=black,fill=black]
     \tkzSetUpLine[line width=1]
     \tkzInit[xmax=1.2,ymax=1,xmin=-1.2,ymin=0]
-    \tkzDefPoints{1/1/Z,0.5/0.5/dZ,-0.5/0.5/ndZ,0/0/O}
-    \tkzDrawArc[R,line width=1pt,color=orange](O,1 cm)(0,180)
+    \pgfmathsetmacro{\Radius}{1}
+    \tkzDefPoints{0.9/0.7/Z, 0/0/O, 0/1/i}
+
+    %% Konstruktion von 1/ \overline{z} und -1/ \overline{z}
+    \tkzTangent[from with R = Z,/tikz/overlay](O,\Radius cm)  \tkzGetPoints{T1}{T2}
+    \tkzInterLL(T1,T2)(O,Z) \tkzGetPoint{dZ}
+    \tkzDefPointBy[reflection = over O--i](dZ) \tkzGetPoint{ndZ}
+    %%
+
+    \tkzDrawArc[R,line width=1pt,color=orange](O,\Radius cm)(0,180)
     \tkzAxeXY
 
     \tkzDrawPoints(Z, dZ, ndZ)
     \tkzLabelPoint[right](Z){$Z = r \cdot e^{\iu \varphi}$}
-    \tkzLabelPoint[below right](dZ){$\frac{1}{z} = \frac{1}{r} \cdot e^{-\iu \varphi}$}
-    \tkzLabelPoint[below left](ndZ){$-\frac{1}{z}$}
+    \tkzLabelPoint[left](dZ){$\frac{1}{\overline{z}} = \frac{1}{r} \cdot e^{-\iu \varphi}$}
+    \tkzLabelPoint[below left](ndZ){$-\frac{1}{\overline{z}}$}
     \tkzDrawSegments[dashed](O,Z)
     \tkzDrawSegments[dashed](O,ndZ)
 \end{tikzpicture}
