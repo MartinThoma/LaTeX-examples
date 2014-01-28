@@ -52,3 +52,4 @@ in dem Erstellen dieses Skripts steckt:
 |28.01.2014 | 10:00 - 10:40 | \cref in math mode is now never in italics for all defined names
 |28.01.2014 | 10:40 - 11:25 | Verbesserungsvorschläge von Prof. Dr. Herrlich eingearbeitet.
 |28.01.2014 | 11:35 - 12:20 | Digitalisieren der Vorlesung von 28.01.2014
+|28.01.2014 | 21:00 - 23:00 | Verbesserungen (Textsetzung, weitere Beweise / Beweisskizzen)

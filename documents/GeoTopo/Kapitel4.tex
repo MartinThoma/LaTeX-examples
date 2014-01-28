@@ -290,13 +290,14 @@ schneiden sich.
 \end{bemerkung}
 
 \begin{beweis}
-    \begin{align}
+    \begin{align*}
         \text{\Obda sei } S \in \overline{PQ} &\Leftrightarrow d(P,Q) = d(P,S) + d(S,Q)\\
-        &\overset{\varphi \in \Iso(X)}{\Rightarrow} d(\varphi(P),\varphi(Q)) = d(\varphi(P),\varphi(S)) + d(\varphi(S),\varphi(Q))\\
-        &\overset{P, Q \in \Fix(\varphi)}{\Rightarrow} d(P, Q) = d(P,\varphi(S)) + d(\varphi(S), Q)\\
-        &\Rightarrow \varphi(S) \text{ liegt zwischen } P \text{ und } Q \text{. Es gilt } d(P, \varphi(S)) = d(P,S)\\
-        &\overset{\ref{axiom:3.1}}{\Rightarrow} \varphi(S) = S
-    \end{align}
+        &\overset{\mathclap{\varphi \in \Iso(X)}}{\Rightarrow}\hspace{4 mm} d(\varphi(P),\varphi(Q)) = d(\varphi(P),\varphi(S)) + d(\varphi(S),\varphi(Q))\\
+        &\overset{\mathclap{P, Q \in \Fix(\varphi)}}{\Rightarrow}\hspace{4 mm} d(P, Q) = d(P,\varphi(S)) + d(\varphi(S), Q)\\
+        &\Rightarrow \varphi(S) \text{ liegt zwischen } P \text{ und } Q\\
+        &\Rightarrow d(P, \varphi(S)) = d(P,S)\\
+        &\overset{\mathclap{\ref{axiom:3.1}}}{\Rightarrow} \varphi(S) = S
+    \end{align*}
 
     $\qed$ 
 \end{beweis}
@@ -376,7 +377,7 @@ schneiden sich.
 \end{beweis}
 
 \begin{bemerkung}
-    Mit \ref{kor:14.6} lassen sich die Kongruenzsätze für Dreiecke,
+    Mit \cref{kor:14.6} lassen sich die Kongruenzsätze für Dreiecke,
     wie man sie aus der Schule kennt, beweisen.
 \end{bemerkung}
 
@@ -769,7 +770,7 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
             G_2 &= \Set{g_2 \subseteq \mdh | \exists x \in \mdr: g_2 = \Set{z \in \mdc: \Re(z) = x} \cap \mdh}
         \end{align*}
 
-    Die Elemente von $\mdh$ heißen \textbf{hyperbolische Geraden}\xindex{Gerade!hyperbolische}
+    Die Elemente von $\mdh$ heißen \textbf{hyperbolische Geraden}.\xindex{Gerade!hyperbolische}
 \end{definition}
 
 \begin{bemerkung}[Eigenschaften der hyperbolischen Geraden]
@@ -786,9 +787,21 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
         \item Offensichtlich sind \ref{axiom:1.3} und \ref{axiom:1.2}
               erfüllt. Für \ref{axiom:1.1} gilt:\\
               Gegeben $z_1, z_2 \in \mdh$\\
-              \textbf{Existenz:} $\Re(z_1) = \Re(z_2)$
-              $\Rightarrow z_1$ und $z_2$ liegen auf
-              \[g = \Set{z \in \mdc | \Re(z) = \Re(z_1) \land \mdh}\]
+              \textbf{Existenz:}
+            \begin{enumerate}
+                \item[Fall 1] $\Re(z_1) = \Re(z_2)$\\
+                    $\Rightarrow z_1$ und $z_2$ liegen auf
+                    \[g = \Set{z \in \mdc | \Re(z) = \Re(z_1) \land \mdh}\]
+                    Siehe \cref{fig:hyperbolische-geometrie-axiom-1-1}.
+                \item[Fall 2] $\Re(z_1) \neq \Re(z_2)$\\
+                    Betrachte nun $z_1$ und $z_2$ als Punkte in der
+                    euklidischen Ebene. Die Mittelsenkrechte zu diesen
+                    Punkten schneidet die $x$-Achse. Alle Punkte auf
+                    der Mittelsenkrechten zu $z_1$ und $z_2$ sind gleich 
+                    weit von $z_1$ und $z_2$ entfernt. Daher ist
+                    der Schnittpunkt mit der $x$-Achse der Mittelpunkt
+                    eines Kreises durch $z_1$ und $z_2$ (vgl. \cref{fig:hyperbolische-geometrie-axiom-1-2})
+            \end{enumerate}
 
             \begin{figure}[ht]
                 \centering
@@ -805,7 +818,7 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
             \end{figure}
         \item TODO
         \item Siehe \cref{fig:hyperbolische-halbebene-axiom-5}.
-            \begin{figure}[htp]
+            \begin{figure}[hp]
                 \centering
                 \input{figures/hyperbolic-geometry-not-parallel.tex}
                 \caption{Hyperbolische Geraden erfüllen \ref{axiom:5} nicht.}
@@ -814,24 +827,30 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     \end{enumerate}
 \end{beweis}
 
+\begin{definition}
+    Es seien $a,b,c,d \in \mdc$ mit $ad - bc \neq 0$ und 
+    $\sigma: \mdc \rightarrow \mdc$ eine Abbildung definiert durch 
+    \[\sigma(z) := \frac{az + b}{cz+d}\]
+
+    $\sigma$ heißt \textbf{Möbiustransformation}\xindex{Möbiustransformation}.
+\end{definition}
+
 \begin{proposition}%In Vorlesung: Proposition 15.2
     \begin{propenum}
-        \item Die Gruppe $\SL_2(\mdr)$ operiert auf $\mdh$ durch
+        \item Die Gruppe $\SL_2(\mdr)$ operiert auf $\mdh$ durch die Möbiustransformation
               \[\sigma(z):= \begin{pmatrix}a & b\\c & d\end{pmatrix} \circ z := \frac{az + b}{cz + d}\]
-        \item Es ist $\sigma(z) = (-\sigma)(z)$ für alle $\sigma \in \SL_2(\mdr)$
-              und $z \in \mdh$. Daher operiert $\PSL_2(\mdr) = \SL_2(\mdr) /_{(\pm I)}$
-              auf $\mdh$.
+        \item Die Gruppe $\PSL_2(\mdr) = \SL_2(\mdr) /_{(\pm I)}$ operiert durch $\sigma$ auf $\mdh$.
         \item \label{prop:15.2c} $\PSL_2(\mdr)$ operiert auf $\mdr \cup \Set{\infty}$.
               Diese Gruppenoperation ist 3-fach transitiv, d.~h. zu
               $x_0 < x_1 < x_\infty \in \mdr$ gibt es genau ein
               $\sigma \in \PSL_2(\mdr)$ mit $\sigma(x_0) = 0$,
-              $\sigma(x_1) = 1$, $\sigma(x_\infty) = \infty$
+              $\sigma(x_1) = 1$, $\sigma(x_\infty) = \infty$.
         \item \label{prop:15.2d} $\SL_2(\mdr)$ wird von den Matrizen
-              \[\begin{pmatrix}\lambda & 0\\ 0 & \lambda^-1\end{pmatrix}, \lambda \in \mdr \;\;\; 
-                \begin{pmatrix}1 & a\\ 0 & 1\end{pmatrix}, a \in \mdr\;\;\; 
-                \begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix}\]
-              erzeugt
-        \item \label{prop:15.2e} $\PSL_2(\mdr)$ operiert auf $G$
+              \[\begin{pmatrix}\lambda & 0\\ 0 & \lambda^{-1}\end{pmatrix},
+                \begin{pmatrix}1 & a\\ 0 & 1\end{pmatrix} \text{ und }
+                \begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix} \text{ mit } a, \lambda \in \mdr\]
+              erzeugt.
+        \item \label{prop:15.2e} $\PSL_2(\mdr)$ operiert auf $G$.
     \end{propenum}
 \end{proposition}
 
@@ -839,16 +858,27 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     \begin{enumerate}[label=\alph*)]
         \item Sei $z = x + \iu y \in \mdh$, d.~h. $y>0$ und
               $\sigma=\begin{pmatrix}a&b\\c&d\end{pmatrix} \in \SL_2(\mdr)$
-              \todo{Hier stimmt was nicht}
-              \begin{align}
-                \Rightarrow \sigma(z) &= \frac{ax + aiy + b}{cx + ciy +d}\\
-                &= \frac{ax + aiy + b}{cx + c \iu y +d} \cdot \frac{cx+d-\iu y}{cx+d-\iu y}\\
-                &= \frac{\Re(...) + \iu (aycx + ayd - axy - yb)}{(cx+d)^2 + (cy)^2}\\
-                &= \frac{\Re(...) + \iu (ad-bc)y}{(cx+d)^2 + (cy)^2}\\
-                &\overset{\mathclap{\SL_2(\mdr)}}{=} \frac{\Re(...) + \iu y}{(cx+d)^2 + (cy)^2}
-              \end{align}
-                $\Rightarrow \Im(\sigma(z)) = \frac{y}{(cx+d)^2 + (cy)^2} > 0$
-        \item TODO b)
+              \begin{align*}
+                \Rightarrow \sigma(z) &= \frac{a(x + \iu y) + b}{c(x + \iu y) +d}\\
+                &= \frac{(ax + b) + \iu ay}{(cx + d) + \iu cy} \cdot \frac{(cx+d)-\iu cy}{(cx+d)-\iu cy}\\
+                &=   \frac{(ax+b)(cx+d) + aycy}{(cx+d)^2 + (cy)^2} + \iu \frac{ay(cx + d) - (ax+b)cy}{(cx+d)^2 + (cy)^2}\\
+                &= \frac{axcx+axd+bcx+bd+aycy}{(cx+d)^2 + (cy)^2} + \iu \frac{(ad-bc)y}{(cx+d)^2 + (cy)^2}\\
+                &\overset{\mathclap{\SL_2(\mdr)}}{=}\hspace{5 mm} \frac{ac(x^2+y^2)+adx+bcx+bd}{(cx+d)^2 + (cy)^2} + \iu \frac{y}{(cx+d)^2 + (cy)^2}
+              \end{align*}
+              $\Rightarrow \Im(\sigma(z)) = \frac{y}{(cx+d)^2 + (cy)^2} > 0$
+
+              Die Abbildung bildet also nach $\mdh$ ab. Außerdem gilt:
+              \[\begin{pmatrix}1&0\\0&1\end{pmatrix} \circ z = \frac{x+\iu y}{1} = x + \iu y = z\]
+              und
+              \begin{align*}
+                \begin{pmatrix}a&b\\c&d\end{pmatrix} \circ  \left ( \begin{pmatrix}a'&b'\\c'&d'\end{pmatrix}   \circ z \right )&=
+                            \begin{pmatrix}a&b\\c&d\end{pmatrix} \circ \frac{a'z + b'}{c'z + d'}\\
+                    &= TODO\\
+                    &= \begin{pmatrix}aa'+bc'&ab'+bd'\\ca'+db'&cb'+dd'\end{pmatrix} \circ z\\
+                    &= \left ( \begin{pmatrix}a&b\\c&d\end{pmatrix} \cdot \begin{pmatrix}a'&b'\\c'&d'\end{pmatrix} \right ) \circ z 
+              \end{align*}
+        \item Es gilt $\sigma(z) = (-\sigma)(z)$ für alle $\sigma \in \SL_2(\mdr)$
+              und $z \in \mdh$.
         \item Ansatz: $\sigma = \begin{pmatrix}a & b\\c & d\end{pmatrix}$
               $\sigma(x_0) = \frac{ax_0 + b}{c x_0 + d} \overset{!}{=} 0$
               $\Rightarrow a x_0 + b = 0 \Rightarrow b = -a x_0$\\
@@ -921,7 +951,8 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
               oder wenn zwei der $z_i$ gleich sind.
         \item $\DV(0, 1, \infty, z_4) = z_4$ (Der Fall $z_4 \in \Set{0, 1, \infty}$ ist zugelassen).
         \item \label{bem:15.4d} Für $\sigma \in \PSL_2(\mdc)$ und $z_1, \dots, z_4 \in \mdc \cup \Set{\infty}$
-              ist $\DV(\sigma(z_1), \sigma(z_2), \sigma(z_3), \sigma(z_4)) = \DV(z_1, z_2, z_3, z_4)$.
+              ist 
+              \[\DV(\sigma(z_1), \sigma(z_2), \sigma(z_3), \sigma(z_4)) = \DV(z_1, z_2, z_3, z_4)\]
               und für $\sigma(z) = \frac{1}{\overline{z}}$ gilt
               \[\DV(\sigma(z_1), \sigma(z_2), \sigma(z_3), \sigma(z_4)) = \overline{\DV(z_1, z_2, z_3, z_4)}\]
         \item \label{bem:15.4e} $\DV(z_1, z_2, z_3, z_4) \in \mdr \in \Set{\infty} \Leftrightarrow z_1, \dots, z_4$
@@ -929,17 +960,49 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     \end{bemenum}
 \end{bemerkung}
 
-\begin{beweis}
-    von \cref{bem:15.4e}
+\begin{beweis}\leavevmode
+    \begin{enumerate}[label=\alph*)]
+        \item $\DV(z_1, \dots, z_4) \neq 0$, da $z_i$ paarweise verschieden\\
+              $\DV(z_1, \dots, z_4) \neq 1$, da:
 
-    Sei $\sigma \in \PSL_2(\mdc)$ mit $\sigma(z_1) = 0$, $\sigma(z_2) = 1$,
-    $\sigma(z_3) = \infty$ (gibt es?)
+            \begin{adjustwidth}{2.5em}{0pt}
+                \underline{Annahme:} $\DV(z_1, \dots, z_4) = 1$
+                \begin{align*}
+                    \Leftrightarrow (z_1 - z_2) (z_3 - z_4) &= (z_1 - z_4) (z_3 - z_2)\\
+                    \Leftrightarrow z_1 z_3 - z_2 z_3 - z_1 z_4 + z_2 z_4 &= z_1 z_3 - z_3 z_4 - z_1 z_2 + z_2 z_4\\
+                    \Leftrightarrow z_2 z_3 + z_1 z_4 &= z_3 z_4 + z_1 z_2\\
+                    \Leftrightarrow z_2 z_3 - z_3 z_4 &= z_1 z_2 - z_1 z_4\\
+                    \Leftrightarrow z_3 (z_2 - z_4) &= z_1 (z_2 - z_4)\\
+                    \Leftrightarrow z_3 &= z_1 \text{ oder } z_2 = z_4
+                \end{align*}
+                Alle $z_i$ sind paarweise verschieden $\Rightarrow$ Widerspruch $\qed$
+            \end{adjustwidth}
+        \item $\DV(z_1, z_4, z_3, z_2) = \frac{(z_1 - z_2) \cdot (z_3 - z_4)}{(z_1 - z_4) \cdot (z_3 - z_2)} = \frac{1}{\DV(z_1, z_2, z_3, z_4)}$
+        \item $\DV(z_3, z_2, z_1, z_4) = \frac{(z_3 - z_4) \cdot (z_1 - z_2)}{(z_3 - z_2) \cdot (z_1 - z_4)} = \frac{1}{\DV(z_1, z_2, z_3, z_4)}$
+        \item Zwei der $z_i$ dürfen gleich sein, da:
+            \begin{itemize}
+                \item[Fall 1] $z_1 = z_4$ oder $z_3 = z_2$\\
+                    In diesem Fall ist $\DV(z_1, \dots, z_4) = 0$
+                \item[Fall 2] $z_1 = z_2$ oder $z_3 = z_4$\\
+                    Mit der Regel von L'Hospital folgt, dass in diesem
+                    Fall $\DV(z_1, \dots, z_4) = \infty$ gilt.
+                \item[Fall 3] $z_1 = z_3$ oder $z_2 = z_4$\\
+                    Durch Einsetzen ergibt sich $\DV(z_1, \dots, z_4)=1$.
+            \end{itemize}
 
-    $\overset{\crefabbr{bem:15.4d}}{\Rightarrow} \DV(z_1, \dots, z_4) = \DV(0, 1, \infty, \sigma(z_4))$\\
-    $\Rightarrow \DV(z_1, \dots, z_4) \in \mdr \cup \Set{\infty} \Leftrightarrow \sigma(z_4) \in \mdr \cup \Set{infty}$
+            Im Fall, dass ein $z_i = \infty$ ist, ist 
+            entweder $\DV(0, 1, \infty, z_4) = 0$ oder $\DV(0, 1, \infty, z_4) \pm \infty$
+        \item $\DV(0, 1, \infty, z_4) = \frac{(0- z_4) \cdot (\infty - 1)}{(0 -1) \cdot (\infty - z_4)} = \frac{z_4 \cdot (\infty - 1)}{\infty - z_4} = z_4$
+        \item TODO
+        \item  Sei $\sigma \in \PSL_2(\mdc)$ mit $\sigma(z_1) = 0$, $\sigma(z_2) = 1$,
+            $\sigma(z_3) = \infty$ (gibt es?)
 
-    Behauptung folgt, weil $\sigma(\mdr \cup \infty)$ ein Kreis oder
-    eine Gerade in $\mdc$ ist.
+            $\overset{\mathclap{\crefabbr{bem:15.4d}}}{\Rightarrow}\hspace{4mm} \DV(z_1, \dots, z_4) = \DV(0, 1, \infty, \sigma(z_4))$\\
+            $\Rightarrow\hspace{4mm} \DV(z_1, \dots, z_4) \in \mdr \cup \Set{\infty} \Leftrightarrow \sigma(z_4) \in \mdr \cup \Set{infty}$
+
+            Behauptung folgt, weil $\sigma(\mdr \cup \infty)$ ein Kreis oder
+            eine Gerade in $\mdc$ ist.
+    \end{enumerate}
 \end{beweis}
 
 \begin{definition}
@@ -971,13 +1034,13 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     Also: $d(z_1, z_2) \geq 0$, $d(z_1, z_2) = 0 \gdw z_1 = z_2$
 
     \begin{align*}
-        2 d(z_2, z_1) &= \ln \DV(a_2, z_2, a_1, z_1)\\
-            &= \ln \DV(\infty, \iu b, 0, \iu a)\\
-            &\overset{\mathclap{\crefabbr{bem:15.4b.ii}}}{=} \ln \DV(0, \iu b, \infty, \iu a)\\
-            &= 2 d(z_1, z_2)
+        2 d(z_2, z_1) &=\hspace{3mm}\ln \DV(a_2, z_2, a_1, z_1)\\
+            &=\hspace{3mm} \ln \DV(\infty, \iu b, 0, \iu a)\\
+            &\overset{\mathclap{\crefabbr{bem:15.4b.ii}}}{=}\hspace{3mm} \ln \DV(0, \iu b, \infty, \iu a)\\
+            &=\hspace{3mm} 2 d(z_1, z_2)
     \end{align*}
 
-    Liegen drei Punkte $z_1, z_2, z_3 \in mdc$ auf einer hyperbolischen
+    Liegen drei Punkte $z_1, z_2, z_3 \in \mdc$ auf einer hyperbolischen
     Geraden, so gilt $d(z_1, z_3) = d(z_1, z_2) + d(z_2, z_3)$
     (wenn $z_2$ zwischen $z_1$ und $z_3$ liegt).
 
@@ -989,7 +1052,7 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     Die hyperbolische Ebene $\mdh$ mit der hyperbolischen Metrik $d$
     und den hyperbolischen Geraden bildet eine \enquote{nichteuklidische Geometrie},
     d.~h. die Axiome~\ref{axiom:1}~-~\ref{axiom:4} sind erfüllt,
-    aber Axiiom~\ref{axiom:5} ist verletzt.
+    aber Axiom~\ref{axiom:5} ist verletzt.
 \end{satz}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
