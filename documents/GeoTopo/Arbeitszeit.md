@@ -50,3 +50,4 @@ in dem Erstellen dieses Skripts steckt:
 |26.01.2014 | 21:30 - 22:45 | Textsetzung: enumerate
 |28.01.2014 | 06:45 - 07:45 | Textsetzung (http://tex.stackexchange.com/q/156058/5645); Lösung von Übungsaufgabe geTeXt
 |28.01.2014 | 10:00 - 10:40 | \cref in math mode is now never in italics for all defined names
+|28.01.2014 | 10:40 - 11:25 | Verbesserungsvorschläge von Prof. Dr. Herrlich eingearbeitet. 

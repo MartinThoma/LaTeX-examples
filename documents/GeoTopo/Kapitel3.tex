@@ -25,7 +25,7 @@
 
     \begin{defenum}
         \item $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{Weg!homotope},
-              wenn es eine stetige Abbildung
+              wenn es eine stetige Abbildung $H : I \times I \rightarrow X$ mit
               \[H(t,0) = \gamma_1(t), H(t,1) = \gamma_2(t) \;\;\; \forall t \in [0,1] =: I \]
               und $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$ gibt.
               Dann schreibt man: $\gamma_1 \sim \gamma_2$
@@ -44,8 +44,8 @@
 
 \begin{beweis}\leavevmode
     \begin{itemize}
-        \item reflexiv: $H(t,s) = \gamma(t)$ für alle $t,s \in I \times I$
-        \item symmetrisch: $H'(t,s) = H(t,1-s)$ für alle $t,s \in I \times I$
+        \item reflexiv: $H(t,s) = \gamma(t)$ für alle $(t,s) \in I \times I$
+        \item symmetrisch: $H'(t,s) = H(t,1-s)$ für alle $(t,s) \in I \times I$
         \item transitiv: Seien $H'$ bzw. $H''$ Homotopien von $\gamma_1$
               nach $\gamma_2$ bzw. von $\gamma_2$ nach $\gamma_3$.
 
@@ -54,7 +54,7 @@
               H''(t, 2s-1) &\text{falls } \frac{1}{2} \leq s \leq 1\end{cases}$
 
               $\Rightarrow$ $H$ ist stetig und Homotopie von $\gamma_1$ nach 
-              $\gamma_2$
+              $\gamma_3$
     \end{itemize}
     $\qed$
 \end{beweis}
@@ -62,14 +62,14 @@
 \begin{beispiel}
     \begin{bspenum}
         \item Sei $X = S^1$. $\gamma_1$ und $\gamma_2$ aus 
-              \cref{fig:circle-two-paths} nicht homöotop.
+              \cref{fig:circle-two-paths} nicht homotop.
         \item Sei $X = T^2$. $\gamma_1, \gamma_2$ und $\gamma_3$
               aus \cref{fig:torus-three-paths} sind paarweise
-              nicht homöotop.
+              nicht homotop.
         \item Sei $X = \mdr^2$ und $a=b=(0,0)$. 
 
               Je zwei Wege im $\mdr^2$ mit Anfangs- und Endpunkt $(0,0)$
-              sind homöotop.
+              sind homotop.
 
               \begin{figure}[htp]
                 \centering
@@ -79,12 +79,12 @@
               \end{figure}
 
               Sei $\gamma_0: I \rightarrow \mdr^2$ der konstante Weg
-              $\gamma_0(t) = 0 \; \forall t \in I$. Sei
-              $\gamma(0) = \gamma(1) = 0$.
+              $\gamma_0(t) = (0,0) \; \forall t \in I$. Sei
+              $\gamma(0) = \gamma(1) = (0,0)$.
 
               $H(t,s) := (1-s) \gamma(t)$ ist stetig, 
               $H(t,0) = \gamma(t)\; \forall t \in I$ und
-              $H(t,1) = 0 \; \forall t \in I$
+              $H(t,1) = (0,0) \; \forall t \in I$.
     \end{bspenum}
 
     \begin{figure}[ht]
@@ -132,7 +132,7 @@
 \end{definition}
 
 \begin{bemerkung}\label{kor:assoziativitaet-von-zusammensetzen-von-wegen}
-    Das zusammensetzen von Wegen ist nur bis auf 
+    Das Zusammensetzen von Wegen ist nur bis auf 
     Homotopie assoziativ, d.~h.:
     \begin{align*}
         \gamma_1 * (\gamma_2 * \gamma_3) &\neq (\gamma_1 * \gamma_2) * \gamma_3\\
@@ -158,9 +158,9 @@
     \end{figure}
 
     Das Zusammensetzen von Wegen ist wegen \cref{kor:homotope-wege}
-    bis auf Homotopie assoziativ, da
+    bis auf Homotopie assoziativ. Verwende dazu
 
-    \[\gamma(t) = \begin{cases}
+    \[\varphi(t) = \begin{cases}
             \frac{1}{2} t   &\text{falls } 0 \leq t < \frac{1}{2}\\
             t - \frac{1}{4} &\text{falls } \frac{1}{2} \leq t < \frac{3}{4}\\
             2t - 1          &\text{falls } \frac{3}{4} \leq t \leq 1
@@ -206,7 +206,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
     Durch $[\gamma_1] *_G [\gamma_2] : = [\gamma_1 * \gamma_2]$ wird
     $\pi_1(X,x)$ zu einer Gruppe. Diese Gruppe heißt \textbf{Fundamentalgruppe}\xindex{Fundamentalgruppe}
-    in $X$ im Basispunkt $x$.
+    von $X$ im Basispunkt $x$.
 \end{definition}
 
 \begin{bemerkung}
@@ -228,9 +228,11 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     \begin{bspenum}
         \item $S^1 = \Set{z \in \mdc | {|z|} = 1} = \Set{(\cos \varphi, \sin \varphi) \in \mdr^2 | 0 \leq \varphi \leq 2 \pi}$
 
-              $\pi_1 (S^1, 1) = \Set{[\gamma^k] | k \in \mdz} \cong \mdz$
+              $\pi_1 (S^1, 1) = \Set{[\gamma^k] | k \in \mdz} \cong \mdz$.
+              Dabei ist $\gamma(t) = e^{2 \pi \iu t} = \cos(2 \pi t) + \iu \sin(2 \pi t)$
+              und $\gamma^k := \underbrace{\gamma * \dots * \gamma}_{k \text{ mal}}$
 
-              $[\gamma^k] \mapsto k$
+              $[\gamma^k] \mapsto k$ ist ein Isomorphismus.
         \item $\pi_1 (\mdr^2, 0) = \pi_1 (\mdr^2, x) = \Set{e}$ für jedes $x \in \mdr^2$
         \item $\pi_1 (\mdr^n, x) = \Set{e}$ für jedes $x \in \mdr^n$
         \item $G \subseteq \mdr^n$ heißt \textbf{sternförmig}\xindex{sternförmig} bzgl. $x \in G$, 
@@ -251,8 +253,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
               Projektion kann von $S^2$ auf den $\mdr^2$ abgebildet
               werden.
 
-              Dieses Argument funktioniert nicht mehr bei flächendeckenden
-              Wegen!
+              Dieses Argument funktioniert nicht mehr bei flächenfüllenden
+              Wegen, d.~h. wenn $\gamma: I \rightarrow S^2$ surjektiv
+              ist.
     \end{bspenum}
 \end{beispiel}
 
@@ -274,7 +277,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
 \begin{beweis}
     \begin{align*}
-        \alpha([\gamma_1] * [\gamma_2]) &= [\overline{\delta} * (\gamma_1 \gamma_2) * \delta]\\
+        \alpha([\gamma_1] * [\gamma_2]) &= [\overline{\delta} * (\gamma_1 * \gamma_2) * \delta]\\
         &= [\overline{\delta} * \gamma_1 * \delta * \overline{\delta} * \gamma_2 * \delta]
         &= [\overline{\delta} * \gamma_1 * \delta] * [\overline{\delta} * \gamma_2 * \delta]\\
         &= \alpha([\gamma_1]) * \alpha([\gamma_2])
@@ -296,7 +299,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
     \begin{bemenum}
         \item Dann ist die Abbildung $f_* : \pi_1(X,x) \rightarrow \pi_1(Y, y),
-        [y] \rightarrow [f \circ y]$ ein Gruppenhomomorphismus.
+        [\gamma] \rightarrow [f \circ \gamma]$ ein Gruppenhomomorphismus.
         \item Ist $Z$ ein weiterer topologischer Raum und $g: Y \rightarrow Z$
               eine stetige Abbildung $z:= g(y)$. Dann ist
               $(g \circ f)_* = g_* \circ f_*: \pi_1(X,x) \rightarrow \pi_1(Z,z)$
@@ -309,8 +312,8 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
               Wege von $x$. z.Z.: $f \circ \gamma_1 \sim f \circ \gamma_2$:
               Nach Voraussetzung gibt es stetige Abbildungen $H:I\times I \rightarrow X$
               mit $H(t,0) = \gamma_1(t), H(t,1) = \gamma_2(t), H(0,S) = H(1, S) = x$.
-              Dann ist $f \circ H: I \times I \rightarrow Y$ mit
-              \todo{Warum die Punkte?}{\dots} $(f \circ H)(t,0) = f(H(t,0)) = f(\gamma_1(t)) = (f \circ \gamma_1)(t)$
+              Dann ist $f \circ H: I \times I \rightarrow Y$ stetig mit
+              $(f \circ H)(t,0) = f(H(t,0)) = f(\gamma_1(t)) = (f \circ \gamma_1)(t)$
               etc. $\Rightarrow f \circ \gamma_1 \sim f \circ \gamma_2$.
 
               $f_*([\gamma_1] * [\gamma_2]) = [f \circ (\gamma_1 * \gamma_2)] = [(f \circ \gamma_1)] * [(f \circ \gamma_2)] = f_*([\gamma_1]) * f_*([\gamma_2])$
@@ -321,7 +324,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \begin{beispiel}
     \begin{bspenum}
         \item $f:S^1 \hookrightarrow \mdr^2$ ist injektiv, aber 
-              $f_*:\pi_1(S^1, 1) \cong \mdz \rightarrow \pi_1(\mdr^2, 1) -0 \Set{e}$
+              $f_*:\pi_1(S^1, 1) \cong \mdz \rightarrow \pi_1(\mdr^2, 1) = 0 \Set{e}$
               ist nicht injektiv
         \item $f: \mdr \rightarrow S^1, t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$
               ist surjektiv, aber $f_*: \pi_1(\mdr, 0) = \Set{e} \rightarrow \pi_1(S^2, 1) \cong \mdz$
@@ -350,8 +353,8 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     stetig mit $f(x_0) = y_0 = g(x_0)$.
 
     $f$ und $g$ heißen \textbf{homotop} ($f \sim g$), wenn es eine stetige
-    Abbildung $H: X \times I \rightarrow Y$ gibt mit $H(X,0) = f(X), H(X,1)=g(x)$
-    für alle $x \in X$ und $H(x_0, S) = y_0$ für alle $s \in I$.
+    Abbildung $H: X \times I \rightarrow Y$ gibt mit $H(x,0) = f(x), H(x,1)=g(x)$
+    für alle $x \in X$ und $H(x_0, s) = y_0$ für alle $s \in I$.
 \end{definition}
 
 \begin{bemerkung}
@@ -364,9 +367,13 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 
     Z.~Z.: $f \circ \gamma \sim g \circ \gamma$
 
-    Sei dazu $H_\gamma: I \times I \rightarrow Y, (t,s) \mapsto H(\gamma(t), S)$.
-    Dann gilt: $H_\gamma (t,0) = H(\gamma(t), 0) = (g \circ \gamma)(t)$,
-    $H_\gamma(1,s) = H(\gamma(1), s) = H(x_0, s) = y_0$ für alle $s$.
+    Sei dazu $H_\gamma: I \times I \rightarrow Y, (t,s) \mapsto H(\gamma(t), s)$.
+    Dann gilt: 
+        \begin{align*}
+            H_\gamma(t,0) &= H(\gamma(t), 0) = (f \circ \gamma)(t) \;\forall t \in I\\
+            H_\gamma(1,s) &= H(\gamma(1), s) = H(x_0, s) = y_0\;\forall s \in I\\
+            H_\gamma(t,1) &= H(\gamma(t), 1) = g(\gamma(t))\;\forall t \in I
+        \end{align*}
 \end{beweis}
 
 \begin{beispiel}
@@ -379,9 +386,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     $\Rightarrow f \circ g = \id_{\Set{0}}$, $g \circ f: \mdr^2 \rightarrow \mdr^2$,
     $x \mapsto 0$ für alle $x$.
 
-    $g \circ f \sim \id_{\mdr^2}$ mit Homotopie: $H: \mdr^2 \times I \rightarrow \mdr^2, H(x,S) = (1-s) x$ (stetig!)
+    $g \circ f \sim \id_{\mdr^2}$ mit Homotopie: $H: \mdr^2 \times I \rightarrow \mdr^2, H(x,s) = (1-s) x$ (stetig!)
 
-    $\Rightarrow H(X,0) = X = \id_{\mdr^2} (X), H(X, 1) = 0, H(0, s) = 0$ für alle $s \in I$
+    $\Rightarrow H(x,0) = x = \id_{\mdr^2} (x)$, $H(x, 1) = 0$, $H(0, s) = 0\;\forall s \in I$.
 \end{beispiel}
 
 \begin{satz}[Satz von Seifert und van Kampen \enquote{light}]\label{thm:seifert-van-kampen}
@@ -393,8 +400,9 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{satz}
 
 \begin{beweis}
-    Sei $\gamma: I \rightarrow X$ ein geschlossener Weg von $x$.
-    Überdecke $I$ mit endlich vielen offenen Intervallen, die ganz in 
+    Sei $\gamma: I \rightarrow X$ ein geschlossener Weg um $x$.
+    Überdecke $I$ mit endlich vielen offenen Intervallen
+    $I_1, I_2, \dots, I_n$, die ganz in 
     $\gamma^{-1}(U)$ oder ganz in $\gamma^{-1}(V)$ liegen.
 
     \Obda sei $\gamma(I_1) \subseteq U, \gamma(I_2) \subseteq V$, etc.
@@ -501,12 +509,12 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \end{definition}
 
 \begin{bemerkung} % Bemerkung 12.2 der Vorlesung
-    Überlappungen sind offene Abbildungen.
+    Überlagerungen sind offene Abbildungen.
 \end{bemerkung}
 
 \begin{beweis}
     Sei $y \in V$ und $x \in p(V)$, sodass $x=p(y)$ gilt.
-    Sei weiter $U = U_x$ die offene Umgebung von $x$ wie in \cref{def:12.1}
+    Sei weiter $U = U_x$ eine offene Umgebung von $x$ wie in \cref{def:12.1}
     und $V_j$ die Komponente von $p^{-1}(U)$, die $y$ enthält.
 
     Dann ist $V \cap V_j$ offene Umgebung von $y$.
@@ -521,7 +529,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \todo[inline]{Die Definition von Diskret habe ich mir überlegt. Hatten wir das schon mal? 
 Haben wir Häufungspunkt definiert?}
 \begin{definition}\xindex{diskret}
-    Sei $M$ eine Menge und $X$ ein topologischer Raum.
+    Sei $X$ ein topologischer Raum und $M \subseteq X$.
 
     $M$ heißt \textbf{diskret} in $X$, wenn $M$ in $X$ keinen 
     Häufungspunkt hat.
@@ -531,7 +539,7 @@ Haben wir Häufungspunkt definiert?}
     Sei $p: Y \rightarrow X$ Überlagerung, $x \in X$.
     \begin{bemenum}
         \item $X$ hausdorffsch $\Rightarrow Y$ hausdorffsch
-        \item $p^{-1}(X)$ ist diskret in $Y$
+        \item $p^{-1}(x)$ ist diskret in $Y$ für jedes $x \in X$.
     \end{bemenum}
 \end{bemerkung}
 
@@ -555,8 +563,8 @@ Haben wir Häufungspunkt definiert?}
         Dann seien $U_1$ und $U_2$ disjunkte Umgebungen von $p(y_1)$
         und $p(y_2)$.
 
-        $\Rightarrow p^{-1}(U_1)$ und $p^{-1}(U_2)$ sind Umgebungen von
-        $y_1$ und $y_2$.
+        $\Rightarrow p^{-1}(U_1)$ und $p^{-1}(U_2)$ sind disjunkte 
+        Umgebungen von $y_1$ und $y_2$.
 
         \item Sei $y \in Y$
 
@@ -603,10 +611,10 @@ Haben wir Häufungspunkt definiert?}
 \end{figure}
 
 \begin{bemerkung}\label{kor:12.5}%Bemerkung 12.5 aus Vorlesung
-    Sei $Z$ zusammenhängend und $f_0, \dots, f_1: Z \rightarrow Y$
+    Sei $Z$ zusammenhängend und $f_0, f_1: Z \rightarrow Y$
     Liftungen von $f$.
 
-    $\exists z_0 \in Z: f_0(z) = f_1(z) \Rightarrow f_0 = f_1$
+    $\exists z_0 \in Z: f_0(z_0) = f_1(z_0) \Rightarrow f_0 = f_1$
 \end{bemerkung}
 
 \begin{figure}[htp]
@@ -622,14 +630,15 @@ Haben wir Häufungspunkt definiert?}
     \underline{Z.~Z.}: $T$ ist offen und $Z \setminus T$ ist auch offen.
 
     Sei $z \in T, x = f(z), U$ Umgebung von $x$ wie in \cref{def:12.1},
-    $V$ die Komponente von $p^{-1}(U)$, die $y:=f_0(z) = f_1(z)$.\todo{deutsch?}
+    $V$ die Komponente von $p^{-1}(U)$, die $y:=f_0(z) = f_1(z)$
+    enthält.
 
     Sei $q:U \rightarrow V$ die Umkehrabbildung zu $p|_V$.
 
     Sei $W:= f^{-1}(U) \cap f_0^{-1}(V) \cap f_1^{-1}(V)$. $W$ ist 
     offene Umgebung in $Z$ von $z$.
 
-    \underline{Behauptung:} $B \subseteq T$
+    \underline{Behauptung:} $W \subseteq T$
 
     Denn für $w \in W$ ist $q(f(w)) = q((p \circ f_0))(w) = ((q \circ p) \circ f_0) (w) = f_0(w) = q(f(w)) = f_1(w)$
 
@@ -677,7 +686,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     $\gamma_0, \gamma_1: I \rightarrow X$ homotope Wege von $a$ nach
     $b$, $\tilde{a} \in p^{-1}(a), \tilde{\gamma_0}, \tilde{\gamma_1}$
     Liftungen von $\gamma_0$ bzw. $\gamma_1$ mit 
-    $\tilde{\gamma_i}(0) = \tilde{0}$.
+    $\tilde{\gamma_i}(0) = \tilde{a}$.
 
     Dann ist $\tilde{\gamma_0}(1) = \tilde{\gamma_1}(1)$ und
     $\tilde{\gamma_0} \sim \tilde{\gamma_1}$.
@@ -696,14 +705,14 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     Dann gilt:
     \begin{enumerate}[label=(\roman*)]
         \item $\tilde{H}$ ist stetig (Beweis wie für \cref{kor:12.5})
-        \item $\tilde{H}(t,0) = \tilde{\gamma_s}(t) = \tilde{H}(t,1) = \tilde{\gamma_1}(t)$
-        \item $\tilde{H}(0,s) = \tilde{\gamma_s}(0) = \tilde{0}$
+        \item $\tilde{H}(t,0) = \tilde{\gamma_0}(t) = \tilde{H}(t,1) = \tilde{\gamma_1}(t)$
+        \item $\tilde{H}(0,s) = \tilde{\gamma_s}(0) = \tilde{a}$
         \item $\tilde{H}(1,s) \in p^{-1}(b)$
     \end{enumerate}
 
     Da $p^{-1}(b)$ diskrete Teilmenge von $Y$ ist\\
-    $\Rightarrow \tilde{H}(1,s) = \tilde{H}(1,0) = \tilde{b_s} \forall s \in I$\\
-    $\Rightarrow \tilde{b_0} = \tilde{b_1}$ und $H$ ist Homotopie 
+    $\Rightarrow \tilde{b_s} = \tilde{H}(1,s) = \tilde{H}(1,0) \;\forall s \in I$\\
+    $\Rightarrow \tilde{b_0} = \tilde{b_1}$ und $\tilde{H}$ ist Homotopie 
     zwischen $\tilde{\gamma_0}$ und $\tilde{\gamma_1}$. $\qed$
 \end{beweis}
 
@@ -731,19 +740,19 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
               $\tilde{\gamma}(1) \in \Set{y_0, \dots, y_{d-1}}$ hängt
               nur von $[\gamma] \in \pi_1(X,x_0)$ ab.
 
-              Es gilt:
+              Für geschlossene Wege $\gamma_0, \gamma_1$ um $x$ gilt:
               \begin{align*}
                 \tilde{\gamma_0}(1) &= \tilde{\gamma_1}(1)\\
                 \Leftrightarrow [\tilde{\gamma_0} * \tilde{\gamma_1}^{-1}] &\in \pi_1(Y, y_0)\\
-                \Leftrightarrow [\gamma_0 * \gamma_1^{-1}] &\in p_* (\pi_1(Y,y_0))
+                \Leftrightarrow [\gamma_0 * \gamma_1^{-1}] &\in p_* (\pi_1(Y,y_0))\\
+                \Leftrightarrow [\gamma_0] \text{ und } [\gamma_1] \text{liegen in der selben Nebenklasse bzgl.} p_*(\pi_1(Y, y_0))
               \end{align*}
               Zu $i \in \Set{0, \dots, d-1}$ gibt es Weg $\delta_i$ in
-              $Y$ mit $\delta_i(0) = y_0$ und $\sigma_i(1) = y_i$\\
-              $\Rightarrow p * \delta_i$ ist geschlossener Weg in 
+              $Y$ mit $\delta_i(0) = y_0$ und $\delta_i(1) = y_i$\\
+              $\Rightarrow p \cup \delta_i$ ist geschlossener Weg in 
               $X$ um $x_0$.\\
-              $\Rightarrow \sigma_i = \widetilde{p*\delta_i}$\\
               $\Rightarrow$ Jedes $y_i$ mit $i=0, \dots, d-1$ ist 
-              $\tilde{\gamma}(1)$ für ein $[\gamma] \in \pi_1(X,x_0)$
+              $\tilde{\gamma}(1)$ für ein $[\gamma] \in \pi_1(X,x_0)$.
     \end{enumerate}
 \end{beweis}
 
@@ -759,7 +768,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     bijektiv.
 
     Nach \todo{Was ist das?}{12.2} ist $p$ offen $\Rightarrow p^{-1}$
-    ist stetig. $\qed$
+    ist stetig. $\Rightarrow p$ ist Homöomorphismus.  $\qed$
 \end{beweis}
 
 \begin{definition}%In Vorlesung: "Definition 12.10"
