@@ -96,37 +96,26 @@
 % http://tex.stackexchange.com/a/101138/5645
 \newcommand\rtilde[1]{\widetilde{\mathit{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\crefname{satz}{Satz}{Sätze}
-\crefname{proposition}{Proposition}{Propositionen}
-\crefname{lemma}{Lemma}{Lemmata}
-\crefname{korollar}{Korollar}{Korollare}
-\crefname{folgerung}{Folgerung}{Folgerungen}
-\crefname{definition}{Definition}{Definitionen}
-\crefname{behauptung}{Behauptung}{Behauptungen}
-\crefname{beispiel}{Beispiel}{Beispiele}
-\crefname{aufgabe}{Aufgabe}{Aufgaben}
-\crefname{bemerkung}{Bemerkung}{Bemerkungen}
+\crefname{satz}{\textup{Satz}}{\textup{Sätze}}
+\crefname{proposition}{\textup{Proposition}}{\textup{Propositionen}}
+\crefname{lemma}{\textup{Lemma}}{\textup{Lemmata}}
+\crefname{korollar}{\textup{Korollar}}{\textup{Korollare}}
+\crefname{folgerung}{\textup{Folgerung}}{\textup{Folgerungen}}
+\crefname{definition}{\textup{Definition}}{\textup{Definitionen}}
+\crefname{behauptung}{\textup{Behauptung}}{\textup{Behauptungen}}
+\crefname{beispiel}{\textup{Beispiel}}{\textup{Beispiele}}
+\crefname{aufgabe}{\textup{Aufgabe}}{\textup{Aufgaben}}
+\crefname{bemerkung}{\textup{Bemerkung}}{\textup{Bemerkungen}}
 %\let\OldAngle\angle
 %\let\angle\sphericalangle
 
 \newlist{defenum}{enumerate}{1}
 \setlist[defenum]{label=\alph*),ref=\textup{\thedefinition.\alph*}}
-\crefalias{defenumi}{definition} 
+\crefalias{defenumi}{definition}
 
 \newlist{bemenum}{enumerate}{1}
 \setlist[bemenum]{label=\alph*),ref=\textup{\thebemerkung.\alph*}}
 \crefalias{bemenumi}{bemerkung}
-% Commands for local abbreviations
-\newcommand\crefabbr[1]{%
-\begingroup
-  \crefname{bemerkung}{\text{Bem.}}{\text{Bem.}}\cref{#1}
-\endgroup%
-}
-\newcommand\Crefabbr[1]{%
-\begingroup
-  \Crefname{bemerkung}{Bem.}{Bem.}\Cref{#1}
-\endgroup%
-}
 
 \newlist{bspenum}{enumerate}{1}
 \setlist[bspenum]{label=\arabic*),ref=\textup{\thebeispiel.\arabic*}}
@@ -138,4 +127,18 @@
 
 \newlist{aufgabeenum}{enumerate}{1}
 \setlist[aufgabeenum]{label=(\alph*),ref=\textup{\theaufgabe~(\alph*)}}
-\crefalias{aufgabeenumi}{aufgabe} 
+\crefalias{aufgabeenumi}{aufgabe}
+
+% Commands for local abbreviations
+\newcommand\crefabbr[1]{%
+\begingroup
+  \crefname{bemerkung}{\textup{Bem.}}{\textup{Bem.}}%
+  \crefname{definition}{\textup{Def.}}{\textup{Def.}}\cref{#1}
+\endgroup%
+}
+\newcommand\Crefabbr[1]{%
+\begingroup
+  \Crefname{bemerkung}{\textup{Bem.}}{\textup{Bem.}}%
+  \Crefname{definition}{\textup{Def.}}{\textup{Def.}}\Cref{#1}
+\endgroup%
+}
