@@ -290,8 +290,11 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
 \begin{definition}\xindex{einfach zusammenhängend}%11.4
     Ein wegzusammenhängender topologischer Raum $X$ heißt
     \textbf{einfach zusammenhängend}, wenn $\pi_1(X,x) = \Set{e}$
-    für ein \todo{was denn nun?}{(jedes)} $x \in X$.
+    für ein $x \in X$.
 \end{definition}
+
+Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen 
+\cref{kor:gruppenisomorphismus-wege} sogar für alle $x \in X$.
 
 \begin{bemerkung}\label{korr:11.5}
     Es seien $X, Y$ topologische Räume, $f:X \rightarrow Y$ eine
@@ -508,7 +511,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     $f$ heißt \textbf{offen} $:\gdw \forall V \subseteq X$ offen: $f(V)$ ist offen in $Y$.
 \end{definition}
 
-\begin{bemerkung} % Bemerkung 12.2 der Vorlesung
+\begin{bemerkung}\label{bem:12.2} % Bemerkung 12.2 der Vorlesung
     Überlagerungen sind offene Abbildungen.
 \end{bemerkung}
 
@@ -579,7 +582,7 @@ Haben wir Häufungspunkt definiert?}
     \end{enumerate}
 \end{beweis}
 
-\begin{bemerkung}[Eindeutigkeit der Liftung]\label{kor:12.4}%Bemerkung 12.4 der Vorlesung
+\begin{bemerkung}\label{kor:12.4}%Bemerkung 12.4 der Vorlesung
     Sei $p: Y \rightarrow X$ Überlagerung, $x_1, x_2 \in X$.
 
     Dann ist $|p^{-1} (x_1)| = |p^{-1}(x_2)|$.\footnote{$|p^{-1} (x_1)| = \infty$ ist erlaubt!}
@@ -610,7 +613,7 @@ Haben wir Häufungspunkt definiert?}
     \label{fig:satz-seifert-van-kampen}
 \end{figure}
 
-\begin{bemerkung}\label{kor:12.5}%Bemerkung 12.5 aus Vorlesung
+\begin{bemerkung}[Eindeutigkeit der Liftung]\label{kor:12.5}%Bemerkung 12.5 aus Vorlesung
     Sei $Z$ zusammenhängend und $f_0, f_1: Z \rightarrow Y$
     Liftungen von $f$.
 
@@ -716,13 +719,13 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     zwischen $\tilde{\gamma_0}$ und $\tilde{\gamma_1}$. $\qed$
 \end{beweis}
 
-\begin{bemerkung}%In Vorlesung: "Folgerung 12.8"
+\begin{folgerung}%In Vorlesung: "Folgerung 12.8"
     Sei $p: Y \rightarrow X$ eine Überlagerung, $x_0 \in X, y_0 \in p^{-1}(x_0)$
     \begin{bemenum}
-        \item $p_1: \pi_1(Y, y_0) \rightarrow \pi_1(X, x_0)$ ist injektiv\label{kor:12.8a}
-        \item $[\pi_1(X, x_0): p_* (\pi_1(Y, y_0))] = \deg(p)$\label{kor:12.8b}
+        \item \label{folg:12.8a} $p_1: \pi_1(Y, y_0) \rightarrow \pi_1(X, x_0)$ ist injektiv\label{kor:12.8a}
+        \item \label{folg:12.8b} $[\pi_1(X, x_0): p_* (\pi_1(Y, y_0))] = \deg(p)$\label{kor:12.8b}
     \end{bemenum}
-\end{bemerkung}
+\end{folgerung}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
@@ -763,11 +766,11 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
 \end{bemerkung}
 
 \begin{beweis}
-    Wegen \cref{kor:12.8a} ist auch $Y$ einfach zusammenhängend
-    und wegen \cref{kor:12.8b} ist $\deg(p)=1$, $p$ ist also
+    Wegen \cref{folg:12.8a} ist auch $Y$ einfach zusammenhängend
+    und wegen \cref{folg:12.8b} ist $\deg(p)=1$, $p$ ist also
     bijektiv.
 
-    Nach \todo{Was ist das?}{12.2} ist $p$ offen $\Rightarrow p^{-1}$
+    Nach \cref{bem:12.2} ist $p$ offen $\Rightarrow p^{-1}$
     ist stetig. $\Rightarrow p$ ist Homöomorphismus.  $\qed$
 \end{beweis}
 
@@ -800,7 +803,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     Sei $z \in \tilde{X}, y_z: I \rightarrow \tilde{X}$ ein Weg von
     $\tilde{x_0}$ nach $z$.
 
-    Sei $\delta_Z$ \underline{die} Liftung von $p \circ \gamma_z$
+    Sei $\delta_Z$ die eindeutige Liftung von $p \circ \gamma_z$
     nach $y$ mit $\delta_2(0) = y_0$.
 
     Setze $\tilde{p}(z) = \delta_Z(1)$.

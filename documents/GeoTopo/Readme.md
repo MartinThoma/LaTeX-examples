@@ -49,16 +49,12 @@ Was noch kommen soll
 ====================
 
 1. Alle `TODOS` auflösen
-    * "Punkt" suchen
-    * Checken, ob alle Seitenumbrüche / Bildgrößen stimmen
+  * "Punkt" suchen
+  * Checken, ob alle Seitenumbrüche / Bildgrößen stimmen
 2. Reviews (Mathematik, LaTeX und Bilder)
 3. A5-Version drucken
-  * In `GeoTopo.tex`...
-      * ... replace `a4paper` by `a5paper`,
-      * ... replace `oneside` by `twoside` and
-      * ... replace `\usepackage[...]{hyperref}` by `\usepackage{nohyperref}`
-  * In `titlepage.tex`: replace `10cm` by `4cm`
-  * Momentan sind es ca. 60 Seiten in A4. In A5 sind es ca.
+  * In `GeoTopo.tex`: `\AFivefalse` → `\AFivetrue`
+  * Momentan sind es ca. 89 Seiten in A4. In A5 sind es ca. 142 Seiten.
 4. Version für Sehgeschädigte:
   * min `12pt`, besser `14pt`
   * nicht `article`, `book`, `report` sondern `extarticle`
