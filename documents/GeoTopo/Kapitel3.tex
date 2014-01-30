@@ -54,7 +54,7 @@
               H''(t, 2s-1) &\text{falls } \frac{1}{2} \leq s \leq 1\end{cases}$
 
               $\Rightarrow$ $H$ ist stetig und Homotopie von $\gamma_1$ nach 
-              $\gamma_3$
+              $\gamma_3$.
     \end{itemize}
     $\qed$
 \end{beweis}
@@ -177,7 +177,6 @@
 
 \begin{figure}[htp]
     \centering
-    %\includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/skizze-bemerkung-10-6.jpg}
     \input{figures/topology-homotop-paths-2.tex}
     \caption{Situation aus \cref{kor:bemerkung-10-6}}.
     \label{fig:situation-bemerkung-10-6}
@@ -193,8 +192,8 @@
         H_2(2t-1,s) &\text{falls } \frac{1}{2} \leq t \leq 1
     \end{cases}\]
 
-    Homotopie zwischen $\gamma_1 * \gamma_2$ und $\gamma_1' * \gamma_2 '$ (!)
-    \todo[inline]{Hier fehlt noch was}
+    eine Homotopie zwischen 
+    $\gamma_1 * \gamma_2$ und $\gamma_1' * \gamma_2 '$.
 \end{beweis}
 
 \section{Fundamentalgruppe}
@@ -327,7 +326,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 \begin{beispiel}
     \begin{bspenum}
         \item $f:S^1 \hookrightarrow \mdr^2$ ist injektiv, aber 
-              $f_*:\pi_1(S^1, 1) \cong \mdz \rightarrow \pi_1(\mdr^2, 1) = 0 \Set{e}$
+              $f_*:\pi_1(S^1, 1) \cong \mdz \rightarrow \pi_1(\mdr^2, 1) = \Set{e}$
               ist nicht injektiv
         \item $f: \mdr \rightarrow S^1, t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$
               ist surjektiv, aber $f_*: \pi_1(\mdr, 0) = \Set{e} \rightarrow \pi_1(S^2, 1) \cong \mdz$
@@ -658,16 +657,6 @@ Haben wir Häufungspunkt definiert?}
     mit $\tilde{\gamma}(0)=y$ und $p \circ \tilde{\gamma} = \gamma$.
 \end{satz}
 
-\begin{beweis}
-Existenz: Siehe \Cref{fig:satz-12.6}.
-    \begin{figure}[htp]
-        \centering
-        \includegraphics[width=0.6\linewidth, keepaspectratio]{figures/todo/skizze-1.jpg}
-        \caption{Skizze für den Beweis von \cref{thm:ueberlagerung-weg-satz-12.6}}
-        \label{fig:satz-12.6}
-    \end{figure}
-\end{beweis}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sebastians Mitschrieb vom 17.12.2013                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -744,12 +733,14 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
               nur von $[\gamma] \in \pi_1(X,x_0)$ ab.
 
               Für geschlossene Wege $\gamma_0, \gamma_1$ um $x$ gilt:
+
               \begin{align*}
                 \tilde{\gamma_0}(1) &= \tilde{\gamma_1}(1)\\
                 \Leftrightarrow [\tilde{\gamma_0} * \tilde{\gamma_1}^{-1}] &\in \pi_1(Y, y_0)\\
                 \Leftrightarrow [\gamma_0 * \gamma_1^{-1}] &\in p_* (\pi_1(Y,y_0))\\
-                \Leftrightarrow [\gamma_0] \text{ und } [\gamma_1] \text{liegen in der selben Nebenklasse bzgl.} p_*(\pi_1(Y, y_0))
+                \Leftrightarrow [\gamma_0] \text{ und } [\gamma_1] &\text{liegen in der selben Nebenklasse bzgl.} p_*(\pi_1(Y, y_0))
               \end{align*}
+
               Zu $i \in \Set{0, \dots, d-1}$ gibt es Weg $\delta_i$ in
               $Y$ mit $\delta_i(0) = y_0$ und $\delta_i(1) = y_i$\\
               $\Rightarrow p \cup \delta_i$ ist geschlossener Weg in 
