@@ -509,7 +509,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{defenum}
 \end{definition}
 
-\begin{beispiel}
+\begin{beispiel}[Lie-Gruppen]
     \begin{bspenum}
         \item Alle endlichen Gruppen sind 0-dimensionale Lie-Gruppen.
         \item $\GL_n(\mdr)$
@@ -842,6 +842,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
               auch um $T_2$ Verfeinerung ist.
 
               \begin{center}
+                  \centering
                   \input{figures/topology-3.tex}\todo{Was bedeutet diese Zeichnung?}
               \end{center}
 
@@ -874,7 +875,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
 \begin{beispiel}
     \begin{figure}[h!]
+        \centering
         \input{figures/topology-oriented-triangle.tex}
+        \caption{TODO}
     \end{figure}
 
     $a < b < c$
@@ -936,14 +939,14 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
         \item Dimensionsformel für $Z_n \rightarrow H_n = Z_n / B_n: \dim Z_n = b_n + \dim B_n$
     \end{itemize}
 
-    \begin{align}
+    \begin{align*}
         \Rightarrow \sum_{k=0}^d (-1)^k a_k &= a_0 + \sum_{k=1}^d (-1)^k (\dim Z_k + \dim B_{k-1})\\
         &= a_0 + \sum_{k=1}^d (-1)^k \dim Z_k + \sum_{k=0}^d (-1)^{k+1}  \dim B_{k-1}\\
         &= a_0 + \sum_{k=1}^d (-1)^k \dim Z_k - \sum_{k=0}^d (-1)^k  \dim B_{k-1}\\
         &= a_0 + \sum_{k=1}^{d-1} (-1)^k b_k + (-1)^d  \underbrace{\dim Z_d}_{= b_d} - \dim B_0\\
         &= b_0 + \sum_{k=1}^{d-1} (-1)^k b_k + (-1)^d b_d\\
         &= \sum_{k=0}^d (-1)^k b_k
-    \end{align}
+    \end{align*}
 \end{beweis}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.

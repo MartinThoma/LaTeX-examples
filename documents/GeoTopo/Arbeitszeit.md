@@ -54,3 +54,4 @@ in dem Erstellen dieses Skripts steckt:
 |28.01.2014 | 11:35 - 12:20 | Digitalisieren der Vorlesung von 28.01.2014
 |28.01.2014 | 21:00 - 23:00 | Verbesserungen (Textsetzung, weitere Beweise / Beweisskizzen)
 |30.01.2014 | 15:45 - 17:00 | Digitalisieren der Vorlesung von 30.01.2014
+|30.01.2014 | 19:30 - 21:30 | Textsetzung

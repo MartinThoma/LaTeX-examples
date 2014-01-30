@@ -18,6 +18,7 @@
 \usepackage{makeidx}        % for automatically generation of an index
 \usepackage{xcolor}
 \usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
+\usepackage{breakurl} % allow line breaks in \href{ ... }
 \ifAFive
   \hypersetup{hidelinks=true}
 % no \else branch needed in this case
@@ -45,6 +46,7 @@
 \usepackage{tqft}
 \usepackage{xspace}   % for new commands; decides weather I want to insert a space after the command
 \usepackage[german,nameinlink]{cleveref} % has to be after hyperref, ntheorem, amsthm
+\usepackage{acronym}
 \usepackage{shortcuts}
 
 \usepackage{fancyhdr}
@@ -61,6 +63,10 @@
 \fancyhead[LE,RO]{\helv \thepage}
 \fancyhead[LO]{\helv \rightmark}
 \fancyhead[RE]{\helv \leftmark}
+\fancypagestyle{plain}{%
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+}
 
 \hypersetup{ 
   pdfauthor   = {Martin Thoma}, 
@@ -69,7 +75,7 @@
 }
 
 \makeindex
-
+\allowdisplaybreaks
 \usepackage{microtype}
 
 \begin{document}
@@ -90,6 +96,8 @@
 
 \appendix
 \input{Bildquellen}
+\clearpage
+\input{Abkuerzungen}
 \clearpage
 \input{Symbolverzeichnis} 
 \clearpage
