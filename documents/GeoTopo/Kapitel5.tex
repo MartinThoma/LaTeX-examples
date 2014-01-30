@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 30.01.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Krümmung}
+\section{Krümmung von Kurven}
+\begin{definition}%In Vorlesung: Def+Bem. 16.1
+    Sei $\gamma: I = [a, b] \rightarrow \mdr^n$ eine $C^\infty$-Funktion.
+    
+    \begin{defenum}
+        \item $\gamma$ heißt \textbf{durch Bogenlänge parametrisiert}\xindex{parametrisiert!durch Bogenlänge},
+              wenn $\|\gamma'(t)\|_2 = 1$ für alle $t \in I$. Dabei
+              ist $\gamma'(t) = \left (\gamma_1'(t), \gamma_2'(t), \dots, \gamma_n'(t) \right)$
+        \item $l(\gamma) = \int_a^b \|\gamma'(t)\| \mathrm{d} t$ heißt
+              \textbf{Länge von $\gamma$}\xindex{Kurve!Länge einer}
+    \end{defenum}    
+\end{definition}
+
+\begin{bemerkung}%In Vorlesung: Def+Bem. 16.1
+    Sei $\gamma: I = [a, b] \rightarrow \mdr^n$ eine $C^\infty$-Funktion.
+
+    \begin{bemenum}
+        \item Ist $\gamma$ durch Bogenlänge parametrisiert, so ist $l(\gamma) = b-a$.
+        \item \label{bem:16.1d} Ist $\gamma$ durch Bogenlänge parametrisiert, so ist 
+              $\gamma'(t)$ orthogonal zu $\gamma''(t)$ für alle $t \in I$.
+    \end{bemenum}
+\end{bemerkung}
+
+\begin{beweis}
+    von \cref{bem:16.1d}:
+
+    $1 = \|\gamma'(t)\| = \|\gamma'(t)\|^2 = \langle \gamma'(t), \gamma'(t) \rangle$\\
+    \begin{align*}
+        \Rightarrow 0 &= \frac{\mathrm{d}}{\mathrm{d}t} \langle \gamma'(t), \gamma'(t) \rangle\\
+                      &= \frac{\mathrm{d}}{\mathrm{d}t} (\gamma_1'(t)\gamma_1'(t) + \gamma_2'(t)\gamma_2'(t))\\
+                      &= 2 (\gamma_1''(t) \cdot \gamma_1'(t) + \gamma_2''(t) \cdot \gamma_2'(t))\\
+                      &= 2 \langle \gamma''(t), \gamma'(t) \rangle
+     \end{align*}
+\end{beweis}
+
+\begin{definition}%In Vorlesung: Definition 16.2
+    Sei $\gamma: I \rightarrow \mdr^2$ eine durch Bogenlänge
+    parametrisierte Kurve.
+
+    \begin{defenum}
+        \item Für $t \in I$ sei $n(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
+              an $\gamma$ in $t$, d.~h.
+              \[\langle n(t), \gamma'(t) \rangle = 0, \;\;\; \|n(t)\|=1 \]
+              und $\det((\gamma_1(t), n(t))) = +1$
+        \item Nach \cref{bem:16.1d} sind $n(t)$ und $\gamma''(t)$ linear
+              abhängig, d.~h. es gibt $\kappa(t) \in \mdr$ mit
+              \[\gamma''(t) = \kappa(t) \cdot n(t)\]
+              $\kappa(t)$ heißt \textbf{Krümmung}\xindex{Krümmung}
+              von $\gamma$ in $t$.
+    \end{defenum}
+\end{definition}
+
+\begin{beispiel}%In Vorlesung: Beispiel 16.3
+    Gegeben sei ein Kreis mit Radius $r$, d.~h. mit Umfang $2\pi r$.
+    Es gilt:
+
+    \[\gamma(t) = (r \cdot \cos \frac{t}{r}, r \cdot \sin \frac{t}{r}) \text{ für } t \in [0, 2\pi r]\]
+    ist parametrisiert durch Bogenlänge.
+
+    \begin{align*}
+        \gamma'(t)  &= ((r \cdot \frac{1}{r}) (- \sin \frac{t}{r}), r \frac{1}{r} \cos \frac{t}{r})\\
+                    &= (- \sin \frac{t}{r}, \cos \frac{t}{r})\\
+        \Rightarrow n(t) &= (- \cos \frac{t}{r}, - \sin \frac{t}{r})\\
+        \gamma''(t) &= (- \frac{1}{r} \cos \frac{t}{r}, - \frac{1}{r} \sin \frac{t}{r})\\
+                    &= \frac{1}{r} \cdot (- \cos \frac{t}{r}, - \sin \frac{t}{r})\\
+        \Rightarrow \kappa(t) &= \frac{1}{r}
+    \end{align*}
+\end{beispiel}
+
+\begin{definition}%In Vorlesung: Def+Bem 16.4
+    Sei $\gamma: I \rightarrow \mdr^3$ durch Bogenlänge parametrisierte
+    Kurve.
+
+    \begin{defenum}
+        \item Für $t \in I$ heißt $\kappa(t) := \|\gamma''(t)\|$ die
+              \textbf{Krümmung}\xindex{Krümmung} von $\gamma$ in $t$.
+        \item Ist für $t \in I$ die Ableitung $\gamma''(t) \neq 0$,
+              so heißt $\gamma''(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
+              an $\gamma$ in $t$.
+        \item \label{def:16.4c} $b(t)$ sei ein Vektor, der $\gamma'(t), n(t)$
+              zu einer orientierten Orthonormalbasis von $\mdr^3$ ergänzt.
+              Also $\det(\gamma'(t), n(t), b(t)) = 1$;
+              $b(t)$ heißt \textbf{Binormalenvektor}\xindex{Binormalenvektor},
+              die Orthonormalbasis $\Set{\gamma'(t), n(t), b(t)}$
+              heißt \textbf{begleitendes Dreibein}\xindex{Dreibein!begreitendes}.
+    \end{defenum}
+\end{definition}
+
+\begin{bemerkung}%In Vorlesung: Def+Bem 16.4
+    Sei $\gamma: I \rightarrow \mdr^3$ durch Bogenlänge parametrisierte
+    Kurve.
+
+    \begin{bemenum}
+        \item $n(t)$ ist orthogonal zu $\gamma'(t)$.
+        \item $b(t)$ aus \cref{def:16.4c} ist eindeutig.
+    \end{bemenum}
+\end{bemerkung}
+
+\section{Tangentialebene}
+Erinnerung Sie sich an \cref{def:8.5} \enquote{reguläre Fläche}.
+
+Äquivalent dazu ist: $S$ ist lokal von der Form
+\[V(f) = \Set{x \in \mdr^3 | f(x) = 0 }\]
+für eine $C^\infty$-Funktion $f: \mdr^\infty \rightarrow \mdr$.\todo{Wirklich $\mdr^\infty$?}
+
+\begin{definition}%In Vorlesung: 17.1
+    Sei $S \subseteq \mdr^3$ eine reguläre Fläche, $s \in S$,
+    $F: U \rightarrow V \cap S$ eine lokale Parametrisierung um $s$
+    (d.~h. $s \in V$)
+    \[(u,v) \mapsto (x(u,v), y(u,v), z(u,v))\]
+    Für $p=F^{-1}(s) \in U$ sei
+    \[        J_F(u,v) = \begin{pmatrix}
+            \frac{\partial x}{\partial u} (p) & \frac{\partial x}{\partial v} (p)\\
+            \frac{\partial y}{\partial u} (p) & \frac{\partial y}{\partial v} (p)\\
+            \frac{\partial z}{\partial u} (p) & \frac{\partial z}{\partial v} (p)
+        \end{pmatrix}\]
+    und $D_P F: \mdr^2 \rightarrow \mdr^3$ die durch $J_F (p)$
+    definierte lineare Abbildung.
+
+    Dann heißt $T_s S := \Bild(D_p F)$ die \textbf{Tangentialebene}\xindex{Tangentialebene}
+    an $S \in s$.
+\end{definition}
+
+\begin{bemerkung}%In Vorlesung: 17.2
+    $T_s S$ ist $2$-dimensionaler Untervektorraum von $\mdr^3$.
+\end{bemerkung}
+
+\begin{bemerkung}%In Vorlesung: 17.3
+    $T_s S$ hängt nicht von der gewählten Parametrisierung ab.
+\end{bemerkung}
+
+\begin{beweis}\leavevmode
+    \begin{behauptung}
+        $T_s S = \Set{x \in \mdr^3 | \exists \text{parametrisierte Kurve } \gamma:[- \varepsilon, + \varepsilon] \rightarrow S \text{ für ein } \varepsilon > 0 \text{ mit } \gamma(0) = S \text{ und } \gamma'(0) = x}$
+    \end{behauptung}
+\end{beweis}
