@@ -313,7 +313,12 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
         \item $f_*$ ist wohldefiniert: Seien $\gamma_1, \gamma_2$ homotope
               Wege von $x$. z.Z.: $f \circ \gamma_1 \sim f \circ \gamma_2$:
               Nach Voraussetzung gibt es stetige Abbildungen $H:I\times I \rightarrow X$
-              mit $H(t,0) = \gamma_1(t), H(t,1) = \gamma_2(t), H(0,S) = H(1, S) = x$.
+              mit 
+              \begin{align*}
+                H(t,0) &= \gamma_1(t),\\
+                H(t,1) &= \gamma_2(t),\\
+                H(0,s) &= H(1, s) = x\text{.}
+              \end{align*}
               Dann ist $f \circ H: I \times I \rightarrow Y$ stetig mit
               $(f \circ H)(t,0) = f(H(t,0)) = f(\gamma_1(t)) = (f \circ \gamma_1)(t)$
               etc. $\Rightarrow f \circ \gamma_1 \sim f \circ \gamma_2$.
@@ -467,18 +472,17 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
         \item $S^1 \rightarrow S^1$, $z \mapsto z^2$, siehe \cref{fig:liftung-s1-s1}
     \end{bspenum}
 
-    \begin{figure}[ht]
+    \begin{figure}[htp]
         \centering
-        \subfloat[$\mdr^2 \rightarrow T^2 = \mdr^2 / \mdz^2$]{
-            \includegraphics[width=0.6\linewidth, keepaspectratio]{figures/todo/ueberlappung-kaestchen-torus.jpg}
-            \label{fig:ueberlappung-kaestchen-torus}
-        }%
-        \subfloat[$t \mapsto (\cos 4 \pi t, \sin 4 \pi t)$]{
-            \input{figures/topology-ueberlagerung.tex}
-            \label{fig:liftung-s1-s1}
-        }%
-        \label{fig:ueberlagerungen}
-        \caption{Beispiele für Überlagerungen}
+        \resizebox{0.95\linewidth}{!}{\input{figures/ueberlappung-kaestchen-torus.tex}}
+        \caption{$\mdr^2 \rightarrow T^2 = \mdr^2 / \mdz^2$}
+        \label{fig:ueberlappung-kaestchen-torus}
+    \end{figure}
+    \begin{figure}[htp]
+        \centering
+        \input{figures/topology-ueberlagerung.tex}
+        \caption{$t \mapsto (\cos 4 \pi t, \sin 4 \pi t)$}
+        \label{fig:liftung-s1-s1}
     \end{figure}
 \end{beispiel}
 

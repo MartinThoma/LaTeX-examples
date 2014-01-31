@@ -72,7 +72,8 @@
         \item $S^n = \Set{x \in \mdr^{n+1} | \|x\| = 1}$ ist $n$-dimensionale
               Mannigfaltigkeit.
 
-              Karten: $O_i := \Set{(x_1, \dots, x_{n+1}) \in S^n | x_i > 0} \rightarrow \fB_1 (\underbrace{0, \dots, 0}_{\in \mdr^n})$\\
+              Karten: \\
+              $O_i := \Set{(x_1, \dots, x_{n+1}) \in S^n | x_i > 0} \rightarrow \fB_1 (\underbrace{0, \dots, 0}_{\in \mdr^n})$\\
               $(x_1, \dots, x_{n+1}) \mapsto (x_1, \dots, x_i, \dots, x_{n+1})$\\
               $(x_1, \dots, x_{i-1}, \sqrt{1-\sum_{k=1}^n x_k^2}, x_i, \cdots, x_n)\mapsfrom (x_1, \dots, x_n)$\\
               $S^n = \bigcup_{i=1}^{n+1} (C_i \cup D_i)$
@@ -93,7 +94,7 @@
               \[U \subseteq X \text{ offen } \gdw 
                 \begin{cases}
                     U \text{ offen in } \mdr \setminus \Set{0}, &\text{falls } 0_1 \notin U, 0_2 \in U\\
-                    \exists \varepsilon > 0 \text{ mit } (-\varepsilon, \varepsilon) \subseteq U &\text{falls } 0_1 \in U, 0_2 \in U
+                    \exists \varepsilon > 0: (-\varepsilon, \varepsilon) \subseteq U &\text{falls } 0_1 \in U, 0_2 \in U
                 \end{cases}\]
               Insbesondere sind $(\mdr \setminus \Set{0}) \cup \Set{0_1}$
               und $(\mdr \setminus \Set{0}) \cup \Set{0_2}$ offen und
@@ -232,11 +233,11 @@
     }%
 
     \subfloat[Pair of pants]{
-        \input{figures/topology-pair-of-pants.tex}
+        \resizebox{0.45\linewidth}{!}{\input{figures/topology-pair-of-pants.tex}}
         \label{fig:pair-of-pants}
     }%
     \subfloat[Sphäre mit einem Loch]{
-        \input{figures/topology-sphere-with-hole.tex}
+        \resizebox{0.45\linewidth}{!}{\input{figures/topology-sphere-with-hole.tex}}
         \label{fig:sphere-with-hole}
     }%
     \label{Mannigfaltigkeiten mit Rand}
@@ -414,8 +415,9 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
                  0           & 1
             \end{pmatrix}\]
             hat Rang 2 für alle $(u,v) \in \mdr^2$.
-        \item Kugelkoordinaten: $F: \mdr^2 \rightarrow \mdr^3, \;\;\; (u, v) \mapsto (R \cos v \cos u, R \cos v \sin u, R \sin v)$
-              $F(u,v) \in S_R^2$, denn 
+        \item Kugelkoordinaten: $F: \mdr^2 \rightarrow \mdr^3$,\\
+              $(u, v) \mapsto (R \cos v \cos u, R \cos v \sin u, R \sin v)$\\
+              Es gilt: $F(u,v) \in S_R^2$, denn 
                 \begin{align*}
                     & R^2 \cos^2(v) \cos^2(u) + R^2 \cos^2(v) \sin^2(u) + R^2 \sin^2(v)\\
                     =& R^2 (\cos^2(v) \cos^2(u) + \cos^2(v) \sin^2(u) + \sin^2(v))\\
@@ -892,7 +894,6 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{beweis}
     Sei $\sigma \in A_n$. Dann gilt:
-
     \begin{align*}
         d_{n-1}(d_n \sigma) &= d_{n-1} (\sum_{i=0}^n (-1)^i \partial_i \sigma)\\
         &= \sum_{i=0}^n (-1)^i d_{n-1} (\partial_i \sigma)\\
