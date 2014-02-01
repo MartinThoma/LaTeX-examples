@@ -873,7 +873,10 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
               \begin{align*}
                 \begin{pmatrix}a&b\\c&d\end{pmatrix} \circ  \left ( \begin{pmatrix}a'&b'\\c'&d'\end{pmatrix}   \circ z \right )&=
                             \begin{pmatrix}a&b\\c&d\end{pmatrix} \circ \frac{a'z + b'}{c'z + d'}\\
-                    &= TODO\\
+                    &= \frac{a \frac{a'z + b'}{c'z + d'} + b}{c \frac{a'z + b'}{c'z + d'} + d}\\
+                    &= \frac{\frac{a(a'z+b') + b(c'z+d')}{c'z+d'}}{\frac{c(a'z+b')+d(c'z+d')}{c'z+d'}}\\
+                    &= \frac{a(a'z+b')+b(c'z+d')}{c(a'z+b') + d(c'z+d')}\\
+                    &= \frac{(aa'+bc')z + ab' + bd'}{(ca'+db')z + cb' + dd'}\\
                     &= \begin{pmatrix}aa'+bc'&ab'+bd'\\ca'+db'&cb'+dd'\end{pmatrix} \circ z\\
                     &= \left ( \begin{pmatrix}a&b\\c&d\end{pmatrix} \cdot \begin{pmatrix}a'&b'\\c'&d'\end{pmatrix} \right ) \circ z 
               \end{align*}
@@ -955,8 +958,8 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
               \[\DV(\sigma(z_1), \sigma(z_2), \sigma(z_3), \sigma(z_4)) = \DV(z_1, z_2, z_3, z_4)\]
               und für $\sigma(z) = \frac{1}{\overline{z}}$ gilt
               \[\DV(\sigma(z_1), \sigma(z_2), \sigma(z_3), \sigma(z_4)) = \overline{\DV(z_1, z_2, z_3, z_4)}\]
-        \item \label{bem:15.4e} $\DV(z_1, z_2, z_3, z_4) \in \mdr \in \Set{\infty} \Leftrightarrow z_1, \dots, z_4$
-              liegen auf einem Kreis
+        \item \label{bem:15.4e} $\DV(z_1, z_2, z_3, z_4) \in \mdr \cup \Set{\infty} \Leftrightarrow z_1, \dots, z_4$
+              liegen auf einer hyperbolischen Geraden.
     \end{bemenum}
 \end{bemerkung}
 
@@ -1010,7 +1013,7 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     Gerade durch $z_1$ und $z_2$ und $a_1, a_2$ die
     \enquote{Schnittpunkte} von $g_{z_1, z_2}$ mit $\mdr \cup \Set{\infty}$.
 
-    Dann sei $d(z_1, z_2) := \frac{1}{2} \ln(\DV(a_1, z_4, a_2, z_2))$
+    Dann sei $d(z_1, z_2) := \frac{1}{2} \ln |\DV(a_1, z_4, a_2, z_2) |$
     und heiße \textbf{hyperbolische Metrik}\xindex{Metrik!hyperbolische}.
 \end{definition}
 
