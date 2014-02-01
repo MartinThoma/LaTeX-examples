@@ -1,0 +1,9 @@
+Street=[Haus1,Haus2,Haus3],
+mitglied(haus(rot,_,_),Street),
+mitglied(haus(blau,_,_),Street),
+mitglied(haus,(grün,_,_),Street),
+mitglied(haus(rot,australier,_),Street),
+mitglied(haus(_,italiener,tiger),Street),
+sublist(haus(_,_,eidechse),haus(_,chinese,_),Street),
+sublist(haus(blau,_,_),haus(_,_,eidechse),Street),
+mitglied(haus(_,N,nilpferd),Street).
