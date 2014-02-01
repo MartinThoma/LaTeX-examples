@@ -1,0 +1,106 @@
+\documentclass[DIV15,BCOR12mm]{scrbook}
+\newif\ifAFive\AFivetrue
+\ifAFive
+  \KOMAoptions{paper=a5,twoside=true}
+\else
+  \KOMAoptions{paper=a4,twoside=false}
+\fi
+\usepackage{etoolbox}
+\usepackage{amsmath,amssymb}% math symbols / fonts
+\usepackage{mathtools}      % \xRightarrow
+\usepackage{nicefrac}       % \nicefrac
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
+\usepackage{framed}
+\usepackage{marvosym}
+\usepackage{makeidx}        % for automatically generation of an index
+\usepackage{xcolor}
+\usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
+\usepackage{breakurl} % allow line breaks in \href{ ... }
+\ifAFive
+  \hypersetup{hidelinks=true}
+% no \else branch needed in this case
+\fi
+\usepackage{enumitem}       % Better than \usepackage{enumerate}, because it allows to set references
+\usepackage{tabto}
+\usepackage{braket}         % needed for \Set
+\usepackage{csquotes}       % \enquote{}
+\usepackage{subfig}         % multiple figures in one
+\usepackage{parskip}        % nicer paragraphs
+\usepackage{xifthen}        % \isempty
+\usepackage{changepage}     % for the adjustwidth environment
+\usepackage{pst-solides3d}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\usepackage[arrow, matrix, curve]{xy}
+\usepackage{caption}        % get newlines within captions
+\usepackage{tikz}           % draw
+\usepackage{tikz-3dplot}    % draw
+\usepackage{tkz-fct}        % draw
+\usepackage{tkz-euclide}    % draw
+\usetkzobj{all}             % tkz-euclide
+\usetikzlibrary{3d,calc,intersections,er,arrows,positioning,shapes.misc,patterns,fadings,decorations.pathreplacing}
+\usepackage{tqft}
+\usepackage{xspace}   % for new commands; decides weather I want to insert a space after the command
+\usepackage[german,nameinlink]{cleveref} % has to be after hyperref, ntheorem, amsthm
+\usepackage{acronym}
+\usepackage{minted} % needed for the inclusion of source code
+\usepackage{shortcuts}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]%
+{\markboth{\MakeUppercase{\thechapter.\ #1}}{}}
+\renewcommand{\sectionmark}[1]%
+{\markright{\MakeUppercase{\thesection.\ #1}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\newcommand{\helv}{%
+\fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
+\fancyhf{}
+\fancyhead[LE,RO]{\helv \thepage}
+\fancyhead[LO]{\helv \rightmark}
+\fancyhead[RE]{\helv \leftmark}
+\fancypagestyle{plain}{%
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Programmierparadigmen}, 
+  pdftitle    = {Programmierparadigmen} 
+}
+
+\makeindex
+\allowdisplaybreaks
+\usepackage{microtype}
+
+\begin{document}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{titlepage}
+\input{Vorwort}
+\tableofcontents
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{Haskell}
+\input{Scala}
+\input{X10}
+\input{C}
+
+\appendix
+\input{Bildquellen}
+\clearpage
+\input{Abkuerzungen}
+\clearpage
+\input{Symbolverzeichnis} 
+\clearpage
+\addcontentsline{toc}{chapter}{Stichwortverzeichnis}
+\renewcommand{\indexname}{Stichwortverzeichnis}
+\printindex
+\end{document}
