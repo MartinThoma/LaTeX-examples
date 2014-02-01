@@ -1,10 +1,80 @@
 \chapter{Haskell}
 \index{Haskell|(}
-Haskell ist eine funktionale Programmiersprache.
+Haskell ist eine funktionale Programmiersprache, die von Haskell 
+Brooks Curry entwickelt wurde und 1990 in Version~1.0 veröffentlicht 
+wurde.
+
+Wichtige Konzepte sind:
+\begin{enumerate}
+    \item Funktionen höherer Ordnung
+    \item anonyme Funktionen (sog. Lambda-Funktionen)
+    \item Pattern Matching
+    \item Unterversorgung
+    \item Typinferenz
+\end{enumerate}
+
+Haskell kann mit \enquote{Glasgow Haskell Compiler} mittels 
+\texttt{ghci} interpretiert und mittels 
+
+\section{Erste Schritte}
+Haskell kann unter \href{http://www.haskell.org/platform/}{\path{www.haskell.org/platform/}}
+für alle Plattformen heruntergeladen werden. Unter Debian-Systemen
+ist das Paket \texttt{ghc} bzw. \texttt{haskell-platform} relevant.
 
 \section{Syntax}
+\subsection{Klammern}
+Haskell verzichtet an vielen Stellen auf Klammern. So werden im
+Folgenden die Funktionen $f(x) := \frac{\sin x}{x}$ und $g(x) := x \cdot f(x^2)$
+definiert:
+
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/einfaches-beispiel-klammern.hs}
+
+\subsection{if / else}
+Das folgende Beispiel definiert den Binomialkoeffizienten 
+\[\binom{n}{k} := \begin{cases}
+        1                               &\text{falls } k=0 \lor k = n\\
+        \binom{n-1}{k-1}+\binom{n-1}{k} &\text{sonst}
+        \end{cases}\]
+für $n,k \geq 0$:
+
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/binomialkoeffizient.hs}
+\inputminted[numbersep=5pt, tabsize=4]{bash}{scripts/haskell/compile-binom.sh}
+
+\todo[inline]{Guards}
+
+\subsection{Rekursion}
+Die Fakultätsfunktion wurde wie folgt implementiert:
+\[fak(n) := \begin{cases}
+        1              &\text{falls } n=0\\
+        n \cdot fak(n) &\text{sonst}
+    \end{cases}\]
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/fakultaet.hs}
+
+Diese Implementierung benötigt $\mathcal{O}(n)$ rekursive Aufrufe und
+hat einen Speicherverbrauch von $\mathcal{O}(n)$. Durch einen
+\textbf{Akkumulator}\xindex{Akkumulator} kann dies verhindert werden:
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/fakultaet-akkumulator.hs}
+
+\todo[inline]{Endrekursion ... macht für mich unter "Haskell" wenig sinn. Vielleicht einen neuen Abschnitt mit Techniken? Was würde da noch landen?}
+
 \section{Beispiele}
+\subsection{Hello World}
+Speichere folgenden Quelltext als \texttt{hello-world.hs}:
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=hello-world.hs]{haskell}{scripts/haskell/hello-world.hs}
+
+Kompiliere ihn mit \texttt{ghc -o hello hello-world.hs}. Es wird eine
+ausführbare Datei erzeugt.
+
+\subsection{Fibonacci}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci.hs]{haskell}{scripts/haskell/fibonacci.hs}
+
+\subsection{Quicksort}
+
+\section{Weitere Informationen}
+\begin{itemize}
+    \item \href{http://www.haskell.org/hoogle/}{\path{haskell.org/hoogle}}: Suchmaschine für das Haskell-Manual
+    \item \href{http://wiki.ubuntuusers.de/Haskell}{\path{wiki.ubuntuusers.de/Haskell}}: Hinweise zur Installation von Haskell unter Ubuntu
+\end{itemize}
 
 \index{Haskell|)}
 
