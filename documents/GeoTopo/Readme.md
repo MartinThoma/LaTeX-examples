@@ -55,6 +55,15 @@ Was noch kommen soll
 3. A5-Version drucken
   * In `GeoTopo.tex`: `\AFivefalse` → `\AFivetrue`
   * Momentan sind es ca. 89 Seiten in A4. In A5 sind es ca. 142 Seiten.
+  * Druckereien
+    * An der Uni
+    * http://www.epubli.de/ (ca. 9 Euro SW, 26 Euro farbig)
+    * https://www.viaprinto.de/ (ca. 15 Euro SW, 35 Euro farbig)
+    * http://shop.kopie.de/article/show/diplomarbeit
+    * http://www.drucksofa.com/
+    * http://www.mein-druck.de/category.htm?c=15510
+    * http://www.epubli.de/
+    * http://www.1buch.de/preisuebersicht/
 4. Version für Sehgeschädigte:
   * min `12pt`, besser `14pt`
   * nicht `article`, `book`, `report` sondern `extarticle`

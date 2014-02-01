@@ -490,21 +490,16 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     Überlagerungen sind surjektiv.
 \end{bemerkung}
 
-\begin{beweis}durch Widerspruch\\
-    Sei $p$ eine Überlagerung.
+\begin{beweis}
+    Sei $p: Y \rightarrow X$ eine Überlagerung und $x \in X$ beliebig.
+    Dann existiert eine offene Umgebung $U(x) \subseteq X$ und offene
+    Teilmengen $V_j \subseteq X$ mit 
+    $p^{-1}(U) = \Dcup V_j$ und
+    $p|_{V_j}: V_j \rightarrow U$ ist Homöomorphismus.
 
-    \underline{Annahme}: $p$ ist nicht surjektiv
-
-    Dann $\exists x \in X$ mit $U=U(x): p^{-1}(U) = \emptyset$.
-    Da $p$ eine Überlagerung ist, existiert eine offene Umgebung $U$,
-    sodass $p^{-1}(U)$ eine disjunkte Vereinigung von offenen Teilmengen
-    $V_j \subseteq Y$ ist und $p|_{V_j}: V_j \rightarrow U$ ein
-    Homöomorphismus ist.
-
-    Da jedes $x$ eine solche Umgebung $U$ besitzt, ist $U \neq \emptyset$.
-    Da $p|_{V_j}: V_j \rightarrow U$ ein Homöomorphismus ist, kann also
-    auch $V_j$ nicht leer sein. $\Rightarrow$ Widerspruch zur Annahme.
-    $\qed$
+    D.~h. es existiert ein $y \in V_j$, so dass $p|_{V_j}(y) = x$.
+    Da $x \in X$ beliebig war und ein $y \in Y$ existiert, mit 
+    $p(y) = x$, ist $p$ surjektiv.    $\qed$
 \end{beweis}
 
 \begin{definition}\xindex{Abbildung!offene}
