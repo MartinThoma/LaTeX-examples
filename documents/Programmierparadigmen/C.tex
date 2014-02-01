@@ -1,7 +1,75 @@
 \chapter{C}
 \index{C|(}
+C ist eine imperative Programmiersprache.
+
+\section{Datentypen}\xindex{Datentypen}
+Die grundlegenden C-Datentypen sind
+\begin{table}[htp]
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Typ}    & \textbf{Größe}   \\ \hline\hline
+    char   & 1 Byte  \\ \hline
+    int    & 4 Bytes \\ \hline
+    float  & 4 Bytes \\ \hline
+    double & 8 Bytes \\ \hline
+    void   & 0 Bytes \\ \hline
+    \end{tabular}
+\end{table}
+
+zusätzlich kann man \texttt{char}\xindex{char} und \texttt{int}\xindex{int}
+noch in \texttt{signed}\xindex{signed} und \texttt{unsigned}\xindex{unsigned}
+unterscheiden.
+
+\section{ASCII-Tabelle}
+\begin{table}[htp]
+    \centering
+    \begin{tabular}{|l|l||l|l||l|l||l|l|}
+    \hline
+    \textbf{Dez.} & \textbf{Zeichen} & \textbf{Dez.} & \textbf{Zeichen} & \textbf{Dez.} & \textbf{Zeichen} & \textbf{Dez.} & \textbf{Zeichen} \\ \hline\hline
+    0    & ~       & 31   & ~       & 64   & @       & 96   & '       \\ \hline
+    1    & ~       & ~    & ~       & 65   & A       & 97   & a       \\ \hline
+    2    & ~       & ~    & ~       & 66   & B       & 98   & b       \\ \hline
+    3    & ~       & ~    & ~       & ~    & C       & 99   & c       \\ \hline
+    4    & ~       & ~    & ~       & ~    & D       & 100  & d       \\ \hline
+    5    & ~       & ~    & ~       & ~    & E       & ~    & ~       \\ \hline
+    6    & ~       & ~    & ~       & ~    & F       & ~    & ~       \\ \hline
+    7    & ~       & ~    & ~       & ~    & G       & ~    & ~       \\ \hline
+    8    & ~       & ~    & ~       & ~    & H       & ~    & ~       \\ \hline
+    9    & ~       & ~    & ~       & ~    & I       & ~    & ~       \\ \hline
+    10   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    11   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    12   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    13   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    14   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    15   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    16   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    17   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    18   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    19   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    20   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    21   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    22   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    23   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    24   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    25   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    26   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    27   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    28   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    29   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
+    31   & ~       & ~    & ~       & ~    & ~       & 127  & ~       \\ \hline\hline
+    \end{tabular}
+\end{table}
+
 \section{Syntax}
 \section{Beispiele}
+\subsection{Hello World}
+Speichere den folgenden Text als \texttt{hello-world.c}:
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=hello-world.c]{c}{scripts/c/hello-world.c}
+
+Compiliere ihn mit \texttt{gcc hello-world.c}. Es wird eine ausführbare
+Datei namens \texttt{a.out} erzeugt.
 
 \index{C|)}
 
