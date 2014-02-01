@@ -31,6 +31,8 @@
 *.dvi
 *.pyg
 *.pdf
+*.o
+*.hi
 
 ## I want to keep some PDFs
 documents/Analysis I/*.pdf
