@@ -1,0 +1,15 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+    \tikzstyle{point}=[circle,thick,draw=black,fill=black,inner sep=0pt,minimum width=4pt,minimum height=4pt]
+    \node (a)[point,label=180:$a$] at (0,0) {};
+    \node (b)[point,label=0:$b$]   at (3, 0) {};
+    \draw [rounded corners,->, thick, red] (a) .. controls (0.5,2) .. (2,1) .. controls (2,0.5) .. (a);
+    \draw [rounded corners,->, thick, blue] (a) .. controls (1,-1) .. (2,-0.5) .. controls (2.2,-1) .. (b);
+    \node at (1,1.2) [red] {$\gamma$};
+\end{tikzpicture}
+\end{document}

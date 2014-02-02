@@ -56,3 +56,4 @@ in dem Erstellen dieses Skripts steckt:
 |30.01.2014 | 15:45 - 17:00 | Digitalisieren der Vorlesung von 30.01.2014
 |30.01.2014 | 19:30 - 21:30 | Textsetzung
 |01.02.2014 | 15:40 - 15:50 | Beweis "Möbiustransformation ist Gruppenoperation" hinzugefügt
+|02.02.2014 | 17:00 - 18:00 | TikZ'en von Bildern
