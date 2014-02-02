@@ -624,9 +624,9 @@ Sei im Folgenden \enquote{IWS} die \enquote{Innenwinkelsumme}.
 \end{figure}
 
 \subsection{Flächeninhalt}
-\begin{definition}
+\begin{definition}\xindex{Simplizialkomplexe!flächengleiche}
     \enquote{Simplizialkomplexe} in euklidischer Ebene $(X,d)$ heißen
-    \textbf{flächengleich}\xindex{Simplizialkomplexe!flächengleiche},
+    \textbf{flächengleich},
     wenn sie sich in kongruente Dreiecke zerlegen lassen.
 \end{definition}
 
@@ -760,17 +760,17 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
 % Mitschrieb vom 23.01.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Hyperbolische Geometrie}
-\begin{definition}
+\begin{definition}\xindex{Gerade!hyperbolische}
     Sei
         \[\mdh:= \Set{z \in \mdc | \Im(z) > 0} = \Set{(x,y) \in \mdr^2 | y > 0}\]
     die obere Halbebene bzw. Poincaré-Halbebene und $G = G_1 \cup G_2$
     mit
         \begin{align*}
-            G_1 &= \Set{g_1 \subseteq \mdh | \exists m \in \mdr, r \in \mdr_{>0}: g_1 = \Set{z \in \mdc : |z-m|=r}}\\
-            G_2 &= \Set{g_2 \subseteq \mdh | \exists x \in \mdr: g_2 = \Set{z \in \mdc: \Re(z) = x} \cap \mdh}
+            G_1 &= \Set{g_1 \subseteq \mdh | \exists m \in \mdr, r \in \mdr_{>0}: g_1 = \Set{z \in \mdh : |z-m|=r}}\\
+            G_2 &= \Set{g_2 \subseteq \mdh | \exists x \in \mdr: g_2 = \Set{z \in \mdh: \Re(z) = x}}
         \end{align*}
 
-    Die Elemente von $\mdh$ heißen \textbf{hyperbolische Geraden}.\xindex{Gerade!hyperbolische}
+    Die Elemente von $\mdh$ heißen \textbf{hyperbolische Geraden}.
 \end{definition}
 
 \begin{bemerkung}[Eigenschaften der hyperbolischen Geraden]
@@ -827,12 +827,12 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     \end{enumerate}
 \end{beweis}
 
-\begin{definition}
+\begin{definition}\xindex{Möbiustransformation}
     Es seien $a,b,c,d \in \mdc$ mit $ad - bc \neq 0$ und 
     $\sigma: \mdc \rightarrow \mdc$ eine Abbildung definiert durch 
     \[\sigma(z) := \frac{az + b}{cz+d}\]
 
-    $\sigma$ heißt \textbf{Möbiustransformation}\xindex{Möbiustransformation}.
+    $\sigma$ heißt \textbf{Möbiustransformation}.
 \end{definition}
 
 \begin{proposition}%In Vorlesung: Proposition 15.2
@@ -936,12 +936,12 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     wegen dem Inzidenzaxiom \ref{axiom:1} und ist eindeutig bestimmt.
 \end{beweis}
 
-\begin{definition}%In Vorlesung: Def+Prop 15.4
+\begin{definition}\xindex{Doppelverhältnis}%In Vorlesung: Def+Prop 15.4
     Seien $z_1, z_2, z_3, z_4 \in \mdc$ paarweise verschieden.
 
     Dann heißt 
     \[\DV(z_1, z_2, z_3, z_4) := \frac{\frac{z_1 - z_4}{z_1 - z_2}}{\frac{z_3 - z_4}{z_3 - z_2}} = \frac{(z_1 - z_4) \cdot (z_3 - z_2)}{(z_1 - z_2) \cdot (z_3 - z_4)}\]
-    \textbf{Doppelverhältnis}\xindex{Doppelverhältnis} von 
+    \textbf{Doppelverhältnis} von 
     $z_1, \dots, z_4$.
 \end{definition}
 
@@ -1008,13 +1008,13 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
     \end{enumerate}
 \end{beweis}
 
-\begin{definition}
+\begin{definition}\xindex{Metrik!hyperbolische}
     Für $z_1, z_2 \in \mdh$ sei $g_{z_1, z_2}$ die eindeutige hyperbolische
     Gerade durch $z_1$ und $z_2$ und $a_1, a_2$ die
     \enquote{Schnittpunkte} von $g_{z_1, z_2}$ mit $\mdr \cup \Set{\infty}$.
 
     Dann sei $d(z_1, z_2) := \frac{1}{2} \ln |\DV(a_1, z_4, a_2, z_2) |$
-    und heiße \textbf{hyperbolische Metrik}\xindex{Metrik!hyperbolische}.
+    und heiße \textbf{hyperbolische Metrik}.
 \end{definition}
 
 \begin{behauptung}
