@@ -40,12 +40,7 @@ definiert:
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/einfaches-beispiel-klammern.hs}
 
 \subsection{if / else}
-Das folgende Beispiel definiert den Binomialkoeffizienten 
-\[\binom{n}{k} := \begin{cases}
-        1                               &\text{falls } k=0 \lor k = n\\
-        \binom{n-1}{k-1}+\binom{n-1}{k} &\text{sonst}
-        \end{cases}\]
-für $n,k \geq 0$:
+Das folgende Beispiel definiert den Binomialkoeffizienten (vgl. \cref{bsp:binomialkoeffizient})
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/binomialkoeffizient.hs}
 \inputminted[numbersep=5pt, tabsize=4]{bash}{scripts/haskell/compile-binom.sh}
@@ -64,6 +59,9 @@ Diese Implementierung benötigt $\mathcal{O}(n)$ rekursive Aufrufe und
 hat einen Speicherverbrauch von $\mathcal{O}(n)$. Durch einen
 \textbf{Akkumulator}\xindex{Akkumulator} kann dies verhindert werden:
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/fakultaet-akkumulator.hs}
+
+\subsection{Listen}
+\todo[inline]{Cons-Operator, Unendliche Listen}
 
 \section{Beispiele}
 \subsection{Hello World}

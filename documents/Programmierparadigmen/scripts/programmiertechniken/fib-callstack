@@ -1,0 +1,14 @@
+fib(3)
+├ call(fib(2))
+│ ├─ call(fib(1))
+│ │  └─ return 1
+│ ├─ call(fib(0))
+│ │  └─ return 1
+│ └ return fib(1)+fib(0)=1+1
+├ call(fib(1))
+│ ├─ call(fib(1))
+│ │  └─ return 1
+│ ├─ call(fib(0))
+│ │  └─ return 1
+│ └ return fib(1)+fib(0)=1+1
+└ return fib(2)+fib(1)=2+2

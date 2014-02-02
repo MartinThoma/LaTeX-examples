@@ -1,5 +1,98 @@
 \chapter{Programmiertechniken}
 \section{Rekursion}
-\todo[inline]{Tail-Recursion}
+\index{Rekursion|(}
+
+\begin{definition}[rekursive Funktion]\xindex{Funktion!rekursive}
+    Eine Funktion $f: X \rightarrow X$ heißt rekursiv definiert,
+    wenn in der Definition der Funktion die Funktion selbst wieder
+    steht.
+\end{definition}
+
+\begin{beispiel}[rekursive Funktionen]
+    \begin{bspenum}
+        \item Fibonacci-Funktion:\xindex{Fibonacci-Funktion}
+                \begin{align*}
+                    fib: \mdn_0 &\rightarrow \mdn_0\\
+                    fib(n) &= \begin{cases}
+                            n                   &\text{falls } n \leq 1\\
+                            fib(n-1) + fib(n-2) &\text{sonst}
+                        \end{cases}
+                \end{align*}
+        \item Fakultät:\xindex{Fakultät}
+                \begin{align*}
+                    !: \mdn_0 &\rightarrow \mdn_0\\
+                    n! &= \begin{cases}
+                            1              &\text{falls } n \leq 1\\
+                            n\cdot (n-1)!  &\text{sonst}
+                        \end{cases}
+                \end{align*}
+        \item \label{bsp:binomialkoeffizient} Binomialkoeffizient:\xindex{Binomialkoeffizient}
+                \begin{align*}
+                    \binom{\cdot}{\cdot}: \mdn_0 \times \mdn_0 &\rightarrow \mdn_0\\
+                            \binom{n}{k}    &= \begin{cases}
+                        1                               &\text{falls } k=0 \lor k = n\\
+                        \binom{n-1}{k-1}+\binom{n-1}{k} &\text{sonst}
+                        \end{cases}
+                \end{align*}
+    \end{bspenum}
+\end{beispiel}
+
+Ein Problem von rekursiven Funktionen in Computerprogrammen ist der 
+Speicherbedarf. Für jeden rekursiven Aufruf müssen alle Umgebungsvariablen
+der aufrufenden Funktion (\enquote{stack frame}) gespeichert bleiben,
+bis der rekursive Aufruf beendet ist. Im Fall der Fibonacci-Funktion
+sieht ist der Call-Stack in \cref{fig:fib-callstack} abgebildet.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics*[width=0.5\linewidth, keepaspectratio]{figures/fib-callstack.png} 
+    \caption{Call-Stack der Fibonacci-Funktion}
+    \label{fig:fib-callstack}
+\end{figure}
+
+\begin{bemerkung}
+    Die Anzahl der rekursiven Aufrufe der Fibonacci-Funktion $f_C$ ist:
+        \[f_C(n) = \begin{cases}
+                        1 &\text{falls } n=0\\
+                    2 \cdot fib(n) - 1 &\text{falls } n \geq 1
+                    \end{cases}\]
+\end{bemerkung}
+\begin{beweis}\leavevmode
+    \begin{itemize}
+        \item Offensichtlich gilt $f_C(0) = 1$
+        \item Offensichtlich gilt $f_C(1) = 1 = 2 \cdot fib(1) - 1$
+        \item Offensichtlich gilt $f_C(2) = 3 = 2 \cdot fib(2) - 1$
+        \item Für $n \geq 3$:
+           \begin{align*}
+                f_C(n) &= 1 + f_C(n-1) + f_C(n-2)\\
+                       &= 1 + (2\cdot fib(n-1)-1) + (2 \cdot fib(n-2)-1)\\
+                       &=2\cdot (fib(n-1) + fib(n-2)) - 1\\
+                       &=2 \cdot fib(n) - 1
+            \end{align*}
+    \end{itemize}
+\end{beweis}
+
+Mit Hilfe der Formel von Moivre-Binet folgt:
+
+\[f_C \in \mathcal{O} \left (\frac{\varphi^n- \psi^n}{\varphi - \psi} \right) \text{ mit } \varphi := \frac{1+ \sqrt{5}}{2} \text{ und }\psi := 1 - \varphi\]
+
+Dabei ist der Speicherbedarf $\mathcal{O}(n)$. Dieser kann durch
+das Benutzen eines Akkumulators signifikant reduziert werden.\todo{TODO}
+
+\begin{definition}[linear rekursive Funktion]\xindex{Funktion!linear rekursive}
+    Eine Funktion heißt linear rekursiv, wenn in jedem Definitionszweig
+    der Funktion höchstens ein rekursiver Aufruf vorkommt.
+\end{definition}
+
+\begin{definition}[endrekursive Funktion]\xindex{Funktion!endrekursive}\xindex{tail recursive}
+    Eine Funktion heißt endrekursiv, wenn in jedem Definitionszweig
+    der Rekursive aufruf am Ende des Ausdrucks steht. Der rekursive
+    Aufruf darf also insbesondere nicht in einen anderen Ausdruck
+    eingebettet sein.
+\end{definition}
+
+\todo[inline]{Beispiele für linear rekusrive, endrekursive Funktionen (alle Kombinationen+gegenbeispiele}
+
+\index{Rekursion|(}
 \section{Backtracking}
 
