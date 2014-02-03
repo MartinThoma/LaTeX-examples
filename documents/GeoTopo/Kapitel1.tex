@@ -29,7 +29,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     sind als Komplement offener Mengen abgeschlossen.$\qed$
 \end{bemerkung}
 
-\begin{beispiel}
+\begin{beispiel}[Topologien]
     \begin{enumerate}[label=\arabic*)]
         \item $X = \mdr^n$ mit der euklidischen Metrik. \xindex{Topologie!euklidische}
               \begin{align*}
@@ -63,7 +63,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     Sei $(X, \fT)$ ein topologischer Raum und $M \subseteq X$ eine Teilmenge.
     \begin{enumerate}[label=\alph*)]
         \item $\displaystyle M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x} = \bigcup_{\overset{U \subseteq M} {U \in \fT}} U $ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \xindex{Inneres} \xindex{Kern!offener}
-        \item $\displaystyle \overline{M} := \bigcap_{\overset{M \subseteq A}{A \text{ abgeschlossen}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \xindex{Abschluss}
+        \item $\displaystyle \overline{M} := \bigcap_{\mathclap{\overset{M \subseteq A}{A \text{ abgeschlossen}}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \xindex{Abschluss}
         \item $\partial M := \overline{M} \setminus M^\circ$ heißt \textbf{Rand} von $M$. \xindex{Rand}
         \item $M$ heißt \textbf{dicht} in $X$, wenn $\overline{M} = X$ ist. \xindex{dicht}
     \end{enumerate}
@@ -104,13 +104,16 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     genau eine Topologie $\fT$ auf $X$, für die $\fB$ Subbasis ist.
 \end{bemerkung}
 
-\begin{definition}\xindex{Spurtopologie}\xindex{Teilraum}%
+\begin{definition}\xindex{Spurtopologie|see{Teilraumtopologie}}\xindex{Teilraum}\xindex{Teilraumtopologie}\xindex{Unterraumtopologie|see{Teilraumtopologie}}%
     Sei $(X, \fT)$ ein topologischer Raum und $Y \subseteq X$.\\
     $\fT_Y := \Set{U \cap Y | U \in \fT}$ ist eine Topologie auf $Y$.
 
-    $\fT_Y$ heißt \textbf{Spurtopologie} und $(Y, \fT_Y)$ heißt ein 
+    $\fT_Y$ heißt \textbf{Teilraumtopologie} und $(Y, \fT_Y)$ heißt ein 
     \textbf{Teilraum} von $(X, \fT)$
 \end{definition}
+
+Die Teilraumtopologie wird auch \textit{Spurtopologie} oder 
+\textit{Unterraumtopologie} genannt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 24.10.2013                                         %
@@ -133,7 +136,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \caption{Zu $x=(x_1, x_2)$ gibt es Umgebungen $U_1, U_2$ mit $U_1 \times U_2 \subseteq U$}
 \end{figure}
 
-\begin{beispiel}
+\begin{beispiel}[Produkttopologien]
     \begin{enumerate}[label=\arabic*)]
         \item $X_1 = X_2 = \mdr$ mit euklidischer Topologie.\\
               $\Rightarrow$ Die Produkttopologie auf $\mdr \times \mdr = \mdr^2$
@@ -205,7 +208,15 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     $\fB$ ist Basis einer Topologie auf $X$.
 \end{bemerkung}
 
-\begin{beispiel}
+\begin{definition}\xindex{Isometrie}%
+    Seien $(X, d_X)$ und $(Y, d_Y)$ metrische Räume und $\varphi: X \rightarrow Y$
+    eine Abbildung mit 
+    \[\forall x_1, x_2 \in X: d_X(x_1, x_2) = d_Y(\varphi(x_1), \varphi(x_2)) \]
+
+    Dann heißt $\varphi$ eine \textbf{Isometrie} von $X$ nach $Y$.
+\end{definition}
+
+\begin{beispiel}[Skalarprodukt erzeugt Metrik]
     Sei $V$ ein euklidischer oder hermiteischer Vektorraum mit Skalarprodukt
     $\langle \cdot , \cdot \rangle$.
     Dann wird $V$ durch $d(x,y) := \sqrt{\langle x-y, x-y \rangle}$ zum metrischen Raum.
@@ -259,15 +270,20 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \begin{bemerkung}[Trennungseigenschaft]\label{Trennungseigenschaft}
     Metrische Räume sind hausdorffsch, da 
     \[d(x,y) > 0 \Rightarrow \exists \varepsilon > 0: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
-    Ein Beispiel für einen topologischen Raum, der nicht hausdorffsch ist,
-    ist $(\mdr, \fT_Z)$.
 \end{bemerkung}
+
+\begin{beispiel}[Topologische Räume und Hausdorff-Räume]
+    \begin{bspenum}
+        \item $(\mdr, \fT_Z)$ ist ein topologischer Raum, der nicht hausdorffsch ist.
+        \item $(\mdr, \fT)$ ist ein topologischer Raum, der hausdorffsch ist.
+    \end{bspenum}
+\end{beispiel}
 
 \begin{bemerkung}
     Seien $X, X_1, X_2$ Hausdorff-Räume.
     \begin{enumerate}[label=\alph*)]
-        \item Jeder Teilraum um $X$ ist Hausdorffsch.
-        \item $X_1 \times X_2$ ist Hausdorffsch.
+        \item Jeder Teilraum von $X$ ist hausdorffsch.
+        \item $X_1 \times X_2$ ist hausdorffsch.
     \end{enumerate}
     \begin{figure}[htp]
         \centering
@@ -317,7 +333,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \begingroup
 \renewcommand{\thmfoot}{\footnotemark}
 \begin{bemerkung}
-  \footnotetext[\thefootnote]{Im Grunde wird die Äquivalenz
+  \footnotetext[\thefootnote]{Es wird die Äquivalenz
   von Stetigkeit im Sinne der Analysis und Topologie auf metrischen
   Räumen gezeigt.}
   Seien $X, Y$ metrische Räume und $f\colon X \rightarrow Y$ eine
@@ -350,9 +366,11 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{beweis}
 
 \begin{bemerkung}
-    Eine Ableitung $f: X \rightarrow Y$ von topologischen Räumen ist
-    genau dann stetig, wenn für jede abgeschlossene Teilmenge $A \subseteq Y$
-    gilt: $f^{-1}(A) \subseteq X$ ist abgeschlossen.
+    Seien $X, Y$ topologische Räume und $f:X \rightarrow Y$ eine
+    Abbildung. Dann gilt:
+
+    $f \text{ ist stetig}$\\
+    $\gdw \text{für jede abgeschlossene Teilmenge } A \subseteq Y \text{ gilt}: f^{-1}(A) \subseteq X \text{ ist abgeschlossen}$
 \end{bemerkung}
 
 \begin{beispiel}
