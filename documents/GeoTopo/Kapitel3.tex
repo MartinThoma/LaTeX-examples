@@ -18,7 +18,7 @@
     \caption{Beispiele für Wege $\gamma_1$ und $\gamma_2$}
 \end{figure}
 
-\begin{definition}
+\begin{definition}%
     Sei $X$ ein topologischer Raum, $a, b \in X$, 
     $\gamma_1, \gamma_2: [0,1] \rightarrow X$ Wege von $a$ nach $b$,
     d.~h. $\gamma_1(0) = \gamma_2(0) = a$, $\gamma_1(1) = \gamma_2(1) = b$
@@ -120,12 +120,12 @@
     $\Rightarrow H$ ist Homotopie. $\qed$
 \end{beweis}
 
-\begin{definition}\xindex{Weg!zusammengesetzter}
+\begin{definition}\xindex{Weg!zusammengesetzter}%
     Seien $\gamma_1, \gamma_2$ Wege in $X$ mit $\gamma_1(1) = \gamma_2(0)$.
     Dann ist 
     \[\gamma (t) = \begin{cases}
-        \gamma_1(2t)   &\text{falls} 0 \leq t < \frac{1}{2}\\
-        \gamma_2(2t-1) &\text{falls} \frac{1}{2} \leq t \leq 1
+        \gamma_1(2t)   &\text{falls } 0 \leq t < \frac{1}{2}\\
+        \gamma_2(2t-1) &\text{falls } \frac{1}{2} \leq t \leq 1
       \end{cases}\]
     ein Weg in $X$. Er heißt \textbf{zusammengesetzter Weg} und man
     schreibt $\gamma = \gamma_1 * \gamma_2$.
@@ -199,12 +199,12 @@
 \section{Fundamentalgruppe}
 Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Homotopieklasse}.
 
-\begin{definition}
+\begin{definition}\xindex{Fundamentalgruppe}%
     Sei $X$ ein topologischer Raum und $x \in X$. Sei außerdem
     \[\pi_1(X,x) := \Set{[\gamma] | \gamma \text{ ist Weg in } X \text{ mit } \gamma(0) = \gamma(1) = x}\]
 
     Durch $[\gamma_1] *_G [\gamma_2] : = [\gamma_1 * \gamma_2]$ wird
-    $\pi_1(X,x)$ zu einer Gruppe. Diese Gruppe heißt \textbf{Fundamentalgruppe}\xindex{Fundamentalgruppe}
+    $\pi_1(X,x)$ zu einer Gruppe. Diese Gruppe heißt \textbf{Fundamentalgruppe}
     von $X$ im Basispunkt $x$.
 \end{definition}
 
@@ -355,7 +355,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     und $g_* \circ f_* = \id_{\pi_1(X,x)}$.
 \end{beweis}
 
-\begin{definition}\xindex{Abbildung!homotope}
+\begin{definition}\xindex{Abbildung!homotope}%
     Seien $X, Y$ topologische Räume, $x_0 \in X, y_0 \in Y, f, g: X \rightarrow Y$
     stetig mit $f(x_0) = y_0 = g(x_0)$.
 
@@ -502,7 +502,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     $p(y) = x$, ist $p$ surjektiv.    $\qed$
 \end{beweis}
 
-\begin{definition}\xindex{Abbildung!offene}
+\begin{definition}\xindex{Abbildung!offene}%
     Seien $X, Y$ topologische Räume und $f:X \rightarrow Y$ eine 
     Abbildung.
 
@@ -529,7 +529,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 
 \todo[inline]{Die Definition von Diskret habe ich mir überlegt. Hatten wir das schon mal? 
 Haben wir Häufungspunkt definiert?}
-\begin{definition}\xindex{diskret}
+\begin{definition}\xindex{diskret}%
     Sei $X$ ein topologischer Raum und $M \subseteq X$.
 
     $M$ heißt \textbf{diskret} in $X$, wenn $M$ in $X$ keinen 
@@ -596,7 +596,7 @@ Haben wir Häufungspunkt definiert?}
     $\xRightarrow{X \text{zhgd.}} |p^{-1}(x)|$  ist konstant auf $X$
 \end{beweis}
 
-\begin{definition}\xindex{Liftung}
+\begin{definition}\xindex{Liftung}%
     Sei $p: Y \rightarrow X$ Überlagerung, $Z$ ein weiterer topologischer
     Raum, $f:Z \rightarrow X$ stetig.
 
@@ -764,9 +764,9 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     ist stetig. $\Rightarrow p$ ist Homöomorphismus.  $\qed$
 \end{beweis}
 
-\begin{definition}%In Vorlesung: "Definition 12.10"
+\begin{definition}\xindex{Ueberlagerung@""Uberlagerung!universelle}%In Vorlesung: "Definition 12.10"
     Eine Überlagerung $p: \tilde{X} \rightarrow X$ heißt
-    \textbf{universell}\xindex{Ueberlagerung@""Uberlagerung!universelle}, wenn
+    \textbf{universell}, wenn
     $\tilde{X}$ einfach zusammenhängend ist.
 \end{definition}
 
@@ -1056,11 +1056,11 @@ und der Fundamentalgruppe herstellen:
         \item $G$ operiert auf $X = G$ durch $g \circ h := g \cdot h \cdot g^{-1}$, denn
         \begin{enumerate}[label=\roman*)]
             \item $1_G \circ h = 1_G \cdot h \cdot 1_G^{-1} = h$
-            \item \begin{align*}
+            \item $\!\begin{aligned}[t]
                     (g_1 \cdot g_2) \circ h &= (g_1 \cdot g_2) \cdot h \cdot (g \cdot g_2)^{-1}\\
                         &= g_1 \cdot (g_2 \cdot h \cdot g_2^{-1}) \cdot g_1^{-1}\\
                         &= g_1 \circ (g_2 \circ h)
-                  \end{align*}
+                  \end{aligned}$
         \end{enumerate}
     \end{enumerate}
 \end{beispiel}

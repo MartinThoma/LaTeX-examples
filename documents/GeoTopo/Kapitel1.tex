@@ -1,6 +1,6 @@
 \chapter{Topologische Grundbegriffe}
 \section{Topologische Räume}
-\begin{definition} \xindex{Raum!topologischer} \xindex{offen} \xindex{abgeschlossen}
+\begin{definition}\xindex{Raum!topologischer}\xindex{offen}\xindex{abgeschlossen}%
     Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
     aus einer Menge $X$ und $\fT \subseteq \powerset{X}$ mit
     folgenden Eigenschaften
@@ -19,7 +19,7 @@
 Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
 Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
-\begin{bemerkung}[Mengen, die offen \& abgeschlossen sind, existieren]
+\begin{bemerkung}[Mengen, die offen \& abgeschlossen sind, existieren]%
     Betrachte $\emptyset$ und $X$ mit der \enquote{trivialen Topologie}
     \xindex{Topologie!triviale}\index{Klumpentopologie|see{triviale Topologie}} $\fT_{\ts{triv}} = \Set{\emptyset, X}$.
 
@@ -52,14 +52,14 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \end{enumerate}
 \end{beispiel}
 
-\begin{definition} \xindex{Umgebung}
+\begin{definition}\xindex{Umgebung}%
     Sei $(X, \fT)$ ein topologischer Raum und $x \in X$.
 
     Eine Teilmenge $U \subseteq X$ heißt \textbf{Umgebung} von $x$,
     wenn es ein $U_0 \in \fT$ gibt mit $x \in U_0$ und $U_0 \subseteq U$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}%
     Sei $(X, \fT)$ ein topologischer Raum und $M \subseteq X$ eine Teilmenge.
     \begin{enumerate}[label=\alph*)]
         \item $\displaystyle M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x} = \bigcup_{\overset{U \subseteq M} {U \in \fT}} U $ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \xindex{Inneres} \xindex{Kern!offener}
@@ -81,7 +81,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \end{enumerate}
 \end{beispiel}
 
-\begin{definition} \xindex{Basis} \xindex{Subbasis}
+\begin{definition}\xindex{Basis}\xindex{Subbasis}%
     Sei $(X, \fT)$ ein topologischer Raum.
     \begin{enumerate}[label=\alph*)]
         \item $\fB \subseteq \fT$ heißt \textbf{Basis} der Topologie $\fT$,
@@ -104,7 +104,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     genau eine Topologie $\fT$ auf $X$, für die $\fB$ Subbasis ist.
 \end{bemerkung}
 
-\begin{definition} \xindex{Spurtopologie} \xindex{Teilraum}
+\begin{definition}\xindex{Spurtopologie}\xindex{Teilraum}%
     Sei $(X, \fT)$ ein topologischer Raum und $Y \subseteq X$.\\
     $\fT_Y := \Set{U \cap Y | U \in \fT}$ ist eine Topologie auf $Y$.
 
@@ -115,7 +115,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 24.10.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition} \xindex{Produkttopologie}
+\begin{definition}\xindex{Produkttopologie}%
     Seien $X_1, X_2$ topologische Räume.\\
     $U \subseteq X_1 \times X_2$ sei offen, wenn es zu jedem $x = (x_1, x_2) \in U$
     Umgebungen $U_i$ um $x_i$  mit $i=1,2$ gibt, sodass $U_1 \times U_2 \subseteq U$
@@ -151,7 +151,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \end{figure}
 \end{beispiel}
 
-\begin{definition} \xindex{Quotiententopologie}
+\begin{definition}\xindex{Quotiententopologie}%
     Sei $X$ ein topologischer Raum, $\sim$ eine Äquivalenzrelation auf $X$,
     $\overline{X} = X /_\sim$ sei die Menge der Äquivalenzklassen,
     $\pi: x \rightarrow \overline{x}, \;\;\; x \mapsto [x]_\sim$.
@@ -174,7 +174,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     und $y_1 - y_2 \in \mdz$. Dann ist $X /_\sim$ ein Torus.
 \end{beispiel}
 
-\begin{beispiel}\xindex{Raum!projektiver}
+\begin{beispiel}\xindex{Raum!projektiver}%
     \begin{align*}
         X= \mdr^{n-1} \setminus \Set{0},\;\;\; x \sim y &\gdw \exists \lambda \in \mdr^\times \text{ mit } y = \lambda x\\
             &\gdw x \text{ und } y \text{ liegen auf der gleichen}\\
@@ -186,7 +186,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \end{beispiel}
 
 \section{Metrische Räume}
-\begin{definition} \xindex{Metrik} \xindex{Raum!metrischer}
+\begin{definition}\xindex{Metrik}\xindex{Raum!metrischer}%
     Sei $X$ eine Menge. Eine Abbildung $d:X\times X \rightarrow \mdr_0^+$
     heißt \textbf{Metrik}, wenn gilt:
 
@@ -211,7 +211,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     Dann wird $V$ durch $d(x,y) := \sqrt{\langle x-y, x-y \rangle}$ zum metrischen Raum.
 \end{beispiel}
 
-\begin{beispiel}[diskrete Metrik] \xindex{Metrik!diskrete} \xindex{Topologie!diskrete}
+\begin{beispiel}[diskrete Metrik]\xindex{Metrik!diskrete}\xindex{Topologie!diskrete}%
     Sei $X$ eine Menge. Dann heißt
     \[d(x,y) = \begin{cases}
     0 & \text{falls } x=y\\
@@ -243,14 +243,14 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \end{beispiel}
 
-\begin{beispiel}[SNCF-Metrik\footnotemark] \xindex{Metrik!SNCF}
+\begin{beispiel}[SNCF-Metrik\footnotemark]\xindex{Metrik!SNCF}
     $X = \mdr^2$ 
 
     \input{figures/sncf-metrik}
 \end{beispiel}
 \footnotetext{Diese Metrik wird auch \enquote{\href{https://de.wikipedia.org/wiki/Franz\%C3\%B6sische_Eisenbahnmetrik}{französische Eisenbahnmetrik}} genannt.}
 
-\begin{definition} \xindex{Raum!hausdorffscher}
+\begin{definition}\xindex{Raum!hausdorffscher}%
     Ein topologischer Raum $X$ heißt \textbf{hausdorffsch}, wenn es
     für je zwei Punkte $x \neq y$ in $X$ Umgebungen $U_x$ um $x$
     und $U_y$ um $y$ gibt, sodass $U_x \cap U_y = \emptyset$.
@@ -279,7 +279,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 24.10.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition} \xindex{Grenzwert} \xindex{Limes}
+\begin{definition}\xindex{Grenzwert}\xindex{Limes}%
     Sei $X$ ein topologischer Raum und $(x)_{n \in \mdn}$ eine Folge
     in $X$. $x \in X$ heißt \textbf{Grenzwert} oder \textbf{Limes}
     von $(x_n)$, wenn es für jede Umgebung $U$ von $x$ ein $n_0$ gibt,
@@ -442,7 +442,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \emph{Beobachtung:} Die Quotiententopologie ist die feinste Topologie,
 sodass $\pi$ stetig wird.
 
-\begin{beispiel}[Stereographische Projektion] \xindex{Projektion!stereographische}
+\begin{beispiel}[Stereographische Projektion]\xindex{Projektion!stereographische}%
     $\mdr^n$ und $S^n \setminus \Set{N}$ sind homöomorph für
     beliebiges $N \in S^n$. Es gilt:
 
@@ -482,7 +482,7 @@ sodass $\pi$ stetig wird.
 % Mitschrieb vom 31.10.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Zusammenhang}\index{Zusammenhang|(}
-\begin{definition}\xindex{zusammenhaengend@zusammenhängend}
+\begin{definition}\xindex{zusammenhaengend@zusammenhängend}%
     Ein Raum $X$ heißt \textbf{zusammenhängend}, wenn es keine offenen,
     nichtleeren Teilmengen $U_1, U_2$ von $X$ gibt mit 
     $U_1 \cap U_2 = \emptyset$ und $U_1 \cup U_2 = X$.
@@ -567,7 +567,7 @@ sodass $\pi$ stetig wird.
     $\qed$
 \end{beweis}
 
-\begin{definition}\xindex{Zusammenhangskomponente}
+\begin{definition}\xindex{Zusammenhangskomponente}%
     Sei $X$ ein topologischer Raum.
     
     Für $x \in X$ sei 
@@ -623,14 +623,14 @@ sodass $\pi$ stetig wird.
 \end{beweis}\index{Zusammenhang|)}
 
 \section{Kompaktheit}
-\begin{definition}\xindex{Ueberdeckung@""Uberdeckung}
+\begin{definition}\xindex{Ueberdeckung@""Uberdeckung}%
     Sei $X$ eine Menge und $T \subseteq \powerset{X}$.
 
     $T$ heißt eine \textbf{Überdeckung} von $X$, wenn gilt:
     \[\forall x \in X: \exists M \in T: x \in M\]
 \end{definition}
 
-\begin{definition}\xindex{kompakt}
+\begin{definition}\xindex{kompakt}%
     Ein topologischer Raum $X$ heißt \textbf{kompakt}, wenn jede
     offene Überdeckung $\mathfrak{U}$ von $X$ eine endliche Teilüberdeckung besitzt.
 
@@ -813,7 +813,7 @@ $\qed$
 % Mitschrieb vom 07.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Wege und Knoten}\index{Knoten|(}
-\begin{definition}\xindex{Weg}\xindex{Weg!geschlossener}\xindex{Weg!einfacher}
+\begin{definition}\xindex{Weg}\xindex{Weg!geschlossener}\xindex{Weg!einfacher}%
     Sei $X$ ein topologischer Raum. 
     \begin{enumerate}[label=\alph*)]
         \item Ein \textbf{Weg} in $X$ ist eine stetige Abbildung $\gamma:[0,1] \rightarrow X$.
@@ -829,7 +829,7 @@ $\qed$
     Denn $\gamma([0,1])$ ist zusammenhängend für jeden Weg $\gamma$.
 \end{beispiel}
 
-\begin{definition}\xindex{Wegzusammenhang}
+\begin{definition}\xindex{Wegzusammenhang}%
     Ein topologischer Raum $X$ heißt \textbf{wegzusammenhängend},
     wenn es zu je zwei Punkten $x,y \in X$ einen Weg $\gamma:[0,1] \rightarrow X$
     gibt mit $\gamma(0)=x$ und $\gamma(1)=y$.
@@ -897,7 +897,7 @@ $\qed$
     
     \input{figures/hilbert-curve}
 
-\begin{definition}\xindex{Jordankurve}\xindex{Jordankurve!geschlossene}
+\begin{definition}\xindex{Jordankurve}\xindex{Jordankurve!geschlossene}%
     Sei $X$ ein topologischer Raum. Eine (geschlossene)
     \textbf{Jordankurve} in $X$ ist ein Homöomorphismus 
     $\gamma: [0, 1] \rightarrow C \subseteq X$
@@ -925,7 +925,7 @@ $\qed$
     Idee: Ersetze Weg $C$ durch Polygonzug.
 \end{beweis}
 
-\begin{definition}\xindex{Knoten}
+\begin{definition}\xindex{Knoten}%
     Eine geschlossene Jordankurve in $\mdr^3$ heißt \textbf{Knoten}.
 \end{definition}
 
@@ -955,7 +955,7 @@ $\qed$
     \end{figure}
 \end{beispiel}
 
-\begin{definition}\xindex{Knoten!äquivalente}\xindex{Isotopie}
+\begin{definition}\xindex{Knoten!äquivalente}\xindex{Isotopie}%
     Zwei Knoten $\gamma_1, \gamma_2: S^1 \rightarrow \mdr^3$ heißen
     \textbf{äquivalent}, wenn es eine stetige Abbildung
     $H: S^1 \times [0,1] \Rightarrow \mdr^3$ gibt mit 
@@ -965,7 +965,7 @@ $\qed$
     $\gamma_1$ und $\gamma_2$.
 \end{definition}
 
-\begin{definition}\xindex{Knotendiagramm}
+\begin{definition}\xindex{Knotendiagramm}%
     Ein \textbf{Knotendiagramm} eines Knotens $\gamma$ ist eine 
     Projektion $\pi: \mdr^3 \rightarrow E$ auf eine Ebene $E$, sodass
     $|(\pi|C)^{-1}(x)| \leq 2$ für jedes $x \in D$.
@@ -1004,7 +1004,7 @@ $\qed$
     Durch sorgfältige Fallunterscheidung.\footnote{Siehe \enquote{Knot Theory and Its Applications} von Kunio Murasugi. ISBN 978-0817638177.}
 \end{beweis}
 
-\begin{definition}\xindex{Färbbarkeit}
+\begin{definition}\xindex{Färbbarkeit}%
     Ein Knotendiagramm heißt \textbf{3-färbbar}, 
     wenn jeder Bogen von $D$ so mit einer Farbe gefärbt werden kann, 
     dass an jeder Kreuzung eine oder 3 Farben auftreten und alle 3 

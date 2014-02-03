@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Mannigfaltigkeiten und Simplizialkomplexe}
 \section{Topologische Mannigfaltigkeiten}
-\begin{definition}
+\begin{definition}%
     Sei $X$ ein topologischer Raum und $n \in \mdn$.
     \begin{defenum}
         \item Eine $n$-dimensionale \textbf{Karte}\xindex{Karte} auf
@@ -112,7 +112,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 14.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}\xindex{Verklebung}
+\begin{definition}\xindex{Verklebung}%
     Seien $X, Y$ $n$-dimensionale Mannigfaltigkeiten, $U \subseteq X$
     und $V \subseteq Y$ offen, $\Phi: U \rightarrow V$ ein Homöomorphismus
     $Z = (X \dcup Y) /_\sim$ mit der von $u \sim \Phi(u)\;\forall{u \in U}$
@@ -189,7 +189,7 @@
     $\qed$
 \end{beweis}
 
-\begin{beispiel}\xindex{Neilsche Parabel}
+\begin{beispiel}\xindex{Neilsche Parabel}%
     \begin{bspenum}
         \item $F: \mdr^3 \rightarrow \mdr,\;\;\; (x, y, z) \mapsto x^2 + y^2 + z^2 - 1$,
               $V(F) = S^2$, $\grad(F) = (2x, 2y, 2z) \xRightarrow{\crefabbr{bem:Mannigfaltigkeitskriterium}} S^n$
@@ -215,7 +215,7 @@
     \end{bspenum}
 \end{beispiel}
 
-\begin{definition}\xindex{Mannigfaltigkeit!mit Rand}
+\begin{definition}\xindex{Mannigfaltigkeit!mit Rand}%
     Sei $X$ ein Hausdorffraum mit abzählbarer Basis der Topologie.
     $X$ heißt $n$-dimensionale \textbf{Mannigfaltigkeit mit Rand},
     wenn es einen Atlas $(U_i, \varphi_i)$ gibt, wobei $U_i \subseteq X_i$
@@ -244,7 +244,7 @@
     \caption{Beispiele für Mannigfaltigkeiten mit Rand}
 \end{figure}
 
-\begin{definition}\xindex{Rand}
+\begin{definition}\xindex{Rand}%
     Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Rand und
     Atlas $(U_i, \varphi_i)$. Dann heißt 
     \[\partial X := \bigcup_{i\in I} \Set{x \in U_i | \varphi_i (x)_n = 0}\]
@@ -253,7 +253,7 @@
 
 $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 
-\begin{definition}\xindex{Kartenwechsel}\index{Uebergangsfunktion@""Ubergangsfunktion|see{Kartenwechsel}}
+\begin{definition}\xindex{Kartenwechsel}\index{Uebergangsfunktion@""Ubergangsfunktion|see{Kartenwechsel}}%
     Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Atlas
     $(U_i, \varphi_i)_{i \in I}$
 
@@ -276,7 +276,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 % Mitschrieb vom 19.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Differenzierbare Mannigfaltigkeiten}\label{sec:8}
-\begin{definition}
+\begin{definition}%
     Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Atlas $(U_i, \varphi_i)_{i \in I}$.
 
     \begin{defenum}
@@ -289,7 +289,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{defenum}
 \end{definition}
 
-\begin{definition}
+\begin{definition}%
     Sei $X$ eine differenzierbare Mannigfaltigkeit der Klasse $C^k$ 
     ($k \in \mdn \cup \Set{\infty}$) mit Atlas $(U_i, \varphi_i)_{i \in I}$.
 
@@ -363,8 +363,8 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     eine Untergruppe von $\Homoo(X)$.
 \end{bemerkung}
 
-\begin{definition}\label{def:8.5}
-    $S \subseteq \mdr^3$ heißt \textbf{reguläre Fläche}\xindex{Fläche!reguläre} $:\gdw$
+\begin{definition}\label{def:8.5}\xindex{Fläche!reguläre}%
+    $S \subseteq \mdr^3$ heißt \textbf{reguläre Fläche} $:\gdw$
     $\forall s \in S\;\exists $ Umgebung $V(s) \subseteq \mdr^3$ $\exists U \subseteq \mdr^2$ offen: 
     $\exists \text{ differenzierbare Abbildung } F: U \rightarrow V \cap S$: 
     $\text{Rg}(J_F(u)) = 2\;\;\;\forall u \in U$.
@@ -494,7 +494,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     ist differenzierbar.
 \end{beweis}
 
-\begin{definition}
+\begin{definition}%
     Sei $G$ eine Mannigfaltigkeit, $\circ: G \times G \rightarrow G$
     eine Abbildung, $(g,h) \mapsto g \cdot h$, sodass $(G, \circ)$
     eine Gruppe ist.
@@ -553,7 +553,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 \end{bemerkung}
 
 \section{Simplizialkomplex}
-\begin{definition}\xindex{Lage!allgemeine}
+\begin{definition}\xindex{Lage!allgemeine}%
     Seien $v_0, \dots, v_k \in \mdr^n$ Punkte.
     \begin{defenum}
         \item $v_0, \dots, v_k$ sind \textbf{in allgemeiner Lage} $\gdw$ es gibt keinen $(k-1)$-dimensionalen
@@ -610,7 +610,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 21.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}
+\begin{definition}%
     \begin{enumerate}[label=\alph*),ref=\thedefinition.\alph*]
         \item Eine endliche Menge $K$ von Simplizes im $\mdr^n$
               heißt (endlicher) \textbf{Simplizialkomplex}\xindex{Simplizialkomplex},
@@ -669,10 +669,10 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \caption{Beispiele für Simplizialkomplexe}
 \end{figure}
 
-\begin{definition}
+\begin{definition}\xindex{Abbildung!simpliziale}%
     Seien $K, L$ Simplizialkomplexe. Eine stetige Abbildung
     \[f:|K| \rightarrow |L|\]
-    heißt \textbf{simplizial}\xindex{Abbildung!simpliziale}, wenn für
+    heißt \textbf{simplizial}, wenn für
     jedes $\Delta \in K$ gilt:
     \begin{defenum}
         \item $f(\Delta) \in L$
@@ -698,13 +698,13 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     \end{bspenum}
 \end{beispiel}
 
-\begin{definition}
+\begin{definition}\xindex{Eulerzahl}%
     Sei $K$ ein endlicher Simplizialkomplex. Für $n \geq 0$ sei
     $a_n(K)$ die Anzahl der $n$-Simplizes in $K$.
 
     Dann heißt 
     \[\chi(K) := \sum_{k=0}^{\dim K} (-1)^n a_n(K)\]
-    \textbf{Eulerzahl}\xindex{Eulerzahl} (oder Euler-Charakteristik\index{Euler-Charakteristik|see{Eulerzahl}})
+    \textbf{Eulerzahl} (oder Euler-Charakteristik\index{Euler-Charakteristik|see{Eulerzahl}})
     von $K$.
 \end{definition}
 
@@ -739,7 +739,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 28.11.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}
+\begin{definition}%
     \begin{defenum}
         \item Ein 1D-Simplizialkomplex heißt \textbf{Graph}\xindex{Graph}.
         \item Ein Graph, der homöomorph zu $S^1$ ist, heißt \textbf{Kreis}\xindex{Kreis}.
@@ -824,7 +824,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     $\chi(K) = \chi(\Delta) - \underbrace{\underbrace{(-1)^n}_{n-\text{Simplex}} + \sum_{k=0}^n (-1)^k}_{(1+(-1))^{n+1}} = \chi(\Delta) \qed$
 \end{beweis}
 
-\begin{satz}[Eulersche Polyederformel]\xindex{Eulersche Polyederformel}
+\begin{satz}[Eulersche Polyederformel]\xindex{Eulersche Polyederformel}%
     Sei $P$ ein konvexes Polyeder in $\mdr^3$, d.~h. $\partial P$ ist
     ein 2-dimensionaler Simplizialkomplex, sodass gilt:
     \[\forall x,y \in \partial P: [x,y] \subseteq P\]
@@ -905,7 +905,7 @@ $\partial X$ ist eine Mannigfaltigkeit der Dimension $n-1$.
     Summe vorkommt, aber mit umgekehrten Vorzeichen. $\qed$
 \end{beweis}
 
-\begin{definition}
+\begin{definition}%
     Sei $Z_n := \text{Kern}(d_n) \subseteq C_n$ und 
     $B_n := \text{Bild}(d_{n+1}) \subseteq C_n$.
 
