@@ -325,8 +325,9 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \begin{beweis}
     Sei $(x_n)$ eine konvergierende Folge und $x$ und $y$ Grenzwerte der Folge.
 
-    Nach Voraussetzung gibt es Umgebungen $U_x$ von $x$ und $U_y$
-    von $y$ mit $U_x \cap U_y = \emptyset$. Es existiert ein
+    Da $X$ hausdorffsch ist, gibt es Umgebungen $U_x$ von $x$ und $U_y$
+    von $y$ mit $U_x \cap U_y = \emptyset$ falls $x \neq y$. Da 
+    $(x_n)$ gegen $x$ und $y$ konvergiert, existiert ein
     $n_0$ mit $x_n \in U_x \cap U_y$ für alle $n \geq n_0$
     $\Rightarrow x = y \qed$
 \end{beweis}
@@ -388,7 +389,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     $\gdw \text{für jede abgeschlossene Teilmenge } A \subseteq Y \text{ gilt}: f^{-1}(A) \subseteq X \text{ ist abgeschlossen}$
 \end{bemerkung}
 
-\begin{beispiel}
+\begin{beispiel}[Stetige Abbildungen und Homöomorphismen]
     \begin{enumerate}[label=\arabic*)]
         \item Für jeden topologischen Raum $X$ gilt: $\id_X : X \rightarrow X$
               ist Homöomorphismus.
@@ -434,18 +435,18 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 
 \begin{bemerkung}
     \begin{enumerate}[label=\alph*)]
-        \item Für jeden topologischen Raum ist 
+        \item \xindex{Homöomorphismengruppe}Für jeden topologischen Raum ist 
               \[\Homoo(X) := \Set{f: X \rightarrow X | f \text{ ist Homöomorphismus}}\]
-              eine Gruppe.\xindex{Homöomorphismengruppe}
-        \item Jede Isometrie $f:X \rightarrow Y$ zwischen metrischen 
+              eine Gruppe.
+        \item \xindex{Isometrie}Jede Isometrie $f:X \rightarrow Y$ zwischen metrischen 
               Räumen ist ein Homöomorphismus.
-        \item $\Iso(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
+        \item \xindex{Isometriegruppe}$\Iso(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
               eine Untergruppe von $\Homoo(X)$ für jeden
               metrischen Raum $X$.
     \end{enumerate}
 \end{bemerkung}
 
-\begin{bemerkung}
+\begin{bemerkung}[Projektionen sind stetig]
     Seien $X, Y$ topologische Räume. $\pi_X: X \times Y \rightarrow X$
     und $\pi_Y: X \times Y \rightarrow Y$ die Projektionen 
     \[\pi_X: (x,y) \mapsto x \text{ und } \pi_Y: (x,y) \mapsto y\]
@@ -472,7 +473,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     offen. $\qed$
 \end{beweis}
 
-\emph{Beobachtung:} Die Quotiententopologie ist die feinste Topologie,
+\xindex{Topologie!feinste}\emph{Beobachtung:} Die Quotiententopologie ist die feinste Topologie,
 sodass $\pi$ stetig wird.
 
 \begin{beispiel}[Stereographische Projektion]\xindex{Projektion!stereographische}%
@@ -566,11 +567,11 @@ sodass $\pi$ stetig wird.
     Dann ist auch $\overline{A}$ zusammenhängend.
 \end{bemerkung}
 
-\begin{beweis}
-    \underline{Annahme}: $\overline{A} = A_1 \cup A_2,\; A_i$ abgeschlossen, $\neq \emptyset$,
+\begin{beweis} durch Widerspruch\\
+    \underline{Annahme}: $\overline{A} = A_1 \cup A_2,\; A_i$ abgeschlossen, $A_i \neq \emptyset$,
     $\;A_1 \cap A_2 = \emptyset$
     \begin{align*}
-        &\Rightarrow A = \underbrace{\underbrace{(A \cap A_1)}_\text{abgeschlossen} \cup \underbrace{(A \cap A_2)}_\text{abgeschlossen}}_\text{disjunkt}\\
+        &\Rightarrow A = \underbrace{\underbrace{(A \cap A_1)}_\text{abgeschlossen} \dcup \underbrace{(A \cap A_2)}_\text{abgeschlossen}}_\text{disjunkt}\\
     \end{align*}
 
     Wäre $A \cap A_1 = \emptyset$\\
@@ -590,9 +591,9 @@ sodass $\pi$ stetig wird.
 \end{bemerkung}
 
 \begin{beweis}
-    Sei $A \cup B = U_1 \cup U_2, U_i \neq \emptyset$ offen, disjunkt
+    Sei $A \cup B = U_1 \dcup U_2, U_i \neq \emptyset$ offen
     \begin{align*}
-        &\xRightarrow{\text{\obda}} A = (A \cap U_1) \cup (A \cap U_2) \text{ offen, disjunkt}\\
+        &\xRightarrow{\text{\obda}} A = (A \cap U_1) \dcup (A \cap U_2) \text{ offen}\\
         &\xRightarrow{A \text{ zhgd.}} A \cap U_1 = \emptyset\\
         &\xRightarrow{A \cap B \neq \emptyset} U_1 \subseteq B\\
         &B = \underbrace{(B \cap U_1)}_{= U_1} \cup \underbrace{(B \cap U_2)}_{= \emptyset} \text{ ist unerlaubte Zerlegung}
@@ -603,7 +604,7 @@ sodass $\pi$ stetig wird.
 \begin{definition}\xindex{Zusammenhangskomponente}%
     Sei $X$ ein topologischer Raum.
     
-    Für $x \in X$ sei 
+    Für $x \in X$ sei $Z(x) \subseteq X$ definiert durch
     \[Z(x) := \bigcup_{\substack{A \subseteq X \text{zhgd.}\\ X \in A}} A\]
 
      $Z(x)$ heißt \textbf{Zusammenhangskomponente}.
@@ -621,8 +622,7 @@ sodass $\pi$ stetig wird.
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
-        \item Sei $Z(x) = A_1 \cup A_2$ mit $A_i \neq \emptyset$ abgeschlossen,
-              disjunkt.
+        \item Sei $Z(x) = A_1 \dcup A_2$ mit $A_i \neq \emptyset$ abgeschlossen.
 
             \Obda sei $x \in A_1$ und $y \in A_2$. $y$ liegt in einer zusammehängenden
             Teilmenge $A$, die auch $x$ enthält.
@@ -657,18 +657,19 @@ sodass $\pi$ stetig wird.
 
 \section{Kompaktheit}
 \begin{definition}\xindex{Ueberdeckung@""Uberdeckung}%
-    Sei $X$ eine Menge und $T \subseteq \powerset{X}$.
+    Sei $X$ eine Menge und $\fU \subseteq \powerset{X}$.
 
-    $T$ heißt eine \textbf{Überdeckung} von $X$, wenn gilt:
-    \[\forall x \in X: \exists M \in T: x \in M\]
+    $\fU$ heißt eine \textbf{Überdeckung} von $X$, wenn gilt:
+    \[\forall x \in X: \exists M \in \fU: x \in M\]
 \end{definition}
 
 \begin{definition}\xindex{kompakt}%
     Ein topologischer Raum $X$ heißt \textbf{kompakt}, wenn jede
-    offene Überdeckung $\mathfrak{U}$ von $X$ eine endliche Teilüberdeckung besitzt.
-
-    \[\mathfrak{U} = \Set{U_i}_{i \in I},\;\;\;U_i \text{ offen in } X,\;\;\;\bigcup_{i \in I} U_i = X\]
-    
+    offene Überdeckung von $X$
+    \[\fU = \Set{U_i}_{i \in I} \text{ mit } U_i \text{ offen in } X\]
+    eine endliche Teilüberdeckung 
+    \[\bigcup_{\mathclap{i \in J \subseteq I}} U_i = X \text{ mit } |J| \in \mdn\]
+    besitzt.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -705,7 +706,7 @@ $\Rightarrow U_{j_1}, \dots, U_{j_d}$ ist endliche Teilüberdeckung von $U$
 $\qed$
 \end{beweis}
 
-\begin{beispiel}
+\begin{beispiel}[Kompakte Räume]
     \begin{enumerate}[label=\arabic*)]
         \item $\mdr$ ist nicht kompakt.
         \item $(0,1)$ ist nicht kompakt.\\
@@ -924,11 +925,13 @@ $\qed$
     \end{enumerate}
 \end{beweis}
 
-\textbf{Achtung:} Es gibt stetige, surjektive Abbildungen 
+\begin{beispiel}[Hilbert-Kurve]\xindex{Hilbert-Kurve}%
+    Es gibt stetige, surjektive Abbildungen 
     $[0,1] \rightarrow [0,1] \times [0,1]$. Ein Beispiel ist die
     in \cref{fig:hilbert-curve} dargestellte Hilbert-Kurve.
-    
+
     \input{figures/hilbert-curve}
+\end{beispiel}
 
 \begin{definition}\xindex{Jordankurve}\xindex{Jordankurve!geschlossene}%
     Sei $X$ ein topologischer Raum. Eine (geschlossene)
@@ -962,7 +965,7 @@ $\qed$
     Eine geschlossene Jordankurve in $\mdr^3$ heißt \textbf{Knoten}.
 \end{definition}
 
-\begin{beispiel}
+\begin{beispiel}[Knoten]
     \xindex{Kleeblattknoten}\xindex{Achterknoten}\xindex{Knoten!trivialer}
     \begin{figure}[htp]
         \centering
@@ -1007,7 +1010,7 @@ $\qed$
     wenn $(y_1-x) = \lambda (y_2 - x)$ für ein $\lambda > 1$ ist.
 \end{definition}
 
-\begin{satz}[Reidemeister]
+\begin{satz}[Satz von Reidemeister]
     Zwei endliche Knotendiagramme gehören genau dann zu äquivalenten
     Knoten, wenn sie durch endlich viele \enquote{Reidemeister-Züge}
     in einander überführt werden können.
