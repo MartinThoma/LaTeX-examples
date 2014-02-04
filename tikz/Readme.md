@@ -1,1 +1,1 @@
-this includes `tikz` and `tkz-euclide`
+this includes `tikz`, `tkz-euclide` and `pgfplots`.
