@@ -2,6 +2,7 @@ SOURCE = definitionen
 make:
 	./generateDefinitions.py
 	pdflatex $(SOURCE).tex -output-format=pdf
+	pdflatex $(SOURCE).tex -output-format=pdf
 	make clean
 
 clean:
