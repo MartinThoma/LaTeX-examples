@@ -1,4 +1,18 @@
 \subsection{Überblick}
+\begin{frame}{Überblick}
+    \begin{itemize}
+        \item Graph ist gegeben
+        \item Knoten sind teilweise beschriftet
+        \item Fehlende Beschriftungen sollen berechnet werden
+    \end{itemize}
+
+    \uncover<2>{
+    \textbf{Idee}: Homophilie nutzen\\
+    Nahe Knoten sind ähnlich\\
+    $\Rightarrow$ Random Walks zur Klassifizierung nutzen
+    }
+\end{frame}
+
 \pgfdeclarelayer{background}
 \pgfsetlayers{background,main}
 

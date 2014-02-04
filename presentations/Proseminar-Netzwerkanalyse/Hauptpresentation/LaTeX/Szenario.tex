@@ -1,5 +1,47 @@
-\subsection{Situation}
+\subsection{Zitationsdatenbanken}
+\begin{frame}{Zitationsdatenbanken}
+    \begin{itemize}
+        \item \textbf{Publikationen} oder \textbf{Autoren} können \textbf{Knoten} sein,
+        \item \textbf{Zitate} oder \textbf{Mehrautorenschaft}können \textbf{Kanten} sein und
+        \item \textbf{Kategorien} können \textbf{Beschriftungen} sein
+    \end{itemize}
+
+    \textbf{Problem}: Nicht alle Knoten sind beschriftet
+
+    \textbf{Anwendungsideen}:
+    \begin{itemize}
+        \item Kategorievorschläge bei neuen Einträgen
+        \item Korrekturvorschläge für alte Einträge
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+    \textbf{Herausforderungen}
+    \begin{itemize}
+        \item Große Graphen,
+        \item Dynamische Graphen,
+        \item Texte sollen verwendet werden
+    \end{itemize}
+
+    \begin{table}
+        \begin{tabular}{|l||r|r|r|r|}\hline
+        \textbf{Name} & \textbf{Knoten} & \textbf{davon beschriftet} & \textbf{Kanten}  & \textbf{Beschriftungen} \\ \hline\hline
+        \textbf{CORA} & \num{19396}  & \num{14814}             & \num{75021}   & 5              \\
+        \textbf{DBLP} & \num{806635} & \num{18999 }            & \num{4414135} & 5              \\\hline
+        \end{tabular}
+    \end{table}
+
+    \uncover<2>{
+        \textbf{DYCOS} ist
+        \begin{itemize}
+            \item effizient,
+            \item einfach,
+            \item und nutzt Struktur und Texte
+        \end{itemize}
+    }
+\end{frame}
+
+\framedgraphic{Zitationsdatenbanken}{../images/literaturdatenbank.pdf}
 \framedgraphic{Social Network}{../images/unlabeled-network}
 \framedgraphic{Partially labeled network}{../images/partially-labeled-network}
 \framedgraphic{Partially labeled network with content}{../images/partially-labeled-network-context.png}
-\framedgraphic{Beispiel 2: Literaturdatenbanken}{../images/literaturdatenbank.pdf}
