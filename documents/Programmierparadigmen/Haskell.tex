@@ -1,7 +1,7 @@
 \chapter{Haskell}
 \index{Haskell|(}
 Haskell ist eine funktionale Programmiersprache, die von Haskell 
-Brooks Curry entwickelt wurde und 1990 in Version~1.0 veröffentlicht 
+Brooks Curry entwickelt und 1990 in Version~1.0 veröffentlicht 
 wurde.
 
 Wichtige Konzepte sind:
@@ -21,23 +21,43 @@ Haskell kann unter \href{http://www.haskell.org/platform/}{\path{www.haskell.org
 für alle Plattformen heruntergeladen werden. Unter Debian-Systemen
 ist das Paket \texttt{ghc} bzw. \texttt{haskell-platform} relevant.
 
-\section{Typen}
-Siehe \cref{fig:haskell-type-hierarchy}:
+\subsection{Hello World}
+Speichere folgenden Quelltext als \texttt{hello-world.hs}:
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=hello-world.hs]{haskell}{scripts/haskell/hello-world.hs}
 
-\begin{figure}[htp]
-    \centering
-    \resizebox{0.9\linewidth}{!}{\input{figures/haskell-type-classes.tex}}
-    \caption{Hierarchie der Haskell Standardklassen}
-    \label{fig:haskell-type-hierarchy}
-\end{figure}
+Kompiliere ihn mit \texttt{ghc -o hello hello-world.hs}. Es wird eine
+ausführbare Datei erzeugt.
 
 \section{Syntax}
-\subsection{Klammern}
+\subsection{Klammern und Funktionsdeklaration}
 Haskell verzichtet an vielen Stellen auf Klammern. So werden im
 Folgenden die Funktionen $f(x) := \frac{\sin x}{x}$ und $g(x) := x \cdot f(x^2)$
 definiert:
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/einfaches-beispiel-klammern.hs}
+
+Die Funktionsdeklarationen mit den Typen sind nicht notwendig, da 
+die Typen aus den benutzten Funktionen abgeleitet werden.
+
+Zu lesen ist die Deklaration wie folgt:
+
+\begin{center}
+\texttt{[Funktionsname] :: \texttt{[Typendefinitionen]} => \texttt{Signatur}}
+\end{center}
+
+\begin{itemize}
+    \item[T. Def.] Die Funktion \texttt{f} benutzt als Parameter bzw. Rückgabewert
+          einen Typen. Diesen Typen nennen wir \texttt{a} und er ist
+          vom Typ \texttt{Floating}. Auch \texttt{b}, \texttt{wasweisich}
+          oder etwas ähnliches wäre ok.
+    \item[Signatur] Die Signatur liest man am einfachsten von hinten:
+        \begin{itemize}
+            \item \texttt{f} bildet auf einen Wert vom Typ \texttt{a} ab und
+            \item \texttt{f} hat genau einen Parameter \texttt{a}
+        \end{itemize}
+\end{itemize}
+
+\todo[inline]{Gibt es Funktionsdeklarationen, die äquivalent? (bis auf wechsel des namens und der Reihenfolge)}
 
 \subsection{if / else}
 Das folgende Beispiel definiert den Binomialkoeffizienten (vgl. \cref{bsp:binomialkoeffizient})
@@ -61,23 +81,86 @@ hat einen Speicherverbrauch von $\mathcal{O}(n)$. Durch einen
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/fakultaet-akkumulator.hs}
 
 \subsection{Listen}
-\todo[inline]{Cons-Operator, Unendliche Listen}
+\begin{itemize}
+    \item \texttt{[]} erzeugt die leere Liste,
+    \item \texttt{[1,2,3]} erzeugt eine Liste mit den Elementen $1, 2, 3$
+    \item \texttt{:} wird \textbf{cons}\xindex{cons} genannt und ist
+          der Listenkonstruktor.
+    \item \texttt{head list} gibt den Kopf von \texttt{list} zurück,
+          \texttt{tail list} den Rest:
+          \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/list-basic.sh}
+    \item \texttt{null list} prüft, ob \texttt{list} leer ist.
+    \item \texttt{length list} gibt die Anzahl der Elemente in \texttt{list} zurück.
+    \item \texttt{maximum [1,9,1,3]} gibt 9 zurück (analog: \texttt{minimum}).
+    \item \texttt{last [1,9,1,3]} gibt 3 zurück.
+    \item \texttt{reverse [1,9,1,3]} gibt \texttt{[3,1,9,1]} zurück.
+    \item \texttt{elem item list} gibt zurück, ob sich \texttt{item} in \texttt{list} befindet.
+\end{itemize}
 
 \subsubsection{Beispiel in der interaktiven Konsole}
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/listenoperationen.sh}
 
+\subsubsection{List-Comprehensions}\xindex{List-Comprehension}
+List-Comprehensions sind kurzschreibweisen für Listen, die sich an 
+der Mengenschreibweise in der Mathematik orientieren. So entspricht
+die Menge
+\begin{align*}
+    myList &= \Set{1,2,3,4,5,6}\\
+    test   &= \Set{x \in myList | x > 2}
+\end{align*}
+in etwa folgendem Haskell-Code:
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/list-comprehensions.sh}
+
+\subsection{Strings}
+\begin{itemize}
+    \item Strings sind Listen von Zeichen:\\
+          \texttt{tail "ABCDEF"} gibt \texttt{"BCDEF"} zurück.
+\end{itemize}
+
+\section{Typen}
+In Haskell werden Typen aus den Operationen geschlossfolgert. Dieses
+Schlussfolgern der Typen, die nicht explizit angegeben werden müssen,
+nennt man \textbf{Typinferent}\xindex{Typinferenz}.
+
+
+Haskell kennt die Typen aus \cref{fig:haskell-type-hierarchy}.
+
+Ein paar Beispiele zur Typinferenz:
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/typinferenz.sh}
+
+\begin{figure}[htp]
+    \centering
+    \resizebox{0.9\linewidth}{!}{\input{figures/haskell-type-classes.tex}}
+    \caption{Hierarchie der Haskell Standardklassen}
+    \label{fig:haskell-type-hierarchy}
+\end{figure}
+
 \section{Beispiele}
-\subsection{Hello World}
-Speichere folgenden Quelltext als \texttt{hello-world.hs}:
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=hello-world.hs]{haskell}{scripts/haskell/hello-world.hs}
+\subsection{Quicksort}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=qsort.hs]{haskell}{scripts/haskell/qsort.hs}
 
-Kompiliere ihn mit \texttt{ghc -o hello hello-world.hs}. Es wird eine
-ausführbare Datei erzeugt.
+\begin{itemize}
+    \item Die leere Liste ergibt sortiert die leere Liste.
+    \item Wähle das erste Element \texttt{p} als Pivotelement und
+          teile die restliche Liste \texttt{ps} in kleinere und 
+          gleiche sowie in größere Elemente mit \texttt{filter} auf.
+          Konkateniere diese beiden Listen mit \texttt{++}.
+\end{itemize}
 
-\subsection{Fibonacci}
+Durch das Ausnutzen von Unterversorgung\xindex{Unterversorgung} lässt
+sich das ganze sogar noch kürzer schreiben:
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=qsort.hs]{haskell}{scripts/haskell/qsort-unterversorg.hs}
+
+\subsection{Fibonacci}\xindex{Fibonacci}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci.hs]{haskell}{scripts/haskell/fibonacci.hs}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-akk.hs]{haskell}{scripts/haskell/fibonacci-akk.hs}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-zip.hs]{haskell}{scripts/haskell/fibonacci-zip.hs}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-pattern-matching.hs]{haskell}{scripts/haskell/fibonacci-pattern-matching.hs}
 
 \subsection{Quicksort}
+\subsection{Funktionen höherer Ordnung}
+
 
 \section{Weitere Informationen}
 \begin{itemize}

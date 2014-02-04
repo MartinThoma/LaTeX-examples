@@ -18,9 +18,10 @@
                             fib(n-1) + fib(n-2) &\text{sonst}
                         \end{cases}
                 \end{align*}
+              Erzeugt die Zahlen $0, 1, 1, 2, 3, 5, 8, 13, \dots$
         \item Fakultät:\xindex{Fakultät}
                 \begin{align*}
-                    !: \mdn_0 &\rightarrow \mdn_0\\
+                    !  &: \mdn_0 \rightarrow \mdn_0\\
                     n! &= \begin{cases}
                             1              &\text{falls } n \leq 1\\
                             n\cdot (n-1)!  &\text{sonst}
@@ -28,7 +29,7 @@
                 \end{align*}
         \item \label{bsp:binomialkoeffizient} Binomialkoeffizient:\xindex{Binomialkoeffizient}
                 \begin{align*}
-                    \binom{\cdot}{\cdot}: \mdn_0 \times \mdn_0 &\rightarrow \mdn_0\\
+                    \binom{\cdot}{\cdot}    &: \mdn_0 \times \mdn_0 \rightarrow \mdn_0\\
                             \binom{n}{k}    &= \begin{cases}
                         1                               &\text{falls } k=0 \lor k = n\\
                         \binom{n-1}{k-1}+\binom{n-1}{k} &\text{sonst}
@@ -79,20 +80,54 @@ Mit Hilfe der Formel von Moivre-Binet folgt:
 Dabei ist der Speicherbedarf $\mathcal{O}(n)$. Dieser kann durch
 das Benutzen eines Akkumulators signifikant reduziert werden.\todo{TODO}
 
-\begin{definition}[linear rekursive Funktion]\xindex{Funktion!linear rekursive}
+\begin{definition}[linear rekursive Funktion]\xindex{Funktion!linear rekursive}%
     Eine Funktion heißt linear rekursiv, wenn in jedem Definitionszweig
     der Funktion höchstens ein rekursiver Aufruf vorkommt.
 \end{definition}
 
-\begin{definition}[endrekursive Funktion]\xindex{Funktion!endrekursive}\xindex{tail recursive}
+\begin{definition}[endrekursive Funktion]\xindex{Funktion!endrekursive}\xindex{tail recursive}%
     Eine Funktion heißt endrekursiv, wenn in jedem Definitionszweig
     der Rekursive aufruf am Ende des Ausdrucks steht. Der rekursive
     Aufruf darf also insbesondere nicht in einen anderen Ausdruck
     eingebettet sein.
 \end{definition}
 
-\todo[inline]{Beispiele für linear rekusrive, endrekursive Funktionen (alle Kombinationen+gegenbeispiele}
+Auf Englisch heißen endrekursive Funktionen \textit{tail recursive}.
 
-\index{Rekursion|(}
+\begin{beispiel}[Linear- und endrekursive Funktionen]
+    \begin{bspenum}
+        \item \texttt{fak n = if (n==0) then 1 else (n * fak (n-1))}\\
+              ist eine linear rekursive Funkion, aber nicht endrekursiv,
+              da nach der Rückgabe von \texttt{fak (n-1)} noch die Multiplikation
+              ausgewertet werden muss.
+        \item \texttt{fakAcc n acc = if (n==0) then acc else fakAcc (n-1) (n*acc)}\\
+              ist eine endrekursive Funktion.
+        \item \texttt{fib n = n <= 1 ? n : fib(n-1) + fib (n-2)}\\
+              ist weder linear- noch endrekursiv.
+    \end{bspenum}
+\end{beispiel}
+
+\index{Rekursion|)}
 \section{Backtracking}
+\index{Backtracking|(}
 
+\index{Backtracking|)}
+
+\section{Funktionen höherer Ordnung}
+Funktionen höherer Ordnung sind Funktionen, die auf Funktionen arbeiten.
+Bekannte Beispiele sind:
+\begin{itemize}
+    \item \texttt{map(function, list)}\xindex{map}\\
+          \texttt{map} wendet \texttt{function} auf jedes einzelne
+          Element aus \texttt{list} an.
+    \item \texttt{filter(function, list)}\xindex{filter}\\
+          \texttt{filter} gibt eine Liste aus Elementen zurück, für 
+          die \texttt{function} mit \texttt{true} evaluiert.
+    \item \texttt{reduce(function, list)}\xindex{reduce}\\
+          \texttt{function} ist für zwei Elemente aus \texttt{list}
+          definiert und gibt ein Element des gleichen Typs zurück.
+          Nun steckt \texttt{reduce} zuerst zwei Elemente aus \texttt{list}
+          in \texttt{function}, merkt sich dann das Ergebnis und nimmt
+          so lange weitere Elemente aus \texttt{list}, bis jedes 
+          Element genommen wurde.
+\end{itemize}
