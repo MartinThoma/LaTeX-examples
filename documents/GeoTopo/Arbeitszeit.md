@@ -59,3 +59,4 @@ in dem Erstellen dieses Skripts steckt:
 |02.02.2014 | 17:00 - 18:00 | TikZ'en von Bildern
 |03.02.2014 | 14:15 - 15:00 | Textsetzung
 |03.02.2014 | 18:35 - 19:10 | Verbesserungen
+|04.02.2014 | 09:50 - 11:40 | Digitalisieren der Vorlesung von 04.02.2014
