@@ -87,21 +87,36 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
         \item $\fB \subseteq \fT$ heißt \textbf{Basis} der Topologie $\fT$,
               wenn jedes $U \in \fT$ Vereinigung von Elementen aus $\fB$
               ist.
-        \item $\fB \subseteq \fT$ heißt \textbf{Subbasis}, wenn jedes
-              $U \in \fT$ Vereinigung von endlich vielen Durchschnitten
-              von Elementen aus $\fB$ ist.
+        \item $\calS \subseteq \fT$ heißt \textbf{Subbasis} der Topologie $\fT$, wenn jedes
+              $U \in \fT$ Vereinigung von endlichen Durchschnitten
+              von Elementen aus $\calS$ ist.
     \end{enumerate}
 \end{definition}
 
 \begin{beispiel}
-    Gegeben sei $X = \mdr^n$ mit euklidischer Topologie $\fT$. Dann ist
-    \[\fB = \Set{B_r(x) | r \in \mdq_{> 0}, x \in \mdq^n}\]
-    ist eine abzählbare Basis von $\fT$.
+    \begin{bspenum}
+        \item Gegeben sei $X = \mdr^n$ mit euklidischer Topologie $\fT$. Dann ist
+              \[\fB = \Set{B_r(x) | r \in \mdq_{> 0}, x \in \mdq^n}\]
+              ist eine abzählbare Basis von $\fT$.
+        \item Sei $(X, \fT)$ ein topologischer Raum mit 
+              $X = \Set{0,1,2}$ und $\fT = \Set{\emptyset, \Set{0}, \Set{0,1}, X}$.\\
+              Dann ist $\calS = \Set{\emptyset, \Set{0,1}, \Set{0,2}}$ eine Subbasis von 
+              $\fT$, da gilt:
+              \begin{itemize}
+                \item $\emptyset \in \calS$
+                \item $\Set{0} = \Set{0, 1} \cap \Set{0,2}$
+                \item $\Set{0,1} \in \calS$
+                \item $X = \Set{0,1} \cup \Set{0,2}$
+              \end{itemize}
+              Allerings ist $\calS$ keine Basis von $(X, \fT)$, da
+              $\Set{0}$ nicht als Vereinigung von Elementen aus $\calS$
+              erzeugt werden kann.
+    \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}
-    Sei $X$ eine Menge und $\fB \subseteq \powerset{X}$. Dann gibt es
-    genau eine Topologie $\fT$ auf $X$, für die $\fB$ Subbasis ist.
+    Sei $X$ eine Menge und $\calS \subseteq \powerset{X}$. Dann gibt es
+    genau eine Topologie $\fT$ auf $X$, für die $\calS$ Subbasis ist.
 \end{bemerkung}
 
 \begin{definition}\xindex{Spurtopologie|see{Teilraumtopologie}}\xindex{Teilraum}\xindex{Teilraumtopologie}\xindex{Unterraumtopologie|see{Teilraumtopologie}}%
