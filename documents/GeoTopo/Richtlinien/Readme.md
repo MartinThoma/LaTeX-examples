@@ -8,3 +8,4 @@ Konventionen
   `\mathbb{N}_0` und `\mathbb{N}_+` verwendet.
 * `\subset` sollte vermieden werden. Stattdessen wird
   `\subseteq` bzw. `\subsetneq` verwendet.
+* Für Winkel werden 3 verschiedene Symbole verwendet (siehe [math.SE](http://math.stackexchange.com/q/640838/6876))
