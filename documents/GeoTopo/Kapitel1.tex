@@ -4,16 +4,15 @@
     Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
     aus einer Menge $X$ und $\fT \subseteq \powerset{X}$ mit
     folgenden Eigenschaften
-    \begin{enumerate}[label=(\roman*)]
+    \begin{defenumprops}
         \item $\emptyset, X \in \fT$
-        \item Sind $U_1, U_2 \in \fT$, so ist $U_1 \cap U_2 \in \fT$
+        \item \label{def:topologie.ii} Sind $U_1, U_2 \in \fT$, so ist $U_1 \cap U_2 \in \fT$
         \item Ist $I$ eine Menge und $U_i \in \fT$ für jedes $i \in I$,
               so ist $\displaystyle \bigcup_{i \in I} U_i \in \fT$
-    \end{enumerate}
+    \end{defenumprops}
     Die Elemente von $\fT$ heißen \textbf{offene Teilmengen} von $X$. 
 
     $A \subseteq X$ heißt \textbf{abgeschlossen}, wenn $X \setminus A$ offen ist.
-
 \end{definition}
 
 Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
@@ -36,8 +35,10 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
                 U \subseteq \mdr^n \text{ offen} \gdw\;&\text{für jedes $x \in U$ gibt es $r > 0$,}\\
                                                        &\text{sodass $\fB_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U$}
               \end{align*}
-              Also: $\fT = \Set{M \subseteq X | M \text{ ist offene Kugel}}$. 
-              Diese Topologie wird auch \enquote{Standardtopologie des $\mdr^n$}\xindex{Standardtopologie} genannt.
+              Diese $\fB$ Topologie wird auch \enquote{Standardtopologie des $\mdr^n$}\xindex{Standardtopologie} genannt.
+              Sie beinhaltet unter anderem alle offenen Kugeln, aber
+              z.~B. auch Schnitte zweier Kugeln mit unterschiedlichem
+              Mittelpunkt (vgl. \cref{def:topologie.ii}).
         \item Jeder metrische Raum $(X, d)$ ist auch ein topologischer Raum.
         \item Für eine Menge $X$ heißt $\fT = \powerset{X}$ \enquote{diskrete Topologie}\xindex{Topologie!diskrete}.
         \item $X :=\mdr, \fT_Z := \Set{U \subseteq \mdr | \mdr \setminus U \text{ endlich}} \cup \Set{\emptyset}$ heißt \enquote{Zariski-Topologie} \xindex{Topologie!Zariski}\\
