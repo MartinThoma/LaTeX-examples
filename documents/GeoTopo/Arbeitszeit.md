@@ -63,3 +63,4 @@ in dem Erstellen dieses Skripts steckt:
 |04.02.2014 | 18:15 - 19:30 | Verbesserungen von Marco eingefügt (Danke!); Beispiel 3.2 erstellt
 |05.02.2014 | 08:15 - 08:30 | Verbesserungen von Jérôme eingefügt (Danke!)
 |06.02.2014 | 08:15 - 08:30 | Verbesserungen
+|06.02.2014 | 15:45 - 16:00 | Karteikarten
