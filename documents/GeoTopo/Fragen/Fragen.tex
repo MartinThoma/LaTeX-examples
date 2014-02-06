@@ -1,0 +1,202 @@
+\documentclass[a5paper,oneside]{scrbook}
+\usepackage{etoolbox}
+\usepackage{amsmath,amssymb}% math symbols / fonts
+\usepackage{mathtools}      % \xRightarrow
+\usepackage{nicefrac}       % \nicefrac
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
+\usepackage{framed}
+\usepackage{marvosym}
+\usepackage{makeidx}        % for automatically generation of an index
+\usepackage{xcolor}
+\usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
+\usepackage{enumitem}       % Better than \usepackage{enumerate}, because it allows to set references
+\usepackage{tabto}
+\usepackage{braket}         % needed for \Set
+\usepackage{csquotes}       % \enquote{}
+\usepackage{subfig}         % multiple figures in one
+\usepackage{parskip}        % nicer paragraphs
+\usepackage{xifthen}        % \isempty
+\usepackage{changepage}     % for the adjustwidth environment
+\usepackage{pst-solides3d}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\usepackage[arrow, matrix, curve]{xy}
+\usepackage{caption}        % get newlines within captions
+\usepackage{tikz}           % draw
+\usepackage{tikz-3dplot}    % draw
+\usepackage{tkz-fct}        % draw
+\usepackage{tkz-euclide}    % draw
+\usetkzobj{all}             % tkz-euclide
+\usetikzlibrary{3d,calc,intersections,er,arrows,positioning,shapes.misc,patterns,fadings,decorations.pathreplacing}
+\usepackage{tqft}
+\usepackage{xspace}   % for new commands; decides weather I want to insert a space after the command
+\usepackage[german,nameinlink]{cleveref} % has to be after hyperref, ntheorem, amsthm
+\usepackage[left=10mm,right=10mm, top=2mm, bottom=10mm]{geometry}
+\usepackage{../shortcuts}
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Geometrie und Topologie}, 
+  pdftitle    = {Fragen zu Definitionen} 
+}
+\allowdisplaybreaks
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\chapter{Fragen zu Definitionen}
+\section{Topologischer Raum}
+\begin{definition}\xindex{Raum!topologischer}\xindex{Menge!offene}\xindex{Menge!abgeschlossene}%
+    Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
+    aus einer Menge $X$ und $\fT \subseteq \powerset{X}$ mit
+    folgenden Eigenschaften
+    \begin{defenumprops}
+        \item $\emptyset, X \in \fT$
+        \item \label{def:topologie.ii} Sind $U_1, U_2 \in \fT$, so ist $U_1 \cap U_2 \in \fT$
+        \item Ist $I$ eine Menge und $U_i \in \fT$ für jedes $i \in I$,
+              so ist $\displaystyle \bigcup_{i \in I} U_i \in \fT$
+    \end{defenumprops}
+    Die Elemente von $\fT$ heißen \textbf{offene Teilmengen} von $X$. 
+
+    $A \subseteq X$ heißt \textbf{abgeschlossen}, wenn $X \setminus A$ offen ist.
+\end{definition}
+
+Ich glaube es ist unnötig in (i) zu fordern, dass $\emptyset in \fT$ gilt,
+da man das mit (iii) bereits abdeckt:
+
+Sei in (iii) die Indexmenge $I = \emptyset$. Dann muss gelten:
+
+$\displaystyle \bigcup_{i \in \emptyset} U_i = \emptyset \in \fT$
+
+\section{Diskret}
+\begin{definition}
+    Sei $X$ ein topologischer Raum und $M \subseteq X$.
+
+    $M$ heißt \textbf{diskret} in $X$, wenn $M$ in $X$ keinen 
+    Häufungspunkt hat.
+\end{definition}
+
+Laut \url{http://www.uni-protokolle.de/Lexikon/Diskreter_Raum.html#Diskrete_Teilmenge_eines_topologischen_Raums}
+könnte man \textbf{diskret} wie folgt definieren:
+
+\begin{definition}
+    Sei $X$ ein topologischer Raum.
+    \begin{defenum}
+        \item Ein Punkt $x \in X$ heißt \textbf{isolierter Punkt}, wenn $\Set{ x }$ offen ist.
+        \item Ein topologischer Raum heißt \textbf{diskreter topologischer}, Raum wenn jeder seiner Punkte isoliert ist.
+    \end{defenum}
+\end{definition}
+
+Sind diese beiden Definitionen äquivalent? Falls ja, finde ich die 
+zweite besser. Da benötigt man den Begriff \enquote{Häufungspunkt}
+nicht, den wir nicht definiert hatten.
+
+\section{Simpliziale Abbildung}
+\begin{definition}
+    Seien $K, L$ Simplizialkomplexe. Eine stetige Abbildung
+    \[f:|K| \rightarrow |L|\]
+    heißt \textbf{simplizial}, wenn für
+    jedes $\Delta \in K$ gilt:
+    \begin{defenum}
+        \item $f(\Delta) \in L$
+        \item $f|_{\Delta} : \Delta \rightarrow f(\Delta)$ ist eine
+              affine Abbildung.
+    \end{defenum}
+\end{definition}
+
+Ist die Definition so richtig? Was bedeutet $|K|$ und $|L|$ in
+    \[f:|K| \rightarrow |L|\]
+
+\section{Knotendiagramm}
+\begin{definition}\xindex{Knotendiagramm}%
+    Ein \textbf{Knotendiagramm} eines Knotens $\gamma$ ist eine 
+    Projektion $\pi: \mdr^3 \rightarrow E$ auf eine Ebene $E$, sodass
+    $|(\pi|C)^{-1}(x)| \leq 2$ für jedes $x \in D$.
+
+    Ist $(\pi|C)^{-1}(x) = \Set{y_1, y_2}$, so \textbf{liegt $y_1$ über $y_2$},
+    wenn $(y_1-x) = \lambda (y_2 - x)$ für ein $\lambda > 1$ ist.
+\end{definition}
+
+Sollte das jeweils $\pi|_C$ (sprich: \enquote{$\pi$ eingeschränkt auf $C$})
+sein? Was ist $C$?
+
+\section{Homotope Abbildungen und äquivalente Knoten}
+\begin{definition}
+    Zwei Knoten $\gamma_1, \gamma_2: S^1 \rightarrow \mdr^3$ heißen
+    \textbf{äquivalent}, wenn es eine stetige Abbildung
+    \[H: S^1 \times [0,1] \rightarrow \mdr^3\]
+    gibt mit 
+    \begin{align*}
+        H(z,0) &= \gamma_1(z)\\
+        H(z,1) &= \gamma_2(z)
+    \end{align*}
+    und für jedes
+    feste $t \in [0,1]$ ist 
+    \[H_z: S^1 \rightarrow \mdr^2, z \mapsto H(z,t)\]
+    ein Knoten. Die Abbildung $H$ heißt \textbf{Isotopie} zwischen
+    $\gamma_1$ und $\gamma_2$.
+\end{definition}
+
+Fehlt hier nicht etwas wie \enquote{$\forall z \in S^1$}?
+
+\begin{definition}\xindex{Abbildung!homotope}%
+    Seien $X, Y$ topologische Räume, $x_0 \in X, y_0 \in Y, f, g: X \rightarrow Y$
+    stetig mit $f(x_0) = y_0 = g(x_0)$.
+
+    $f$ und $g$ heißen \textbf{homotop} ($f \sim g$), wenn es eine stetige
+    Abbildung $H: X \times I \rightarrow Y$ mit 
+    \begin{align*}
+        H(x,0)    &= f(x) \; \forall x \in X\\
+        H(x,1)    &= g(x) \; \forall x \in X\\
+        H(x_0, s) &= y_0  \; \forall s \in I
+    \end{align*}
+    gibt.
+\end{definition}
+
+Mir scheint der Begriff \enquote{homotope Abbildung} bis auf die
+Eigenschaft \enquote{$H(x_0, s) = y_0  \; \forall s \in I$} mit 
+dem Begriff \enquote{äquivalente Knoten} übereinzustimmen.
+Der Knoten-Begriff ist dafür etwas spezieller nur auf Knoten bezogen.
+Stimmt das?
+
+\section{Basis und Subbasis}
+\begin{itemize}
+    \item Kennst du ein Beispiel für eine Subbasis in einem Topologischen Raum,
+die zugleich eine Basis ist?
+    \item Kennst du ein Beispiel für eine Subbasis in einem Topologischen Raum,
+die keine Basis ist?
+    \item Kennst du ein Beispiel für eine Basis in einem Topologischen Raum,
+die keine Subbasis ist?
+\end{itemize}
+
+\section{Homotopie}
+\begin{definition}%
+    Sei $X$ ein topologischer Raum, $a, b \in X$, 
+    $\gamma_1, \gamma_2: [0,1] \rightarrow X$ Wege von $a$ nach $b$,
+    d.~h. $\gamma_1(0) = \gamma_2(0) = a$, $\gamma_1(1) = \gamma_2(1) = b$
+
+    \begin{defenum}
+        \item $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{Weg!homotope},
+              wenn es eine stetige Abbildung $H : I \times I \rightarrow X$ mit
+              \begin{align*}
+                H(t,0) &= \gamma_1(t)\;\forall t \in [0,1] =: I\\
+                H(t,1) &= \gamma_2(t)\;\forall t \in [0,1] =: I
+              \end{align*}
+              und $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$ gibt.
+              Dann schreibt man: $\gamma_1 \sim \gamma_2$
+
+              $H$ heißt \textbf{Homotopie}\xindex{Homotopie} zwischen
+              $\gamma_1$ und $\gamma_2$.
+        \item $\gamma_s: I \rightarrow X, \gamma_s(t) = H(t,s)$ ist
+              Weg in $X$ von $a$ nach $b$ für jedes $s \in I$.
+    \end{defenum}
+\end{definition}
+
+Diese Definition finde ich seltsam. Sollte b) nicht eine Bedingung für \enquote{Homotopie}
+sein? Falls nicht: Was wird in b) definiert?
+\end{document}
