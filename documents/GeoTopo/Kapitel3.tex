@@ -26,7 +26,10 @@
     \begin{defenum}
         \item $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{Weg!homotope},
               wenn es eine stetige Abbildung $H : I \times I \rightarrow X$ mit
-              \[H(t,0) = \gamma_1(t), H(t,1) = \gamma_2(t) \;\;\; \forall t \in [0,1] =: I \]
+              \begin{align*}
+                H(t,0) &= \gamma_1(t)\;\forall t \in [0,1] =: I\\
+                H(t,1) &= \gamma_2(t)\;\forall t \in [0,1] =: I
+              \end{align*}
               und $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$ gibt.
               Dann schreibt man: $\gamma_1 \sim \gamma_2$
 
@@ -360,8 +363,13 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     stetig mit $f(x_0) = y_0 = g(x_0)$.
 
     $f$ und $g$ heißen \textbf{homotop} ($f \sim g$), wenn es eine stetige
-    Abbildung $H: X \times I \rightarrow Y$ gibt mit $H(x,0) = f(x), H(x,1)=g(x)$
-    für alle $x \in X$ und $H(x_0, s) = y_0$ für alle $s \in I$.
+    Abbildung $H: X \times I \rightarrow Y$ mit 
+    \begin{align*}
+        H(x,0)    &= f(x) \; \forall x \in X\\
+        H(x,1)    &= g(x) \; \forall x \in X\\
+        H(x_0, s) &= y_0  \; \forall s \in I
+    \end{align*}
+    gibt.
 \end{definition}
 
 \begin{bemerkung}

@@ -606,7 +606,7 @@ sodass $\pi$ stetig wird.
     Sei $X$ ein topologischer Raum.
     
     Für $x \in X$ sei $Z(x) \subseteq X$ definiert durch
-    \[Z(x) := \bigcup_{\substack{A \subseteq X \text{zhgd.}\\ X \in A}} A\]
+    \[Z(x) := \bigcup_{\mathclap{\substack{A \subseteq X \text{zhgd.}\\ X \in A}}} A\]
 
      $Z(x)$ heißt \textbf{Zusammenhangskomponente}.
 \end{definition}
@@ -995,9 +995,15 @@ $\qed$
 \begin{definition}\xindex{Knoten!äquivalente}\xindex{Isotopie}%
     Zwei Knoten $\gamma_1, \gamma_2: S^1 \rightarrow \mdr^3$ heißen
     \textbf{äquivalent}, wenn es eine stetige Abbildung
-    $H: S^1 \times [0,1] \Rightarrow \mdr^3$ gibt mit 
-    $H(z,0) = \gamma_1(z), H(z,1) = \gamma_2(z)$ und für jedes
-    feste $t \in [0,1]$ ist $H_z: S^1 \rightarrow \mdr^2, z \mapsto H(z,t)$
+    \[H: S^1 \times [0,1] \Rightarrow \mdr^3\]
+    gibt mit 
+    \begin{align*}
+        H(z,0) &= \gamma_1(z)\\
+        H(z,1) &= \gamma_2(z)
+    \end{align*}
+    und für jedes
+    feste $t \in [0,1]$ ist 
+    \[H_z: S^1 \rightarrow \mdr^2, z \mapsto H(z,t)\]
     ein Knoten. Die Abbildung $H$ heißt \textbf{Isotopie} zwischen
     $\gamma_1$ und $\gamma_2$.
 \end{definition}

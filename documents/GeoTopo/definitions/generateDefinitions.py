@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import re
-import glob
+import re, glob
 
 def get_definitions(filename):
     with open(filename) as f:
@@ -25,4 +24,3 @@ if __name__ == "__main__":
     for texsource in sorted(glob.glob("../Kapitel*.tex")):
         definitions.append(get_definitions(texsource))
     write_definitions_to_template("\n\n\n".join(definitions))
-    
