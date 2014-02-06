@@ -9,7 +9,8 @@ def get_definitions(filename):
 
     pattern = re.compile(r"\\begin{definition}.*?\\end{definition}", re.DOTALL)
     m = re.findall(pattern, content)
-    return "\\vspace*{\\fill}"+("\n\\vspace*{\\fill}\\clearpage\\vspace*{\\fill}\n".join(m))
+    return "\n\n".join('\\vspace*{{\\fill}}\n{0}\n\\vspace*{{\\fill}}\\clearpage'.format(definition) for definition in m)
+    #return "\n\n".join('\\begin{{flashcard}}{{a}}\n{0}\n\\end{{flashcard}}'.format(definition) for definition in m)
 
 def write_definitions_to_template(definitions, template="mathe-vorlage.tex", target="definitionen.tex"):
     with open(template) as f:

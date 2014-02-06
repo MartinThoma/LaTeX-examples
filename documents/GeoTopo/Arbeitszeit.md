@@ -62,3 +62,4 @@ in dem Erstellen dieses Skripts steckt:
 |04.02.2014 | 09:50 - 11:40 | Digitalisieren der Vorlesung von 04.02.2014
 |04.02.2014 | 18:15 - 19:30 | Verbesserungen von Marco eingefügt (Danke!); Beispiel 3.2 erstellt
 |05.02.2014 | 08:15 - 08:30 | Verbesserungen von Jérôme eingefügt (Danke!)
+|06.02.2014 | 08:15 - 08:30 | Verbesserungen

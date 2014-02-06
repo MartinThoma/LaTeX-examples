@@ -1,0 +1,49 @@
+\documentclass[mycards,frame]{flashcards}
+\usepackage{amsmath,amssymb}% math symbols / fonts
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{ntheorem}
+\newcommand{\thmfoot}{}
+\theoremstyle{break}
+\setlength\theoremindent{0.7cm}
+\theoremheaderfont{\kern-0.7cm\normalfont\bfseries} 
+\theorembodyfont{\normalfont} % nicht mehr kursiv
+\theoremseparator{\thmfoot}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+
+\begin{flashcard}{Jordankurve}
+\begin{definition}
+    Sei $X$ ein topologischer Raum. Eine (geschlossene)
+    \textbf{Jordankurve} in $X$ ist ein Homöomorphismus 
+    $\gamma: [0, 1] \rightarrow C \subseteq X$
+    ($\gamma: S^1 \rightarrow C \subseteq X$)
+\end{definition}
+\end{flashcard}
+
+\begin{flashcard}{Knoten}
+\begin{definition}
+    Eine geschlossene Jordankurve in $r^3$ heißt \textbf{Knoten}.
+\end{definition}
+\end{flashcard}
+
+\begin{flashcard}{äquivalente Knoten}
+\begin{definition}
+    Zwei Knoten $\gamma_1, \gamma_2: S^1 \rightarrow r^3$ heißen
+    \textbf{äquivalent}, wenn es eine stetige Abbildung
+    \[H: S^1 \times [0,1] \Rightarrow r^3\]
+    gibt mit 
+    \begin{align*}
+        H(z,0) &= \gamma_1(z)\\
+        H(z,1) &= \gamma_2(z)
+    \end{align*}
+    und für jedes
+    feste $t \in [0,1]$ ist 
+    \[H_z: S^1 \rightarrow r^2, z \mapsto H(z,t)\]
+    ein Knoten. Die Abbildung $H$ heißt \textbf{Isotopie} zwischen
+    $\gamma_1$ und $\gamma_2$.
+\end{definition}
+\end{flashcard}
+\end{document}
