@@ -237,7 +237,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
     \textbf{Normalenkrümmung}\footnotemark von $S$ in $s$ in Richtung
     $x = \gamma'(0)$.
 
-    Man scheibt: $\kappa_\gamma(0) := \kappa_{\ts{Nor}}(s, x)$
+    Man scheibt: $\kappa_\gamma(0) := \kappanor(s, x)$
 \end{definition}
 \footnotetext{Die Krümmung ist nur bis auf das Vorzeichen bestimmt.}
 
@@ -248,20 +248,20 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
               $\Rightarrow E = \mdr \cdot x + \mdr \cdot n(s)$ ($x,z\text{-Ebene}$)
 
               $C = E \cap S$ ist Kreislinie\\
-              $\kappa_{\ts{Nor}} (s, x) = \frac{1}{r} = 1$
+              $\kappanor(s, x) = \frac{1}{r} = 1$
         \item $S = V(X^2 + Z^2 - 1) \subseteq \mdr^3$ ist ein Zylinder (siehe \cref{fig:regular-zylinder}).
               $s = (1,0,0)$\\
               $x_1 = (0,1,0) \Rightarrow E_1 = \mdr \cdot e_1 + \mdr \cdot e_2$ ($x,y\text{-Ebene}$)\\
               $S \cap E_1 = V(X^2 + Y^2 - 1) \cap E$, Kreislinie in $E$\\
-              $\Rightarrow \kappa_{\ts{Nor}}(s, x_1) = \pm 1$\\
+              $\Rightarrow \kappanor(s, x_1) = \pm 1$\\
               $x_2 = (0, 0, 1), E_2 = \mdr \cdot e_1 + \mdr \cdot e_3$ ($x,z\text{-Ebene}$)\\
               $V \cap E_2 \cap S = \Set{(1, 0, z) \in \mdr^3 | z \in \mdr}$ ist eine Gerade\\
-              $\Rightarrow \kappa_{\ts{Nor}}(s, x_2) = 0$
+              $\Rightarrow \kappanor(s, x_2) = 0$
         \item $S = V(X^2 - Y^2 - Z)$, $s = (0,0,0)$ (Hyperbolisches Paraboloid\xindex{Paraboloid!hyperbolisches}, siehe \cref{fig:hyperbolic-paraboloid})\\
               $x_1 = (1,0,0)$, $n(s) = (0,0,1)$\\
               $x_2 = (0, 1, 0)$\\
-              $\kappa_{\ts{Nor}} (s, x_1) = 2$\\
-              $\kappa_{\ts{Nor}} (s, x_2) = -2$
+              $\kappanor(s, x_1) = 2$\\
+              $\kappanor(s, x_2) = -2$
     \end{bspenum}
 \end{beispiel}
 
@@ -278,3 +278,93 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
     \label{fig:regular-surfaces}
     \caption{Beispiele für reguläre Flächen}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 06.02.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}\xindex{Normalenkrümmung}%In Vorlesung: Def. 18.4
+    Sei $S \in \mdr^3$ eine reguläre Fläche, $s \in S$, ($n$ ein
+    stetiges Normalenfeld auf $S$)
+
+    $\gamma:[-\varepsilon, \varepsilon] \rightarrow S$ eine nach
+    Bogenlänge parametrisierte Kurve ($\varepsilon > 0$) mit
+    $\gamma(0) = s$ und $\gamma''(0) \neq 0$.
+
+    Sei $n(0) := \frac{\gamma''(0)}{\|\gamma''(0)\|}$. Zerlege
+    $n(0) = n(0) + n(0)^\bot$ mit $n(0)^\bot \in T_s S$ und
+    $n(0)^\bot \in (T_s S)^\bot$.
+
+    Dann ist $n(0)^\bot = \langle n(0), n(s) \rangle \cdot n(s)$\\
+    $\kappanor(s, \gamma) := \langle \gamma''(0), n(s) \rangle$
+    die \textbf{Normalenkrümmung}.\todo{Ist das hier die Normalenkrümmung? Was ist mit der anderen Def.?}
+\end{definition}
+
+\begin{bemerkung}
+    Sei $\overline{\gamma}(t) = \gamma(-t)$, $t \in [- \varepsilon, \varepsilon]$.
+    Dann ist $\kappanor(s, \overline{\gamma}) = \kappanor(s, \gamma)$.
+\end{bemerkung}
+
+\begin{beweis}
+    $\overline{\gamma}''(0) = \gamma''(0)$, da $\overline{\gamma}'(0) = - \gamma'(0)$.
+
+    Es gilt: $\kappanor(s,\gamma)$ hängt nur von $|\gamma'(0)|$ ab
+    und ist gleich $\kappanor(s, \gamma'(0))$.
+\end{beweis}
+
+\begin{bemerkung}%In Vorlesung: Bem.+Def. 18.6
+    Sei $S$ eine reguläre Fläche und $n=n(s)$ ein Normalenvektor an 
+    $S$ in $s$.
+
+    Sei $T_{s}^{1} S = \Set{x \in T_s S | \|x\| = 1} \cong S^1$.
+    Dann ist $\kappanor^n(s): T_s S \rightarrow \mdr$,
+    $x \mapsto \kappanor(s,x)$ eine glatte Funktion und 
+    $\Bild \kappanor(s)$ ist ein abgeschlossenes Intervall.
+\end{bemerkung}
+
+\begin{definition}\xindex{Hauptkrümmung}\xindex{Gauß-Krümmung}%In Vorlesung: Bem.+Def. 18.6
+    Sei $S$ eine reguläre Fläche und $n=n(s)$ ein Normalenvektor an 
+    $S$ in $s$.
+
+    \begin{defenum}
+        \item $\kappa^n_1(s) := \min \Set{\kappanor^n(s,x) | x \in T_s^1 S}$ und\\
+              $\kappa^n_2(s) := \max \Set{\kappanor^n(s,x) | x \in T_s^1 S}$
+              heißen \textbf{Hauptkrümmungen} von $S$ in $s$.
+        \item $K(s) := \kappa_1^n(s) \cdot \kappa_2^n(s)$ heißt
+              \textbf{Gauß-Krümmung} von $S$ in $s$.
+    \end{defenum}
+\end{definition}
+
+\begin{bemerkung}%In Vorlesung: Bem.+Def. 18.6
+    Ersetzt man $n$ durch $-n$, so gilt: $\kappanor^{-n}(s, x) = - \kappanor^n(x)\; \forall x \in T_s^1 S$\\
+    $\Rightarrow \kappa_1^{-n}(s) = - \kappa_2^n(s)$,\\
+    $\kappa_2^{-n}(s) = - \kappa_1^n (s)$\\
+    und $K^{-n}(s) = K^n(s) =: K(s)$.
+\end{bemerkung}
+
+\begin{beispiel}
+    \begin{bspenum}
+        \item $S = S^2$. Dann ist $\kappa_1(s) = \kappa_2(s) = \pm 1\;\forall s \in S^2$\\
+              $\Rightarrow K(s) = 1$
+        \item Zylinder:\\
+              $\kappa_1(s) = 0, \kappa_2(s) = 1 \Rightarrow K(s) = 0$
+        \item Sattelpunkt auf hyperbolischem Paraboloid:\\
+              $\kappa_1(s) < 0, \kappa_2(s) = 0 \rightarrow K(s) < 0$
+        \item $S = \text{Torus}$. Siehe \cref{fig:torus-gauss-kruemmung}\\
+            \begin{figure}[htp]\xindex{Torus}
+                \centering
+                \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/todo/torus-gauss-kruemmung.jpg} 
+                \caption{$K(s_1) > 0$, $K(s_2) = 0$, $K(s_3) < 0$}
+                \label{fig:torus-gauss-kruemmung}
+            \end{figure}
+    \end{bspenum}
+\end{beispiel}
+
+\begin{bemerkung}%In Vorlesung: Bem. 18.7
+    Sei $S$ eine reguläre Fläche, $s \in S$ ein Punkt.
+    \begin{bemenum}
+        \item Ist $K(s) > 0$, so liegt $S$ in einer Umgebung von $s$
+              ganz auf einer Seite von $T_s S + s$.
+        \item Ist $K(s) < 0$, so schneidet jede Umgebung von $s$ in $S$
+              beide Seiten von $T_s S + s$.
+    \end{bemenum}
+\end{bemerkung}
