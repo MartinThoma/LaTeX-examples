@@ -66,3 +66,5 @@ in dem Erstellen dieses Skripts steckt:
 |06.02.2014 | 15:45 - 16:00 | Karteikarten
 |06.02.2014 | 16:00 - 16:55 | Digitalisieren der Vorlesung von 06.02.2014
 |06.02.2014 | 19:00 - 19:30 | TikZ'en eines Bildes
+|07.02.2014 | 11:15 - 11:20 | Definitionen vereinfacht
+|07.02.2014 | 11:35 - 11:45 | Definition "operiert durch Homöomorphismen" korrigiert

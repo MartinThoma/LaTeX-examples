@@ -199,4 +199,36 @@ die keine Subbasis ist?
 
 Diese Definition finde ich seltsam. Sollte b) nicht eine Bedingung für \enquote{Homotopie}
 sein? Falls nicht: Was wird in b) definiert?
+
+\section{Mannigfaltigkeit und MF mit Rand}
+\begin{definition}%
+    Sei $X$ ein topologischer Raum und $n \in \mdn$.
+    \begin{defenum}
+        \item Eine $n$-dimensionale \textbf{Karte}\xindex{Karte} auf
+              $X$ ist ein Paar $(U, \varphi)$, wobei $U \subseteq X$
+              offen und $\varphi: U \rightarrow V$ Homöomorphismus
+              von $U$ auf eine offene Teilmenge $V \subseteq \mdr^n$.
+        \item Ein $n$-dimensionaler \textbf{Atlas}\xindex{Atlas} $\atlas$ auf $X$ ist eine
+              Familie $(U_i, \varphi_i)_{i \in I}$ von Karten auf $X$,
+              sodass $\bigcup_{i \in I} U_i = X$.
+        \item $X$ heißt (topologische) $n$-dimensionale \textbf{Mannigfaltigkeit}\xindex{Mannigfaltigkeit},
+              wenn $X$ hausdorffsch ist, eine abzählbare Basis der 
+              Topologie hat und ein $n$-dimensionalen Atlas besitzt.
+    \end{defenum}
+\end{definition}
+\begin{definition}\xindex{Mannigfaltigkeit!mit Rand}%
+    Sei $X$ ein Hausdorffraum mit abzählbarer Basis der Topologie.
+    $X$ heißt $n$-dimensionale \textbf{Mannigfaltigkeit mit Rand},
+    wenn es einen Atlas $(U_i, \varphi_i)$ gibt, wobei $U_i \subseteq X_i$
+    offen und $\varphi_i$ ein Homöomorphismus auf eine offene 
+    Teilmenge von 
+    \[R_{+,0}^n := \Set{(x_1, \dots, x_n) \in \mdr^n | x_m \geq 0}\]
+    ist.
+\end{definition}
+
+Wieso wird bei der Mannigfaltigkeit mit Rand nicht gefordert, dass
+sie eine abzählbare Basis haben soll? Sollte man nicht vielleicht
+hinzufügen, dass der Atlas $n$-dimensional sein soll?
+
+
 \end{document}
