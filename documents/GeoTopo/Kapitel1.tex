@@ -125,7 +125,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     $\fT_Y := \Set{U \cap Y | U \in \fT}$ ist eine Topologie auf $Y$.
 
     $\fT_Y$ heißt \textbf{Teilraumtopologie} und $(Y, \fT_Y)$ heißt ein 
-    \textbf{Teilraum} von $(X, \fT)$
+    \textbf{Teilraum} von $(X, \fT)$.
 \end{definition}
 
 Die Teilraumtopologie wird auch \textit{Spurtopologie} oder 
@@ -335,11 +335,12 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 
 \section{Stetigkeit}\index{Stetigkeit|(}
 \begin{definition}
-    Seien $X, Y$ topologische Räume und $f:X \rightarrow Y$ eine Abbildung.
+    Seien $(X, \fT_X), (Y, \fT_Y)$ topologische Räume und 
+    $f:X \rightarrow Y$ eine Abbildung.
 
     \begin{defenum}
-        \item $f$ heißt \textbf{stetig}\xindex{Abbildung!stetige}, wenn für jedes offene 
-              $U \subseteq Y$ auch $f^{-1} (U) \subseteq X$ offen ist. \label{def:stetigkeit}
+        \item \label{def:stetigkeit} $f$ heißt \textbf{stetig}\xindex{Abbildung!stetige}
+              $:\gdw \forall U \in \fT_Y: f^{-1} (U) \in \fT_X$.
         \item $f$ heißt \textbf{Homöomorphismus}\xindex{Homöomorphismus}, wenn $f$ stetig ist
               und es eine 
               stetige Abbildung  $g: Y \rightarrow X$ gibt, sodass
