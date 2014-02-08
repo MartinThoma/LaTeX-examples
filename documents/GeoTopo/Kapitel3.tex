@@ -20,13 +20,13 @@
 
 \begin{definition}%
     Sei $X$ ein topologischer Raum, $a, b \in X$, 
-    $\gamma_1, \gamma_2: [0,1] \rightarrow X$ Wege von $a$ nach $b$,
+    $\gamma_1, \gamma_2: I \rightarrow X$ Wege von $a$ nach $b$,
     d.~h. $\gamma_1(0) = \gamma_2(0) = a$, $\gamma_1(1) = \gamma_2(1) = b$
 
     $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{Weg!homotope},
     wenn es eine stetige Abbildung $H : I \times I \rightarrow X$ mit
     \begin{align*}
-        H(t,0) &= \gamma_1(t)\;\forall t \in [0,1] =: I\\
+        H(t,0) &= \gamma_1(t)\;\forall t \in I\\
         H(t,1) &= \gamma_2(t)\;\forall t \in I
     \end{align*}
     und $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$ gibt.
@@ -54,8 +54,8 @@
 \end{beweis}
 
 \begin{bemerkung}
-    \enquote{Homotop} ist eine Äquivalenzrelation auf der Menge aller
-    Wege in $X$ von $a$ nach $b$.
+    Durch Homotopie wird eine Äquivalenzrelation auf der Menge aller
+    Wege in $X$ von $a$ nach $b$ definiert.
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -234,7 +234,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
         \item Assoziativität folgt aus \cref{kor:assoziativitaet-von-zusammensetzen-von-wegen}
         \item Neutrales Element $e = [\gamma_0], \gamma_0(t) = x \;\;\; \forall t \in I$.
               $e * [\gamma] = [\gamma] = [\gamma] * e$, da $\gamma_0 * \gamma \sim \gamma$
-        \item Inverses Element  $[\gamma]^{-1} = [\overline{\gamma}] = [\gamma(1-t)]$, 
+        \item \xindex{Weg!inverser} Inverses Element  $[\gamma]^{-1} = [\overline{\gamma}] = [\gamma(1-t)]$, 
               denn $\overline{\gamma} * \gamma \sim \gamma_0 \sim \gamma * \overline{\gamma}$
     \end{enumerate}
 \end{beweis}
@@ -348,10 +348,10 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     \begin{bspenum}
         \item $f:S^1 \hookrightarrow \mdr^2$ ist injektiv, aber 
               $f_*:\pi_1(S^1, 1) \cong \mdz \rightarrow \pi_1(\mdr^2, 1) = \Set{e}$
-              ist nicht injektiv
+              ist nicht injektiv.
         \item $f: \mdr \rightarrow S^1, t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$
               ist surjektiv, aber $f_*: \pi_1(\mdr, 0) = \Set{e} \rightarrow \pi_1(S^2, 1) \cong \mdz$
-              ist nicht surjektiv
+              ist nicht surjektiv.
     \end{bspenum}
 \end{beispiel}
 
@@ -708,7 +708,7 @@ $p|V_j: V_j \rightarrow U$ Homöomorphismus.
     Sei $H: I \times I \rightarrow X$ Homotopie zwischen $\gamma_1$
     und $\gamma_2$.
 
-    Für $s \in [0,1]$ sei $\gamma_s: I \rightarrow X$, $t \mapsto H(t,s)$.
+    Für $s \in I$ sei $\gamma_s: I \rightarrow X$, $t \mapsto H(t,s)$.
 
     Sei $\tilde{\gamma_s}$ Lift von $\gamma_s$ mit $\tilde{\gamma_s}(0) = \tilde{a}$
 

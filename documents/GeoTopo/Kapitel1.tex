@@ -62,16 +62,16 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{definition}%
     Sei $(X, \fT)$ ein topologischer Raum und $M \subseteq X$ eine Teilmenge.
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item $\displaystyle M^\circ := \Set{x \in M | M \text{ ist Umgebung von } x} = \bigcup_{\overset{U \subseteq M} {U \in \fT}} U $ heißt \textbf{Inneres} oder \textbf{ offener Kern} von $M$. \xindex{Inneres} \xindex{Kern!offener}
         \item $\displaystyle \overline{M} := \bigcap_{\mathclap{\overset{M \subseteq A}{A \text{ abgeschlossen}}}} A$ heißt \textbf{abgeschlossene Hülle} oder \textbf{Abschluss} von $M$. \xindex{Abschluss}
         \item $\partial M := \overline{M} \setminus M^\circ$ heißt \textbf{Rand} von $M$. \xindex{Rand}
         \item $M$ heißt \textbf{dicht} in $X$, wenn $\overline{M} = X$ ist. \xindex{dicht}
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{beispiel}
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item Sei $X = \mdr$ mit euklidischer Topologie und 
               $M = \mdq$. Dann gilt: $\overline{M} = \mdr$ und 
               $M^\circ = \emptyset$
@@ -79,19 +79,19 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
               $\overline{M} = [a,b]$
         \item Sei $X = \mdr, \fT = \fT_Z$ und $M = (a,b)$. Dann gilt:
               $\overline{M} = \mdr$
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{definition}\xindex{Basis}\xindex{Subbasis}%
     Sei $(X, \fT)$ ein topologischer Raum.
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item $\fB \subseteq \fT$ heißt \textbf{Basis} der Topologie $\fT$,
               wenn jedes $U \in \fT$ Vereinigung von Elementen aus $\fB$
               ist.
         \item $\calS \subseteq \fT$ heißt \textbf{Subbasis} der Topologie $\fT$, wenn jedes
               $U \in \fT$ Vereinigung von endlichen Durchschnitten
               von Elementen aus $\calS$ ist.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{beispiel}
@@ -153,14 +153,14 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \end{figure}
 
 \begin{beispiel}[Produkttopologien]
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item $X_1 = X_2 = \mdr$ mit euklidischer Topologie.\\
               $\Rightarrow$ Die Produkttopologie auf $\mdr \times \mdr = \mdr^2$
               stimmt mit der euklidischen Topologie auf $\mdr^2$ überein.
         \item $X_1 = X_2 = \mdr$ mit Zariski-Topologie.
               $\fT$ Produkttopologie auf $\mdr^2$: $U_1 \times U_2$\\
               (Siehe \cref{fig:zariski-topologie})
-    \end{enumerate}
+    \end{bspenum}
 
     \begin{figure}[htp]
         \centering
@@ -297,10 +297,10 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 
 \begin{bemerkung}[Eigenschaften von Hausdorff-Räumen]
     Seien $X, X_1, X_2$ Hausdorff-Räume.
-    \begin{enumerate}[label=\alph*)]
+    \begin{bemenum}
         \item Jeder Teilraum von $X$ ist hausdorffsch.
         \item $X_1 \times X_2$ ist hausdorffsch.
-    \end{enumerate}
+    \end{bemenum}
     \begin{figure}[htp]
         \centering
         \input{figures/topology-metric-hausdorff}
@@ -392,7 +392,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \end{bemerkung}
 
 \begin{beispiel}[Stetige Abbildungen und Homöomorphismen]
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item Für jeden topologischen Raum $X$ gilt: $\id_X : X \rightarrow X$
               ist Homöomorphismus.
         \item Ist $Y$ trivialer topologischer Raum, d.~h. $\fT = \fT_\text{triv}$,
@@ -410,7 +410,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
               \end{figure}
               Die Umkehrabbildung $g$ ist nicht stetig, da $g^{-1}(U)$
               nicht offen ist (vgl. \cref{fig:nicht-stetige-umkehrabbildung}).
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}[Verkettungen stetiger Abbildungen sind stetig]
@@ -436,7 +436,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \end{beweis}
 
 \begin{bemerkung}
-    \begin{enumerate}[label=\alph*)]
+    \begin{bemenum}
         \item \xindex{Homöomorphismengruppe}Für jeden topologischen Raum ist 
               \[\Homoo(X) := \Set{f: X \rightarrow X | f \text{ ist Homöomorphismus}}\]
               eine Gruppe.
@@ -445,7 +445,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
         \item \xindex{Isometriegruppe}$\Iso(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
               eine Untergruppe von $\Homoo(X)$ für jeden
               metrischen Raum $X$.
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{bemerkung}[Projektionen sind stetig]
@@ -540,7 +540,7 @@ sodass $\pi$ stetig wird.
 %\end{beispiel}
 
 \begin{beispiel}[Zusammenhang von Räumen]
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item $\mdr^n$ ist mit der euklidischen Topologie zusammenhängend,
             denn:
 
@@ -561,7 +561,7 @@ sodass $\pi$ stetig wird.
         \item $\Set{x}$ ist zusammenhängend für jedes $x \in X$, 
               wobei $X$ ein topologischer Raum ist.
         \item $\mdr$ mit Zariski-Topologie ist zusammenhängend.\xindex{Topologie!Zariski}
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}\label{zusammenhangAbschluss}
@@ -615,12 +615,12 @@ sodass $\pi$ stetig wird.
 
 \begin{bemerkung}
     Sei $X$ ein topologischer Raum. Dann gilt:
-    \begin{enumerate}[label=\alph*)]
+    \begin{bemenum}
         \item $Z(X)$ ist die größte zusammenhängende Teilmenge von $X$,
               die $x$ enthält.
         \item $Z(X)$ ist abgeschlossen.
         \item $X$ ist disjunkte Vereinigung von Zusammenhangskomponenten.
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -680,7 +680,8 @@ sodass $\pi$ stetig wird.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{bemerkung}\label{abgeschlossen01IstKompakt}
-    $I = [0, 1]$ ist kompakt bezüglich der euklidischen Topologie.
+    Das Einheitsintervall $I := [0,1]$ ist kompakt bezüglich der 
+    euklidischen Topologie.
 \end{bemerkung}
 
 \begin{beweis}
@@ -714,13 +715,13 @@ $\qed$
 \end{beweis}
 
 \begin{beispiel}[Kompakte Räume]
-    \begin{enumerate}[label=\arabic*)]
+    \begin{bspenum}
         \item $\mdr$ ist nicht kompakt.
         \item $(0,1)$ ist nicht kompakt.\\
               $U_n = (\nicefrac{1}{n}, 1-\nicefrac{1}{n}) \Rightarrow \bigcup_{n \in \mdn} U_n = (0,1)$
         \item $\mdr$ mit der Zariski-Topologie ist kompakt und jede 
               Teilmenge von $\mdr$ ist es auch.\xindex{Topologie!Zariski}
-    \end{enumerate}
+    \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}\label{abgeschlossenInKomaktIstKompakt}
@@ -856,12 +857,12 @@ $\qed$
 \section{Wege und Knoten}\index{Knoten|(}
 \begin{definition}\xindex{Weg}\xindex{Weg!geschlossener}\xindex{Weg!einfacher}%
     Sei $X$ ein topologischer Raum. 
-    \begin{enumerate}[label=\alph*)]
+    \begin{defenum}
         \item Ein \textbf{Weg} in $X$ ist eine stetige Abbildung $\gamma:[0,1] \rightarrow X$.
         \item $\gamma$ heißt \textbf{geschlossen}, wenn $\gamma(1) = \gamma(0)$ gilt.
         \item $\gamma$ heißt \textbf{einfach}, wenn $\gamma|_{[0,1)}$ 
               injektiv ist.
-    \end{enumerate}
+    \end{defenum}
 \end{definition}
 
 \begin{beispiel}
@@ -879,14 +880,14 @@ $\qed$
 \begin{bemerkung}\label{kor:wegzusammehang-impliziert-zusammenhang}
     Sei $X$ ein topologischer Raum.
 
-    \begin{enumerate}[label=(\roman*)]
+    \begin{bemenum}
         \item $X$ ist wegzusammenhängend $\Rightarrow X$ ist zusammenhängend
         \item $X$ ist wegzusammenhängend $\not\Leftarrow X$ ist zusammenhängend
-    \end{enumerate}
+    \end{bemenum}
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=\alph*)]
     \item Sei $X$ ein wegzusammenhängender topologischer Raum, $A_1, A_2$
     nichtleere, disjunkte, abgeschlossene Teilmengen von $X$ mit
     $A_1 \cup A_2 = X$. Sei $x \in A_1, y \in A_2, \gamma:[0,1] \rightarrow X$
@@ -944,7 +945,7 @@ $\qed$
 \begin{definition}\xindex{Jordankurve}\xindex{Jordankurve!geschlossene}%
     Sei $X$ ein topologischer Raum. Eine (geschlossene)
     \textbf{Jordankurve} in $X$ ist ein Homöomorphismus 
-    $\gamma: [0, 1] \rightarrow C \subseteq X$
+    $\gamma: [0,1] \rightarrow C \subseteq X$
     ($\gamma: S^1 \rightarrow C \subseteq X$)
 \end{definition}
 

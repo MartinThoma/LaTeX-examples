@@ -13,3 +13,4 @@ Konventionen
 * Für das Innere einer Menge wurde $M^\circ$ anstelle von $\overset{\circ}{M}$ verwendet,
   da es so besser in eine Zeile passt und meiner Meinung nach einfacher zu lesen ist.
 * Zahlen werden als Zahlen geschrieben (also: "4 Zusammenhangskomponenten" und nicht "vier Zusammenhangskomponenten")
+* Die benutzten Symbole sollten ISO 80000-2 entsprechen.
