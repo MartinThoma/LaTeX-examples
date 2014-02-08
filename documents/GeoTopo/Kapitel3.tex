@@ -452,7 +452,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
             \end{figure}
 
             Sei $X$ wie in \cref{fig:top-raum-kreise}. $\pi_1(X,x)$ wird \enquote{frei} erzeugt von $a$ und $b$, weil
-            $\pi_1(U,x) = <a> \cong \mdz, \pi_1(V,x) = <b> \cong \mdz$,
+            $\pi_1(U,x) = \langle a \rangle \cong \mdz, \pi_1(V,x) = \langle b \rangle \cong \mdz$,
             insbesondere ist $a*b$ nicht homotop zu $b*a$.
         \item Torus: $\pi_1(T^2, X)$ wird erzeugt von $a$ und $b$.
             \begin{figure}[htp]
@@ -548,8 +548,6 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     $\Rightarrow p(V)$ ist offen.
 \end{beweis}
 
-\todo[inline]{Die Definition von Diskret habe ich mir überlegt. Hatten wir das schon mal? 
-Haben wir Häufungspunkt definiert?}
 \begin{definition}\xindex{diskret}%
     Sei $X$ ein topologischer Raum und $M \subseteq X$.
 
@@ -684,7 +682,7 @@ $p:Y \rightarrow X$ Überlagerung, $X,Y$ wegzusammenhängend.
 $p$ stetig und surjektiv, zu $x \in X \exists$ Umgebung $U$, so dass
 $p^{-1}(U) = \bigcup V_j$
 
-$p|V_j: V_j \rightarrow U$ Homöomorphismus.
+$p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
 
 \begin{bemerkung}%Bemerkung 12.6 der Vorlesung
     Wege in $X$ lassen sich zu Wegen in $Y$ liften.

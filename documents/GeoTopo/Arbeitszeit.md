@@ -70,3 +70,4 @@ in dem Erstellen dieses Skripts steckt:
 |07.02.2014 | 11:35 - 11:45 | Definition "operiert durch Homöomorphismen" korrigiert
 |07.02.2014 | 15:00 - 15:30 | Verbesserungen von Jérôme Urhausen, Email vom 08.02.2014, eingefügt.
 |07.02.2014 | 15:30 - 15:45 | Verbesserungen 
+|07.02.2014 | 19:30 - 21:20 | Textsetzung, kleine Fehler und Verbesserung eines Bildes

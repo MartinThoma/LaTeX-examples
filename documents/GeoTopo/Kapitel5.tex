@@ -58,15 +58,15 @@
     Gegeben sei ein Kreis mit Radius $r$, d.~h. mit Umfang $2\pi r$.
     Es gilt:
 
-    \[\gamma(t) = (r \cdot \cos \frac{t}{r}, r \cdot \sin \frac{t}{r}) \text{ für } t \in [0, 2\pi r]\]
+    \[\gamma(t) = \left (r \cdot \cos \frac{t}{r}, r \cdot \sin \frac{t}{r} \right ) \text{ für } t \in [0, 2\pi r]\]
     ist parametrisiert durch Bogenlänge.
 
     \begin{align*}
-        \gamma'(t)  &= ((r \cdot \frac{1}{r}) (- \sin \frac{t}{r}), r \frac{1}{r} \cos \frac{t}{r})\\
-                    &= (- \sin \frac{t}{r}, \cos \frac{t}{r})\\
-        \Rightarrow n(t) &= (- \cos \frac{t}{r}, - \sin \frac{t}{r})\\
-        \gamma''(t) &= (- \frac{1}{r} \cos \frac{t}{r}, - \frac{1}{r} \sin \frac{t}{r})\\
-                    &= \frac{1}{r} \cdot (- \cos \frac{t}{r}, - \sin \frac{t}{r})\\
+        \gamma'(t)  &= \left ((r \cdot \frac{1}{r}) (- \sin \frac{t}{r}), r \frac{1}{r} \cos \frac{t}{r} \right )\\
+                    &= \left (- \sin \frac{t}{r}, \cos \frac{t}{r} \right )\\
+        \Rightarrow n(t) &= \left (- \cos \frac{t}{r}, - \sin \frac{t}{r} \right )\\
+        \gamma''(t) &= \left (- \frac{1}{r} \cos \frac{t}{r}, - \frac{1}{r} \sin \frac{t}{r} \right )\\
+                    &= \frac{1}{r} \cdot \left (- \cos \frac{t}{r}, - \sin \frac{t}{r} \right )\\
         \Rightarrow \kappa(t) &= \frac{1}{r}
     \end{align*}
 \end{beispiel}
@@ -124,7 +124,7 @@ für eine $C^\infty$-Funktion $f: \mdr^\infty \rightarrow \mdr$.\todo{Wirklich $
     definierte lineare Abbildung.
 
     Dann heißt $T_s S := \Bild(D_p F)$ die \textbf{Tangentialebene}\xindex{Tangentialebene}
-    an $S \in s$.
+    an $s \in S$.
 \end{definition}
 
 \begin{bemerkung}%In Vorlesung: 17.2
