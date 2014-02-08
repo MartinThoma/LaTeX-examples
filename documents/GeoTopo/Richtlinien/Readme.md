@@ -12,3 +12,4 @@ Konventionen
 * Jede Abkürzung muss im Abkürzungsverzeichnis sein
 * Für das Innere einer Menge wurde $M^\circ$ anstelle von $\overset{\circ}{M}$ verwendet,
   da es so besser in eine Zeile passt und meiner Meinung nach einfacher zu lesen ist.
+* Zahlen werden als Zahlen geschrieben (also: "4 Zusammenhangskomponenten" und nicht "vier Zusammenhangskomponenten")

@@ -23,22 +23,35 @@
     $\gamma_1, \gamma_2: [0,1] \rightarrow X$ Wege von $a$ nach $b$,
     d.~h. $\gamma_1(0) = \gamma_2(0) = a$, $\gamma_1(1) = \gamma_2(1) = b$
 
-    \begin{defenum}
-        \item $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{Weg!homotope},
-              wenn es eine stetige Abbildung $H : I \times I \rightarrow X$ mit
-              \begin{align*}
-                H(t,0) &= \gamma_1(t)\;\forall t \in [0,1] =: I\\
-                H(t,1) &= \gamma_2(t)\;\forall t \in [0,1] =: I
-              \end{align*}
-              und $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$ gibt.
-              Dann schreibt man: $\gamma_1 \sim \gamma_2$
+    $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{Weg!homotope},
+    wenn es eine stetige Abbildung $H : I \times I \rightarrow X$ mit
+    \begin{align*}
+        H(t,0) &= \gamma_1(t)\;\forall t \in [0,1] =: I\\
+        H(t,1) &= \gamma_2(t)\;\forall t \in I
+    \end{align*}
+    und $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$ gibt.
+    Dann schreibt man: $\gamma_1 \sim \gamma_2$
 
-              $H$ heißt \textbf{Homotopie}\xindex{Homotopie} zwischen
-              $\gamma_1$ und $\gamma_2$.
-        \item $\gamma_s: I \rightarrow X, \gamma_s(t) = H(t,s)$ ist
-              Weg in $X$ von $a$ nach $b$ für jedes $s \in I$.
-    \end{defenum}
+    $H$ heißt \textbf{Homotopie}\xindex{Homotopie} zwischen
+    $\gamma_1$ und $\gamma_2$.
 \end{definition}
+
+\begin{bemerkung}
+    Sei $X$ ein topologischer Raum, $a, b \in X$, 
+    $\gamma_1, \gamma_2: I \rightarrow X$ Wege von $a$ nach $b$
+    und $H$ eine Homotopie ziwschen $\gamma_1$ und $\gamma_2$.
+
+    Dann gilt: Der Weg
+    \[\gamma_s: I \rightarrow X,\;\;\;\gamma_s(t) = H(t,s)\]
+    ist Weg in $X$ von $a$ nach $b$ für jedes $s \in I$.
+\end{bemerkung}
+
+\begin{beweis}
+    $H$ ist stetig, also ist $H(t, s)$ insbesondere für jedes feste
+    $s$ stetig. Da $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$
+    und $\gamma_s$ eine Abbildung von $I$ auf $X$ ist,
+    ist $\gamma_s$ ein Weg in $X$ von $a$ nach $b$ für jedes $s \in I$. $\qed$
+\end{beweis}
 
 \begin{bemerkung}
     \enquote{Homotop} ist eine Äquivalenzrelation auf der Menge aller

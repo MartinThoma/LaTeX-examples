@@ -50,7 +50,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \chapter{Fragen zu Definitionen}
-\section{Topologischer Raum}
+\section*{1.) Definition topologischer Raum}
 \begin{definition}\xindex{Raum!topologischer}\xindex{Menge!offene}\xindex{Menge!abgeschlossene}%
     Ein \textbf{topologischer Raum} ist ein Paar $(X, \fT)$ bestehend
     aus einer Menge $X$ und $\fT \subseteq \powerset{X}$ mit
@@ -66,74 +66,35 @@
     $A \subseteq X$ heißt \textbf{abgeschlossen}, wenn $X \setminus A$ offen ist.
 \end{definition}
 
-Ich glaube es ist unnötig in (i) zu fordern, dass $\emptyset in \fT$ gilt,
+Ich glaube es ist unnötig in (i) zu fordern, dass $\emptyset \in \fT$ gilt,
 da man das mit (iii) bereits abdeckt:
 
 Sei in (iii) die Indexmenge $I = \emptyset$. Dann muss gelten:
 
 $\displaystyle \bigcup_{i \in \emptyset} U_i = \emptyset \in \fT$
 
-\section{Diskret}
-\begin{definition}
-    Sei $X$ ein topologischer Raum und $M \subseteq X$.
-
-    $M$ heißt \textbf{diskret} in $X$, wenn $M$ in $X$ keinen 
-    Häufungspunkt hat.
-\end{definition}
-
-Laut \url{http://www.uni-protokolle.de/Lexikon/Diskreter_Raum.html#Diskrete_Teilmenge_eines_topologischen_Raums}
-könnte man \textbf{diskret} wie folgt definieren:
-
-\begin{definition}
-    Sei $X$ ein topologischer Raum.
-    \begin{defenum}
-        \item Ein Punkt $x \in X$ heißt \textbf{isolierter Punkt}, wenn $\Set{ x }$ offen ist.
-        \item Ein topologischer Raum heißt \textbf{diskreter topologischer}, Raum wenn jeder seiner Punkte isoliert ist.
-    \end{defenum}
-\end{definition}
-
-Sind diese beiden Definitionen äquivalent? Falls ja, finde ich die 
-zweite besser. Da benötigt man den Begriff \enquote{Häufungspunkt}
-nicht, den wir nicht definiert hatten.
-
-\section{Simpliziale Abbildung}
-\begin{definition}
-    Seien $K, L$ Simplizialkomplexe. Eine stetige Abbildung
-    \[f:|K| \rightarrow |L|\]
-    heißt \textbf{simplizial}, wenn für
-    jedes $\Delta \in K$ gilt:
-    \begin{defenum}
-        \item $f(\Delta) \in L$
-        \item $f|_{\Delta} : \Delta \rightarrow f(\Delta)$ ist eine
-              affine Abbildung.
-    \end{defenum}
-\end{definition}
-
-Ist die Definition so richtig? Was bedeutet $|K|$ und $|L|$ in
-    \[f:|K| \rightarrow |L|\]
-
-\section{Knotendiagramm}
+\section*{4.) Knotendiagramm:}
 \begin{definition}\xindex{Knotendiagramm}%
     Ein \textbf{Knotendiagramm} eines Knotens $\gamma$ ist eine 
     Projektion $\pi: \mdr^3 \rightarrow E$ auf eine Ebene $E$, sodass
-    $|(\pi|C)^{-1}(x)| \leq 2$ für jedes $x \in D$.
+    $|\pi^{-1}(x) \cap C| \leq 2$ für jedes $x \in D$, wobei $C = \gamma(S^1)$.
 
-    Ist $(\pi|C)^{-1}(x) = \Set{y_1, y_2}$, so \textbf{liegt $y_1$ über $y_2$},
+    Ist ${\color{red}(\pi|C)}^{-1}(x) = \Set{y_1, y_2}$, so \textbf{liegt $y_1$ über $y_2$},
     wenn $(y_1-x) = \lambda (y_2 - x)$ für ein $\lambda > 1$ ist.
 \end{definition}
 
 Sollte das jeweils $\pi|_C$ (sprich: \enquote{$\pi$ eingeschränkt auf $C$})
-sein? Was ist $C$?
+sein?
 
-\section{Homotope Abbildungen und äquivalente Knoten}
+\section*{5.) Isotopie/Knoten}
 \begin{definition}
     Zwei Knoten $\gamma_1, \gamma_2: S^1 \rightarrow \mdr^3$ heißen
     \textbf{äquivalent}, wenn es eine stetige Abbildung
     \[H: S^1 \times [0,1] \rightarrow \mdr^3\]
     gibt mit 
     \begin{align*}
-        H(z,0) &= \gamma_1(z)\\
-        H(z,1) &= \gamma_2(z)
+        H(z,0) &= \gamma_1(z) {\;\;\;\color{red} \forall z \in S^1}\\
+        H(z,1) &= \gamma_2(z) {\;\;\;\color{red} \forall z \in S^1}
     \end{align*}
     und für jedes
     feste $t \in [0,1]$ ist 
@@ -142,29 +103,9 @@ sein? Was ist $C$?
     $\gamma_1$ und $\gamma_2$.
 \end{definition}
 
-Fehlt hier nicht etwas wie \enquote{$\forall z \in S^1$}?
+Fehlt hier nicht etwas wie \enquote{$\forall z \in S^1$} (nun rot ergänzt).
 
-\begin{definition}\xindex{Abbildung!homotope}%
-    Seien $X, Y$ topologische Räume, $x_0 \in X, y_0 \in Y, f, g: X \rightarrow Y$
-    stetig mit $f(x_0) = y_0 = g(x_0)$.
-
-    $f$ und $g$ heißen \textbf{homotop} ($f \sim g$), wenn es eine stetige
-    Abbildung $H: X \times I \rightarrow Y$ mit 
-    \begin{align*}
-        H(x,0)    &= f(x) \; \forall x \in X\\
-        H(x,1)    &= g(x) \; \forall x \in X\\
-        H(x_0, s) &= y_0  \; \forall s \in I
-    \end{align*}
-    gibt.
-\end{definition}
-
-Mir scheint der Begriff \enquote{homotope Abbildung} bis auf die
-Eigenschaft \enquote{$H(x_0, s) = y_0  \; \forall s \in I$} mit 
-dem Begriff \enquote{äquivalente Knoten} übereinzustimmen.
-Der Knoten-Begriff ist dafür etwas spezieller nur auf Knoten bezogen.
-Stimmt das?
-
-\section{Basis und Subbasis}
+\section*{6.) Basisbeispiele}
 \begin{itemize}
     \item Kennst du ein Beispiel für eine Subbasis in einem Topologischen Raum,
 die zugleich eine Basis ist?
@@ -174,33 +115,7 @@ die keine Basis ist?
 die keine Subbasis ist?
 \end{itemize}
 
-\section{Homotopie}
-\begin{definition}%
-    Sei $X$ ein topologischer Raum, $a, b \in X$, 
-    $\gamma_1, \gamma_2: [0,1] \rightarrow X$ Wege von $a$ nach $b$,
-    d.~h. $\gamma_1(0) = \gamma_2(0) = a$, $\gamma_1(1) = \gamma_2(1) = b$
-
-    \begin{defenum}
-        \item $\gamma_1$ und $\gamma_2$ heißen \textbf{homotop}\xindex{Weg!homotope},
-              wenn es eine stetige Abbildung $H : I \times I \rightarrow X$ mit
-              \begin{align*}
-                H(t,0) &= \gamma_1(t)\;\forall t \in [0,1] =: I\\
-                H(t,1) &= \gamma_2(t)\;\forall t \in [0,1] =: I
-              \end{align*}
-              und $H(0,s) = a$ und $H(1,s) = b$ für alle $s \in I$ gibt.
-              Dann schreibt man: $\gamma_1 \sim \gamma_2$
-
-              $H$ heißt \textbf{Homotopie}\xindex{Homotopie} zwischen
-              $\gamma_1$ und $\gamma_2$.
-        \item $\gamma_s: I \rightarrow X, \gamma_s(t) = H(t,s)$ ist
-              Weg in $X$ von $a$ nach $b$ für jedes $s \in I$.
-    \end{defenum}
-\end{definition}
-
-Diese Definition finde ich seltsam. Sollte b) nicht eine Bedingung für \enquote{Homotopie}
-sein? Falls nicht: Was wird in b) definiert?
-
-\section{Mannigfaltigkeit und MF mit Rand}
+\section*{9.) Mannigfaltigkeit mit Rand}
 \begin{definition}%
     Sei $X$ ein topologischer Raum und $n \in \mdn$.
     \begin{defenum}
@@ -230,30 +145,7 @@ Wieso wird bei der Mannigfaltigkeit mit Rand nicht gefordert, dass
 sie eine abzählbare Basis haben soll? Sollte man nicht vielleicht
 hinzufügen, dass der Atlas $n$-dimensional sein soll?
 
-\section{Standard-Simplex}
-\begin{definition}
-    \begin{defenum}
-        \item Sei $\Delta^k = \conv(e_0, \dots, e_k) \subseteq \mdr^{n+1}$
-              die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_k$.
-
-              Dann heißt $\Delta^k$ \textbf{Standard-Simplex}\xindex{Standard-Simplex}
-              und $k$ die Dimension des Simplex.
-        \item Für Punkte $v_0, \dots, v_k$ im $\mdr^n$ in allgemeiner
-              Lage heißt $\Delta (v_0, \dots, v_k) = \conv(v_0, \dots, v_k)$
-              ein \textbf{$k$-Simplex}\xindex{Simplex} in $\mdr^n$.
-        \item Ist $\Delta (v_0, \dots, v_k)$ ein $k$-Simplex und
-              $I = \Set{i_0, \dots, i_r} \subseteq \Set{0, \dots, k}$,
-              so heißt $s_{i_0, \dots, i_r} := \conv(v_{i_0}, \dots, v_{i_r})$
-              \textbf{Teilsimplex}\xindex{Teilsimplex} oder \textbf{Seite}\xindex{Seite}
-              von $\Delta$. 
-
-              $s_{i_0, \dots, i_r}$ ist $r$-Simplex.
-    \end{defenum}
-\end{definition}
-Kann man bei der Definition des Standard-Simplex $k$ durch $n$ ersetzen?
-Es gilt doch auf jeden Fall $0 \geq k \geq n$, oder? (Also auch für die anderen Definitionen).
-
-\section{Produkttopologie}
+\section*{11.) Produkttopologie}
 \begin{definition}\xindex{Produkttopologie}%
     Seien $X_1, X_2$ topologische Räume.\\
     $U \subseteq X_1 \times X_2$ sei offen, wenn es zu jedem $x = (x_1, x_2) \in U$

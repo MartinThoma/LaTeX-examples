@@ -188,7 +188,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     $0 \sim 1$, d.~h. $[0] = [1]$
 \end{beispiel}
 
-\begin{beispiel}
+\begin{beispiel}\xindex{Torus}
     Sei $X = \mdr^2$ und $(x_1, y_1) \sim (x_2, y_2) \gdw x_1 - x_2 \in \mdz$ 
     und $y_1 - y_2 \in \mdz$. Dann ist $X /_\sim$ ein Torus.
 \end{beispiel}
@@ -209,11 +209,11 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     Sei $X$ eine Menge. Eine Abbildung $d:X\times X \rightarrow \mdr_0^+$
     heißt \textbf{Metrik}, wenn gilt:
 
-    \begin{enumerate}[label=(\roman*)]
+    \begin{defenumprops}
         \item Definitheit:         \tabto{4cm} $d(x,y) = 0 \gdw x = y \;\;\; \forall x, y \in X$
         \item Symmetrie:           \tabto{4cm} $d(x,y) = d(y,x) \;\;\; \forall x, y \in X$
         \item Dreiecksungleichung: \tabto{4cm} $d(x,z) \leq d(x,y) + d(y,z) \;\;\; \forall x, y, z \in X$
-    \end{enumerate}
+    \end{defenumprops}
 
     Das Paar $(X, d)$ heißt ein \textbf{metrischer Raum}.
 \end{definition}
@@ -295,7 +295,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     \end{bspenum}
 \end{beispiel}
 
-\begin{bemerkung}
+\begin{bemerkung}[Eigenschaften von Hausdorff-Räumen]
     Seien $X, X_1, X_2$ Hausdorff-Räume.
     \begin{enumerate}[label=\alph*)]
         \item Jeder Teilraum von $X$ ist hausdorffsch.
@@ -388,7 +388,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     Abbildung. Dann gilt:
 
     $f \text{ ist stetig}$\\
-    $\gdw \text{für jede abgeschlossene Teilmenge } A \subseteq Y \text{ gilt}: f^{-1}(A) \subseteq X \text{ ist abgeschlossen}$
+    $\gdw \text{für jede abgeschlossene Teilmenge } A \subseteq Y \text{ gilt}: f^{-1}(A) \subseteq X \text{ ist abgeschlossen.}$
 \end{bemerkung}
 
 \begin{beispiel}[Stetige Abbildungen und Homöomorphismen]
@@ -560,7 +560,7 @@ sodass $\pi$ stetig wird.
               $(\mdq \cap \mdr_{< \sqrt{2}}) \cup (\mdq \cap \mdr_{> \sqrt{2}}) = \mdq$
         \item $\Set{x}$ ist zusammenhängend für jedes $x \in X$, 
               wobei $X$ ein topologischer Raum ist.
-        \item $\mdr$ mit Zariski-Topologie ist zusammenhängend\xindex{Topologie!Zariski}
+        \item $\mdr$ mit Zariski-Topologie ist zusammenhängend.\xindex{Topologie!Zariski}
     \end{enumerate}
 \end{beispiel}
 
@@ -577,13 +577,14 @@ sodass $\pi$ stetig wird.
     \end{align*}
 
     Wäre $A \cap A_1 = \emptyset$\\
-    $\Rightarrow A \subseteq A_2$\\
+    $\Rightarrow A \subseteq \overline{A} = A_1 \dcup A_2$\\
+    $\Rightarrow A \subseteq A_2$
     $\Rightarrow \overline{A} \subseteq A_2$\\
     $\Rightarrow A_1 = \emptyset$\\
     $\Rightarrow$ Widerspruch zu $A_1 \neq \emptyset$\\
     $\Rightarrow A \cap A_1 \neq \emptyset$ und analog 
                 $A \cap A_2 \neq \emptyset$\\
-    $\Rightarrow$ Widerspruch zu $A$ ist zusammenhängend $ \qed$
+    $\Rightarrow$ Widerspruch zu $A$ ist zusammenhängend. $ \qed$
 \end{beweis}
 
 \begin{bemerkung}\label{bem:zusammenhangVereinigung}
@@ -598,7 +599,7 @@ sodass $\pi$ stetig wird.
         &\xRightarrow{\text{\obda}} A = (A \cap U_1) \dcup (A \cap U_2) \text{ offen}\\
         &\xRightarrow{A \text{ zhgd.}} A \cap U_1 = \emptyset\\
         &\xRightarrow{A \cap B \neq \emptyset} U_1 \subseteq B\\
-        &B = \underbrace{(B \cap U_1)}_{= U_1} \cup \underbrace{(B \cap U_2)}_{= \emptyset} \text{ ist unerlaubte Zerlegung}
+        &B = \underbrace{(B \cap U_1)}_{= U_1} \cup \underbrace{(B \cap U_2)}_{= \emptyset} \text{ ist unerlaubte Zerlegung.}
     \end{align*}
     $\qed$
 \end{beweis}
@@ -736,7 +737,7 @@ $\qed$
         &\xRightarrow{X \text{ kompakt}} \text{ es gibt } i_1, \dots, i_n \in I\text{, sodass }\bigcup_{j=1}^n U_{i_j} \cup (X \setminus A) = X\\
         &\Rightarrow \left (\bigcup_{j=1}^n U_{i_j} \cup (X \setminus A)\right ) \cap A = A\\
         &\Rightarrow \bigcup_{j=1}^n \underbrace{(U_{i_j} \cap A)}_{= V_{i_j}} \cup \underbrace{((X \setminus A) \cap A)}_{= \emptyset} = A\\
-        &\Rightarrow V_{i_1}, \dots, V_{i_n} \text{ überdecken } A
+        &\Rightarrow V_{i_1}, \dots, V_{i_n} \text{ überdecken } A\text{.}
     \end{align*}
     $\qed$
 \end{beweis}
@@ -823,7 +824,7 @@ $\qed$
     wenn sie beschränkt und abgeschlossen ist.
 \end{satz}
 
-\begin{beweis}
+\begin{beweis}\leavevmode
     \enquote{$\Rightarrow$}: Sei $K \subseteq \mdr^n$ (oder $\mdc^n$)
     kompakt.
 
@@ -961,7 +962,7 @@ $\qed$
 \end{figure}
 
 \begin{beweis}
-    ist technisch mühsam und wird daher hier nicht geführt. Er kann
+    ist technisch mühsam und wird hier nicht geführt. Er kann
     in \enquote{Algebraische Topologie: Eine Einführung} von R.~Stöcker
     und H.~Zieschang auf S. 301f (ISBN 978-3519122265) nachgelesen werden.
 

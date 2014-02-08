@@ -4,11 +4,11 @@
 \chapter{Mannigfaltigkeiten und Simplizialkomplexe}
 \section{Topologische Mannigfaltigkeiten}
 \begin{definition}%
-    Sei $X$ ein topologischer Raum und $n \in \mdn$.
+    Sei $(X, \fT)$ ein topologischer Raum und $n \in \mdn$.
     \begin{defenum}
         \item Eine $n$-dimensionale \textbf{Karte}\xindex{Karte} auf
-              $X$ ist ein Paar $(U, \varphi)$, wobei $U \subseteq X$
-              offen und $\varphi: U \rightarrow V$ Homöomorphismus
+              $X$ ist ein Paar $(U, \varphi)$, wobei $U \in \fT$
+              und $\varphi: U \rightarrow V$ Homöomorphismus
               von $U$ auf eine offene Teilmenge $V \subseteq \mdr^n$.
         \item Ein $n$-dimensionaler \textbf{Atlas}\xindex{Atlas} $\atlas$ auf $X$ ist eine
               Familie $(U_i, \varphi_i)_{i \in I}$ von Karten auf $X$,
@@ -571,11 +571,11 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
 \begin{definition}
     \begin{defenum}
-        \item Sei $\Delta^k = \conv(e_0, \dots, e_k) \subseteq \mdr^{n+1}$
-              die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_k$.
+        \item Sei $\Delta^n = \conv(e_0, \dots, e_n) \subseteq \mdr^{n+1}$
+              die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_n$.
 
-              Dann heißt $\Delta^k$ \textbf{Standard-Simplex}\xindex{Standard-Simplex}
-              und $k$ die Dimension des Simplex.
+              Dann heißt $\Delta^n$ \textbf{Standard-Simplex}\xindex{Standard-Simplex}
+              und $n$ die Dimension des Simplex.
         \item Für Punkte $v_0, \dots, v_k$ im $\mdr^n$ in allgemeiner
               Lage heißt $\Delta (v_0, \dots, v_k) = \conv(v_0, \dots, v_k)$
               ein \textbf{$k$-Simplex}\xindex{Simplex} in $\mdr^n$.
