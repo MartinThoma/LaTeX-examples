@@ -73,9 +73,10 @@
               Mannigfaltigkeit.
 
               Karten: \\
-              $O_i := \Set{(x_1, \dots, x_{n+1}) \in S^n | x_i > 0} \rightarrow \fB_1 (\underbrace{0, \dots, 0}_{\in \mdr^n})$\\
-              $(x_1, \dots, x_{n+1}) \mapsto (x_1, \dots, x_i, \dots, x_{n+1})$\\
-              $(x_1, \dots, x_{i-1}, \sqrt{1-\sum_{k=1}^n x_k^2}, x_i, \cdots, x_n)\mapsfrom (x_1, \dots, x_n)$\\
+              $D_i := \{(x_1, \dots, x_{n+1}) \in S^n | x_i > 0\} \rightarrow \fB_1 (\underbrace{0, \dots, 0}_{\in \mdr^n})$\\
+              $C_i := \{(x_1, \dots, x_{n+1}) \in S^n | x_i < 0\}$\\
+              $(x_1, \dots, x_{n+1}) \mapsto (x_1, \dots, \cancel{x_i}, \dots, x_{n+1})$\footnote{$x_i$ wird rausgenommen}\\
+              $(x_1, \dots, x_{n}) \mapsto (x_1, \dots, x_{i-1}, \sqrt{1-\sum_{k=1}^n x_k^2}, x_i, \dots, x_n)$, oder $-\sqrt{1-\sum_{k=1}^n x_k^2}$ für $C_i$\\
               $S^n = \bigcup_{i=1}^{n+1} (C_i \cup D_i)$
         \item $[0,1]$ ist keine Mannigfaltigkeit, denn:\\
               Es gibt keine Umgebung von $0$ in $[0,1]$, die homöomorph

@@ -10,3 +10,5 @@ Konventionen
   `\subseteq` bzw. `\subsetneq` verwendet.
 * Für Winkel werden 3 verschiedene Symbole verwendet (siehe [math.SE](http://math.stackexchange.com/q/640838/6876))
 * Jede Abkürzung muss im Abkürzungsverzeichnis sein
+* Für das Innere einer Menge wurde $M^\circ$ anstelle von $\overset{\circ}{M}$ verwendet,
+  da es so besser in eine Zeile passt und meiner Meinung nach einfacher zu lesen ist.

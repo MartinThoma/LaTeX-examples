@@ -646,7 +646,7 @@ sodass $\pi$ stetig wird.
 
 \begin{bemerkung}
     Sei $f:X \rightarrow Y$ stetig. Ist $A \subseteq X$ zusammenhängend,
-    so ist $f(A) \subseteq y$ zusammenhängend.
+    so ist $f(A) \subseteq Y$ zusammenhängend.
 \end{bemerkung}
 
 \begin{beweis}
@@ -683,28 +683,32 @@ sodass $\pi$ stetig wird.
 \end{bemerkung}
 
 \begin{beweis}
-\todo{Der Beweis ist komisch. Das würde ich gerne mit jemanden durchsprechen.}
-    Sei $(U_i)_{i \in J}$ eine offene Überdeckung von $I$.
+Sei $(U_i)_{i \in J}$ eine offene Überdeckung von $I$.
 
-\underline{z.~Z.}: Es gibt ein $\delta > 0$, sodass jedes Teilintervall
-    der Länge $\delta$ von $I$ in einem der $U_i$ enthalten ist. 
+Es genügt zu zeigen, dass es ein $\delta > 0$ gibt, sodass jedes 
+Teilintervall der Länge $\delta$ von $I$ in einem der $U_i$ enthalten ist.
+Wenn es ein solches $\delta$ gibt, kann man $I$ in endlich viele 
+Intervalle der Länge $\delta$ unterteilen und alle $U_i$ in die endliche
+Überdeckung aufnehmen, die Teilintervalle enthalten.
 
 Angenommen, es gibt kein solches $\delta$. Dann gibt es für jedes 
 $n \in \mdn$ ein Intervall $I_n \subseteq [0,1]$ der Länge $\nicefrac{1}{n}$
-sodass $I_n \not\subseteq U_i$ für alle $i \in I$.
+sodass $I_n \subsetneq U_i$ für alle $i \in J$.
 
 Sei $x_n$ der Mittelpunkt von $I_n$. Die Folge $(x_n)$ hat einen 
-Häufungspunkt $x \in [0,1]$. Dann gibt es $i \in I$ mit $x \in U_i$.
+Häufungspunkt $x \in [0,1]$. Dann gibt es $i \in J$ mit $x \in U_i$.
 Da $U_i$ offen ist, gibt es ein $\varepsilon > 0$, sodass $(x - \varepsilon, x + \varepsilon) \subseteq U_i$.
-Dann gibt es $n$ mit $\nicefrac{1}{n} < \nicefrac{\varepsilon}{2}$ und
-$|x - x_n| < \nicefrac{\varepsilon}{2}$, also $I_n \subseteq (x - \varepsilon, x + \varepsilon) \subseteq U_i$
+Dann gibt es $n_0$, sodass gilt:
+$\nicefrac{1}{n_0} < \nicefrac{\varepsilon}{2}$ und für unendlich viele\footnote{Dies gilt nicht für alle $n \geq n_0$, da ein Häufungspunkt nur eine konvergente Teilfolge impliziert.}
+$n\geq n_0: |x - x_n| < \nicefrac{\varepsilon}{2}$, also $I_n \subseteq (x - \varepsilon, x + \varepsilon) \subseteq U_i$
+für mindestens ein $n \in \mdn$.\footnote{Sogar für unendlich viele.}
 
 $\Rightarrow$ Widerspruch 
 
 Dann überdecke $[0,1]$ mit endlich vielen Intervallen $I_1, \dots, I_d$
 der Länge $\delta$. Jedes $I_j$ ist in $U_{ij}$ enthalten.
 
-$\Rightarrow U_{j_1}, \dots, U_{j_d}$ ist endliche Teilüberdeckung von $U$
+$\Rightarrow U_{j_1}, \dots, U_{j_d}$ ist endliche Teilüberdeckung von $U$.
 $\qed$
 \end{beweis}
 
@@ -918,11 +922,12 @@ $\qed$
 
           Also ist $C = U_1$ und $S = U_2$ (oder umgekehrt).
 
-          Sei $\gamma \in C = U_1, \varepsilon > 0$ und $\fB_\varepsilon (y) \subseteq U_1$
+          Sei $y \in C = U_1, \varepsilon > 0$ und $\fB_\varepsilon (y) \subseteq U_1$
           eine Umgebung von $y$, die in $U_1$ enthalten ist.
 
           Aber: $\fB_\varepsilon(y) \cap S \neq \emptyset \Rightarrow$
-          Widerspruch 
+          Widerspruch $\Rightarrow X \cup S$ ist zusammenhängend, aber
+          nicht wegzusammenhängend.
 $\qed$
     \end{enumerate}
 \end{beweis}
@@ -1004,7 +1009,7 @@ $\qed$
     \end{align*}
     und für jedes
     feste $t \in [0,1]$ ist 
-    \[H_z: S^1 \rightarrow \mdr^2, z \mapsto H(z,t)\]
+    \[H_z: S^1 \rightarrow \mdr^3, z \mapsto H(z,t)\]
     ein Knoten. Die Abbildung $H$ heißt \textbf{Isotopie} zwischen
     $\gamma_1$ und $\gamma_2$.
 \end{definition}
@@ -1021,7 +1026,7 @@ $\qed$
 \begin{satz}[Satz von Reidemeister]
     Zwei endliche Knotendiagramme gehören genau dann zu äquivalenten
     Knoten, wenn sie durch endlich viele \enquote{Reidemeister-Züge}
-    in einander überführt werden können.
+    ineinander überführt werden können.
 \end{satz}
 
 \begin{figure}[htp]
