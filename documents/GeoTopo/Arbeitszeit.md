@@ -61,11 +61,12 @@ in dem Erstellen dieses Skripts steckt:
 |03.02.2014 | 18:35 - 19:10 | Verbesserungen
 |04.02.2014 | 09:50 - 11:40 | Digitalisieren der Vorlesung von 04.02.2014
 |04.02.2014 | 18:15 - 19:30 | Verbesserungen von Marco eingefügt (Danke!); Beispiel 3.2 erstellt
-|05.02.2014 | 08:15 - 08:30 | Verbesserungen von Jérôme eingefügt (Danke!)
+|05.02.2014 | 08:15 - 08:30 | Verbesserungen von Jérôme Urhausen eingefügt (Danke!)
 |06.02.2014 | 08:15 - 08:30 | Verbesserungen
 |06.02.2014 | 15:45 - 16:00 | Karteikarten
 |06.02.2014 | 16:00 - 16:55 | Digitalisieren der Vorlesung von 06.02.2014
 |06.02.2014 | 19:00 - 19:30 | TikZ'en eines Bildes
 |07.02.2014 | 11:15 - 11:20 | Definitionen vereinfacht
 |07.02.2014 | 11:35 - 11:45 | Definition "operiert durch Homöomorphismen" korrigiert
-|07.02.2014 | 15:00 - 15:30 | Verbesserungen von Jérôme, Email vom 08.02.2014, eingefügt.
+|07.02.2014 | 15:00 - 15:30 | Verbesserungen von Jérôme Urhausen, Email vom 08.02.2014, eingefügt.
+|07.02.2014 | 15:30 - 15:45 | Verbesserungen 

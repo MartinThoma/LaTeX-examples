@@ -125,6 +125,31 @@
     \end{enumerate}
 \end{solution}
 
+\begin{solution}[\ref{ub3:meinsExtra}]
+    Die Definition von Homöomorphismus kann auf \cpageref{def:homoeomorphismus}
+    nachgelesen werden.
+
+    \begin{definition}
+        Seien $(G, *)$ und $(H, \circ)$ Gruppen und 
+        $\varphi:G \rightarrow H$ eine Abbildung.
+
+        $\varphi$ heißt \textbf{Homomorphismus}\xindex{Homomorphismus}, wenn
+        \[\forall g_1, g_2 \in G: \varphi(g_1 * g_2) = \varphi(g_1) \circ \varphi(g_2)\]
+        gilt.
+    \end{definition}
+
+    Es folgt direkt:
+    \begin{bspenum}
+        \item Sei $X = \mdr$ mit der Standarttopologie und $\varphi_1: \id_\mdr$ und $\mdr = (\mdr,+)$. Dann ist $\varphi_1$ ein Gruppenhomomorphismus und ein Homöomorphismus.
+        \item Sei $G = (\mdz, +)$ und $H = (\mdz / 3 \mdz, +)$. Dann ist $\varphi_2 : G \rightarrow H, x \mapsto x \mod 3$ ein Gruppenhomomorphismus.
+              Jedoch ist $\varphi_2$ nicht injektiv, also sicher kein Homöomorphismus.
+        \item Sei $X$ ein topologischer Raum. Dann ist $\id_X$ ein Homöomorphismus. Da keine Verknüpfung auf $X$ definiert wurde, ist $X$ keine Gruppe und daher auch kein Gruppenhomomorphismus.
+    \end{bspenum}
+
+    Also: Obwohl die Begriffe ähnlich klingen, werden sie in ganz unterschiedlichen
+    Kontexten verwendet.
+\end{solution}
+
 \begin{solution}[\ref{ub4:aufg1}]
     \begin{enumerate}[label=(\alph*)]
         \item \textbf{Vor.:} Sei $M$ eine topologische Mannigfaltigkeit.\\

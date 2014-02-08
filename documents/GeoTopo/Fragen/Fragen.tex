@@ -230,5 +230,41 @@ Wieso wird bei der Mannigfaltigkeit mit Rand nicht gefordert, dass
 sie eine abzählbare Basis haben soll? Sollte man nicht vielleicht
 hinzufügen, dass der Atlas $n$-dimensional sein soll?
 
+\section{Standard-Simplex}
+\begin{definition}
+    \begin{defenum}
+        \item Sei $\Delta^k = \conv(e_0, \dots, e_k) \subseteq \mdr^{n+1}$
+              die konvexe Hülle der Standard-Basisvektoren $e_0, \dots, e_k$.
+
+              Dann heißt $\Delta^k$ \textbf{Standard-Simplex}\xindex{Standard-Simplex}
+              und $k$ die Dimension des Simplex.
+        \item Für Punkte $v_0, \dots, v_k$ im $\mdr^n$ in allgemeiner
+              Lage heißt $\Delta (v_0, \dots, v_k) = \conv(v_0, \dots, v_k)$
+              ein \textbf{$k$-Simplex}\xindex{Simplex} in $\mdr^n$.
+        \item Ist $\Delta (v_0, \dots, v_k)$ ein $k$-Simplex und
+              $I = \Set{i_0, \dots, i_r} \subseteq \Set{0, \dots, k}$,
+              so heißt $s_{i_0, \dots, i_r} := \conv(v_{i_0}, \dots, v_{i_r})$
+              \textbf{Teilsimplex}\xindex{Teilsimplex} oder \textbf{Seite}\xindex{Seite}
+              von $\Delta$. 
+
+              $s_{i_0, \dots, i_r}$ ist $r$-Simplex.
+    \end{defenum}
+\end{definition}
+Kann man bei der Definition des Standard-Simplex $k$ durch $n$ ersetzen?
+Es gilt doch auf jeden Fall $0 \geq k \geq n$, oder? (Also auch für die anderen Definitionen).
+
+\section{Produkttopologie}
+\begin{definition}\xindex{Produkttopologie}%
+    Seien $X_1, X_2$ topologische Räume.\\
+    $U \subseteq X_1 \times X_2$ sei offen, wenn es zu jedem $x = (x_1, x_2) \in U$
+    Umgebungen $U_i$ um $x_i$  mit $i=1,2$ gibt, sodass $U_1 \times U_2 \subseteq U$
+    gilt.
+
+    $\fT = \Set{U \subseteq X_1 \times X_2 | U \text{ offen}}$
+    ist eine Topologie auf $X_1 \times X_2$. Sie heißt \textbf{Produkttopologie}.
+    $\fB = \Set{U_1 \times U_2 | U_i \text{ offen in } X_i, i=1,2}$
+    ist eine Basis von $\fT$.
+\end{definition}
+Gibt es ein Beispiel, das zegit, dass nicht $\fB = \fT$ gilt?
 
 \end{document}
