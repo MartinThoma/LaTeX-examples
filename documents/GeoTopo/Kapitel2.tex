@@ -297,7 +297,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
 \begin{definition}%
     Sei $X$ eine differenzierbare Mannigfaltigkeit der Klasse $C^k$ 
-    ($k \in \mdn \cup \Set{\infty}$) mit Atlas $(U_i, \varphi_i)_{i \in I}$.
+    ($k \in \mdn \cup \Set{\infty}$) mit Atlas $\atlas = (U_i, \varphi_i)_{i \in I}$.
 
     \begin{defenum}
         \item Eine Karte $(U, \varphi)$ auf $X$ heißt \textbf{verträglich}\xindex{verträglich}
@@ -315,7 +315,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
 \begin{bemerkung}
     Für $n \geq 4$ gibt es auf $S^n$ mehrere verschiedene differenzierbare
-    Strukturen, die sog. \enquote{exotische Sphären}\xindex{Sphäre!exotische}.
+    Strukturen, die sogenannten \enquote{exotische Sphären}\xindex{Sphäre!exotische}.
 \end{bemerkung}
 
 \begin{definition}
@@ -501,15 +501,13 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 \end{beweis}
 
 \begin{definition}%
-    Sei $G$ eine Mannigfaltigkeit, $\circ: G \times G \rightarrow G$
-    eine Abbildung, $(g,h) \mapsto g \cdot h$, sodass $(G, \circ)$
-    eine Gruppe ist.
+    Sei $G$ eine Mannigfaltigkeit und $(G, \circ)$ eine Gruppe.
 
     \begin{defenum}
         \item $G$ heißt \textbf{topologische Gruppe}\xindex{Gruppe!topologische},
               wenn die Abbildungen $\circ: G \times G \rightarrow G$
-              und $\iota: G \rightarrow G$.
-              \[(g, h) \mapsto g \cdot h\;\;\; g \mapsto g^{-1}\]
+              und $\iota: G \rightarrow G$ definiert durch
+              \[g \circ h := g \cdot h \text{ und } \iota(g) := g^{-1}\]
               stetig sind.
         \item Ist $G$ eine differenzierbare Mannigfaltigkeit, so heißt
               $G$ \textbf{Lie-Gruppe}\xindex{Lie-Gruppe}, wenn
@@ -538,7 +536,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
             $\det A_{ij}$ kann $0$ werden, da:
             \[\begin{pmatrix}1 & 1\\-1&0\end{pmatrix}\]
-        \item $\SL_n(\mdr) = \Set{A \in \GL_n(\mdr) | \det(A) = 1} $ \todo{Besser strukturieren}
+        \item $\SL_n(\mdr) = \Set{A \in \GL_n(\mdr) | \det(A) = 1} $ \todo{Was soll das '?'}
 
               $\grad(\det-1)(A) = 0$?
 
@@ -560,7 +558,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
 \section{Simplizialkomplex}
 \begin{definition}\xindex{Lage!allgemeine}%
-    Seien $v_0, \dots, v_k \in \mdr^n$ Punkte.
+    Seien $v_0, \dots, v_k \in \mdr^n$ Punkte.\xindex{Punkt}
     \begin{defenum}
         \item $v_0, \dots, v_k$ sind \textbf{in allgemeiner Lage} $\gdw$ es gibt keinen $(k-1)$-dimensionalen
               affinen Untervektorraum, der $v_0, \dots, v_k$ enthält
@@ -687,14 +685,14 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     \end{defenum}
 \end{definition}
 
-\begin{beispiel}
+\begin{beispiel}[Simpliziale Abbildungen]
     \begin{bspenum}
         \item $\varphi(e_1) := b_1$, $\varphi(e_2) := b_2$\\
               $\varphi$ ist eine eindeutig bestimmte lineare Abbildung
 
               \input{figures/topology-linear-mapping.tex}
 
-        \item Folgende Abbildung $\Delta^n \rightarrow \Delta^{n-1}$ 
+        \item Folgende Abbildung $\varphi: \Delta^n \rightarrow \Delta^{n-1}$ 
               ist simplizial:
 
               \input{figures/topology-triangle-to-line.tex}
