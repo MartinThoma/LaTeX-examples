@@ -2,11 +2,11 @@ DOKUMENT = GeoTopo
 
 make:
 	sketch figures/torus.sketch > figures/torus.tex
-	pdflatex $(DOKUMENT).tex -output-format=pdf # aux-Dateien für makeindex / makeglossaries
+	pdflatex $(DOKUMENT).tex -output-format=pdf # aux-files for makeindex / makeglossaries
 	makeindex $(DOKUMENT)
-	pdflatex $(DOKUMENT).tex -output-format=pdf # Stichwortverzeichnis einbinden
-	pdflatex $(DOKUMENT).tex -output-format=pdf # Symbolverzeichnis einbinden
-	make clean
+	pdflatex $(DOKUMENT).tex -output-format=pdf # include index
+	pdflatex $(DOKUMENT).tex -output-format=pdf # include symbol table
+	make clean # remove intermediate files like *.log and *.aux
 
 ebook:
 	latexml --dest=$(DOKUMENT).xml $(DOKUMENT).tex
