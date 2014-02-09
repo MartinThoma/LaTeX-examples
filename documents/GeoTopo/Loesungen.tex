@@ -1,3 +1,4 @@
+%!TEX root = GeoTopo.tex
 \chapter*{Lösungen der Übungsaufgaben\markboth{Lösungen der Übungsaufgaben}{Lösungen der Übungsaufgaben}}
 \addcontentsline{toc}{chapter}{Lösungen der Übungsaufgaben}
 \begin{solution}[\ref{ub1:aufg1}]
@@ -275,7 +276,27 @@
               an $g$. $\varphi$ vertauscht die beiden Halbebenen bzgl.
               $g$.\\
               $\Rightarrow \varphi(P)P$ schneidet $g$ in $F$.
-              \todo[inline]{Noch ca. eine halbe Seite}
+
+              %Nach ÜB 10 A4(a):
+              Es gibt eine Geradenspiegelung $\varphi$ an $g$.
+              $\varphi$ vertauscht die beiden Halbebenen bzgl. $g$
+              $\Rightarrow \varphi(P)P$ schneidet $g$ in $F$.
+
+              Sei $A \in g \setminus \Set{F}$. Dann gilt $\varphi(\angle AFP) = \angle AF \varphi(P) = \pi$
+              $\Rightarrow \angle AFP$ ist rechter Winkel.
+
+              Gäbe es nun $G \in g \setminus \Set{F}$, so dass $PG$ weiteres Lot von $P$ auf $g$ ist,
+              wäre $\triangle PFG$ ein Dreieck mit zwei rechten Innenwinkeln (vgl. \cref{fig:two-perpendiculars}).
+
+              \begin{figure}[htp]
+                  \centering
+                  \input{figures/two-perpendiculars.tex}
+                  \caption{Zwei Lote zu einer Geraden $g$ durch einen Punkt $P$}
+                  \label{fig:two-perpendiculars}
+              \end{figure}
+
+              Nach \cref{folgerung:14.10} ist die Summe von zwei Innenwinkeln immer $< \pi$\\
+              $\Rightarrow G$ gibt es nicht. $\qed$
     \end{enumerate}
 \end{solution}
 
