@@ -33,6 +33,7 @@
 *.pdf
 *.o
 *.hi
+*.sublime-workspace
 
 ## I want to keep some PDFs
 documents/Analysis I/*.pdf

@@ -72,3 +72,4 @@ in dem Erstellen dieses Skripts steckt:
 |07.02.2014 | 15:30 - 15:45 | Verbesserungen 
 |07.02.2014 | 19:30 - 21:20 | Textsetzung, kleine Fehler und Verbesserung eines Bildes
 |10.02.2014 | 10:30 - 11:05 | Formulierung in Definitionen vereinfacht; Textsetzung
+|10.02.2014 | 11:05 - 11:20 | Verbesserungen von Marco, Email vom 10.02.2014, eingefügt.
