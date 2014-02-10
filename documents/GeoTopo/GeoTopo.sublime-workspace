@@ -1,0 +1,368 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"c",
+				"cha	Chapter"
+			],
+			[
+				"tr",
+				"true"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Arbeitszeit.md",
+			"settings":
+			{
+				"buffer_size": 4508,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Makefile/Make.sublime-build",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"bracket",
+				"BracketHighlighter: Select Tag Name (closing and opening)"
+			],
+			[
+				"brack",
+				"BracketHighlighter: Jump to Left Bracket"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"gith",
+				"GitHub Flavored Markdown: Preview"
+			],
+			[
+				"previe",
+				"GitHub Flavored Markdown: Preview"
+			],
+			[
+				"package rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown"
+			],
+			[
+				"markdonw",
+				"Markdown Preview: Github Flavored Markdown: Preview in Browser"
+			],
+			[
+				"mark",
+				"Markdown Preview: Python Markdown: Preview in Browser"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package controll	",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 507.0
+	},
+	"console":
+	{
+		"height": 409.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Kapitel3.tex",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Kapitel2.tex",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/GeoTopo.tex",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Vorwort.tex",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Kapitel1.tex",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Kapitel4.tex",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Fragen/Fragen.tex",
+		"/home/moose/.config/sublime-text-2/Packages/Color Scheme - Default/Martins Theme.tmTheme",
+		"/home/moose/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/moose/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/moose/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
+		"/home/moose/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+		"/home/moose/Downloads/bwinf/32.2/simulation.py",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Kapitel5.tex",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Abkuerzungen.tex",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/GeoTopo.sublime-project",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Makefile",
+		"/home/moose/Downloads/netatoo-phoenix-theme-5194d19/README.md",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Richtlinien/Readme.md",
+		"/home/moose/Downloads/LaTeX-examples/documents/GeoTopo/Loesungen.tex",
+		"/home/moose/Downloads/LaTeX-examples/tikz/geometry-9/geometry-9.tex",
+		"/home/moose/Downloads/LaTeX-examples/tikz/triangle-angles/triangle-angles.tex",
+		"/home/moose/Downloads/LaTeX-examples/tikz/two-perpendiculars/Readme.md",
+		"/home/moose/Downloads/LaTeX-examples/tikz/two-perpendiculars/Makefile",
+		"/home/moose/Downloads/MartinThoma.github.io/_posts/2014-01-28-highend-notebooks.md",
+		"/home/moose/.config/sublime-text-2/Packages/User/LaTeX.sublime-settings",
+		"/home/moose/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/moose/Downloads/algorithms/k-nearest-neighbor/clustering.js",
+		"/home/moose/Downloads/algorithms/k-nearest-neighbor/k-nearest-neighbor.htm"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ffffff",
+			"footnote",
+			"\\footnote\n\\footnote",
+			"$Q$ und $",
+			"krümmung",
+			"normalenv",
+			"det",
+			"\\GL_n",
+			"lie-gru",
+			"section",
+			"dimensionale",
+			"Henriekes",
+			"torus",
+			"Torus",
+			"torus",
+			"Torus",
+			"Lenz",
+			"{kompakt",
+			"{kompakt\n\\{K",
+			"{kompakt\n\\{ko",
+			"{kompakt\n\\{kompakt",
+			"{kompakt\n{kompakt",
+			"ctrl+m",
+			"todo\n\n\n\ntodo",
+			"todo\n\n\n\n",
+			"shift",
+			"clusterCenterImage\nclusterCenterImage",
+			".png"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Arbeitszeit.md",
+					"settings":
+					{
+						"buffer_size": 4508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4455,
+								4508
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 651.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 169.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 196.0,
+	"status_bar_visible": true
+}

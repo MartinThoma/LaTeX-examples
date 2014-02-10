@@ -1,3 +1,4 @@
+%!TEX root = GeoTopo.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Henriekes Mitschrieb vom 07.11.2013                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,7 +107,7 @@ Anschaulich ist also ein $n$-dimensionale Mannigfaltigkeit lokal dem $\mdr^n$ ä
               \underline{Aber:} $X$ ist nicht hausdorffsch!
               Denn es gibt keine disjunkten Umgebungen von $0_1$ und
               $0_2$.
-        \item \xindex{Gruppe!allgemeine lineare}$\GL_n(\mdr)$ ist eine Mannigfaltigkeit der Dimension 
+        \item \label{bsp:gln-ist-mf}\xindex{Gruppe!allgemeine lineare}$\GL_n(\mdr)$ ist eine Mannigfaltigkeit der Dimension 
               $n^2$, weil offene Teilmengen von $\mdr^{n^2}$ eine
               Mannigfaltigkeit bilden.
     \end{bspenum}
@@ -251,8 +252,8 @@ $R_{+,0}^n$ ist ein \enquote{Halbraum}\xindex{Halbraum}.
 
 \begin{definition}\xindex{Rand}%
     Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Rand und
-    Atlas $(U_i, \varphi_i)$. Dann heißt 
-    \[\partial X := \bigcup_{i\in I} \Set{x \in U_i | \varphi_i (x)_n = 0}\]
+    Atlas $\atlas$. Dann heißt 
+    \[\partial X := \bigcup_{(U, \varphi) \in \atlas} \Set{x \in U | \varphi (x) = 0}\]
     \textbf{Rand} von $X$.
 \end{definition}
 
@@ -520,7 +521,9 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 \begin{beispiel}[Lie-Gruppen]
     \begin{bspenum}
         \item Alle endlichen Gruppen sind 0-dimensionale Lie-Gruppen.
-        \item $\GL_n(\mdr)$
+        \item $\GL_n(\mdr)$ 
+              % ist eine Lie-Gruppe, da sie nach \cref{bsp:gln-ist-mf} eine Mannigfaltigkeit ist.
+              % $\det: \GL_n \rightarrow \mdr$ ist eine stetige Abbildung.
         \item $(\mdr^\times, \cdot)$
         \item $(\mdr_{>0}, \cdot)$
         \item $(\mdr^n, +)$, denn $A \cdot B (i,j) = \sum_{k=1}^n a_{ik} b_{kj}$ ist
@@ -549,7 +552,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 \end{beispiel}
 
 \begin{bemerkung}
-    Ist $G$ eine Lie-Gruppe, $g \in G$, so ist die Abbildung
+    Ist $G$ eine Lie-Gruppe und $g \in G$, so ist die Abbildung
     \begin{align*}
         l_g &: G \rightarrow G\\
         h  &\mapsto g \cdot h
@@ -562,9 +565,10 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 \begin{definition}\xindex{Lage!allgemeine}%
     Seien $v_0, \dots, v_k \in \mdr^n$ Punkte.\xindex{Punkt}
     \begin{defenum}
-        \item $v_0, \dots, v_k$ sind \textbf{in allgemeiner Lage} $\gdw$ es gibt keinen $(k-1)$-dimensionalen
-              affinen Untervektorraum, der $v_0, \dots, v_k$ enthält
-              \gdw $v_1 - v_0, \dots, v_k - v_0$ sind linear unabhängig.
+        \item $v_0, \dots, v_k$ sind \textbf{in allgemeiner Lage}\\
+        \hspace{\labelwidth}\phantom{--}$\gdw$ es gibt keinen $(k-1)$-dimensionalen
+              affinen Untervektorraum, der $v_0, \dots, v_k$ enthält\\
+        \hspace{\labelwidth}\phantom{--}$\gdw v_1 - v_0, \dots, v_k - v_0$ sind linear unabhängig.
         \item $\conv(v_0, \dots, v_k) := \Set{\sum_{i=0}^k \lambda_i v_i | \lambda_i \geq 0, \sum_{i=0}^k \lambda_i = 1} $
     \end{defenum}
 \end{definition}
@@ -581,11 +585,10 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
               ein \textbf{$k$-Simplex}\xindex{Simplex} in $\mdr^n$.
         \item Ist $\Delta (v_0, \dots, v_k)$ ein $k$-Simplex und
               $I = \Set{i_0, \dots, i_r} \subseteq \Set{0, \dots, k}$,
-              so heißt $s_{i_0, \dots, i_r} := \conv(v_{i_0}, \dots, v_{i_r})$
+              so ist $s_{i_0, \dots, i_r} := \conv(v_{i_0}, \dots, v_{i_r})$
+              ein $r$-Simplex und heißt
               \textbf{Teilsimplex}\xindex{Teilsimplex} oder \textbf{Seite}\xindex{Seite}
-              von $\Delta$. 
-
-              $s_{i_0, \dots, i_r}$ ist $r$-Simplex.
+              von $\Delta$.
     \end{defenum}
 \end{definition}
 
@@ -623,17 +626,17 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
               wenn gilt:
             \begin{enumerate}[label=(\roman*),ref=\theenumii.\roman*]
                 \item Für $\Delta \in K$ und $S \subseteq \Delta$ Teilsimplex
-                      ist $S \in K$
-                \item Für $\Delta_1, \Delta_2 \in K$ ist 
+                      ist $S \in K$.
+                \item \label{def:simplizialkomplex.ii} Für $\Delta_1, \Delta_2 \in K$ ist 
                       $\Delta_1 \cap \Delta_2$ leer oder ein 
                         Teilsimplex von $\Delta_1$ und von 
-                      $\Delta_2$ \label{def:simplizialkomplex.ii}
+                      $\Delta_2$. 
             \end{enumerate}
         \item $|K| := \bigcup_{\Delta \in K} \Delta$ (mit Teilraumtopologie)
               heißt \textbf{geometrische Realisierung}\xindex{Realisierung!geometrische}
               von $K$.
-        \item Ist $d = \max \Set{ k | K \text{ enthält } k-\text{Simplex}}$,
-              so heißt $d$ \textbf{Dimension}\xindex{Dimension} von
+        \item Ist $d = \max \Set{ k \in \mdn | K \text{ enthält } k\text{-Simplex}}$,
+              so heißt $d$ die \textbf{Dimension}\xindex{Dimension} von
               $K$.
     \end{enumerate}
 \end{definition}
@@ -956,6 +959,22 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
         &= \sum_{k=0}^d (-1)^k b_k
     \end{align*}
 \end{beweis}
+
+% \section{Retraktionen}
+% \begin{definition}%
+%     Sei $X$ ein topologischer Raum, $A \subseteq X$, $r: X \rightarrow A$ eine stetige Abbildung
+%     und $\iota: A \hookrightarrow X$ die Inklusionsabbildung.
+
+%     \begin{defenum}
+%         \item $r$ heißt \textbf{Retraktion}\xindex{Retraktion}, wenn $r|_A = \id_A$ ist.
+%         \item $A$ heißt \textbf{Deformationsretrakt}\xindex{Deformationsretrakt}, wenn es eine Retraktion $r$
+%               auf $A$ mit $\iota  \circ r \sim \id_X$ gibt.
+%     \end{defenum}
+% \end{definition}
+
+% \begin{bemerkung}
+% Übungsblatt 7 + 8
+% \end{bemerkung}
 
 % Die Übungsaufgaben sollen ganz am Ende des Kapitels sein.
 \input{Kapitel2-UB}

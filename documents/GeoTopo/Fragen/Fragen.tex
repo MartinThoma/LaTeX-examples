@@ -77,7 +77,7 @@ $\displaystyle \bigcup_{i \in \emptyset} U_i = \emptyset \in \fT$
 \begin{definition}\xindex{Knotendiagramm}%
     Ein \textbf{Knotendiagramm} eines Knotens $\gamma$ ist eine 
     Projektion $\pi: \mdr^3 \rightarrow E$ auf eine Ebene $E$, sodass
-    $|\pi^{-1}(x) \cap C| \leq 2$ für jedes $x \in D$, wobei $C = \gamma(S^1)$.
+    $|\pi^{-1}(x) \cap C| \leq 2$ für jedes $x \in {\color{red}D}$, wobei $C = \gamma(S^1)$.
 
     Ist ${\color{red}(\pi|C)}^{-1}(x) = \Set{y_1, y_2}$, so \textbf{liegt $y_1$ über $y_2$},
     wenn $(y_1-x) = \lambda (y_2 - x)$ für ein $\lambda > 1$ ist.
@@ -85,6 +85,24 @@ $\displaystyle \bigcup_{i \in \emptyset} U_i = \emptyset \in \fT$
 
 Sollte das jeweils $\pi|_C$ (sprich: \enquote{$\pi$ eingeschränkt auf $C$})
 sein?
+
+Was ist $D$? Ich vermute, das sollte $E$ sein.
+
+Ich würde die Definition eher so schreiben:
+
+\begin{definition}\xindex{Knotendiagramm}%
+    Sei $\gamma: [0,1] \rightarrow \mdr^3$ ein Knoten, $E$ eine Ebene und 
+    $\pi: \mdr^3 \rightarrow E$ eine Projektion auf $E$.
+
+    $\pi$ heißt \textbf{Knotendiagramm} von $\gamma$, wenn gilt:
+    \[\left | \left (\pi|_{\gamma([0,1])} \right )^{-1}(x) \right | \leq 2 \;\;\; \forall x \in E\]
+
+    Ist $(\pi|_{\gamma([0,1])})^{-1}(x) = \Set{y_1, y_2}$, so \textbf{liegt $y_1$ über $y_2$},
+    wenn gilt:
+    \[\exists \lambda > 1: (y_1-x) = \lambda (y_2 - x)\]
+\end{definition}
+
+Ist meine Definition äquivalent zu der aus der Vorlesung?
 
 \section*{5.) Isotopie/Knoten}
 \begin{definition}
@@ -159,7 +177,7 @@ hinzufügen, dass der Atlas $n$-dimensional sein soll?
 \end{definition}
 Gibt es ein Beispiel, das zegit, dass nicht $\fB = \fT$ gilt?
 
-\section{12.) $\Delta^2$ explizit}
+\section*{12.) $\Delta^2$ explizit}
 Wie sieht der Standard-Simplex der dim. 2, also $\Delta^2$, explizit
 notiert aus? Praktisch ist das ja die konvexe Hülle der Standard-Basisvektoren
 $e_0, e_1, e_2$ (also $\begin{pmatrix}0\\0\\1\end{pmatrix},\begin{pmatrix}0\\1\\0\end{pmatrix},\begin{pmatrix}1\\0\\0\end{pmatrix}$),
@@ -168,4 +186,60 @@ also ein Polyeder mit vier Flächen im $\mdr^3$ (jedoch kein regelmäßiges Tetr
 Das ist dann nur das Gitter dieses Polyeders, aber nicht die Flächen
 oder sogar etwas innerhalb vom Polyeder, oder?
 
+\section*{13.) Normalenvektor}
+\begin{definition}%In Vorlesung: Definition 16.2
+    Sei $\gamma: I \rightarrow \mdr^2$ eine durch Bogenlänge
+    parametrisierte Kurve.
+
+    \begin{defenum}
+        \item Für $t \in I$ sei $n(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
+              an $\gamma$ in $t$, d.~h.
+              \[\langle n(t), \gamma'(t) \rangle = 0, \;\;\; \|n(t)\|=1 \]
+              und $\det((\gamma_1(t), n(t))) = +1$
+        \item Nach \cref{bem:16.1d} sind $n(t)$ und $\gamma''(t)$ linear
+              abhängig, d.~h. es gibt $\kappa(t) \in \mdr$ mit
+              \[\gamma''(t) = \kappa(t) \cdot n(t)\]
+              $\kappa(t)$ heißt \textbf{Krümmung}\xindex{Krümmung}
+              von $\gamma$ in $t$.
+    \end{defenum}
+\end{definition}
+
+\begin{definition}%In Vorlesung: Def.+Bem. 16.4
+    Sei $\gamma: I \rightarrow \mdr^3$ eine durch Bogenlänge parametrisierte
+    Kurve.
+
+    \begin{defenum}
+        \item Für $t \in I$ heißt $\kappa(t) := \|\gamma''(t)\|$ die
+              \textbf{Krümmung}\xindex{Krümmung} von $\gamma$ in $t$.
+        \item Ist für $t \in I$ die Ableitung $\gamma''(t) \neq 0$,
+              so heißt $\gamma''(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
+              an $\gamma$ in $t$.
+        \item \label{def:16.4c} $b(t)$ sei ein Vektor, der $\gamma'(t), n(t)$
+              zu einer orientierten Orthonormalbasis von $\mdr^3$ ergänzt.
+              Also gilt:
+              \[\det(\gamma'(t), n(t), b(t)) = 1\]
+              $b(t)$ heißt \textbf{Binormalenvektor}\xindex{Binormalenvektor},
+              die Orthonormalbasis 
+              \[\Set{\gamma'(t), n(t), b(t)}\]
+              heißt \textbf{begleitendes Dreibein}\xindex{Dreibein!begreitendes}.
+    \end{defenum}
+\end{definition}
+
+Die beiden Definitionen eins Normalenvektors / der Krümmung scheinen mir äquivalent zu sein.
+Warum haben wir beide? Ich würde die zweite bevorzugen.
+
+\section*{14.) Dimension von Simplizes}
+Gibt es 0-Dimensionale Simplizes?
+
+\section*{15.) Existenz der Parallelen}
+\begin{definition}%
+    \begin{enumerate}[label=§\arabic*),ref=§\arabic*,start=5]
+        \item \label{axiom:5}\textbf{Parallelenaxiom}\xindex{Parallele}:
+            Für jedes $g \in G$ und jedes
+            $P \in X \setminus g$ gibt es höchstens ein $h \in G$ mit
+            $h \cap g = \emptyset$. $h$ heißt \textbf{Parallele zu $g$ durch $P$}.
+    \end{enumerate}
+\end{definition}
+
+Soll hier wirklich \enquote{mindestens} stehen? Wie beweist man, dass es genau eine gibt?
 \end{document}

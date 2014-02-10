@@ -71,3 +71,4 @@ in dem Erstellen dieses Skripts steckt:
 |07.02.2014 | 15:00 - 15:30 | Verbesserungen von Jérôme Urhausen, Email vom 08.02.2014, eingefügt.
 |07.02.2014 | 15:30 - 15:45 | Verbesserungen 
 |07.02.2014 | 19:30 - 21:20 | Textsetzung, kleine Fehler und Verbesserung eines Bildes
+|10.02.2014 | 10:30 - 11:05 | Formulierung in Definitionen vereinfacht; Textsetzung

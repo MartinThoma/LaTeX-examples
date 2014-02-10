@@ -1,3 +1,4 @@
+%!TEX root = GeoTopo.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 03.12.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -753,10 +754,10 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
               Für geschlossene Wege $\gamma_0, \gamma_1$ um $x$ gilt:
 
               \begin{align*}
-                \tilde{\gamma_0}(1) &= \tilde{\gamma_1}(1)\\
-                \Leftrightarrow [\tilde{\gamma_0} * \tilde{\gamma_1}^{-1}] &\in \pi_1(Y, y_0)\\
-                \Leftrightarrow [\gamma_0 * \gamma_1^{-1}] &\in p_* (\pi_1(Y,y_0))\\
-                \Leftrightarrow [\gamma_0] \text{ und } [\gamma_1] &\text{liegen in der selben Nebenklasse bzgl.} p_*(\pi_1(Y, y_0))
+                &\tilde{\gamma_0}(1) = \tilde{\gamma_1}(1)\\
+                \Leftrightarrow &[\tilde{\gamma_0} * \tilde{\gamma_1}^{-1}] \in \pi_1(Y, y_0)\\
+                \Leftrightarrow &[\gamma_0 * \gamma_1^{-1}] \in p_* (\pi_1(Y,y_0))\\
+                \Leftrightarrow &[\gamma_0] \text{ und } [\gamma_1] \text{liegen in der selben Nebenklasse bzgl. } p_*(\pi_1(Y, y_0))
               \end{align*}
 
               Zu $i \in \Set{0, \dots, d-1}$ gibt es Weg $\delta_i$ in
@@ -914,17 +915,18 @@ der folgende Satz:
     Widerspruch.
 \end{beweis}
 
-\begin{definition}\xindex{Decktransformation}%In Vorlesung: Def+Bem 12.14
+\begin{definition}\xindex{Decktransformation}\xindex{Decktransformation!reguläre}%In Vorlesung: Def+Bem 12.14
     Es sei $p:Y \rightarrow X$ eine Überlagerung und $f:Y \rightarrow Y$
     ein Homöomorphismus.
 
-    $f$ heißt \textbf{Decktransformation} von $p :\gdw p \circ f = p$.
-
-    Ist $p$ eine Decktransformation und $|\Deck(Y/X)| = \deg{p}$,
-    so heißt $p$ \textbf{regulär}.\xindex{Decktransformation!reguläre}
+    \begin{defenum}
+        \item $f$ heißt \textbf{Decktransformation} von $p :\gdw p \circ f = p$.
+        \item Ist $p$ eine Decktransformation und $|\Deck(Y/X)| = \deg{p}$,
+              so heißt $p$ \textbf{regulär}.
+    \end{defenum}
 \end{definition}
 
-\begin{bemerkung}%In Vorlesung:12.14
+\begin{bemerkung}[Eigenschaften der Decktransformation]%In Vorlesung:12.14
     \begin{bemenum}
         \item Die Decktransformationen von $p$ bilden eine Gruppe, 
               die sog. \textbf{Decktransformationsgruppe}\xindex{Decktransformationsgruppe}
