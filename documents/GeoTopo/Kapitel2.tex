@@ -372,13 +372,13 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     eine Untergruppe von $\Homoo(X)$.
 \end{bemerkung}
 
-\begin{definition}\label{def:8.5}\xindex{Fläche!reguläre}%
+\begin{definition}\label{def:8.5}\xindex{Fläche!reguläre}\xindex{Parametrisierung!reguläre}%
     $S \subseteq \mdr^3$ heißt \textbf{reguläre Fläche} $:\gdw$
     $\forall s \in S\;\exists $ Umgebung $V(s) \subseteq \mdr^3$ $\exists U \subseteq \mdr^2$ offen: 
     $\exists \text{ differenzierbare Abbildung } F: U \rightarrow V \cap S$: 
     $\text{Rg}(J_F(u)) = 2\;\;\;\forall u \in U$.
 
-    $F$ heißt (lokale) reguläre Parametrisierung von $S$.
+    $F$ heißt (lokale) \textbf{reguläre Parametrisierung} von $S$.
 
     \begin{align*}
         F(u,v) &= \left (x(u,v), y(u,v), z(u,v) \right )\\
@@ -455,9 +455,11 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     differenzierbare Mannigfaltigkeit.
 \end{bemerkung}
 
-\begin{beweis}
-    \todo{Hier muss ich nochmals drüber lesen.}
-    \underline{z.Z.:} $F_j^{-1} \circ F_i$ ist Diffeomorphismus
+\begin{beweis}\leavevmode
+
+    \todo[inline]{Was ist $F_i$, was $F_j$? Was ist $U_i$, was $U_j$?}
+
+    \underline{z.Z.:} $F_j^{-1} \circ F_i$ ist ein Diffeomorphismus.
 
     \begin{figure}[htp]
         \centering
@@ -470,7 +472,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     \underline{Idee:} Finde differenzierbare Funktion $\widetilde{F_j^{-1}}$
     in Umgebung $W$ von $s$, sodass $\widetilde{F_j^{-1}}|_{S \cap W} = F_j^{-1}$.
 
-    \underline{Ausführung:} Sei $u_0 \in U_i$ mit $F_i(u_0) = s = F_j(v_0), v_0 \in U_j$.
+    \underline{Ausführung:} Sei $u_0 \in U_i$, $v_0 \in U_j$ mit $F_i(u_0) = s = F_j(v_0)$.
 
     Da $\rang(J_{F_j}(v_0)) = 2$ ist, ist \obda 
     \[\det 
@@ -483,7 +485,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     und $F_j(u,v) = \left ( x(u,v), y(u,v), z(u,v) \right)$.
 
     Definiere $\widetilde{F_j}: U_j \times \mdr \rightarrow \mdr^3$ durch
-    \[\widetilde{F_j} (u, v, t) = \left(x(u,v), y(u,v), z(u,v)+t \right )\]
+    \[\widetilde{F_j} (u, v, t) := \left(x(u,v), y(u,v), z(u,v)+t \right )\]
     
     Offensichtlich: $\widetilde{F_j} |_{U_j \times \Set{0}} = F_j$
 
@@ -498,8 +500,11 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     $F_j$ von $\widetilde{F_j}(v_0, 0) = F_j(v_0) = s$, sodass $\widetilde{F_j}$
     auf $W$ eine differenzierbar Inverse $F_j^{-1}$ hat.
 
-    Weiter ist $\widetilde{F_j}^{-1}|_{W \cap S} = F_j^{-1} |_{W \cap S}$
-    $\Rightarrow F_j^{-1} \circ F_i |_{F_i^{-1} (W \cap S)} = F_j^{-1} \circ F_i |_{F_i^{-1} (W \cap S)}$
+    Weiter gilt:
+    \begin{align*}
+        \widetilde{F_j}^{-1}|_{W \cap S} &= F_j^{-1} |_{W \cap S}\\
+        \Rightarrow F_j^{-1} \circ F_i |_{F_i^{-1} (W \cap S)} &= F_j^{-1} \circ F_i |_{F_i^{-1} (W \cap S)}
+    \end{align*}
     ist differenzierbar.
 \end{beweis}
 
