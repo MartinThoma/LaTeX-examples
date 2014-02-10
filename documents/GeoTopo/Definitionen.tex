@@ -1,0 +1,36 @@
+%!TEX root = GeoTopo.tex
+\markboth{Anhang: Definitionen}{Anhang: Definitionen}
+\chapter*{Anhang: Definitionen}
+\addcontentsline{toc}{chapter}{Anhang: Definitionen}
+
+Da dieses Skript in die Geometrie und Topologie einführen soll, sollten soweit
+wie möglich alle benötigten Begriffe definiert und erklärt werden. Die folgenden
+Begriffe wurden zwar verwendet, aber nicht erklärt, da sie Bestandteil der
+Vorlesungen \enquote{Analysis I und II} sowie \enquote{Lineare Algebra und analytische Geometrie I und II}
+sind. Jedoch will ich zumindest die Definitionen bereitstellen.
+
+\begin{definition}\xindex{Häufungspunkt}
+	Sei $D \subseteq \mdr$ und $x_0 \in \mdr$. $x_0$ heißt ein \textbf{Häufungspunkt}
+	von $D :\gdw \exists$ Folge $x_n$ in $D \setminus \Set{x_0}$ mit $x_n \rightarrow x_0$.
+\end{definition}
+
+Folgende Definition wurde dem Skript von Herrn Prof. Dr. Leuzinger für
+Lineare Algebra entnommen:
+
+\begin{definition}\xindex{Abbildung!affine}
+	Es seien $V$ und $W$ $\mdk$-Vektorräume und $\mda(V)$ und $\mda(W)$ die 
+	zugehörigen affinen Räume. Eine Abbildung $f:V \rightarrow W$ heißt \textbf{affin},
+	falls für alle $a, b \in V$ und alle $\lambda, \mu \in \mdk$ mit $\lambda + \mu = 1$ gilt:
+	\[f(\lambda a + \mu b) = \lambda f(a) + \mu f(b)\]
+\end{definition}
+
+\begin{definition}\xindex{Orthonormalbasis}
+	Sei $V$ ein Vektorraum und $S \subseteq V$ eine Teilmenge.
+
+	$S$ heißt eine \textbf{Orthonormalbasis} von $V$, wenn gilt:
+	\begin{defenumprops}
+		\item $S$ ist eine Basis von $V$
+		\item $\forall v \in S: \|v\| = 1$
+		\item $\forall v_1, v_2 \in S: v_1 \neq v_2 \Rightarrow \langle v_1, v_2 \rangle = 0$
+	\end{defenumprops}
+\end{definition}

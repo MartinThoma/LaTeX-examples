@@ -242,4 +242,24 @@ Gibt es 0-Dimensionale Simplizes?
 \end{definition}
 
 Soll hier wirklich \enquote{mindestens} stehen? Wie beweist man, dass es genau eine gibt?
+
+\section{15.) Simpliziale Abbildungen}
+Wenn man Simpliziale Abbildungen wie folgt definiert
+
+\begin{definition}\xindex{Abbildung!simpliziale}%
+    Seien $K, L$ Simplizialkomplexe. Eine stetige Abbildung
+    \[f:|K| \rightarrow |L|\]
+    heißt \textbf{simplizial}, wenn für
+    jedes $\Delta \in K$ gilt:
+    \begin{defenum}
+        \item $f(\Delta) \in L$
+        \item $f|_{\Delta} : \Delta \rightarrow f(\Delta)$ ist eine
+              affine Abbildung.
+    \end{defenum}
+\end{definition}
+
+dann ist die Forderung \enquote{$f(\Delta) \in L$} doch immer erfüllt, oder?
+Gibt es eine Abbildung
+\[f:|K| \rightarrow |L|\]
+mit $f(\Delta) \notin L$?
 \end{document}

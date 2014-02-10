@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/home/moose/Downloads/LaTeX-examples/documents/GeoTopo"
+			"path": "/home/moose/Downloads/LaTeX-examples/documents/GeoTopo",
+			"file_exclude_patterns": ["*.aux", "*.fdb_latexmk"]
 		}
 	],
 	"settings":
