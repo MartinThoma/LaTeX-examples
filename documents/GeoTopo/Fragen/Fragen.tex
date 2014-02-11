@@ -128,57 +128,6 @@ Laut \url{https://de.wikipedia.org/wiki/Mannigfaltigkeit_mit_Rand}:
 
 \todo[inline]{Gibt es ein Beispiel, das zegit, dass nicht $\fB = \fT$ gilt?}
 
-\section*{12.) $\Delta^2$ explizit}
-Wie sieht der Standard-Simplex der dim. 2, also $\Delta^2$, explizit
-notiert aus? Praktisch ist das ja die konvexe Hülle der Standard-Basisvektoren
-$e_0, e_1, e_2$ (also $\begin{pmatrix}0\\0\\1\end{pmatrix},\begin{pmatrix}0\\1\\0\end{pmatrix},\begin{pmatrix}1\\0\\0\end{pmatrix}$),
-also ein Polyeder mit vier Flächen im $\mdr^3$ (jedoch kein regelmäßiges Tetraeder, oder?)
-
-Das ist dann nur das Gitter dieses Polyeders, aber nicht die Flächen
-oder sogar etwas innerhalb vom Polyeder, oder?
-
-\section*{13.) Normalenvektor}
-\begin{definition}%In Vorlesung: Definition 16.2
-    Sei $\gamma: I \rightarrow \mdr^2$ eine durch Bogenlänge
-    parametrisierte Kurve.
-
-    \begin{defenum}
-        \item Für $t \in I$ sei $n(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
-              an $\gamma$ in $t$, d.~h.
-              \[\langle n(t), \gamma'(t) \rangle = 0, \;\;\; \|n(t)\|=1 \]
-              und $\det((\gamma_1(t), n(t))) = +1$
-        \item Nach \cref{bem:16.1d} sind $n(t)$ und $\gamma''(t)$ linear
-              abhängig, d.~h. es gibt $\kappa(t) \in \mdr$ mit
-              \[\gamma''(t) = \kappa(t) \cdot n(t)\]
-              $\kappa(t)$ heißt \textbf{Krümmung}\xindex{Krümmung}
-              von $\gamma$ in $t$.
-    \end{defenum}
-\end{definition}
-
-\begin{definition}%In Vorlesung: Def.+Bem. 16.4
-    Sei $\gamma: I \rightarrow \mdr^3$ eine durch Bogenlänge parametrisierte
-    Kurve.
-
-    \begin{defenum}
-        \item Für $t \in I$ heißt $\kappa(t) := \|\gamma''(t)\|$ die
-              \textbf{Krümmung}\xindex{Krümmung} von $\gamma$ in $t$.
-        \item Ist für $t \in I$ die Ableitung $\gamma''(t) \neq 0$,
-              so heißt $\gamma''(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
-              an $\gamma$ in $t$.
-        \item \label{def:16.4c} $b(t)$ sei ein Vektor, der $\gamma'(t), n(t)$
-              zu einer orientierten Orthonormalbasis von $\mdr^3$ ergänzt.
-              Also gilt:
-              \[\det(\gamma'(t), n(t), b(t)) = 1\]
-              $b(t)$ heißt \textbf{Binormalenvektor}\xindex{Binormalenvektor},
-              die Orthonormalbasis 
-              \[\Set{\gamma'(t), n(t), b(t)}\]
-              heißt \textbf{begleitendes Dreibein}\xindex{Dreibein!begreitendes}.
-    \end{defenum}
-\end{definition}
-
-\todo[inline]{Die beiden Definitionen eins Normalenvektors / der Krümmung scheinen mir äquivalent zu sein.
-Warum haben wir beide? Ich würde die zweite bevorzugen.}
-
 \section*{15.) Existenz der Parallelen}
 \begin{definition}%
     \begin{enumerate}[label=§\arabic*),ref=§\arabic*,start=5]
@@ -189,7 +138,7 @@ Warum haben wir beide? Ich würde die zweite bevorzugen.}
     \end{enumerate}
 \end{definition}
 
-\todo[inline]{Soll hier wirklich \enquote{mindestens} stehen? Wie beweist man, dass es genau eine gibt?}
+\todo[inline]{Wie beweist man, dass es genau eine gibt? (Verschiebung der Geraden in den entsprechenden Punkt mit der Isometrie, die die Halbebenen gleich lässt)}
 
 \section*{17.) Simpliziale Abbildungen}
 Wenn man Simpliziale Abbildungen wie folgt definiert
@@ -206,10 +155,10 @@ Wenn man Simpliziale Abbildungen wie folgt definiert
     \end{defenum}
 \end{definition}
 
-dann ist die Forderung \enquote{$f(\Delta) \in L$} doch immer erfüllt, oder?
+\todo[inline]{Dann ist die Forderung \enquote{$f(\Delta) \in L$} doch immer erfüllt, oder?
 Gibt es eine Abbildung
-\[f:|K| \rightarrow |L|\]
-mit $f(\Delta) \notin L$?
+$f:|K| \rightarrow |L|$
+mit $f(\Delta) \notin L$?}
 
 \section*{18.) ÜB 1, Aufgabe 2}
 \underline{Vor.:} Es sei $(X, d)$ ein metrischer Raum, $A \subseteq X$. 
