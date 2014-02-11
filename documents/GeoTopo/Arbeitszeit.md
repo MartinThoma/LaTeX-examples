@@ -74,3 +74,4 @@ in dem Erstellen dieses Skripts steckt:
 |10.02.2014 | 10:30 - 11:05 | Formulierung in Definitionen vereinfacht; Textsetzung
 |10.02.2014 | 11:05 - 11:20 | Verbesserungen von Marco, Email vom 10.02.2014, eingefügt.
 |10.02.2014 | 11:40 - 13:20 | Verbesserungen von Jérôme Urhausen, Email vom 10.02.2014, eingefügt.
+|11.02.2014 | 05:30 - 06:00 | TikZ'en eines Bildes mit Hilfe von Jérôme Urhausen (Email vom 10.02.2014)

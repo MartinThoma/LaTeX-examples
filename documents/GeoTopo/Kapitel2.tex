@@ -775,8 +775,8 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
         \parbox[c][3cm]{4cm}{\centering\input{figures/topology-graph-k-3-3.tex}}
         \label{fig:k-3-3}
     }%
-    \label{fig:graphen-beispiele}
     \caption{Beispiele für Graphen}
+    \label{fig:graphen-beispiele}
 \end{figure}
 
 \begin{bemerkung}
@@ -824,8 +824,8 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
         \parbox{4cm}{\centering\input{figures/topology-graph-tetraeder-area-2.tex}}
         \label{fig:topology-simplizial-complex-k-division}
     }%
-    \label{fig:simplex-unterteilung-beispiel}
     \caption{Beispiel für \cref{kor:simplex-unterteilung}.}
+    \label{fig:simplex-unterteilung-beispiel}
 \end{figure}
 
 \begin{beweis}
@@ -849,12 +849,14 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
         \item Sind $P_1$ und $P_2$ konvexe Polygone und $T_1, T_2$
               die zugehörigen Triangulierungen von $S^2$, so gibt es 
               eine eine Triangulierungen $T$, die sowohl um $T_1$ als
-              auch um $T_2$ Verfeinerung ist.
+              auch um $T_2$ Verfeinerung ist (vgl. \cref{fig:topology-3}).
 
-              \begin{center}
+              \begin{figure}[htp]
                   \centering
-                  \input{figures/topology-3.tex}\todo{Was bedeutet diese Zeichnung?}
-              \end{center}
+                  \input{figures/topology-3.tex}
+                  \caption{$T$ ist eine Triangulierung, die für $T_1$ und $T_2$ eine Verfeinerung ist.}
+                  \label{fig:topology-3}
+              \end{figure}
 
               Nach \cref{kor:simplex-unterteilung} ist
               $\chi(\partial P_1) = \chi(T_1) = \chi(T) = \chi(T_2) = \chi(\partial P_2) = 2$,

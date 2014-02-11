@@ -1,10 +1,11 @@
 \documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage{tikz}
+\usepackage{tkz-euclide}
 \usetikzlibrary{calc,shadings}
 \usepackage{pgfplots}
 
 \begin{document}
-
+\usetkzobj{all}
 \newenvironment{customlegend}[1][]{%
     \begingroup
     % inits/clears the lists (which might be populated from previous
@@ -35,49 +36,60 @@
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}
 \begin{tikzpicture}
-    \tikzstyle{point}=[circle,thick,draw=black,fill=black,inner sep=0pt,minimum width=4pt,minimum height=4pt]
-    \tikzstyle{smallpoint}=[circle,thick,draw=red,fill=red,inner sep=0pt,minimum width=3pt,minimum height=3pt]
-    \begin{pgfonlayer}{foreground}
-        \node (a)[point] at (0,0) {};
-        \node (b)[point] at (2,0) {};
-        \node (c)[point] at (3,0.5) {};
-        \node (d)[point] at (0,3) {};
-        \node (e)[point] at (2,3) {};
-        \node (f)[point] at (3,1.5) {};
-        \node (g)[point] at (2,2.5) {};
-        \node (h)[point] at (1,1.5) {};
-    \end{pgfonlayer}
+    \tkzSetUpPoint[shape=circle,size=10,color=black,fill=black]
 
-    \draw (h.center) -- (e.center) -- (f.center) -- (b.center) -- cycle;
-    \draw (h.center) -- (f.center);
-
-    \draw[green, densely dashed] (a.center) -- (d.center) -- (g.center) -- (c.center) -- cycle;
-    \draw[green, densely dashed] (a.center) -- (g.center);
+    \tkzDefPoints{0/0/A, 2/0/B, 3/0.5/C, 0/3/D, 2/3/E, 3/1.5/F, 2/2/G, 1/1.5/H}
 
     \begin{pgfonlayer}{foreground}
-        \node (x)[point, red,fill=red] at (1.79,0.31) {};
-        \node (x1)[smallpoint] at (1.2,1.5) {};
-        \node (x2)[smallpoint] at (1.71,2.56) {};
-        \node (x3)[smallpoint] at (2.5,1.5) {};
-        \node (x4)[smallpoint] at (2.72,1.06) {};
-    \end{pgfonlayer}
-    \draw[blue, densely dotted] (x.center) -- (x1.center);
-    \draw[blue, densely dotted] (x.center) -- (x2.center);
-    \draw[blue, densely dotted] (x.center) -- (x3.center);
-    \draw[blue, densely dotted] (x.center) -- (x4.center);
+        %Get intersections
+        \tkzInterLL(B,H)(A,C) \tkzGetPoint{I}
+        \tkzInterLL(B,F)(A,C) \tkzGetPoint{J}
+        \tkzInterLL(A,G)(B,H) \tkzGetPoint{K}
+        \tkzInterLL(A,G)(H,F) \tkzGetPoint{L}
+        \tkzInterLL(C,G)(B,F) \tkzGetPoint{M}
+        \tkzInterLL(C,G)(H,F) \tkzGetPoint{N}
+        \tkzInterLL(G,D)(H,E) \tkzGetPoint{O}
 
+        \tkzDrawPoints[color=green,fill=green](A,C,G,D)
+        \tkzDrawPoints[color=blue,fill=blue](B,F,E,H)
+        \tkzDrawPoints[color=red,fill=red](I,J,K,L,M,N,O)
+    \end{pgfonlayer}
+
+    \tkzDrawPolygon[blue,very thick](H,E,F,B)
+    \tkzDrawSegment[blue,very thick](H,F)
+
+    \tkzDrawPolygon[green,very thick](A,D,G,C)
+    \tkzDrawSegment[green,very thick](A,G)
+
+    \tkzDrawSegments[red,very thick](I,M I,N I,L A,H H,D L,O N,E G,E)
+
+    % \tkzLabelPoint(A){A}
+    % \tkzLabelPoint(B){B}
+    % \tkzLabelPoint(C){C}
+    % \tkzLabelPoint(D){D}
+    % \tkzLabelPoint(E){E}
+    % \tkzLabelPoint(F){F}
+    % \tkzLabelPoint(G){G}
+    % \tkzLabelPoint(H){H}
+    % \tkzLabelPoint(I){I}
+    % \tkzLabelPoint(J){J}
+    % \tkzLabelPoint(K){K}
+    % \tkzLabelPoint(L){L}
+    % \tkzLabelPoint(M){M}
+    % \tkzLabelPoint(N){N}
+    % \tkzLabelPoint(O){O}
 
     \begin{customlegend}[
     legend entries={
         $T_1$,
         $T_2$,
-        $?$
+        $T$
     },
     legend style={at={(4.5,3.5)},font=\footnotesize}] % <= to define position and font legend
     % the following are the "images" and numbers in the legend
-        \addlegendimage{black}
-        \addlegendimage{green,densely dashed}
-        \addlegendimage{blue, densely dotted}
+        \addlegendimage{blue,very thick}
+        \addlegendimage{green,very thick}
+        \addlegendimage{red,very thick}
     \end{customlegend}
 \end{tikzpicture}
 \end{document}
