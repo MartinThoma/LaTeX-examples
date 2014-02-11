@@ -7,7 +7,7 @@ def get_definitions(filename):
     with open(filename) as f:
         content = f.read()
 
-    pattern = re.compile(r"\\begin{definition}(.*?)\\end{definition}", re.DOTALL | re.UNICODE)
+    pattern = re.compile(r"^\\begin{definition}(.*?)\\end{definition}", re.DOTALL | re.UNICODE)
     index_pattern = re.compile(r"\\xindex{(?:.*?@)?(.*?)(?:\|.*?)?}", re.UNICODE)
     todo_pattern = re.compile(r"\\todo{.*?}", re.UNICODE)
     definitions = re.findall(pattern, content)
