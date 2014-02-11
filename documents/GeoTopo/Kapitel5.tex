@@ -1,3 +1,4 @@
+%!TEX root = GeoTopo.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 30.01.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -370,3 +371,138 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
               beide Seiten von $T_s S + s$.
     \end{bemenum}
 \end{bemerkung}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 11.02.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Erste und zweite Fundamentalform}%In Vorlesung: §19
+Sei $S \subseteq \mdr^3$ eine reguläre Fläche, $s \in S$, $T_s S$ die Tangentialebene
+an $S$ in $s$.
+
+\begin{bemerkung}%In Vorlesung: Bem.+Def. 19.1
+    \begin{bemenum}
+        \item \label{bem:19.1a} Die Einschränkung des Standardskalarproduktes des $\mdr^3$ auf
+              $T_s S$ macht $T_s S$ zu einem euklidischen Vektorraum.
+        \item Sei $F: U \rightarrow V$ eine lokale Parametrisierung von $S$ um
+              $s$ und $p := F^{-1}(s)$.
+
+              Dann ist $\Set{D_P F(e_1), D_P F(e_2)}$ eine Basis von $T_s S$.
+        \item Bzgl. der Basis $\Set{D_P F(e_1), D_P F(e_2)}$ hat das 
+              Standardskalarprodukt aus \cref{bem:19.1a} die Darstellungsmatrix
+              \[ I_S = \begin{pmatrix}
+                          g_{1,1}(s) & g_{1,2}(s)\\
+                          g_{1,2}(s) & g_{2,2}(s)
+                       \end{pmatrix} =
+                       \begin{pmatrix}
+                          E(s) & F(s) \\
+                          F(s) & G(s)
+                       \end{pmatrix}\]
+              mit $\begin{aligned}
+                      g_{i,j} &= g_s(D_P F(e_i), D_P F(e_j))\\
+                              &= \langle \frac{\partial F}{\partial u_i} (p), \frac{\partial F}{\partial u_j} (p) \rangle \;\;\; i,j \in \Set{1,2}
+                   \end{aligned}$.\\
+              Die Matrix $I_S$ heißt \textbf{erste Fundamentalform}\xindex{Fundamentalform!erste}
+              von $S$ bzgl. der Parametrisierung $F$.
+        \item $g_{i,j}(s)$ ist eine differenzierbare Funktion von $s$.
+    \end{bemenum}
+\end{bemerkung}
+
+\begin{bemerkung}
+    \[\det(I_S) = \| \frac{\partial F}{\partial u_1}(p) \times \frac{\partial F}{\partial u_2}(p)\|^2\] 
+\end{bemerkung}
+
+\begin{beweis}
+    Sei $\frac{\partial F}{\partial u_1}(p) = \begin{pmatrix}
+        x_1\\ x_2 \\ x_3
+    \end{pmatrix}, \;\;\; \frac{\partial F}{\partial u_2}(p) = \begin{pmatrix}
+        y_1\\ y_2 \\ y3
+    \end{pmatrix}$
+
+    Dann ist $\frac{\partial F}{\partial u_1}(p) \times \frac{\partial F}{\partial u_2}(p) = \begin{pmatrix}
+        z_1 \\ z_2 \\ z_3
+    \end{pmatrix}$ mit
+    \begin{align*}
+        z_1 &= x_2 y_3 - x_3 - y_2\\
+        z_2 &= x_3 y_1 - x_1 y_3\\
+        z_3 &= x_1 y_2 - x_2 y_1
+    \end{align*}
+    $\Rightarrow \|\frac{\partial F}{\partial u_1} (p) \times \frac{\partial F}{\partial u_2} (p)\| = z_1^2 + z_2^2 + z_3^2$\\
+    \begin{align*}
+        \det(I_S) &= g_{1,1} g_{2,2} - g_{1,2}^2\\
+        &= \langle \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\rangle \langle \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}, \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}\rangle - \langle \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}\rangle^2\\
+        &= (x_1^2 + x_2^2 + x_3^2) (y_1^2 + y_2^2 + y_3^2) - (x_1 y_1 + x_2 y_2 + x_3 y_3)^2
+    \end{align*}
+\end{beweis}
+
+\begin{definition}\xindex{Flächenelement}%In Vorlesung: Def.+Bem. 19.3 / Erinnerung
+    \begin{defenum}
+        \item Das Differential
+              \[\mathrm{d} A = \sqrt{\det (I)} \mathrm{d} u_1 \mathrm{d} u_2\]
+              heißt \textbf{Flächenelement} von $S$ bzgl. der Parametrisierung $F$.
+        \item \label{def:berechenbares-integral}Für eine Funktion $f: V \rightarrow \mdr$ heißt 
+              \[\int_V f \mathrm{d} A := \int_U f(\underbrace{F(u_1, u_2)}_{=: s}) \sqrt{\det I(s)} \mathrm{d} u_1 \mathrm{d} u_2\]
+              der \textbf{Wert des Integrals} von $f$ über $V$, falls das Integral rechts
+              existiert.
+    \end{defenum}
+
+\end{definition}
+
+\begin{bemerkung}
+    \begin{bemenum}
+        \item $\int_V f \mathrm{d} A$ ist unabhänig von der gewählten Parametrisierung.
+        \item Sei $f: S \rightarrow \mdr$ eine Funktion, die im Sinne von
+              \cref{def:berechenbares-integral} lokal integrierbar ist.
+
+              Dann ist $\int_S f \mathrm{d} A$ wohldefiniert, falls (z.~B.) $S$
+              kompakt ist.
+
+              Etwa: $\int_S f \mathrm{d} A = \sum_{i=1}^n \int_{V_i} f \mathrm{d} A - \sum_{i \neq j} \int_{V_i \cap V_j} f \mathrm{d} A + \sum_{i,j,k} \int_{V_i \cap V_j \cap V_k} - \dots$
+    \end{bemenum}
+\end{bemerkung}
+
+\begin{beweis}
+    \begin{enumerate}[label=\alph*)]
+        \item Mit Transformationsformel
+        \item Ist dem Leser überlassen
+    \end{enumerate}
+\end{beweis}
+
+\begin{proposition}
+    Sei $S \subseteq \mdr^3$ eine reguläre, orientierbare Fläche mit glatten
+    Normalenfeld $n: S \rightarrow S^2$.
+
+    \begin{propenum}
+        \item $n$ induziert für jedes $s \in S$ eine lineare Abbildung $d_S n: T_s S \rightarrow T_{n(s)} S^2$
+              durch 
+              \[d_s n(x) = \frac{\mathrm{d}}{\mathrm{d} t} n (\underbrace{s \text{\enquote{+}} tx}_{\mathclap{\text{Soll auf Fläche $S$ bleiben}}}) \Bigr |_{t=0}\]
+        \item $T_{n(s)} S^2 = T_s S$
+        \item $d_S n$ ist ein Endomorphismus von $T_s S$
+        \item $d_S n$ ist selbstadjungiert bzgl. des Skalarproduktes $I_S$
+    \end{propenum}
+\end{proposition}
+
+\begin{beweis}\leavevmode
+    \begin{enumerate}[label=\alph*)]
+        \item TODO
+        \item $T_{n(S)} S^2 = \langle n(s) \rangle^\bot = T_s S$
+        \item TODO
+        \item Zu zeigen: $\forall x,y \in I_s S: \langle x, d_s n (y) \rangle = \langle d_s n(x), y \rangle$
+
+        Aufgrund der Bilinearität des Skalarproduktes genügt es diese Eigenschaft
+        für die Basisvektoren zu zeigen.
+
+        Sei $x_i = D_P F(e_i) = \frac{\partial F}{\partial u_i} (p)\;\;\; i = 1,2$
+
+        \underline{Beh.:} $\langle x_i, d_s n(x_j) \rangle = \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle$
+
+        $\Rightarrow \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle = \langle x_j, d_s n (x_i) \rangle$
+
+        \underline{Bew.:} 
+
+        \begin{align*}
+            0 &= \hphantom{\frac{\mathrm{d}}{\mathrm{d}t} \left (\right.} \langle \frac{\partial F}{\partial u} (p + t e_j), n(p + t e_j) \rangle\\
+\Rightarrow 0 &= \frac{\mathrm{d}}{\mathrm{d}t} \left (\langle \frac{\partial F}{\partial u} (p + t e_j), n(p + t e_j) \rangle \right) \Bigr |_{t=0}\\
+              &= \langle \underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial F}{\partial u_i} (p + t e_j)}_{\frac{\partial^2 F}{\partial u_j \partial u_i} (p)} \Bigr |_{t=0}, n(s) \rangle + \langle x_i, d_s n \underbrace{D_P F (e_j)}_{x_j}\rangle
+        \end{align*}
+    \end{enumerate}
+\end{beweis}

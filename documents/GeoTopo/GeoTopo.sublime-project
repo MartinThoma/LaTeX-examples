@@ -3,7 +3,7 @@
 	[
 		{
 			"path": "/home/moose/Downloads/LaTeX-examples/documents/GeoTopo",
-			"file_exclude_patterns": ["*.aux", "*.fdb_latexmk", "*.out", "*.idx", "*.toc"]
+			"file_exclude_patterns": ["*.aux", "*.fdb_latexmk", "*.out", "*.idx", "*.toc", "*.ilg", "*.thm", "*.ind"]
 		}
 	],
 	"settings":

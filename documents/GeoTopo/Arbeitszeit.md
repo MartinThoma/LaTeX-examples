@@ -76,3 +76,4 @@ in dem Erstellen dieses Skripts steckt:
 |10.02.2014 | 11:40 - 13:20 | Verbesserungsvorschläge von Jérôme Urhausen, Email 1 vom 10.02.2014, umgesetzt.
 |11.02.2014 | 05:30 - 06:00 | TikZ'en eines Bildes mit Hilfe von Jérôme Urhausen (Email 1 vom 10.02.2014)
 |11.02.2014 | 06:30 - 07:00 | Verbesserungsvorschläge von Jérôme Urhausen, Email 2 vom 10.02.2014, umgesetzt.
+|11.02.2014 | 09:45 - 12:20 | Digitalisieren der Vorlesung von 11.02.2014
