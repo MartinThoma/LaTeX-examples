@@ -97,8 +97,11 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     \end{defenum}
 \end{definition}
 
-\begin{beispiel}
+\begin{beispiel}[Basis und Subbasis]
     \begin{bspenum}
+        \item Jede Basis ist auch eine Subbasis, z.B.\\
+              $S=\Set{ (a,b) | a,b \in \mdr, a<b }$ ist für $\mdr$ mit der 
+              Standardtopologie sowohl Basis als auch Subbasis.
         \item Gegeben sei $X = \mdr^n$ mit euklidischer Topologie $\fT$. Dann ist
               \[\fB = \Set{B_r(x) | r \in \mdq_{> 0}, x \in \mdq^n}\]
               ist eine abzählbare Basis von $\fT$.
@@ -1009,8 +1012,8 @@ $\qed$
     \[H: S^1 \times [0,1] \rightarrow \mdr^3\]
     gibt mit 
     \begin{align*}
-        H(z,0) &= \gamma_1(z)\\
-        H(z,1) &= \gamma_2(z)
+        H(z,0) &= \gamma_1(z) \;\;\;\forall z \in S^1\\
+        H(z,1) &= \gamma_2(z) \;\;\;\forall z \in S^1
     \end{align*}
     und für jedes
     feste $t \in [0,1]$ ist 
@@ -1020,12 +1023,15 @@ $\qed$
 \end{definition}
 
 \begin{definition}\xindex{Knotendiagramm}%
-    Ein \textbf{Knotendiagramm} eines Knotens $\gamma$ ist eine 
-    Projektion $\pi: \mdr^3 \rightarrow E$ auf eine Ebene $E$, sodass
-    $|(\pi|C)^{-1}(x)| \leq 2$ für jedes $x \in D$.
+    Sei $\gamma: [0,1] \rightarrow \mdr^3$ ein Knoten, $E$ eine Ebene und 
+    $\pi: \mdr^3 \rightarrow E$ eine Projektion auf $E$.
 
-    Ist $(\pi|C)^{-1}(x) = \Set{y_1, y_2}$, so \textbf{liegt $y_1$ über $y_2$},
-    wenn $(y_1-x) = \lambda (y_2 - x)$ für ein $\lambda > 1$ ist.
+    $\pi$ heißt \textbf{Knotendiagramm} von $\gamma$, wenn gilt:
+    \[\left | \pi^{-1}(x) \right | \leq 2 \;\;\; \forall x \in \pi(\gamma)\]
+
+    Ist $(\pi|_{\gamma([0,1])})^{-1}(x) = \Set{y_1, y_2}$, so \textbf{liegt $y_1$ über $y_2$},
+    wenn gilt:
+    \[\exists \lambda > 1: (y_1-x) = \lambda (y_2 - x)\]
 \end{definition}
 
 \begin{satz}[Satz von Reidemeister]
