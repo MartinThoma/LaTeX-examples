@@ -66,12 +66,12 @@
     $A \subseteq X$ heißt \textbf{abgeschlossen}, wenn $X \setminus A$ offen ist.
 \end{definition}
 
-Ich glaube es ist unnötig in (i) zu fordern, dass $\emptyset \in \fT$ gilt,
+\todo[inline]{Ich glaube es ist unnötig in (i) zu fordern, dass $\emptyset \in \fT$ gilt,
 da man das mit (iii) bereits abdeckt:
 
 Sei in (iii) die Indexmenge $I = \emptyset$. Dann muss gelten:
 
-$\displaystyle \bigcup_{i \in \emptyset} U_i = \emptyset \in \fT$
+$\displaystyle \bigcup_{i \in \emptyset} U_i = \emptyset \in \fT$}
 
 \section*{4.) Knotendiagramm:}
 \begin{definition}\xindex{Knotendiagramm}%
@@ -83,12 +83,12 @@ $\displaystyle \bigcup_{i \in \emptyset} U_i = \emptyset \in \fT$
     wenn $(y_1-x) = \lambda (y_2 - x)$ für ein $\lambda > 1$ ist.
 \end{definition}
 
-Sollte das jeweils $\pi|_C$ (sprich: \enquote{$\pi$ eingeschränkt auf $C$})
+\todo[inline]{Sollte das jeweils $\pi|_C$ (sprich: \enquote{$\pi$ eingeschränkt auf $C$})
 sein?
 
 Was ist $D$? Ich vermute, das sollte $E$ sein.
 
-Ich würde die Definition eher so schreiben:
+Ich würde die Definition eher so schreiben:}
 
 \begin{definition}\xindex{Knotendiagramm}%
     Sei $\gamma: [0,1] \rightarrow \mdr^3$ ein Knoten, $E$ eine Ebene und 
@@ -102,7 +102,7 @@ Ich würde die Definition eher so schreiben:
     \[\exists \lambda > 1: (y_1-x) = \lambda (y_2 - x)\]
 \end{definition}
 
-Ist meine Definition äquivalent zu der aus der Vorlesung?
+\todo[inline]{Ist meine Definition äquivalent zu der aus der Vorlesung?}
 
 \section*{5.) Isotopie/Knoten}
 \begin{definition}
@@ -121,7 +121,7 @@ Ist meine Definition äquivalent zu der aus der Vorlesung?
     $\gamma_1$ und $\gamma_2$.
 \end{definition}
 
-Fehlt hier nicht etwas wie \enquote{$\forall z \in S^1$} (nun rot ergänzt).
+\todo[inline]{Fehlt hier nicht etwas wie \enquote{$\forall z \in S^1$} (nun rot ergänzt).}
 
 \section*{6.) Basisbeispiele}
 \begin{itemize}
@@ -225,8 +225,8 @@ oder sogar etwas innerhalb vom Polyeder, oder?
     \end{defenum}
 \end{definition}
 
-Die beiden Definitionen eins Normalenvektors / der Krümmung scheinen mir äquivalent zu sein.
-Warum haben wir beide? Ich würde die zweite bevorzugen.
+\todo[inline]{Die beiden Definitionen eins Normalenvektors / der Krümmung scheinen mir äquivalent zu sein.
+Warum haben wir beide? Ich würde die zweite bevorzugen.}
 
 \section*{14.) Dimension von Simplizes}
 Gibt es 0-Dimensionale Simplizes?
@@ -241,7 +241,7 @@ Gibt es 0-Dimensionale Simplizes?
     \end{enumerate}
 \end{definition}
 
-Soll hier wirklich \enquote{mindestens} stehen? Wie beweist man, dass es genau eine gibt?
+\todo[inline]{Soll hier wirklich \enquote{mindestens} stehen? Wie beweist man, dass es genau eine gibt?}
 
 \section{15.) Simpliziale Abbildungen}
 Wenn man Simpliziale Abbildungen wie folgt definiert
@@ -262,4 +262,33 @@ dann ist die Forderung \enquote{$f(\Delta) \in L$} doch immer erfüllt, oder?
 Gibt es eine Abbildung
 \[f:|K| \rightarrow |L|\]
 mit $f(\Delta) \notin L$?
+
+\section*{16.) ÜB 1, Aufgabe 2}
+\underline{Vor.:} Es sei $(X, d)$ ein metrischer Raum, $A \subseteq X$. 
+Weiter bezeichne $\fT$ die von $d$ auf $X$ erzeugte Topologie $\fT'$, die von
+der auf $A \times A$ eingeschränkten Metrik $d|_{A \times A}$ erzeugte Topologie.
+
+\underline{Beh.:} Die Topologie $\fT'$ und $\fT|_A$ (Spurtopologie) stimmen überein.
+
+\underline{Bew.:}
+
+\enquote{$\fT|_A \subseteq \fT'$}:
+
+Sei $U \in \fT|_A = \Set{V \cap A | V \in \fT}$.\\
+Dann ex. also $V \in \fT$ mit
+$U = V \cap A$.\\
+Sei $x \in U$.\\
+Da $V \in \fT$, ex. nach Bemerkung~3 ein $r > 0$ mit 
+
+\begin{align*}
+    \fB_r(x) := \Set{y \in X | d(x,y) < r} &\subseteq V\\
+                \Set{y \in A | d(x,y) < r} &\subseteq V \cap A = U
+\end{align*}
+also ist $U$ offen bzgl. $d|_{A \times A}$.
+\todo[inline]{Wieso ist $U$ offen bzgl. $d|_{A \times A}$?}
+Da $x \in U$ beliebig gewählt war gilt: $\fT|_A \subseteq \fT'$
+
+
+
+
 \end{document}
