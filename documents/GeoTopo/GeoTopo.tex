@@ -85,7 +85,9 @@
 \input{titlepage}
 \input{Vorwort}
 \tableofcontents
-
+\ifAFive
+  \cleardoublepage
+\fi
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \input{Kapitel1}
