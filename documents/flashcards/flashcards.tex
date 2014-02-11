@@ -1,0 +1,54 @@
+\documentclass[mycards,frame]{flashcards}
+\usepackage{amsmath,amssymb}% math symbols / fonts
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{enumitem}
+
+\def\mdr{\ensuremath{\mathbb{R}}}
+\DeclareMathOperator{\Bild}{Bild}
+
+\begin{document}
+\begin{flashcard}{ Tangentialebene }
+{ %In Vorlesung: 17.1
+    Sei $S \subseteq \mdr^3$ eine reguläre Fläche, $s \in S$,
+    $F: U \rightarrow V \cap S$ eine lokale Parametrisierung um $s$
+    (d.~h. $s \in V$)
+    \[(u,v) \mapsto (x(u,v), y(u,v), z(u,v))\]
+    Für $p=F^{-1}(s) \in U$ sei
+    \[        J_F(u,v) = \begin{pmatrix}
+            \frac{\partial x}{\partial u} (p) & \frac{\partial x}{\partial v} (p)\\
+            \frac{\partial y}{\partial u} (p) & \frac{\partial y}{\partial v} (p)\\
+            \frac{\partial z}{\partial u} (p) & \frac{\partial z}{\partial v} (p)
+        \end{pmatrix}\]
+    und $D_P F: \mdr^2 \rightarrow \mdr^3$ die durch $J_F (p)$
+    definierte lineare Abbildung.
+
+    Dann heißt $T_s S := \Bild(D_p F)$ die \textbf{Tangentialebene}
+    an $s \in S$.
+ }
+\end{flashcard}
+
+\begin{flashcard}{ Normalenfeld\\Fläche, orientierbare }
+{ %In Vorlesung: Def.+Bem 17.5
+    \begin{enumerate}[label=\alph*)]
+        \item Ein \textbf{Normalenfeld} auf der
+              Fläche $S$ ist eine Abbildung $n: S \rightarrow S^2 \subseteq \mdr^3$
+              mit $n(s) \in T_s S^\perp$ für jedes $s \in S$.
+        \item $S$ heißt \textbf{orientierbar},
+              wenn es ein stetiges Normalenfeld auf $S$ gibt.
+    \end{enumerate}
+ }
+\end{flashcard}
+
+\begin{flashcard}{ Normalenkrümmung }
+{
+    In der Situation aus XY heißt die Krümmung $\kappa_\gamma(0)$
+    der Kurve $\gamma$ in der Ebene $(s+ E)$ im Punkt $s$ die
+    \textbf{Normalenkrümmung}\footnotemark von $S$ in $s$ in Richtung
+    $x = \gamma'(0)$.
+
+    Man scheibt: $\kappa_\gamma(0) := \kappa_{\text{Nor}}(s, x)$
+ }
+\end{flashcard}
+\end{document}
