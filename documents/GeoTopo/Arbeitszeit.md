@@ -60,18 +60,19 @@ in dem Erstellen dieses Skripts steckt:
 |03.02.2014 | 14:15 - 15:00 | Textsetzung
 |03.02.2014 | 18:35 - 19:10 | Verbesserungen
 |04.02.2014 | 09:50 - 11:40 | Digitalisieren der Vorlesung von 04.02.2014
-|04.02.2014 | 18:15 - 19:30 | Verbesserungen von Marco eingefügt (Danke!); Beispiel 3.2 erstellt
-|05.02.2014 | 08:15 - 08:30 | Verbesserungen von Jérôme Urhausen eingefügt (Danke!)
+|04.02.2014 | 18:15 - 19:30 | Verbesserungsvorschläge von Marco umgesetzt (Danke!); Beispiel 3.2 erstellt
+|05.02.2014 | 08:15 - 08:30 | Verbesserungsvorschläge von Jérôme Urhausen umgesetzt (Danke!)
 |06.02.2014 | 08:15 - 08:30 | Verbesserungen
 |06.02.2014 | 15:45 - 16:00 | Karteikarten
 |06.02.2014 | 16:00 - 16:55 | Digitalisieren der Vorlesung von 06.02.2014
 |06.02.2014 | 19:00 - 19:30 | TikZ'en eines Bildes
 |07.02.2014 | 11:15 - 11:20 | Definitionen vereinfacht
 |07.02.2014 | 11:35 - 11:45 | Definition "operiert durch Homöomorphismen" korrigiert
-|07.02.2014 | 15:00 - 15:30 | Verbesserungen von Jérôme Urhausen, Email vom 08.02.2014, eingefügt.
+|07.02.2014 | 15:00 - 15:30 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 08.02.2014, umgesetzt.
 |07.02.2014 | 15:30 - 15:45 | Verbesserungen 
 |07.02.2014 | 19:30 - 21:20 | Textsetzung, kleine Fehler und Verbesserung eines Bildes
 |10.02.2014 | 10:30 - 11:05 | Formulierung in Definitionen vereinfacht; Textsetzung
-|10.02.2014 | 11:05 - 11:20 | Verbesserungen von Marco, Email vom 10.02.2014, eingefügt.
-|10.02.2014 | 11:40 - 13:20 | Verbesserungen von Jérôme Urhausen, Email vom 10.02.2014, eingefügt.
-|11.02.2014 | 05:30 - 06:00 | TikZ'en eines Bildes mit Hilfe von Jérôme Urhausen (Email vom 10.02.2014)
+|10.02.2014 | 11:05 - 11:20 | Verbesserungsvorschläge von Marco, Email 1 vom 10.02.2014, umgesetzt.
+|10.02.2014 | 11:40 - 13:20 | Verbesserungsvorschläge von Jérôme Urhausen, Email 1 vom 10.02.2014, umgesetzt.
+|11.02.2014 | 05:30 - 06:00 | TikZ'en eines Bildes mit Hilfe von Jérôme Urhausen (Email 1 vom 10.02.2014)
+|11.02.2014 | 06:30 - 07:00 | Verbesserungsvorschläge von Jérôme Urhausen, Email 2 vom 10.02.2014, umgesetzt.

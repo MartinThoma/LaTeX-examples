@@ -961,12 +961,15 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     \begin{itemize}
         \item Dimensionsformel für $d_n$: $a_n = \dim Z_n + \dim B_{n-1}$ für $n \geq 1$
         \item Dimensionsformel für $Z_n \rightarrow H_n = Z_n / B_n: \dim Z_n = b_n + \dim B_n$
+        \item $\dim Z_d = b_d$, da $\dim Z_d = b_d + \dim B_d$, wobei $\dim B_d = 0$, da $a_{d+1} = 0$
+        \item $a_0 - \dim B_0 = b_0$, da $a_0 - \dim B_0 = a_0 - \dim Z_0 + b_0$ und $a_0 = \dim Z_0$, weil
+              $a{-1} = 0$
     \end{itemize}
 
     \begin{align*}
         \Rightarrow \sum_{k=0}^d (-1)^k a_k &= a_0 + \sum_{k=1}^d (-1)^k (\dim Z_k + \dim B_{k-1})\\
-        &= a_0 + \sum_{k=1}^d (-1)^k \dim Z_k + \sum_{k=0}^d (-1)^{k+1}  \dim B_{k-1}\\
-        &= a_0 + \sum_{k=1}^d (-1)^k \dim Z_k - \sum_{k=0}^d (-1)^k  \dim B_{k-1}\\
+        &= a_0 + \sum_{k=1}^d (-1)^k \dim Z_k + \sum_{k=0}^{d-1} (-1)^{k+1}  \dim B_{k}\\
+        &= a_0 + \sum_{k=1}^d (-1)^k \dim Z_k - \sum_{k=0}^{d-1} (-1)^k  \dim B_{k}\\
         &= a_0 + \sum_{k=1}^{d-1} (-1)^k b_k + (-1)^d  \underbrace{\dim Z_d}_{= b_d} - \dim B_0\\
         &= b_0 + \sum_{k=1}^{d-1} (-1)^k b_k + (-1)^d b_d\\
         &= \sum_{k=0}^d (-1)^k b_k
