@@ -389,18 +389,18 @@ an $S$ in $s$.
               Dann ist $\Set{D_P F(e_1), D_P F(e_2)}$ eine Basis von $T_s S$.
         \item Bzgl. der Basis $\Set{D_P F(e_1), D_P F(e_2)}$ hat das 
               Standardskalarprodukt aus \cref{bem:19.1a} die Darstellungsmatrix
-              \[ I_S = \begin{pmatrix}
+              \begin{align*}
+                I_S &= \begin{pmatrix}
                           g_{1,1}(s) & g_{1,2}(s)\\
                           g_{1,2}(s) & g_{2,2}(s)
                        \end{pmatrix} =
                        \begin{pmatrix}
                           E(s) & F(s) \\
                           F(s) & G(s)
-                       \end{pmatrix}\]
-              mit $\begin{aligned}
-                      g_{i,j} &= g_s(D_P F(e_i), D_P F(e_j))\\
-                              &= \langle \frac{\partial F}{\partial u_i} (p), \frac{\partial F}{\partial u_j} (p) \rangle \;\;\; i,j \in \Set{1,2}
-                   \end{aligned}$.\\
+                       \end{pmatrix}\\
+       \text{mit } g_{i,j} &= g_s(D_P F(e_i), D_P F(e_j))\\
+                      &= \langle \frac{\partial F}{\partial u_i} (p), \frac{\partial F}{\partial u_j} (p) \rangle \;\;\; i,j \in \Set{1,2}
+              \end{align*}
               Die Matrix $I_S$ heißt \textbf{erste Fundamentalform}\xindex{Fundamentalform!erste}
               von $S$ bzgl. der Parametrisierung $F$.
         \item $g_{i,j}(s)$ ist eine differenzierbare Funktion von $s$.
@@ -408,7 +408,7 @@ an $S$ in $s$.
 \end{bemerkung}
 
 \begin{bemerkung}
-    \[\det(I_S) = \| \frac{\partial F}{\partial u_1}(p) \times \frac{\partial F}{\partial u_2}(p)\|^2\] 
+    \[\det(I_S) = \left \| \frac{\partial F}{\partial u_1}(p) \times \frac{\partial F}{\partial u_2}(p) \right \|^2\] 
 \end{bemerkung}
 
 \begin{beweis}
@@ -424,12 +424,12 @@ an $S$ in $s$.
     \begin{align*}
         z_1 &= x_2 y_3 - x_3 - y_2\\
         z_2 &= x_3 y_1 - x_1 y_3\\
-        z_3 &= x_1 y_2 - x_2 y_1
+        z_3 &= x_1 y_2 - x_2 y_1\\
+    \Rightarrow \|\frac{\partial F}{\partial u_1} (p) \times \frac{\partial F}{\partial u_2} (p)\| &= z_1^2 + z_2^2 + z_3^2\\
     \end{align*}
-    $\Rightarrow \|\frac{\partial F}{\partial u_1} (p) \times \frac{\partial F}{\partial u_2} (p)\| = z_1^2 + z_2^2 + z_3^2$\\
     \begin{align*}
         \det(I_S) &= g_{1,1} g_{2,2} - g_{1,2}^2\\
-        &= \langle \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\rangle \langle \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}, \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}\rangle - \langle \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}\rangle^2\\
+        &= \left \langle \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \right \rangle \left \langle \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}, \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} \right \rangle - \left \langle \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} \right \rangle^2\\
         &= (x_1^2 + x_2^2 + x_3^2) (y_1^2 + y_2^2 + y_3^2) - (x_1 y_1 + x_2 y_2 + x_3 y_3)^2
     \end{align*}
 \end{beweis}
