@@ -53,6 +53,12 @@
 }
 \allowdisplaybreaks
 
+\makeatletter
+\renewcommand{\flashcards@ps@back@begin@plain}
+%    {\vspace*{\fill}\center\flashcards@format@back}% REMOVED
+    {\vspace*{\fill}\flashcards@format@back}% ADDED
+\makeatother
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin document                                                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
