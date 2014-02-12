@@ -185,7 +185,37 @@ also ist $U$ offen bzgl. $d|_{A \times A}$.
 \todo[inline]{Wieso ist $U$ offen bzgl. $d|_{A \times A}$?}
 Da $x \in U$ beliebig gewählt war gilt: $\fT|_A \subseteq \fT'$
 
+\section*{19.) Topologische Gruppe und stetige Gruppenoperation}
+\begin{definition}%
+    Sei $G$ eine Mannigfaltigkeit und $(G, \circ)$ eine Gruppe.
 
+    \begin{defenum}
+        \item $G$ heißt \textbf{topologische Gruppe}\xindex{Gruppe!topologische},
+              wenn die Abbildungen $\circ: G \times G \rightarrow G$
+              und $\iota: G \rightarrow G$ definiert durch
+              \[g \circ h := g \cdot h \text{ und } \iota(g) := g^{-1}\]
+              stetig sind.
+        \item Ist $G$ eine differenzierbare Mannigfaltigkeit, so heißt
+              $G$ \textbf{Lie-Gruppe}\xindex{Lie-Gruppe}, wenn
+              $(G, \circ)$ und $(G, \iota)$ differenzierbar sind.
+    \end{defenum}
+\end{definition}
 
+\begin{definition}
+    Sei $G$ eine Gruppe, $X$ ein topologischer Raum und
+    $\circ: G \times X \rightarrow X$ eine Gruppenoperation.
+
+    \begin{defenum}
+        \item \xindex{Gruppe operiert durch Homöomorphismen}\textbf{$G$ operiert durch Homöomorphismen}, wenn für jedes $g \in G$
+              die Abbildung
+              \[m_g: X \rightarrow X, x \mapsto g \circ x\]
+              ein Homöomorphismus ist.
+        \item Ist $G$ eine topologische Gruppe, so heißt die Gruppenoperation $\circ$
+              \textbf{stetig}\xindex{Gruppenoperation!stetige}, wenn 
+              $\circ: G \times X \rightarrow X$ stetig ist.
+    \end{defenum}
+\end{definition}
+
+\todo[inline]{Wenn $G$ eine topologische Gruppe ist, dann ist $\circ$ doch auf jeden Fall stetig! Was soll die Definition? Des Weiteren verstehe ich $g \circ h := g \cdot h$ nicht. Was ist $\cdot$?}
 
 \end{document}
