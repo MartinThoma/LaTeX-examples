@@ -587,16 +587,15 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
         $\Rightarrow p^{-1}(U_1)$ und $p^{-1}(U_2)$ sind disjunkte 
         Umgebungen von $y_1$ und $y_2$.
 
-        \item Sei $y \in Y$
+        \item Sei $x \in X$ beliebig, aber fest.
 
-        \underline{1. Fall}: $y \in p^{-1}(x)$
+        \underline{Zu zeigen}: $\forall y_i \in p^{-1}(x): \exists V_i \in \fT_Y \text{ mit } y_i \in V_i \text{, sodass gilt:} i \neq j \Rightarrow V_i \cap V_j = \emptyset$.
 
-        Finde $v_j$, sodass kein \dots 
-        \todo[inline]{...}
-
-        \underline{2. Fall}: $y \notin p^{-1}(x)$
-
-        \todo[inline]{...}
+        Die $V_i$ existieren wegen der Definition einer Überlagerung:
+        $p$ heißt Überlagerung $:\gdw \forall x \in X \exists U=U(x) \in \fT_X: p^{-1}(U) = \Dcup_{V_i \in \fT_Y} V_i \text{ und } p|_{V_i} \text{ ist Homöomorphismus}$.\\
+        $\Rightarrow (p|_{V_i})^{-1}(x) = \Set{y_i}$\\
+        $\Rightarrow$ Alle $y_i$ liegen diskret in $Y$, da Häufungspunkte unendlich
+        viele Elemente in jeder Umgebung benötigen. $\qed$
     \end{enumerate}
 \end{beweis}
 
@@ -716,7 +715,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
     Dann gilt:
     \begin{enumerate}[label=(\roman*)]
         \item $\tilde{H}$ ist stetig (Beweis wie für \cref{kor:12.5})
-        \item $\tilde{H}(t,0) = \tilde{\gamma_0}(t) = \tilde{H}(t,1) = \tilde{\gamma_1}(t)$
+        \item $\tilde{H}(t,0) = \tilde{\gamma_0}(t), \;\;\; \tilde{H}(t,1) = \tilde{\gamma_1}(t)$
         \item $\tilde{H}(0,s) = \tilde{\gamma_s}(0) = \tilde{a}$
         \item $\tilde{H}(1,s) \in p^{-1}(b)$
     \end{enumerate}
@@ -973,7 +972,7 @@ der folgende Satz:
 
               Zu $i \in \Set{0, \dots, d-1}$ gibt es höchstens ein 
               $f \in \Deck(Y/X)$ mit $f(y_0) = y_1$, denn ist
-              $f(y_0) = g(y_0)$, so ist \todo{Was steht hier?}{$(g^{-1} - f) y_0 = y_0$},
+              $f(y_0) = g(y_0)$, so ist $(g^{-1} \circ f)(y_0) = y_0$,
               also nach \cref{kor:12.14c} $g^{-1} \circ f = \id_Y$.
     \end{enumerate}
 \end{beweis}
@@ -1104,8 +1103,8 @@ und der Fundamentalgruppe herstellen:
 \begin{bemerkung}%In Vorlesung: Bemerkung 13.2
      Jede stetige Gruppenoperation ist eine Gruppenoperation durch Homöomorphismen.
 \end{bemerkung}
-\begin{beweis}
-    Nach Voraussetzung ist $\circ |_{\Set{g} \times X} : X \rightarrow X, x \mapsto g \circ x$ stetig.
+\begin{beweis}\leavevmode
+    Nach Voraussetzung ist $m_g := \circ |_{\Set{g} \times X} : X \rightarrow X, x \mapsto g \circ x$ stetig.
 
     Die Umkehrabbildung zu $m_g$ ist $m_{g^{-1}}$: 
     \begin{align*}
