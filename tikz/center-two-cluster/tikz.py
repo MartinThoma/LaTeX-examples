@@ -8,7 +8,7 @@ print """\documentclass{article}
 \usepackage{tikz}
 \usepackage{tkz-fct}
 \usetikzlibrary{shapes.misc}
-\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usetikzlibrary{shapes, calc, decorations} 
 \usepackage{amsmath,amssymb}
 
 \\begin{document}
