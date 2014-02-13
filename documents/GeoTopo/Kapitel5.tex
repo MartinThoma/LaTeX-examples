@@ -138,7 +138,11 @@ für eine $C^\infty$-Funktion $f: \mdr^\infty \rightarrow \mdr$.\todo{Wirklich $
 
 \begin{beweis}\leavevmode
     \begin{behauptung}
-        $T_s S = \Set{x \in \mdr^3 | \exists \text{parametrisierte Kurve } \gamma:[- \varepsilon, + \varepsilon] \rightarrow S \text{ für ein } \varepsilon > 0 \text{ mit } \gamma(0) = S \text{ und } \gamma'(0) = x}$
+        $T_s S = \{x \in \mdr^3 | \exists \text{parametrisierte Kurve } 
+          \gamma:[- \varepsilon, + \varepsilon] \rightarrow S 
+          \text{ für ein } \varepsilon > 0 
+          \text{ mit } \gamma(0) = s \text{ und } \gamma'(0) = x
+          \}$
     \end{behauptung}
 \end{beweis}
 
@@ -165,7 +169,7 @@ für eine $C^\infty$-Funktion $f: \mdr^\infty \rightarrow \mdr$.\todo{Wirklich $
 \begin{definition}%In Vorlesung: Def.+Bem 17.5
     \begin{defenum}
         \item Ein \textbf{Normalenfeld}\xindex{Normalenfeld} auf der
-              Fläche $S$ ist eine Abbildung $n: S \rightarrow S^2 \subseteq \mdr^3$
+              Fläche $S \subseteq \mdr^3$ ist eine Abbildung $n: S \rightarrow S^2 \subseteq \mdr^3$
               mit $n(s) \in T_s S^\perp$ für jedes $s \in S$.
         \item $S$ heißt \textbf{orientierbar}\xindex{Fläche!orientierbare},
               wenn es ein stetiges Normalenfeld auf $S$ gibt.
@@ -493,8 +497,9 @@ an $S$ in $s$.
 
         Sei $x_i = D_P F(e_i) = \frac{\partial F}{\partial u_i} (p)\;\;\; i = 1,2$
 
-        \underline{Beh.:} $\langle x_i, d_s n(x_j) \rangle = \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle$
-
+        \begin{behauptung}
+          $\langle x_i, d_s n(x_j) \rangle = \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle$
+        \end{behauptung}
         $\Rightarrow \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle = \langle x_j, d_s n (x_i) \rangle$
 
         \underline{Bew.:} 
