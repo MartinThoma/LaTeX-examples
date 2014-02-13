@@ -38,6 +38,7 @@
 ## I want to keep some PDFs
 documents/Analysis I/*.pdf
 documents/Analysis II/*.pdf
+documents/GeoTopo/figures/torus.tex
 cheat-sheets/analysis/*.pdf
 presentations/Tutorenschlung/templates/*
 presentations/Tutorenschlung/logos/*.eps

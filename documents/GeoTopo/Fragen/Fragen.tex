@@ -218,4 +218,28 @@ Da $x \in U$ beliebig gewählt war gilt: $\fT|_A \subseteq \fT'$
 
 \todo[inline]{Wenn $G$ eine topologische Gruppe ist, dann ist $\circ$ doch auf jeden Fall stetig! Was soll die Definition? Des Weiteren verstehe ich $g \circ h := g \cdot h$ nicht. Was ist $\cdot$?}
 
+\section*{Hyperbolische Metrik und Geraden}
+\begin{definition}\xindex{Gerade!hyperbolische}%
+    Sei
+        \[\mdh:= \Set{z \in \mdc | \Im(z) > 0} = \Set{(x,y) \in \mdr^2 | y > 0}\]
+    die obere Halbebene bzw. Poincaré-Halbebene und $G = G_1 \cup G_2$
+    mit
+        \begin{align*}
+            G_1 &= \Set{g_1 \subseteq \mdh | \exists m \in \mdr, r \in \mdr_{>0}: g_1 = \Set{z \in \mdh : |z-m|=r}}\\
+            G_2 &= \Set{g_2 \subseteq \mdh | \exists x \in \mdr: g_2 = \Set{z \in \mdh: \Re(z) = x}}
+        \end{align*}
+
+    Die Elemente von $\mdh$ heißen \textbf{hyperbolische Geraden}.
+\end{definition}
+\begin{definition}\xindex{Metrik!hyperbolische}%
+    Für $z_1, z_2 \in \mdh$ sei $g_{z_1, z_2}$ die eindeutige hyperbolische
+    Gerade durch $z_1$ und $z_2$ und $a_1, a_2$ die
+    \enquote{Schnittpunkte} von $g_{z_1, z_2}$ mit $\mdr \cup \Set{\infty}$.
+
+    Dann sei $d(z_1, z_2) := \frac{1}{2} \ln |\DV(a_1, z_4, a_2, z_2) |$
+    und heiße \textbf{hyperbolische Metrik}.
+\end{definition}
+
+\todo[inline]{Wir haben hyperbolische Geraden mit der euklidischen Metrik beschrieben. Kann man hyperbolische Geraden auch mit der hyperbolischen Metrik beschreiben? Wie?}
+vgl. Beweis von Bemerkung 68 b)
 \end{document}

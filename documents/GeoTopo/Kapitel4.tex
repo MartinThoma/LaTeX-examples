@@ -821,7 +821,36 @@ $\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \right
                 \label{fig:hyperbolische-geometrie-axiom-1-0}
                 \caption{Zwei Punkte liegen in der hyperbolischen Geometrie immer auf genau einer Geraden}
             \end{figure}
-        \item TODO
+        \item Sei $g \in G_1 \dcup G_2$ eine hyperbolische Gerade.\\
+              \underline{Fall 1:} $g = \Set{z \in \mdh | |z-m| = r} \in G_1$\\
+              Dann gilt:
+              \[\mdh = \underbrace{\Set{z \in \mdh | |z-m| < r}}_{=:H_1 \text{ (Kreisinneres)}} \dcup \underbrace{\Set{z \in \mdh | |z-m| < r}}_{=:H_2 \text{ (Kreisäußeres)}}\]
+              Da $r > 0$ ist $H_1$ nicht leer, da $r \in \mdr$ ist $H_2$ nicht leer.
+
+              \underline{Zu zeigen:} $\forall A \in H_i$, $B \in H_j$ mit
+                      $i,j \in \Set{1,2}$ gilt: 
+                      $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$\\
+              \enquote{$\Leftarrow$}: Da $d_\mdh$ stetig ist, folgt diese Richtung
+              direkt. Alle Punkte in $H_1$ haben einen Abstand von $m$ der kleiner
+              ist als $r$ und alle Punkte in $H_2$ haben einen Abstand von $m$ der
+              größer ist als $r$. Da man jede Strecke von $A$ nach $B$ insbesondere
+              auch als stetige Abbildung $f: \mdr \rightarrow \mdr_{>0}$ auffassen
+              kann, greift der Zwischenwertsatz $\Rightarrow$ $\overline{AB} \cap g \neq \emptyset$
+
+              \enquote{$\Rightarrow$}:
+              \todo[inline]{TODO}
+
+              \underline{Fall 2:} $g = \Set{z \in \mdh | \Re{z} = x} \in G_2$\\
+              Die disjunkte Zerlegung ist:
+              \[\mdh = \underbrace{\Set{z \in \mdh | \Re(z) < x}}_{=: H_1 \text{ (Links)}} \dcup \underbrace{\Set{z \in \mdh | \Re(z) > x}}_{=: H_2 \text{ (Rechts)}}\]
+
+              \underline{Zu zeigen:} $\forall A \in H_i$, $B \in H_j$ mit
+                      $i,j \in \Set{1,2}$ gilt: 
+                      $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$\\
+              \enquote{$\Leftarrow$}: Wie zuvor mit dem Zwischenwertsatz.
+
+              \enquote{$\Rightarrow$}:
+              \todo[inline]{TODO}
         \item Siehe \cref{fig:hyperbolische-halbebene-axiom-5}.
             \begin{figure}[hp]
                 \centering
