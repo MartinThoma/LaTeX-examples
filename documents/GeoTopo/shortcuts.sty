@@ -129,6 +129,10 @@
 \setlist[bemenum]{label=\alph*),ref=\textup{\thebemerkung.\alph*}}
 \crefalias{bemenumi}{bemerkung}
 
+\newlist{satzenum}{enumerate}{1}
+\setlist[satzenum]{label=\alph*),ref=\textup{\thebemerkung.\alph*}}
+\crefalias{satzenumi}{satz}
+
 \newlist{bspenum}{enumerate}{1}
 \setlist[bspenum]{label=\arabic*),ref=\textup{\thebeispiel.\arabic*}}
 \crefalias{bspenumi}{beispiel} 
@@ -145,12 +149,14 @@
 \newcommand\crefabbr[1]{%
 \begingroup
   \crefname{bemerkung}{\textup{Bem.}}{\textup{Bem.}}%
-  \crefname{definition}{\textup{Def.}}{\textup{Def.}}\cref{#1}
+  \crefname{definition}{\textup{Def.}}{\textup{Def.}}%
+  \crefname{proposition}{\textup{Prop.}}{\textup{Prop.}}\cref{#1}%
 \endgroup%
 }
 \newcommand\Crefabbr[1]{%
 \begingroup
   \Crefname{bemerkung}{\textup{Bem.}}{\textup{Bem.}}%
-  \Crefname{definition}{\textup{Def.}}{\textup{Def.}}\Cref{#1}
+  \Crefname{definition}{\textup{Def.}}{\textup{Def.}}%
+  \crefname{proposition}{\textup{Prop.}}{\textup{Prop.}}\Cref{#1}%
 \endgroup%
 }

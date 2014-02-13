@@ -1,8 +1,8 @@
 SOURCE = definitionen
 make:
 	./generateDefinitions.py
-	pdflatex $(SOURCE).tex -interaction=batchmode -output-format=pdf 1>/dev/null
-	pdflatex $(SOURCE).tex -interaction=batchmode -output-format=pdf 1>/dev/null
+	pdflatex $(SOURCE).tex -interaction=batchmode -output-format=pdf
+	pdflatex $(SOURCE).tex -interaction=batchmode -output-format=pdf
 	make clean
 
 clean:

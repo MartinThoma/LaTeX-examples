@@ -2,10 +2,10 @@ DOKUMENT = GeoTopo
 
 make:
 	sketch figures/torus.sketch > figures/torus.tex
-	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf 1>/dev/null # aux-files for makeindex / makeglossaries
+	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf # aux-files for makeindex / makeglossaries
 	makeindex $(DOKUMENT)
-	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf 1>/dev/null # include index
-	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf 1>/dev/null # include symbol table
+	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf # include index
+	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf # include symbol table
 	#make clean # remove intermediate files like *.log and *.aux
 
 ebook:

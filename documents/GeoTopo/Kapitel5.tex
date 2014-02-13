@@ -3,7 +3,7 @@
 % Mitschrieb vom 30.01.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Krümmung}
-\section{Krümmung von Kurven}
+\section{Krümmung von Kurven}\label{sec:Kurvenkrümmung}
 \begin{definition}%In Vorlesung: Def.+Bem. 16.1
     Sei $\gamma: I = [a, b] \rightarrow \mdr^n$ eine $C^\infty$-Funktion.
     
@@ -285,7 +285,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 06.02.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}\xindex{Normalenkrümmung}%In Vorlesung: Def. 18.4
+\begin{definition}\label{def:18.4}\xindex{Normalenkrümmung}%In Vorlesung: Def. 18.4
     Sei $S \in \mdr^3$ eine reguläre Fläche, $s \in S$, ($n$ ein
     stetiges Normalenfeld auf $S$)
 
@@ -469,15 +469,15 @@ an $S$ in $s$.
 
 \begin{proposition}
     Sei $S \subseteq \mdr^3$ eine reguläre, orientierbare Fläche mit glatten
-    Normalenfeld $n: S \rightarrow S^2$.
+    Normalenfeld $n: S \rightarrow S^2$. Dann gilt:
 
     \begin{propenum}
         \item $n$ induziert für jedes $s \in S$ eine lineare Abbildung $d_S n: T_s S \rightarrow T_{n(s)} S^2$
               durch 
               \[d_s n(x) = \frac{\mathrm{d}}{\mathrm{d} t} n (\underbrace{s \text{\enquote{+}} tx}_{\mathclap{\text{Soll auf Fläche $S$ bleiben}}}) \Bigr |_{t=0}\]
-        \item $T_{n(s)} S^2 = T_s S$
-        \item $d_S n$ ist ein Endomorphismus von $T_s S$
-        \item $d_S n$ ist selbstadjungiert bzgl. des Skalarproduktes $I_S$
+        \item $T_{n(s)} S^2 = T_s S$.
+        \item $d_S n$ ist ein Endomorphismus von $T_s S$.
+        \item $d_S n$ ist selbstadjungiert bzgl. des Skalarproduktes $I_S$.
     \end{propenum}
 \end{proposition}
 
@@ -505,4 +505,83 @@ an $S$ in $s$.
               &= \langle \underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial F}{\partial u_i} (p + t e_j)}_{\frac{\partial^2 F}{\partial u_j \partial u_i} (p)} \Bigr |_{t=0}, n(s) \rangle + \langle x_i, d_s n \underbrace{D_P F (e_j)}_{x_j}\rangle
         \end{align*}
     \end{enumerate}
+\end{beweis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 13.02.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}\xindex{Fundamentalform!zweite}%In Vorlesung: Def. + Bem. 19.5 a)
+    Die durch $-d_s n$ definierte symmetrische Bilinearform auf $T_s S$ heißt
+    \textbf{zweite Fundamentalform} von $S$ in $s$ bzgl. $F$.
+
+    Man schreibt: $II_s(x,y) =  \langle - d_s n(x), y \rangle = I_s (-d_s n(x), y)$
+\end{definition}
+
+\begin{bemerkung}%%In Vorlesung: Def. + Bem. 19.5 b)
+    Bezüglich der Basis $\Set{x_1, x_2}$ von $T_s S$ hat $II_s$ die Darstellungsmatrix
+    \[(h^{(s)}_{i,j})_{i,j=1,2} \text{ mit } h_{i,j}(s) = \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), n(s) \rangle \]
+\end{bemerkung}
+
+\begin{proposition}\label{prop:19.6}%In Vorlesung: Proposition 19.6
+    Sei $\gamma:[- \varepsilon, \varepsilon] \rightarrow S$ eine nach Bogenlänge
+    parametrisierte Kurve mit $\gamma(0) = s$. Dann gilt:
+    \[\kappanor(s, \gamma) = II_s(\gamma'(0), \gamma'(0))\]
+\end{proposition}
+
+\begin{beweis}
+    Nach \cref{def:18.4} ist $\kappanor(s, \gamma) = \langle \gamma''(0), n(s) \rangle$.
+    Nach Voraussetzung ist $n(\gamma(t)) \perp \gamma'(t) \Leftrightarrow \langle \gamma''(0), n(s) \rangle = 0$.
+    Die Ableitung nach $t$ ergibt 
+    \begin{align*}
+        0 &= \frac{\mathrm{d}}{\mathrm{d}t}(\langle n (\gamma(t)), \gamma'(t))\\
+        &=  \langle \frac{\mathrm{d}}{\mathrm{d}t} n(\gamma(t)) \Bigr |_{t=0}, \gamma'(0) \rangle + \langle n(s), \gamma''(0) \rangle\\
+        &= \langle d_s n (\gamma'(0)), \gamma'(0) \rangle + \kappa(s,\gamma)\\
+        &= - II_s(\gamma'(0), \gamma'(0)) + \kappa(s, \gamma)
+    \end{align*}
+\end{beweis}
+
+\begin{folgerung}\xindex{Normalkrümmung}%In Vorlesung: Folgerung 19.7
+    Die beiden Definitionen von Normalkürmmung in \cref{sec:Kurvenkrümmung} stimmen
+    überein:
+    \[\kappanor(s, \gamma) = \kappanor(s, \gamma'(0))\]
+\end{folgerung}
+
+\begin{satz}%In Vorlesung: Satz 19.8
+    Sei $S \subseteq \mdr^3$ eine reguläre, orientierbare Fläche und $s \in S$.
+    \begin{satzenum}
+        \item Die Hauptkrümmungen $\kappa_1(s), \kappa_2(s)$ sind die Eigenwerte
+              von $II_s$.
+        \item Für die Gaußkrümmung gilt: $K(s) = \det(II_s)$
+    \end{satzenum}
+\end{satz}
+
+\begin{beweis}\leavevmode
+    \begin{enumerate}[label=\alph*)]
+        \item $II_s$ ist symmetrisch, $I_s S$ hat also eine Orthonormalbasis aus
+              Eigenvektoren $y_1, y_2$ von $II_s$. Ist $x \in T_s S$, $\|x\| = 1$,
+              so gibt es $\varphi \in [0,2\pi)$ mit $x = \cos \varphi \cdot y_1 + \sin \varphi \cdot y_2$.
+
+              Seien $\lambda_1, \lambda_2$ die Eigenwerte von $II_s$, also 
+              $II_s(y_i, y_i) = \lambda_i$. Dann gilt:
+              \begin{align*}
+                  II_s (x,x) &= \cos^2 \varphi \lambda_1 + \sin^2 \varphi \lambda_2\\
+                  &= (1- \sin^2 \varphi) \lambda_1 + \sin^2 \varphi \lambda_2\\
+                  &= \lambda_1 + \sin^2 \varphi (\lambda_2 - \lambda_1) \geq \lambda_1\\
+                  &= \cos^2 \varphi + (1 - \cos^2 \varphi) \lambda_2\\
+                  &= \lambda_2 - \cos^2 \varphi (\lambda_2 - \lambda_1) \leq \lambda_2\\
+                  \xRightarrow{\crefabbr{prop:19.6}} \lambda_1 &= \min \Set{\kappanor (s,x) | x \in T^1_s S}\\
+                  \lambda_2 &= \max \Set{\kappanor (s,x) | x \in T^1_s S}
+              \end{align*}
+    \end{enumerate}
+\end{beweis}
+
+\begin{satz}[Satz von Gauß-Bonnet]\xindex{Satz von!Gauß-Bonnet}
+    Sei $S \subseteq \mdr^3$ eine kompakte, reguläre Fläche. Dann gilt:
+    \[\int_S K(s) \mathrm{d}A = 2 \pi \chi(S)\]
+    Dabei ist $\chi(S)$ die Euler-Charakteristik von $S$.
+\end{satz}
+
+\begin{beweis}
+    Der Beweis wird hier nicht geführt. Er kann in \enquote{Elementare Differentialgeometrie}
+    von Christian Bär (2. Auflage), ISBN 978-3-11-022458-0, ab Seite 281 nachgelesen werden.
 \end{beweis}
