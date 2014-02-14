@@ -26,6 +26,7 @@
 \pgfplotsset{compat=1.7}
 \usepackage[arrow, matrix, curve]{xy}
 \usepackage{caption}        % get newlines within captions
+\usepackage{cancel}
 \usepackage{tikz}           % draw
 \usepackage{tikz-3dplot}    % draw
 \usepackage{tkz-fct}        % draw
@@ -262,4 +263,79 @@ vgl. Beweis von Bemerkung 68 b)
 \end{definition}
 
 \todo[inline]{Sollte es in a) $\det((\gamma_1{\color{red}'}(t), n(t))) = +1$ sein?}
+
+\section*{22.) MF-Beispiel}
+$\praum^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\praum^n(\mdc)$ sind Mannigfaltigkeiten
+der Dimension $n$ bzw. $2n$, da gilt:
+
+Sei $U_i := \Set{(x_0: \dots : x_n) \in \praum^n(\mdr) | x_i \neq 0}\;\forall i \in 0, \dots, n$.
+Dann ist $\praum^n(\mdr) = \bigcup_{i=0}^n U_i$ und die Abbildung
+\begin{align*}
+  U_i &\rightarrow \mdr^n\\
+  (x_0 : \dots : x_n) &\mapsto \left (\frac{x_0}{x_i}, \dots, \cancel{\frac{x_i}{x_i}}, \dots, \frac{x_n}{x_i} \right )\\
+  (y_1 : \dots : y_{i-1} : 1 : y_i : \dots : y_n) &\mapsfrom (y_1, \dots, y_n)
+\end{align*}
+ist bijektiv.
+\todo[inline]{Was wird im Folgenden gemacht?}
+Die $U_i$ mit $i = 0, \dots, n$ bilden einen $n$-dimensionalen Atlas:
+\begin{align*}
+        x &= (1:0:0) \in U_0 \rightarrow \mdr^2 & x &\mapsto (0,0)\\
+        y &= (0:1:1) \in U_2 \rightarrow \mdr^2 & y &\mapsto (0,1)
+\end{align*}
+$\text{Umgebung: } \fB_1 (0,1) \rightarrow \Set{(1:u:v) | \|(u,v)\| < 1} = V_1$\\
+$\text{Umgebung: } \fB_1 (0,1) \rightarrow \Set{(w:z:1) | w^2 + z^2 < 1} = V_2$\\
+
+$V_1 \cap V_2 = \emptyset$?
+
+$(a:b:c) \in V_1 \cap V_2$\\
+$\Rightarrow a \neq 0$ und $(\frac{b}{a})^2 + (\frac{c}{a})^2 < 1 \Rightarrow \frac{c}{a} < 1$\\
+$\Rightarrow c \neq 0$ und $(\frac{a}{c})^2 + (\frac{b}{c})^2 < 1 \Rightarrow \frac{a}{c} < 1$\\
+$\Rightarrow$ Widerspruch
+
+
+\section*{23) Hyperbolische Geraden erfüllen 3.ii}
+\begin{bemerkung}[Eigenschaften der hyperbolischen Geraden]
+    Die hyperbolischen Geraden erfüllen das Anordnungsaxiom 3 ii
+\end{bemerkung}
+
+\begin{beweis}\leavevmode
+ Sei $g \in G_1 \dcup G_2$ eine hyperbolische Gerade.\\
+              \underline{Fall 1:} $g = \Set{z \in \mdh | |z-m| = r} \in G_1$\\
+              Dann gilt:
+              \[\mdh = \underbrace{\Set{z \in \mdh | |z-m| < r}}_{=:H_1 \text{ (Kreisinneres)}} \dcup \underbrace{\Set{z \in \mdh | |z-m| < r}}_{=:H_2 \text{ (Kreisäußeres)}}\]
+              Da $r > 0$ ist $H_1$ nicht leer, da $r \in \mdr$ ist $H_2$ nicht leer.
+
+              \underline{Zu zeigen:} $\forall A \in H_i$, $B \in H_j$ mit
+                      $i,j \in \Set{1,2}$ gilt: 
+                      $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$\\
+              \enquote{$\Leftarrow$}: Da $d_\mdh$ stetig ist, folgt diese Richtung
+              direkt. Alle Punkte in $H_1$ haben einen Abstand von $m$ der kleiner
+              ist als $r$ und alle Punkte in $H_2$ haben einen Abstand von $m$ der
+              größer ist als $r$. Da man jede Strecke von $A$ nach $B$ insbesondere
+              auch als stetige Abbildung $f: \mdr \rightarrow \mdr_{>0}$ auffassen
+              kann, greift der Zwischenwertsatz $\Rightarrow$ $\overline{AB} \cap g \neq \emptyset$
+
+              \enquote{$\Rightarrow$}:
+              \todo[inline]{TODO}
+
+              \underline{Fall 2:} $g = \Set{z \in \mdh | \Re{z} = x} \in G_2$\\
+              Die disjunkte Zerlegung ist:
+              \[\mdh = \underbrace{\Set{z \in \mdh | \Re(z) < x}}_{=: H_1 \text{ (Links)}} \dcup \underbrace{\Set{z \in \mdh | \Re(z) > x}}_{=: H_2 \text{ (Rechts)}}\]
+
+              \underline{Zu zeigen:} $\forall A \in H_i$, $B \in H_j$ mit
+                      $i,j \in \Set{1,2}$ gilt: 
+                      $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$\\
+              \enquote{$\Leftarrow$}: Wie zuvor mit dem Zwischenwertsatz.
+
+              \enquote{$\Rightarrow$}:
+              \todo[inline]{TODO}
+\end{beweis}
+
+
+\section*{24) Tangentialebene}
+Erinnerung Sie sich an \cref{def:8.5} \enquote{reguläre Fläche}.
+
+Äquivalent dazu ist: $S$ ist lokal von der Form
+\[V(f) = \Set{x \in \mdr^3 | f(x) = 0 }\]
+für eine $C^\infty$-Funktion $f: \mdr^\infty \rightarrow \mdr$.\todo{Wirklich $\mdr^\infty$?}
 \end{document}
