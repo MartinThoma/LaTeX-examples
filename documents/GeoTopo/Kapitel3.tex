@@ -213,6 +213,35 @@
     $\gamma_1 * \gamma_2$ und $\gamma_1' * \gamma_2 '$.
 \end{beweis}
 
+Eine spezielle Homotopieäquivalenz sind sog. Deformationsretraktionen:
+\begin{definition}%
+    Sei $X$ ein topologischer Raum, $A \subseteq X$, $r: X \rightarrow A$ eine stetige Abbildung
+    und $\iota = (\id_X)|_A$.
+
+    \begin{defenum}
+        \item $\iota: A \rightarrow X$ mit $\iota(x) = x$ heißt die 
+              \textbf{Inklusionsabbildung}\xindex{Inklusionsabbildung} und
+              man schreibt: $\iota: A \hookrightarrow X$.
+        \item $r$ heißt \textbf{Retraktion}\xindex{Retraktion}, wenn $r|_A = \id_A$ ist.
+        \item $A$ heißt \textbf{Deformationsretrakt}\xindex{Deformationsretrakt}, wenn es eine Retraktion $r$
+              auf $A$ mit $\iota  \circ r \sim \id_X$ gibt.
+    \end{defenum}
+\end{definition}
+
+\begin{beispiel}[Zylinder auf Kreis]
+    Sei $X = S^1 \times \mdr$ ein topologischer Raum und
+    \[r: S^1 \times \mdr \rightarrow S^1 \times \Set{0} \cong S^1\]
+    mit
+    \[r(x,y) := (x, 0)\]
+    eine Abbildung. $r$ ist eine Retraktion, da $r|_{S^1} \cong \id_{S_1}$.
+    \begin{align*}
+        \iota \circ r : S^1 \times \mdr &\rightarrow S^1 \times \mdr\\
+        (x,y) &\mapsto (x,0)\\
+        H: (S^1 \times \mdr) \times I &\rightarrow S^1 \times \mdr\\
+        (x, y, t) &\mapsto (x, ty)
+    \end{align*}
+\end{beispiel}
+
 \section{Fundamentalgruppe}
 Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Homotopieklasse}.
 
