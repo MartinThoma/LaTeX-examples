@@ -260,12 +260,12 @@ schneiden sich.
 
     Dann gilt:
     \begin{enumerate}[label=(\roman*)]
-        \item $d(A, C) + d(A, Q) = d(B, Q) < d(B, C) + d(C, Q) \Rightarrow d(A, C) < d(B, C)$ \label{enum:komischer-beweis-i}
+        \item $d(A, C) + d(C, Q) = d(A, Q) \overset{\text{Vor.}}{=} d(B, Q) < d(B, C) + d(C, Q) \Rightarrow d(A, C) < d(B, C)$ \label{enum:komischer-beweis-i}
         \item \begin{enumerate}[label=\alph*)]
                 \item $B$ liegt zwischen $P$ und $C$.
 
-                      $d(P,A) + d(A, C) > d(P,C) = d(P,B) + d(B,c) = d(P,A) + d(B,C)$
-                      $\Rightarrow d(A,c) > d(B,C) \Rightarrow$ Widerspruch zu \cref{enum:komischer-beweis-i}
+                      $d(P,A) + d(A, C) > d(P,C) = d(P,B) + d(B,C) = d(P,A) + d(B,C)$
+                      $\Rightarrow d(A,C) > d(B,C) \Rightarrow$ Widerspruch zu \cref{enum:komischer-beweis-i}
                 \item $C$ liegt zwischen $P$ und $B$
 
                       $d(P,C) + d(C,A) > d(P,A) = d(P,B) = d(P,C) + d(C, B)$\\
@@ -274,7 +274,7 @@ schneiden sich.
             \end{enumerate}
     \end{enumerate}
 
-    \underline{2. Fall}: $Q$ und $B$ liegen auf verscheiden Halbebenen bzgl. $PA$.
+    \underline{2. Fall}: $Q$ und $B$ liegen auf verschieden Halbebenen bzgl. $PA$.
 
     Dann liegen $A$ und $Q$ in derselben Halbebene bzgl. $PB$.
 
