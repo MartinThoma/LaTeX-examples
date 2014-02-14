@@ -1,7 +1,126 @@
 \chapter{Compilerbau}
 \index{Compilerbau|(}
 
-TODO
+Wenn man über Compiler redet, meint man üblicherweise \enquote{vollständige Übersetzer}:
+
+\begin{definition}\xindex{Compiler}%
+	Ein \textbf{Compiler} ist ein Programm $C$, das den Quelltext eines Programms
+	$A$ in eine ausführbare Form übersetzen kann.
+\end{definition}
+
+Jedoch gibt es verschiedene Ebenen der Interpretation bzw. Übersetzung:
+\begin{enumerate}
+	\item \textbf{Reiner Interpretierer}: TCL, Unix-Shell
+	\item \textbf{Vorübersetzung}: Java-Bytecode, Pascal P-Code, Python\footnote{Python hat auch \texttt{.pyc}-Dateien, die Python-Bytecode enthalten.}, Smalltalk-Bytecode
+	\item \textbf{Laufzeitübersetzung}: JavaScript\footnote{JavaScript wird nicht immer zur Laufzeit übersetzt. Früher war es üblich, dass JavaScript nur interpretiert wurde.}
+	\item \textbf{Vollständige Übersetzung}: C, C++, Fortran
+\end{enumerate}
+
+Zu sagen, dass Python eine interpretierte Sprache ist, ist in etwa so korrekt 
+wie zu sagen, dass die Bibel ein Hardcover-Buch ist.\footnote{Quelle: stackoverflow.com/a/2998544, danke Alex Martelli für diesen Vergleich.}
+
+Reine Interpretierer lesen den Quelltext Anweisung für Anweisung und führen 
+diese direkt aus.
+
+\todo[inline]{Bild}
+
+Bei der \textit{Interpretation nach Vorübersetzung} wird der Quelltext analysiert
+und in eine für den Interpretierer günstigere Form übersetzt. Das kann z.~B.
+durch
+\begin{itemize}
+	\item Zuordnung Bezeichnergebrauch - Vereinbarung\todo{?}
+	\item Transformation in Postfixbaum
+	\item Typcheck, wo statisch möglich
+\end{itemize}
+geschehen. Diese Vorübersetzung ist nicht unbedingt maschinennah.
+
+\todo[inline]{Bild}
+
+Die \textit{Just-in-time-Compiler}\xindex{Compiler!Just-in-time}\index{JIT|see{Just-in-time Compiler}} (kurz: JIT-Compiler) betreiben
+Laufzeitübersetzung. Folgendes sind Vor- bzw. Nachteile von Just-in-time Compilern:
+\begin{itemize}
+	\item schneller als reine Interpretierer
+	\item Speichergewinn: Quelle kompakter als Zielprogramm\todo{Was ist hier gemeint?}
+	\item Schnellerer Start des Programms
+	\item Langsamer (pro Funktion) als vollständige Übersetzung
+	\item kann dynamisch ermittelte Laufzeiteigenschaften berücksichtigen (dynamische Optimierung)
+\end{itemize}
+
+Moderne virtuelle Maschinen für Java und für .NET nutzen JIT-Compiler.
+
+Bei der \textit{vollständigen Übersetzung} wird der Quelltext vor der ersten
+Ausführung des Programms $A$ in Maschinencode (z.~B. x86, SPARC) übersetzt.
+
+\todo[inline]{Bild}
+
+\section{Funktionsweise}
+Üblicherweise führt ein Compiler folgende Schritte aus:
+\begin{enumerate}
+	\item Lexikalische Analyse
+	\item Syntaktische Analyse
+	\item Semantische Analyse
+	\item Zwischencodeoptimierung
+	\item Codegenerierung
+    \item Assemblieren und Binden
+\end{enumerate}
+
+\subsection{Lexikalische Analyse}\xindex{Analyse!lexikalische}%
+In der lexikalischen Analyse wird der Quelltext als Sequenz von Zeichen betrachtet.
+Sie soll bedeutungstragende Zeichengruppen, sog. \textit{Tokens}\xindex{Token},
+erkennen und unwichtige Zeichen, wie z.~B. Kommentare überspringen. Außerdem
+sollen Bezeichner identifiziert und in einer \textit{Stringtabelle}\xindex{Stringtabelle}
+zusammengefasst werden.
+
+\begin{beispiel}
+	\todo[inline]{Beispiel erstellen}
+\end{beispiel}
+
+\section{Syntaktische Analyse}\xindex{Analyse!syntaktische}%
+In der syntaktischen Analyse wird überprüft, ob die Tokenfolge zur 
+kontextfreien Sprache\todo{Warum kontextfrei?} gehört. Außerdem soll die 
+hierarchische Struktur der Eingabe erkannt werden.\todo{Was ist gemeint?}
+
+Ausgegeben wird ein \textbf{abstrakter Syntaxbaum}\xindex{Syntaxbaum!abstrakter}.
+
+\begin{beispiel}[Abstrakter Syntaxbaum]
+	TODO
+\end{beispiel}
+
+\section{Semantische Analyse}\xindex{Analyse!semantische}%
+Die semantische Analyse arbeitet auf einem abstrakten Syntaxbaum und generiert
+einen attributierten Syntaxbaum\xindex{Syntaxbaum!attributeriter}.
+
+Sie führt eine kontextsensitive Analyse durch. Dazu gehören:
+\begin{itemize}
+	\item \textbf{Namensanalyse}: Beziehung zwischen Deklaration und Verwendung\todo{?}
+	\item \textbf{Typanalyse}: Bestimme und prüfe Typen von Variablen, Funktionen, \dots \todo{?}
+	\item \textbf{Konsistenzprüfung}: Wurden alle Einschränkungen der Programmiersprache eingehalten?\todo{?}
+\end{itemize}
+
+\begin{beispiel}[Attributeriter Syntaxbaum]
+    TODO
+\end{beispiel}
+
+\section{Zwischencodeoptimierung}
+Hier wird der Code in eine sprach- und zielunabhängige Zwischensprache transformiert.
+Dabei sind viele Optimierungen vorstellbar. Ein paar davon sind:
+\begin{itemize}
+    \item \textbf{Konstantenfaltung}: Ersetze z.~B. $3+5$ durch $8$.
+    \item \textbf{Kopienfortschaffung}: Setze Werte von Variablen direkt ein
+    \item \textbf{Code verschieben}: Führe Befehle vor der Schleife aus, statt in der Schleife \todo{?}
+    \item \textbf{Gemeinsame Teilausdrücke entfernen}: Es sollen doppelte Berechnungen vermieden werden \todo{Beispiel?}
+    \item \textbf{Inlining}: Statt Methode aufzurufen, kann der Code der Methode an der Aufrufstelle eingebaut werden.
+\end{itemize}
+
+\section{Codegenerierung}
+Der letzte Schritt besteht darin, aus dem generiertem Zwischencode den 
+Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
+\begin{itemize}
+    \item \textbf{Konventionen}: Wie werden z.~B. im Laufzeitsystem Methoden aufgerufen?
+    \item \textbf{Codeauswahl}: Welche Befehle kennt das Zielsystem?
+    \item \textbf{Scheduling}: In welcher Reihenfolge sollen die Befehle angeordnet werden?
+    \item \textbf{Registerallokation}: Welche Zwischenergebnisse sollen in welchen Prozessorregistern gehalten werden?
+    \item \textbf{Nachoptimierung}\todo{?}
+\end{itemize}
 
 \index{Compilerbau|)}
-
