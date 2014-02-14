@@ -218,7 +218,7 @@ Da $x \in U$ beliebig gewählt war gilt: $\fT|_A \subseteq \fT'$
 
 \todo[inline]{Wenn $G$ eine topologische Gruppe ist, dann ist $\circ$ doch auf jeden Fall stetig! Was soll die Definition? Des Weiteren verstehe ich $g \circ h := g \cdot h$ nicht. Was ist $\cdot$?}
 
-\section*{Hyperbolische Metrik und Geraden}
+\section*{20.) Hyperbolische Metrik und Geraden}
 \begin{definition}\xindex{Gerade!hyperbolische}%
     Sei
         \[\mdh:= \Set{z \in \mdc | \Im(z) > 0} = \Set{(x,y) \in \mdr^2 | y > 0}\]
@@ -242,4 +242,24 @@ Da $x \in U$ beliebig gewählt war gilt: $\fT|_A \subseteq \fT'$
 
 \todo[inline]{Wir haben hyperbolische Geraden mit der euklidischen Metrik beschrieben. Kann man hyperbolische Geraden auch mit der hyperbolischen Metrik beschreiben? Wie?}
 vgl. Beweis von Bemerkung 68 b)
+
+\section*{21.) Defintion Normalenvektor}
+\begin{definition}%In Vorlesung: Definition 16.2
+    Sei $\gamma: I \rightarrow \mdr^2$ eine durch Bogenlänge
+    parametrisierte Kurve.
+
+    \begin{defenum}
+        \item Für $t \in I$ sei $n(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
+              an $\gamma$ in $t$, d.~h.
+              \[\langle n(t), \gamma'(t) \rangle = 0, \;\;\; \|n(t)\|=1 \]
+              und $\det((\gamma_1(t), n(t))) = +1$.
+        \item Nach \cref{bem:16.1d} sind $n(t)$ und $\gamma''(t)$ linear
+              abhängig, d.~h. es gibt $\kappa(t) \in \mdr$ mit
+              \[\gamma''(t) = \kappa(t) \cdot n(t)\]
+              $\kappa(t)$ heißt \textbf{Krümmung}\xindex{Krümmung}
+              von $\gamma$ in $t$.
+    \end{defenum}
+\end{definition}
+
+\todo[inline]{Sollte es in a) $\det((\gamma_1{\color{red}'}(t), n(t))) = +1$ sein?}
 \end{document}

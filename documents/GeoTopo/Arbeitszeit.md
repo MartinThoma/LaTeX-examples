@@ -79,3 +79,4 @@ in dem Erstellen dieses Skripts steckt:
 |11.02.2014 | 09:45 - 12:20 | Digitalisieren der Vorlesung von 11.02.2014
 |13.02.2014 | 10:00 - 11:00 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 13.02.2014, umgesetzt.
 |13.02.2014 | 15:45 - 17:00 | Digitalisieren der Vorlesung von 13.02.2014
+|14.02.2014 | 06:15 - 07:10 | Verbesserungsvorschläge von Arthur umgesetzt.
