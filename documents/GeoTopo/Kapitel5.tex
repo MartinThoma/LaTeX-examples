@@ -193,7 +193,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
               $F_i: U_i \rightarrow V_i,\;i \in I$ gibt, sodass
               für alle $i, j \in F$ und alle $s \in V_i \cap V_j \cap S$
               gilt:
-              \[\det(\underbrace{D_s \overbrace{F_j \circ F_i^{-1}}^{V_i \rightarrow V_j}}_{\in \mdr^{3 \times 3}})\]
+              \[\det(\underbrace{D_s \overbrace{F_j \circ F_i^{-1}}^{V_i \rightarrow V_j}}_{\in \mdr^{3 \times 3}}) < 0\]
     \end{bemenum}
 \end{bemerkung}
 
@@ -238,10 +238,10 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
     \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis\%20II}{\path{github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis\%20II}}
 \end{beweis}
 
-\begin{definition}\xindex{Normalenkrümmung}%In Vorlesung: Definition 18.2
+\begin{definition}\xindex{Normalkrümmung}%In Vorlesung: Definition 18.2
     In der Situation aus \cref{bem:18.1} heißt die Krümmung $\kappa_\gamma(0)$
     der Kurve $\gamma$ in der Ebene $(s+ E)$ im Punkt $s$ die
-    \textbf{Normalenkrümmung}\footnotemark von $S$ in $s$ in Richtung
+    \textbf{Normalkrümmung}\footnotemark{} von $S$ in $s$ in Richtung
     $x = \gamma'(0)$.
 
     Man scheibt: $\kappa_\gamma(0) := \kappanor(s, x)$
@@ -289,8 +289,8 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 06.02.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}\label{def:18.4}\xindex{Normalenkrümmung}%In Vorlesung: Def. 18.4
-    Sei $S \in \mdr^3$ eine reguläre Fläche, $s \in S$, ($n$ ein
+\begin{definition}\label{def:18.4}\xindex{Normalkrümmung}%In Vorlesung: Def. 18.4
+    Sei $S \subseteq \mdr^3$ eine reguläre Fläche, $s \in S$, ($n$ ein
     stetiges Normalenfeld auf $S$)
 
     $\gamma:[-\varepsilon, \varepsilon] \rightarrow S$ eine nach
@@ -303,7 +303,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
 
     Dann ist $n(0)^\bot = \langle n(0), n(s) \rangle \cdot n(s)$\\
     $\kappanor(s, \gamma) := \langle \gamma''(0), n(s) \rangle$
-    die \textbf{Normalenkrümmung}.\todo{Ist das hier die Normalenkrümmung? Was ist mit der anderen Def.?}
+    die \textbf{Normalkrümmung}.
 \end{definition}
 
 \begin{bemerkung}
@@ -546,7 +546,7 @@ an $S$ in $s$.
 \end{beweis}
 
 \begin{folgerung}\xindex{Normalkrümmung}%In Vorlesung: Folgerung 19.7
-    Die beiden Definitionen von Normalkürmmung in \cref{sec:Kurvenkrümmung} stimmen
+    Die beiden Definitionen von Normalkrümmung in \cref{sec:Kurvenkrümmung} stimmen
     überein:
     \[\kappanor(s, \gamma) = \kappanor(s, \gamma'(0))\]
 \end{folgerung}
@@ -581,7 +581,7 @@ an $S$ in $s$.
 \end{beweis}
 
 \begin{satz}[Satz von Gauß-Bonnet]\xindex{Satz von!Gauß-Bonnet}
-    Sei $S \subseteq \mdr^3$ eine kompakte, reguläre Fläche. Dann gilt:
+    Sei $S \subseteq \mdr^3$ eine kompakte orientierbare reguläre Fläche. Dann gilt:
     \[\int_S K(s) \mathrm{d}A = 2 \pi \chi(S)\]
     Dabei ist $\chi(S)$ die Euler-Charakteristik von $S$.
 \end{satz}
