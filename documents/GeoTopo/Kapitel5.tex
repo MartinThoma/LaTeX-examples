@@ -131,7 +131,7 @@
     \end{bemenum}
 \end{bemerkung}
 
-\section{Tangentialebene}
+\section{Tangentialebene}\index{Tangentialebene|(}
 Erinnerung Sie sich an \cref{def:8.5} \enquote{reguläre Fläche}.
 
 Äquivalent dazu ist: $S$ ist lokal von der Form
@@ -156,22 +156,27 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
     an $s \in S$.
 \end{definition}
 
-\begin{bemerkung}%In Vorlesung: 17.2
-    $T_s S$ ist $2$-dimensionaler Untervektorraum von $\mdr^3$.
-\end{bemerkung}
-
-\begin{bemerkung}%In Vorlesung: 17.3
-    $T_s S$ hängt nicht von der gewählten Parametrisierung ab.
+\begin{bemerkung}[Eigenschaften der Tangentialebene]%
+    \begin{bemenum}
+        \item $T_s S$ ist $2$-dimensionaler Untervektorraum von $\mdr^3$.%In Vorlesung: 17.2
+        \item $T_s S$ hängt nicht von der gewählten Parametrisierung ab.%In Vorlesung: 17.3
+    \end{bemenum}
+    
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
-    \begin{behauptung}
-        $T_s S = \{x \in \mdr^3 | \exists \text{parametrisierte Kurve } 
+    \begin{enumerate}[label=\alph*)]
+        \item $J_F$ ist eine $3 \times 2$-Matrix, die mit einem $2 \times 1$-Vektor
+              multipliziert wird. Das ist eine lineare Abbildung und aus der 
+              linearen Algebra ist bekannt, das das Bild ein Vektorraum ist.
+              Da $\rang(J_F) = 2$, ist auch $\dim (T_s S) = 2$.
+        \item $T_s S = \{x \in \mdr^3 | \exists \text{parametrisierte Kurve } 
           \gamma:[- \varepsilon, + \varepsilon] \rightarrow S 
           \text{ für ein } \varepsilon > 0 
           \text{ mit } \gamma(0) = s \text{ und } \gamma'(0) = x
           \}$
-    \end{behauptung}
+          \todo{todo}
+    \end{enumerate}
 \end{beweis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -245,8 +250,8 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
     \caption{Möbiusband}
     \label{fig:moebius-strip}
 \end{figure}
-
-\section{Gauß-Krümmung}
+\index{Tangentialebene|)}
+\section{Gauß-Krümmung}\index{Gauß-Krümmung|(}
 \begin{bemerkung}\label{bem:18.1}%In Vorlesung: Bemerkung 18.1
     Sei $S$ eine reguläre Fläche, $s \in S$, $n(s)$ ist ein Normalenvektor
     in $s$, $x \in T_s (S)$, $\|x\| = 1$.
@@ -403,7 +408,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
               beide Seiten von $T_s S + s$.
     \end{bemenum}
 \end{bemerkung}
-
+\index{Gauß-Krümmung|)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 11.02.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -488,11 +493,17 @@ an $S$ in $s$.
               Dann ist $\int_S f \mathrm{d} A$ wohldefiniert, falls (z.~B.) $S$
               kompakt ist.
 
-              Etwa: $\int_S f \mathrm{d} A = \sum_{i=1}^n \int_{V_i} f \mathrm{d} A - \sum_{i \neq j} \int_{V_i \cap V_j} f \mathrm{d} A + \sum_{i,j,k} \int_{V_i \cap V_j \cap V_k} - \dots$
+              Etwa:
+              \begin{align*}
+                \int_S f \mathrm{d} A &= \sum_{i=1}^n \int_{V_i} f \mathrm{d} A \\
+                &- \sum_{i \neq j} \int_{V_i \cap V_j} f \mathrm{d} A \\
+                &+ \sum_{i,j,k} \int_{V_i \cap V_j \cap V_k}\\
+                &- \dots
+              \end{align*}
     \end{bemenum}
 \end{bemerkung}
 
-\begin{beweis}
+\begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item Mit Transformationsformel
         \item Ist dem Leser überlassen
