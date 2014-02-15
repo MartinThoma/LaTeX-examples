@@ -51,95 +51,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \chapter{Fragen zu Definitionen}
-\section*{6.) Basisbeispiele}
-\todo[inline]{Kennst du ein Beispiel für eine Subbasis in einem Topologischen Raum,
-die keine Basis ist?}
-
-Wie ist es mit folgendem?
-
-Sei $(X, \fT)$ ein topologischer Raum mit 
-  $X = \Set{0,1,2}$ und $\fT = \Set{\emptyset, \Set{0}, \Set{0,1}, X}$.\\
-  Dann ist $\calS = \Set{\emptyset, \Set{0,1}, \Set{0,2}}$ eine Subbasis von 
-  $\fT$, da gilt:
-  \begin{itemize}
-    \item $\emptyset \in \calS$
-    \item $\Set{0} = \Set{0, 1} \cap \Set{0,2}$
-    \item $\Set{0,1} \in \calS$
-    \item $X = \Set{0,1} \cup \Set{0,2}$
-  \end{itemize}
-  Allerings ist $\calS$ keine Basis von $(X, \fT)$, da
-  $\Set{0}$ nicht als Vereinigung von Elementen aus $\calS$
-  erzeugt werden kann.
-
-
-\section*{9.) Mannigfaltigkeit mit Rand}
-\begin{definition}%
-    Sei $X$ ein topologischer Raum und $n \in \mdn$.
-    \begin{defenum}
-        \item Eine $n$-dimensionale \textbf{Karte}\xindex{Karte} auf
-              $X$ ist ein Paar $(U, \varphi)$, wobei $U \subseteq X$
-              offen und $\varphi: U \rightarrow V$ Homöomorphismus
-              von $U$ auf eine offene Teilmenge $V \subseteq \mdr^n$.
-        \item Ein $n$-dimensionaler \textbf{Atlas}\xindex{Atlas} $\atlas$ auf $X$ ist eine
-              Familie $(U_i, \varphi_i)_{i \in I}$ von Karten auf $X$,
-              sodass $\bigcup_{i \in I} U_i = X$.
-        \item $X$ heißt (topologische) $n$-dimensionale \textbf{Mannigfaltigkeit}\xindex{Mannigfaltigkeit},
-              wenn $X$ hausdorffsch ist, eine abzählbare Basis der 
-              Topologie hat und ein $n$-dimensionalen Atlas besitzt.
-    \end{defenum}
-\end{definition}
-\begin{definition}\xindex{Mannigfaltigkeit!mit Rand}%
-    Sei $X$ ein Hausdorffraum mit abzählbarer Basis der Topologie.
-    $X$ heißt $n$-dimensionale \textbf{Mannigfaltigkeit mit Rand},
-    wenn es einen Atlas $(U_i, \varphi_i)$ gibt, wobei $U_i \subseteq X_i$
-    offen und $\varphi_i$ ein Homöomorphismus auf eine offene 
-    Teilmenge von 
-    \[R_{+,0}^n := \Set{(x_1, \dots, x_n) \in \mdr^n | x_{\color{red}m} \geq 0}\]
-    ist.
-\end{definition}
-
-\todo[inline]{Sind Mannigfaltigkeiten mit Rand auch Mannigfaltigkeiten? Sollte das rote $m$ eventuell $n$ sein? Oder sollte es ein $i$ sein, mit $i = 1..n$?}
-
-Laut \url{https://de.wikipedia.org/wiki/Mannigfaltigkeit_mit_Rand}:
-
-\enquote{Eine Mannigfaltigkeit mit Rand ist mathematisches Objekt aus der Differentialgeometrie. Es handelt sich hierbei nicht um einen Spezialfall einer Mannigfaltigkeit, sondern ganz im Gegenteil um eine Verallgemeinerung.}
-
-\todo[inline]{Ist die Aussage auf Wikipedia korrekt? Für mich sieht das so aus, also ob folgende Definition auch richtig wäre:}
-
-\begin{definition}\xindex{Mannigfaltigkeit!mit Rand}%
-    Sei $X$ eine Mannigfaltigkeit mit Atlas $\atlas$ und
-    \[\mdr_{+,0}^n := \Set{(x_1, \dots, x_n) \in \mdr^n | x_m \geq 0}\]
-
-    $X$ heißt \textbf{Mannigfaltigkeit mit Rand}, wenn gilt:
-    \[\forall (U, \varphi) \in \atlas: \varphi(U) \subseteq \mdr_{+,0}^n\]
-\end{definition}
-
-\section*{11.) Produkttopologie}
-\begin{definition}\xindex{Produkttopologie}%
-    Seien $X_1, X_2$ topologische Räume.\\
-    $U \subseteq X_1 \times X_2$ sei offen, wenn es zu jedem $x = (x_1, x_2) \in U$
-    Umgebungen $U_i$ um $x_i$  mit $i=1,2$ gibt, sodass $U_1 \times U_2 \subseteq U$
-    gilt.
-
-    $\fT = \Set{U \subseteq X_1 \times X_2 | U \text{ offen}}$
-    ist eine Topologie auf $X_1 \times X_2$. Sie heißt \textbf{Produkttopologie}.
-    $\fB = \Set{U_1 \times U_2 | U_i \text{ offen in } X_i, i=1,2}$
-    ist eine Basis von $\fT$.
-\end{definition}
-
-\todo[inline]{Gibt es ein Beispiel, das zegit, dass nicht $\fB = \fT$ gilt?}
-
-\section*{15.) Existenz der Parallelen}
-\begin{definition}%
-    \begin{enumerate}[label=§\arabic*),ref=§\arabic*,start=5]
-        \item \label{axiom:5}\textbf{Parallelenaxiom}\xindex{Parallele}:
-            Für jedes $g \in G$ und jedes
-            $P \in X \setminus g$ gibt es höchstens ein $h \in G$ mit
-            $h \cap g = \emptyset$. $h$ heißt \textbf{Parallele zu $g$ durch $P$}.
-    \end{enumerate}
-\end{definition}
-
-\todo[inline]{Wie beweist man, dass es genau eine gibt? (Verschiebung der Geraden in den entsprechenden Punkt mit der Isometrie, die die Halbebenen gleich lässt)}
 
 \section*{17.) Simpliziale Abbildungen}
 Wenn man Simpliziale Abbildungen wie folgt definiert
@@ -219,51 +130,6 @@ Da $x \in U$ beliebig gewählt war gilt: $\fT|_A \subseteq \fT'$
 
 \todo[inline]{Wenn $G$ eine topologische Gruppe ist, dann ist $\circ$ doch auf jeden Fall stetig! Was soll die Definition? Des Weiteren verstehe ich $g \circ h := g \cdot h$ nicht. Was ist $\cdot$?}
 
-\section*{20.) Hyperbolische Metrik und Geraden}
-\begin{definition}\xindex{Gerade!hyperbolische}%
-    Sei
-        \[\mdh:= \Set{z \in \mdc | \Im(z) > 0} = \Set{(x,y) \in \mdr^2 | y > 0}\]
-    die obere Halbebene bzw. Poincaré-Halbebene und $G = G_1 \cup G_2$
-    mit
-        \begin{align*}
-            G_1 &= \Set{g_1 \subseteq \mdh | \exists m \in \mdr, r \in \mdr_{>0}: g_1 = \Set{z \in \mdh : |z-m|=r}}\\
-            G_2 &= \Set{g_2 \subseteq \mdh | \exists x \in \mdr: g_2 = \Set{z \in \mdh: \Re(z) = x}}
-        \end{align*}
-
-    Die Elemente von $\mdh$ heißen \textbf{hyperbolische Geraden}.
-\end{definition}
-\begin{definition}\xindex{Metrik!hyperbolische}%
-    Für $z_1, z_2 \in \mdh$ sei $g_{z_1, z_2}$ die eindeutige hyperbolische
-    Gerade durch $z_1$ und $z_2$ und $a_1, a_2$ die
-    \enquote{Schnittpunkte} von $g_{z_1, z_2}$ mit $\mdr \cup \Set{\infty}$.
-
-    Dann sei $d(z_1, z_2) := \frac{1}{2} \ln |\DV(a_1, z_4, a_2, z_2) |$
-    und heiße \textbf{hyperbolische Metrik}.
-\end{definition}
-
-\todo[inline]{Wir haben hyperbolische Geraden mit der euklidischen Metrik beschrieben. Kann man hyperbolische Geraden auch mit der hyperbolischen Metrik beschreiben? Wie?}
-vgl. Beweis von Bemerkung 68 b)
-
-\section*{21.) Defintion Normalenvektor}
-\begin{definition}%In Vorlesung: Definition 16.2
-    Sei $\gamma: I \rightarrow \mdr^2$ eine durch Bogenlänge
-    parametrisierte Kurve.
-
-    \begin{defenum}
-        \item Für $t \in I$ sei $n(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
-              an $\gamma$ in $t$, d.~h.
-              \[\langle n(t), \gamma'(t) \rangle = 0, \;\;\; \|n(t)\|=1 \]
-              und $\det((\gamma_1(t), n(t))) = +1$.
-        \item Nach \cref{bem:16.1d} sind $n(t)$ und $\gamma''(t)$ linear
-              abhängig, d.~h. es gibt $\kappa(t) \in \mdr$ mit
-              \[\gamma''(t) = \kappa(t) \cdot n(t)\]
-              $\kappa(t)$ heißt \textbf{Krümmung}\xindex{Krümmung}
-              von $\gamma$ in $t$.
-    \end{defenum}
-\end{definition}
-
-\todo[inline]{Sollte es in a) $\det((\gamma_1{\color{red}'}(t), n(t))) = +1$ sein?}
-
 \section*{22.) MF-Beispiel}
 $\praum^n(\mdr) = (\mdr^{n+1} \setminus \Set{0})/_\sim = S^n /_\sim$ und $\praum^n(\mdc)$ sind Mannigfaltigkeiten
 der Dimension $n$ bzw. $2n$, da gilt:
@@ -330,14 +196,6 @@ $\Rightarrow$ Widerspruch
               \enquote{$\Rightarrow$}:
               \todo[inline]{TODO}
 \end{beweis}
-
-
-\section*{24) Tangentialebene}
-Erinnerung Sie sich an \cref{def:8.5} \enquote{reguläre Fläche}.
-
-Äquivalent dazu ist: $S$ ist lokal von der Form
-\[V(f) = \Set{x \in \mdr^3 | f(x) = 0 }\]
-für eine $C^\infty$-Funktion $f: \mdr^\infty \rightarrow \mdr$.\todo{Wirklich $\mdr^\infty$?}
 
 \section*{25.) Fragen}
 \begin{enumerate}
