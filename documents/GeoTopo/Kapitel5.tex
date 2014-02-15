@@ -29,7 +29,10 @@
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item $l(\gamma) = \int_a^b \|\gamma'(t)\| \mathrm{d} t = \int_a^b 1 \mathrm{d} t = b - a$.
-        \item  $1 = \|\gamma'(t)\| = \|\gamma'(t)\|^2 = \langle \gamma'(t), \gamma'(t) \rangle$\\
+        \item Im Folgenden wird die Aussage nur für $\gamma: [a, b] \rightarrow \mdr^2$ bewiesen.
+              Allerdings funktioniert der Beweis im $\mdr^n$ analog. Es muss nur
+              die Ableitung angepasst werden.
+            $1 = \|\gamma'(t)\| = \|\gamma'(t)\|^2 = \langle \gamma'(t), \gamma'(t) \rangle$\\
             $\begin{aligned}[t]
                 \Rightarrow 0 &= \frac{\mathrm{d}}{\mathrm{d}t} \langle \gamma'(t), \gamma'(t) \rangle\\
                               &= \frac{\mathrm{d}}{\mathrm{d}t} (\gamma_1'(t)\gamma_1'(t) + \gamma_2'(t)\gamma_2'(t))\\
