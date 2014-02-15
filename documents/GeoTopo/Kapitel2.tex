@@ -23,6 +23,25 @@
 Anschaulich ist also ein $n$-dimensionale Mannigfaltigkeit lokal dem $\mdr^n$ ähnlich.
 
 \begin{bemerkung}
+    Jede Mannigfaltigkeit ist mindestens so mächtig wie $\mdr$.
+\end{bemerkung}
+
+\begin{beweis}
+    Sei $(X, \fT)$ ein topologischer Raum und $(U, \varphi)$ mit $U \in \fT$ 
+    und $\varphi:U \rightarrow V \subseteq \mdr^n$,
+    wobei $V$ offen und $\varphi$ ein Homöomorphismus ist, eine Karte auf $X$.
+
+    Es gilt:
+    \begin{itemize}
+        \item Jede offene Teilmenge des $\mdr^n$ ist genauso mächtig wie der $\mdr^n$.
+        \item Als Homöomorphismus muss $\varphi$ insbesondere bijektiv sein.
+        \item Mengen, zwischen denen eine Bijektion existiert, sind gleich mächtig.
+        \item[$\Rightarrow$] $U$ ist genauso mächtig wie der $\mdr^n$
+        \item[$\Rightarrow$] $X$ ist mindestens so mächtig wie der $\mdr^n \qed$
+    \end{itemize}
+\end{beweis}
+
+\begin{bemerkung}
     \begin{bemenum}
         \item Es gibt surjektive, stetige Abbildungen $[0,1] \rightarrow [0,1] \times [0,1]$
         \item Für $n \neq m$ sind $\mdr^n$ und $\mdr^m$ nicht homöomorph.

@@ -560,6 +560,22 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     $f$ heißt \textbf{offen} $:\gdw \forall U \in \fT_X: f(U) \in \fT_Y$.
 \end{definition}
 
+\begin{beispiel}[Offene und stetige Abbildungen]
+    Sei $X$ ein topologischer Raum und seien
+    $f_i: \mdr \rightarrow \mdr$ mit $i \in \Set{1,2,3}$ und
+    $g: \mdr \rightarrow S^1 = \Set{z \in \mdc | \|z\| = 1}$ Abbildungen.
+    \begin{bspenum}
+        \item $f_1 := \id_\mdr$ ist eine offene und stetige Abbildung.
+        \item $g(x) := e^{2 \pi \iu x}$ ist eine offene, aber keine stetige Abbildung (vgl. \cref{fig:nicht-stetige-umkehrabbildung}).
+        \item $f_2(x) := 42$ ist eine stetige, aber keine offene Abbildung.
+        \item $f_3(x) := \begin{cases}
+                0  &\text{falls } x \in \mdq\\
+                42 &\text{falls } x \in \mdr \setminus \mdq
+        \end{cases}$\\
+        ist weder stetig noch offen.
+    \end{bspenum}
+\end{beispiel}
+
 \begin{bemerkung}\label{bem:12.2} % Bemerkung 12.2 der Vorlesung
     Überlagerungen sind offene Abbildungen.
 \end{bemerkung}
