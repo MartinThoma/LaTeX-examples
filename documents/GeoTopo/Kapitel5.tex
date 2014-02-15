@@ -160,8 +160,12 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
     \begin{bemenum}
         \item $T_s S$ ist $2$-dimensionaler Untervektorraum von $\mdr^3$.%In Vorlesung: 17.2
         \item $T_s S$ hängt nicht von der gewählten Parametrisierung ab.%In Vorlesung: 17.3
+        \item Sei $S=V(f)$ eine reguläre Fläche in $\mdr^3$, also %In Vorlesung: Bemerkung 17.4
+                $f:V \rightarrow \mdr$ eine $C^\infty$-Funktion, $V \subseteq \mdr^3$
+                offen, $\grad(f)(x) \neq 0$ für alle $x \in S$.
+
+                Dann ist $T_s S = (\grad(f)(s))^\perp$ für jedes $s \in S$.
     \end{bemenum}
-    
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -176,29 +180,19 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
           \text{ mit } \gamma(0) = s \text{ und } \gamma'(0) = x
           \}$
           \todo{todo}
-    \end{enumerate}
-\end{beweis}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Mitschrieb vom 04.02.2014                                         %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{bemerkung}%In Vorlesung: Bemerkung 17.4
-    Sei $S=V(f)$ eine reguläre Fläche in $\mdr^3$, also 
-    $f:V \rightarrow \mdr$ eine $C^\infty$-Funktion, $V \subseteq \mdr^3$
-    offen, $\grad(f)(x) \neq 0$ für alle $x \in S$.
-
-    Dann ist $T_s S = (\grad(f)(s))^\perp$ für jedes $s \in S$.
-\end{bemerkung}
-\begin{beweis}
-    Sei $x \in T_s S, \gamma:[-\varepsilon, +\varepsilon] \rightarrow S$
+        \item Sei $x \in T_s S, \gamma:[-\varepsilon, +\varepsilon] \rightarrow S$
     eine parametrisierte Kurve mit $\varepsilon > 0$ und $\gamma'(0) = s$,
     sodass $\gamma'(0) = x$ gilt. Da $\gamma(t) \in S$ für alle
     $t \in [-\varepsilon, \varepsilon]$, ist $f \circ \gamma = 0$\\
     $\Rightarrow 0 = (f \circ \gamma)'(0) = \langle \grad(f)(\gamma(0)), \gamma'(0) \rangle$\\
     $\Rightarrow T_s S \subseteq \grad (f)(s)^\perp$\\
     $\xRightarrow{\dim = 2} T_s S = (\grad(f)(s))^\perp$
+    \end{enumerate}
 \end{beweis}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mitschrieb vom 04.02.2014                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}%In Vorlesung: Def.+Bem 17.5
     \begin{defenum}
         \item Ein \textbf{Normalenfeld}\xindex{Normalenfeld} auf der
@@ -234,7 +228,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
     Wird hier nicht geführt.%TODO: Übung? Übungsblatt?
 \end{beweis}
 
-\begin{beispiel}
+\begin{beispiel}[Normalenfelder]
     \begin{bspenum}
         \item $S = S^2$, $n_1 = \id_{S^2}$ ist stetiges Normalenfeld.\\
               $n_2 = - \id_{S^2}$ ist auch stetiges Normalenfeld.
@@ -267,8 +261,8 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
 \end{bemerkung}
 
 \begin{beweis}
-    \enquote{Satz über implizite Funktionen}, siehe z.~B. 
-    \href{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis\%20II}{\path{github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis\%20II}}
+    \enquote{Satz über implizite Funktionen}\footnote{Siehe z.~B. 
+    \url{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis\%20II}}
 \end{beweis}
 
 \begin{definition}\xindex{Normalkrümmung}%In Vorlesung: Definition 18.2
@@ -281,7 +275,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
 \end{definition}
 \footnotetext{Die Krümmung ist nur bis auf das Vorzeichen bestimmt.}
 
-\begin{beispiel}%In Vorlesung: Beispiel 18.3
+\begin{beispiel}[Gauß-Krümmung]%In Vorlesung: Beispiel 18.3
     \begin{bspenum}
         \item $S = S^2 = V(X^2 + Y^2 + Z^2 - 1)$ ist die Kugel um den Ursprung mit Radius~1,
               $n = \id$, $s=(0,0,1)$, $x=(1,0,0)$\\
@@ -356,8 +350,9 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
     $S$ in $s$.
 
     Sei $T_{s}^{1} S = \Set{x \in T_s S | \|x\| = 1} \cong S^1$.
-    Dann ist $\kappanor^n(s): T_s S \rightarrow \mdr$,
-    $x \mapsto \kappanor(s,x)$ eine glatte Funktion und 
+    Dann ist 
+    \[ \kappanor^n(s): T_s S \rightarrow \mdr, \;\;\; x \mapsto \kappanor(s,x)\]
+    eine glatte Funktion und 
     $\Bild \kappanor(s)$ ist ein abgeschlossenes Intervall.
 \end{bemerkung}
 
@@ -375,10 +370,14 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
 \end{definition}
 
 \begin{bemerkung}%In Vorlesung: Bem.+Def. 18.6
-    Ersetzt man $n$ durch $-n$, so gilt: $\kappanor^{-n}(s, x) = - \kappanor^n(x)\; \forall x \in T_s^1 S$\\
-    $\Rightarrow \kappa_1^{-n}(s) = - \kappa_2^n(s)$,\\
-    $\kappa_2^{-n}(s) = - \kappa_1^n (s)$\\
-    und $K^{-n}(s) = K^n(s) =: K(s)$.
+    Ersetzt man $n$ durch $-n$, so gilt: 
+
+    \begin{align*}
+                \kappanor^{-n}(s, x) &= - \kappanor^n(x)\; \forall x \in T_s^1 S\\
+        \Rightarrow \kappa_1^{-n}(s) &= - \kappa_2^n(s)\\
+                    \kappa_2^{-n}(s) &= - \kappa_1^n (s)\\
+              \text{ und } K^{-n}(s) &= K^n(s) =: K(s)
+    \end{align*}
 \end{bemerkung}
 
 \begin{beispiel}
@@ -448,7 +447,7 @@ an $S$ in $s$.
     \[\det(I_S) = \left \| \frac{\partial F}{\partial u_1}(p) \times \frac{\partial F}{\partial u_2}(p) \right \|^2\] 
 \end{bemerkung}
 
-\begin{beweis}
+\begin{beweis}\leavevmode
     Sei $\frac{\partial F}{\partial u_1}(p) = \begin{pmatrix}
         x_1\\ x_2 \\ x_3
     \end{pmatrix}, \;\;\; \frac{\partial F}{\partial u_2}(p) = \begin{pmatrix}
@@ -473,8 +472,7 @@ an $S$ in $s$.
 
 \begin{definition}\xindex{Flächenelement}%In Vorlesung: Def.+Bem. 19.3 / Erinnerung
     \begin{defenum}
-        \item Das Differential
-              \[\mathrm{d} A = \sqrt{\det (I)} \mathrm{d} u_1 \mathrm{d} u_2\]
+        \item Das Differential $\mathrm{d} A = \sqrt{\det (I)} \mathrm{d} u_1 \mathrm{d} u_2$
               heißt \textbf{Flächenelement} von $S$ bzgl. der Parametrisierung $F$.
         \item \label{def:berechenbares-integral}Für eine Funktion $f: V \rightarrow \mdr$ heißt 
               \[\int_V f \mathrm{d} A := \int_U f(\underbrace{F(u_1, u_2)}_{=: s}) \sqrt{\det I(s)} \mathrm{d} u_1 \mathrm{d} u_2\]
@@ -506,7 +504,7 @@ an $S$ in $s$.
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item Mit Transformationsformel
-        \item Ist dem Leser überlassen
+        \item Ist dem Leser überlassen.
     \end{enumerate}
 \end{beweis}
 
@@ -536,18 +534,17 @@ an $S$ in $s$.
 
         Sei $x_i = D_P F(e_i) = \frac{\partial F}{\partial u_i} (p)\;\;\; i = 1,2$
 
-        \begin{behauptung}
+        \underline{Beh.:} 
           $\langle x_i, d_s n(x_j) \rangle = \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle$
-        \end{behauptung}
+
         $\Rightarrow \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle = \langle x_j, d_s n (x_i) \rangle$
 
-        \underline{Bew.:} 
-
-        \begin{align*}
+        \underline{Bew.:} $
+        \begin{aligned}[t]
             0 &= \hphantom{\frac{\mathrm{d}}{\mathrm{d}t} \left (\right.} \langle \frac{\partial F}{\partial u} (p + t e_j), n(p + t e_j) \rangle\\
 \Rightarrow 0 &= \frac{\mathrm{d}}{\mathrm{d}t} \left (\langle \frac{\partial F}{\partial u} (p + t e_j), n(p + t e_j) \rangle \right) \Bigr |_{t=0}\\
               &= \langle \underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial F}{\partial u_i} (p + t e_j)}_{\frac{\partial^2 F}{\partial u_j \partial u_i} (p)} \Bigr |_{t=0}, n(s) \rangle + \langle x_i, d_s n \underbrace{D_P F (e_j)}_{x_j}\rangle
-        \end{align*}
+        \end{aligned}$
     \end{enumerate}
 \end{beweis}
 
