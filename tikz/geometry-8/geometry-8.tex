@@ -20,6 +20,9 @@
     \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
 
     \tkzDrawSegments(A,B A,C A,A' B,C C,A')
+    \tkzInterLL(A,A')(B,C)\tkzGetPoint{M}
+    \node at ($(M) + (0.1,0.25)$) {$M$};
+
     \tkzLabelPoint[below left](A){$A$}
     \tkzLabelPoint[below right](B){$B$}
     \tkzLabelPoint[above left](C){$C$}
@@ -28,7 +31,8 @@
     \tkzMarkAngle[arc=l,size=0.6cm,color=green,fill=green!20,opacity=.8](B,A,C)
     \path[draw] ++(25:.35) node[rotate=0] {$\alpha$};
 
+
     \tkzDrawSegments(A,B A,C)
-    \tkzDrawPoints(A,B,C,A')
+    \tkzDrawPoints(A,B,C,A',M)
 \end{tikzpicture}
 \end{document}
