@@ -147,9 +147,9 @@ aufgestellt.
         \item \label{axiom:4}\textbf{Bewegungsaxiom}\xindex{Bewegungsaxiom}: 
             Zu $P, Q, P', Q' \in X$
             mit $d(P,Q) = d(P', Q')$ gibt es mindestens 2 Isometrien $\varphi_1, \varphi_2$
-            mit $\varphi_i (P) = P'$ und $\varphi_i(Q) = Q', i=1,2$\footnote{Die \enquote{Verschiebung} von $P'Q'$ nach $PQ$ und die Isometrie, die zusätzlich an der Gerade durch $P$ und $Q$ spiegelt.}
+            mit $\varphi_i (P) = P'$ und $\varphi_i(Q) = Q'$ mit $i=1,2$.\footnote{Die \enquote{Verschiebung} von $P'Q'$ nach $PQ$ und die Isometrie, die zusätzlich an der Gerade durch $P$ und $Q$ spiegelt.}
         \item \label{axiom:5}\textbf{Parallelenaxiom}\xindex{Parallele}:
-            Für jedes $g \in G$ und jedes
+            Zu jeder Geraden $g \in G$ und jedem Punkt
             $P \in X \setminus g$ gibt es höchstens ein $h \in G$ mit $P \in h$ und
             $h \cap g = \emptyset$. $h$ heißt \textbf{Parallele zu $g$ durch $P$}.
     \end{enumerate}
@@ -200,7 +200,7 @@ schneiden sich.
 
 \begin{beweis}%In Vorlesung: Behauptung 3
     Sei $P' \in PQ^-, P' \neq P$
-    $\overset{\cref{satz:pasch}}{\Rightarrow} PB$ schneidet
+    $\xRightarrow{\cref{satz:pasch}} PB$ schneidet
     $\overline{AP'} \cup \overline{AQ}$
 
     Sei $C$ der Schnittpunkt. Dann gilt:
@@ -283,96 +283,87 @@ schneiden sich.
 
 \begin{bemerkung}\label{kor:beh2'}
     Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:3}
-    erfüllt und $\varphi$ eine Isometrie mit $\varphi(P) = P$ und $\varphi(Q) = Q$.
+    erfüllt, $P, Q \in X$ mit $P \neq Q$ und $\varphi$ eine Isometrie mit 
+    $\varphi(P) = P$ und $\varphi(Q) = Q$.
 
     Dann gilt $\varphi(S) = S\;\;\;\forall S \in PQ$.
 \end{bemerkung}
 
 \begin{beweis}
     \begin{align*}
-        \text{\Obda sei } S \in \overline{PQ} &\Leftrightarrow d(P,Q) = d(P,S) + d(S,Q)\\
+        \text{\Obda sei } S \in \overline{PQ} &\overset{\mathclap{\ref{axiom:2}}}{\Leftrightarrow} d(P,Q) = d(P,S) + d(S,Q)\\
         &\overset{\mathclap{\varphi \in \Iso(X)}}{\Rightarrow}\hspace{4 mm} d(\varphi(P),\varphi(Q)) = d(\varphi(P),\varphi(S)) + d(\varphi(S),\varphi(Q))\\
         &\overset{\mathclap{P, Q \in \Fix(\varphi)}}{\Rightarrow}\hspace{4 mm} d(P, Q) = d(P,\varphi(S)) + d(\varphi(S), Q)\\
         &\Rightarrow \varphi(S) \text{ liegt zwischen } P \text{ und } Q\\
-        &\Rightarrow d(P, \varphi(S)) = d(P,S)\\
+        &\Rightarrow d(P,S) \overset{\mathclap{\varphi \in \Iso(X)}}{=}\hspace{4 mm} d(\varphi(P), \varphi(S)) \overset{\mathclap{P \in \Fix(\varphi)}}{=}\hspace{4 mm} d(P, \varphi(S)) = \\
         &\overset{\mathclap{\ref{axiom:3.1}}}{\Rightarrow} \varphi(S) = S
     \end{align*}
 
     $\qed$ 
 \end{beweis}
 
-\begin{proposition}%In Vorlesung: Satz 14.4
+\begin{proposition}\label{satz:14.4}%In Vorlesung: Satz 14.4
     In einer Geometrie, die \ref{axiom:1}~-~\ref{axiom:3} erfüllt,
     gibt es zu $P, P', Q, Q'$ mit $d(P, Q) = d(P', Q')$ höchstens
     zwei Isometrien mit $\varphi(P) = P'$ und $\varphi(Q) = Q'$
 
     Aus den Axiomen  folgt, dass es in 
-    den Situation \ref{axiom:4} höchstens zwei Isometrien mit
+    der Situation von \ref{axiom:4} höchstens zwei Isometrien mit
     $\varphi_i(P) = P'$ und $\varphi_i(Q) = Q'$ gibt.
 \end{proposition}
 
 \begin{beweis}
     Seien $\varphi_1, \varphi_2, \varphi_3$ Isometrien mit
-    $\varphi_i(P) = P'$, $\varphi_i(Q) = Q'$, $i=1,2,3$
+    $\varphi_i(P) = P'$, $\varphi_i(Q) = Q'$ mit $i=1,2,3$.
 
-    \begin{behauptung}[1]
-        $\exists R \in X \setminus PQ$ mit $\varphi_{1} (R) = \varphi_{2} (R)$.
-    \end{behauptung}
-    \begin{behauptung}[2]
-        Hat $\varphi$ 3 Fixpunkte, die nicht kollinear sind,
-        so ist $\varphi = \id_X$.
-    \end{behauptung}
+    Der Beweis von \cref{satz:14.4} erfolgt über zwei Teilaussagen:
 
-    Aus Beh.~1 und Beh.~2 folgt, dass $\varphi_2^{-1} \circ \varphi_1 = \id_X$,
+    \begin{enumerate}[label=(Teil \roman*),ref=(Teil \roman*)]
+        \item \label{bew:teil1} $\exists R \in X \setminus PQ$ mit $\varphi_{1} (R) = \varphi_{2} (R)$.
+        \item \label{bew:teil2} Hat $\varphi$ 3 Fixpunkte, die nicht kollinear sind, so ist $\varphi = \id_X$.
+    \end{enumerate}
+
+    Aus \ref{bew:teil1} und \ref{bew:teil2} folgt, dass $\varphi_2^{-1} \circ \varphi_1 = \id_X$,
     also $\varphi_2 = \varphi_1$, da $P$, $Q$ und $R$ in diesem Fall
     Fixpunkte sind.
 
-    \begin{beweis}\leavevmode
-        \begin{behauptung}
-            Sind $P \neq Q$ Fixpunkte einer Isometrie, so ist 
-            $\varphi(R) = R$ für jedes $R \in PQ$.
-        \end{behauptung}
-        \begin{beweis}[von Beh. 2 mit \cref{kor:beh2'}]
-            Seien $P$, $Q$ und $R$ Fixpunkte von $\varphi$, $R \in PG$
-            und $A \notin \overline{PQ} \cup \overline{PR} \cup \overline{QR}$.
-            Sei $B \in \overline{PQ} \setminus \Set{P, Q}$. Dann ist
-            $\varphi(B) = B$ wegen \cref{kor:beh2'}.
-
-            Ist $R \in AB$, so enthält $AB$ 2 Fixpunkte von $\varphi$
-            $\overset{\cref{kor:beh2'}}{\Rightarrow} \varphi(A) = A$.
-
-            \begin{figure}[htp]
-                \centering
-                \input{figures/geometry-1.tex}
-                \caption{$P, Q, R$ sind Fixpunkte, $B \in \overline{PQ} \setminus \Set{P,Q}$, $A \notin PQ \cup PR \cup QR$}
-                \label{fig:geometry-1}
-            \end{figure}
-
-            Ist $R \notin AB$, so ist $AB \cap \overline{PR} \neq \emptyset$
-            oder $AB \in \overline{RQ} \neq \emptyset$ nach \cref{satz:pasch}.
-            Der Schnittpunkt $C$ ist dann Fixpunkt von $\varphi'$
-            nach \cref{kor:beh2'} $\Rightarrow \varphi(A) = A$.
-        \end{beweis}
-
-        \begin{beweis}[von Beh. 1]
-            Sei $R \in X \setminus PQ$. Von den drei Punkten 
+    Nun zu den Beweisen der Teilaussagen:
+    \begin{enumerate}[label=(Teil \roman*),ref=(Teil \roman*)]
+        \item Sei $R \in X \setminus PQ$. Von den drei Punkten 
             $\varphi_1(R), \varphi_2(R), \varphi_3(R)$ liegen zwei
             in der selben Halbebene bzgl. $P'Q' = \varphi_i(PQ)$.
 
             \Obda seien $\varphi_1(R)$ und $\varphi_2(R)$ in der 
             selben Halbebene.
 
-            Es gilt: 
-            \begin{align*}
+            Es gilt: $\begin{aligned}[t]
                 d(P', \varphi_1(R)) &= d(\varphi_1(P), \varphi_1(R))\\
                     &= d(P, R)\\
                     &= d(\varphi_2(P), \varphi_2(R))\\
                     &= d(P', \varphi_2(R))\\
                     &= d(Q', \varphi_2(R))
-            \end{align*}
+            \end{aligned}$\\
             und analog $d(Q', \varphi_1(R)) = d(Q', \varphi_2(R))$
-        \end{beweis}
-    \end{beweis}
+        \item Seien $P$, $Q$ und $R$ Fixpunkte von $\varphi$, $R \in PG$
+        und $A \notin \overline{PQ} \cup \overline{PR} \cup \overline{QR}$.
+        Sei $B \in \overline{PQ} \setminus \Set{P, Q}$. Dann ist
+        $\varphi(B) = B$ wegen \cref{kor:beh2'}.
+
+        Ist $R \in AB$, so enthält $AB$ 2 Fixpunkte von $\varphi$
+        $\xRightarrow{\crefabbr{kor:beh2'}} \varphi(A) = A$.
+
+        \begin{figure}[htp]
+            \centering
+            \input{figures/geometry-1.tex}
+            \caption{$P, Q, R$ sind Fixpunkte, $B \in \overline{PQ} \setminus \Set{P,Q}$, $A \notin PQ \cup PR \cup QR$}
+            \label{fig:geometry-1}
+        \end{figure}
+
+        Ist $R \notin AB$, so ist $AB \cap \overline{PR} \neq \emptyset$
+        oder $AB \in \overline{RQ} \neq \emptyset$ nach \cref{satz:pasch}.
+        Der Schnittpunkt $C$ ist dann Fixpunkt von $\varphi'$
+        nach \cref{kor:beh2'} $\Rightarrow \varphi(A) = A$.
+    \end{enumerate}
 \end{beweis}
 
 \begin{bemerkung}
@@ -380,62 +371,9 @@ schneiden sich.
     wie man sie aus der Schule kennt, beweisen.
 \end{bemerkung}
 
-\begin{proposition}\label{prop:14.7}%In Vorlesung: Proposition 14.7
-    Sei $(X, d, G)$ eine Geometrie mit den Axiomen \ref{axiom:1}~-~\ref{axiom:4}.
-
-    Dann gibt es zu jedem $g \in G$ und jedem $P \in X \setminus g$ ein
-    $h \in G$ mit $P \in h$ und $g \cap h = \emptyset$.
-\end{proposition}
-
-\begin{figure}[htp]
-    \centering
-    \input{figures/geometry-6.tex}
-    \caption{Situation aus \cref{prop:14.7}}
-    \label{fig:geometry-6}
-\end{figure}
-
-\begin{beweis}
-    Sei $f \in G$ mit $P \in f$. Ist $f \cap g = \emptyset$, so setze
-    $h := f$. Andernfalls sei $\Set{Q} : = f \cap g$.
-
-    Sei $\varphi$ die eindeutige Isometrie mit $\varphi(Q) = P$,
-    $\varphi(P) = P'$, die die Halbebenen bzgl. $f$ nicht vertauscht.
-    
-    Setze $h := \varphi(g)$.
-
-    \underline{Z.~Z.:} $h \cap g = \emptyset$.
-
-    Andernfalls sei $\Set{R} = h \cap g$.
-\end{beweis}
-
-\begin{bemerkung}
-    Jeder Innenwinkel eines Dreiecks ist kleiner als alle nicht-anliegenden
-    Außenwinkel.
-\end{bemerkung}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 16.01.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{beweis}
-    Sei $\varphi$ die Isometrie, die $Q$ auf $P$ und $P$ auf $P'$
-    mit $P' \in f, d(P,P') = d(P, Q)$ abbildet und die Halbebenen
-    bzgl. $f$ erhält.
-\end{beweis}
-
-\begin{behauptung}[Herz]\label{beh:herz}
-    $\varphi(g) \cap g = \emptyset$
-\end{behauptung}
-
-\begin{beweis}
-    Ist $\varphi(g) \cap g \neq \emptyset$, so ist $R$ der Schnittpunkt.
-\end{beweis}
-
-\begin{figure}[htp]
-    \centering
-    \input{figures/geometry-7.tex}
-    \caption{Skizze zu \cref{beh:herz}}
-    \label{fig:geometry-7}
-\end{figure}
 
 \begin{definition}\label{def:14.8}%In Vorlesung: 14.8
     \begin{defenum}
@@ -474,18 +412,27 @@ schneiden sich.
     anliegende Außenwinkel.
 \end{bemerkung}
 
-\begin{figure}[htp]
-    \centering
-    \input{figures/geometry-9.tex}
-    \caption{Situation aus \cref{bem:14.9}}
-    \label{fig:bem:14.9}
-\end{figure}
-
 \begin{beweis}
     Zeige $\angle PRQ < \angle RQP'$.
 
     Sei $M$ der Mittelpunkt der Strecke $\overline{QR}$. Sei
     $A \in MP^-$ mit $d(P,M) = d(M,A)$.
+
+
+    \begin{figure}[ht]
+        \centering
+        \subfloat[Parallelogramm AQPR]{
+            \input{figures/geometry-9.tex}
+            \label{fig:bem:14.9}
+        }%
+        \subfloat[Innen- und Außenwinkel von $\triangle PQR$]{
+            \input{figures/geometry-7.tex}
+            \label{fig:geometry-7}
+        }%
+
+        \label{fig:formen}
+        \caption{Situation aus \cref{bem:14.9}}
+    \end{figure}
 
     Es gilt: $d(Q,M) = d(M,R)$ und $d(P,M) = d(M,A)$ sowie 
     $\angle PMR = \angle AMQ \Rightarrow \triangle MRQ$ ist
@@ -499,11 +446,33 @@ schneiden sich.
     selben Halbebene bzgl. $PQ$ wie $M$.
 \end{beweis}
 
+\begin{proposition}[Existenz der Parallelen]\label{prop:14.7}%In Vorlesung: Proposition 14.7
+    Sei $(X, d, G)$ eine Geometrie mit den Axiomen \ref{axiom:1}~-~\ref{axiom:4}.
+
+    Dann gibt es zu jeder Geraden $g \in G$ und jedem Punkt $P \in X \setminus g$ 
+    mindestens eine Parallele $h \in G$ mit $P \in h$ und $g \cap h = \emptyset$.
+\end{proposition}
+
+\begin{figure}[htp]
+    \centering
+    \input{figures/geometry-6.tex}
+    \caption{Situation aus \cref{prop:14.7}}
+    \label{fig:geometry-6}
+\end{figure}
+
 \begin{beweis}[von \cref{prop:14.7}]
-    Wäre $\varphi(g)$ nicht parallel zu $g$, so gäbe es einen 
-    Schnittpunkt $R$. Dann ist $\angle QPR < \angle RQP^-$ nach
+    Seien $P, Q, R \in X$ mit $P, Q \in f \in G$.
+
+    Sei $\varphi$ die Isometrie, die $Q$ auf $P$ und $P$ auf $P' \in f$
+    mit $d(P,P') = d(P, Q)$ abbildet und die Halbebenen bzgl. $f$ erhält.
+
+    \underline{Annahme:} $\varphi(g) \cap g \neq \emptyset$\\
+    $\Rightarrow$ Es gibt einen Schnittpunkt $\Set{R} = \varphi(g) \cap g$.\\
+    Dann ist $\angle QPR < \angle RQP^-$ nach
     \cref{bem:14.9} und $\angle QPR = \angle RQP^-$, weil
-    $\varphi(\angle RQP') = \angle RPQ$
+    $\varphi(\angle RQP') = \angle RPQ$.\\
+    $\Rightarrow$ Widerspruch\\
+    $\Rightarrow \varphi(g) \cap g = \emptyset$
 \end{beweis}
 
 \begin{folgerung}\label{folgerung:14.10}%In Vorlesung: Folgerung 14.10
@@ -667,7 +636,7 @@ Der Flächeninhalt eines Dreiecks ist $\nicefrac{1}{2} \cdot \text{Grundseite} \
     \label{fig:flaechenberechnung-dreieck-2}
 \end{figure}
 
-$\overset{\text{Strahlensatz}}{\Rightarrow} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \cdot h_a = c \cdot h_c$
+$\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \cdot h_a = c \cdot h_c$
 
 \begin{satz}[Satz des Pythagoras]
     Im rechtwinkligen Dreieck gilt $a^2 + b^2 = c^2$, wobei $c$ die
