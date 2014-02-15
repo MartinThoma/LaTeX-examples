@@ -341,10 +341,9 @@ schneiden sich.
                     &= d(P, R)\\
                     &= d(\varphi_2(P), \varphi_2(R))\\
                     &= d(P', \varphi_2(R))\\
-                    &= d(Q', \varphi_2(R))
             \end{aligned}$\\
             und analog $d(Q', \varphi_1(R)) = d(Q', \varphi_2(R))$
-        \item Seien $P$, $Q$ und $R$ Fixpunkte von $\varphi$, $R \in PG$
+        \item Seien $P$, $Q$ und $R$ Fixpunkte von $\varphi$, $R \notin PQ$
         und $A \notin \overline{PQ} \cup \overline{PR} \cup \overline{QR}$.
         Sei $B \in \overline{PQ} \setminus \Set{P, Q}$. Dann ist
         $\varphi(B) = B$ wegen \cref{kor:beh2'}.
@@ -415,8 +414,8 @@ schneiden sich.
 \begin{beweis}
     Zeige $\angle PRQ < \angle RQP'$.
 
-    Sei $M$ der Mittelpunkt der Strecke $\overline{QR}$. Sei
-    $A \in MP^-$ mit $d(P,M) = d(M,A)$.
+    Sei $M$ der Mittelpunkt der Strecke $\overline{QR}$ und $P' \in PQ^+ \setminus \overline{PQ}$.
+    Sei $A \in MP^-$ mit $d(P,M) = d(M,A)$.
 
 
     \begin{figure}[ht]
@@ -460,19 +459,17 @@ schneiden sich.
     \label{fig:geometry-6}
 \end{figure}
 
-\begin{beweis}[von \cref{prop:14.7}]
-    Seien $P, Q, R \in X$ mit $P, Q \in f \in G$.
-
-    Sei $\varphi$ die Isometrie, die $Q$ auf $P$ und $P$ auf $P' \in f$
+\begin{beweis}
+    Seien $P, Q \in f \in G$ und $\varphi$ die Isometrie, die $Q$ auf $P$ und $P$ auf $P' \in f$
     mit $d(P,P') = d(P, Q)$ abbildet und die Halbebenen bzgl. $f$ erhält.
 
     \underline{Annahme:} $\varphi(g) \cap g \neq \emptyset$\\
     $\Rightarrow$ Es gibt einen Schnittpunkt $\Set{R} = \varphi(g) \cap g$.\\
-    Dann ist $\angle QPR < \angle RQP^-$ nach
-    \cref{bem:14.9} und $\angle QPR = \angle RQP^-$, weil
+    Dann ist $\angle QPR < \angle RQP'$ nach
+    \cref{bem:14.9} und $\angle QPR = \angle RQP'$, weil
     $\varphi(\angle RQP') = \angle RPQ$.\\
     $\Rightarrow$ Widerspruch\\
-    $\Rightarrow \varphi(g) \cap g = \emptyset$
+    $\Rightarrow \varphi(g) \cap g = \emptyset \qed$
 \end{beweis}
 
 \begin{folgerung}\label{folgerung:14.10}%In Vorlesung: Folgerung 14.10
@@ -533,9 +530,19 @@ Sei im Folgenden \enquote{$\IWS$} die \enquote{Innenwinkelsumme}.
         \cref{folgerung:14.10}.
     \end{behauptung}
 
-    \begin{beweis}[der Behauptung]
-        Sei $M$ der Mittelpunkt $\overline{RC}$ und $A' \in MA^-$ mit
-        $d(A', M) = d(A, M) \Rightarrow \triangle(MA'C)$ und
+    \begin{beweis}
+        Es seien $A, B, C \in X$ und $\triangle $ das Dreieck mit den 
+        Eckpunkten $A, B, C$ und $\alpha$ sei der Innenwinkel bei $A$, 
+        $\beta$ der Innenwinkel bei $B$ und $\gamma$ der Innenwinkel bei $C$.
+
+        Sei $M$ der Mittelpunkt der Strecke $\overline{BC}$. Sei außerdem
+        $\alpha_1 = \angle CAM$ und $\alpha_2 = \angle BAM$.
+
+        Sei weiter $A' \in MA^-$ mit $d(A', M) = d(A, M)$.
+
+        Die Situation ist in \cref{fig:prop14.11.2} skizziert.
+
+        $ \Rightarrow \triangle(MA'C)$ und
         $\triangle(MAB)$ sind kongruent.
         $\Rightarrow \angle ABM = \angle A'CM$ und $\angle MA'C = \angle MAB$.
         $\Rightarrow \alpha + \beta + \gamma =\IWS(\triangle ABC) = \IWS(\triangle AA'C)$
@@ -888,11 +895,11 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
         \item Ansatz: $\sigma = \begin{pmatrix}a & b\\c & d\end{pmatrix}$
               $\sigma(x_0) = \frac{ax_0 + b}{c x_0 + d} \overset{!}{=} 0$
               $\Rightarrow a x_0 + b = 0 \Rightarrow b = -a x_0$\\
-              $\sigma(x_\infty) = \infty \Rightarrow c x_\infty + d = 0 \Rightarrow d = - x_\infty$\\
+              $\sigma(x_\infty) = \infty \Rightarrow c x_\infty + d = 0 \Rightarrow d = - c x_\infty$\\
               $\sigma(x_1) = 1 \Rightarrow a x_1 + b = c x_1 + d$\\
               $a (x_1 - x_0) = c (x_1 - x_\infty) \Rightarrow c = a \frac{x_1 - x_0}{x_1 - x_\infty}$\\
               $\Rightarrow - a^2 \cdot x_\infty \frac{x_1 - x_0}{x_1 - x_\infty} + a^2 x_0 \frac{x_1 - x_0}{x_1 - x_\infty} = 1$\\
-              $\Rightarrow a^2 \frac{x_1 - x_0}{x_1 - x_\infty} (x_0 - x_\infty) = 1$
+              $\Rightarrow a^2 \frac{x_1 - x_0}{x_0 - x_\infty} (x_0 - x_\infty) = 1$
               $\Rightarrow a^2 = \frac{x_1 - x_\infty}{(x_1 - x_\infty) (x_1 - x_0)}$
         \item TODO d)
         \item Es genügt die Aussage für Matrizen aus \cref{prop:15.2d}
@@ -1001,7 +1008,8 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
         \item $\DV(0, 1, \infty, z_4) = \frac{(0- z_4) \cdot (\infty - 1)}{(0 -1) \cdot (\infty - z_4)} = \frac{z_4 \cdot (\infty - 1)}{\infty - z_4} = z_4$
         \item TODO
         \item  Sei $\sigma \in \PSL_2(\mdc)$ mit $\sigma(z_1) = 0$, $\sigma(z_2) = 1$,
-            $\sigma(z_3) = \infty$ (gibt es?)
+            $\sigma(z_3) = \infty$. Ein solches $\sigma$ existiert, da man drei
+            Parameter von $\sigma$ wählen darf.
 
             $\overset{\mathclap{\crefabbr{bem:15.4d}}}{\Rightarrow}\hspace{4mm} \DV(z_1, \dots, z_4) = \DV(0, 1, \infty, \sigma(z_4))$\\
             $\Rightarrow\hspace{4mm} \DV(z_1, \dots, z_4) \in \mdr \cup \Set{\infty}$\\
@@ -1052,18 +1060,18 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
 
     also gilt \obda $z_1 = \iu a$ und $z_2 = \iu b$ mit $a,b \in \mdr$ und $a < b$.
     \begin{align*}
-        2d(\iu a, \iu b)&= \ln \mid \DV(0, \iu a, \infty, \iu b) \mid \\
-                        &= \ln \mid \frac{(0 - \iu b) (\infty - \iu a)}{(0 - \iu a)(\infty - \iu b)} \mid \\
-                        &= \ln \mid \frac{b}{a} \mid\\
+        2d(\iu a, \iu b)&= \mid \ln \DV(0, \iu a, \infty, \iu b) \mid \\
+                        &= \mid \ln \frac{(0 - \iu b) (\infty - \iu a)}{(0 - \iu a)(\infty - \iu b)} \mid \\
+                        &= \mid \ln \frac{b}{a} \mid\\
                         &= \ln b - \ln a
     \end{align*}
 
     Also: $d(z_1, z_2) \geq 0$, $d(z_1, z_2) = 0 \gdw z_1 = z_2$
 
     \begin{align*}
-        2 d(z_2, z_1) &= \ln \DV(a_2, z_2, a_1, z_1)\\
-                      &= \ln \DV(\infty, \iu b, 0, \iu a)\\
-            &\overset{\mathclap{\crefabbr{bem:15.4b.ii}}}{=}\hspace{5mm} \ln \DV(0, \iu b, \infty, \iu a)\\
+        2 d(z_2, z_1) &= \mid \ln \DV(a_2, z_2, a_1, z_1) \mid\\
+                      &= \mid \ln \DV(\infty, \iu b, 0, \iu a) \mid\\
+            &\overset{\mathclap{\crefabbr{bem:15.4b.ii}}}{=}\hspace{5mm} \mid \ln \DV(0, \iu b, \infty, \iu a) \mid \\
                       &= 2 d(z_1, z_2)
     \end{align*}
 
