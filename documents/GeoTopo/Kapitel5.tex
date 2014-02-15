@@ -12,7 +12,7 @@
               wenn $\|\gamma'(t)\|_2 = 1$ für alle $t \in I$. Dabei
               ist $\gamma'(t) = \left (\gamma_1'(t), \gamma_2'(t), \dots, \gamma_n'(t) \right)$
         \item $l(\gamma) = \int_a^b \|\gamma'(t)\| \mathrm{d} t$ heißt
-              \textbf{Länge von $\gamma$}\xindex{Kurve!Länge einer}
+              \textbf{Länge von $\gamma$}\xindex{Kurve!Länge einer}.
     \end{defenum}    
 \end{definition}
 
@@ -26,16 +26,17 @@
     \end{bemenum}
 \end{bemerkung}
 
-\begin{beweis}
-    von \cref{bem:16.1d}:
-
-    $1 = \|\gamma'(t)\| = \|\gamma'(t)\|^2 = \langle \gamma'(t), \gamma'(t) \rangle$\\
-    \begin{align*}
-        \Rightarrow 0 &= \frac{\mathrm{d}}{\mathrm{d}t} \langle \gamma'(t), \gamma'(t) \rangle\\
-                      &= \frac{\mathrm{d}}{\mathrm{d}t} (\gamma_1'(t)\gamma_1'(t) + \gamma_2'(t)\gamma_2'(t))\\
-                      &= 2 (\gamma_1''(t) \cdot \gamma_1'(t) + \gamma_2''(t) \cdot \gamma_2'(t))\\
-                      &= 2 \langle \gamma''(t), \gamma'(t) \rangle
-     \end{align*}
+\begin{beweis}\leavevmode
+    \begin{enumerate}[label=\alph*)]
+        \item $l(\gamma) = \int_a^b \|\gamma'(t)\| \mathrm{d} t = \int_a^b 1 \mathrm{d} t = b - a$.
+        \item  $1 = \|\gamma'(t)\| = \|\gamma'(t)\|^2 = \langle \gamma'(t), \gamma'(t) \rangle$\\
+            $\begin{aligned}[t]
+                \Rightarrow 0 &= \frac{\mathrm{d}}{\mathrm{d}t} \langle \gamma'(t), \gamma'(t) \rangle\\
+                              &= \frac{\mathrm{d}}{\mathrm{d}t} (\gamma_1'(t)\gamma_1'(t) + \gamma_2'(t)\gamma_2'(t))\\
+                              &= 2 \cdot (\gamma_1''(t) \cdot \gamma_1'(t) + \gamma_2''(t) \cdot \gamma_2'(t))\\
+                              &= 2 \cdot \langle \gamma''(t), \gamma'(t) \rangle
+             \end{aligned}$
+    \end{enumerate}
 \end{beweis}
 
 \begin{definition}%In Vorlesung: Definition 16.2
@@ -44,9 +45,8 @@
 
     \begin{defenum}
         \item Für $t \in I$ sei $n(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
-              an $\gamma$ in $t$, d.~h.
-              \[\langle n(t), \gamma'(t) \rangle = 0, \;\;\; \|n(t)\|=1 \]
-              und $\det((\gamma_1'(t), n(t))) = +1$.
+              an $\gamma$ in $t$ wenn gilt:
+              \[\langle n(t), \gamma'(t) \rangle = 0 \text{, } \|n(t)\|=1 \text{ und } \det((\gamma_1'(t), n(t))) = +1\]
         \item Nach \cref{bem:16.1d} sind $n(t)$ und $\gamma''(t)$ linear
               abhängig, d.~h. es gibt $\kappa(t) \in \mdr$ mit
               \[\gamma''(t) = \kappa(t) \cdot n(t)\]
@@ -60,12 +60,40 @@
     Es gilt:
 
     \[\gamma(t) = \left (r \cdot \cos \frac{t}{r}, r \cdot \sin \frac{t}{r} \right ) \text{ für } t \in [0, 2\pi r]\]
-    ist parametrisiert durch Bogenlänge.
+    ist parametrisiert durch Bogenlänge, da gilt:
 
     \begin{align*}
         \gamma'(t)  &= \left ((r \cdot \frac{1}{r}) (- \sin \frac{t}{r}), r \frac{1}{r} \cos \frac{t}{r} \right )\\
-                    &= \left (- \sin \frac{t}{r}, \cos \frac{t}{r} \right )\\
-        \Rightarrow n(t) &= \left (- \cos \frac{t}{r}, - \sin \frac{t}{r} \right )\\
+                    &= \left (- \sin \frac{t}{r}, \cos \frac{t}{r} \right )
+    \end{align*}
+
+    Der Normalenvektor von $\gamma$ in $t$ ist
+    \[n(t) = \left (- \cos \frac{t}{r}, - \sin \frac{t}{r} \right )\]
+    da gilt:
+
+    \begin{align*}
+        \langle n(t), \gamma'(t) \rangle &= 
+        \left \langle 
+            \begin{pmatrix}- \cos \frac{t}{r}\\ - \sin \frac{t}{r}\end{pmatrix},
+            \begin{pmatrix}- \sin \frac{t}{r}\\ \cos \frac{t}{r}\end{pmatrix}
+        \right \rangle\\
+        &= (- \cos \frac{t}{r}) \cdot (- \sin \frac{t}{r}) + (- \sin \frac{t}{r}) \cdot (\cos \frac{t}{r})\\
+        &= 0\\
+        \|n(t)\| &= \left \| (- \cos \frac{t}{r}, - \sin \frac{t}{r}) \right \|\\
+        &=(- \cos \frac{t}{r})^2 + (- \sin \frac{t}{r})^2\\
+        &= 1\\
+        \det(\gamma_1'(t), n(t)) &= \left \|
+            \begin{pmatrix}
+                - \cos \frac{t}{r} & - \sin \frac{t}{r}\\
+                - \sin \frac{t}{r} &   \cos \frac{t}{r}
+            \end{pmatrix}
+        \right \|\\
+        &= -1
+    \end{align*}
+\todo{oO .. da sollte +1, nicht -1 stehen!}
+
+    Die Krümmung ist für jedes $t$ konstant $\frac{1}{r}$, da gilt:
+    \begin{align*}
         \gamma''(t) &= \left (- \frac{1}{r} \cos \frac{t}{r}, - \frac{1}{r} \sin \frac{t}{r} \right )\\
                     &= \frac{1}{r} \cdot \left (- \cos \frac{t}{r}, - \sin \frac{t}{r} \right )\\
         \Rightarrow \kappa(t) &= \frac{1}{r}
