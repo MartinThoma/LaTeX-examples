@@ -561,9 +561,9 @@ Sei im Folgenden \enquote{$\IWS$} die \enquote{Innenwinkelsumme}.
     Sei $g$ eine Parallele von $AB$ durch $C$. 
 
     \begin{itemize}
-        \item Es gibt $\alpha' = \alpha$ wegen \cref{prop:14.7}.
-        \item Es gibt $\beta' = \beta$ wegen \cref{prop:14.7}.
-        \item Es gibt $\alpha'' = \alpha'$ wegen \cref{ub11:aufg1}.
+        \item Es gilt $\alpha' = \alpha$ wegen \cref{prop:14.7}.
+        \item Es gilt $\beta' = \beta$ wegen \cref{prop:14.7}.
+        \item Es gilt $\alpha'' = \alpha'$ wegen \cref{ub11:aufg1}.
     \end{itemize}
     $\Rightarrow \IWS(\triangle ABC) = \gamma + \alpha'' + \beta' = \pi$
 \end{beweis}
@@ -952,7 +952,7 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
     \begin{bemenum}
         \item $\DV(z_1, \dots, z_4) \in \mdc \setminus \Set{0,1}$
         \item \label{bem:15.4b.ii} $\DV(z_1, z_4, z_3, z_2) = \frac{1}{\DV(z_1, z_2, z_3, z_4)}$
-        \item $\DV(z_3, z_2, z_1, z_4) = \frac{1}{\DV(z_1, z_2, z_3, z_4)}$
+        \item \label{bem:69.c} $\DV(z_3, z_2, z_1, z_4) = \frac{1}{\DV(z_1, z_2, z_3, z_4)}$
         \item $\DV$ ist auch wohldefiniert, wenn eines der $z_i = \infty$
               oder wenn zwei der $z_i$ gleich sind.
         \item $\DV(0, 1, \infty, z_4) = z_4$ (Der Fall $z_4 \in \Set{0, 1, \infty}$ ist zugelassen).
@@ -1017,9 +1017,29 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
     Gerade durch $z_1$ und $z_2$ und $a_1, a_2$ die
     \enquote{Schnittpunkte} von $g_{z_1, z_2}$ mit $\mdr \cup \Set{\infty}$.
 
-    Dann sei $d(z_1, z_2) := \frac{1}{2} \ln |\DV(a_1, z_4, a_2, z_2) |$
+    Dann sei $d_{\mdh}(z_1, z_2) := \frac{1}{2} | \ln \DV(a_1, z_1, a_2, z_2) |$
     und heiße \textbf{hyperbolische Metrik}.
 \end{definition}
+
+\begin{behauptung}
+    Für $z_1, z_2 \in \mdh$ sei $g_{z_1, z_2}$ die eindeutige hyperbolische
+    Gerade durch $z_1$ und $z_2$ und $a_1, a_2$ die
+    \enquote{Schnittpunkte} von $g_{z_1, z_2}$ mit $\mdr \cup \Set{\infty}$.
+
+    Dann gilt:
+    \[\frac{1}{2} | \ln \DV(a_1, z_1, a_2, z_2) | = \frac{1}{2} | \ln \DV(a_2, z_1, a_1, z_2) |\]
+\end{behauptung}
+
+\begin{beweis}
+    Wegen \cref{bem:69.c} gilt:
+    \[\DV(a_1, z_1, a_2, z_2) = \frac{1}{\DV(a_2, z_1, a_1, z_2)}\]
+    Außerdem gilt:
+    \[\ln \frac{1}{x} = \ln x^{-1} = (-1) \cdot \ln x = - \ln x\]
+    Da der $\ln$ im Betrag steht, folgt direkt:
+    \[\frac{1}{2} | \ln \DV(a_1, z_1, a_2, z_2) | = \frac{1}{2} | \ln \DV(a_2, z_1, a_1, z_2)|\]
+    Es ist also egal in welcher Reihenfolge die \enquote{Schnittpunkte} mit
+    der $x$-Achse im Doppelverhältnis genutzt werden. $\qed$
+\end{beweis}
 
 \begin{behauptung}
     Die hyperbolische Metrik ist eine Metrik auf $\mdh$.
