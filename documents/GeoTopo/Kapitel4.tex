@@ -680,12 +680,11 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
               in $X$, die sich in einem Punkt $0$ im rechten Winkel
               schneiden. 
 
-              Sei $P \in X$ ein Punkt und $P_X$ der Fußpunkt des Lots von $P$ auf
-              $g_1$ (vgl. \cref{ub11:aufg3.c}) und $P_Y$ der Fußpunkt des Lots 
-              von $P$ auf $g_2$.
+              Sei $P \in X \setminus (g_1 \cup g_2)$ ein Punkt und $P_X$ der 
+              Fußpunkt des Lots von $P$ auf $g_1$ (vgl. \cref{ub11:aufg3.c}) 
+              und $P_Y$ der Fußpunkt des Lots von $P$ auf $g_2$.
 
-              Setze $h(P) := (x_P, y_P)$ mit 
-              $x_P := d(P_X, 0)$ und $y_P := d(P_Y, 0)$.
+              Sei $x_P := d(P_X, 0)$ und $y_P := d(P_Y, 0)$.
 
               In \cref{fig:14.13.0.1} wurde die Situation skizziert.
 
@@ -703,23 +702,31 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
                 \label{fig:14.13.0.1}
             \end{figure}
 
-            Dadurch wird $h:X \rightarrow \mdr^2$ auf dem Quadranten
-            definiert, in dem $P$ liegt (d.~h. $\forall Q \in X \text{ mit } \overline{PQ} \cap g_1 = \emptyset = \overline{PQ} \cap g_2$)
-            Fortsetzung auf ganz $X$ durch konsistente Vorzeichenwahl.
+            
+              Sei $h:X \rightarrow \mdr^2$ eine Abbildung mit
+              $h(P) := (x_P, y_P)$
+              Dadurch wird $h$ auf dem Quadranten
+              definiert, in dem $P$ liegt, d.~h. 
+              \[\forall Q \in X \text{ mit } \overline{PQ} \cap g_1 = \emptyset = \overline{PQ} \cap g_2\]
 
-            \begin{behauptung}[1]
-                $h$ ist surjektiv
-            \end{behauptung}
-            \begin{behauptung}[2]
-                $h$ ist abstandserhaltend ($\rightarrow$ injektiv)
-            \end{behauptung}
-            \begin{beweis}[von 1]
-                Sei $(x, y) \in \mdr^2$, z.~B. $x \geq 0, y \geq 0$.
+              Fortsetzung auf ganz $X$ durch konsistente Vorzeichenwahl.
+
+			Im Folgenden werden zwei Aussagen gezeigt:
+			\begin{enumerate}[label=(\roman*)]
+				\item \label{bew:euklid-1} $h$ ist surjektiv
+				\item \label{bew:euklid-2} $h$ ist eine Isometrie
+			\end{enumerate}
+
+			Da jede Isometrie injektiv ist, folgt aus \ref{bew:euklid-1}
+			und \ref{bew:euklid-2}, dass $h$ bijektiv ist.
+
+			Nun zu den Beweisen der Teilaussagen:
+
+		 	\begin{enumerate}[label=(\roman*)]
+				\item Sei $(x, y) \in \mdr^2$, z.~B. $x \geq 0, y \geq 0$.
                 Sei $P' \in g_1$ mit $d(0, P') = x$ und
                 $P'$ auf der gleichen Seite von $g_2$ wie $P$.
-            \end{beweis}
-            \begin{beweis}[von 2]
-                \begin{figure}[htp]
+				\item \begin{figure}[htp]
                     \centering
                     \input{figures/coordinate-system-3.tex}
                     \caption{Beweis zu \cref{satz:14.13}}
@@ -730,7 +737,7 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
                 $d(P, Q)^2 \overset{\text{Pythagoras}}{=} d(P, R)^2 + d(R, Q)^2 = (y_Q - y_P)^2 + (x_Q - x_P)^2$.
 
                 $h(Q) = (x_Q, y_Q)$
-            \end{beweis}
+			\end{enumerate}
     \end{enumerate}
 \end{beweis}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
