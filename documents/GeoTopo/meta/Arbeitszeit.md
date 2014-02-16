@@ -83,3 +83,5 @@ in dem Erstellen dieses Skripts steckt:
 |14.02.2014 | 18:30 - 18:50 | Verbesserungsvorschläge von Henrieke (RL) umgesetzt.
 |14.02.2014 | 18:50 - 19:00 | Verbesserungsvorschläge von Jan (Facebook) umgesetzt.
 |14.02.2014 | 20:30 - 24:00 | Überarbeitung des Beweises der Eindeutigkeit einer Parallelen
+|15.02.2014 | 13:00 - 21:00 | Textsetzung; Kleine Korrekturen
+|16.02.2014 | 10:30 - 11:30 | Textsetzung; TODO entfernt; Kleine Korrekturen

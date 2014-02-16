@@ -429,7 +429,7 @@ schneiden sich.
             \label{fig:geometry-7}
         }%
 
-        \label{fig:formen}
+        \label{fig:winkel-und-parallelogramm}
         \caption{Situation aus \cref{bem:14.9}}
     \end{figure}
 
@@ -678,15 +678,18 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
         \item $(\mdr^2, d_\text{Euklid})$ ist offensichtlich eine euklidische Ebene.
         \item Sei $(X,d)$ eine euklidische Ebene und $g_1, g_2$ Geraden
               in $X$, die sich in einem Punkt $0$ im rechten Winkel
-              schneiden. Sei $X$ der Fußpunkt des Lots von $P$ auf
-              $g_1$ (vgl. \cref{ub11:aufg3.c}).
+              schneiden. 
 
-              Sei $Y$ der Fußpunkt des Lots von $P$ auf $g_2$.
+              Sei $P \in X$ ein Punkt und $P_X$ der Fußpunkt des Lots von $P$ auf
+              $g_1$ (vgl. \cref{ub11:aufg3.c}) und $P_Y$ der Fußpunkt des Lots 
+              von $P$ auf $g_2$.
 
               Setze $h(P) := (x_P, y_P)$ mit 
-              $x_P := d(X, 0)$ und $y_P := d(Y, 0)$.
+              $x_P := d(P_X, 0)$ und $y_P := d(P_Y, 0)$.
 
-            \begin{figure}[ht]
+              In \cref{fig:14.13.0.1} wurde die Situation skizziert.
+
+            \begin{figure}[htp]
                 \centering
                 \subfloat[Schritt 1]{
                     \resizebox{0.45\linewidth}{!}{\input{figures/coordinate-system-1.tex}}
@@ -696,8 +699,8 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
                     \resizebox{0.45\linewidth}{!}{\input{figures/coordinate-system-2.tex}}
                     \label{fig:14.13.2}
                 }%
-                \label{fig:14.13.0.1}
                 \caption{Beweis zu \cref{satz:14.13}}
+                \label{fig:14.13.0.1}
             \end{figure}
 
             Dadurch wird $h:X \rightarrow \mdr^2$ auf dem Quadranten
@@ -716,18 +719,11 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
                 $P'$ auf der gleichen Seite von $g_2$ wie $P$.
             \end{beweis}
             \begin{beweis}[von 2]
-                \begin{figure}[ht]
+                \begin{figure}[htp]
                     \centering
-                    \subfloat[Schritt 1]{
-                        \resizebox{0.45\linewidth}{!}{\input{figures/coordinate-system-2.tex}}
-                        \label{fig:14.13.3}
-                    }%
-                    \subfloat[Schritt 2 (Bild 13)]{
-                        \resizebox{0.45\linewidth}{!}{\input{figures/todo.tex}}
-                        \label{fig:14.13.4}
-                    }%
-                    \label{fig:14.13.0.2}
+                    \input{figures/coordinate-system-3.tex}
                     \caption{Beweis zu \cref{satz:14.13}}
+                    \label{fig:14.13.0.1}
                 \end{figure}
                 Zu Zeigen: $d(P, Q) = d(h(P), h(Q))$
 
