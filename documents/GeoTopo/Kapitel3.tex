@@ -847,28 +847,29 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
     $q:Y \rightarrow X$ weitere Überlagerung.
 
     Sei $x_0 \in X, \tilde{x_0} \in \tilde{X}, y_0 \in Y$ mit
-    $q(y_0) = x_0, p(\tilde{x_0}) = x_0$.
+    $q(y_0) = x_0 = p(\tilde{x_0})$.
 
     Dann gibt es genau eine Überlagerung $\tilde{p}: \tilde{X} \rightarrow Y$
     mit $\tilde{p}(\tilde{x_0}) = y_0$.
 \end{satz}
 
 \begin{beweis}
-    Sei $z \in \tilde{X}, y_z: I \rightarrow \tilde{X}$ ein Weg von
+    Sei $z \in \tilde{X}, \gamma_z: I \rightarrow \tilde{X}$ ein Weg von
     $\tilde{x_0}$ nach $z$.
 
-    Sei $\delta_Z$ die eindeutige Liftung von $p \circ \gamma_z$
-    nach $y$ mit $\delta_2(0) = y_0$.
+    Sei $\delta_z$ die eindeutige Liftung von $p \circ \gamma_z$
+    nach $Y$ mit $\delta_z(0) = y_0$.
 
-    Setze $\tilde{p}(z) = \delta_Z(1)$.
+    Setze $\tilde{p}(z) = \delta_z(1)$.
 
     Da $\tilde{X}$ einfach zusammenhängend ist, hängt $\tilde{p}(z)$
-    nicht vom gewählten $y_z$ ab.
+    nicht vom gewählten Weg $\gamma_z$ ab.
 
     Offensichtlich ist $q(\tilde{p}(z)) = p(z)$.
 
-    $\tilde{p}$ ist stetig (in $z \in \tilde{X}$). Sei $W \subseteq Y$
-    offene Umgebung von $\tilde{p}(z)$.
+    \underline{Zu zeigen:} $\tilde{p}$ ist stetig in $z \in \tilde{X}$:
+    
+    Sei $W \subseteq Y$ offene Umgebung von $\tilde{p}(z)$.
 
     $\xRightarrow{q \text{ offen}} q(W)$ ist offene Umgebung von $p(z) \cdot d(\tilde{p}(z))$.
 
@@ -881,7 +882,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
     Sei $Z := p^{-1}(U)$. Für $u \in Z$ sei $\delta$ ein Weg in $Z$
     von $z$ nach $u$.
 
-    $\Rightarrow \gamma_Z * \delta$ ist Weg von $x_0$ nach $u$\\
+    $\Rightarrow \gamma_z * \delta$ ist Weg von $x_0$ nach $u$\\
     $\Rightarrow \tilde{p}(u) \in V$\\
     $\Rightarrow Z \subseteq \tilde{p^{-1}}(W)$\\
     $\Rightarrow \tilde{p}$ ist stetig
