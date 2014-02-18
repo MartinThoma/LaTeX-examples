@@ -3,14 +3,22 @@
 % Mitschrieb vom 30.01.2014                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Krümmung}
+
+\begin{definition}\xindex{Kurve}
+  Sei $f: [a, b] \rightarrow \mdr^n$ eine eine Funktion aus $C^\infty$.
+  Dann heißt $f$ \textbf{Kurve}.
+\end{definition}
+
 \section{Krümmung von Kurven}\label{sec:Kurvenkrümmung}
 \begin{definition}%In Vorlesung: Def.+Bem. 16.1
     Sei $\gamma: I = [a, b] \rightarrow \mdr^n$ eine $C^\infty$-Funktion.
     
     \begin{defenum}
-        \item $\gamma$ heißt \textbf{durch Bogenlänge parametrisiert}\xindex{parametrisiert!durch Bogenlänge},
-              wenn $\|\gamma'(t)\|_2 = 1$ für alle $t \in I$. Dabei
-              ist $\gamma'(t) = \left (\gamma_1'(t), \gamma_2'(t), \dots, \gamma_n'(t) \right)$
+        \item Die Kurve $\gamma$ heißt 
+              \textbf{durch Bogenlänge parametrisiert}\xindex{parametrisiert!durch Bogenlänge},
+              wenn gilt:
+              \[\|\gamma'(t)\|_2 = 1 \;\;\; \forall t \in I\]
+              Dabei ist $\gamma'(t) = \left (\gamma_1'(t), \gamma_2'(t), \dots, \gamma_n'(t) \right)$.
         \item $l(\gamma) = \int_a^b \|\gamma'(t)\| \mathrm{d} t$ heißt
               \textbf{Länge von $\gamma$}\xindex{Kurve!Länge einer}.
     \end{defenum}    
@@ -50,7 +58,7 @@
         \item Für $t \in I$ sei $n(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
               an $\gamma$ in $t$ wenn gilt:
               \[\langle n(t), \gamma'(t) \rangle = 0 \text{, } \|n(t)\|=1 \text{ und } \det((\gamma_1'(t), n(t))) = +1\]
-        \item Seit $\kappa: I \Rightarrow \mdr$ so, dass gilt:
+        \item Seit $\kappa: I \rightarrow \mdr$ so, dass gilt:
               \[\gamma''(t) = \kappa(t) \cdot n(t)\]
               Dann heißt $\kappa(t)$ \textbf{Krümmung}\xindex{Krümmung}
               von $\gamma$ in $t$.
@@ -299,7 +307,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
         \item $S = V(X^2 - Y^2 - Z)$, $s = (0,0,0)$ (Hyperbolisches Paraboloid\xindex{Paraboloid!hyperbolisches}, siehe \cref{fig:hyperbolic-paraboloid})\\
               $x_1 = (1,0,0)$, $n(s) = (0,0,1)$\\
               $x_2 = (0, 1, 0)$\\
-              $\kappanor(s, x_1) = 2$\\
+              $\kappanor(s, x_1) = \hphantom{-}2$\\
               $\kappanor(s, x_2) = -2$
     \end{bspenum}
 \end{beispiel}
