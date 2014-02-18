@@ -113,7 +113,7 @@ Da $n(t)$ und $\gamma''(t)$ nach \cref{bem:16.1d} linear
         \item Für $t \in I$ heißt $\kappa(t) := \|\gamma''(t)\|$ die
               \textbf{Krümmung}\xindex{Krümmung} von $\gamma$ in $t$.
         \item Ist für $t \in I$ die Ableitung $\gamma''(t) \neq 0$,
-              so heißt $\gamma''(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
+              so heißt $\frac{\gamma''(t)}{\|\gamma''(t)\|}$ \textbf{Normalenvektor}\xindex{Normalenvektor}
               an $\gamma$ in $t$.
         \item \label{def:16.4c} $b(t)$ sei ein Vektor, der $\gamma'(t), n(t)$
               zu einer orientierten Orthonormalbasis von $\mdr^3$ ergänzt.
@@ -330,10 +330,9 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
     $\gamma(0) = s$ und $\gamma''(0) \neq 0$.
 
     Sei $n(0) := \frac{\gamma''(0)}{\|\gamma''(0)\|}$. Zerlege
-    $n(0) = n(0) + n(0)^\bot$ mit $n(0)^\bot \in T_s S$ und
-    $n(0)^\bot \in (T_s S)^\bot$.
+    \[n(0) = n(0)^T + n(0)^\perp \text{ mit } n(0)^T \in T_s S \text{ und } n(0)^\perp \in (T_s S)^\perp\]
 
-    Dann ist $n(0)^\bot = \langle n(0), n(s) \rangle \cdot n(s)$\\
+    Dann ist $n(0)^\perp = \langle n(0), n(s) \rangle \cdot n(s)$\\
     $\kappanor(s, \gamma) := \langle \gamma''(0), n(s) \rangle$
     die \textbf{Normalkrümmung}.
 \end{definition}
@@ -463,7 +462,7 @@ an $S$ in $s$.
         z_1 \\ z_2 \\ z_3
     \end{pmatrix}$ mit
     \begin{align*}
-        z_1 &= x_2 y_3 - x_3 - y_2\\
+        z_1 &= x_2 y_3 - x_3 y_2\\
         z_2 &= x_3 y_1 - x_1 y_3\\
         z_3 &= x_1 y_2 - x_2 y_1\\
     \Rightarrow \|\frac{\partial F}{\partial u_1} (p) \times \frac{\partial F}{\partial u_2} (p)\| &= z_1^2 + z_2^2 + z_3^2\\
@@ -498,9 +497,9 @@ an $S$ in $s$.
 
               Etwa:
               \begin{align*}
-                \int_S f \mathrm{d} A &= \sum_{i=1}^n \int_{V_i} f \mathrm{d} A \\
-                &- \sum_{i \neq j} \int_{V_i \cap V_j} f \mathrm{d} A \\
-                &+ \sum_{i,j,k} \int_{V_i \cap V_j \cap V_k} \mathrm{d} A\\
+                \int_S f \mathrm{d} A &= \sum_{i=1}^n \int_{\mathclap{V_i}} f \mathrm{d} A \\
+                &- \sum_{i \neq j} \int_{\mathclap{V_i \cap V_j}} f \mathrm{d} A \\
+                &+ \sum_{i,j,k} \int_{\mathclap{V_i \cap V_j \cap V_k}} f \mathrm{d} A\\
                 &- \dots
               \end{align*}
     \end{bemenum}
@@ -518,19 +517,19 @@ an $S$ in $s$.
     Normalenfeld $n: S \rightarrow S^2$. Dann gilt:
 
     \begin{propenum}
-        \item $n$ induziert für jedes $s \in S$ eine lineare Abbildung $d_S n: T_s S \rightarrow T_{n(s)} S^2$
+        \item $n$ induziert für jedes $s \in S$ eine lineare Abbildung $d_s n: T_s S \rightarrow T_{n(s)} S^2$
               durch 
               \[d_s n(x) = \frac{\mathrm{d}}{\mathrm{d} t} n (\underbrace{s \text{\enquote{+}} tx}_{\mathclap{\text{Soll auf Fläche $S$ bleiben}}}) \Bigr |_{t=0}\]
         \item $T_{n(s)} S^2 = T_s S$.
-        \item $d_S n$ ist ein Endomorphismus von $T_s S$.
-        \item $d_S n$ ist selbstadjungiert bzgl. des Skalarproduktes $I_S$.
+        \item $d_s n$ ist ein Endomorphismus von $T_s S$.
+        \item $d_s n$ ist selbstadjungiert bzgl. des Skalarproduktes $I_S$.
     \end{propenum}
 \end{proposition}
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item TODO
-        \item $T_{n(S)} S^2 = \langle n(s) \rangle^\bot = T_s S$
+        \item $T_{n(S)} S^2 = \langle n(s) \rangle^\perp = T_s S$
         \item TODO
         \item Zu zeigen: $\forall x,y \in I_s S: \langle x, d_s n (y) \rangle = \langle d_s n(x), y \rangle$
 
@@ -576,13 +575,13 @@ an $S$ in $s$.
 
 \begin{beweis}
     Nach \cref{def:18.4} ist $\kappanor(s, \gamma) = \langle \gamma''(0), n(s) \rangle$.
-    Nach Voraussetzung ist $n(\gamma(t)) \perp \gamma'(t) \Leftrightarrow \langle \gamma''(0), n(s) \rangle = 0$.
+    Nach Voraussetzung ist $n(\gamma(t)) \perp \gamma'(t) \Leftrightarrow \langle \gamma''(0), n(s) \rangle = 0$.\todo{?}
     Die Ableitung nach $t$ ergibt 
     \begin{align*}
         0 &= \frac{\mathrm{d}}{\mathrm{d}t}(\langle n (\gamma(t)), \gamma'(t))\\
         &= \left \langle \frac{\mathrm{d}}{\mathrm{d}t} n(\gamma(t)) \Bigr |_{t=0}, \gamma'(0) \right \rangle + \langle n(s), \gamma''(0) \rangle\\
-        &= \langle d_s n (\gamma'(0)), \gamma'(0) \rangle + \kappa(s,\gamma)\\
-        &= - II_s(\gamma'(0), \gamma'(0)) + \kappa(s, \gamma)
+        &= \langle d_s n (\gamma'(0)), \gamma'(0) \rangle + \kappanor(s,\gamma)\\
+        &= - II_s(\gamma'(0), \gamma'(0)) + \kappanor(s, \gamma)
     \end{align*}
 \end{beweis}
 

@@ -85,3 +85,5 @@ in dem Erstellen dieses Skripts steckt:
 |14.02.2014 | 20:30 - 24:00 | Überarbeitung des Beweises der Eindeutigkeit einer Parallelen
 |15.02.2014 | 13:00 - 21:00 | Textsetzung; Kleine Korrekturen
 |16.02.2014 | 10:30 - 11:30 | Textsetzung; TODO entfernt; Kleine Korrekturen
+|18.02.2014 | 10:00 - 11:00 | Textsetzungsfehler und mathematische Fehler behoben; Beweis hinzugefügt
+|18.02.2014 | 11:00 - 11:30 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 17.02.2014, umgesetzt.
