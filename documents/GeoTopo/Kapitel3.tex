@@ -973,9 +973,10 @@ der folgende Satz:
 
 \begin{bemerkung}[Eigenschaften der Decktransformation]%In Vorlesung:12.14
     \begin{bemenum}
-        \item Die Decktransformationen von $p$ bilden eine Gruppe, 
-              die sog. \textbf{Decktransformationsgruppe}\xindex{Decktransformationsgruppe}
-              $\Deck(p) = \Deck(Y/X) = \Deck(Y \rightarrow X)$
+        \item Die Decktransformationen von $p: Y \rightarrow X$ bilden mit der Verkettung eine Gruppe, 
+              die sog. \textbf{Decktransformationsgruppe}\xindex{Decktransformationsgruppe}.
+              Man schreibt:
+              $\Deck(p)$, $\Deck(Y/X)$ oder $\Deck(Y \rightarrow X)$.
         \item Ist $f \in \Deck(Y/X)$ und $f \neq \id$, dann hat
               $f$ keinen Fixpunkt.
         \item $|\Deck(Y/X)| \leq \deg{p}$\label{kor:12.14c}
@@ -1023,11 +1024,11 @@ der folgende Satz:
     \end{enumerate}
 \end{beweis}
 
-\begin{beispiel}
+\begin{beispiel}[Decktransformationen]
     \begin{bspenum}
         \item $p: \mdr \rightarrow S^1: \Deck(\mdr / S^1) = \Set{t \mapsto t + n | n \in \mdz} \cong \mdz$
         \item $p: \mdr^2 \rightarrow T^2: \Deck(\mdr^2 / T^2) \cong \mdz \times \mdz = \mdz^2$
-        \item $p: S^n \rightarrow \praum^n(\mdr): \Deck(g^n / \praum^n(\mdr)) = \Set{x \mapsto \pm x} \cong \mdz / 2 \mdz$
+        \item $p: S^n \rightarrow \praum^n(\mdr): \Deck(S^n / \praum^n(\mdr)) = \Set{x \mapsto \pm x} \cong \mdz / 2 \mdz$
     \end{bspenum}
 \end{beispiel}
 
