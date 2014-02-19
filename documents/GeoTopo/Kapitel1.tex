@@ -30,12 +30,13 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{beispiel}[Topologien]
     \begin{enumerate}[label=\arabic*)]
-        \item $X = \mdr^n$ mit der euklidischen Metrik. \xindex{Topologie!euklidische}
+        \item $X = \mdr^n$ mit der von der euklidischen Metrik erzeugten
+              Topologie $\fT_{\ts{Euklid}}$: \xindex{Topologie!euklidische}
               \begin{align*}
                 U \subseteq \mdr^n \text{ offen} \gdw\;&\text{für jedes $x \in U$ gibt es $r > 0$,}\\
                                                        &\text{sodass $\fB_r(x) = \Set{y \in \mdr^n | d(x,y) < r} \subseteq U$}
               \end{align*}
-              Diese $\fB$ Topologie wird auch \enquote{Standardtopologie des $\mdr^n$}\xindex{Standardtopologie} genannt.
+              Diese Topologie wird auch \enquote{Standardtopologie des $\mdr^n$}\xindex{Standardtopologie} genannt.
               Sie beinhaltet unter anderem alle offenen Kugeln, aber
               z.~B. auch Schnitte zweier Kugeln mit unterschiedlichem
               Mittelpunkt (vgl. \cref{def:topologie.ii}).
@@ -106,13 +107,13 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
               \[\fB = \Set{B_r(x) | r \in \mdq_{> 0}, x \in \mdq^n}\]
               ist eine abzählbare Basis von $\fT$.
         \item Sei $(X, \fT)$ ein topologischer Raum mit 
-              $X = \Set{0,1,2}$ und $\fT = \Set{\emptyset, \Set{0}, \Set{0,1}, X}$.\\
+              $X = \Set{0,1,2}$ und $\fT = \Set{\emptyset, \Set{0}, \Set{0,1}, \Set{0,2}, X}$.\\
               Dann ist $\calS = \Set{\emptyset, \Set{0,1}, \Set{0,2}}$ eine Subbasis von 
               $\fT$, da gilt:
               \begin{itemize}
-                \item $\emptyset \in \calS$
+                \item $\calS \subseteq \fT$
+                \item $\emptyset,\Set{0,1} \text{ und } \Set{0,2} \in \calS$
                 \item $\Set{0} = \Set{0, 1} \cap \Set{0,2}$
-                \item $\Set{0,1} \in \calS$
                 \item $X = \Set{0,1} \cup \Set{0,2}$
               \end{itemize}
               Allerings ist $\calS$ keine Basis von $(X, \fT)$, da
@@ -179,7 +180,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \begin{definition}\xindex{Quotiententopologie}%
     Sei $X$ ein topologischer Raum, $\sim$ eine Äquivalenzrelation auf $X$,
     $\overline{X} = X /_\sim$ sei die Menge der Äquivalenzklassen,
-    $\pi: x \rightarrow \overline{x}, \;\;\; x \mapsto [x]_\sim$.
+    $\pi: X \rightarrow \overline{X}, \;\;\; x \mapsto [x]_\sim$.
 
     \[\fT_{\overline{X}} := \Set{U \subseteq \overline{X} | \pi^{-1}(U) \in \fT_X}\]
 
@@ -492,7 +493,7 @@ sodass $\pi$ stetig wird.
 
     \begin{align*}
         S^n &= \Set{x \in \mdr^{n+1} | \|x\| = 1}\\
-            &= \Set{x \in \mdr^{n+1} | \sum_{i=1}^{n+1} x_i^2}
+            &= \Set{x \in \mdr^{n+1} | \sum_{i=1}^{n+1} x_i^2 = 1}
     \end{align*}
     
     \Obda sei $N = \begin{pmatrix}0\\ \vdots\\ 0\\1\end{pmatrix}$. Die
@@ -549,16 +550,17 @@ sodass $\pi$ stetig wird.
 
 \begin{beispiel}[Zusammenhang von Räumen]
     \begin{bspenum}
-        \item $\mdr^n$ ist mit der euklidischen Topologie zusammenhängend,
-            denn:
+        \item $(\mdr^n, \fT_{\ts{Euklid}})$ ist zusammenhängend, denn:
 
-            \underline{Annahme}: $\mdr^n = U_1 \cup U_2$ mit $U_i$ 
-            offen, $U_i \neq \emptyset$ und $U_1 \cap U_2 = \emptyset$ 
-            existieren.
+            \underline{Annahme}: $\mdr^n = U_1 \dcup U_2$ mit $\emptyset \neq U_1, U_2 \in \fT_{\ts{Euklid}}$ existieren.
 
             Sei $x \in U_1, y \in U_2$ und $[x,y]$ die Strecke zwischen $x$
-            und $y$. Dann ist $U_1 \cap [x,y]$ die Vereinigung von offenen
-            Intervallen. Dann gibt es $z \in [x,y]$ mit $z \in \partial (U_1 \cap [x,y])$,
+            und $y$. Sei $V = [x,y]$. Nun betrachten wir $V \subsetneq \mdr^n$ als 
+            (metrischen) Teilraum mit der Teilraumtopologie $\fT_V$.
+            Somit gilt $U_1 \cap [x,y] \in \fT_V$ wegen der Definition der 
+            Teilraumtopologie.
+
+            Dann gibt es $z \in [x,y]$ mit $z \in \partial (U_1 \cap [x,y])$,
             aber $z \notin U_1 \Rightarrow z \in U_2$. In jeder Umgebung von 
             $z$ liegt ein Punkt von $U_1 \Rightarrow$ Widerspruch zu $U_2$ offen.
         \item $\mdr \setminus \Set{0}$ ist nicht zusammenhängend, denn

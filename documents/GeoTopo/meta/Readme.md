@@ -16,3 +16,5 @@ Konventionen
 * Die benutzten Symbole sollten ISO 80000-2 entsprechen.
 * Adjektive sollten im Stichwortverzeichnis nur als Unterpunkt auftauchen
   (=> "kompakt" nur unter "Raum, kompakter")
+* Je weniger Fußnoten in Formeln / Definitionen sind, desto besser. Fußnoten
+  können zu leicht als Exponenten missverstanden werden.

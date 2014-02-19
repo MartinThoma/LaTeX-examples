@@ -40,13 +40,13 @@
         \item Im Folgenden wird die Aussage nur für $\gamma: [a, b] \rightarrow \mdr^2$ bewiesen.
               Allerdings funktioniert der Beweis im $\mdr^n$ analog. Es muss nur
               die Ableitung angepasst werden.
-            $1 = \|\gamma'(t)\| = \|\gamma'(t)\|^2 = \langle \gamma'(t), \gamma'(t) \rangle$\\
-            $\begin{aligned}[t]
+              \begin{align*}
+                            1 &= \|\gamma'(t)\| = \|\gamma'(t)\|^2 = \langle \gamma'(t), \gamma'(t) \rangle\\
                 \Rightarrow 0 &= \frac{\mathrm{d}}{\mathrm{d}t} \langle \gamma'(t), \gamma'(t) \rangle\\
                               &= \frac{\mathrm{d}}{\mathrm{d}t} (\gamma_1'(t)\gamma_1'(t) + \gamma_2'(t)\gamma_2'(t))\\
                               &= 2 \cdot (\gamma_1''(t) \cdot \gamma_1'(t) + \gamma_2''(t) \cdot \gamma_2'(t))\\
                               &= 2 \cdot \langle \gamma''(t), \gamma'(t) \rangle
-             \end{aligned}$
+              \end{align*}
     \end{enumerate}
 \end{beweis}
 
@@ -161,7 +161,7 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
             \frac{\partial y}{\partial u} (p) & \frac{\partial y}{\partial v} (p)\\
             \frac{\partial z}{\partial u} (p) & \frac{\partial z}{\partial v} (p)
         \end{pmatrix}\]
-    und $D_P F: \mdr^2 \rightarrow \mdr^3$ die durch $J_F (p)$
+    und $D_p F: \mdr^2 \rightarrow \mdr^3$ die durch $J_F (p)$
     definierte lineare Abbildung.
 
     Dann heißt $T_s S := \Bild(D_p F)$ die \textbf{Tangentialebene}\xindex{Tangentialebene}
@@ -217,7 +217,7 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
 
 Manchmal wird zwischen einem \textit{Normalenfeld} und einem
 \textit{Einheitsnormalenfeld}\xindex{Einheitsnormalenfeld} unterschieden.
-Im folgenden werden diese Begriffe jedoch synonym benutzt.
+Im Folgenden werden diese Begriffe jedoch synonym benutzt.
 
 \begin{bemerkung}[Eigenschaften von Normalenfeldern]%In Vorlesung: Def.+Bem 17.5
     \begin{bemenum}
@@ -260,7 +260,7 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
 \section{Gauß-Krümmung}\index{Gauß-Krümmung|(}
 \begin{bemerkung}\label{bem:18.1}%In Vorlesung: Bemerkung 18.1
     Sei $S$ eine reguläre Fläche, $s \in S$, $n(s)$ ist ein Normalenvektor
-    in $s$, $x \in T_s (S)$, $\|x\| = 1$.
+    in $s$, $x \in T_s S$, $\|x\| = 1$.
 
     Sei $E$ der von $x$ und $n(s)$ aufgespannte 2-dimensionale 
     Untervektorraum von $\mdr^3$.
@@ -280,12 +280,13 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
 \begin{definition}\xindex{Normalkrümmung}%In Vorlesung: Definition 18.2
     In der Situation aus \cref{bem:18.1} heißt die Krümmung $\kappa_\gamma(0)$
     der Kurve $\gamma$ in der Ebene $(s+ E)$ im Punkt $s$ die
-    \textbf{Normalkrümmung}\footnotemark{} von $S$ in $s$ in Richtung
+    \textbf{Normalkrümmung} von $S$ in $s$ in Richtung
     $x = \gamma'(0)$.
 
-    Man scheibt: $\kappa_\gamma(0) := \kappanor(s, x)$
+    Man schreibt: $\kappa_\gamma(0) := \kappanor(s, x)$
 \end{definition}
-\footnotetext{Die Krümmung ist nur bis auf das Vorzeichen bestimmt.}
+
+\underline{Hinweis}: Die Krümmung ist nur bis auf das Vorzeichen bestimmt.
 
 \begin{beispiel}[Gauß-Krümmung]%In Vorlesung: Beispiel 18.3
     \begin{bspenum}
@@ -372,8 +373,10 @@ Im folgenden werden diese Begriffe jedoch synonym benutzt.
     $S$ in $s$.
 
     \begin{defenum}
-        \item $\kappa^n_1(s) := \min \Set{\kappanor^n(s,x) | x \in T_s^1 S}$ und\\
-              $\kappa^n_2(s) := \max \Set{\kappanor^n(s,x) | x \in T_s^1 S}$
+        \item $\begin{aligned}[t]
+                \kappa^n_1(s) :&= \min \Set{\kappanor^n(s,x) | x \in T_s^1 S} \text{ und }\\
+                \kappa^n_2(s) :&= \max \Set{\kappanor^n(s,x) | x \in T_s^1 S}
+              \end{aligned}$
               heißen \textbf{Hauptkrümmungen} von $S$ in $s$.
         \item $K(s) := \kappa_1^n(s) \cdot \kappa_2^n(s)$ heißt
               \textbf{Gauß-Krümmung} von $S$ in $s$.
@@ -433,8 +436,8 @@ an $S$ in $s$.
         \item Sei $F: U \rightarrow V$ eine lokale Parametrisierung von $S$ um
               $s$ und $p := F^{-1}(s)$.
 
-              Dann ist $\Set{D_P F(e_1), D_P F(e_2)}$ eine Basis von $T_s S$.
-        \item Bzgl. der Basis $\Set{D_P F(e_1), D_P F(e_2)}$ hat das 
+              Dann ist $\Set{D_p F(e_1), D_p F(e_2)}$ eine Basis von $T_s S$.
+        \item Bzgl. der Basis $\Set{D_p F(e_1), D_p F(e_2)}$ hat das 
               Standardskalarprodukt aus \cref{bem:19.1a} die Darstellungsmatrix
               \begin{align*}
                 I_S &= \begin{pmatrix}
@@ -445,7 +448,7 @@ an $S$ in $s$.
                           E(s) & F(s) \\
                           F(s) & G(s)
                        \end{pmatrix}\\
-       \text{mit } g_{i,j} &= g_s(D_P F(e_i), D_P F(e_j))\\
+       \text{mit } g_{i,j} &= g_s(D_p F(e_i), D_p F(e_j))\\
                       &= \langle \frac{\partial F}{\partial u_i} (p), \frac{\partial F}{\partial u_j} (p) \rangle \;\;\; i,j \in \Set{1,2}
               \end{align*}
               Die Matrix $I_S$ heißt \textbf{erste Fundamentalform}\xindex{Fundamentalform!erste}
@@ -519,7 +522,7 @@ an $S$ in $s$.
     \end{enumerate}
 \end{beweis}
 
-\begin{proposition}
+\begin{proposition}\label{prop:5.1}
     Sei $S \subseteq \mdr^3$ eine reguläre, orientierbare Fläche mit glatten
     Normalenfeld $n: S \rightarrow S^2$. Dann gilt:
 
@@ -543,7 +546,7 @@ an $S$ in $s$.
         Aufgrund der Bilinearität des Skalarproduktes genügt es diese Eigenschaft
         für die Basisvektoren zu zeigen.
 
-        Sei $x_i = D_P F(e_i) = \frac{\partial F}{\partial u_i} (p)\;\;\; i = 1,2$
+        Sei $x_i = D_p F(e_i) = \frac{\partial F}{\partial u_i} (p)\;\;\; i = 1,2$
 
         \underline{Beh.:} 
           $\langle x_i, d_s n(x_j) \rangle = \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle$
@@ -554,7 +557,7 @@ an $S$ in $s$.
         \begin{aligned}[t]
             0 &= \hphantom{\frac{\mathrm{d}}{\mathrm{d}t} \left (\right.} \langle \frac{\partial F}{\partial u} (p + t e_j), n(p + t e_j) \rangle\\
 \Rightarrow 0 &= \frac{\mathrm{d}}{\mathrm{d}t} \left (\langle \frac{\partial F}{\partial u} (p + t e_j), n(p + t e_j) \rangle \right) \Bigr |_{t=0}\\
-              &= \langle \underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial F}{\partial u_i} (p + t e_j)}_{\frac{\partial^2 F}{\partial u_j \partial u_i} (p)} \Bigr |_{t=0}, n(s) \rangle + \langle x_i, d_s n \underbrace{D_P F (e_j)}_{x_j}\rangle
+              &= \langle \underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial F}{\partial u_i} (p + t e_j)}_{\frac{\partial^2 F}{\partial u_j \partial u_i} (p)} \Bigr |_{t=0}, n(s) \rangle + \langle x_i, d_s n \underbrace{D_p F (e_j)}_{x_j}\rangle
         \end{aligned}$
     \end{enumerate}
 \end{beweis}
