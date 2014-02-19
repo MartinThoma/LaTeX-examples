@@ -365,10 +365,49 @@ schneiden sich.
     \end{enumerate}
 \end{beweis}
 
-\begin{bemerkung}
-    Mit \cref{kor:14.6} lassen sich die Kongruenzsätze für Dreiecke,
-    wie man sie aus der Schule kennt, beweisen.
+\begin{bemerkung}[WSW-Kongruenzsatz]
+    Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:3} erfüllt.
+    Seien außerdem $\triangle ABC$ und $\triangle A'B'C'$ Dreiecke, für die gilt:
+    \begin{enumerate}[label=(\roman*)]
+        \item \label{bem:wsw.i} $d(A, B) = d(A', B')$
+        \item \label{bem:wsw.ii} $\angle CAB \cong \angle C'A'B'$
+        \item \label{bem:wsw.iii} $\angle ABC \cong \angle A'B'C'$
+    \end{enumerate}
+
+    Dann ist $\triangle ABC$ kongruent zu $\triangle A'B'C'$ .
 \end{bemerkung}
+
+\begin{beweis}
+    Sei $\varphi$ die Isometrie mit $\varphi(A') = A$, $\varphi(B') = B$
+    und $\varphi(C')$ liegt in der selben Halbebene bzgl. $AB$ wie $C$.
+    Diese Isometrie existiert wegen \ref{axiom:4}.
+
+    Es gilt:
+    \begin{align*}
+        d(A',C') &= d(\varphi(A'), \varphi(C'))\\
+                 &= d(A, \varphi(C'))\\
+        d(B',C') &= d(\varphi(B'), \varphi(C'))\\
+                 &= d(B, \varphi(C'))\\
+    \end{align*}
+
+    Außerdem liegt $\varphi(C')$ auf $\varphi(A'C') = A \varphi(C')$
+    und auf $\varphi(B'C') = B \varphi(C')$.
+
+    Da wegen \cref{bem:wsw.ii} ein Isomorphismus $\psi$ mit
+    $\psi(A'C'^+) = AC^+$ und $\psi(A'B'^+) = AB^+$ existieren muss, $\varphi$
+    jedoch durch \cref{bem:wsw.i} und die Bedingung, dass $\varphi(C)$ in der selben
+    Halbebene bzgl. $AB$ wie $C$ sein muss festgelegt war, muss $\psi = \varphi$
+    sein.
+
+    Also gilt: $\varphi(A'C')^+ = AC^+$ und wegen \cref{bem:wsw.iii} auch
+    $\varphi(B'C')^+ = BC^+$. Allerdings schneiden sich $A'C'$ und $B'C'$ in
+    $C'$. Der Punkt $C'$ hat einen festen Abstand $r \in \mdr^+$ von $A$, der von der
+    Isometrie $\varphi$ erhalten bleibt. Da es wegen \ref{axiom:3.1} genau
+    einen Punkt mit Abstand $r$ auf der Halbgeraden $AC^+$ gibt, folgt mit
+    \cref{kor:14.6} $\varphi(C') = C$.
+
+    Es gilt also $\varphi(\triangle A'B'C') = \triangle ABC$. $\qed$
+\end{beweis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mitschrieb vom 16.01.2014                                         %
