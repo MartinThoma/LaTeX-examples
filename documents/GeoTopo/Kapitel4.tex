@@ -365,8 +365,30 @@ schneiden sich.
     \end{enumerate}
 \end{beweis}
 
-\begin{bemerkung}[WSW-Kongruenzsatz]
-    Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:3} erfüllt.
+\begin{bemerkung}[SWS-Kongruenzsatz]\xindex{Kongruenzsatz!SWS}%
+    Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:4} erfüllt.
+    Seien außerdem $\triangle ABC$ und $\triangle A'B'C'$ Dreiecke, für die gilt:
+    \begin{enumerate}[label=(\roman*)]
+        \item \label{bem:sws.i} $d(A, B) = d(A', B')$
+        \item \label{bem:sws.ii} $\angle CAB \cong \angle C'A'C'$
+        \item \label{bem:sws.iii} $d(A, C) = d(A', C')$
+    \end{enumerate}
+
+    Dann ist $\triangle ABC$ kongruent zu $\triangle A'B'C'$ .
+\end{bemerkung}
+
+\begin{beweis}
+    Sei $\varphi$ die Isometrie mit $\varphi(A') = A$, $\varphi(B') = B$
+    und $\varphi(C')$ liegt in der selben Halbebene bzgl. $AB$ wie $C$. Diese
+    Isometrie existiert wegen \cref{axiom:4}.
+
+    Wegen \cref{bem:sws.ii} ist $\varphi{A'C'^+} = AC^+$ und wegen
+    \cref{bem:sws.iii} sowie \ref{axiom:3.1} ist $\varphi(C') = C$.
+    Also gilt insbesondere $\varphi(\triangle A'B'C') = \triangle ABC$. $\qed$
+\end{beweis}
+    
+\begin{bemerkung}[WSW-Kongruenzsatz]\xindex{Kongruenzsatz!WSW}%
+    Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:4} erfüllt.
     Seien außerdem $\triangle ABC$ und $\triangle A'B'C'$ Dreiecke, für die gilt:
     \begin{enumerate}[label=(\roman*)]
         \item \label{bem:wsw.i} $d(A, B) = d(A', B')$

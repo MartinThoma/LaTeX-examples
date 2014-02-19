@@ -88,3 +88,4 @@ in dem Erstellen dieses Skripts steckt:
 |18.02.2014 | 10:00 - 11:00 | Textsetzungsfehler und mathematische Fehler behoben; Beweis hinzugefügt
 |18.02.2014 | 11:00 - 11:30 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 17.02.2014, umgesetzt.
 |19.02.2014 | 20:00 - 20:50 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 19.02.2014, umgesetzt.
+|19.02.2014 | 20:50 - 22:00 | Kongruenzsätze
