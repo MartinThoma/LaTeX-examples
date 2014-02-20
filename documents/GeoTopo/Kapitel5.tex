@@ -190,8 +190,9 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
           \gamma:[- \varepsilon, + \varepsilon] \rightarrow S 
           \text{ für ein } \varepsilon > 0 
           \text{ mit } \gamma(0) = s \text{ und } \gamma'(0) = x
-          \}$
-          \todo{todo}
+          \}$\\
+          Wenn jemand diesen Beweis führt, bitte an info@martin-thoma.de 
+          schicken.%TODO
         \item Sei $x \in T_s S, \gamma:[-\varepsilon, +\varepsilon] \rightarrow S$
     eine parametrisierte Kurve mit $\varepsilon > 0$ und $\gamma'(0) = s$,
     sodass $\gamma'(0) = x$ gilt. Da $\gamma(t) \in S$ für alle
@@ -242,8 +243,8 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
 
 \begin{beispiel}[Normalenfelder]
     \begin{bspenum}
-        \item $S = S^2$, $n_1 = \id_{S^2}$ ist stetiges Normalenfeld.\\
-              $n_2 = - \id_{S^2}$ ist auch stetiges Normalenfeld.
+        \item $S = S^2$, $n_1 = \id_{S^2}$ ist ein stetiges Normalenfeld.\\
+              Auch $n_2 = - \id_{S^2}$ ist ein stetiges Normalenfeld.
         \item $S = \text{Möbiusband}$ (vgl. \cref{fig:moebius-strip})
               ist nicht orientierbar. Es existiert ein Normalenfeld,
               aber kein stetiges Normalenfeld.
@@ -427,32 +428,35 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Erste und zweite Fundamentalform}%In Vorlesung: §19
 Sei $S \subseteq \mdr^3$ eine reguläre Fläche, $s \in S$, $T_s S$ die Tangentialebene
-an $S$ in $s$.
+an $S$ in $s$ und $F: U \rightarrow V$ eine lokale Parametrisierung von $S$ um
+$s$. Weiter sei $p := F^{-1}(s)$.
+
+\begin{definition}\xindex{Fundamentalform!erste}%In Vorlesung: Bem.+Def. 19.1
+  Sei $I_S \in \mdr^{2 \times 2}$ definiert als
+      \begin{align*}
+        I_S :&= \begin{pmatrix}
+                  g_{1,1}(s) & g_{1,2}(s)\\
+                  g_{1,2}(s) & g_{2,2}(s)
+               \end{pmatrix} =
+               \begin{pmatrix}
+                  E(s) & F(s) \\
+                  F(s) & G(s)
+               \end{pmatrix}\\
+\text{mit } g_{i,j} &= g_s(D_p F(e_i), D_p F(e_j))\\
+              &= \langle \frac{\partial F}{\partial u_i} (p), \frac{\partial F}{\partial u_j} (p) \rangle \;\;\; i,j \in \Set{1,2}
+      \end{align*}
+      Die Matrix $I_S$ heißt \textbf{erste Fundamentalform}
+      von $S$ bzgl. der Parametrisierung $F$.
+\end{definition}
 
 \begin{bemerkung}%In Vorlesung: Bem.+Def. 19.1
     \begin{bemenum}
         \item \label{bem:19.1a} Die Einschränkung des Standardskalarproduktes des $\mdr^3$ auf
               $T_s S$ macht $T_s S$ zu einem euklidischen Vektorraum.
-        \item Sei $F: U \rightarrow V$ eine lokale Parametrisierung von $S$ um
-              $s$ und $p := F^{-1}(s)$.
-
-              Dann ist $\Set{D_p F(e_1), D_p F(e_2)}$ eine Basis von $T_s S$.
+        \item $\Set{D_p F(e_1), D_p F(e_2)}$ ist eine Basis von $T_s S$.
         \item Bzgl. der Basis $\Set{D_p F(e_1), D_p F(e_2)}$ hat das 
               Standardskalarprodukt aus \cref{bem:19.1a} die Darstellungsmatrix
-              \begin{align*}
-                I_S &= \begin{pmatrix}
-                          g_{1,1}(s) & g_{1,2}(s)\\
-                          g_{1,2}(s) & g_{2,2}(s)
-                       \end{pmatrix} =
-                       \begin{pmatrix}
-                          E(s) & F(s) \\
-                          F(s) & G(s)
-                       \end{pmatrix}\\
-       \text{mit } g_{i,j} &= g_s(D_p F(e_i), D_p F(e_j))\\
-                      &= \langle \frac{\partial F}{\partial u_i} (p), \frac{\partial F}{\partial u_j} (p) \rangle \;\;\; i,j \in \Set{1,2}
-              \end{align*}
-              Die Matrix $I_S$ heißt \textbf{erste Fundamentalform}\xindex{Fundamentalform!erste}
-              von $S$ bzgl. der Parametrisierung $F$.
+              $I_S$.
         \item $g_{i,j}(s)$ ist eine differenzierbare Funktion von $s$.
     \end{bemenum}
 \end{bemerkung}
@@ -507,9 +511,9 @@ an $S$ in $s$.
 
               Etwa:
               \begin{align*}
-                \int_S f \mathrm{d} A &= \sum_{i=1}^n \int_{\mathclap{V_i}} f \mathrm{d} A \\
-                &- \sum_{i \neq j} \int_{\mathclap{V_i \cap V_j}} f \mathrm{d} A \\
-                &+ \sum_{i,j,k} \int_{\mathclap{V_i \cap V_j \cap V_k}} f \mathrm{d} A\\
+                \int_S f \mathrm{d} A &= \sum_{i=1}^n \int_{\mathrlap{V_i}} f \mathrm{d} A \\
+                &- \sum_{i \neq j} \int_{\mathrlap{V_i \cap V_j}} f \mathrm{d} A \\
+                &+ \sum_{i,j,k} \int_{\mathrlap{V_i \cap V_j \cap V_k}} f \mathrm{d} A\\
                 &- \dots
               \end{align*}
     \end{bemenum}
@@ -517,8 +521,8 @@ an $S$ in $s$.
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
-        \item Mit Transformationsformel
-        \item Ist dem Leser überlassen.
+        \item Mit Transformationsformel.%TODO
+        \item Ist dem Leser überlassen.%TODO
     \end{enumerate}
 \end{beweis}
 
@@ -527,7 +531,7 @@ an $S$ in $s$.
     Normalenfeld $n: S \rightarrow S^2$. Dann gilt:
 
     \begin{propenum}
-        \item $n$ induziert für jedes $s \in S$ eine lineare Abbildung $d_s n: T_s S \rightarrow T_{n(s)} S^2$
+        \item \label{prop:5.1a} $n$ induziert für jedes $s \in S$ eine lineare Abbildung $d_s n: T_s S \rightarrow T_{n(s)} S^2$
               durch 
               \[d_s n(x) = \frac{\mathrm{d}}{\mathrm{d} t} n (\underbrace{s \text{\enquote{+}} tx}_{\mathclap{\text{Soll auf Fläche $S$ bleiben}}}) \Bigr |_{t=0}\]
         \item $T_{n(s)} S^2 = T_s S$.
@@ -538,9 +542,11 @@ an $S$ in $s$.
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
-        \item TODO
+        \item Wenn jemand diesen Beweis führt, bitte an info@martin-thoma.de
+              schicken.
         \item $T_{n(S)} S^2 = \langle n(s) \rangle^\perp = T_s S$
-        \item TODO
+        \item Wegen \cref{prop:5.1a} ist $d_s n$ ein Homomorphismus.\\
+              TODO: Warum sollte das ein Endomorphismus sein?
         \item Zu zeigen: $\forall x,y \in I_s S: \langle x, d_s n (y) \rangle = \langle d_s n(x), y \rangle$
 
         Aufgrund der Bilinearität des Skalarproduktes genügt es diese Eigenschaft
@@ -585,7 +591,8 @@ an $S$ in $s$.
 
 \begin{beweis}
     Nach \cref{def:18.4} ist $\kappanor(s, \gamma) = \langle \gamma''(0), n(s) \rangle$.
-    Nach Voraussetzung ist $n(\gamma(t)) \perp \gamma'(t) \Leftrightarrow \langle \gamma''(0), n(s) \rangle = 0$.\todo{?}
+    Nach Voraussetzung gilt 
+    \[n(\gamma(t)) \perp \gamma'(t) \Leftrightarrow \langle \gamma''(0), n(s) \rangle = 0\]
     Die Ableitung nach $t$ ergibt 
     \begin{align*}
         0 &= \frac{\mathrm{d}}{\mathrm{d}t}(\langle n (\gamma(t)), \gamma'(t))\\
