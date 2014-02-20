@@ -328,18 +328,22 @@
     $\Rightarrow g \nparallel h$ $\qed$
 \end{solution}
 
-\begin{solution}[\ref{ub-tut-24:a3}]
-    Seien $\triangle ABC$ und $\triangle AB' C'$ Dreiecke mit
+\begin{solution}[\ref{ub-tut-24:a3}]\xindex{Kongruenzsatz!SSS}%
+    Sei $(X,d,G)$ eine Geometrie, die \ref{axiom:1}-\ref{axiom:4} erfüllt.
+    Seien außerdem $\triangle ABC$ und $\triangle A'B' C'$ Dreiecke, für die gilt:
     \begin{align*}
         d(A, B)  &= d(A', B')\\
-        d(B, C)  &= d(B', C')\\
-        d(C, A)  &= d(C', A')
+        d(A, C)  &= d(A', C')\\
+        d(B, C)  &= d(B', C')
     \end{align*}
 
-    Dann existiert nach \ref{axiom:4} genau eine Isometrie $\varphi$
-    mit $\varphi(A) = A', \varphi(B) = B'$ und $\varphi(C) \in A' B' C'^+$.
+    Sei $\varphi$ die Isometrie mit $\varphi(A) = A'$, $\varphi(B) = B'$ und 
+    $\varphi(C')$ liegt in der selben Halbebene bzgl. $AB$ wie $C$. Diese
+    Isometrie existiert wegen \ref{axiom:4}.
 
-    Da $d(A',C') = d(A,C) = d(\varphi(A), \varphi(C)) = d(A', \varphi(C))$
-    und $d(B', C') = d(B', \varphi(C))$
-    \todo[inline]{Da fehlt was.}
+    Es gilt $d(A,C) = d(A', C') = d(\varphi(A'), \varphi(C')) = d(A, \varphi(C'))$
+    und $d(B,C) = d(B', C') = d(\varphi(B'), \varphi(C')) = d(B, \varphi(C'))$.\\
+    $\xRightarrow{\crefabbr{kor:14.6}} C = \varphi(C)$.
+
+    Es gilt also $\varphi(\triangle A'B'C') = \triangle ABC$. $\qed$
 \end{solution}
