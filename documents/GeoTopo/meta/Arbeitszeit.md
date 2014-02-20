@@ -91,4 +91,5 @@ in dem Erstellen dieses Skripts steckt:
 |19.02.2014 | 20:50 - 22:00 | Kongruenzsätze
 |20.02.2014 | 12:00 - 13:00 | Beweis zu Erzeuger von SL_2(R) hinzugefügt.
 |20.02.2014 | 12:00 - 13:00 | Verbesserungsvorschläge von Jonathan (Facebook, 20.02.2014) eingearbeitet.
-|20.02.2014 | 13:00 - 13:45 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 20.02.2014, umgesetzt.
+|20.02.2014 | 13:00 - 13:45 | Verbesserungsvorschläge von Jérôme Urhausen, Email 1 vom 20.02.2014, umgesetzt.
+|20.02.2014 | 19:30 - 20:15 | Verbesserungsvorschläge von Jérôme Urhausen, Email 2 vom 20.02.2014, umgesetzt.
