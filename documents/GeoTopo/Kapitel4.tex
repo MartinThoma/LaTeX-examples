@@ -934,9 +934,9 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
               $\sigma \in \PSL_2(\mdr)$ mit $\sigma(x_0) = 0$,
               $\sigma(x_1) = 1$, $\sigma(x_\infty) = \infty$.
         \item \label{prop:15.2d} $\SL_2(\mdr)$ wird von den Matrizen
-              \[\begin{pmatrix}\lambda & 0\\ 0 & \lambda^{-1}\end{pmatrix},
-                \begin{pmatrix}1 & a\\ 0 & 1\end{pmatrix} \text{ und }
-                \begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix} \text{ mit } a, \lambda \in \mdr\]
+              \[\underbrace{\begin{pmatrix}\lambda & 0\\ 0 & \lambda^{-1}\end{pmatrix}}_{=: A_{\lambda}},
+                \underbrace{\begin{pmatrix}1 & t\\ 0 & 1\end{pmatrix}}_{=: B_{t}} \text{ und }
+                \underbrace{\begin{pmatrix}0 & 1\\-1 & 0\end{pmatrix}}_{=: C} \text{ mit } t, \lambda \in \mdr^\times\]
               erzeugt.
         \item \label{prop:15.2e} $\PSL_2(\mdr)$ operiert auf $G$.
     \end{propenum}
@@ -979,7 +979,49 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
               $\Rightarrow - a^2 \cdot x_\infty \frac{x_1 - x_0}{x_1 - x_\infty} + a^2 x_0 \frac{x_1 - x_0}{x_1 - x_\infty} = 1$\\
               $\Rightarrow a^2 \frac{x_1 - x_0}{x_0 - x_\infty} (x_0 - x_\infty) = 1$
               $\Rightarrow a^2 = \frac{x_1 - x_\infty}{(x_1 - x_\infty) (x_1 - x_0)}$
-        \item TODO d)
+        \item Es gilt:
+              \begin{align*}
+                A_{\lambda}^{-1} &= A_{\frac{1}{\lambda}}\\
+                B_t^{-1}         &= B_{-t}\\
+                C^{-1}           &= C^3
+              \end{align*}
+
+              Daher genügt es zu zeigen, dass man mit $A_{\lambda}$, $B_t$ und $C$ alle Matrizen
+              aus $\SL_2(\mdr)$ erzeugen kann, genügt es also von einer beliebigen
+              Matrix durch Multiplikation mit Matrizen der Form $A_{\lambda}$, 
+              $B_t$ und $C$ die Einheitsmatrix zu generieren.
+
+              Sei also
+              \[M = \begin{pmatrix} a & b\\ c & d\end{pmatrix} \in \SL_2(\mathbb{R})\]
+              beliebig.
+
+              \underline{Fall 1:} $a = 0$\\
+              Da $M \in \SL_2(\mdr)$ ist, gilt $\det{M} = 1 = ad - bc = -bc$.
+              Daher ist insbesondere $c \neq 0$. Es folgt:
+
+              \[\begin{pmatrix} 0 & 1\\ -1 & 0\end{pmatrix} \cdot \begin{pmatrix} a & b\\ c & d\end{pmatrix} = \begin{pmatrix} c & d\\ -a & -b\end{pmatrix}\]
+
+              Gehe zu Fall 2.
+
+              \underline{Fall 2:} $a \neq 0$\\
+              Nun wird in $M$ durch $M \cdot A_{\frac{1}{a}}$ an der Stelle von
+              $a$ eine $1$ erzeugt:
+
+              \[\begin{pmatrix} a & b\\ c & d\end{pmatrix} \cdot \begin{pmatrix} \frac{1}{a} & 0\\ 0 & a\end{pmatrix} = \begin{pmatrix} 1 & ab\\ \frac{c}{a} & ad\end{pmatrix}\]
+
+              Gehe zu Fall 3.
+
+              \underline{Fall 3:} $a = 1$\\
+              \[\begin{pmatrix} 1 & b\\ c & d\end{pmatrix} \cdot \begin{pmatrix} 1 & -b\\ 0 & 1\end{pmatrix} = \begin{pmatrix} 1 & 0\\ c & d-bc\end{pmatrix}\]
+              Da wir $\det M = 1 = ad - bc = d - bc$ wissen, gilt sogar
+              $M_{2,2} = 1$.
+
+              Gehe zu Fall 4.
+
+              \underline{Fall 4:} $a = 1$, $b=0$, $d=1$\\
+              \[A_{-1} C B_c C \begin{pmatrix}1 & 0 \\ c & 1\end{pmatrix} = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}\]
+              Daher erzeugen Matrizen der Form $A_{\lambda}$, $B_t$ und $C$
+              die Gruppe $\SL_2{\mdr}$. $\qed$
         \item Es genügt die Aussage für Matrizen aus \cref{prop:15.2d}
               zu zeigen.
             \begin{itemize}
