@@ -40,7 +40,7 @@
 \begin{bemerkung}
     Sei $X$ ein topologischer Raum, $a, b \in X$, 
     $\gamma_1, \gamma_2: I \rightarrow X$ Wege von $a$ nach $b$
-    und $H$ eine Homotopie ziwschen $\gamma_1$ und $\gamma_2$.
+    und $H$ eine Homotopie zwischen $\gamma_1$ und $\gamma_2$.
 
     Dann gilt: Der Weg
     \[\gamma_s: I \rightarrow X,\;\;\;\gamma_s(t) = H(t,s)\]
@@ -774,7 +774,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
 \begin{folgerung}%In Vorlesung: "Folgerung 12.8"
     Sei $p: Y \rightarrow X$ eine Überlagerung, $x_0 \in X, y_0 \in p^{-1}(x_0)$
     \begin{bemenum}
-        \item \label{folg:12.8a} $p_1: \pi_1(Y, y_0) \rightarrow \pi_1(X, x_0)$ ist injektiv\label{kor:12.8a}
+        \item \label{folg:12.8a} $p_*: \pi_1(Y, y_0) \rightarrow \pi_1(X, x_0)$ ist injektiv\label{kor:12.8a}
         \item \label{folg:12.8b} $[\pi_1(X, x_0): p_* (\pi_1(Y, y_0))] = \deg(p)$\label{kor:12.8b}
     \end{bemenum}
 \end{folgerung}
@@ -1138,7 +1138,8 @@ und der Fundamentalgruppe herstellen:
               ein Homöomorphismus ist.
         \item Ist $G$ eine topologische Gruppe, so heißt die Gruppenoperation $\circ$
               \textbf{stetig}\xindex{Gruppenoperation!stetige}, wenn 
-              $\circ: G \times X \rightarrow X$ stetig ist.
+              \[\forall g \in G: m_g \text{ ist stetig}\]
+              gilt.
     \end{defenum}
 \end{definition}
 

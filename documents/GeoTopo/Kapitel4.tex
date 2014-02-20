@@ -370,7 +370,7 @@ schneiden sich.
     Seien außerdem $\triangle ABC$ und $\triangle A'B'C'$ Dreiecke, für die gilt:
     \begin{enumerate}[label=(\roman*)]
         \item \label{bem:sws.i} $d(A, B) = d(A', B')$
-        \item \label{bem:sws.ii} $\angle CAB \cong \angle C'A'C'$
+        \item \label{bem:sws.ii} $\angle CAB \cong \angle C'A'B'$
         \item \label{bem:sws.iii} $d(A, C) = d(A', C')$
     \end{enumerate}
 
@@ -404,29 +404,10 @@ schneiden sich.
     und $\varphi(C')$ liegt in der selben Halbebene bzgl. $AB$ wie $C$.
     Diese Isometrie existiert wegen \ref{axiom:4}.
 
-    Es gilt:
-    \begin{align*}
-        d(A',C') &= d(\varphi(A'), \varphi(C'))\\
-                 &= d(A, \varphi(C'))\\
-        d(B',C') &= d(\varphi(B'), \varphi(C'))\\
-                 &= d(B, \varphi(C'))\\
-    \end{align*}
+    Aus $\angle CAB = \angle C'A'B' = \angle \varphi(C')\varphi(A')\varphi(B') = \angle \varphi(C')AB$ folgt, dass $\varphi(C')\in AC^+$.\\
+    Analog folgt aus $\angle ABC = \angle A'B'C' = \angle \varphi(A')\varphi(B')\varphi(C') = \angle AB\varphi(C')$, dass $\varphi(C') \in BC^+$.
 
-    Außerdem liegt $\varphi(C')$ auf $\varphi(A'C') = A \varphi(C')$
-    und auf $\varphi(B'C') = B \varphi(C')$.
-
-    Da wegen \cref{bem:wsw.ii} ein Isomorphismus $\psi$ mit
-    $\psi(A'C'^+) = AC^+$ und $\psi(A'B'^+) = AB^+$ existieren muss, $\varphi$
-    jedoch durch \cref{bem:wsw.i} und die Bedingung, dass $\varphi(C)$ in der selben
-    Halbebene bzgl. $AB$ wie $C$ sein muss festgelegt war, muss $\psi = \varphi$
-    sein.
-
-    Also gilt: $\varphi(A'C')^+ = AC^+$ und wegen \cref{bem:wsw.iii} auch
-    $\varphi(B'C')^+ = BC^+$. Allerdings schneiden sich $A'C'$ und $B'C'$ in
-    $C'$. Der Punkt $C'$ hat einen festen Abstand $r \in \mdr^+$ von $A$, der von der
-    Isometrie $\varphi$ erhalten bleibt. Da es wegen \ref{axiom:3.1} genau
-    einen Punkt mit Abstand $r$ auf der Halbgeraden $AC^+$ gibt, folgt mit
-    \cref{kor:14.6} $\varphi(C') = C$.
+    Dann gilt $\varphi(C') \in AC \cap BC = \Set{C} \Rightarrow \varphi(C')=C$.
 
     Es gilt also $\varphi(\triangle A'B'C') = \triangle ABC$. $\qed$
 \end{beweis}
@@ -444,7 +425,7 @@ schneiden sich.
               die den einen Winkel auf den anderen abbildet.
         \item \label{def:14.8c} $\angle R_1' P' R_2'$ heißt \textbf{kleiner} als
               $\angle R_1 P R_2$, wenn es eine Isometrie $\varphi$
-              gibt, mit $\varphi(P') = P$, $\varphi(P'R'^{+}_{1}) = P' R_{1}^{+}$
+              gibt, mit $\varphi(P') = P$, $\varphi(P'R'^{+}_{1}) = PR_{1}^{+}$
               und $\varphi(R_2')$ liegt in der gleichen Halbebene 
               bzgl. $PR_1$ wie $R_2$ und in der gleichen Halbebene
               bzgl. $PR_2$ wie $R_1$
