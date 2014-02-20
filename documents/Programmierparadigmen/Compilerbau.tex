@@ -1,3 +1,4 @@
+%!TEX root = Programmierparadigmen.tex
 \chapter{Compilerbau}
 \index{Compilerbau|(}
 
@@ -64,7 +65,7 @@ Ausführung des Programms $A$ in Maschinencode (z.~B. x86, SPARC) übersetzt.
     \item Assemblieren und Binden
 \end{enumerate}
 
-\subsection{Lexikalische Analyse}\xindex{Analyse!lexikalische}%
+\section{Lexikalische Analyse}\xindex{Analyse!lexikalische}%
 In der lexikalischen Analyse wird der Quelltext als Sequenz von Zeichen betrachtet.
 Sie soll bedeutungstragende Zeichengruppen, sog. \textit{Tokens}\xindex{Token},
 erkennen und unwichtige Zeichen, wie z.~B. Kommentare überspringen. Außerdem
@@ -74,6 +75,66 @@ zusammengefasst werden.
 \begin{beispiel}
 	\todo[inline]{Beispiel erstellen}
 \end{beispiel}
+
+\subsection{Reguläre Ausdrücke}\xindex{Ausdrücke!reguläre}
+\begin{beispiel}[Regulärere Ausdrücke]
+	Folgender regulärer Ausdruck erkennt Float-Konstanten in C nach
+	ISO/IEC 9899:1999 §6.4.4.2:
+
+	$((0|\dots|9)^*.(0|\dots|9)^+)|((0|\dots|9)^+.)$
+\end{beispiel}
+
+\begin{satz}
+	Jede reguläre Sprache wird von einem (deterministischen) endlichen
+	Automaten akzeptiert.
+\end{satz}
+
+TODO: Bild einfügen
+
+Zu jedem regulären Ausdruck im Sinne der theoretischen Informatik kann ein 
+nichtdeterministischer Automat generiert werden. Dieser kann mittels 
+Potenzmengenkonstruktion\footnote{\url{http://martin-thoma.com/potenzmengenkonstruktion/}} 
+in einen deterministischen Automaten überführen. Dieser kann dann mittels 
+Äquivalenzklassen minimiert werden.
+
+\todo[inline]{Alle Schritte beschreiben}
+
+\subsection{Lex}\index{Lex|(}\index{Flex|see{Lex}}
+Lex ist ein Programm, das beim Übersetzerbau benutzt wird um Tokenizer für die
+lexikalische Analyse zu erstellen. Flex ist eine Open-Source Variante davon.
+
+Eine Flex-Datei besteht aus 3 Teilen, die durch \texttt{\%\%} getrennt werden:
+
+\begin{verbatim}
+Definitionen: Definiere Namen
+%%
+Regeln: Definiere reguläre Ausdrücke und 
+        zugehörige Aktionen (= Code)
+%%
+Code: zusätzlicher Code
+\end{verbatim}
+
+\subsubsection{Reguläre Ausdrücke in Flex}
+\begin{table}
+    \begin{tabular}{ll}
+    x          & Zeichen 'x' erkennen                             \\
+    "xy"       & Zeichenkette 'xy' erkennen                       \\
+    \textbackslash & Zeichen 'x' erkennen (TODO)                      \\
+    $[xyz]$    & Zeichen $x$, $y$ oder $z$ erkennen         \\
+    $[a-z]$    & Alle Kleinbuchstaben erkennen                    \\
+    $[\^a-z]$  & Alle Zeichen außer Kleinbuchstaben erkennen      \\
+    $x|y$      & $x$ oder $y$ erkennen                        \\
+    (x)        & x erkennen                                       \\
+    x*         & 0, 1 oder mehrere Vorkommen von x erkennen       \\
+    x+         & 1 oder mehrere Vorkommen von x erkennen          \\
+    x?         & 0 oder 1 Vorkommen von x erkennen                \\
+    \{Name\}   & Expansion der Definition Name                    \\
+    \textbackslash t, \textbackslash n, \textbackslash rq & Tabulator, Zeilenumbruch, Wagenrücklauf erkennen \\
+    \end{tabular}
+\end{table}
+
+\index{Lex|)}
+
 
 \section{Syntaktische Analyse}\xindex{Analyse!syntaktische}%
 In der syntaktischen Analyse wird überprüft, ob die Tokenfolge zur 
