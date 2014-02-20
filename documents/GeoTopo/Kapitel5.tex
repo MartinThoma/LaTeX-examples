@@ -57,7 +57,7 @@
     \begin{defenum}
         \item Für $t \in I$ sei $n(t)$ \textbf{Normalenvektor}\xindex{Normalenvektor}
               an $\gamma$ in $t$ wenn gilt:
-              \[\langle n(t), \gamma'(t) \rangle = 0 \text{, } \|n(t)\|=1 \text{ und } \det((\gamma_1'(t), n(t))) = +1\]
+              \[\langle n(t), \gamma'(t) \rangle = 0 \text{, } \|n(t)\|=1 \text{ und } \det((\gamma'(t), n(t))) = +1\]
         \item Seit $\kappa: I \rightarrow \mdr$ so, dass gilt:
               \[\gamma''(t) = \kappa(t) \cdot n(t)\]
               Dann heißt $\kappa(t)$ \textbf{Krümmung}\xindex{Krümmung}
@@ -208,7 +208,7 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}%In Vorlesung: Def.+Bem 17.5
     \begin{defenum}
-        \item Ein \textbf{Normalenfeld}\xindex{Normalenfeld} auf der
+        \item Ein \textbf{Normalenfeld}\xindex{Normalenfeld} auf der regulären
               Fläche $S \subseteq \mdr^3$ ist eine Abbildung $n: S \rightarrow S^2 \subseteq \mdr^3$
               mit $n(s) \in T_s S^\perp$ für jedes $s \in S$.
         \item $S$ heißt \textbf{orientierbar}\xindex{Fläche!orientierbare},
@@ -269,7 +269,7 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
     Dann gibt es eine Umgebung $V \subseteq \mdr^3$ von $s$, sodass
     \[C := (s + E) \cap S \cap V\]
     das Bild einer durch Bogenlänge parametrisierten Kurve
-    $\gamma:[-\varepsilon, \varepsilon] \rightarrow s$ enthält mit
+    $\gamma:[-\varepsilon, \varepsilon] \rightarrow S$ enthält mit
     $\gamma(0) = s$ und $\gamma'(0) = x$.
 \end{bemerkung}
 
@@ -284,7 +284,7 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
     \textbf{Normalkrümmung} von $S$ in $s$ in Richtung
     $x = \gamma'(0)$.
 
-    Man schreibt: $\kappa_\gamma(0) := \kappanor(s, x)$
+    Man schreibt: $\kappanor(s, x) := \kappa_\gamma(0)$
 \end{definition}
 
 \underline{Hinweis}: Die Krümmung ist nur bis auf das Vorzeichen bestimmt.
