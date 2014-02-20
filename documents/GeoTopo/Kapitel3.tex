@@ -668,6 +668,18 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     \textbf{Liftung} von $f$, wenn $p \circ \tilde{f} = f$ ist.
 \end{definition}
 
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+      \node (Y) {$Y$};
+      \node (X) [below=0.7cm of Y] {$X$};
+      \node (Z) [right=1.3cm of Y] {$Z$};
+      \path[anchor=east,->] (Y) edge node {$p$} (X);
+      \path[anchor=south,->] (Z) edge node {$\tilde{f}$} (Y);
+      \path[anchor=north west,->] (Z) edge node {$f$} (X);
+    \end{tikzpicture}
+\end{figure}
+
 \begin{figure}[htp]
     \centering
     \resizebox{0.95\linewidth}{!}{\input{figures/liftung-torus-r.tex}}
@@ -682,12 +694,12 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     $\exists z_0 \in Z: f_0(z_0) = f_1(z_0) \Rightarrow f_0 = f_1$
 \end{bemerkung}
 
-\begin{figure}[htp]
-    \centering
-    \input{figures/commutative-diagram-2.tex}
-    \caption{Situation aus \cref{kor:12.5}}
-    \label{fig:situation-kor-12.5}
-\end{figure}
+% \begin{figure}[htp]
+%     \centering
+%     \input{figures/commutative-diagram-2.tex}
+%     \caption{Situation aus \cref{kor:12.5}}
+%     \label{fig:situation-kor-12.5}
+% \end{figure}
 
 \begin{beweis}
     Sei $T = \Set{z \in Z | f_0(z) = f_1(z)}$.
