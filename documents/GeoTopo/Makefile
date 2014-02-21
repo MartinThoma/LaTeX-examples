@@ -6,7 +6,7 @@ make:
 	makeindex $(DOKUMENT)
 	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf # include index
 	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf # include symbol table
-	#make clean # remove intermediate files like *.log and *.aux
+	make clean # remove intermediate files like *.log and *.aux
 
 ebook:
 	latexml --dest=$(DOKUMENT).xml $(DOKUMENT).tex
@@ -23,4 +23,4 @@ all:
 
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg figures/torus.tex *.glg *.glo *.gls *.ist *.xdy *.fdb_latexmk
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg figures/torus.tex *.glg *.glo *.gls *.ist *.xdy *.fdb_latexmk *.bak
