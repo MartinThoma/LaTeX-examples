@@ -18,8 +18,8 @@
 Es gibt auch Mengen, die weder abgeschlossen, noch offen sind wie z.~B. $[0,1)$.
 Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
-\begin{bemerkung}[Mengen, die offen \& abgeschlossen sind, existieren]%
-    Betrachte $\emptyset$ und $X$ mit der \enquote{trivialen Topologie}
+\begin{bemerkung}[Mengen, die offen \& abgeschlossen sind, ex.]%
+    Betrachte $\emptyset$ und $X$ mit der \textbf{trivialen Topologie}
     \xindex{Topologie!triviale}\index{Klumpentopologie|see{triviale Topologie}} $\fT_{\ts{triv}} = \Set{\emptyset, X}$.
 
     Es gilt: $X \in \fT$ und $\emptyset \in \fT$, d.~h. $X$ und $\emptyset$
@@ -41,15 +41,15 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
               z.~B. auch Schnitte zweier Kugeln mit unterschiedlichem
               Mittelpunkt (vgl. \cref{def:topologie.ii}).
         \item Jeder metrische Raum $(X, d)$ ist auch ein topologischer Raum.
-        \item Für eine Menge $X$ heißt $\fT = \powerset{X}$ \enquote{diskrete Topologie}\xindex{Topologie!diskrete}.
-        \item $X :=\mdr, \fT_Z := \Set{U \subseteq \mdr | \mdr \setminus U \text{ endlich}} \cup \Set{\emptyset}$ heißt \enquote{Zariski-Topologie} \xindex{Topologie!Zariski}\\
+        \item Für eine Menge $X$ heißt $\fT_{\ts{Diskret}} = \powerset{X}$ \textbf{diskrete Topologie}\xindex{Topologie!diskrete}.
+        \item $X :=\mdr, \fT_Z := \Set{U \subseteq \mdr | \mdr \setminus U \text{ endlich}} \cup \Set{\emptyset}$ heißt \textbf{Zariski-Topologie} \xindex{Topologie!Zariski}\\
               Beobachtungen: 
             \begin{itemize}
                 \item $U \in \fT_Z \gdw \exists f \in \mdr[X]$, sodass $\mdr \setminus U = V(f) = \Set{x \in \mdr | f(x) = 0}$
                 \item Es gibt keine disjunkten offenen Mengen in $\fT_Z$.
             \end{itemize}
         \item $X := \mdr^n, \fT_Z = \{U \subseteq \mdr^n | \text{Es gibt Polynome } f_1, \dots, f_r \in \mdr[X_1, \dots, X_n] \text{ sodass }\\\mdr^n \setminus U = V(f_1, \dots, f_r)\}$
-        \item $X := \Set{0,1}, \fT = \Set{\emptyset, \Set{0,1}, \Set{0}}$ heißt \enquote{Sierpińskiraum}.\xindex{Sierpińskiraum}\\
+        \item $X := \Set{0,1}, \fT = \Set{\emptyset, \Set{0,1}, \Set{0}}$ heißt \textbf{Sierpińskiraum}.\xindex{Sierpińskiraum}\\
               $\emptyset, \Set{0,1}, \Set{1}$ sind dort alle abgeschlossenen Mengen.
     \end{enumerate}
 \end{beispiel}
@@ -291,14 +291,14 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \end{definition}
 
 \begin{bemerkung}[Trennungseigenschaft]\label{Trennungseigenschaft}
-    Metrische Räume sind hausdorffsch, da 
-    \[d(x,y) > 0 \Rightarrow \exists \varepsilon > 0: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
+    Metrische Räume sind hausdorffsch, wegen 
+    \[d(x, y) > 0 \Rightarrow \exists \varepsilon > 0: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
 \end{bemerkung}
 
 \begin{beispiel}[Topologische Räume und Hausdorff-Räume]
     \begin{bspenum}
         \item $(\mdr, \fT_Z)$ ist ein topologischer Raum, der nicht hausdorffsch ist.
-        \item $(\mdr, \fT)$ ist ein topologischer Raum, der hausdorffsch ist.
+        \item $(\mdr, \fT_{\ts{Euklid}})$ ist ein topologischer Hausdorff-Raum.
     \end{bspenum}
 \end{beispiel}
 
@@ -402,7 +402,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     \begin{bspenum}
         \item Für jeden topologischen Raum $X$ gilt: $\id_X : X \rightarrow X$
               ist Homöomorphismus.
-        \item Ist $Y$ trivialer topologischer Raum, d.~h. $\fT = \fT_\text{triv}$,
+        \item Ist $(Y, \fT_Y)$ trivialer topologischer Raum, d.~h. $\fT_Y = \fT_\text{triv}$,
               so ist jede Abbildung $f:X \rightarrow Y$ stetig.
         \item Ist $X$ diskreter topologischer Raum, so ist $f:X \rightarrow Y$
               stetig für jeden topologischen Raum $Y$ und jede Abbildung $f$.
@@ -466,8 +466,8 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \end{bemerkung}
 
 \begin{beweis}
-    Sei $U \subseteq X$ offen $\Rightarrow \pi_x^{-1} (U) = U \times Y$ 
-    ist offen in $X \times Y$. $\qed$
+    Sei $U \subseteq X$ offen\\
+    $\Rightarrow \pi_X^{-1} (U) = U \times Y$ ist offen in $X \times Y$. $\qed$
 \end{beweis}
 
 \begin{bemerkung}\xindex{Quotiententopologie}%
@@ -527,10 +527,14 @@ sodass $\pi$ stetig wird.
 % Mitschrieb vom 31.10.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Zusammenhang}\index{Zusammenhang|(}
-\begin{definition}\xindex{zusammenhaengend@zusammenhängend}%
-    Ein Raum $X$ heißt \textbf{zusammenhängend}, wenn es keine offenen,
-    nichtleeren Teilmengen $U_1, U_2$ von $X$ gibt mit 
-    $U_1 \cap U_2 = \emptyset$ und $U_1 \cup U_2 = X$.
+\begin{definition}\xindex{Raum!zusammenhaengender@zusammenhängender}\xindex{Menge!zusammenhaengende@zusammenhängende}%
+    \begin{defenum}
+        \item Ein Raum $X$ heißt \textbf{zusammenhängend}, wenn es keine offenen,
+              nichtleeren Teilmengen $U_1, U_2$ von $X$ gibt mit 
+              $U_1 \cap U_2 = \emptyset$ und $U_1 \cup U_2 = X$.
+        \item Eine Teilmenge $Y \subseteq X$ heißt zusammenhängend, wenn $Y$
+              als topologischer Raum mit der Teilraumtopologie zusammenhängend ist.
+    \end{defenum}
 \end{definition}
 
 \begin{bemerkung}
@@ -538,15 +542,6 @@ sodass $\pi$ stetig wird.
     nichtleeren Teilmengen $A_1, A_2$ mit $A_1 \cap A_2 = \emptyset$ 
     und $A_1 \cup A_2 = X$.
 \end{bemerkung}
-
-\begin{bemerkung}
-    Eine Teilmenge $Y \subseteq X$ heißt zusammenhängend, wenn $Y$
-    als topologischer Raum mit der Teilraumtopologie zusammenhängend ist.
-\end{bemerkung}
-
-%\begin{beispiel}
-%
-%\end{beispiel}
 
 \begin{beispiel}[Zusammenhang von Räumen]
     \begin{bspenum}
@@ -623,7 +618,7 @@ sodass $\pi$ stetig wird.
      $Z(x)$ heißt \textbf{Zusammenhangskomponente}.
 \end{definition}
 
-\begin{bemerkung}
+\begin{bemerkung}[Eigenschaften von Zusammenhangskomponenten]
     Sei $X$ ein topologischer Raum. Dann gilt:
     \begin{bemenum}
         \item $Z(x)$ ist die größte zusammenhängende Teilmenge von $X$,
@@ -779,7 +774,7 @@ $\qed$
     Sei ${\color{blue} U_{x_0}} := \bigcap_{i=1}^{m(x)} U_{x_0, y_i}$.
     Da $X$ kompakt ist, gibt es $x_1, \dots, x_n \in X$ mit 
     $\bigcup_{j=1}^n U_{x_j} = X$\\
-    $\Rightarrow \bigcup_{j=1}^k \bigcup_{i=1}^{m(x_j)} \underbrace{\left ( U_{x_j, y_i} \times V_{x_j, y_i} \right)}_{\text{Ein grün-oranges Kästchen}} \supseteq X \times Y$\\
+    $\Rightarrow \bigcup_{j=1}^k \bigcup_{i=1}^{m(x_j)} \underbrace{\left ( U_{x_j, y_i} \times V_{x_j, y_i} \right)}_{\mathclap{\text{Ein grün-oranges Kästchen}}} \supseteq X \times Y$\\
     $\Rightarrow \bigcup_j \bigcup_i W_i (x_j, y_i) = X \times Y \qed$
 \end{beweis}
 
@@ -814,7 +809,7 @@ $\qed$
 \end{beweis}
 
 \begin{bemerkung}\label{kor:5.6}%In Vorlesung: Bemerkung 5.6
-    Seien $X, Y$ topologische Räume, $f: X \rightarrow Y$ stetig.
+    Seien $X, Y$ topologische Räume, $f: X \rightarrow Y$ stetig.\\
     Ist $K \subseteq X$ kompakt, so ist $f(K) \subseteq Y$ kompakt.
 \end{bemerkung}
 
