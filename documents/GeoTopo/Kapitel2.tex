@@ -871,6 +871,40 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     Dann heißt $h$ eine \textbf{Triangulierung} von $X$.
 \end{definition}
 
+\begin{beispiel}[Triangulierung des Torus]\xindex{Torus}%
+    Für eine Triangulierung des Torus werden mindestens 14 Dreiecke benötigt.
+    Beispiele für fehlerhafte \enquote{Triangulierungen} sind in \cref{fig:torus-triangulierung-fails}
+    zu sehen. Korrekte Triangulierungen sind in \cref{fig:torus-triangulierung}.
+
+    \begin{figure}[htp]
+    \centering
+      \subfloat[Die beiden markierten Dreiecke schneiden sich im Mittelpunkt und in einer Seite.]{
+          \resizebox{0.45\linewidth}{!}{\input{figures/torus-invalid-triangulation-1.tex}}
+          \label{fig:torus-triangulierung-fail-1}
+      }%
+      \subfloat[Die beiden markierten Dreiecke schneiden sich im Mittelpunkt und außen.]{
+          \resizebox{0.45\linewidth}{!}{\input{figures/torus-invalid-triangulation-2.tex}}
+          \label{fig:torus-triangulierung-fail-2}
+      }%
+    \label{fig:torus-triangulierung-fails}
+    \caption{Fehlerhafte Triangulierungen}
+    \end{figure}
+
+    \begin{figure}[htp]
+    \centering
+      \subfloat[Einfache Triangulierung]{
+          \resizebox{0.45\linewidth}{!}{\input{figures/torus-triangulation.tex}}
+          \label{fig:torus-triangulierung-simple}
+      }%
+      \subfloat[Minimale Triangulierung]{
+          \resizebox{0.45\linewidth}{!}{\input{figures/torus-triangulation-minimal.tex}}
+          \label{fig:torus-triangulierung-minimal}
+      }%
+    \label{fig:torus-triangulierung}
+    \caption{Triangulierungen des Torus}
+    \end{figure}
+\end{beispiel}
+
 \begin{satz}[Eulersche Polyederformel]\xindex{Eulersche Polyederformel}%
     Sei $P$ ein konvexes Polyeder in $\mdr^3$, d.~h. $\partial P$ ist
     ein 2-dimensionaler Simplizialkomplex, sodass gilt:
