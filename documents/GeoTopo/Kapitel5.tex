@@ -171,6 +171,8 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
 \begin{bemerkung}[Eigenschaften der Tangentialebene]%
     \begin{bemenum}
         \item $T_s S$ ist $2$-dimensionaler Untervektorraum von $\mdr^3$.%In Vorlesung: 17.2
+        \item $T_s S = \langle \tilde{u}, \tilde{v} \rangle$, wobei $\tilde{u}, \tilde{v}$
+              die Spaltenvektoren der Jacobi-Matrix $J_F(p)$ sind.
         \item $T_s S$ hängt nicht von der gewählten Parametrisierung ab.%In Vorlesung: 17.3
         \item Sei $S=V(f)$ eine reguläre Fläche in $\mdr^3$, also %In Vorlesung: Bemerkung 17.4
                 $f:V \rightarrow \mdr$ eine $C^\infty$-Funktion, $V \subseteq \mdr^3$
@@ -182,10 +184,11 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
-        \item $J_F$ ist eine $3 \times 2$-Matrix, die mit einem $2 \times 1$-Vektor
+        \item \label{bew:tangentialebene.a} $J_F$ ist eine $3 \times 2$-Matrix, die mit einem $2 \times 1$-Vektor
               multipliziert wird. Das ist eine lineare Abbildung und aus der 
               linearen Algebra ist bekannt, das das Bild ein Vektorraum ist.
               Da $\rang(J_F) = 2$, ist auch $\dim (T_s S) = 2$.
+        \item Hier kann man wie in \cref{bew:tangentialebene.a} argumentieren
         \item $T_s S = \{x \in \mdr^3 | \exists \text{parametrisierte Kurve } 
           \gamma:[- \varepsilon, + \varepsilon] \rightarrow S 
           \text{ für ein } \varepsilon > 0 
@@ -640,7 +643,7 @@ $s$. Weiter sei $p := F^{-1}(s)$.
     \end{enumerate}
 \end{beweis}
 
-\begin{satz}[Satz von Gauß-Bonnet]\xindex{Satz von!Gauß-Bonnet}
+\begin{satz}[Satz von Gauß-Bonnet]\xindex{Satz von!Gauß-Bonnet}%
     Sei $S \subseteq \mdr^3$ eine kompakte orientierbare reguläre Fläche. Dann gilt:
     \[\int_S K(s) \mathrm{d}A = 2 \pi \chi(S)\]
     Dabei ist $\chi(S)$ die Euler-Charakteristik von $S$.

@@ -40,3 +40,17 @@ Lineare Algebra entnommen:
 	$f(a) < y_0 < f(b)$ oder $f(b) < y_0 < f(a)$. Dann existiert ein 
 	$x_0 \in [a, b]$ mit $f(x_0) = y_0$.
 \end{satz*}
+
+\begin{definition}\xindex{Eigenwert}\xindex{Eigenvektor}%
+	Sei $V$ ein Vektorraum über einem Körper $\mdk$ und $f: V \rightarrow V$ eine 
+	lineare Abbildung.
+
+	$v \in V \setminus \Set{0}$ heißt \textbf{Eigenvektor} $:\Leftrightarrow \exists \lambda \in \mdk: f(v) = \lambda v$.
+
+	Wenn ein solches $\lambda \in \mdk$ existiert, heißt es \textbf{Eigenwert} von $f$.
+\end{definition}
+
+\begin{satz*}[Binomischer Lehrsatz]\xindex{Lehrsatz!Binomischer}%
+	Sei $x, y \in \mdr$. Dann gilt:
+	\[(x+y)^n = \sum_{k=0}^{n}\binom{n}{k} x^{n-k}y^{k} \;\;\; \forall n \in \mdn_0\]
+\end{satz*}

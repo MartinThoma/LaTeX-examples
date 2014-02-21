@@ -10,13 +10,13 @@ schicken.
 
 * Henrieke: Beweis des SWS-Kongruenzsatzes; ein paar Fehlermeldungen was die Notation in Beweisen und Rechtschreibung angeht.
 * Herrlich, Frank (Prof. Dr): Erstellen der Inhalte und des Aufbaus der Vorlesung. Dieses Skript war ursprünglich nur der Mitschrieb seiner Vorlesung.
-* Johannes: Mitschriebe der Vorlesung
 * Jonathan: Fehlermeldung
 * Lenz, Sandra: Übungsaufgaben und Lösungen (Übungsleiterin)
 * Marco: ein paar Fehlermeldungen
 * Nilan: Mitschriebe von Tutorien; ein paar Fehlermeldungen
 * Randecker, Anja: Übungsaufgaben und Lösungen (Übungsleiterin)
 * Sarah: Einige Übungsaufgaben; Hilfestellung als Tutorin beim Verständnis der Beweise / Inhalte
+* Schickling, Johannes: Mitschriebe der Vorlesung
 * Tânia: Mitschriebe von Vorlesungen; ein paar Fehlermeldungen
 * Thoma, Martin: Erstellen des Grundgerüsts mit Hilfe des Vorlesungsmitschriebs; Beweise; Bilder; Textsetzung; Kontrolle der Korrektheit aller Verbesserungsvorschläge
 * Urhausen, Jérôme: Beweise; Viele Verbesserungen (Notation und Textsetzung); Bilder
