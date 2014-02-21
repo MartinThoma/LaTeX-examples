@@ -15,9 +15,9 @@ schicken.
 * Marco: ein paar Fehlermeldungen
 * Nilan: Mitschriebe von Tutorien; ein paar Fehlermeldungen
 * Randecker, Anja: Übungsaufgaben und Lösungen (Übungsleiterin)
+* Rocha, Tânia: Mitschriebe von Vorlesungen; ein paar Fehlermeldungen
 * Sarah: Einige Übungsaufgaben; Hilfestellung als Tutorin beim Verständnis der Beweise / Inhalte
 * Schickling, Johannes: Mitschriebe der Vorlesung
-* Tânia: Mitschriebe von Vorlesungen; ein paar Fehlermeldungen
 * Thoma, Martin: Erstellen des Grundgerüsts mit Hilfe des Vorlesungsmitschriebs; Beweise; Bilder; Textsetzung; Kontrolle der Korrektheit aller Verbesserungsvorschläge
 * Urhausen, Jérôme: Beweise; Viele Verbesserungen (Notation und Textsetzung); Bilder
 

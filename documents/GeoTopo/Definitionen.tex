@@ -1,7 +1,7 @@
 %!TEX root = GeoTopo.tex
-\markboth{Anhang: Definitionen und Sätze}{Anhang: Definitionen und Sätze}
-\chapter*{Anhang: Definitionen und Sätze}
-\addcontentsline{toc}{chapter}{Anhang: Definitionen und Sätze}
+\markboth{Ergänzende Definitionen und Sätze}{Ergänzende Definitionen und Sätze}
+\chapter*{Ergänzende Definitionen und Sätze}
+\addcontentsline{toc}{chapter}{Ergänzende Definitionen und Sätze}
 
 Da dieses Skript in die Geometrie und Topologie einführen soll, sollten soweit
 wie möglich alle benötigten Begriffe definiert und erklärt werden. Die folgenden
@@ -54,3 +54,8 @@ Lineare Algebra entnommen:
 	Sei $x, y \in \mdr$. Dann gilt:
 	\[(x+y)^n = \sum_{k=0}^{n}\binom{n}{k} x^{n-k}y^{k} \;\;\; \forall n \in \mdn_0\]
 \end{satz*}
+
+\begin{definition}\xindex{Kreuzprodukt}\index{Vektorprodukt|see{Kreuzprodukt}}
+	Seien $a, b \in \mdr^3$ Vektoren.
+	\[ a \times b := \begin{pmatrix}a_1\\b_3\\a_3 \end{pmatrix} \times \begin{pmatrix}a_1\\b_3\\a_3 \end{pmatrix} = \begin{pmatrix}a_2 b_3 - a_3 b_2\\a_3 b_1 - a_1 b_3\\a_1 b_2 - a_2 b_1 \end{pmatrix}\]
+\end{definition}
