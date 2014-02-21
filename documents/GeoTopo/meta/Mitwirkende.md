@@ -18,3 +18,9 @@ schicken.
 * Tânia: Mitschriebe von Vorlesungen; ein paar Fehlermeldungen
 * Thoma, Martin: Erstellen des Grundgerüsts mit Hilfe des Vorlesungsmitschriebs; Beweise; Bilder; Textsetzung; Kontrolle der Korrektheit aller Verbesserungsvorschläge
 * Urhausen, Jérôme: Beweise; Viele Verbesserungen (Notation und Textsetzung); Bilder
+
+Indirekt haben noch viele weitere Personen geholfen:
+
+* Staats, Charles: Erstellung einiger Bilder von Tori auf tex.stackexchange
+* Weitere Personen, die Bilder unter einer freien Lizenz online verfügbar gemacht haben
+* Viele Personen auf tex.stackexchange, die mir bei Textsetzungsproblemen gehlofen haben
