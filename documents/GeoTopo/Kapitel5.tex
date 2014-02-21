@@ -526,7 +526,7 @@ $s$. Weiter sei $p := F^{-1}(s)$.
     \end{enumerate}
 \end{beweis}
 
-\begin{proposition}\label{prop:5.1}
+\begin{proposition}\xindex{Weingarten-Abbildung}\label{prop:5.1}%
     Sei $S \subseteq \mdr^3$ eine reguläre, orientierbare Fläche mit glatten
     Normalenfeld $n: S \rightarrow S^2$. Dann gilt:
 
@@ -534,11 +534,14 @@ $s$. Weiter sei $p := F^{-1}(s)$.
         \item \label{prop:5.1a} $n$ induziert für jedes $s \in S$ eine lineare Abbildung $d_s n: T_s S \rightarrow T_{n(s)} S^2$
               durch 
               \[d_s n(x) = \frac{\mathrm{d}}{\mathrm{d} t} n (\underbrace{s \text{\enquote{+}} tx}_{\mathclap{\text{Soll auf Fläche $S$ bleiben}}}) \Bigr |_{t=0}\]
+              Die Abbildung $d_s n$ heißt \textbf{Weingarten-Abbildung}
         \item $T_{n(s)} S^2 = T_s S$.
         \item $d_s n$ ist ein Endomorphismus von $T_s S$.
         \item $d_s n$ ist selbstadjungiert bzgl. des Skalarproduktes $I_S$.
     \end{propenum}
 \end{proposition}
+
+\underline{Hinweis:} Die Weingarten-Abbildung wird auch \textit{Formoperator}\index{Formoperator|see{Weingarten-Abbildung}} genannt.
 
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
