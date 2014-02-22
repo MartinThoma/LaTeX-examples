@@ -18,3 +18,8 @@ Konventionen
   (=> "kompakt" nur unter "Raum, kompakter")
 * Je weniger Fußnoten in Formeln / Definitionen sind, desto besser. Fußnoten
   können zu leicht als Exponenten missverstanden werden.
+
+Richtlinien
+===========
+* Keine Definition sollte "für sich" stehen. Zu jedem Begriff sollten insbesondere
+  Eigenschaften, Beispiele und meist auch nichttriviale Gegenbeispiele genannt werden.
