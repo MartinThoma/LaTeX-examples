@@ -648,21 +648,21 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 \end{beweis}
 
 \begin{bemerkung}[Eindeutigkeit des Überlagerungsgrades]\label{kor:12.4}%Bemerkung 12.4 der Vorlesung
-    Sei $p: Y \rightarrow X$ Überlagerung, $x_1, x_2 \in X$.
+    Sei $p: Y \rightarrow X$ Überlagerung. Dann gilt:
 
-    Dann ist $|p^{-1} (x_1)| = |p^{-1}(x_2)|$.
+    \[\forall x_1, x_2 \in X: |p^{-1} (x_1)| = |p^{-1}(x_2)|\]
 \end{bemerkung}
 
 \underline{Hinweis:} $|p^{-1} (x_1)| = \infty$ ist erlaubt!
 
 \begin{beweis}
     Sei $U$ Umgebung von $x_1$ wie in \cref{def:12.1}, $x \in U$.
-    Dann enthält jedes $V_j, j \in I_X$ genau ein Element von
-    $p^{-1}(x)$
+    Dann enthält jedes $V_j$ mit $j \in I$ genau ein Element von
+    $p^{-1}(x)$.
 
-    $\Rightarrow |p^{-1} (x)|$ ist konstant auf $U$
+    $\Rightarrow |p^{-1} (x)|$ ist konstant für $x \in U$
 
-    $\xRightarrow{X \text{zhgd.}} |p^{-1}(x)|$  ist konstant auf $X$
+    $\xRightarrow{X \text{ zhgd.}} |p^{-1}(x)|$  ist konstant für $x \in X$.
 \end{beweis}
 
 \begin{definition}\xindex{Liftung}%
@@ -1045,6 +1045,7 @@ der folgende Satz:
               $f \in \Deck(Y/X)$ mit $f(y_0) = y_1$, denn ist
               $f(y_0) = g(y_0)$, so ist $(g^{-1} \circ f)(y_0) = y_0$,
               also nach \cref{kor:12.14c} $g^{-1} \circ f = \id_Y$.
+        \item Wenn jemand den Beweis macht, bitte an info@martin-thoma.de schicken.%TODO
     \end{enumerate}
 \end{beweis}
 
