@@ -512,6 +512,9 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     Umgebung $U = U(x) \subseteq X$ besitzt, sodass $p^{-1}(U)$ disjunkte Vereinigung
     von offenen Teilmengen $V_j \subseteq Y$ ist $(j \in I)$ und
     $p|_{V_j}: V_j \rightarrow U$ ein Homöomorphismus ist.
+
+    $|I|$ heißt \textbf{Grad der Überlagerung} $p$ und man schreibt:
+    \[\deg{p} := |I|\]
 \end{definition}
 
 \begin{beispiel}
@@ -644,11 +647,13 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     \end{enumerate}
 \end{beweis}
 
-\begin{bemerkung}\label{kor:12.4}%Bemerkung 12.4 der Vorlesung
+\begin{bemerkung}[Eindeutigkeit des Überlagerungsgrades]\label{kor:12.4}%Bemerkung 12.4 der Vorlesung
     Sei $p: Y \rightarrow X$ Überlagerung, $x_1, x_2 \in X$.
 
-    Dann ist $|p^{-1} (x_1)| = |p^{-1}(x_2)|$.\footnote{$|p^{-1} (x_1)| = \infty$ ist erlaubt!}
+    Dann ist $|p^{-1} (x_1)| = |p^{-1}(x_2)|$.
 \end{bemerkung}
+
+\underline{Hinweis:} $|p^{-1} (x_1)| = \infty$ ist erlaubt!
 
 \begin{beweis}
     Sei $U$ Umgebung von $x_1$ wie in \cref{def:12.1}, $x \in U$.
