@@ -64,28 +64,12 @@
 \def\mdn{\ensuremath{\mathbb{N}}}
 \def\mdh{\ensuremath{\mathbb{H}}}
 \def\gdw{\ensuremath{\Leftrightarrow}}
-
-\def\atlas{\ensuremath{\mathcal{A}}}
-\DeclareMathOperator{\rang}{rg}
-
-\def\GL{\ensuremath{\mathrm{GL}}}
-\def\SL{\ensuremath{\mathrm{SL}}}
-\def\PSL{\ensuremath{\mathrm{PSL}}}
 \newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
 \newcommand\dcup{\mathbin{\dot{\cup}}}
 \newcommand{\id}{\textnormal{id}}
-\DeclareMathOperator{\Deck}{Deck}
-\DeclareMathOperator{\Fix}{Fix}
-\DeclareMathOperator{\Iso}{Iso}
-\DeclareMathOperator{\grad}{grad}
-\DeclareMathOperator{\Perm}{Perm}
-\DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\Homoo}{\textnormal{Homöo}}
-\DeclareMathOperator{\Diffeo}{Diffeo}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\IWS}{IWS}
-\DeclareMathOperator{\DV}{DV}
-\DeclareMathOperator{\Rg}{Rg}
+\DeclareMathOperator{\SLL}{SLL}
 \DeclareMathOperator{\Bild}{Bild}
 \newcommand{\iu}{{i\mkern1mu}} % imaginary unit
 %\DeclareMathOperator{\Re}{Re}
@@ -115,6 +99,10 @@
 \newlist{defenum}{enumerate}{1}
 \setlist[defenum]{label=\alph*),ref=\textup{\thedefinition.\alph*}}
 \crefalias{defenumi}{definition}
+
+\newlist{defenumprops}{enumerate}{1}
+\setlist[defenumprops]{label=(\roman*),ref=\textup{\thedefinition.\roman*}}
+\crefalias{defenumpropsi}{definition}
 
 \newlist{bemenum}{enumerate}{1}
 \setlist[bemenum]{label=\alph*),ref=\textup{\thebemerkung.\alph*}}

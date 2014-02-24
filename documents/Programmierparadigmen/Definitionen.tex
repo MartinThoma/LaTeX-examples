@@ -1,0 +1,118 @@
+%!TEX root = Programmierparadigmen.tex
+\markboth{Ergänzende Definitionen}{Ergänzende Definitionen}
+\chapter*{Ergänzende Definitionen}
+\addcontentsline{toc}{chapter}{Ergänzende Definitionen}
+
+\begin{definition}[Quantoren]\xindex{Quantor}%
+	\begin{defenum}
+		\item $\forall x \in X: p(x)$: Für alle Elemente $x$ aus der Menge $X$ gilt
+		die Aussage $p$.
+		\item $\exists x \in X: p(x)$: Es gibt mindestens ein Element $x$ aus der
+		Menge $X$, für das die Aussage $p$ gilt.
+		\item $\exists! x \in X: p(x)$: Es gibt genau ein Element $x$ in der
+		Menge $X$, sodass die Aussage $p$ gilt.
+	\end{defenum}
+\end{definition}
+
+\begin{definition}[Prädikatenlogik]\xindex{Prädikatenlogik}%
+	Eine Prädikatenlogik ist ein formales System, das Variablen und Quantoren
+	nutzt um Aussagen zu formulieren.
+\end{definition}
+
+\begin{definition}[Aussagenlogik]\xindex{Aussagenlogik}%
+	TODO
+\end{definition}
+
+\begin{definition}[Grammatik]\xindex{Grammatik}\xindex{Alphabet}\xindex{Nichtterminal}\xindex{Startsymbol}\xindex{Produktionsregel}\index{Ableitungsregel|see{Produktionsregel}}%
+	Eine (formale) \textbf{Grammatik} ist ein Tupel $(\Sigma, V, P, S)$ wobei gilt:
+	\begin{defenumprops}
+		\item $\Sigma$ ist eine endliche Menge und heißt \textbf{Alphabet},
+		\item $V$ ist eine endliche Menge mit $V \cap \Sigma = \emptyset$ und
+		      heißt \textbf{Menge der Nichtterminale},
+		\item $S \in V$ heißt das \textbf{Startsymbol}
+		\item $P = \Set{p: I \rightarrow r | I \in (V \cup \Sigma)^+, r \in (V \cup \Sigma)^*}$ ist eine endliche Menge aus \textbf{Produktionsregeln}
+	\end{defenumprops}
+\end{definition}
+
+Man schreibt:
+
+\begin{itemize}
+	\item $a \Rightarrow b$: Die Anwendung einer Produktionsregel auf $a$ ergibt $b$.
+	\item $a \Rightarrow^* b$: Die Anwendung mehrerer (oder keiner) Produktionsregeln auf
+	$a$ ergibt $b$.
+	\item $a \Rightarrow^+ b$: Die Anwendung mindestens einer Produktionsregel auf $a$
+	ergibt $b$.
+\end{itemize}
+
+\begin{beispiel}[Formale Grammatik]
+	Folgende Grammatik $G = (\Sigma, V, P, A)$ erzeugt alle korrekten Klammerausdrücke:
+
+	\begin{itemize}
+		\item $\Sigma = \Set{(, )}$
+		\item $V = \Set{\alpha}$
+		\item $s = \alpha$
+		\item $P = \Set{\alpha \rightarrow () | \alpha \alpha | (\alpha)}$
+	\end{itemize}
+\end{beispiel}
+
+\begin{definition}[Kontextfreie Grammatik]\xindex{Grammatik!Kontextfreie}%
+	Eine Grammatik $(\Sigma, V, P, S)$ heißt \textbf{kontextfrei}, wenn für 
+	jede Produktion $p: I \rightarrow r$ gilt: $I \in V$.
+\end{definition}
+
+\begin{definition}[Sprache]\xindex{Sprache}%
+	Sei $G = (\Sigma, V, P, S)$ eine Grammatik. Dann ist
+	\[L(G) := \Set{\omega \in \Sigma^* | S \Rightarrow^* \omega}\]
+	die Menge aller in der Grammatik ableitbaren Wörtern. $L(G)$ heißt Sprache 
+	der Grammatik $G$.
+\end{definition}
+
+\begin{definition}\xindex{Linksableitung}\xindex{Rechtsableitung}%
+    Sei $G = (\Sigma, V, P, S)$ eine Grammatik und $a \in (V \cup \Sigma)^+$.
+    \begin{defenum}
+        \item $\Rightarrow_L$ heißt \textbf{Linksableitung}, wenn die Produktion
+              auf das linkeste Nichtterminal angewendet wird.
+        \item $\Rightarrow_R$ heißt \textbf{Rechtsableitung}, wenn die Produktion
+              auf das rechteste Nichtterminal angewendet wird.
+    \end{defenum}
+\end{definition}
+
+\begin{beispiel}[Links- und Rechtsableitung]
+    Sie $G$ wie zuvor die Grammatik der korrekten Klammerausdrücke:
+
+    \begin{equation*}
+    \begin{aligned}[t]
+        \alpha &\Rightarrow_L \alpha \alpha\\
+               &\Rightarrow_L \alpha \alpha \alpha\\
+               &\Rightarrow_L () \alpha \alpha\\
+               &\Rightarrow_L () (\alpha) \alpha\\
+               &\Rightarrow_L () (()) \alpha\\
+               &\Rightarrow_L () (()) ()\\
+    \end{aligned}
+    \qquad\Longleftrightarrow\qquad
+    \begin{aligned}[t]
+        \alpha &\Rightarrow_R \alpha \alpha\\
+               &\Rightarrow_R \alpha \alpha \alpha\\
+               &\Rightarrow_R \alpha \alpha ()\\
+               &\Rightarrow_R \alpha (\alpha) ()\\
+               &\Rightarrow_R \alpha (()) ()\\
+               &\Rightarrow_R () (()) ()\\
+    \end{aligned}
+    \end{equation*}
+\end{beispiel}
+
+\begin{definition}[LL($k$)-Grammatik]\xindex{LL(k)-Grammatik}%
+    Sei $G = (\Sigma, V, P, S)$ eine kontextfreie Grammatik. $G$ heißt
+    LL($k$)-Grammatik für $k \in \mathbb{N}_{\geq 1}$, wenn jeder Ableitungsschritt durch
+    die linkesten $k$ Symbole der Eingabe bestimmt ist.\todo{Was ist die Eingabe einer Grammatik?}
+\end{definition}
+
+Ein LL-Parser ist ein Top-Down-Parser liest die Eingabe von Links nach rechts
+und versucht eine Linksableitung der Eingabe zu berechnen. Ein LL($k$)-Parser
+kann $k$ Token vorausschauen, wobei $k$ als \textit{Lookahead}\xindex{Lookahead}
+bezeichnet wird.
+
+\begin{satz}
+    Für linksrekursive, kontextfreie Grammatiken $G$ gilt:
+    \[\forall k \in \mathbb{N}: G \notin \SLL(k)\] 
+\end{satz}

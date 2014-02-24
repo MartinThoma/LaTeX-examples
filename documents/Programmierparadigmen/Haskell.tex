@@ -28,6 +28,8 @@ Speichere folgenden Quelltext als \texttt{hello-world.hs}:
 Kompiliere ihn mit \texttt{ghc -o hello hello-world.hs}. Es wird eine
 ausführbare Datei erzeugt.
 
+Alternativ kann es direkt mit \texttt{runghc hello-world.hs} ausgeführt werden.
+
 \section{Syntax}
 \subsection{Klammern und Funktionsdeklaration}
 Haskell verzichtet an vielen Stellen auf Klammern. So werden im
@@ -57,15 +59,16 @@ Zu lesen ist die Deklaration wie folgt:
         \end{itemize}
 \end{itemize}
 
-\todo[inline]{Gibt es Funktionsdeklarationen, die äquivalent? (bis auf wechsel des namens und der Reihenfolge)}
+\todo[inline]{Gibt es Funktionsdeklarationen, die bis auf Wechsel des Namens und der Reihenfolge äquivalent sind?}
 
 \subsection{if / else}
 Das folgende Beispiel definiert den Binomialkoeffizienten (vgl. \cref{bsp:binomialkoeffizient})
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/binomialkoeffizient.hs}
-\inputminted[numbersep=5pt, tabsize=4]{bash}{scripts/haskell/compile-binom.sh}
 
-\todo[inline]{Guards}
+Das könnte man auch mit sog. Guards machen:\xindex{Guard}
+
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/binomialkoeffizient-guard.hs}
 
 \subsection{Rekursion}
 Die Fakultätsfunktion wurde wie folgt implementiert:
@@ -86,6 +89,7 @@ hat einen Speicherverbrauch von $\mathcal{O}(n)$. Durch einen
     \item \texttt{[1,2,3]} erzeugt eine Liste mit den Elementen $1, 2, 3$
     \item \texttt{:} wird \textbf{cons}\xindex{cons} genannt und ist
           der Listenkonstruktor.
+    \item \texttt{list !! i} gibt das $i$-te Element von \texttt{list} zurück.
     \item \texttt{head list} gibt den Kopf von \texttt{list} zurück,
           \texttt{tail list} den Rest:
           \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/list-basic.sh}
