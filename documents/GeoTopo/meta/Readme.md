@@ -18,8 +18,12 @@ Konventionen
   (=> "kompakt" nur unter "Raum, kompakter")
 * Je weniger Fußnoten in Formeln / Definitionen sind, desto besser. Fußnoten
   können zu leicht als Exponenten missverstanden werden.
+* Obwohl es keine Rolle spielen sollte, sollten alle Winkel wie üblich (also gegen den Uhrzeigersinn) notiert werden. (TODO!)
 
-Richtlinien
-===========
+Richtlinien und Hinweise
+========================
 * Keine Definition sollte "für sich" stehen. Zu jedem Begriff sollten insbesondere
   Eigenschaften, Beispiele und meist auch nichttriviale Gegenbeispiele genannt werden.
+* Begriffe sollten in einen Zusammenhang gestellt werden.
+  (X ist Spezialisierung / Generalisierung von Y)
+* Beispiele und Bilder sind toll :-)
