@@ -50,7 +50,8 @@
                 4/b=1\, a=2,
                 5/b=2\, a=2,
                 6/b=2\, a=3,
-                7/b=2\, a=4
+                7/b=2\, a=4,
+                13/b=3\, a=4
                 }
                 \node<\fr->[fill=white] (Tlabel) at (2,0) {$\number$};
 
@@ -59,7 +60,7 @@
             % highlight edges. This way we don't have to worry about 
             % the highlighting covering weight labels. 
             \begin{pgfonlayer}{background}
-                \foreach \source / \dest / \fr / \colorf /\pos in {e/f/2/red/,f/g/3/red/,g/h/4/red/, e/f/5/blue/, f/i/6/blue/, i/g/7/blue/,e/c/8/green/,c/d/9/green/, d/a/10/green/}
+                \foreach \source / \dest / \fr / \colorf /\pos in {e/f/2/red/,f/g/3/red/,g/h/4/red/, e/f/5/blue/, f/i/6/blue/, i/g/7/blue/,e/c/8/green/,c/d/9/green/, d/a/10/green/,e/c/11/yellow/,c/e/12/yellow/bend left,e/f/13/yellow/}
                     \path<\fr->[selected edge, \colorf!20] (\source.center) edge 
                                         [\pos] node {} (\dest.center);
             \end{pgfonlayer}
@@ -71,19 +72,18 @@
         \item Zählen von Knotenbeschriftungen in Random Walks
         \item 4 Random Walks, beginnend bei Rot
         \item 3 Sprünge pro Random Walk
-        \item<11> $4 \cdot a$, $2 \cdot b \Rightarrow$ Rot mit $a$ klassifizieren
+        \item<14> $4 \cdot a$, $3 \cdot b \Rightarrow$ Rot mit $a$ klassifizieren
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Wortknoten}
     \begin{itemize}
-        \item<1-> Neben Struktur können Texte genutzt werden
-        \item<2-> Einschränkung: Effizienz!
-        \item<3-> Idee: Graph erweitern
+        \item Bisher wurden keine Texte genutzt
+        \item Idee: Graph erweitern
         \begin{itemize}
-            \item<4-> Texte als Wortmengen
-            \item<5-> Strukturknoten verweisen auf Wortknoten
-            \item<6-> vice versa
+            \item Texte als Wortmengen
+            \item Strukturknoten verweisen auf Wortknoten
+            \item vice versa
         \end{itemize}
     \end{itemize}
 \end{frame}
