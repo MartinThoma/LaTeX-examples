@@ -13,7 +13,7 @@ schicken.
 * Jonathan: Fehlermeldung
 * Lenz, Sandra: Übungsaufgaben und Lösungen (Übungsleiterin)
 * Marco: ein paar Fehlermeldungen
-* Nilan: Mitschriebe von Tutorien; ein paar Fehlermeldungen
+* Marktanner, Nilan: Mitschriebe von Tutorien; ein paar Fehlermeldungen
 * Randecker, Anja: Übungsaufgaben und Lösungen (Übungsleiterin)
 * Rocha, Tânia: Mitschriebe von Vorlesungen; ein paar Fehlermeldungen
 * Sarah: Einige Übungsaufgaben; Hilfestellung als Tutorin beim Verständnis der Beweise / Inhalte
