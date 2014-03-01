@@ -1,0 +1,149 @@
+%!TEX root = Programmierparadigmen.tex
+\chapter{Logik}
+\section{Prädikatenlogik erster Stufe}
+Folgendes ist von \url{http://de.wikipedia.org/wiki/Pr%C3%A4dikatenlogik_erster_Stufe}
+
+Die Prädikatenlogik erster Stufe ist ein Teilgebiet der mathematischen Logik. Sie befasst sich mit der Struktur gewisser mathematischer Ausdrücke und dem logischen Schließen, mit dem man von derartigen Ausdrücken zu anderen gelangt. Dabei gelingt es, sowohl die Sprache als auch das Schließen rein syntaktisch, das heißt ohne Bezug zu mathematischen Bedeutungen, zu definieren.
+[...]
+
+Wir beschreiben hier die verwendete Sprache auf rein syntaktische Weise, das heißt wir legen die betrachteten Zeichenketten, die wir Ausdrücke der Sprache nennen wollen, ohne Bezug auf ihre Bedeutung fest. 
+
+\subsection{Symbole}
+Eine Sprache erster Stufe wird aus folgenden Symbolen aufgebaut:
+
+\begin{itemize}
+	\item $\forall, \exists, \land, \lor, \rightarrow, \leftrightarrow, \neg, (, ), \equiv$
+	\item sogenannte Variablensymbole $v_0,v_1,v_2,\ldots$,
+	\item eine (möglicherweise leere) Menge $\mathcal C$ von Konstantensymbolen, 
+	\item eine (möglicherweise leere) Menge $\mathcal F$ von Funktionssymbolen, 
+	\item eine (möglicherweise leere) Menge $\mathcal R$ von Relationssymbolen.
+\end{itemize}
+
+Das Komma wird hier nur als Trennzeichen für die Aufzählung der Symbole benutzt, es ist nicht Symbol der Sprache.
+
+\subsection{Terme}
+Die nach folgenden Regeln aufgebauten Zeichenketten heißen Terme:
+\begin{itemize}
+	\item Ist $v$ ein Variablensymbol, so ist $v$ ein Term.
+	\item Ist $c$ ein Konstantensymbol, so ist $c$ ein Term.
+	\item Ist $f$ ein 1-stelliges Funktionssymbol und ist $t_1$ ein Term, so ist $ft_1$ ein Term.
+	\item Ist $f$ ein 2-stelliges Funktionssymbol und sind $t_1,t_2$ Terme, so ist $ft_1t_2$ ein Term.
+	\item Ist $f$ ein 3-stelliges Funktionssymbol und sind $t_1,t_2,t_3$ Terme, so ist $ft_1t_2t_3$ ein Term.
+	\item und so weiter für 4,5,6,...-stellige Funktionssymbole.
+\end{itemize}
+
+Ist zum Beispiel $c$ eine Konstante und sind $f$ und $g$ 1- bzw. 2-stellige Funktionssymbole, so ist $fgv_2fc$ ein Term, da er sich durch Anwendung obiger Regeln erstellen lässt: $c$ ist ein Term, daher auch $fc$; $fc$ und $v_2$ sind Terme, daher auch $gv_2fc$ und damit schließlich auch $fgv_2fc$.
+
+Wir verzichten hier auf Klammern und Kommata als Trennzeichen, das heißt wir schreiben $fgv_2fc$ und nicht $f(g(v_2,f(c)))$. Wir setzen damit implizit voraus, dass unsere Symbole derart beschaffen sind, dass eine eindeutige Lesbarkeit gewährleistet ist.
+
+Die Regeln für die Funktionssymbole fasst man oft so zusammen:
+
+\begin{itemize}
+	\item Ist $f$ ein n-stelliges Funktionssymbol und sind $t_1,\ldots,t_n$ Terme, so ist $ft_1\ldots t_n$ ein Term.
+\end{itemize}
+
+Damit ist nichts anderes als die oben angedeutete unendliche Folge von Regeln gemeint, denn die drei Punkte $\ldots$ gehören nicht zu den vereinbarten Symbolen. Dennoch wird manchmal von dieser Schreibweise Gebrauch gemacht.
+
+Über den Aufbau der Terme lassen sich weitere Eigenschaften definieren. So definieren wir offenbar durch die folgenden drei Regeln rekursiv, welche Variablen in einem Term vorkommen:
+
+\begin{itemize}
+	\item Ist $v$ ein Variablensymbol, so sei $\mathrm{var}(v) \,=\, \{v\}$.
+	\item Ist $c$ ein Konstantensymbol, so sei $\mathrm{var}(c) \,=\, \emptyset$.
+	\item Ist $f$ ein n-stelliges Funktionssymbol und sind $t_1,\ldots,t_n$ Terme, so sei $\mathrm{var}(ft_1\ldots t_n) \,=\, \mathrm{var}(t_1)\cup\ldots \cup \mathrm{var}(t_n)$.
+\end{itemize}
+
+
+\subsection{Ausdrücke}
+Wir erklären nun durch Bildungsgesetze, welche Zeichenketten wir als Ausdrücke der Sprache ansehen wollen.
+
+\subsubsection{Atomare Ausdrücke}
+
+\begin{itemize}
+	\item Sind $t_1$ und $t_2$ Terme, so ist $t_1 \equiv t_2$ ein Ausdruck.
+	\item Ist $R$ ein 1-stelliges Relationssymbol und ist $t_1$ ein Term, so ist $Rt_1$ ein Ausdruck.
+	\item Ist $R$ ein 2-stelliges Relationssymbol und sind $t_1,t_2$ Terme, so ist $Rt_1t_2$ ein Ausdruck.
+	\item und so weiter für 3,4,5,...-stellige Relationssymbole.
+\end{itemize}
+
+Dabei gelten die oben zur Schreibweise bei Termen gemachten Bemerkungen.
+
+\subsubsection{Zusammengesetzte Ausdrücke}
+
+Wir beschreiben hier, wie sich aus Ausdrücken weitere gewinnen lassen.
+
+\begin{itemize}
+	\item Ist $\varphi$ ein Ausdruck, so ist auch $\neg \varphi$ ein Ausdruck.
+	\item Sind $\varphi$ und $\psi$ Ausdrücke, so sind auch $(\varphi \land \psi)$, $(\varphi \lor \psi)$, $(\varphi \rightarrow \psi)$ und $(\varphi \leftrightarrow \psi)$ Ausdrücke.
+	\item Ist $\varphi$ ein Ausdruck und ist $x$ eine Variable, so sind auch $\forall x \varphi$ und $\exists x \varphi$ Ausdrücke.
+\end{itemize}
+
+Damit sind alle Ausdrücke unserer Sprache festgelegt. Ist zum Beispiel $f$ ein 1-stelliges Funktionssymbol und $R$ ein 2-stelliges Relationssymbol, so ist
+: $\forall v_0((Rv_0v_1\lor v_0\equiv fv_1) \rightarrow \exists v_2 \neg Rv_0v_2)$
+ein Ausdruck, da er sich durch Anwendung obiger Regeln aufbauen lässt. Es sei noch einmal darauf hingewiesen, dass wir die Ausdrücke mittels der genannten Regeln rein mechanisch erstellen, ohne dass die Ausdrücke zwangsläufig irgendetwas bezeichnen müssten.
+
+\subsection{1. Stufe}
+Unterschiedliche Sprachen erster Stufe unterscheiden sich lediglich in den Mengen $\mathcal C$, $\mathcal F$ und $\mathcal R$, die man üblicherweise zur Symbolmenge $S$ zusammenfasst und auch die \textit{Signatur} der Sprache nennt. Man spricht dann auch genauer von $S$-Termen bzw. $S$-Ausdrücken. Die Sprache, das heißt die Gesamtheit aller nach obigen Regeln gebildeten Ausdrücke, wird mit $L(S)$, $L^S$ oder $L_I^S$ bezeichnet. Bei letzterem steht die römische $I$ für die 1-te Stufe. Dies bezieht sich auf den Umstand, dass gemäß letzter Erzeugungsregel nur über Variable quantifiziert werden kann. $L_I^S$ sieht nicht vor, über alle Teilmengen einer Menge oder über alle Funktionen zu quantifizieren. So lassen sich die üblichen [[Peano-Axiome]] nicht in $L_I^S$ ausdrücken, da das Induktionsaxiom eine Aussage über alle Teilmengen der natürlichen Zahlen macht. Das kann als Schwäche dieser Sprache angesehen werden, allerdings sind die Axiome der [[Zermelo-Fraenkel-Mengenlehre]] sämtlich in der ersten Stufe mit dem einzigen Symbol $\in$ formulierbar, so dass die erste Stufe prinzipiell für die Mathematik ausreicht.
+
+\subsection{Freie Variablen}
+Weitere Eigenschaften von Ausdrücken der Sprache $L_I^S$ lassen sich ebenfalls rein syntaktisch definieren. Gemäß dem oben beschriebenen Aufbau durch Bildungsregeln definieren wir die Menge $\mathrm{frei}(\varphi)$ der im Ausdruck $\varphi$ frei vorkommenden Variablen wie folgt:
+
+\begin{itemize}
+	\item $\mathrm{frei}(t_1\equiv t_2) = \mathrm{var}(t_1)\cup \mathrm{var}(t_2)$
+	\item $\mathrm{frei}(Rt_1\ldots t_n) = \mathrm{var}(t_1)\cup\ldots \cup \mathrm{var}(t_n)$
+	\item $\mathrm{frei}(\neg \varphi) = \mathrm{frei}(\varphi)$
+	\item $\mathrm{frei}(\varphi \land \psi) = \mathrm{frei}(\varphi)\cup \mathrm{frei}(\psi)$ und genauso für $\lor, \rightarrow, \leftrightarrow$
+	\item $\mathrm{frei}(\forall x\varphi) = \mathrm{frei}(\varphi)\setminus \{x\}$
+	\item $\mathrm{frei}(\exists x\varphi) = \mathrm{frei}(\varphi)\setminus \{x\}$
+\end{itemize}
+
+Nicht-freie Variable heißen \textit{gebundene Variable}. Ausdrücke $\varphi$ ohne freie Variable, das heißt solche mit $\mathrm{frei}(\varphi)=\emptyset $, nennt man \textit{Sätze}. Sämtliche in obigem motivierenden Beispiel angegebenen Axiome der geordneten abelschen Gruppen sind bei entsprechender Übersetzung in die Sprache $L_I^{\{0,+,-,\le\}}$ Sätze, so zum Beispiel $\forall v_0 \forall v_1 +\!v_0v_1\equiv +v_1v_0$ für das Kommutativgesetz.
+
+\subsection{Metasprachliche Ausdrücke}
+Das gerade gegebene Beispiel $\forall v_0 \forall v_1 +\!v_0v_1\equiv +v_1v_0$ als Symbolisierung des Kommutativgesetzes in der Sprache $L_I^{\{0,+,-,\le\}}$ zeigt, dass die entstehenden Ausdrücke oft schwer lesbar sind. Daher kehrt der Mathematiker, und oft auch der Logiker, gern zur klassischen Schreibweise $\forall x,y: x+y = y+x$ zurück. Letzteres ist aber kein Ausdruck der Sprache $L_I^{\{0,+,-,\le\}}$ sondern nur eine Mitteilung eines solchen Ausdrucks unter Verwendung anderer Symbole einer anderen Sprache, hier der sogenannten [[Metasprache]], das heißt derjenigen Sprache, in der man über $L_I^{\{0,+,-,\le\}}$ spricht. Aus Gründen der besseren Lesbarkeit lässt man auch gern überflüssige Klammern fort. Das führt nicht zu Problemen, solange klar bleibt, dass man die leichter lesbaren Zeichenketten jederzeit zurückübersetzen könnte.
+
+\subsection{Substitutionen}
+Häufig werden in der Mathematik Variablen durch Terme ersetzt. Auch das lässt sich hier rein syntaktisch auf Basis unserer Symbole erklären. Durch folgende Regeln legen wir fest, was es bedeuten soll, den Term $t$ für eine Variable $x$ einzusetzen. Wir folgen dabei wieder dem regelhaften Aufbau von Termen und Ausdrücken. Die Ersetzung wird als $[\,]\frac{t}{x}$ notiert, wobei die eckigen Klammern weggelassen werden dürfen.
+
+Für Terme $s$ wird die Einsetzung $s\frac{t}{x}$ wie folgt definiert:
+
+\begin{itemize}
+	\item Ist $v$ ein Variablensymbol, so ist $v\frac{t}{x}$ gleich $t$ falls $v=x$ und $v$ sonst.
+	\item Ist $c$ ein Konstantensymbol, so ist $c\frac{t}{x}:=c$.
+	\item Sind $f$ ein n-stelliges Funktionssymbol und $t_1,\ldots,t_n$ Terme, so ist $[ft_1\ldots t_n]\frac{t}{x} := ft_1\frac{t}{x}\ldots t_n\frac{t}{x}$.
+\end{itemize}
+
+Für Ausdrücke schreiben wir eckige Klammern um den Ausdruck, in dem die Substitution vorgenommen werden soll. Wir legen fest:
+
+\begin{itemize}
+	\item $[t_1\equiv t_2]\frac{t}{x} := t_1\frac{t}{x} \equiv t_2\frac{t}{x}$
+	\item $[Rt_1\ldots t_n]\frac{t}{x} := Rt_1\frac{t}{x}\ldots t_n\frac{t}{x}$
+	\item $[\neg\varphi]\frac{t}{x} := \neg [\varphi]\frac{t}{x}$
+	\item $[(\varphi \lor \psi)]\frac{t}{x} := ([\varphi]\frac{t}{x} \lor [\psi]\frac{t}{x})$ und genauso für $\land, \rightarrow, \leftrightarrow$
+	\item $[\exists x \varphi]\frac{t}{x} := \exists x \varphi$; analog für den Quantor $\forall$
+	\item $[\exists y \varphi]\frac{t}{x} := \exists y [\varphi] \frac{t}{x}$ falls $x\neq y$ und $y\notin \mathrm{var}(t)$; analog für den Quantor $\forall$
+	\item $[\exists y \varphi]\frac{t}{x} := \exists u [\varphi] \frac{u}{y} \frac{t}{x}$ falls $x\neq y$ und $y\in \mathrm{var}(t)$, wobei $u$ eine Variable sei, die nicht in $\varphi$ oder $t$ vorkommt, zum Beispiel die erste der Variablen $v_0,v_1,v_2,\ldots$, die diese Bedingung erfüllt. Die analoge Festlegung wird für $\forall$ getroffen.
+\end{itemize}
+
+Bei dieser Definition wurde darauf geachtet, dass Variablen nicht unbeabsichtigt in den Einflussbereich eines Quantors geraten. Falls die gebundene Variable $x$ im Term auftritt, so wird diese zuvor durch eine andere ersetzt, um so die Variablenkollision zu vermeiden.
+
+\begin{definition}[Freie Variable]\xindex{Variable!freie}
+	Eine Variable, die nicht gebunden ist, heißt frei.
+\end{definition}
+
+\begin{beispiel}[Freie Variablen\footnotemark]
+	In dem Ausduck $(\lambda x \rightarrow x y)$ ist $y$ eine freie Variable.
+\end{beispiel}
+\footnotetext{Quelle: \url{http://www.haskell.org/haskellwiki/Free_variable}}
+
+\begin{definition}[Kombinator]\xindex{Kombinator}
+	Ein Kombinator ist eine Funktion oder Definition ohne freie Variablen.
+\end{definition}
+
+\begin{beispiel}[Kombinatoren\footnotemark]
+	\begin{bspenum}
+		\item $\lambda a \rightarrow a$
+		\item $\lambda a \rightarrow \lambda b \rightarrow a$
+		\item $\lambda f \rightarrow \lambda a \rightarrow \lambda b \rightarrow f b a$
+	\end{bspenum}
+	\footnotetext{Quelle: \url{http://www.haskell.org/haskellwiki/Combinator}}
+\end{beispiel}

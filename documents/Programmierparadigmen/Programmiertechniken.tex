@@ -1,3 +1,4 @@
+%!TEX root = Programmierparadigmen.tex
 \chapter{Programmiertechniken}
 \section{Rekursion}
 \index{Rekursion|(}
@@ -107,6 +108,8 @@ Auf Englisch heißen endrekursive Funktionen \textit{tail recursive}.
     \end{bspenum}
 \end{beispiel}
 
+Wenn eine rekursive Funktion nicht terminiert oder wenn 
+
 \index{Rekursion|)}
 \section{Backtracking}
 \index{Backtracking|(}
@@ -129,5 +132,6 @@ Bekannte Beispiele sind:
           Nun steckt \texttt{reduce} zuerst zwei Elemente aus \texttt{list}
           in \texttt{function}, merkt sich dann das Ergebnis und nimmt
           so lange weitere Elemente aus \texttt{list}, bis jedes 
-          Element genommen wurde.
+          Element genommen wurde.\\
+          Bei \texttt{reduce} ist die Assoziativität wichtig (vgl. \cref{bsp:foldl-und-foldr})
 \end{itemize}
