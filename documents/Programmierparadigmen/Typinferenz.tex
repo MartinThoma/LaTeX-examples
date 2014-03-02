@@ -1,0 +1,98 @@
+%!TEX root = Programmierparadigmen.tex
+\chapter{Typinferenz}
+\begin{definition}[Datentyp]\index{Typ|see{Datentyp}}\xindex{Datentyp}%
+	Ein \textit{Datentyp} oder kurz \textit{Typ} ist eine Menge von Werten, mit
+	denen eine Bedeutung verbunden ist.
+\end{definition}
+
+\begin{beispiel}[Datentypen]
+	\begin{itemize}
+		\item $\text{\texttt{bool}} = \Set{\text{True}, \text{False}}$
+		\item $\text{\texttt{char}} = \text{vgl. \cpageref{sec:ascii-tabelle}}$
+		\item $\text{\texttt{int}}_{\text{Haskell}} = [-2^{29}, 2^{29}-1] \cap \mathbb{N}$
+		\item $\text{\texttt{int}}_{\text{C90}} = [-2^{15}-1, 2^{15}-1] \cap \mathbb{N}$\footnote{siehe ISO/IEC 9899:TC2, Kapitel 7.10: Sizes of integer types <limits.h>}
+		\item \texttt{float} = siehe IEEE 754
+		\item Funktionstypen, z.~B. $\text{\texttt{int}} \rightarrow \text{\texttt{int}}$ oder
+			  $\text{\texttt{char}} \rightarrow \text{\texttt{int}}$
+	\end{itemize}
+\end{beispiel}
+
+\underline{Hinweis:} Typen sind unabhängig von ihrer Repräsentation. So kann ein
+\texttt{bool} durch ein einzelnes Bit repräsentiert werden oder eine Bitfolge
+zugrunde liegen.
+
+Auf Typen sind Operationen definiert. So kann man auf numerischen Typen eine 
+Addition (+), eine Subtraktion (-), eine Multiplikation (*) und eine Division (/)
+definieren.\\
+Ich schreibe hier bewusst \enquote{eine} Multiplikation und nicht \enquote{die}
+Multiplikation, da es verschiedene Möglichkeiten gibt auf Gleitpunktzahlen
+Multiplikationen zu definieren. So kann man beispielsweise die Assoziativität
+unterschiedlich wählen.
+
+\begin{beispiel}[Multiplikation ist nicht assoziativ]
+	In Python 3 ist die Multiplikation linksassoziativ. Also:
+	\inputminted[numbersep=5pt, tabsize=4]{python}{scripts/python/multiplikation.py}
+\end{beispiel}
+
+\begin{definition}[Typvariable]\xindex{Typvariable}%
+	Eine Typvariable repräsentiert einen Typen.
+\end{definition}
+
+\underline{Hinweis:} Üblicherweise werden kleine griechische Buchstaben ($\alpha, \beta, \tau_1, \tau_2, \dots$) als Typvariablen gewählt.
+
+Genau wie Typen bestimmte Operationen haben, die auf ihnen definiert sind, 
+kann man sagen, dass Operationen bestimmte Typen, auf die diese Anwendbar sind. So ist
+\[\alpha+\beta\]
+für numerische $\alpha$ und $\beta$ wohldefiniert, auch wenn $\alpha$ und $\beta$ boolesch sind
+oder beides Strings sind könnte das Sinn machen. Es macht jedoch z.~B. keinen Sinn,
+wenn $\alpha$ ein String ist und $\beta$ boolesch.
+
+Die Menge aller Operationen, die auf die Variablen angewendet werden, nennt man
+\textbf{Typkontext}\xindex{Typkontext}. Dieser wird üblicherweise mit $\Gamma$
+bezeichnet.
+
+Das Ableiten einer Typisierung für einen Ausdruck nennt man \textbf{Typinferenz}\xindex{Typinferenz}.
+Man schreibt: $\vdash(\lambda x.2): \alpha \rightarrow \text{int}$.
+
+Bei solchen Ableitungen sind häufig viele Typen möglich. So kann der Ausdruck
+\[\lambda x.2\]
+Mit folgenderweise typisiert werden:
+\begin{itemize}
+	\item $\vdash(\lambda x.2): \text{bool} \rightarrow int$
+	\item $\vdash(\lambda x.2): \text{int} \rightarrow int$
+	\item $\vdash(\lambda x.2): \text{Char} \rightarrow int$
+	\item $\vdash(\lambda x.2): \alpha \rightarrow int$
+\end{itemize}
+
+In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
+
+Ein Typkontext $\Gamma$ ordnet jeder freien Variable $x$ einen Typ $\Gamma(x)$
+durch folgende Regeln zu:
+
+\begin{align*}
+	\text{\texttt{CONST}}:&\frac{c \in \text{Const}}{\Gamma \vdash c: \tau_c}\\
+	\text{\texttt{VAR}}:  &\frac{\Gamma(x) = \tau}{\Gamma \vdash c: \tau}\\
+	\text{\texttt{ABS}}:  &\frac{\Gamma, x: \tau_1 \vdash t: \tau_2}{\Gamma \vdash \lambda x. t: \tau_1 \rightarrow \tau_2}\\
+	\text{\texttt{APP}}:  &\frac{\Gamma \vdash t_1, \tau_2 \tau\;\;\; \Gamma \vdash t_2: \tau_2}{\Gamma \vdash t_1 t_2: \tau}
+\end{align*}
+
+Dabei ist der lange Strich kein Bruchstrich, sondern ein Symbol der Logik das als
+\textbf{Schlussstrich}\xindex{Schlussstrich} bezeichnet wird. Dabei ist der 
+Zähler als Voraussetzung und der Nenner als Schlussfolgerung zu verstehen.
+
+\begin{definition}[Typsubstituition]\xindex{Typsubstituition}%
+	Eine \textit{Typsubstituition} ist eine endliche Abbildung von Typvariablen auf
+	Typen.
+\end{definition}
+
+Für eine Menge von Typsubsitutionen wird überlicherweise $\sigma$ als Symbol
+verwendet. Man schreibt also beispielsweise:
+\[\sigma = [\alpha_1 \text{\pointer} \text{\texttt{bool}}, \alpha_2 \text{\pointer} \alpha_1 \rightarrow \alpha_1]\]
+
+\begin{definition}[Lösung eines Typkontextes]
+	Sei $t$ eine beliebige freie Variable, $\tau = \tau(t)$ ein beliebiger Typ
+	$\sigma$ eine Menge von Typsubstitutionen und $\Gamma$ ein Typkontext.
+
+	$(\sigma, \tau)$ heißt eine Lösung für $(\Gamma, t)$, falls gilt:
+	\[\sigma \Gamma \vdash t : \tau\]
+\end{definition}
