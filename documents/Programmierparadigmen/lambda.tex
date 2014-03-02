@@ -1,0 +1,87 @@
+%!TEX root = Programmierparadigmen.tex
+\chapter{$\lambda$-Kalkül}
+Der Lambda-Kalkül ist eine formale Sprache.
+In diesem Kalkül gibt es drei Arten von Termen $T$:
+
+\begin{itemize}
+	\item Variablen: $x$
+	\item Applikationen: $(T T)$
+	\item Lambda: $\lambda x. T$
+\end{itemize}
+
+Es ist zu beachten, dass Funktionsapplikation linksassoziativ ist. Es gilt also:
+
+\[a~b~c~d = ((a~b)~c)~d\]
+
+\begin{definition}[Freie Variable]
+	TODO
+\end{definition}
+
+\begin{definition}[Gebundene Variable]
+	Eine Variable heißt gebunden, wenn sie nicht frei ist.
+\end{definition}
+
+\section{Reduktionen}
+\begin{definition}[$\alpha$-Äquivalenz]
+	Zwei Terme $T_1, T_2$ heißen $\alpha$-Äquivalent, wenn $T_1$ durch 
+	konsistente Umbenennung in $T_2$ überführt werden kann.
+
+	Man schreibt dann: $T_1 \overset{\alpha}{=} T_2$.
+\end{definition}
+
+\begin{beispiel}[$\alpha$-Äquivalenz]
+	\begin{align*}
+		\lambda x.x    &\overset{\alpha}{=} \lambda y. y\\
+		\lambda x. x x &\overset{\alpha}{=} \lambda y. y y\\
+		\lambda x. (\lambda y. z (\lambda x. z y) y) &\overset{\alpha}{=}
+		\lambda a. (\lambda x. z (\lambda c. z x) x)
+	\end{align*}
+\end{beispiel}
+
+\begin{definition}[$\beta$-Äquivalenz]
+	TODO
+\end{definition}
+
+\begin{beispiel}[$\beta$-Äquivalenz]
+	TODO
+\end{beispiel}
+
+\begin{definition}[$\eta$-Äquivalenz]
+	Zwei Terme $\lambda x. f~x$ und $f$ heißen $\eta$-Äquivalent, wenn
+	$x$ nicht freie Variable von $f$ ist.
+\end{definition}
+
+\begin{beispiel}[$\eta$-Äquivalenz]
+	TODO
+\end{beispiel}
+
+\section{Auswertungsstrategien}
+\begin{definition}[Normalenreihenfolge]\xindex{Normalenreihenfolge}%
+	In der Normalenreihenfolge-Auswertungsstrategie wird der linkeste äußerste
+	Redex ausgewertet.
+\end{definition}
+
+\begin{definition}[Call-By-Name]\xindex{Call-By-Name}%
+	In der Call-By-Name Auswertungsreihenfolge wird der linkeste äußerste Redex
+	reduziert, der nicht von einem $\lambda$ umgeben ist.
+\end{definition}
+
+Die Call-By-Name Auswertung wird in Funktionen verwendet.
+
+\begin{definition}[Call-By-Value]\xindex{Call-By-Value}%
+	In der Call-By-Value Auswertung wird der linkeste Redex reduziert, der
+	nicht von einem $\lambda$ umgeben ist und dessen Argument ein Wert ist.
+\end{definition}
+
+Die Call-By-Value Auswertungsreihenfolge wird in C und Java verwendet.
+Auch in Haskell werden arithmetische Ausdrücke in der Call-By-Name Auswertungsreihenfolge
+reduziert.
+
+\section{Church-Zahlen}
+TODO
+
+\section{Weiteres}
+
+\begin{satz}[Satz von Curch-Rosser]
+	Wenn zwei unterschiedliche Terme $a$ und $b$ äquivalent sind, d.h. mit Reduktionsschritten beliebiger Richtung ineinander transformiert werden können, dann gibt es einen weiteren Term $c$, zu dem sowohl $a$ als auch $b$ reduziert werden können.
+\end{satz}
