@@ -46,30 +46,29 @@ einige Unterschiede.
     \item Java hat Interfaces, Scala hat traits.
     \item Java hat primitive Typen, Scala ausschließlich Objekte.
     \item Scala benötigt kein \texttt{;} am Ende von Anweisungen.
+    \item Scala ist kompakter.
 \end{itemize}
 }
 
-Weitere Informationen hat Graham Lea unter \url{http://grahamhackingscala.blogspot.de/2009/11/scala-under-hood-of-hello-world.html} zur Verfügung gestellt.
+Weitere Informationen hat Graham Lea unter \url{http://tinyurl.com/scala-hello-world} zur Verfügung gestellt.
 
 \section{Syntax}
 In Scala gibt es sog. \textit{values}, die durch das Schlüsselwort \texttt{val}\xindex{val}
 angezeigt werden. Diese sind Konstanten. Die Syntax ist der UML-Syntax ähnlich.
 
-\begin{verbatim}
-val name: type = value
-\end{verbatim}
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/val-syntax.scala}
 
 Variablen werden durch das Schlüsselwort \texttt{var}\xindex{var} angezeigt:
 
-\begin{verbatim}
-var name: type = value
-\end{verbatim}
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/var-syntax.scala}
 
 Methoden werden mit dem Schlüsselwort \texttt{def}\xindex{def} erzeugt:
 
-\begin{verbatim}
-def name(parameter: String): Unit = { code body... }
-\end{verbatim}
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/method-syntax.scala}
+
+Klassen werden wie folgt erstellt:
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/simple-class-example.scala}
+
 
 \section{Beispiele}
 
