@@ -1,0 +1,143 @@
+%!TEX root = Programmierparadigmen.tex
+\chapter{Parallelität}
+\index{Parallelität|(}
+Systeme mit mehreren Prozessoren sind heutzutage weit verbreitet. Inzwischen
+sind sowohl in Desktop-PCs als auch Laptops, Tablets und Smartphones 
+\enquote{Multicore-CPUs} verbaut. Daher sollten auch Programmierer in der Lage 
+sein, Programme für mehrere Kerne zu entwickeln.
+
+Parallelverarbeitung kann auf mehreren Ebenen statt finden:
+\begin{itemize}
+    \item \textbf{Bit-Ebene}: Werden auf 32-Bit Computern \texttt{long long}, also
+          64-Bit Zahlen, addiert, so werden parallel zwei 32-Bit Additionen durchgeführt und
+          das carry-flag benutzt.
+    \item \textbf{Anweisungs-Ebene}: Die Ausführung von Anweisungen in der CPU
+          besteht aus mehreren Phasen (Instruction Fetch, Decode, Execution, Write-Back).
+          Besteht zwischen aufeinanderfolgenden Anweisungen keine Abhängigkeit,
+          so kann der Instruction Fetch-Teil einer zweiten Anweisung parallel zum
+          Decode-Teil einer ersten Anweisung geschehen. Das nennt man Pipelining\xindex{Pipelining}.
+    \item \textbf{Datenebene}: Es kommt immer wieder vor, dass man in Schleifen
+          eine Operation für jedes Objekt eines Contaitainers (z.~B. einer Liste)
+          durchführen muss. Zwischen den Anweisungen verschiedener Schleifendurchläufe
+          besteht dann eventuell keine Abhängigkeit. Dann können alle Schleifenaufrufe
+          parallel durchgeführt werden.
+    \item \textbf{Verarbeitungsebene}: Verschiedene Programme sind unabhängig
+          von einander.
+\end{itemize}
+
+Gerade bei dem letzten Punkt ist zu beachten, dass echt parallele Ausführung nicht mit \textit{verzahnter Ausführung}\xindex{verzahnt} zu verwechseln ist. Auch bei Systemen mit nur einer CPU und einem Kern kann man gleichzeitig den Browser nutzen und einen Film über eine Multimedia-Anwendung laufen lassen. Dabei wechselt der Scheduler sehr schnell zwischen den verschiedenen
+Anwendungen, sodass es sich so anfühlt, als würden die Programme echt parallel
+ausgeführt werden.
+
+Weitere Informationen zu Pipelining gibt es in der Vorlesung \enquote{Rechnerorganisation}
+bzw. \enquote{Digitaltechnik und Entwurfsverfahren} (zu der auch ein exzellentes Skript angeboten wird). Informationen über Schedulung werden in der Vorlesung \enquote{Betriebssysteme}
+vermittelt.
+
+\section{Architekturen}
+Es gibt zwei Ansätze, wie man Parallelrechner entwickeln kann:
+\begin{itemize}
+    \item \textbf{Gemeinsamer Speicher}: In diesem Fall kann jeder Prozessor 
+          jede Speicherzelle ansprechen. Dies ist bei Multicore-CPUs der Fall.
+    \item \textbf{Verteilter Speicher}: Es ist auch möglich, dass jeder Prozessor
+          seinen eigenen Speicher hat, der nur ihm zugänglich ist. In diesem Fall
+          schicken die Prozessoren Nachrichten (engl. \textit{message passing}\xindex{message passing}). Diese Technik wird in Clustern eingesetzt.
+\end{itemize}
+
+Eine weitere Art, wie man Parallelverarbeitung klassifizieren kann, ist anhand 
+der verwendeten Architektur. Der der üblichen, sequentiellen Art der Programmierung,
+bei der jeder Befehl nach einander ausgeführt wird, liegt die sog.
+\textbf{Von-Neumann-Architektur}\xindex{Von-Neumann-Architektur} zugrunde.
+Bei der Programmierung von parallel laufenden Anwendungen kann man das \textbf{PRAM-Modell}\xindex{PRAM-Modell} (kurz für \textit{Parallel Random Access Machine}) zugrunde legen.
+In diesem Modell geht man von einer beliebigen Anahl an Prozessoren aus, die
+über lokalen Speicher verfügen und synchronen Zugriff auf einen gemeinsamen
+Speicher haben.
+
+Anhand der \textbf{Flynn'schen Klassifikation}\xindex{Flynn'sche Klassifikation}
+können Rechnerarchitekturen in vier Kategorien unterteilt werden:
+
+\begin{table}[h]\xindex{SISD}\xindex{MISD}\xindex{SIMI}\xindex{MIMD}
+    \centering
+    \begin{tabular}{l|ll}
+    ~              & Single Instruction  & Multiple Instruction \\ \hline
+    Single Data    & SISD                & MISD                  \\
+    Multiple Data  & SIMI                & MIMD                  \\
+    \end{tabular}
+\end{table}
+
+Dabei wird die Von-Neumann-Architektur als \textit{SISD-Architektur} und die
+PRAM-Architektur als \textit{SIMD-Architektur} klassifiziert. Es ist so zu
+verstehen, dass ein einzelner Befehl auf verschiedene Daten angewendet wird.
+
+Bei heutigen Multicore-Rechnern liegt MIMD vor.
+
+MISD ist nicht so richtig sinnvoll.
+
+\begin{definition}[Nick's Class]\index{NC|see{Nick's Class}}\xindex{Nick's Class}%
+    Nick's Class (in Zeichen: $\mathcal{NC}$) ist die Klasse aller Probleme,
+    die im PRAM-Modell in logarithmischer Laufzeit lösbar sind.
+\end{definition}
+
+\begin{beispiel}[Nick's Class]%
+    Folgende Probleme sind in $\mathcal{NC}$:
+    \begin{bspenum}
+        \item Die Addition, Multiplikation und Division von Ganzzahlen,
+        \item Matrixmultiplikation, die Berechnung von Determinanten und Inversen,
+        \item ausschließlich Probleme aus $\mathcal{P}$, also: $\mathcal{NC} \subseteq \mathcal{P}$
+    \end{bspenum}
+
+    Es ist nicht klar, ob $\mathcal{P} \subseteq \mathcal{NC}$ gilt. Bisher 
+    wurde also noch kein Problem $P \in \mathcal{P}$ gefunden mit $P \notin \mathcal{NC}$.
+\end{beispiel}
+
+\section{Prozesskommunikation}
+Die Prozesskommunikation wird durch einige Probleme erschwert:
+
+\begin{definition}[Wettlaufsituation]\xindex{Wettlaufsituation}\index{Race-Condition|see{Wettlaufsituation}}%
+    Ist das Ergebnis einer Operation vom zeitlichen Ablauf der Einzeloperationen
+    abhängig, so liegt eine Wettlaufsituation vor.
+\end{definition}
+
+\begin{beispiel}[Wettlaufsituation]
+    Angenommen, man hat ein Bankkonto mit einem Stand von $\num{2000}$ Euro.
+    Auf dieses Konto wird am Monatsende ein Gehalt von $\num{800}$ Euro eingezahlt
+    und die Miete von $\num{600}$ Euro abgehoben. Nun stelle man sich folgende
+    beiden Szenarien vor:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|l|l|l}
+        $t$ & Prozess 1: Lohn        & Prozess 2: Miete     & Kontostand \\ \hline
+          1 &Lade Kontostand         & Lade Kontostand      & 2000       \\
+          2 & Addiere Lohn           & ~                    & 2000       \\
+          3 & Speichere Kontostand   & ~                    & 2800       \\
+          4 & ~                      & Subtrahiere Miete    & 2800       \\
+          5 & ~                      & Speichere Kontostand & 1400       \\
+        \end{tabular}
+    \end{table}
+
+    Dieses Problem existiert nicht nur bei echt parallelen Anwendungen, sondern
+    auch bei zeitlich verzahnten Anwendungen.
+\end{beispiel}
+
+\begin{definition}[Semaphore]\xindex{Semaphore}%
+    Eine Semaphore $S=(c, r, f, L)$ ist eine Datenstruktur, die aus einer Ganzzahl, den beiden 
+    atomaren Operationen $r$ = \enquote{reservieren probieren} und $f$ = \enquote{freigeben}
+    sowie einer Liste $L$ besteht.
+
+    $r$ gibt entweder Wahr oder Falsch zurück um zu zeigen, ob das reservieren
+    erfolgreich war. Im Erfolgsfall wird $c$ um $1$ verringert. Es wird genau
+    dann Wahr zurück gegeben, wenn $c$ positiv ist. Wenn Wahr zurückgegeben wird,
+    dann wird das aufrufende Objekt der Liste hinzugefügt.
+
+    $f$ kann nur von Objekten aufgerufen werden, die in $L$ sind. Wird $f$ von
+    $o \in L$ aufgerufen, wird $o$ aus $L$ entfernt und $c$ um eins erhöht.
+\end{definition}
+
+Semaphoren können eingesetzt werden um Wettlaufsituationen zu verhindern.
+
+\begin{definition}[Monitor]\xindex{Monitor}%
+    Ein Monitor $M = (m, c)$ ist ein Tupel, wobei $m$ ein Mutex und $c$ eine 
+    Bedingung ist.
+\end{definition}
+
+\index{Parallelität|)}
