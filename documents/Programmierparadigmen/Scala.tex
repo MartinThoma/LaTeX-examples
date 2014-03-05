@@ -2,10 +2,75 @@
 \index{Scala|(}
 
 Scala ist eine funktionale Programmiersprache, die auf der JVM aufbaut
-und in Java Bytecode kompiliert wird.
+und in Java Bytecode kompiliert wird. Scala bedeutet \underline{sca}lable
+\underline{la}nguage.
+
+Mit sog. \enquote{actors} bietet Scala eine Unterstützung für die Entwicklung
+prallel ausführender Programme.
+
+Weitere Materialien sind unter \url{http://www.scala-lang.org/} und
+\url{http://www.simplyscala.com/} zu finden.
+
+\section{Erste Schritte}
+Scala kann auf Debian-basierten Systemen durch das Paket \texttt{scala} installiert
+werden.
+
+\subsection{Hello World}
+\subsubsection{Interaktiv}
+Folgendes Beispiel stammt von \url{http://wiki.ubuntuusers.de/Scala}.
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=scala-test.scala]{scala}{scripts/scala/scala-test.scala}
+Es kann mit \texttt{./scala-test.scala Scala funktioniert} ausgeführt werden.
+
+\subsubsection{Kompiliert}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=hello-world.scala]{scala}{scripts/scala/hello-world.scala}
+
+Dieses Beispiel kann mit \texttt{scalac hello-world.scala} kompiliert und mit
+\texttt{scala HelloWorld} ausgeführt werden.
+
+\section{Vergleich mit Java}
+Scala und Java haben einige Gemeinsamkeiten, wie den Java Bytecode, aber auch
+einige Unterschiede.
+
+\noindent\parbox[t]{2.4in}{\raggedright%
+\textbf{\textit{Gemeinsamkeiten}}
+\begin{itemize}[topsep=0pt,itemsep=-2pt,leftmargin=13pt]
+    \item Java Bytecode
+    \item Keine Mehrfachvererbung
+    \item Statische Typisierung
+    \item Scopes
+\end{itemize}
+}%
+\parbox[t]{2.4in}{\raggedright%
+\textbf{\textit{Unterschiede}}
+\begin{itemize}[topsep=0pt,itemsep=-2pt,leftmargin=13pt]
+    \item Java hat Interfaces, Scala hat traits.
+    \item Java hat primitive Typen, Scala ausschließlich Objekte.
+    \item Scala benötigt kein \texttt{;} am Ende von Anweisungen.
+\end{itemize}
+}
+
+Weitere Informationen hat Graham Lea unter \url{http://grahamhackingscala.blogspot.de/2009/11/scala-under-hood-of-hello-world.html} zur Verfügung gestellt.
 
 \section{Syntax}
+In Scala gibt es sog. \textit{values}, die durch das Schlüsselwort \texttt{val}\xindex{val}
+angezeigt werden. Diese sind Konstanten. Die Syntax ist der UML-Syntax ähnlich.
+
+\begin{verbatim}
+val name: type = value
+\end{verbatim}
+
+Variablen werden durch das Schlüsselwort \texttt{var}\xindex{var} angezeigt:
+
+\begin{verbatim}
+var name: type = value
+\end{verbatim}
+
+Methoden werden mit dem Schlüsselwort \texttt{def}\xindex{def} erzeugt:
+
+\begin{verbatim}
+def name(parameter: String): Unit = { code body... }
+\end{verbatim}
+
 \section{Beispiele}
 
 \index{Scala|)}
-

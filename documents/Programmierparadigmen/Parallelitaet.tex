@@ -140,4 +140,48 @@ Semaphoren können eingesetzt werden um Wettlaufsituationen zu verhindern.
     Bedingung ist.
 \end{definition}
 
+Monitore können mit einer Semaphore, bei der $c=1$ ist, implementiert werden. 
+Monitore sorgen dafür, dass auf die Methoden der Objekte, die sie repräsentieren, 
+zu jedem Zeitpunkt nur ein mal ausgeführt werden können. Sie sorgen also für
+\textit{gegenseitigen Ausschluss}.
+
+\begin{beispiel}[Monitor]
+    Folgendes Beispiel von \url{https://en.wikipedia.org/w/index.php?title=Monitor_(synchronization)&oldid=596007585} verdeutlicht den Nutzen eines Monitors:
+
+\begin{verbatim}
+monitor class Account {
+  private int balance := 0
+  invariant balance >= 0
+
+  public method boolean withdraw(int amount)
+     precondition amount >= 0
+  {
+    if balance < amount:
+        return false
+    else:
+        balance := balance - amount
+        return true
+  }
+
+  public method deposit(int amount)
+     precondition amount >= 0
+  {
+    balance := balance + amount
+  }
+}
+\end{verbatim}
+\end{beispiel}
+
+\section{Parallelität in Java}
+Java unterstützt mit der Klasse \texttt{Thread} und dem Interface \texttt{Runnable}
+Parallelität.
+
+Interessante Stichwörder sind noch:
+\begin{itemize}
+    \item ThreadPool
+    \item Interface Executor
+    \item Interface Future<V>
+    \item Interface Callable<V>
+\end{itemize}
+
 \index{Parallelität|)}
