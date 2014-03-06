@@ -1,0 +1,28 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+    \pgfplotsset{
+        colormap={whitered}{
+            color(0cm)=(white);
+            color(1cm)=(orange!75!red)
+        }
+    }
+    \begin{tikzpicture}
+        \begin{axis}[
+            colormap name=whitered,
+            title=Rectangle from matrix input,
+            colorbar,
+            colorbar style={
+                at={(-0.3,0)},
+                anchor=south west,
+                height=0.6*\pgfkeysvalueof{/pgfplots/parent axis height},
+                title={$f(x,y)$}
+            }]
+            \addplot3[surf,samples=30] {x*y};
+        \end{axis}
+    \end{tikzpicture}
+\end{document}
