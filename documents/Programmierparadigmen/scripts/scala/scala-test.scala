@@ -1,6 +1,5 @@
-#!/usr/bin/env scala
-!#
-def promptprint (s: String) = {println ("> " + s)}
+$ scala
+Welcome to Scala version 2.9.2 [...]
 
-println ("Hallo ")
-args foreach promptprint
+scala> println("Hello world")
+Hello world

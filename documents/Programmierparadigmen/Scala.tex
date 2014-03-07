@@ -1,8 +1,7 @@
 \chapter{Scala}
 \index{Scala|(}
 
-Scala ist eine funktionale Programmiersprache, die auf der JVM aufbaut
-und in Java Bytecode kompiliert wird. Scala bedeutet \underline{sca}lable
+Scala ist eine objektorientierte und funktionale Programmiersprache, die auf der JVM aufbaut und in Java Bytecode kompiliert wird. Scala bedeutet \underline{sca}lable
 \underline{la}nguage.
 
 Mit sog. \enquote{actors} bietet Scala eine Unterstützung für die Entwicklung
@@ -13,12 +12,12 @@ Weitere Materialien sind unter \url{http://www.scala-lang.org/} und
 
 \section{Erste Schritte}
 Scala kann auf Debian-basierten Systemen durch das Paket \texttt{scala} installiert
-werden.
+werden. Für andere Systeme stehen auf \url{http://www.scala-lang.org/download/}
+verschiedene Binärdateien bereit.
 
 \subsection{Hello World}
 \subsubsection{Interaktiv}
-Folgendes Beispiel stammt von \url{http://wiki.ubuntuusers.de/Scala}.
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=scala-test.scala]{scala}{scripts/scala/scala-test.scala}
+\inputminted[numbersep=5pt, tabsize=4]{bash}{scripts/scala/scala-test.scala}
 Es kann mit \texttt{./scala-test.scala Scala funktioniert} ausgeführt werden.
 
 \subsubsection{Kompiliert}
@@ -69,7 +68,14 @@ Methoden werden mit dem Schlüsselwort \texttt{def}\xindex{def} erzeugt:
 Klassen werden wie folgt erstellt:
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/simple-class-example.scala}
 
+und so instanziiert:
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/simple-class-instanciation.scala}
 
 \section{Beispiele}
+
+\section{Weitere Informationen}
+\begin{itemize}
+    \item \url{http://docs.scala-lang.org/style/naming-conventions.html}
+\end{itemize}
 
 \index{Scala|)}
