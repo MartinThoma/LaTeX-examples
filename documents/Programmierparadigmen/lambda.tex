@@ -1,76 +1,101 @@
 %!TEX root = Programmierparadigmen.tex
 \chapter{$\lambda$-Kalkül}
-Der Lambda-Kalkül ist eine formale Sprache.
+Der $\lambda$-Kalkül (gesprochen: Lambda-Kalkül) ist eine formale Sprache.
 In diesem Kalkül gibt es drei Arten von Termen $T$:
 
 \begin{itemize}
-	\item Variablen: $x$
-	\item Applikationen: $(T T)$
-	\item Lambda: $\lambda x. T$
+    \item Variablen: $x$
+    \item Applikationen: $(T S)$
+    \item Lambda-Abstraktion: $\lambda x. T$
 \end{itemize}
 
-Es ist zu beachten, dass Funktionsapplikation linksassoziativ ist. Es gilt also:
+In der Lambda-Abstraktion nennt man den Teil vor dem Punkt die \textit{Parameter}
+der $\lambda$-Funktion. Wenn etwas dannach kommt, auf die die Funktion angewendet
+wird so heißt dieser Teil das \textit{Argument}:
+
+\[(\lambda \underbrace{x}_{\mathclap{\text{Parameter}}}. x^2) \overbrace{5}^{\mathclap{\text{Argument}}} = 5^2\]
+
+\begin{beispiel}[$\lambda$-Funktionen]
+    \begin{bspenum}
+        \item $\lambda x. x$ heißt Identität.
+        \item $(\lambda x. x^2)(\lambda y. y + 3) = \lambda y. (y+3)^2$
+        \item \label{bsp:lambda-3} $\begin{aligned}[t]
+                           &(\lambda x.\Big (\lambda y.yx \Big ))~ab\\
+                \Rightarrow&(\lambda y.ya)b\\
+                \Rightarrow&ba
+               \end{aligned}$
+    \end{bspenum}
+
+    In \cref{bsp:lambda-3} sieht man, dass $\lambda$-Funktionen die Argumente
+    von Links nach rechts einziehen.
+\end{beispiel}
+
+Die Funktionsapplikation sei linksassoziativ. Es gilt also:
 
 \[a~b~c~d = ((a~b)~c)~d\]
 
-\begin{definition}[Freie Variable]
-	TODO
+\begin{definition}[Gebundene Variable]\xindex{Variable!gebundene}%
+    Eine Variable heißt gebunden, wenn sie der Parameter einer $\lambda$-Funktion ist.
 \end{definition}
 
-\begin{definition}[Gebundene Variable]
-	Eine Variable heißt gebunden, wenn sie nicht frei ist.
+\begin{definition}[Freie Variable]\xindex{Variable!freie}%
+    Eine Variable heißt \textit{frei}, wenn sie nicht gebunden ist.
 \end{definition}
+
+\begin{satz}
+    Der untypisierte $\lambda$-Kalkül ist Turing-Äquivalent.
+\end{satz}
 
 \section{Reduktionen}
 \begin{definition}[$\alpha$-Äquivalenz]
-	Zwei Terme $T_1, T_2$ heißen $\alpha$-Äquivalent, wenn $T_1$ durch 
-	konsistente Umbenennung in $T_2$ überführt werden kann.
+    Zwei Terme $T_1, T_2$ heißen $\alpha$-Äquivalent, wenn $T_1$ durch 
+    konsistente Umbenennung in $T_2$ überführt werden kann.
 
-	Man schreibt dann: $T_1 \overset{\alpha}{=} T_2$.
+    Man schreibt dann: $T_1 \overset{\alpha}{=} T_2$.
 \end{definition}
 
 \begin{beispiel}[$\alpha$-Äquivalenz]
-	\begin{align*}
-		\lambda x.x    &\overset{\alpha}{=} \lambda y. y\\
-		\lambda x. x x &\overset{\alpha}{=} \lambda y. y y\\
-		\lambda x. (\lambda y. z (\lambda x. z y) y) &\overset{\alpha}{=}
-		\lambda a. (\lambda x. z (\lambda c. z x) x)
-	\end{align*}
+    \begin{align*}
+        \lambda x.x    &\overset{\alpha}{=} \lambda y. y\\
+        \lambda x. x x &\overset{\alpha}{=} \lambda y. y y\\
+        \lambda x. (\lambda y. z (\lambda x. z y) y) &\overset{\alpha}{=}
+        \lambda a. (\lambda x. z (\lambda c. z x) x)
+    \end{align*}
 \end{beispiel}
 
 \begin{definition}[$\beta$-Äquivalenz]
-	TODO
+    TODO
 \end{definition}
 
 \begin{beispiel}[$\beta$-Äquivalenz]
-	TODO
+    TODO
 \end{beispiel}
 
 \begin{definition}[$\eta$-Äquivalenz]
-	Zwei Terme $\lambda x. f~x$ und $f$ heißen $\eta$-Äquivalent, wenn
-	$x$ nicht freie Variable von $f$ ist.
+    Zwei Terme $\lambda x. f~x$ und $f$ heißen $\eta$-Äquivalent, wenn
+    $x$ nicht freie Variable von $f$ ist.
 \end{definition}
 
 \begin{beispiel}[$\eta$-Äquivalenz]
-	TODO
+    TODO
 \end{beispiel}
 
 \section{Auswertungsstrategien}
 \begin{definition}[Normalenreihenfolge]\xindex{Normalenreihenfolge}%
-	In der Normalenreihenfolge-Auswertungsstrategie wird der linkeste äußerste
-	Redex ausgewertet.
+    In der Normalenreihenfolge-Auswertungsstrategie wird der linkeste äußerste
+    Redex ausgewertet.
 \end{definition}
 
 \begin{definition}[Call-By-Name]\xindex{Call-By-Name}%
-	In der Call-By-Name Auswertungsreihenfolge wird der linkeste äußerste Redex
-	reduziert, der nicht von einem $\lambda$ umgeben ist.
+    In der Call-By-Name Auswertungsreihenfolge wird der linkeste äußerste Redex
+    reduziert, der nicht von einem $\lambda$ umgeben ist.
 \end{definition}
 
 Die Call-By-Name Auswertung wird in Funktionen verwendet.
 
 \begin{definition}[Call-By-Value]\xindex{Call-By-Value}%
-	In der Call-By-Value Auswertung wird der linkeste Redex reduziert, der
-	nicht von einem $\lambda$ umgeben ist und dessen Argument ein Wert ist.
+    In der Call-By-Value Auswertung wird der linkeste Redex reduziert, der
+    nicht von einem $\lambda$ umgeben ist und dessen Argument ein Wert ist.
 \end{definition}
 
 Die Call-By-Value Auswertungsreihenfolge wird in C und Java verwendet.
@@ -78,10 +103,61 @@ Auch in Haskell werden arithmetische Ausdrücke in der Call-By-Name Auswertungsr
 reduziert.
 
 \section{Church-Zahlen}
-TODO
+Im $\lambda$-Kalkül lässt sich jeder mathematische Ausdruck darstellen, also 
+insbesondere beispielsweise auch $\lambda x. x+3$. Aber \enquote{$3$} und
+\enquote{$+$} ist hier noch nicht das $\lambda$-Kalkül.
+
+Zuerst müssen wir uns also Gedanken machen, wie man natürliche Zahlen $n \in \mdn$
+darstellt. Dafür dürfen wir nur Variablen und $\lambda$ verwenden. Eine Möglichkeit
+das zu machen sind die sog. \textit{Church-Zahlen}.
+
+Dabei ist die Idee, dass die Zahl angibt wie häufig eine Funktion $f$ auf eine
+Variable $x$ angewendet wird. Also:
+\begin{itemize}
+    \item $0 := \lambda f~x. x$
+    \item $1 := \lambda f~x. f x$
+    \item $2 := \lambda f~x. f (f x)$
+    \item $3 := \lambda f~x. f (f (f x))$
+\end{itemize}
+
+Auch die gewohnten Operationen lassen sich so darstellen.
+
+\begin{beispiel}[Nachfolger-Operation]
+    \begin{align*}
+        \succ :&= \lambda n f z. f (n f x)\\
+        &= \lambda n. (\lambda f  (\lambda x f (n f x)))
+    \end{align*}
+    Dabei ist $n$ die Zahl. 
+
+    Will man diese Funktion anwenden, sieht das wie folgt aus:
+    \begin{align*}
+        \succ 1 &= (\lambda n f x. f(n f x)) 1\\
+                      &= (\lambda n f x. f(n f x)) \underbrace{(\lambda f~x. f x)}_{n}\\
+                      &= \lambda f x. f (\lambda f~x. f x) f x\\
+                      &= \lambda f x. f (f x)\\
+                      &= 2
+    \end{align*}
+\end{beispiel}
+
+\begin{beispiel}[Addition]
+    \begin{align*}
+        \text{+} : &= \lambda m n f x. m f (n f x)
+    \end{align*}
+    Dabei ist $m$ der erste Summand und $n$ der zweite Summand.
+\end{beispiel}
+
+\begin{beispiel}[Multiplikation]
+    %\[\text{\cdot} := \lambda m n.m(n f) \]
+    Dabei ist $m$ der erste Faktor und $n$ der zweite Faktor.
+\end{beispiel}
+
+\begin{beispiel}[Potenz]
+    %\[\text{\cdot} := \text{TODO}\]
+    Dabei ist $b$ die Basis und $e$ der Exponent.
+\end{beispiel}
 
 \section{Weiteres}
 
 \begin{satz}[Satz von Curch-Rosser]
-	Wenn zwei unterschiedliche Terme $a$ und $b$ äquivalent sind, d.h. mit Reduktionsschritten beliebiger Richtung ineinander transformiert werden können, dann gibt es einen weiteren Term $c$, zu dem sowohl $a$ als auch $b$ reduziert werden können.
+    Wenn zwei unterschiedliche Terme $a$ und $b$ äquivalent sind, d.h. mit Reduktionsschritten beliebiger Richtung ineinander transformiert werden können, dann gibt es einen weiteren Term $c$, zu dem sowohl $a$ als auch $b$ reduziert werden können.
 \end{satz}
