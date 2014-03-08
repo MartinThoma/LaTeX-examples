@@ -32,12 +32,36 @@ Wie nah ist sie an einer mathematisch / algorithmischen Beschreibung?
     \end{bspenum}
 \end{beispiel}
 
-\begin{definition}\xindex{Assembler}%
-    \textbf{Assembler} TODO
+\begin{definition}[Assembler]\xindex{Assembler}%
+    Eine Assemblersprache ist eine Programmiersprache, deren Befehle dem
+    Befehlssatz eines Prozessor entspricht.
 \end{definition}
 
 \begin{beispiel}[Assembler]%
-    TODO
+    Folgendes Beispiel stammt von \url{https://de.wikibooks.org/wiki/Assembler-Programmierung_für_x86-Prozessoren/_Das_erste_Assemblerprogramm}:
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=firstp.asm]{nasm}{scripts/assembler/firstp.asm}
+\end{beispiel}
+
+\begin{definition}[Höhere Programmiersprache]\xindex{Programmiersprache!höhere}%
+    Eine Programmiersprache heißt \textit{höher}, wenn sie nicht ausschließlich
+    für eine Prozessorarchitektur geschrieben wurde und turing-vollständig ist.
+\end{definition}
+
+\begin{beispiel}[Höhere Programmiersprachen]
+    Java, Python, Haskell, Ruby, TCL, \dots
+\end{beispiel}
+
+\begin{definition}[Domänenspezifische Sprache]\xindex{Sprache!domänenspezifische}%
+    Eine domänenspezifische Sprache (engl. domain-specific language; kurz DSL) 
+    ist eine formale Sprache, die für ein bestimmtes Problemfeld 
+    entworfen wurde.
+\end{definition}
+
+\begin{beispiel}[Domänenspezifische Sprache]
+    \begin{bspenum}
+        \item HTML
+        \item VHDL
+    \end{bspenum}
 \end{beispiel}
 
 \section{Paradigmen}
