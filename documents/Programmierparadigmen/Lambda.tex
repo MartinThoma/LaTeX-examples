@@ -47,6 +47,10 @@ Die Funktionsapplikation sei linksassoziativ. Es gilt also:
 \end{satz}
 
 \section{Reduktionen}
+\begin{definition}[Redex]\xindex{Redex}%
+    Eine $\lambda$-Term der Form $(\lambda x. t_1) t_2$ heißt Redex.
+\end{definition}
+
 \begin{definition}[$\alpha$-Äquivalenz]
     Zwei Terme $T_1, T_2$ heißen $\alpha$-Äquivalent, wenn $T_1$ durch 
     konsistente Umbenennung in $T_2$ überführt werden kann.
@@ -64,11 +68,15 @@ Die Funktionsapplikation sei linksassoziativ. Es gilt also:
 \end{beispiel}
 
 \begin{definition}[$\beta$-Äquivalenz]
-    TODO
+    Eine $\beta$-Reduktion ist die Funktionsanwendung auf einen Redex:
+    \[(\lambda x. t_1) t_2 \Rightarrow t_1 [x \mapsto t_2]\]
 \end{definition}
 
 \begin{beispiel}[$\beta$-Äquivalenz]
-    TODO
+    \begin{defenum}
+        \item $(\lambda x.x) y \overset{\beta}{\Rightarrow} x[x \mapsto y] = y$
+        \item $(\lambda x. x (\lambda x. x)) (y z) \overset{\beta}{\Rightarrow} (x(\lambda x. x))[x \mapsto y z] (y z) (\lambda x. x)$
+    \end{defenum}
 \end{beispiel}
 
 \begin{definition}[$\eta$-Äquivalenz]
