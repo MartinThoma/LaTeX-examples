@@ -10,11 +10,25 @@ $\emptyset\;\;\;$ Leere Menge\\
 $\epsilon\;\;\;$ Das leere Wort\\
 $\alpha, \beta\;\;\;$ Reguläre Ausdrücke\\
 $L(\alpha)\;\;\;$ Die durch $\alpha$ beschriebene Sprache\\
-$L(\alpha | \beta) = L(\alpha) \cup L(\beta)$\\
-$L(\alpha \cdot \beta) = L(\alpha) \cdot L(\beta)$\\
-$\alpha^+ = L(\alpha)^+$ TODO: Was ist $L(\alpha)^+$\\
-$\alpha^* = L(\alpha)^*$ TODO: Was ist $L(\alpha)^*$\\
+$\begin{aligned}[t]
+    L(\alpha | \beta)    &= L(\alpha) \cup L(\beta)\\
+    L(\alpha \cdot \beta)&= L(\alpha) \cdot L(\beta)
+\end{aligned}$\\
+$L^0 := \Set{\varepsilon}\;\;\;$ Die leere Sprache\\
+$L^{n+1} := L^n \circ L \text{ für } n \in \mdn_0\;\;\;$ Potenz einer Sprache\\
+$\begin{aligned}[t]
+    \alpha^+ &=& L(\alpha)^+ &=& \bigcup_{i \in \mdn} L(\alpha)^i\\
+    \alpha^* &=& L(\alpha)^* &=& \bigcup_{i \in \mdn_0} L(\alpha)^i
+\end{aligned}$
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Reguläre Ausdrücke                                                %
+% Logik                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Logik}
+$\mathcal{M} \models \varphi\;\;\;$ Im Modell $\mathcal{M}$ gilt das Prädikat $\varphi$.\\
+$\psi \vdash \varphi\;\;\;$ Die Formel $\varphi$ kann aus der Menge der Formeln $\psi$ hergeleitet werden.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Weiteres                                                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Weiteres}
 $\bot\;\;\;$ Bottom\\

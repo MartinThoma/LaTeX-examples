@@ -101,14 +101,16 @@ Die Funktionsapplikation sei linksassoziativ. Es gilt also:
 
 Die Call-By-Name Auswertung wird in Funktionen verwendet.
 
+Haskell verwendet die Call-By-Name Auswertungsreihenfolge zusammen mit \enquote{sharing}. Dies nennt man Lazy Evaluation.
+\todo[inline]{Was ist sharing?}
+
 \begin{definition}[Call-By-Value]\xindex{Call-By-Value}%
     In der Call-By-Value Auswertung wird der linkeste Redex reduziert, der
     nicht von einem $\lambda$ umgeben ist und dessen Argument ein Wert ist.
 \end{definition}
 
 Die Call-By-Value Auswertungsreihenfolge wird in C und Java verwendet.
-Auch in Haskell werden arithmetische Ausdrücke in der Call-By-Name Auswertungsreihenfolge
-reduziert.
+Auch in Haskell werden arithmetische Ausdrücke in der Call-By-Name Auswertungsreihenfolge reduziert.
 
 \section{Church-Zahlen}
 Im $\lambda$-Kalkül lässt sich jeder mathematische Ausdruck darstellen, also 
@@ -120,52 +122,63 @@ darstellt. Dafür dürfen wir nur Variablen und $\lambda$ verwenden. Eine Mögli
 das zu machen sind die sog. \textit{Church-Zahlen}.
 
 Dabei ist die Idee, dass die Zahl angibt wie häufig eine Funktion $f$ auf eine
-Variable $x$ angewendet wird. Also:
+Variable $z$ angewendet wird. Also:
 \begin{itemize}
-    \item $0 := \lambda f~x. x$
-    \item $1 := \lambda f~x. f x$
-    \item $2 := \lambda f~x. f (f x)$
-    \item $3 := \lambda f~x. f (f (f x))$
+    \item $0 := \lambda f~z. z$
+    \item $1 := \lambda f~z. f z$
+    \item $2 := \lambda f~z. f (f z)$
+    \item $3 := \lambda f~z. f (f (f z))$
 \end{itemize}
 
 Auch die gewohnten Operationen lassen sich so darstellen.
 
 \begin{beispiel}[Nachfolger-Operation]
     \begin{align*}
-        \succ :&= \lambda n f z. f (n f x)\\
-        &= \lambda n. (\lambda f  (\lambda x f (n f x)))
+        \succ :&= \lambda n f z. f (n f z)\\
+               &= \lambda n. (\lambda f  (\lambda z f (n f z)))
     \end{align*}
     Dabei ist $n$ die Zahl. 
 
     Will man diese Funktion anwenden, sieht das wie folgt aus:
     \begin{align*}
-        \succ 1 &= (\lambda n f x. f(n f x)) 1\\
-                      &= (\lambda n f x. f(n f x)) \underbrace{(\lambda f~x. f x)}_{n}\\
-                      &= \lambda f x. f (\lambda f~x. f x) f x\\
-                      &= \lambda f x. f (f x)\\
-                      &= 2
+    \succ 1&= (\lambda n f z. f(n f z)) 1\\
+           &= (\lambda n f z. f(n f z)) \underbrace{(\lambda f~z. f z)}_{n}\\
+           &= \lambda f z. f (\lambda f~z. f z) f z\\
+           &= \lambda f z. f (f z)\\
+           &= 2
     \end{align*}
 \end{beispiel}
 
 \begin{beispiel}[Addition]
     \begin{align*}
-        \text{+} : &= \lambda m n f x. m f (n f x)
+        \text{plus} &:= \lambda m n f z. m f (n f z)
     \end{align*}
     Dabei ist $m$ der erste Summand und $n$ der zweite Summand.
 \end{beispiel}
 
 \begin{beispiel}[Multiplikation]
-    %\[\text{\cdot} := \lambda m n.m(n f) \]
+    \begin{align*}
+     \text{times} :&= \lambda m n f. m~s~(n~f~z)\\
+                   &\overset{\eta}{=} \lambda m n f z. n (m s) z
+    \end{align*}
     Dabei ist $m$ der erste Faktor und $n$ der zweite Faktor.
 \end{beispiel}
 
 \begin{beispiel}[Potenz]
-    %\[\text{\cdot} := \text{TODO}\]
+    \begin{align*}
+     \text{exp} :&= \lambda b e. eb\\
+                   &\overset{\eta}{=} \lambda b e f z. e b f z
+    \end{align*}
     Dabei ist $b$ die Basis und $e$ der Exponent.
 \end{beispiel}
 
-\section{Weiteres}
+\section{Church-Booleans}
+\begin{definition}[Church-Booleans]\xindex{Church-Booleans}%
+    \texttt{True} wird zu $c_{\text{true}} := \lambda t. \lambda f. t$.\\
+    \texttt{False} wird zu $c_{\text{false}} := \lambda t. \lambda f. f$.
+\end{definition}
 
+\section{Weiteres}
 \begin{satz}[Satz von Curch-Rosser]
     Wenn zwei unterschiedliche Terme $a$ und $b$ äquivalent sind, d.h. mit Reduktionsschritten beliebiger Richtung ineinander transformiert werden können, dann gibt es einen weiteren Term $c$, zu dem sowohl $a$ als auch $b$ reduziert werden können.
 \end{satz}
