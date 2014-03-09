@@ -184,4 +184,23 @@ Interessante Stichwörder sind noch:
     \item Interface Callable<V>
 \end{itemize}
 
+\section{Message Passing Modell}
+Das Message Passing Modell ist eine Art, wie man parallel laufende Programme 
+schreiben kann. Dabei tauschen die Prozesse Nachrichten aus um die Arbeit zu
+verteilen.
+
+Ein wichtiges Konzept ist hierbei der \textit{Kommunikator}\xindex{Kommunikator}.
+Ein Kommunikator definiert eine Gruppe von Prozessen, die mit einander kommunizieren
+können. In dieser Gruppe von Prozessen hat jeder Prozesse einen eindeutigen
+\textit{Rang}\xindex{Rang}, den sie zur Kommunikation nutzen.
+
+Die Grundlage der Kommunikation bilden \textit{send} und \textit{receive} Operationen.
+Prozesse schicken Nachrichten an andere Prozesse, indem sie den eindeutigen Rang
+und einen \textit{tag} angeben, der die Nachricht identifiziert.
+
+Wenn ein Prozess mit einem einzigen weiteren Prozess kommuniziert, wird dies
+\textit{Punkt-zu-Punkt-Kommunikation}\xindex{Punkt-zu-Punkt-Kommunikation} genannt.
+
+Wenn ein Prozess allen anderen eine Nachricht schickt, nennt man das \textit{Broadcast}\xindex{Broadcast}.
+
 \index{Parallelität|)}
