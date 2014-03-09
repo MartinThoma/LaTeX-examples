@@ -2,13 +2,15 @@
 \chapter{C}
 \index{C|(}
 C ist eine imperative Programmiersprache. Sie wurde in vielen Standards
-definiert. Die wichtigsten davon sind:\todo{Wo sind unterschiede?}
+definiert. Die wichtigsten davon sind:
 
 \begin{itemize}
-    \item C89
-    \item C99
-    \item ANSI C
-    \item C11
+    \item C89 wird auch ANSI C genannt.
+    \item C90 wurde unter ISO 9899:1990 veröffentlicht. Es gibt keine bedeutenden
+          Unterschiede zwischen C89 und C90, nur ist das eine ein ANSI-Standard
+          und das andere ein ISO-Standard.
+    \item C99 wurde unter ISO 9899:1999 veröffentlicht.
+    \item C11 wurde unter ISO 9899:2011 veröffentlicht.
 \end{itemize}
 
 \section{Datentypen}\xindex{Datentypen}
@@ -28,49 +30,84 @@ Die grundlegenden C-Datentypen sind
 
 zusätzlich kann man \texttt{char}\xindex{char} und \texttt{int}\xindex{int}
 noch in \texttt{signed}\xindex{signed} und \texttt{unsigned}\xindex{unsigned}
-unterscheiden.
+unterscheiden. Diese werden \textit{Modifier}\xindex{Modifier} genannt.
+
+In C gibt es keinen direkten Support für Booleans.
 
 \section{ASCII-Tabelle}\label{sec:ascii-tabelle}
-\begin{table}[htp]
+\begin{table}[h]
     \centering
+    \resizebox{0.65\textwidth}{!}{%
     \begin{tabular}{|l|l||l|l||l|l||l|l|}
     \hline
     \textbf{Dez.} & \textbf{Z.} & \textbf{Dez.} & \textbf{Z.} & \textbf{Dez.} & \textbf{Z.} & \textbf{Dez.} & \textbf{Z.} \\ \hline\hline
-    0    & ~       & 31   & ~       & 64   & @       & 96   & '       \\ \hline
-    1    & ~       & ~    & ~       & 65   & A       & 97   & a       \\ \hline
-    2    & ~       & ~    & ~       & 66   & B       & 98   & b       \\ \hline
-    3    & ~       & ~    & ~       & ~    & C       & 99   & c       \\ \hline
-    4    & ~       & ~    & ~       & ~    & D       & 100  & d       \\ \hline
-    5    & ~       & ~    & ~       & ~    & E       & ~    & ~       \\ \hline
-    6    & ~       & ~    & ~       & ~    & F       & ~    & ~       \\ \hline
-    7    & ~       & ~    & ~       & ~    & G       & ~    & ~       \\ \hline
-    8    & ~       & ~    & ~       & ~    & H       & ~    & ~       \\ \hline
-    9    & ~       & ~    & ~       & ~    & I       & ~    & ~       \\ \hline
-    10   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    11   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    12   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    13   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    14   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    15   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    16   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    17   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    18   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    19   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    20   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    21   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    22   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    23   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    24   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    25   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    26   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    27   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    28   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    29   & ~       & ~    & ~       & ~    & ~       & ~    & ~       \\ \hline
-    31   & ~       & ~    & ~       & ~    & ~       & 127  & ~       \\ \hline\hline
+    0    & ~       & 32   & ~       & 64   & @       & 96   & '       \\ \hline
+    1    & ~       & 33   & !       & 65   & A       & 97   & a       \\ \hline
+    2    & ~       & 34   & "       & 66   & B       & 98   & b       \\ \hline
+    3    & ~       & 35   & \#      & 67   & C       & 99   & c       \\ \hline
+    4    & ~       & 36   & \$      & 68   & D       & 100  & d       \\ \hline
+    5    & ~       & 37   & \%      & 69   & E       & 101  & e       \\ \hline
+    6    & ~       & 38   & \&      & 70   & F       & 102  & f       \\ \hline
+    7    & ~       & 39   & '       & 71   & G       & 103  & g       \\ \hline
+    8    & ~       & 40   & (       & 72   & H       & 104  & h       \\ \hline
+    9    & ~       & 41   & )       & 73   & I       & 105  & i       \\ \hline
+    10   & ~       & 42   & *       & 74   & J       & 106  & j       \\ \hline
+    11   & ~       & 43   & +       & 75   & K       & 107  & k       \\ \hline
+    12   & ~       & 44   & ,       & 76   & L       & 108  & l       \\ \hline
+    13   & ~       & 45   & -       & 77   & M       & 109  & m       \\ \hline
+    14   & ~       & 46   & .       & 78   & N       & 110  & n       \\ \hline
+    15   & ~       & 47   & /       & 79   & O       & 111  & o       \\ \hline
+    16   & ~       & 48   & 0       & 80   & P       & 112  & p       \\ \hline
+    17   & ~       & 49   & 1       & 81   & Q       & 113  & q       \\ \hline
+    18   & ~       & 50   & 2       & 82   & R       & 114  & r       \\ \hline
+    19   & ~       & 51   & 3       & 83   & S       & 115  & s       \\ \hline
+    20   & ~       & 52   & 4       & 84   & T       & 116  & t       \\ \hline
+    21   & ~       & 53   & 5       & 85   & U       & 117  & u       \\ \hline
+    22   & ~       & 54   & 6       & 86   & V       & 118  & v       \\ \hline
+    23   & ~       & 55   & 7       & 87   & W       & 119  & w       \\ \hline
+    24   & ~       & 56   & 8       & 88   & X       & 120  & x       \\ \hline
+    25   & ~       & 57   & 9       & 89   & Y       & 121  & y       \\ \hline
+    26   & ~       & 58   & :       & 90   & Z       & 122  & z       \\ \hline
+    27   & ~       & 59   & ;       & 91   & $[$     & 123  & \{      \\ \hline
+    28   & ~       & 60   & <       & 92   & \textbackslash & 124  & |       \\ \hline
+    29   & ~       & 61   & =       & 93   & $]$     & 125  & \}      \\ \hline
+    30   & ~       & 62   & >       & 94   & \textasciicircum & 126  & $\sim$  \\ \hline
+    31   & ~       & 63   & ?       & 95   & \_      & 127  & DEL     \\ \hline
+    \end{tabular}
+    }
+\end{table}
+\section{Syntax}
+\section{Präzedenzregeln}
+
+\begin{tabbing}
+\textbf{A} \=\enquote{[name] is a\dots}\\
+  \>\textbf{B.1} \=prenthesis {\color{red}$( )$}\\
+  \>\textbf{B.2} \>postfix operators:\\
+  \>    \>\textbf{B.2.1} \={\color{red}$( )$}    \=\enquote{\dots function returning\dots}\\
+  \>    \>\textbf{B.2.2} \>{\color{red}$[ ]$} \>\enquote{\dots array of\dots}\\
+  \>\textbf{B.3} \>prefix operator: {\color{red}*} \enquote{\dots pointer to\dots}\\
+  \>\textbf{B.4} \>prefix operator {\color{red}*} and {\color{red}\texttt{const} / \texttt{volatile}} modifier:\\
+  \>    \>\enquote{\dots [modifier] pointer to\dots}\\
+  \>\textbf{B.5} \>{\color{red}\texttt{const} / \texttt{volatile}} modifier next to type specifier:\\
+  \>    \>\enquote{\dots [modifier] [specifier]}\\
+  \>\textbf{B.6} \>type specifier: \enquote{\dots [specifier]}
+\end{tabbing}
+
+\texttt{static unsigned int* const *(*next)();}
+
+\begin{table}[htp]
+    \centering
+    \begin{tabular}{lll}
+      A     & \texttt{next}                & next is a                     \\
+      B.3   & \texttt{*}                   & \dots pointer to\dots           \\
+      B.1   & \texttt{( )}                 & \dots                           \\
+      B.2.1 & \texttt{( )}                 & \dots a function returning\dots   \\
+      B.3   & \texttt{*}                   & \dots pointer to\dots             \\
+      B.4   & \texttt{*const}              & \dots a read-only pointer to\dots \\
+      B.6   & \texttt{static unsigned int} & \dots static unsigned int.      \\
     \end{tabular}
 \end{table}
 
-\section{Syntax}
 \section{Beispiele}
 \subsection{Hello World}
 Speichere den folgenden Text als \texttt{hello-world.c}:

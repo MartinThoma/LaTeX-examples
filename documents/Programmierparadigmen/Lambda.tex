@@ -149,6 +149,15 @@ Auch die gewohnten Operationen lassen sich so darstellen.
     \end{align*}
 \end{beispiel}
 
+\begin{beispiel}[Vorgänger-Operation]
+    \begin{align*}
+        \pair&:= \lambda a. \lambda b. \lambda f. f a b\\
+        \fst &:= \lambda p. p (\lambda a. \lambda b. a)\\
+        \snd &:= \lambda p. p (\lambda a. \lambda b. b)\\
+        \nxt &:= \lambda p. \pair (\snd p)~(\succ (\snd p))\\
+        \pred&:= \lambda n. \fst (n \nxt (\pair c_0 c_0))
+    \end{align*}
+\end{beispiel}
 \begin{beispiel}[Addition]
     \begin{align*}
         \text{plus} &:= \lambda m n f z. m f (n f z)
