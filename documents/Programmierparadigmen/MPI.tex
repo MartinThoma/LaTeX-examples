@@ -13,11 +13,57 @@ Das wird \texttt{mpicc hello-world.c} kompiliert.\\
 Mit \texttt{mpirun -np 14 scripts/mpi/a.out} werden 14 Kopien des Programms
 gestartet.
 
-\section{Syntax}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Funktionen}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-size.c}
+Liefert die Größe des angegebenen Kommunikators; dh. die Anzahl der Prozesse in der Gruppe.
+
+\textbf{Parameter}
+\begin{itemize}
+    \item \textbf{comm}: Kommunikator (handle)
+    \item \textbf{size}: Anzahl der Prozesse in der Gruppe von \texttt{comm}
+\end{itemize}
+
+\textbf{Beispiel}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-size-example.c}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rule{\textwidth}{0.4pt}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-rank.c}
+Bestimmt den Rang des rufenden Prozesses innerhalb des Kommunikators.
+
+Der Rang wird von MPI zum Identifizieren eines Prozesses verwendet. Die Rangnummer ist innerhalb eines Kommunikators eindeutig. Dabei wird stets von Null beginnend durchnumeriert. Sender und Empfänger bei Sendeoperationen oder die Wurzel bei kollektiven Operationen werden immer mittels Rang angegeben.
+
+\textbf{Parameter}
+\begin{itemize}
+    \item \textbf{comm}: Kommunikator (handle)
+    \item \textbf{rank}: Rang des rufenden Prozesses innerhalb von \texttt{comm}
+\end{itemize}
+
+\textbf{Beispiel}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-rank-example.c}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rule{\textwidth}{0.4pt}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-reduce.c}
+Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhält das Resultat.
+\textbf{Parameter}
+\begin{itemize}
+    \item \textbf{sendbuf} Startadresse des Sendepuffers
+    \item \textbf{count} Anzahl der Elemente im Sendepuffer
+    \item \textbf{datatype} Datentyp der Elemente von \texttt{sendbuf}
+    \item \textbf{op} auszuführende Operation (handle)
+    \item \textbf{root}  Rang des Root-Prozesses in comm, der das Ergebnis haben soll
+    \item \textbf{comm} Kommunikator (handle)
+\end{itemize}
+
+\textbf{Beispiel}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-reduce-example.c}
+
 \section{Beispiele}
 \section{Weitere Informationen}
 \begin{itemize}
+    \item \url{http://mpitutorial.com/}
     \item \url{http://www.open-mpi.org/}
+    \item \url{http://www.tu-chemnitz.de/informatik/RA/projects/mpihelp/}
 \end{itemize}
 
 \index{MPI|)}
