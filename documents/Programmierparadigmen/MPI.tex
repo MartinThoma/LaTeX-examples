@@ -6,8 +6,18 @@ Message Passing Interface (kurz: MPI) ist ein Standard,
 der den Nachrichtenaustausch bei parallelen Berechnungen auf 
 verteilten Computersystemen beschreibt.
 
+\section{Erste Schritte}
+\inputminted[numbersep=5pt, tabsize=4, frame=lines, label=hello-world.c]{c}{scripts/mpi/hello-world.c}
+
+Das wird \texttt{mpicc hello-world.c} kompiliert.\\
+Mit \texttt{mpirun -np 14 scripts/mpi/a.out} werden 14 Kopien des Programms
+gestartet.
+
 \section{Syntax}
 \section{Beispiele}
+\section{Weitere Informationen}
+\begin{itemize}
+    \item \url{http://www.open-mpi.org/}
+\end{itemize}
 
 \index{MPI|)}
-
