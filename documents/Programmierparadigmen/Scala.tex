@@ -46,6 +46,7 @@ einige Unterschiede.
     \item Java hat primitive Typen, Scala ausschließlich Objekte.
     \item Scala benötigt kein \texttt{;} am Ende von Anweisungen.
     \item Scala ist kompakter.
+    \item Java hat \texttt{static}, Scala hat \texttt{object} (Singleton)
 \end{itemize}
 }
 
@@ -75,7 +76,20 @@ Listen können erstellt und durchgegangen werden:
 
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/extended-for.scala}
 
+\section{Companion Object}\xindex{Companion Object}
+Ein Companion Object ist ein Objekt mit dem Namen einer Klasse oder eines Traits.
+Im Gegensatz zu anderen Objekten / Traits hat das Companion Object zugriff auf
+die Klasse.
+
+\section{actor}\xindex{actor}
+actor dient der Concurrency.
+
 \section{Beispiele}
+\subsection{Wetter}
+Das folgende Script sendet parallel Anfragen über verschiedene ZIP-Codes an
+die Yahoo-Server, parst das XML und extrahiert die Stadt sowie die Temperatur:
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=weather.scala]{scala}{scripts/scala/weather.scala}
 
 \section{Weitere Informationen}
 \begin{itemize}
