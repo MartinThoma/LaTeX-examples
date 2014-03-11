@@ -1,0 +1,1 @@
+MPI_Bcast(buffer, count, datatype, root, comm)

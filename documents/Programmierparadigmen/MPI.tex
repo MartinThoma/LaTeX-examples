@@ -45,14 +45,44 @@ Der Rang wird von MPI zum Identifizieren eines Prozesses verwendet. Die Rangnumm
 \rule{\textwidth}{0.4pt}
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-reduce.c}
 Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhält das Resultat.
+
 \textbf{Parameter}
 \begin{itemize}
-    \item \textbf{sendbuf} Startadresse des Sendepuffers
-    \item \textbf{count} Anzahl der Elemente im Sendepuffer
-    \item \textbf{datatype} Datentyp der Elemente von \texttt{sendbuf}
-    \item \textbf{op} auszuführende Operation (handle)
-    \item \textbf{root}  Rang des Root-Prozesses in comm, der das Ergebnis haben soll
-    \item \textbf{comm} Kommunikator (handle)
+    \item \textbf{sendbuf}: Startadresse des Sendepuffers
+    \item \textbf{count}: Anzahl der Elemente im Sendepuffer
+    \item \textbf{datatype}: Datentyp der Elemente von \texttt{sendbuf}
+    \item \textbf{op}: auszuführende Operation (handle)
+    \item \textbf{root}: Rang des Root-Prozesses in comm, der das Ergebnis haben soll
+    \item \textbf{comm}: Kommunikator (handle)
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rule{\textwidth}{0.4pt}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-bcast.c}
+Sendet eine Nachricht vom Prozess \texttt{root} an alle anderen Prozesse des 
+angegebenen Kommunikators.
+
+\textbf{Parameter}
+\begin{itemize}
+    \item \textbf{buffer}: Startadresse des Datenpuffers 
+    \item \textbf{count}: Anzahl der Elemente im Puffer
+    \item \textbf{datatype}: Datentyp der Pufferelemente (handle) 
+    \item \textbf{root}: Wurzelprozeß; der, welcher sendet
+    \item \textbf{comm}: Kommunikator (handle)
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rule{\textwidth}{0.4pt}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-scatter.c}
+Verteilt Daten vom Prozess \texttt{root} unter alle anderen Prozesse in der Gruppe, so daß, soweit möglich, alle Prozesse gleich große Anteile erhalten.
+
+\textbf{Parameter}
+\begin{itemize}
+    \item \textbf{sendbuf}: Anfangsadresse des Sendepuffers (Wert ist lediglich für 'root' signifikant) 
+    \item \textbf{sendcount}: Anzahl der Elemente, die jeder Prozeß geschickt bekommen soll (integer) 
+    \item \textbf{sendtype}: Datentyp der Elemente in sendbuf (handle) 
+    \item \textbf{recvcount}: Anzahl der Elemente im Empfangspuffer. Meist ist es günstig, recvcount = sendcount zu wählen. 
+    \item \textbf{recvtype}: Datentyp der Elemente des Empfangspuffers (handle) 
+    \item \textbf{root}: Rang des Prozesses in comm, der die Daten versendet
+    \item \textbf{comm}: Kommunikator (handle)
 \end{itemize}
 
 \textbf{Beispiel}
