@@ -13,4 +13,24 @@ Bytecode ist unabhängig von realer Hardware.
     und in beliebiger Reihenfolge wieder freigegeben werden können.
 \end{definition}
 
+
+
+\textit{Activation Record} ist ein \textit{Stackframe}.\index{Activation Record|see{Stackframe}}
+\section{Instruktionen}
+\begin{table}[h]
+    \begin{tabular}{p{6cm}|ll}
+    \textbf{Beschreibung}                               & \textbf{int} & \textbf{float} \\ \hline
+    Addition                                            & iadd         & fadd           \\
+    Element aus Array auf Stack packen                  & iaload       & faload         \\
+    Element aus Stack in Array speichern                & iastore      & fastore        \\
+    Konstante auf Stack legen                           & iconst\_<i>  & fconst\_<f> \\
+    Divide second-from top by top                       & idiv         & fdiv           \\
+    Multipliziere die obersten beiden Zahlen des Stacks & imul         & fmul           \\
+    \end{tabular}
+\end{table}
+
+\section{Weitere Informationen}
+\begin{itemize}
+    \item \url{http://cs.au.dk/~mis/dOvs/jvmspec/ref-Java.html}
+\end{itemize}
 \index{Java Bytecode|)}
