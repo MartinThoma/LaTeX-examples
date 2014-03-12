@@ -133,9 +133,52 @@ Manchmal werden Seiteneffekte auch als Nebeneffekt oder Wirkung bezeichnet.
 \begin{definition}[Unifikation]\xindex{Unifikation}%
     Die Unifikation ist eine Operation in der Logik und dient zur Vereinfachung
     prädikatenlogischer Ausdrücke.
-    \todo[inline]{Das ist keine formale Definition!}
+    Der Unifikator ist also eine Abbildung, die in einem Schritt dafür sorgt, dass
+    auf beiden Seiten der Gleichung das selbe steht.
 \end{definition}
 
-\begin{beispiel}[Unifikation]
-    
+\begin{beispiel}[Unifikation\footnotemark]
+    Gegeben seien die Ausdrücke
+    \begin{align*}
+        A_1 &= \left(X, Y, f(b) \right)\\
+        A_2 &= \left(a, b, Z \right)
+    \end{align*}
+    Großbuchstaben stehen dabei für Variablen und Kleinbuchstaben für atomare 
+    Ausdrücke.
+
+    Ersetzt man in $A_1$ nun $X$ durch $a$, $Y$ durch $b$ und in $A_2$ 
+    die Variable $Z$ durch $f\left(b\right)$, so sind sie gleich oder 
+    \enquote{unifiziert}. Man erhält
+
+    \begin{align*}
+        \sigma(A_1) &= \left(a, b, f(b) \right)\\
+        \sigma(A_2) &= \left(a, b, f(b) \right)
+    \end{align*}
+
+    mit
+    \[\sigma = \{X \mapsto a, Y \mapsto b, Z \mapsto f(b)\}\]
 \end{beispiel}
+
+\begin{definition}[Allgemeinster Unifikator]\xindex{Unifikator!allgemeinster}%
+    Ein Unifikator $\sigma$ heißt \textit{allgemeinster Unifikator}, wenn 
+    es für jeden Unifikator $\gamma$ eine Substitution $\delta$ mit
+    \[\gamma = \delta \circ \sigma\]
+    gibt.
+\end{definition}
+
+\begin{beispiel}[Allgemeinster Unifikator\footnotemark]
+    Sei
+    \[C = \Set{f(a,D) = Y, X = g(b), g(Z) = X}\]
+    eine Menge von Gleichungen über Terme.
+
+    Dann ist 
+    \[\gamma = [Y \text{\pointer} f(a,b), D \text{\pointer} b, X \text{\pointer} g(b), Z \text{\pointer} b]\]
+    ein Unifikator für $C$. Jedoch ist
+    \[\sigma = [Y \text{\pointer} f(a,D), X \text{\pointer} g(b), Z \text{\pointer} b]\]
+    der allgemeinste Unifikator. Mit
+    \[\delta = [D \text{\pointer} b]\]
+    gilt $\gamma = \delta \circ \sigma$.
+\end{beispiel}
+\footnotetext{Folie 268 von Prof. Snelting}
+
+\footnotetext{\url{https://de.wikipedia.org/w/index.php?title=Unifikation\_(Logik)&oldid=116848554\#Beispiel}}
