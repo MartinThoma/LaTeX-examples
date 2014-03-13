@@ -181,4 +181,39 @@ Manchmal werden Seiteneffekte auch als Nebeneffekt oder Wirkung bezeichnet.
 \end{beispiel}
 \footnotetext{Folie 268 von Prof. Snelting}
 
+\begin{algorithm}[h]
+    \begin{algorithmic}
+        \Function{unify}{Gleichungsmenge $C$}
+        \If{$C == \emptyset$}
+            \State \Return $[]$
+        \Else
+            \State Es sei $\Set{\theta_l = \theta_r} \cup C' == C$
+
+            \If{$\theta_l == \theta_r$}
+                \State \Call{unify}{$C'$}
+            \ElsIf{$\theta_l == Y$ and $Y \notin FV(\theta_r)$}
+                \State \Call{unify}{$[Y \text{\pointer} \theta_r] C'$} $\circ [Y \text{\pointer} \theta_r]$
+            \ElsIf{$\theta_r == Y$ and $Y \notin FV(\theta_l)$}
+                \State \Call{unify}{$[Y \text{\pointer} \theta_l] C'$} $\circ [Y \text{\pointer} \theta_l]$
+            \ElsIf{$\theta_l == f(\theta_l^1, \dots, \theta_l^n)$ and $\theta_r == f(\theta_r^1, \dots, \theta_r^n$}
+                \State \Call{unify}{$C' \cup \Set{\theta_l^1 = \theta_r^1, \dots \theta_l^n = \theta_r^n}$}
+            \Else
+                \State fail
+            \EndIf
+        \EndIf
+        \EndFunction
+    \end{algorithmic}
+\caption{Klassischer Unifikationsalgorithmus}
+\label{alg:klassischer-unifikationsalgorithmus}
+\end{algorithm}
+
+Dieser klassische Algorithmus hat eine Laufzeit von $\mathcal{O}(2^n)$ für folgendes
+Beispiel:
+
+\[f(X_1, X_2, \dots, X_n) = f(g(X_0, X_0), g(X_1, X_1), \dots, g(X_{n-1}, X_{n-1}) )\]
+
+Der \textit{Paterson-Wegman-Unifikationsalgorithmus}\xindex{Paterson-Wegman-Unifikationsalgorithmus} ist deutlich effizienter.
+Er basiert auf dem \textit{Union-Find-Algorithmus}\xindex{Union-Find-Algorithmus}.
+
+
 \footnotetext{\url{https://de.wikipedia.org/w/index.php?title=Unifikation\_(Logik)&oldid=116848554\#Beispiel}}

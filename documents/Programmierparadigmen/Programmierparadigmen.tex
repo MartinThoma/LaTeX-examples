@@ -53,6 +53,17 @@
 \usepackage{wasysym}
 \usepackage[binary-units = true]{siunitx} % this package is for units!
 \sisetup{locale=DE}
+
+%%% Pseudocode settings
+\usepackage{algorithm,algpseudocode}
+\algtext*{EndIf}        % Remove "end if" text
+\algtext*{EndWhile}     % Remove "end while" text
+\algtext*{EndFunction}  % Remove "end while" text
+\algnewcommand\Global{\textbf{global }}
+\makeatletter
+\addto\captionsngerman{\renewcommand{\ALG@name}{Algorithmus}}
+\makeatother
+%%% End of Pseudocode settings
 \usepackage{shortcuts}
 
 \usepackage{fancyhdr}
