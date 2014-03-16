@@ -1,8 +1,5 @@
 %!TEX root = Programmierparadigmen.tex
 \chapter{Programmiersprachen}
-Im folgenden werden einige Begriffe definiert anhand derer
-Programmiersprachen unterschieden werden können.
-
 \begin{definition}\xindex{Programmiersprache}\xindex{Programm}%
     Eine \textbf{Programmiersprache} ist eine formale Sprache, die durch eine
     Spezifikation definiert wird und mit der Algorithmen beschrieben werden
@@ -27,8 +24,8 @@ Wie nah ist sie an einer mathematisch / algorithmischen Beschreibung?
 
 \begin{beispiel}[Maschinensprachen]
     \begin{bspenum}
-        \item \xindex{x86}x86: 
-        \item \xindex{SPARC}SPARC:
+        \item \xindex{x86}x86
+        \item \xindex{SPARC}SPARC
     \end{bspenum}
 \end{beispiel}
 
@@ -65,27 +62,38 @@ Wie nah ist sie an einer mathematisch / algorithmischen Beschreibung?
 \end{beispiel}
 
 \section{Paradigmen}
-Die grundlegendste Art, wie man Programmiersprachen unterscheiden
+Eine weitere Art, wie man Programmiersprachen unterscheiden
 kann ist das sog. \enquote{Programmierparadigma}, also die Art wie
 man Probleme löst.
 
-\begin{definition}[Imperatives Paradigma]\xindex{Programmierung!imperative}
-    In der imperativen Programmierung betrachtet man Programme als
-    eine folge von Anweisungen, die vorgibt auf welche Art etwas 
+\begin{definition}[Imperatives Paradigma]\xindex{Programmierung!imperative}%
+    In der \textit{imperativen Programmierung} betrachtet man Programme als
+    eine Folge von Anweisungen, die vorgibt auf welche Art etwas 
     Schritt für Schritt gemacht werden soll.
 \end{definition}
 
-\begin{definition}[Prozedurales Paradigma]\xindex{Programmierung!prozedurale}
+\begin{beispiel}[Imperative Programmierung]
+    In folgenden Programm erkennt man den imperativen Programmierstil vor allem
+    an den Variablenzuweisungen:
+    \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/c/fibonacci-imperativ.c}
+\end{beispiel}
+
+\begin{definition}[Prozedurales Paradigma]\xindex{Programmierung!prozedurale}%
     Die prozeduralen Programmierung ist eine Erweiterung des imperativen
     Programmierparadigmas, bei dem man versucht die Probleme in 
     kleinere Teilprobleme zu zerlegen.
 \end{definition}
 
-\begin{definition}[Funktionales Paradigma]\xindex{Programmierung!funktionale}
+\begin{definition}[Funktionales Paradigma]\xindex{Programmierung!funktionale}%
     In der funktionalen Programmierung baut man auf Funktionen und
     ggf. Funktionen höherer Ordnung, die eine Aufgabe ohne Nebeneffekte
     lösen.
 \end{definition}
+
+\begin{beispiel}[Funktionale Programmierung]
+    Der Funktionale Stil kann daran erkannt werden, dass keine Werte zugewiesen werden:
+    \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/fibonacci-akk.hs}
+\end{beispiel}
 
 Haskell ist eine funktionale Programmiersprache, C ist eine
 nicht-funktionale Programmiersprache.
@@ -97,21 +105,31 @@ Wichtige Vorteile von funktionalen Programmiersprachen sind:
           sich sehr elegant formulieren.
 \end{itemize}
 
-\begin{definition}[Logisches Paradigma]\xindex{Programmierung!logische}
-    In der logischen Programmierung baut auf der Unifikation auf.\todo{genauer!}
+\begin{definition}[Logisches Paradigma]\xindex{Programmierung!logische}%
+    Das \textbf{logische Programmierparadigma} baut auf der formalen Logik auf. 
+    Man verwendet \textbf{Fakten} und \textbf{Regeln}
+    und einen Inferenzalgorithmus um Probleme zu lösen.
 \end{definition}
 
+Der Inferenzalgorithmus kann z.~B. die Unifikation nutzen.
+
+\begin{beispiel}[Logische Programmierung]
+    Obwohl die logische Programmierung für Zahlenfolgen weniger geeignet erscheint,
+    sei hier zur Vollständigkeit das letzte Fibonacci-Beispiel in Prolog:
+    \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/fibonacci.pl}
+\end{beispiel}
+
 \section{Typisierung}
-Eine weitere Art, Programmiersprachen zu unterscheiden ist die stärke
+Eine weitere Art, Programmiersprachen zu unterscheiden ist die Stärke
 ihrer Typisierung.
 
-\begin{definition}[Dynamische Typisierung]\xindex{Typisierung!dynamische}
+\begin{definition}[Dynamische Typisierung]\xindex{Typisierung!dynamische}%
     Bei dynamisch typisierten Sprachen kann eine Variable ihren Typ ändern.
 \end{definition}
 
 Beispiele sind Python und PHP.
 
-\begin{definition}[Statische Typisierung]\xindex{Typisierung!statische}
+\begin{definition}[Statische Typisierung]\xindex{Typisierung!statische}%
     Bei statisch typisierten Sprachen kann eine niemals ihren Typ ändern.
 \end{definition}
 
@@ -125,10 +143,11 @@ C und Java werden kompiliert, Python und TCL interpretiert.
 
 \section{Dies und das}
 \begin{definition}[Seiteneffekt]\xindex{Seiteneffekt}\index{Nebeneffekt|see{Seiteneffekt}}\index{Wirkung|see{Seiteneffekt}}%
-    Seiteneffekte sind Veränderungen des Zustandes.\todo{Das geht besser}
+    Seiteneffekte sind Veränderungen des Zustandes eines Programms.
 \end{definition}
 
 Manchmal werden Seiteneffekte auch als Nebeneffekt oder Wirkung bezeichnet.
+Meistens meint man insbesondere unerwünschte oder überaschende Zustandsänderungen.
 
 \begin{definition}[Unifikation]\xindex{Unifikation}%
     Die Unifikation ist eine Operation in der Logik und dient zur Vereinfachung

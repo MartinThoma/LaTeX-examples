@@ -82,8 +82,13 @@ Ein Companion Object ist ein Objekt mit dem Namen einer Klasse oder eines Traits
 Im Gegensatz zu anderen Objekten / Traits hat das Companion Object zugriff auf
 die Klasse.
 
-\section{actor}\xindex{actor}
-actor dient der Concurrency.
+\section{actor}
+\begin{definition}[Aktor]\xindex{Aktor}\index{actor|see{Aktor}}
+    Ein \textit{Aktor} ist ein Prozess, der Nebenläufig zu anderen Aktoren
+    läuft. Er kommuniziert mit anderen Aktoren, indem er Nachrichten austauscht.
+\end{definition}
+
+Das folgende Wetter-Beispiel zeigt, wie man Aktoren benutzen kann.
 
 \section{Beispiele}
 \subsection{Wetter}
