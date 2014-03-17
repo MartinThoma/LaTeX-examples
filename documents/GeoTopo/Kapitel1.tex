@@ -255,8 +255,9 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     die \textbf{diskrete Metrik}. Die Metrik $d$ induziert die 
     \textbf{diskrete Topologie}.
 \end{beispiel}
+\clearpage
 
-\begin{beispiel}
+\begin{beispiel}\label{bsp:metrik}
     $X = \mdr^2$ und $d\left ((x_1, y_1), (x_2, y_2)\right ) := \max(\|x_1 - x_2\|, \|y_1 - y_2\|)$
     ist Metrik.
 
@@ -273,11 +274,11 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
             \label{fig:quadrat-in-kreis-in-dots}
         }%
         \label{fig:metrik}
-        \caption{Veranschaulichungen zur Metrik $d$}
+        \caption{Veranschaulichungen zur Metrik $d$ aus \cref{bsp:metrik}}
     \end{figure}
 
 \end{beispiel}
-
+\clearpage
 \begin{beispiel}[SNCF-Metrik\footnotemark]\xindex{Metrik!SNCF}
     $X = \mdr^2$ 
 
@@ -307,12 +308,13 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     Seien $X, X_1, X_2$ Hausdorff-Räume.
     \begin{bemenum}
         \item Jeder Teilraum von $X$ ist hausdorffsch.
-        \item $X_1 \times X_2$ ist hausdorffsch.
+        \item $X_1 \times X_2$ ist hausdorffsch (vgl. \cref{fig:kreuzprodukt-ist-hausdorffsch}).
     \end{bemenum}
     \begin{figure}[htp]
         \centering
         \input{figures/topology-metric-hausdorff}
         \caption{Wenn $X_1, X_2$ hausdorffsch sind, dann auch $X_1 \times X_2$}
+        \label{fig:kreuzprodukt-ist-hausdorffsch}
     \end{figure}
 \end{bemerkung}
 
@@ -845,7 +847,7 @@ $\qed$
 
     Dann gibt es einen Würfel $W = \underbrace{[-N, N] \times \dots \times [-N, N]}_{n \text{ mal}}$
     mit $A \subseteq W$ bzw. \enquote{Polyzylinder}\xindex{Polyzylinder}
-    $Z = \Set{(z_1, \dots, z_n) \in \mdc^n | z_i \leq N \text{ für } i= 1, \dots, n}$
+    \[Z = \Set{(z_1, \dots, z_n) \in \mdc^n | z_i \leq N \text{ für } i= 1, \dots, n}\]
 
     Nach \cref{kompaktTimesKompaktIstKompakt} und
     \cref{abgeschlossen01IstKompakt} ist $W$ kompakt, also ist $A$
@@ -891,7 +893,7 @@ $\qed$
         \item $X$ ist wegzusammenhängend $\not\Leftarrow X$ ist zusammenhängend
     \end{bemenum}
 \end{bemerkung}
-
+\goodbreak
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
     \item Sei $X$ ein wegzusammenhängender topologischer Raum, $A_1, A_2$

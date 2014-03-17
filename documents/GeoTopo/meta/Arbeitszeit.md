@@ -93,3 +93,4 @@ in dem Erstellen dieses Skripts steckt:
 |20.02.2014 | 13:00 - 13:45 |  45 | Verbesserungsvorschläge von Jérôme Urhausen, Email 1 vom 20.02.2014, umgesetzt.
 |20.02.2014 | 19:30 - 20:15 |  45 | Verbesserungsvorschläge von Jérôme Urhausen, Email 2 vom 20.02.2014, umgesetzt.
 | Zwischenstand | ---       | --- | 6081 Minuten => Über 100 Stunden! 
+|17.03.2014 | 16:00 - 18:00 | 120 | Textsetzung

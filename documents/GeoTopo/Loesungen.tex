@@ -74,8 +74,12 @@
               \begin{beweis}
                 Nach Definition der Produkttopologie bilden Mengen
                 der Form
-                \[\prod_{i \in J} U_j \times \prod_{\overset{i \in \mdn}{i \notin J}} P_i, \text{ wobei } J \subseteq \mdn \text{ endlich und } U_j \subseteq P_j \text{offen } \forall{j \in J}\]
-                eine Basis der Topologie. Damit sind die offenen 
+                \[\prod_{i \in J} U_j \times \prod_{i \in \mdn \setminus J} P_i\]
+                wobei $J \subseteq \mdn$ endlich und $U_j \subseteq P_j$ offen
+                $\forall{j \in J}$
+                eine Basis der Topologie.
+
+                Damit sind die offenen 
                 Mengen von $P$ Vereinigungen von Mengen der obigen
                 Form. $\qed$
               \end{beweis}
