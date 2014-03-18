@@ -173,7 +173,7 @@ erzeugt werden:
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/data-example.hs}
 
-\section{Lazy Evaluation}\xindex{Lazy Evaluation}
+\section{Lazy Evaluation}\xindex{Lazy Evaluation}%
 Haskell wertet Ausdrücke nur aus, wenn es nötig ist.
 
 \begin{beispiel}[Lazy Evaluation]
@@ -181,9 +181,6 @@ Haskell wertet Ausdrücke nur aus, wenn es nötig ist.
     würde, kann er aufgrund der Lazy Evaluation zu 2 evaluiert werden:
     \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=lazy-evaluation.hs]{haskell}{scripts/haskell/lazy-evaluation.hs}
 \end{beispiel}
-
-Ein spezialfall der Lazy-Evaluation ist die sog. \textit{Kurzschlussauswertung}.\xindex{Kurzschlussauswertung}\xindex{Short-circuit evaluation}
-Das bezeichnet die Lazy-Evaluation von booleschen Ausdrücken.
 
 \section{Beispiele}
 \subsection{Quicksort}
@@ -205,6 +202,7 @@ sich das ganze sogar noch kürzer schreiben:
 \subsection{Fibonacci}\xindex{Fibonacci}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci.hs]{haskell}{scripts/haskell/fibonacci.hs}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-akk.hs]{haskell}{scripts/haskell/fibonacci-akk.hs}
+\xindex{zipWith}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-zip.hs]{haskell}{scripts/haskell/fibonacci-zip.hs}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-pattern-matching.hs]{haskell}{scripts/haskell/fibonacci-pattern-matching.hs}
 
@@ -219,7 +217,7 @@ TODO
 
 \subsection{Standard Prelude}
 Hier sind die Definitionen eininger wichtiger Funktionen:
-
+\xindex{zipWith}\xindex{zip}
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/standard-definitions.hs}
 
 \section{Weitere Informationen}
