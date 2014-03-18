@@ -120,20 +120,120 @@ Der Inferenzalgorithmus kann z.~B. die Unifikation nutzen.
 \end{beispiel}
 
 \section{Typisierung}
-Eine weitere Art, Programmiersprachen zu unterscheiden ist die Stärke
-ihrer Typisierung.
+Programmiersprachen können anhand der Art ihrer Typisierung unterschieden werden.
 
-\begin{definition}[Dynamische Typisierung]\xindex{Typisierung!dynamische}%
-    Bei dynamisch typisierten Sprachen kann eine Variable ihren Typ ändern.
+\begin{definition}[Typisierungsstärke]\xindex{Typisierungsstärke}%
+    Es seien $X, Y$ Programmiersprachen.
+
+    $X$ heißt stärker typisiert als $Y$, wenn $X$ mehr bzw. nützlichere Typen hat als $Y$.
 \end{definition}
 
-Beispiele sind Python und PHP.
+\begin{beispiel}[Typisierungsstärke]
+    Die stärke der Typisierung ist abhängig von dem Anwendungszenario. So hat C im 
+    Gegensatz zu Python, Java oder Haskell beispielsweise keine booleschen Datentypen.
 
-\begin{definition}[Statische Typisierung]\xindex{Typisierung!statische}%
-    Bei statisch typisierten Sprachen kann eine niemals ihren Typ ändern.
+    Im Gegensatz zu Haskell hat Java keine GADTs\footnote{generalized algebraic data type}.
+\end{beispiel}
+
+\begin{definition}[Polymorphie]\xindex{Polymorphie}%
+    Ein Typ heißt \textbf{polymorph}, wenn er mindestens einen Parameter hat.
 \end{definition}
 
-Beispiele sind C, Haskell und Java.
+\begin{beispiel}[Polymorphie]
+    In Java sind beispielsweise Listen polymorph:
+
+    \inputminted[numbersep=5pt, tabsize=4]{java}{scripts/java/list-example.java}
+\end{beispiel}
+
+\begin{definition}[Statische und dynamische Typisierung]\xindex{Typisierung!statische}\xindex{Typisierung!dynamische}%
+    \begin{defenum}
+        \item Eine Programmiersprache heißt \textbf{statisch typisiert}, wenn eine 
+              Variable niemals ihren Typ ändern kann.
+        \item Eine Programmiersprache heißt \textbf{dynamisch typisiert}, wenn eine 
+              Variable ihren Typ ändern kann.
+    \end{defenum}
+\end{definition}
+
+Beispiele für statisch typisierte Sprachen sind C, Haskell und Java.
+Beispiele für dynamisch typisierte Sprachen sind Python und PHP.
+\goodbreak
+Vorteile statischer Typisierung sind:
+
+\begin{itemize}
+    \item \textbf{Performance}: Der Compiler kann mehr Optimierungen vornehmen.
+    \item \textbf{Syntaxcheck}: Da der Compiler die Typen zur Compile-Zeit überprüft,
+                                gibt es in statisch typisierten Sprachen zur
+                                Laufzeit keine Typfehler.
+\end{itemize}
+
+Vorteile dynamischer Typisierung sind:
+
+\begin{itemize}
+    \item Manche Ausdrücke, wie der Y-Combinator in Haskell, lassen sich nicht
+          typisieren.
+\end{itemize}
+
+Der Gedanke bei dynamischer Typisierung ist, dass Variablen keine Typen haben.
+Nur Werte haben Typen. Man stellt sich also Variablen eher als Beschriftungen für
+Werte vor. Bei statisch typisierten Sprachen stellt man sich hingegen Variablen
+als Container vor.
+
+\begin{definition}[Explizite und implizite Typisierung]\xindex{Typisierung!explizite}\xindex{Typisierung!implizite}%
+    Sei $X$ eine Programmiersprache.
+    \begin{defenum}
+        \item $X$ heißt \textbf{explizit typisiert}, wenn für jede 
+              Variable der Typ explizit genannt wird.
+        \item $X$ heißt \textbf{implizit typisiert}, wenn der Typ einer
+              Variable aus den verwendeten Operationen abgeleitet werden kann.
+    \end{defenum}
+\end{definition}
+
+Sprachen, die implizit typisieren können nutzen dazu Typinferenz.
+
+Beispiele für explizit typisierte Sprachen sind C, C++ und Java.
+Beispiele für implizit typisierte Sprachen sind JavaScript, Python, PHP und Haskell.
+
+Mir ist kein Beispiel einer Sprache bekannt, die dynamisch und explizit typisiert
+ist.
+
+Vorteile expliziter Typisierung sind:
+
+\begin{itemize}
+    \item \textbf{Lesbarkeit}
+\end{itemize}
+
+Vorteile impliziter Typisierung sind:
+
+\begin{itemize}
+    \item \textbf{Tippfreundlicher}: Es ist schneller zu schreiben.
+    \item \textbf{Anfängerfreundlicher}: Man muss sich bei einfachen Problemen
+          keine Gedanken um den Typ machen.
+\end{itemize}
+
+\begin{definition}[Duck-Typing und strukturelle Typisierung]\xindex{Duck-Typing}\xindex{Typisierung!strukturelle}%
+    \begin{defenum}
+        \item Eine Programmiersprache verwendet \textbf{Duck-Typing}, wenn die Parameter einer 
+              Methode nicht durch die explizite Angabe von Typen festgelegt werden, sondern
+              durch die Art wie die Parameter verwendet werden.
+        \item Eine Programmiersprache verwendet \textbf{strukturelle Typisierung}, wenn die
+              Parameter einer Methode nicht durch die explizite Angabe von Typen
+              festgelegt werden, sondern explizit durch die Angabe von Methoden.
+    \end{defenum}
+\end{definition}
+
+Strukturelle Typsierung wird auch \textit{typsicheres Duck-Typing} genannt. 
+Der Satz, den man im Zusammenhang mit Duck-Typing immer höhrt, ist
+
+\enquote{When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.}
+
+\begin{beispiel}[Strukturelle Typisierung]
+    Folgende Scala-Methode erwartet ein Objekt, das eine Methode namens \texttt{quack}
+    besitzt:
+
+    \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/duck-typing-example.scala}
+
+    Diese Funktion ist vom Typ \texttt{(duck: AnyRef{def quack(value: String): String})Unit}.
+\end{beispiel}
 
 \section{Kompilierte und interpretierte Sprachen}
 Sprachen werden überlicherweise entweder interpretiert oder kompiliert,
