@@ -122,6 +122,9 @@ in etwa folgendem Haskell-Code:
           \texttt{tail "ABCDEF"} gibt \texttt{"BCDEF"} zurück.
 \end{itemize}
 
+\subsection{Let und where}\xindex{let}\xindex{where}%
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/let-where-bindung.hs}
+
 \section{Typen}
 \subsection{Standard-Typen}
 Haskell kennt einige Basis-Typen:
@@ -206,8 +209,18 @@ sich das ganze sogar noch kürzer schreiben:
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-zip.hs]{haskell}{scripts/haskell/fibonacci-zip.hs}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-pattern-matching.hs]{haskell}{scripts/haskell/fibonacci-pattern-matching.hs}
 
-\subsection{Quicksort}
-TODO
+\subsection{Polynome}\xindex{Polynome}\xindex{zipWith}\xindex{foldr}\xindex{tail}%
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=polynome.hs]{haskell}{scripts/haskell/polynome.hs}
+
+\subsection{Hirsch-Index}\xindex{Hirsch-Index}\xindex{Ord}\xindex{Num}%
+\textbf{Parameter}: Eine Liste $L$ von Zahlen aus $\mdn$\\
+\textbf{Rückgabe}: $\max \Set{n \in \mdn | n \leq \|\Set{i \in L | i \geq n}\|}$
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=hirsch-index.hs]{haskell}{scripts/haskell/hirsch-index.hs}
+
+\subsection{Lauflängencodierung}\xindex{Lauflängencodierung}\xindex{splitWhen}\xindex{group}\xindex{concat}%
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=lauflaengencodierung.hs]{haskell}{scripts/haskell/lauflaengencodierung.hs}
 
 \subsection{Funktionen höherer Ordnung}\xindex{Folds}\xindex{foldl}\xindex{foldr}\label{bsp:foldl-und-foldr}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=folds.hs]{haskell}{scripts/haskell/folds.hs}
