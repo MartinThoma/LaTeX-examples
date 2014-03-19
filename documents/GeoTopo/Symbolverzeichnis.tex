@@ -7,81 +7,128 @@
 % Mengenoperationen                                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Mengenoperationen}
-$A^C\;\;\;$ Komplement der Menge $A$\\
-$\mathcal{P}(M)\;\;\;$ Potenzmenge von $M$\\
-$\overline{M}\;\;\;$ Abschluss der Menge $M$\\
-$\partial M\;\;\;$ Rand der Menge $M$\\
-$M^\circ\;\;\;$ Inneres der Menge $M$\\
-$A \times B\;\;\;$ Kreuzprodukt zweier Mengen\\
-$A \subseteq B\;\;\;$ Teilmengenbeziehung\\
-$A \subsetneq B\;\;\;$ echte Teilmengenbeziehung\\
-$A \setminus B\;\;\;$ $A$ ohne $B$\\
-$A \cup B\;\;\;$ Vereinigung\\
-$A \dcup B\;\;\;$ Disjunkte Vereinigung\\
-$A \cap B\;\;\;$ Schnitt\\
+
+Seien $A, B$ und $M$ Mengen.
+
+% Set \mylengtha to widest element in first column; adjust
+% \mylengthb so that the width of the table is \columnwidth
+\settowidth\mylengtha{$A \subsetneq B$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$A^C $           & Komplement von $A$\\
+$\mathcal{P}(M)$ & Potenzmenge von $M$\\
+$\overline{M}$   & Abschluss von $M$\\
+$\partial M$     & Rand der Menge $M$\\
+$M^\circ$        & Inneres der Menge $M$\\
+$A \times B$     & Kreuzprodukt\\
+$A \subseteq B$  & Teilmengenbeziehung\\
+$A \subsetneq B$ & echte Teilmengenbeziehung\\
+$A \setminus B$  & Differenzmenge\\
+$A \cup B$       & Vereinigung\\
+$A \dcup B$      & Disjunkte Vereinigung\\
+$A \cap B$       & Schnitt\\
+\end{xtabular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Geometrie                                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Geometrie}
-$AB\;\;\;$ Gerade durch die Punkte $A$ und $B$\\
-$\overline{AB}\;\;\;$ Strecke mit Endpunkten $A$ und $B$\\
-$\triangle ABC\;\;\;$ Dreieck mit Eckpunkten $A, B, C$\\
-$\overline{AB} \cong \overline{CD}\;\;\;$ Die Strecken $\overline{AB}$ und $\overline{CD}$ sind isometrisch\\
-$|K|\;\;\;$ Geometrische Realisierung des Simplizialkomplexes $K$\\
+
+\settowidth\mylengtha{$\overline{AB} \cong \overline{CD}$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$AB$                               & Gerade durch die Punkte $A$ und $B$\\
+$\overline{AB}$                    & Strecke mit Endpunkten $A$ und $B$\\
+$\triangle ABC$                    & Dreieck mit Eckpunkten $A, B, C$\\
+$\overline{AB} \cong \overline{CD}$& Die Strecken $\overline{AB}$ und $\overline{CD}$ sind isometrisch\\
+$|K|$                              & Geometrische Realisierung des Simplizialkomplexes~$K$\\
+\end{xtabular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Gruppen                                                           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Gruppen}
-$\Homoo(X)\;\;\;$ Homöomorphismengruppe\\
-$\Iso(X)\;\;\;$ Isometriengruppe\\
-$\GL_n(K)\;\;\;$ Allgemeine lineare Gruppe\footnote{von \textit{\textbf{G}eneral \textbf{L}inear Group}}\\
-$\SL_n(K)\;\;\;$ Spezielle lineare Gruppe\\
-$\PSL_n(K)\;\;\;$ Projektive lineare Gruppe\\
-$\Perm(X)\;\;\;$ Permutationsgruppe\\
-$\Sym(X)\;\;\;$ Symmetrische Gruppe
+
+Sei $X$ ein topologischer Raum und $K$ ein Körper.
+
+\settowidth\mylengtha{$\Homoo(X)$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$\Homoo(X)$ & Homöomorphis\-men\-gruppe\\
+$\Iso(X)$   & Isometrien\-gruppe\\
+$\GL_n(K)$  & Allgemeine lineare Gruppe (von \textit{\textbf{G}eneral \textbf{L}inear Group})\\
+$\SL_n(K)$  & Spezielle lineare Gruppe\\
+$\PSL_n(K)$ & Projektive lineare Gruppe\\
+$\Perm(X)$  & Permutations\-gruppe\\
+$\Sym(X)$   & Symmetrische Gruppe\\
+\end{xtabular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Wege                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Wege}
-$\gamma: I \rightarrow X\;\;\;$ Ein Weg\\
-$[\gamma]\;\;\;$ Homotopieklasse von $\gamma$\\
-$\gamma_1 * \gamma_2\;\;\;$ Zusammenhängen von Wegen\\
-$\gamma_1 \sim \gamma_2\;\;\;$ Homotopie von Wegen\\
-$\overline{\gamma}(x) = \gamma(1-x)\;\;\;$ Inverser Weg\\
-$C := \gamma([0,1])\;\;\;$ Bild eines Weges $\gamma$
 
+Sei $\gamma: I \rightarrow X$ ein Weg.
+
+\settowidth\mylengtha{$\gamma_1 \sim \gamma_2$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$[\gamma]$               & Homotopieklasse von $\gamma$\\
+$\gamma_1 * \gamma_2$    & Zusammenhängen von Wegen\\
+$\gamma_1 \sim \gamma_2$ & Homotopie von Wegen\\
+$\overline{\gamma}(x)$   & Inverser Weg, also $\overline{\gamma}(x) := \gamma(1-x)$\\
+$C$                      & Bild eines Weges $\gamma$, also $C := \gamma([0,1])$
+\end{xtabular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Weiteres                                                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Weiteres}
-$\fB\;\;\;$ Basis einer Topologie\\
-$\calS\;\;\;$ Subbasis einer Topologie\\
-$\fB_\delta(x)\;\;\;$ $\delta$-Kugel um $x$\\
-$\fT\;\;\;$ Topologie\\
 
-$\atlas\;\;\;$ Atlas\\
-$\praum\;\;\;$ Projektiver Raum\\
-$\langle \cdot , \cdot \rangle\;\;\;$ Skalarprodukt\\
-$X /_\sim\;\;\;$ $X$ modulo $\sim$\\
-$[x]_\sim\;\;\;$ Äquivalenzklassen von $x$ bzgl. $\sim$\\
-$\| x \|\;\;\;$ Norm von $x$\\
-$| x |\;\;\;$ Betrag von $x$\\
-$\langle a \rangle\;\;\;$ Erzeugnis von $a$\\
+\settowidth\mylengtha{$\fB_\delta(x)$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$\fB$          & Basis einer Topologie\\
+$\fB_\delta(x)$& $\delta$-Kugel um $x$\\
+$\calS$        & Subbasis einer Topologie\\
+$\fT$          & Topologie\\
+\end{xtabular}
+
+\settowidth\mylengtha{$X /_\sim$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$\atlas$                        & Atlas\\
+$\praum$                        & Projektiver Raum\\
+$\langle \cdot , \cdot \rangle$ & Skalarprodukt\\
+$X /_\sim$                      & $X$ modulo $\sim$\\
+$[x]_\sim$                      & Äquivalenzklassen von $x$ bzgl. $\sim$\\
+$\| x \|$                       & Norm von $x$\\
+$| x |$                         & Betrag von $x$\\
+$\langle a \rangle$             & Erzeugnis von $a$\\
+\end{xtabular}
 
 $S^n\;\;\;$ Sphäre\\
 $T^n\;\;\;$ Torus\\
 
-$f \circ g\;\;\;$ Verkettung von $f$ und $g$\\
-$\pi_X\;\;\;$ Projektion auf $X$\\
-$f|_U\;\;\;$ $f$ eingeschränkt auf $U$\\
-$f^{-1}(M)\;\;\;$ Urbild von $M$\\
-$\rang(M)\;\;\;$ Rang von $M$\\
-$\chi(K)\;\;\;$ Euler-Charakteristik von $K$\\
-$\Delta^k\;\;\;$ Standard-Simplex\\
-$X \# Y\;\;\;$ Verklebung von $X$ und $Y$\\
-$d_n\;\;\;$ Lineare Abbildung aus \cref{kor:9.11}\\
-$A \cong B\;\;\;$ $A$ ist isometrisch zu $B$\\
-$f_*\;\;\;$ Abbildung zwischen Fundamentalgruppen (vgl. \cpageref{korr:11.5})
+\settowidth\mylengtha{$f^{-1}(M)$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$f \circ g$&Verkettung von $f$ und $g$\\
+$\pi_X$    &Projektion auf $X$\\
+$f|_U$ $f$ &eingeschränkt auf $U$\\
+$f^{-1}(M)$&Urbild von $M$\\
+$\rang(M)$ & Rang von $M$\\
+$\chi(K)$  & Euler-Charakteristik von $K$\\
+$\Delta^k$ & Standard-Simplex\\
+$X \# Y$   & Verklebung von $X$ und $Y$\\
+$d_n$      & Lineare Abbildung aus \cref{kor:9.11}\\
+$A \cong B$& $A$ ist isometrisch zu $B$\\
+$f_*$      & Abbildung zwischen Fundamentalgruppen (vgl. \cpageref{korr:11.5})
+\end{xtabular}
+
 \onecolumn
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,21 +147,32 @@ $\mdp = \Set{2, 3, 5, 7, \dots}\;\;\;$ Primzahlen\\
 $\mdh = \Set{z \in \mdc | \Im{z} > 0}\;\;\;$ obere Halbebene\\
 $I = [0,1] \subsetneq \mdr\;\;\;$ Einheitsintervall\\
 
-$f:S^1 \hookrightarrow \mdr^2\;\;\;$ Einbettung der Kreislinie in die Ebene\\
-$\pi_1(X,x)\;\;\;$ Fundamentalgruppe im topologischen Raum $X$ um $x \in X$\\
-$\Fix(f)\;\;\;$ Menge der Fixpunkte der Abbildung $f$\\
-$\|\cdot\|_2\;\;\;$ 2-Norm; Euklidische Norm\\
-$\kappa\;\;\;$ Krümmung\\
-$\kappa_{\ts{Nor}}\;\;\;$ Normalenkrümmung\\
-$V(f)\;\;\;$ Nullstellenmenge von $f$\footnote{von \textit{\textbf{V}anishing Set}}
+\settowidth\mylengtha{$f:S^1 \hookrightarrow \mdr^2$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
 
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$f:S^1 \hookrightarrow \mdr^2$& Einbettung der Kreislinie in die Ebene\\
+$\pi_1(X,x)$                  & Fundamentalgruppe im topologischen Raum $X$ um $x \in X$\\
+$\Fix(f)$                     & Menge der Fixpunkte der Abbildung $f$\\
+$\|\cdot\|_2$                 & 2-Norm; Euklidische Norm\\
+$\kappa$                      & Krümmung\\
+$\kappa_{\ts{Nor}}$           & Normalenkrümmung\\
+$V(f)$                        & Nullstellenmenge von $f$\footnotemark
+\end{xtabular}
+\footnotetext{von \textit{\textbf{V}anishing Set}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Krümmung                                                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Krümmung}
-$D_p F: \mdr^2 \rightarrow \mdr^3\;\;\;$ Lineare Abbildung mit Jacobi-Matrix in $p$ (siehe \cpageref{def:Tangentialebene})\\
-$T_s S\;\;\;$ Tangentialebene an $S \subseteq \mdr^3$ durch $s \in S$\\
-$d_s n(x)\;\;\;$ Weingarten-Abbildung\\
+
+\settowidth\mylengtha{$D_p F: \mdr^2 \rightarrow \mdr^3$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$D_p F: \mdr^2 \rightarrow \mdr^3$& Lineare Abbildung mit Jacobi-Matrix in $p$ (siehe \cpageref{def:Tangentialebene})\\
+$T_s S$                           & Tangentialebene an $S \subseteq \mdr^3$ durch $s \in S$\\
+$d_s n(x)$                        & Weingarten-Abbildung\\
+\end{xtabular}
 
 \index{Faser|see{Urbild}}
 \index{kongruent|see{isometrisch}}
