@@ -46,6 +46,13 @@
 \usepackage{tqft}
 \usepackage{xspace}   % for new commands; decides weather I want to insert a space after the command
 \usepackage[german,nameinlink]{cleveref} % has to be after hyperref, ntheorem, amsthm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{array,xtab,ragged2e} % for symbol table
+\newlength\mylengtha
+\newlength\mylengthb
+\newcolumntype{P}[1]{>{\RaggedRight}p{#1}}
+\tabcolsep=3pt % default: 6pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{acronym}
 \usepackage{minted} % needed for the inclusion of source code
 \usemintedstyle{bw}

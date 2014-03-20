@@ -190,6 +190,12 @@ Auch die gewohnten Operationen lassen sich so darstellen.
     \texttt{False} wird zu $c_{\text{false}} := \lambda t. \lambda f. f$.
 \end{definition}
 
+Hiermit lässt sich beispielsweise die Funktion \texttt{is\_zero} definieren, die
+\texttt{True} zurückgibt, wenn eine Zahl $0$ repräsentiert und sonst \texttt{False}
+zurückgibt:
+
+\[ \text{\texttt{is\_zero}} = \lambda n.\ n\ (\lambda x.\ c_{\text{False}})\ c_{\text{True}}\]
+
 \section{Weiteres}
 \begin{satz}[Satz von Curch-Rosser]
     Wenn zwei unterschiedliche Terme $a$ und $b$ äquivalent sind, d.h. mit Reduktionsschritten beliebiger Richtung ineinander transformiert werden können, dann gibt es einen weiteren Term $c$, zu dem sowohl $a$ als auch $b$ reduziert werden können.

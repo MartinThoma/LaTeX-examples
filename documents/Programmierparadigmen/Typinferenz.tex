@@ -66,15 +66,19 @@ Mit folgenderweise typisiert werden:
 
 In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 
-Ein Typkontext $\Gamma$ ordnet jeder freien Variable $x$ einen Typ $\Gamma(x)$
-durch folgende Regeln zu:
+\begin{definition}[Typsystem $\Gamma \vdash t: T$]\label{def:typsystem-t1}
+	Ein Typkontext $\Gamma$ ordnet jeder freien Variable $x$ einen Typ $\Gamma(x)$
+	durch folgende Regeln zu:
 
-\begin{align*}
-	\text{\texttt{CONST}}:&\frac{c \in \text{Const}}{\Gamma \vdash c: \tau_c}\\
-	\text{\texttt{VAR}}:  &\frac{\Gamma(x) = \tau}{\Gamma \vdash c: \tau}\\
-	\text{\texttt{ABS}}:  &\frac{\Gamma, x: \tau_1 \vdash t: \tau_2}{\Gamma \vdash \lambda x. t: \tau_1 \rightarrow \tau_2}\\
-	\text{\texttt{APP}}:  &\frac{\Gamma \vdash t_1, \tau_2 \tau\;\;\; \Gamma \vdash t_2: \tau_2}{\Gamma \vdash t_1 t_2: \tau}
-\end{align*}
+	\begin{align*}
+		\CONST:&\frac{c \in \text{Const}}{\Gamma \vdash c: \tau_c}\\
+		\VAR:  &\frac{\Gamma(x) = \tau}{\Gamma \vdash c: \tau}\\
+		\ABS:  &\frac{\Gamma, x: \tau_1 \vdash t: \tau_2}{\Gamma \vdash \lambda x. t: \tau_1 \rightarrow \tau_2}\\
+		\APP:  &\frac{\Gamma \vdash t_1, \tau_2 \tau\;\;\; \Gamma \vdash t_2: \tau_2}{\Gamma \vdash t_1 t_2: \tau}
+	\end{align*}
+\end{definition}
+
+
 
 Dabei ist der lange Strich kein Bruchstrich, sondern ein Symbol der Logik das als
 \textbf{Schlussstrich}\xindex{Schlussstrich} bezeichnet wird. Dabei ist der 
@@ -96,3 +100,18 @@ verwendet. Man schreibt also beispielsweise:
 	$(\sigma, \tau)$ heißt eine Lösung für $(\Gamma, t)$, falls gilt:
 	\[\sigma \Gamma \vdash t : \tau\]
 \end{definition}
+
+\section{Beispiele}
+Im Folgenden wird die Typinferenz für einige $\lambda$-Funktionen durchgeführt.
+
+\subsection[$\lambda x.\ \lambda y.\ x\ y$]{$\lambda x.\ \lambda y.\ x\ y$\footnote{Lösung von Übungsblatt 6, WS 2013 / 2014}}
+Gesucht ist ein Typ $\tau$, sodass sich $\vdash \lambda x.\ \lambda y.\ x\ y: \tau$
+mit einem Ableitungsbaum nachweisen lässt. Es gibt mehrere solche $\tau$, aber
+wir suchen das allgemeinste. Die Regeln unseres Typsystems (siehe \cpageref{def:typsystem-t1}) 
+sind \textit{syntaxgerichtet}, d.~h. zu jedem $\lambda$-(Teil)-Term gibt es genau
+eine passende Regel.
+
+Für $\lambda x.\ \lambda y.\ x\ y$ wissen wir also schon, dass jeder Ableitungsbaum
+von folgender Gestalt ist. Dabei sind $\alpha_i$ Platzhalter:
+
+\[\ABS \frac{}{\vdash}\]

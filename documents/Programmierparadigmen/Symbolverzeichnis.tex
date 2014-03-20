@@ -6,29 +6,45 @@
 % Reguläre Ausdrücke                                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Reguläre Ausdrücke}
-$\emptyset\;\;\;$ Leere Menge\\
-$\epsilon\;\;\;$ Das leere Wort\\
-$\alpha, \beta\;\;\;$ Reguläre Ausdrücke\\
-$L(\alpha)\;\;\;$ Die durch $\alpha$ beschriebene Sprache\\
-$\begin{aligned}[t]
-    L(\alpha | \beta)    &= L(\alpha) \cup L(\beta)\\
-    L(\alpha \cdot \beta)&= L(\alpha) \cdot L(\beta)
-\end{aligned}$\\
-$L^0 := \Set{\varepsilon}\;\;\;$ Die leere Sprache\\
-$L^{n+1} := L^n \circ L \text{ für } n \in \mdn_0\;\;\;$ Potenz einer Sprache\\
-$\begin{aligned}[t]
-    \alpha^+ &=& L(\alpha)^+ &=& \bigcup_{i \in \mdn} L(\alpha)^i\\
-    \alpha^* &=& L(\alpha)^* &=& \bigcup_{i \in \mdn_0} L(\alpha)^i
-\end{aligned}$
+
+% Set \mylengtha to widest element in first column; adjust
+% \mylengthb so that the width of the table is \columnwidth
+\settowidth\mylengtha{$\alpha^+ = L(\alpha)^+$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+ $\emptyset$        & Leere Menge\\
+ $\epsilon$         & Das leere Wort\\
+ $\alpha, \beta$    & Reguläre Ausdrücke\\
+ $L(\alpha)$        & Die durch $\alpha$ beschriebene Sprache\\
+ $L(\alpha | \beta)$& $L(\alpha) \cup L(\beta)$\\
+ $L^0$              & Die leere Sprache, also $\Set{\varepsilon}$\\
+ $L^{n+1}$          & Potenz einer Sprache. Diese ist definiert als\newline $L^n \circ L \text{ für } n \in \mdn_0$\\
+ $\alpha^+ = L(\alpha)^+$ & $\bigcup_{i \in \mdn} L(\alpha)^i$\\
+ $\alpha^* = L(\alpha)^*$ & $\bigcup_{i \in \mdn_0} L(\alpha)^i$\\
+\end{xtabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Logik                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Logik}
-$\mathcal{M} \models \varphi\;\;\;$ Im Modell $\mathcal{M}$ gilt das Prädikat $\varphi$.\\
-$\psi \vdash \varphi\;\;\;$ Die Formel $\varphi$ kann aus der Menge der Formeln $\psi$ hergeleitet werden.\\
+
+\settowidth\mylengtha{$\mathcal{M} \models \varphi$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$\mathcal{M} \models \varphi$& Im Modell $\mathcal{M}$ gilt das Prädikat $\varphi$.\\
+$\psi \vdash \varphi$        & Die Formel $\varphi$ kann aus der Menge der Formeln $\psi$ hergeleitet werden.\\
+\end{xtabular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Weiteres                                                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Weiteres}
-$\bot\;\;\;$ Bottom\\
+
+\settowidth\mylengtha{$\bot$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$\bot$  & Bottom\\
+$\vdash$& TODO?
+\end{xtabular}
