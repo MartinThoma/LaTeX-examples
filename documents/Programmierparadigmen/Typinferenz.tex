@@ -72,8 +72,11 @@ In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 
 	\begin{align*}
 		\CONST:&\frac{c \in \text{Const}}{\Gamma \vdash c: \tau_c}\\
+			   &\\
 		\VAR:  &\frac{\Gamma(x) = \tau}{\Gamma \vdash c: \tau}\\
+			   &\\
 		\ABS:  &\frac{\Gamma, x: \tau_1 \vdash t: \tau_2}{\Gamma \vdash \lambda x. t: \tau_1 \rightarrow \tau_2}\\
+			   &\\
 		\APP:  &\frac{\Gamma \vdash t_1, \tau_2 \tau\;\;\; \Gamma \vdash t_2: \tau_2}{\Gamma \vdash t_1 t_2: \tau}
 	\end{align*}
 \end{definition}
@@ -111,7 +114,82 @@ wir suchen das allgemeinste. Die Regeln unseres Typsystems (siehe \cpageref{def:
 sind \textit{syntaxgerichtet}, d.~h. zu jedem $\lambda$-(Teil)-Term gibt es genau
 eine passende Regel.
 
-Für $\lambda x.\ \lambda y.\ x\ y$ wissen wir also schon, dass jeder Ableitungsbaum
+Für $\lambda x.\ \lambda y.\ x\ y$ wissen wir also schon, dass jeder Ableitungsbaum\xindex{Ableitungsbaum}
 von folgender Gestalt ist. Dabei sind $\alpha_i$ Platzhalter:
 
-\[\ABS \frac{}{\vdash}\]
+\[\ABS \frac{\ABS\frac{\textstyle\ABS \frac{\textstyle\VAR \frac{(x: \alpha_2, y: \alpha_4)\ (x) = \alpha_6}{x: \alpha_2, y: \alpha_4 \vdash x: \alpha_6}\ \ \VAR \frac{(x:\alpha_2, y: \alpha_4)\ (y) = \alpha_7}{x: \alpha_2, y: \alpha_4 \vdash y : \alpha_7}}{\textstyle x: \alpha_2, y: \alpha_4 \vdash x\ y: \alpha_5}}{x:\alpha_2 \vdash \lambda y.\ x\ y\ :\ \alpha_3}}{\vdash \lambda x.\ \lambda \ y.\ x\ y: \alpha_1}\]
+
+Das was wir haben wollen steht am Ende, also unter dem unterstem Schlussstrich.
+Dann bedeutet die letzte Zeile 
+\[\vdash \lambda x.\ \lambda \ y.\ x\ y: \alpha_1\]
+
+Ohne (weitere) Voraussetzungen lässt sich sagen, dass der Term
+\[\lambda x.\ \lambda \ y.\ x\ y\]
+vom Typ $\alpha_1$ ist.
+
+Links der Schlussstriche steht jeweils die Regel, die wir anwenden. Also entweder
+$\ABS$, $\VAR$, $\CONST$ oder $\APP$.
+
+Nun gehen wir eine Zeile höher:
+
+\[x:\alpha_2 \vdash \lambda y.\ x\ y\ :\ \alpha_3\]
+
+Diese Zeile ist so zu lesen: Mit der Voraussetzung, dass $x$ vom Typ $\alpha_2$
+ist, lässt sich syntaktisch Folgern, dass der Term $\lambda y.\ x\ y$ vom
+Typ $\alpha_3$ ist.
+
+\underline{Hinweis:} Alles was in Zeile $i$ dem $\vdash$ steht, steht auch in 
+jedem \enquote{Nenner} in Zeile $j < i$ vor jedem einzelnen $\vdash$.
+
+Folgende Typgleichungen $C$ lassen sich aus dem Ableitungsbaum ablesen:
+
+\begin{align*}
+	C &= \Set{\alpha_1 = \alpha_2 \rightarrow \alpha_3}\\
+	  &\cup \Set{\alpha_3 = \alpha_4 \rightarrow \alpha_5}\\
+	  &\cup \Set{\alpha_6 = \alpha_7 \rightarrow \alpha_5}\\
+	  &\cup \Set{\alpha_6 = \alpha_2}\\
+	  &\cup \Set{\alpha_7 = \alpha_4}
+\end{align*}
+
+Diese Bedingungen (engl. \textit{Constraints})\xindex{Constraints} haben eine
+allgemeinste Lösung mit einem allgemeinsten Unifikator $\sigma_C$:
+
+\begin{align*}
+	\sigma_C = [&\alpha_1 \Parr (\alpha_4 \rightarrow \alpha_5) \rightarrow \alpha_4 \rightarrow \alpha_5,\\
+	&\alpha_2 \Parr \alpha_4 \rightarrow \alpha_5,\\
+	&\alpha_3 \Parr \alpha_4 \rightarrow \alpha_5,\\
+	&\alpha_6 \Parr \alpha_4 \rightarrow \alpha_5,\\
+	&\alpha_7 \Parr \alpha_4]
+\end{align*}
+
+\underline{Hinweis:} Es gilt $(\alpha_4 \rightarrow \alpha_5) \rightarrow \alpha_4 \rightarrow \alpha_5 = (\alpha_4 \rightarrow \alpha_5) \rightarrow (\alpha_4 \rightarrow \alpha_5)$
+
+Also gilt: Der allgemeinste Typ von $\lambda x.\ \lambda y.\ x\ y$ ist $\sigma_C (\alpha_1) = (\alpha_4 \rightarrow \alpha_5) \rightarrow \alpha_4 \rightarrow \alpha_5$.
+
+\subsection[Selbstapplikation]{Selbstapplikation\footnote{Lösung von Übungsblatt 6, WS 2013 / 2014}}\xindex{Selbstapplikation}
+Im Folgenden wird eine Typinferenz für die Selbstapplikation, also
+\[\lambda x.\ x\ x\]
+durchgeführt.
+
+Zuerst erstellt man den Ableitungsbaum:
+
+\[\ABS\frac{\APP \frac{\VAR \frac{(x:\alpha_2)\ (x) = \alpha_5}{x:\alpha_2 \vdash x: \alpha_5} \;\;\; \VAR \frac{(x:\alpha_2)\ (x) = \alpha_4}{x:\alpha_2 \vdash x:\alpha_4}}{x: \alpha_2 \vdash x\ x\ :\ \alpha_3}}{\vdash \lambda x.\ x\ x: \alpha_1}\]
+
+Dies ergibt die Constraint-Menge
+\begin{align}
+	C&= \Set{\alpha_1 = \alpha_2 \rightarrow \alpha_3}    &\text{$\ABS$-Regel}\label{eq:bsp2.c1}\\ 
+     &\cup \Set{\alpha_5 = \alpha_4 \rightarrow \alpha_3} &\text{$\APP$-Regel}\label{eq:bsp2.c2}\\
+     &\cup \Set{\alpha_5 = \alpha_2}                      &\text{Linke $\VAR$-Regel}\label{eq:bsp2.c3}\\
+     &\cup \Set{\alpha_4 = \alpha_2}                      &\text{Rechte $\VAR$-Regel}\label{eq:bsp2.c4}
+\end{align}
+
+Aus \cref{eq:bsp2.c3} und \cref{eq:bsp2.c4} folgt:
+\[\alpha_2 = \alpha_4 = \alpha_5\]
+
+Also lässt sich \cref{eq:bsp2.c2} umformulieren:
+\[\alpha_2 = \alpha_2 \rightarrow \alpha_3\]
+
+Offensichtlich ist diese Bedingung nicht erfüllbar. Daher ist ist die Selbstapplikation
+nicht typisierbar. Dies würde im Unifikationsalgorithmus 
+(vgl. \cref{alg:klassischer-unifikationsalgorithmus})
+durch den \textit{occur check} festgestellt werden.
