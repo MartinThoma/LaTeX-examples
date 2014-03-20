@@ -16,6 +16,24 @@ Kompiliere ihn mit \texttt{gplc hello-world.pl}. Es wird eine
 ausführbare Datei erzeugt.
 
 \section{Syntax}
+In Prolog gibt es Prädikate, die Werte haben. Prädikate werden immer klein geschrieben.
+So kann das Prädikat \texttt{farbe} mit den Werten \texttt{rot}, \texttt{gruen},
+\texttt{blau}, \texttt{gelb} - welche auch immer klein geschrieben werden - wie 
+folgt definiert werden:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/praedikat-farbe.pl}
+
+\begin{itemize}
+    \item Terme werden durch \texttt{,} mit einem logischem \textbf{und} verknüpft.
+    \item Ungleichheit wird durch \texttt{\=} ausgedrückt.
+\end{itemize}
+
+So ist folgendes Prädikat \texttt{nachbar(X, Y)} genau dann wahr, wenn $X$
+und $Y$ Farben sind und $X \neq Y$ gilt:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/simple-term.pl}
+
+
 \section{Beispiele}
 \subsection{Humans}
 Erstelle folgende Datei:

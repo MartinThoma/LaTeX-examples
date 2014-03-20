@@ -136,13 +136,20 @@ Programmiersprachen können anhand der Art ihrer Typisierung unterschieden werde
 \end{beispiel}
 
 \begin{definition}[Polymorphie]\xindex{Polymorphie}%
-    Ein Typ heißt \textbf{polymorph}, wenn er mindestens einen Parameter hat.
+    \begin{defenum}
+        \item Ein Typ heißt polymorph, wenn er mindestens einen Parameter hat.
+        \item Eine Funktion heißt polymorph, wenn ihr Verhalten nicht von dem
+              konkreten Typen der Parameter abhängt.
+    \end{defenum}
 \end{definition}
 
 \begin{beispiel}[Polymorphie]
-    In Java sind beispielsweise Listen polymorph:
+    In Java sind beispielsweise Listen polymorphe Typen:
 
     \inputminted[numbersep=5pt, tabsize=4]{java}{scripts/java/list-example.java}
+
+    Entsprechend sind auf Listen polymorphe Operationen wie \texttt{add} und
+    \texttt{remove} definiert.
 \end{beispiel}
 
 \begin{definition}[Statische und dynamische Typisierung]\xindex{Typisierung!statische}\xindex{Typisierung!dynamische}%
