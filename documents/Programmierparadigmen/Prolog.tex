@@ -34,6 +34,58 @@ und $Y$ Farben sind und $X \neq Y$ gilt:
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/simple-term.pl}
 
 
+\subsection{Arithmetik}
+Die Auswertung artihmetischer Ausdrücke muss in Prolog explizit durch \texttt{is}
+durchgeführt werden:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/arithmetik.pl}
+
+Dabei müssen alle Variablen, die im Term rechts von \texttt{is} vorkommen, 
+istanziiert sein:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/arithmetik-fail.pl}
+
+Arithmetische Ausdrücke können mit \texttt{=:= , =\textbackslash= , < , <= , > , >=}
+verglichen werden.
+
+\begin{beispiel}[Arithmetik in Prolog\footnotemark]
+    \begin{bspenum}
+        \item \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/even.pl}\xindex{even}
+        \item \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/fibonacci2.pl}\xindex{fib}
+    \end{bspenum}
+\end{beispiel}
+\footnotetext{WS 2013 / 2014, Folie 237f}
+
+\subsection{Listen}
+Das Atom \texttt{[]} ist die leere Liste.
+
+Mit der Syntax \texttt{[K|R]} wird eine Liste in den Listekopf \texttt{K} und
+den Rest der Liste \texttt{R} gesplitet:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/liste-basic.pl}
+
+Einen Test \texttt{member(X, Liste)}, der \texttt{True} zurückgibt wenn \texttt{X}
+in \texttt{Liste} vorkommt, realisiert man wie folgt:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/liste-member.pl}\xindex{member}
+
+Eine Regel \texttt{append(A, B, C)}, die die Listen \texttt{A} und \texttt{B} 
+zusammenfügt und als Liste \texttt{C} speichert, kann
+wie folgt erstellt werden:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/liste-append.pl}
+
+Die erste Regel besagt, dass das Hinzufügen der leeren Liste zu einer Liste 
+\texttt{L} immer noch die Liste \texttt{L} ist.
+
+Die zweite Regel besagt: Wenn die Liste \texttt{R} und \texttt{L} die Liste \texttt{T}
+ergeben, dann ergibt die Liste, deren Kopf \texttt{X} ist und deren Rumpf \texttt{R}
+ist zusammen mit der Liste \texttt{L} die Liste mit dem Kopf \texttt{X} und dem
+Rumpf \texttt{T}.
+
+\xindex{split}Übergibt man \texttt{append(X,Y,[1,2,3,4,5])}, so werden durch Reerfüllung alle
+Möglichkeiten durchgegangen, wie man die Liste \texttt{[1,2,3,4,5]} splitten kann.
+
 \section{Beispiele}
 \subsection{Humans}
 Erstelle folgende Datei:

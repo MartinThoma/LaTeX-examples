@@ -12,4 +12,5 @@ intersectAll (l:ls) = (foldr intersect l) ls
 intersectAll []     = undefined
 
 multiples n = [n*k | k <- [1..]]
-commonMultiples a b c = intersectAll [ multiples n | n <- [a,b,c]]
+commonMultiples a b c = 
+    intersectAll [ multiples n | n <- [a,b,c]]

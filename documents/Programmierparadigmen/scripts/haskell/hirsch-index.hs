@@ -8,5 +8,7 @@ hIndex l = helper (reverse (sort l)) 0
             | otherwise = acc
 
 -- Alternativ
-hindex1 = length . takeWhile id . zipWith (<=) [1..] . reverse . sort
-hindex2 = length . takeWhile (\(i, n) -> n >= i) . zip [1..] . reverse . sort
+hindex1 = length . takeWhile id . 
+          zipWith (<=) [1..] . reverse . sort
+hindex2 = length . takeWhile (\(i, n) -> n >= i) . 
+          zip [1..] . reverse . sort

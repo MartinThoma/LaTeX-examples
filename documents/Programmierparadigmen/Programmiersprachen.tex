@@ -339,7 +339,40 @@ Beispiel:
 \[f(X_1, X_2, \dots, X_n) = f(g(X_0, X_0), g(X_1, X_1), \dots, g(X_{n-1}, X_{n-1}) )\]
 
 Der \textit{Paterson-Wegman-Unifikationsalgorithmus}\xindex{Paterson-Wegman-Unifikationsalgorithmus} ist deutlich effizienter.
-Er basiert auf dem \textit{Union-Find-Algorithmus}\xindex{Union-Find-Algorithmus}.
+Er basiert auf dem \textit{Union-Find-Algorithmus}\xindex{Union-Find-Algorithmus}
+und funktioniert wie folgt:
+
+\begin{algorithm}[h]
+    \begin{algorithmic}
+        \Function{unify}{Knoten $p$, Knoten $q$}
+            \State $s \gets \Call{find}{p}$
+            \State $t \gets \Call{find}{q}$
+            \If{$s == t$ oder $s.\Call{getAtom}{} == t.\Call{getAtom}{}$}
+                \State \Return \texttt{True}
+            \EndIf
+
+            \If{$s,t$ Knoten für gleichen Funktor, mit Nachfolgern $s_1, \dots , s_n$ bzw. $t_1 , \dots , t_n$ }
+                \State $\Call{union}{s,t}$
+                \State $k \gets 1$
+                \State $b \gets $ \texttt{True}
+                \While{$k \leq n$ and $b$}
+                    \State $b \gets \Call{unify}{s_k, t_k}$
+                    \State $k \gets k + 1$
+                \EndWhile
+                \State \Return \texttt{True}
+            \EndIf
+
+            \If{$s$ oder $t$ ist Variablen-Knoten}
+                \State $\Call{union}{s,t}$
+                \State \Return \texttt{True}
+            \EndIf
+
+            \State \Return \texttt{False}
+        \EndFunction
+    \end{algorithmic}
+\caption{Paterson-Wegeman Unifikationsalgorithmus}
+\label{alg:paterson-wegeman-unifikationsalgorithmus}
+\end{algorithm}
 
 
 \footnotetext{\url{https://de.wikipedia.org/w/index.php?title=Unifikation\_(Logik)&oldid=116848554\#Beispiel}}

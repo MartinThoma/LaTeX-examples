@@ -69,23 +69,29 @@ Die Funktionsapplikation sei linksassoziativ. Es gilt also:
 
 \begin{definition}[$\beta$-Äquivalenz]\xindex{Reduktion!Beta ($\beta$)}\xindex{Äquivalenz!Beta ($\beta$)}%
     Eine $\beta$-Reduktion ist die Funktionsanwendung auf einen Redex:
-    \[(\lambda x. t_1) t_2 \Rightarrow t_1 [x \mapsto t_2]\]
+    \[(\lambda x. t_1)\ t_2 \Rightarrow t_1 [x \mapsto t_2]\]
 \end{definition}
 
 \begin{beispiel}[$\beta$-Äquivalenz]
     \begin{defenum}
-        \item $(\lambda x.x) y \overset{\beta}{\Rightarrow} x[x \mapsto y] = y$
-        \item $(\lambda x. x (\lambda x. x)) (y z) \overset{\beta}{\Rightarrow} (x(\lambda x. x))[x \mapsto y z] (y z) (\lambda x. x)$
+        \item $(\lambda x.\ x)\ y \overset{\beta}{\Rightarrow} x[x \mapsto y] = y$
+        \item $(\lambda x.\ x\ (\lambda x.\ x)) (y\ z) \overset{\beta}{\Rightarrow} (x\ (\lambda x.\ x))[x \mapsto y\ z] (y\ z) (\lambda x.\ x)$
     \end{defenum}
 \end{beispiel}
 
-\begin{definition}[$\eta$-Äquivalenz]\xindex{Reduktion!Eta ($\eta$)}\xindex{Äquivalenz!Eta ($\eta$)}%
-    Zwei Terme $\lambda x. f~x$ und $f$ heißen $\eta$-Äquivalent, wenn
-    $x$ nicht freie Variable von $f$ ist.
+\begin{definition}[$\eta$-Äquivalenz\footnote{Folie 158}]\xindex{Reduktion!Eta ($\eta$)}\xindex{Äquivalenz!Eta ($\eta$)}%
+    Die Terme $\lambda x. f~x$ und $f$ heißen $\eta$-Äquivalent, wenn $x \notin FV(f)$ gilt.
+
+    Man schreibt: $\lambda x. f~x \overset{\eta}{=} f$.
 \end{definition}
 
-\begin{beispiel}[$\eta$-Äquivalenz]
-    TODO
+\begin{beispiel}[$\eta$-Äquivalenz\footnote{Folie 158}]%
+    \begin{align*}
+        \lambda x.\ \lambda y.\ f\ z\ x\ y &\overset{\eta}{=} \lambda x.\ f\ z\ x\\
+        f\ z                &\overset{\eta}{=} \lambda x.\ f\ z\ x\\
+        \lambda x.\ x       &\overset{\eta}{=} \lambda x.\ (\lambda x.\ x)\ x\\
+        \lambda x.\ f\ x\ x &\overset{\eta}{\neq} f\ x
+    \end{align*}
 \end{beispiel}
 \index{Reduktion|)}
 
@@ -366,3 +372,10 @@ und
 \[\ABS \frac{\Gamma, x: \tau_1 \vdash t: \tau_2 \;\;\; \tau_1 \text{ kein Typschema}}{\Gamma \vdash  \lambda x. t: \tau_1 \rightarrow \tau_2}\]
 
 \todo[inline]{Folie 208ff}
+
+\section{Literatur}
+
+\begin{itemize}
+    \item \url{http://c2.com/cgi/wiki?FreeVariable}
+    \item \url{http://www.lambda-bound.com/book/lambdacalc/node9.html}
+\end{itemize}
