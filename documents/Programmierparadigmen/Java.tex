@@ -1,0 +1,72 @@
+%!TEX root = Programmierparadigmen.tex
+\chapter{Java}
+\index{Java|(}
+
+Im Folgenden wird in aller Kürze erklärt, wie man in Java Programme schreibt,
+die auf mehreren Prozessoren laufen.
+
+\section{Thread, ThreadPool und Runnable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\texttt{Interface Runnable}\\
+\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.lang.Thread}\xindex{Runnable}%
+\begin{itemize}
+    \item Methods: 
+    \begin{itemize}
+        \item \texttt{void run()}: When an object implementing interface 
+          Runnable is used to create a thread, starting the thread causes the 
+          object's run method to be called in that separately executing thread.
+    \end{itemize}
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\texttt{Class Thread}\\
+\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.lang.Thread}\xindex{Thread}%
+\begin{itemize}
+    \item implements Runnable
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\texttt{Class ThreadPoolExecutor}\xindex{ThreadPoolExecutor}\\
+\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.util.concurrent.ThreadPoolExecutor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\texttt{Interface Callable<V>}\xindex{Callable}\\
+\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.util.concurrent}
+\begin{itemize}
+    \item Parameter: \texttt{V} - the result type of method call
+ \end{itemize} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Futures}\xindex{Future}\index{Promise|see{Future}}
+\enquote{Ein Future (engl. \enquote{Zukunft}) oder ein Promise (engl. \enquote{Versprechen}) bezeichnet in der Programmierung einen Platzhalter (Proxy) für ein Ergebnis, das noch nicht bekannt ist, meist weil seine Berechnung noch nicht abgeschlossen ist.}
+
+\texttt{Interface Future<V>}\xindex{Future}\\
+\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.util.concurrent}
+
+\textbf{Parameter}:
+\begin{itemize}
+    \item \texttt{V}: The result type returned by this Future's get method
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Beispiel}:
+% Zu lang, geht das kürzer?
+%\inputminted[numbersep=5pt, tabsize=4]{java}{scripts/java/matrix-multiplication.java}
+\begin{beispiel}[Runnable, ExecutorService, ThreadPool\footnotemark]
+    \inputminted[numbersep=5pt, tabsize=4]{java}{scripts/java/vorlesung-futures-basics.java}
+\end{beispiel}
+\footnotetext{WS 2013/2014, Kapitel 41, Folie 26}
+
+
+\section{Literatur}
+\begin{itemize}
+    \item \href{http://openbook.galileocomputing.de/javainsel9/javainsel_14_004.htm}{Java ist auch eine Insel}: Kapitel 14 -
+          Threads und nebenläufige Programmierung
+    \item \href{http://www.vogella.com/tutorials/JavaConcurrency/article.html}{vogella.com}: Java concurrency (multi-threading) - Tutorial
+    \item Links zur offiziellen Java 8 Dokumentation:
+        \begin{itemize}
+            \item \href{http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html}{ThreadPoolExecutor}
+            \item \href{http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html}{Runnable}
+            \item \href{http://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html}{Thread}
+            \item \href{http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html}{Callable}
+            \item \href{http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html}{Future}
+        \end{itemize}
+\end{itemize}
+
+\index{Java|)}
