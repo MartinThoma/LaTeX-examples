@@ -5,10 +5,10 @@
 Im Folgenden wird in aller Kürze erklärt, wie man in Java Programme schreibt,
 die auf mehreren Prozessoren laufen.
 
-\section{Thread, ThreadPool und Runnable}
+\section{Thread, ThreadPool, Runnable und ExecutorService}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\texttt{Interface Runnable}\\
-\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.lang.Thread}\xindex{Runnable}%
+\texttt{Interface Runnable}\xindex{Runnable}\\
+\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.lang.Thread}%
 \begin{itemize}
     \item Methods: 
     \begin{itemize}
@@ -18,20 +18,36 @@ die auf mehreren Prozessoren laufen.
     \end{itemize}
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\texttt{Class Thread}\\
-\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.lang.Thread}\xindex{Thread}%
+\texttt{Class Thread}\xindex{Thread}\\
+\-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.lang.Thread}%
 \begin{itemize}
     \item implements Runnable
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \texttt{Class ThreadPoolExecutor}\xindex{ThreadPoolExecutor}\\
 \-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.util.concurrent.ThreadPoolExecutor}
+
+
+\begin{beispiel}[ExecutorService, Future\footnotemark]
+    \inputminted[numbersep=5pt, tabsize=4]{java}{scripts/java/executer-service-future-example.java}
+\end{beispiel}
+\footnotetext{WS 2013/2014, Kapitel 41, Folie 28}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \texttt{Interface Callable<V>}\xindex{Callable}\\
 \-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.util.concurrent}
 \begin{itemize}
-    \item Parameter: \texttt{V} - the result type of method call
+    \item Parameter: 
+    \begin{itemize}
+        \item \texttt{V} - the result type of method \texttt{call()}
+    \end{itemize}
+    \item Ermöglicht die Rückgabe von Ergebnissen
  \end{itemize} 
+
+\begin{beispiel}[Callable\footnotemark]
+    \inputminted[numbersep=5pt, tabsize=4]{java}{scripts/java/callable-example.java}
+\end{beispiel}
+\footnotetext{WS 2013/2014, Kapitel 41, Folie 27}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Futures}\xindex{Future}\index{Promise|see{Future}}
 \enquote{Ein Future (engl. \enquote{Zukunft}) oder ein Promise (engl. \enquote{Versprechen}) bezeichnet in der Programmierung einen Platzhalter (Proxy) für ein Ergebnis, das noch nicht bekannt ist, meist weil seine Berechnung noch nicht abgeschlossen ist.}
@@ -39,9 +55,13 @@ die auf mehreren Prozessoren laufen.
 \texttt{Interface Future<V>}\xindex{Future}\\
 \-\hspace{0.8cm}$\leftharpoonup$ \texttt{java.util.concurrent}
 
-\textbf{Parameter}:
+
 \begin{itemize}
-    \item \texttt{V}: The result type returned by this Future's get method
+    \item \textbf{Parameter}:
+    \begin{itemize}
+        \item \texttt{V}: The result type returned by this Future's get method
+    \end{itemize}
+    \item Erlauben die Rückgabe von Ergebnissen
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
