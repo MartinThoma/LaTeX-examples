@@ -73,6 +73,25 @@ die auf mehreren Prozessoren laufen.
 \end{beispiel}
 \footnotetext{WS 2013/2014, Kapitel 41, Folie 26}
 
+\section{Beispiele}
+
+Die folgenden Quelltexte wurden von Axel Busch erstellt.
+
+Das folgende Programm läuft in ca. 4min und $\SI{36}{\second}$ Sekunden auf einem Kern einer
+Intel Pentium P6200 CPU:
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=SingleCorePrimeTest.java]{java}{scripts/java/SingleCorePrimeTest.java}
+
+Der folgende Code Testet das ganze mit mehreren Kernen auf einer Intel Pentium
+P6200 CPU:
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=MultipleCorePrimeTest.java]{java}{scripts/java/MultipleCorePrimeTest.java}
+
+\begin{itemize}
+    \item 1 thread: 4min 38s
+    \item 2 threads: 3min 14s
+    \item 4 threads: 2min 44s
+    \item 8 threads: 2min 41s
+\end{itemize}
 
 \section{Literatur}
 \begin{itemize}

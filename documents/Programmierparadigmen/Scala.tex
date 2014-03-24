@@ -90,6 +90,16 @@ die Klasse.
 
 Das folgende Wetter-Beispiel zeigt, wie man Aktoren benutzen kann.
 
+\section{Weiteres}
+\texttt{def awaitAll(timeout: Long, fts: Future[Any]*):}\\
+\-\hspace{1.8cm}\texttt{List[Option[Any]]}\xindex{awaitAll}\\
+\-\hspace{0.8cm}$\leftharpoonup$ \texttt{scala.actors.Futures.\_}
+
+Waits until either all futures are resolved or a given time span has passed. Results are collected in a list of options. The result of a future that resolved during the time span is its value wrapped in Some. The result of a future that did not resolve during the time span is None.
+
+Note that some of the futures might already have been awaited, in which case their value is returned wrapped in Some. Passing a timeout of 0 causes awaitAll to return immediately.
+
+
 \section{Beispiele}
 \subsection{Wetter}
 Das folgende Script sendet parallel Anfragen über verschiedene ZIP-Codes an
@@ -99,6 +109,7 @@ die Yahoo-Server, parst das XML und extrahiert die Stadt sowie die Temperatur:
 
 \section{Weitere Informationen}
 \begin{itemize}
+    \item \url{http://www.scala-lang.org/api}
     \item \url{http://docs.scala-lang.org/style/naming-conventions.html}
 \end{itemize}
 
