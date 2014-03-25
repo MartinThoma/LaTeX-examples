@@ -1,0 +1,1 @@
+data Tree t = Node t[Tree t]

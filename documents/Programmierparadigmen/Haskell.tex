@@ -133,6 +133,18 @@ in etwa folgendem Haskell-Code:
 \subsection{Let und where}\xindex{let}\xindex{where}%
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/let-where-bindung.hs}
 
+\subsection{Funktionskomposition}\xindex{.}\xindex{Funktionskomposition}%
+In Haskell funktioniert Funktionskomposition mit einem Punkt:
+
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/function-composition.hs}
+
+Dabei ergibt \texttt{h (-3)} in der mathematischen Notation
+\[(g \circ f) (-3) = f(g(-3)) = f(-4) = 16\]
+und \texttt{i (-3)} ergibt
+\[(f \circ g) (-3) = g(f(-3)) = g(9) = 8\]
+Es ist also anzumerken, dass die Reihenfolge \underline{nicht} der mathematischen
+konvention entspricht.
+
 \section{Typen}
 \subsection{Standard-Typen}
 Haskell kennt einige Basis-Typen:
@@ -244,6 +256,25 @@ wird wie folgt erzeugt:
 
 \subsection{Chruch-Zahlen}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=church.hs]{haskell}{scripts/haskell/church.hs}
+
+\subsection{Trees}\xindex{tree}\xindex{map!tree}%
+Einen Binärbaum kann man in Haskell so definieren:
+
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/binary-tree.hs}
+
+Einen allgemeinen Baum so:
+
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/general-tree.hs}
+
+Hier ist \texttt{t} der polymorphe Typ des Baumes. \texttt{t} gibt also an welche
+Elemente der Baum enthält.
+
+Man kann auf einem solchen Baum auch eine Variante von \texttt{map} und 
+\texttt{reduce} definieren,
+also eine Funktion \texttt{mapT}, die eine weitere Funktion \texttt{f} auf jeden
+Knoten anwendet:
+
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/mapt.hs}
 
 \subsection{Standard Prelude}
 Hier sind die Definitionen eininger wichtiger Funktionen:
