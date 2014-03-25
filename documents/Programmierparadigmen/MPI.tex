@@ -6,6 +6,12 @@ Message Passing Interface (kurz: MPI) ist ein Standard,
 der den Nachrichtenaustausch bei parallelen Berechnungen auf 
 verteilten Computersystemen beschreibt.
 
+Prozesse kommunizieren in MPI über sog. \textit{Kommunikatoren}. Ein Kommunikator
+(\texttt{MPI\_Comm}\xindex{MPI\_Comm})
+definiert eine Menge an Prozessen, die miteinander kommunizieren können. In dieser
+Prozessgruppe hat jeder Prozess einen eindeutigen \textit{rank}\xindex{rank} über den die Prozesse 
+sich identifizieren können.
+
 \section{Erste Schritte}
 \inputminted[numbersep=5pt, tabsize=4, frame=lines, label=hello-world.c]{c}{scripts/mpi/hello-world.c}
 
@@ -14,6 +20,18 @@ Mit \texttt{mpirun -np 14 scripts/mpi/a.out} werden 14 Kopien des Programms
 gestartet.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{MPI Datatypes}\xindex{MPI datatypes}
+
+\begin{table}[h]
+    \begin{tabular}{|l|l||p{3.2cm}|l|}
+    \hline
+    MPI datatype  & C datatype   & MPI datatype      & C datatype    \\ \hline
+    MPI\_INT      & signed int   & MPI\_FLOAT        & float         \\
+    MPI\_UNSIGNED & unsigned int & MPI\_DOUBLE       & double        \\
+    MPI\_CHAR     & signed char  & MPI\_UNSIGNED\newline{}\_CHAR & unsigned char \\ \hline
+    \end{tabular}
+\end{table}
+
 \section{Funktionen}
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-size.c}\xindex{MPI\_Comm\_size}%
 Liefert die Größe des angegebenen Kommunikators; dh. die Anzahl der Prozesse in der Gruppe.
@@ -27,6 +45,7 @@ Liefert die Größe des angegebenen Kommunikators; dh. die Anzahl der Prozesse i
 \textbf{Beispiel}
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-size-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Comm\_rank}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-rank.c}
 Bestimmt den Rang des rufenden Prozesses innerhalb des Kommunikators.
@@ -42,6 +61,7 @@ Der Rang wird von MPI zum Identifizieren eines Prozesses verwendet. Die Rangnumm
 \textbf{Beispiel}
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-rank-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Send}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-send.c}
 Senden einer Nachricht an einen anderen Prozeß innerhalb eines Kommunikators. (Standard-Send)
@@ -60,6 +80,7 @@ Ein Kommunikationsvorgang wird durch ein Tripel (Sender, Empfänger, tag) eindeu
 \textbf{Beispiel}
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-send-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Recv}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-receive.c}
 Empfangen einer Nachricht (blockierend) 
@@ -67,18 +88,20 @@ Empfangen einer Nachricht (blockierend)
 \textbf{Parameter}
 \begin{itemize}
     \item \textbf{buf}: Anfangsadresse des Empfangspuffers
-    \item \textbf{status}: Status, welcher source und tag angibt (\texttt{MPI\_Status}) 
-    \item \textbf{count}: Anzahl der Elemente im Empfangspuffer (nichtnegativ)
+    \item \textbf{count}: Anzahl (d.~h. $\geq 0$) der Elemente im Empfangspuffer
     \item \textbf{datatype}: Typ der zu empfangenden Elemente (handle)
     \item \textbf{source}: Rang des Senderprozesses in comm oder \texttt{MPI\_ANY\_SOURCE}
     \item \textbf{tag}: message tag zur Unterscheidung verschiedener Nachrichten
                   Ein Kommunikationsvorgang wird durch ein Tripel (Sender, Empfänger, tag) eindeutig beschrieben. Um Nachrichten mit beliebigen tags zu empfangen, benutzt man die Konstante \texttt{MPI\_ANY\_TAG}.
     \item \textbf{comm}: Kommunikator (handle) 
+    \item \textbf{status}: Status, welcher source und tag angibt (\texttt{MPI\_Status}).
+          Soll dieser Status ignoriert werden, kann \texttt{MPI\_STATUS\_IGNORE}\xindex{MPI\_STATUS\_IGNORE} angegeben werden.
 \end{itemize}
 
 \textbf{Beispiel}
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-receive-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Reduce}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-reduce.c}
 Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhält das Resultat.
@@ -93,6 +116,7 @@ Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhäl
     \item \textbf{comm}: Kommunikator (handle)
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Bcast}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-bcast.c}
 Sendet eine Nachricht vom Prozess \texttt{root} an alle anderen Prozesse des 
@@ -107,6 +131,7 @@ angegebenen Kommunikators.
     \item \textbf{comm}: Kommunikator (handle)
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Scatter}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-scatter.c}
 Verteilt Daten vom Prozess \texttt{root} unter alle anderen Prozesse in der Gruppe, so daß, soweit möglich, alle Prozesse gleich große Anteile erhalten.
