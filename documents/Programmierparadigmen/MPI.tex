@@ -117,6 +117,24 @@ Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhäl
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Alltoall}%
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-alltoall.c}
+Teilt Daten von jedem Prozeß einer Gruppe an alle anderen auf.
+
+\textbf{Parameter}
+\begin{itemize}
+    \item \textbf{sendbuf}: Startadresse des Sendepuffers 
+    \item \textbf{sendcount}: Anzahl der Elemente im Sendepuffer
+    \item \textbf{sendtype}: Datentyp der Elemente des Sendepuffers (handle) 
+    \item \textbf{recvcount}: Anzahl der Elemente, die von jedem einzelnen Prozeß empfangen werden
+    \item \textbf{recvtype}: Datentyp der Elemente im Empfangspuffer (handle) 
+    \item \textbf{comm}: Kommunikator (handle)
+\end{itemize}
+
+\textbf{Beispiel}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-alltoall-example.c}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Bcast}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-bcast.c}
 Sendet eine Nachricht vom Prozess \texttt{root} an alle anderen Prozesse des 
