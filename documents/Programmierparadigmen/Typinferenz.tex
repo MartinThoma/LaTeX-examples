@@ -104,6 +104,11 @@ verwendet. Man schreibt also beispielsweise:
 	\[\sigma \Gamma \vdash t : \tau\]
 \end{definition}
 
+\begin{beispiel}[Typisierungsregel]\xindex{Typisierungsregel}%
+	Das Folgende nennt man eine Typisierungsregel:\footnote{Klausur WS 2010 / 2011}
+	\[\frac{\Gamma \vdash b: \text{\texttt{bool}}\;\;\; \Gamma \vdash x: \tau \;\;\; \Gamma \vdash y: \tau }{\Gamma \vdash \text{\textbf{if} b \textbf{then} x \textbf{else} y} : \tau}\]
+\end{beispiel}
+
 \section{Beispiele}
 Im Folgenden wird die Typinferenz für einige $\lambda$-Funktionen durchgeführt.
 
