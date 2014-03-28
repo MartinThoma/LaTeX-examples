@@ -3,6 +3,8 @@
 X10 ist eine objektorientierte Programmiersprache, die 2004 bei IBM entwickelt
 wurde.
 
+Wie in Scala sind auch in X10 Funktionen First-Class Citizens.
+
 X10 nutzt das PGAS-Modell:
 
 \begin{definition}[PGAS\footnotemark]\xindex{PGAS}%
@@ -15,6 +17,15 @@ X10 nutzt das PGAS-Modell:
     werden kann als auf den von anderen Prozessoren.
 \end{definition}
 \footnotetext{\url{https://de.wikipedia.org/wiki/PGAS}}
+
+Im PGAS-Modell gibt es \texttt{places}. Diese sind Platzhalter für Aktivitäten
+und Objekte.
+
+\begin{itemize}
+    \item \texttt{Place.FIRST\_PLACE} ist der place 0.
+    \item \texttt{here} ist der Prozess-eigene place.
+    \item \texttt{main} wird in \texttt{place 0} ausgeführt.
+\end{itemize}
 
 \section{Erste Schritte}
 Als erstes sollte man x10 von \url{http://x10-lang.org/x10-development/building-x10-from-source.html?id=248} herunterladen.
@@ -34,9 +45,35 @@ Eine Besonderheit sind sog. \textit{Constrianed types}\xindex{types!constrained}
 
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/constrained-type-example.x10}
 
+\subsection{Closures}\xindex{closure}%
+
+Closres werden unterstützt:
+
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/closures-example.x10}
+
+\subsection{async}\xindex{async}%
+
+Durch \texttt{async S} kann das Statement \texttt{S} asynchron ausgeführt werden.
+Das bedeutet, dass ein neuer Kindprozess (eine Kind-Aktivität) erstellt wird, die
+\texttt{S} ausführt. Dabei wird nicht auf das Beenden von \texttt{S} gewartet.
+Will man das, so muss \texttt{finish}\xindex{finish} vor das Statement gestellt werden.
+
+\subsection{atomic}\xindex{atomic}%
+Durch \texttt{atomic S} wird das Statement \texttt{S} atomar ausgeführt. Auch
+Methoden können atomar gemacht werden.
+
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/atomic-example.x10}
+
 \section{Datentypen}
 Byte, UByte, Short, UShort, Char, Int, UInt, Long, ULong, Float, Double, Boolean, 
 Complex, String, Point, Region, Dist, Array
+
+\subsection{Arrays}%
+Arrays werden in X10 wie folgt definiert:
+
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/array-example.x10}
+
+Das ergibt den Array \texttt{[ 0, 2, 4, 6, 8 ]}.
 
 \subsection{struct}\xindex{struct}%
 In X10 gibt es, wie auch in C, den Typ \texttt{struct}. Dieser erlaubt im Gegensatz
@@ -51,6 +88,9 @@ Structs werden verwendet, da sie effizienter als Objekte sind.
 \end{beispiel}
 
 \section{Beispiele}
+
+\todo[inline]{ACHTUNG: Das folgende Beispiel kompiliert noch nicht!}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Fibonacci.x10]{scala}{scripts/x10/Fibonacci.x10}
 
 \section{Weitere Informationen}
 \begin{itemize}
