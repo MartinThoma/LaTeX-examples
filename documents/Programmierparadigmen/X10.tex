@@ -26,8 +26,29 @@ Der Befehl \texttt{x10c HelloWorld.x10} erstellt eine ausführbare Datei namens
 \inputminted[numbersep=5pt, tabsize=4, frame=lines, label=HelloWorld.x10]{cpp}{scripts/x10/HelloWorld.x10}
 
 \section{Syntax}
+Genau wie Scala nutzt X10 \texttt{val}\xindex{val} und \texttt{var}\xindex{var}, wobei \texttt{val} für
+\enquote{value} steht und ein unveränderbarer Wert ist. \texttt{var} hingegen
+steht für \enquote{variable} und ist veränderbar.
+
+Eine Besonderheit sind sog. \textit{Constrianed types}\xindex{types!constrained}:
+
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/constrained-type-example.x10}
+
 \section{Datentypen}
-Byte, UByte, Short, UShort, Char, Int, UInt, Long, ULong, Float, Double, Boolean, Complex, String, Point, Region, Dist, Array
+Byte, UByte, Short, UShort, Char, Int, UInt, Long, ULong, Float, Double, Boolean, 
+Complex, String, Point, Region, Dist, Array
+
+\subsection{struct}\xindex{struct}%
+In X10 gibt es, wie auch in C, den Typ \texttt{struct}. Dieser erlaubt im Gegensatz
+zu Objekten keine Vererbung, kann jedoch auch interfaces implementieren.
+
+Alle Felder eines X10-Structs sind \texttt{val}.
+
+Structs werden verwendet, da sie effizienter als Objekte sind.
+
+\begin{beispiel}[struct]
+    \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/x10-struct-example.x10}
+\end{beispiel}
 
 \section{Beispiele}
 
