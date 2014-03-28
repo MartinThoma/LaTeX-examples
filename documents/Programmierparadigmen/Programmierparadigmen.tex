@@ -97,6 +97,21 @@
   pdfkeywords = {Programmierparadigmen}, 
   pdftitle    = {Programmierparadigmen} 
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The patch for minted: http://tex.stackexchange.com/a/168021/5645
+\makeatletter
+\def\FV@BeginListFrame@Lines{%
+  \begingroup
+  \lineskip\z@skip
+  \FV@SingleFrameLine{\z@}%
+  \kern-0.5\baselineskip\relax
+  \baselineskip\z@skip
+  \kern\FV@FrameSep\relax
+  \penalty\@M% added line
+\endgroup}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \makeindex
 \allowdisplaybreaks

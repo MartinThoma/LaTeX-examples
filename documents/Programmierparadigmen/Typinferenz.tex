@@ -66,7 +66,8 @@ Mit folgenderweise typisiert werden:
 
 In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 
-\begin{definition}[Typsystem $\Gamma \vdash t: T$]\label{def:typsystem-t1}
+\section{Typsystem}
+\begin{definition}[Typsystem $\Gamma \vdash t: T$\footnotemark]\label{def:typsystem-t1}\xindex{Typregel}\xindex{Typsystem}%
 	Ein Typkontext $\Gamma$ ordnet jeder freien Variable $x$ einen Typ $\Gamma(x)$
 	durch folgende Regeln zu:
 
@@ -80,7 +81,7 @@ In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 		\APP:  &\frac{\Gamma \vdash t_1, \tau_2 \tau\;\;\; \Gamma \vdash t_2: \tau_2}{\Gamma \vdash t_1 t_2: \tau}
 	\end{align*}
 \end{definition}
-
+\footnotetext{WS 2013 / 2014, Folie 192}
 
 
 Dabei ist der lange Strich kein Bruchstrich, sondern ein Symbol der Logik das als
@@ -108,6 +109,79 @@ verwendet. Man schreibt also beispielsweise:
 	Das Folgende nennt man eine Typisierungsregel:\footnote{Klausur WS 2010 / 2011}
 	\[\frac{\Gamma \vdash b: \text{\texttt{bool}}\;\;\; \Gamma \vdash x: \tau \;\;\; \Gamma \vdash y: \tau }{\Gamma \vdash \text{\textbf{if} b \textbf{then} x \textbf{else} y} : \tau}\]
 \end{beispiel}
+
+\section{Let-Polymorphismus}\xindex{let-Polymorphismus}\footnote{WS 2013 / 2014, Folie 205ff}%
+Das Programm $P = \text{let } f = \lambda x.\ 2 \text{ in } f\ (f\ \text{\texttt{true}})$
+ist eine polymorphe Hilfsfunktion, da sie beliebige Werte auf 2 Abbildet.
+Auch solche Ausdrücke sollen typisierbar sein.
+
+Die Kodierung 
+\[\text{let} x = t_1 \text{ in } t_2\]
+ist bedeutungsgleich mit
+\[(\lambda x.\ t_2) t_1\]
+
+Das Problem ist, dass 
+\[P = \lambda f. \ f (f\ \text{\texttt{true}})\ (\lambda x.\ 2)\]
+so nicht typisierbar ist, da in
+\[\ABS \frac{f: \tau_f \vdash f\ (f\ \text{\texttt{true}}): \dots}{\vdash \lambda f.\ f\ (f\ \text{\texttt{true}}): \dots}\]
+müsste 
+\[\tau_f = \text{bool} \rightarrow \text{int}\]
+und zugleich
+\[\tau_f = \text{int} \rightarrow \text{int}\]
+in den Typkontext eingetragen werden. Dies ist jedoch nicht möglich. Stattdessen
+wird 
+\[\text{let} x = t_1 \text{ in } t_2\]
+als neues Konstrukt im $\lambda$-Kalkül erlaubt.
+
+\begin{definition}[Typschema]\xindex{Typschema}%
+    Ein Typ der Gestalt $\forall \alpha_1.\ \forall \alpha_2.\ \dots\ \forall \alpha_n. \tau$
+    heißt \textbf{Typschema}. Es bindet freie Variablen $\alpha_1, \dots, \alpha_n$
+    in $\tau$.
+\end{definition}
+
+\begin{beispiel}[Typschema]
+    Das Typschema $\forall \alpha.\ \alpha \rightarrow \alpha$ steht für unendlich
+    viele Typen und insbesondere für folgende:
+    \begin{bspenum}
+        \item int $\rightarrow$ int, bool $\rightarrow$ bool, \dots
+        \item (int $\rightarrow$ int) $\rightarrow$ (int $\rightarrow$ int), \dots
+        \item \dots
+    \end{bspenum}
+\end{beispiel}
+
+\begin{definition}[Typschemainstanziierung]\xindex{Typschemainstanziierung}%
+    Sei $\tau_2$ ein Nicht-Schema-Typ. Dann heißt der Typ
+    \[\tau[\alpha \mapsto \tau_2]\]
+    eine \textbf{Instanziierung} vom Typschema $\forall \alpha.\ \tau$
+    und man schreibt:
+    \[(\forall \alpha.\ \tau) \succeq \tau [\alpha \mapsto \tau_2]\]
+\end{definition}
+
+\begin{beispiel}[Typschemainstanziierung]
+    Folgendes sind Beispiele für Typschemainstanziierungen:
+    \begin{bspenum}
+        \item $\forall \alpha.\ \alpha \rightarrow \alpha \succeq \text{int} \rightarrow \text{int}$
+        \item $\forall \alpha.\ \alpha \rightarrow \alpha \succeq (\text{int} \rightarrow \text{int}) \rightarrow (\text{int} \rightarrow \text{int})$
+        \item $\text{int} \succeq \text{int}$
+    \end{bspenum}
+
+    Folgendes sind keine Typschemainstanziierungen:
+    \begin{bspenum}
+        \item $\alpha \rightarrow \alpha \nsucceq \text{int} \rightarrow \text{int}$
+        \item $\alpha \nsucceq \text{bool}$
+        \item $\forall \alpha.\ \alpha \rightarrow \alpha \nsucceq \text{bool}$
+    \end{bspenum}
+\end{beispiel}
+
+Zu Typschemata gibt es angepasste Regeln:\xindex{Typregel!mit Typabstraktionen}%
+
+\[\VAR \frac{\Gamma(x)= \tau' \;\;\; \tau' \succeq \tau}{\gamma \vdash x: \tau}\]
+
+und
+
+\[\ABS \frac{\Gamma, x: \tau_1 \vdash t: \tau_2 \;\;\; \tau_1 \text{ kein Typschema}}{\Gamma \vdash  \lambda x. t: \tau_1 \rightarrow \tau_2}\]
+
+\todo[inline]{Folie 208ff}
 
 \section{Beispiele}
 Im Folgenden wird die Typinferenz für einige $\lambda$-Funktionen durchgeführt.

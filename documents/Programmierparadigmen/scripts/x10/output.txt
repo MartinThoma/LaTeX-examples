@@ -1,0 +1,68 @@
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:8: Could not find type "Array(x10.lang.Long)".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:9: Could not find type "Array".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:9: Field size not found in type "Array[x10.lang.Int]{self==values}".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:10: Could not find type "Array".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:10: Field size not found in type "Array[x10.lang.Int]{self==values}".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:11: Could not find Array
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:11: No valid method call found for call in given type.    
+     	 Call: copy(Array[x10.lang.Int], Array[x10.lang.Int])    
+     	 Type: Array
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:13: Field size not found in type "Array[x10.lang.Int]{self==values}".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:18: Could not find type "Array(x10.lang.Long)".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:15: Cannot return expression; base type incompatible with method return type.    
+     	 Expression: numbers    
+     	 Base type: Array[x10.lang.Int]    
+     	 Expected base type: Array[x10.lang.Int]
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:23: No valid method call found for call in given type.    
+     	 Call: mergesort(x10.lang.Int, x10.lang.Long, Array[x10.lang.Int], Array[x10.lang.Int])    
+     	 Type: Mergesort
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:24: No valid method call found for call in given type.    
+     	 Call: mergesort(x10.lang.Long, x10.lang.Int, Array[x10.lang.Int], Array[x10.lang.Int])    
+     	 Type: Mergesort
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:27: No valid method call found for call in given type.    
+     	 Call: mergesort(x10.lang.Int, x10.lang.Long, Array[x10.lang.Int], Array[x10.lang.Int])    
+     	 Type: Mergesort
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:28: No valid method call found for call in given type.    
+     	 Call: mergesort(x10.lang.Long, x10.lang.Int, Array[x10.lang.Int], Array[x10.lang.Int])    
+     	 Type: Mergesort
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:34: Could not find type "Array(x10.lang.Long)".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:30: No valid method call found for call in given type.    
+     	 Call: merge(x10.lang.Int, x10.lang.Long, x10.lang.Int, Array[x10.lang.Int], Array[x10.lang.Int])    
+     	 Type: Mergesort
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:36: Could not find Array
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:36: No valid method call found for call in given type.    
+     	 Call: copy(Array[x10.lang.Int], x10.lang.Int, Array[x10.lang.Int], x10.lang.Int, x10.lang.Long)    
+     	 Type: Array
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:39: Cannot assign expression to target; base types are incompatible.    
+     	 Expression: x10.lang.Long.implicit_operator_as(middle) + 1L    
+     	 Expected base type: x10.lang.Int    
+     	 Found base type: x10.lang.Long
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:43: Method or static constructor not found for given call.    
+     	 Call: helper(x10.lang.Int)
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:44: Method or static constructor not found for given call.    
+     	 Call: helper(x10.lang.Int)
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:46: Method or static constructor not found for given call.    
+     	 Call: helper(x10.lang.Int)
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:51: Method or static constructor not found for given call.    
+     	 Call: helper(x10.lang.Int)
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:58: Could not find type "Array(x10.lang.Long)".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:59: Field size not found in type "Array[x10.lang.String]{self==args}".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:64: Method or static constructor not found for given call.    
+     	 Call: args(x10.lang.Long{self==0L})
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:65: Could not find type "Array".
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:65: No valid constructor found for Array[x10.lang.Int](x10.lang.Int{self==sort_count}, (_:x10.lang.Int)=> x10.lang.Int).
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:65: Cannot assign expression to target; base types are incompatible.    
+     	 Expression: new Array[x10.lang.Int](...)    
+     	 Expected base type: Array[x10.lang.Int]    
+     	 Found base type: Array[x10.lang.Int]
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:67: Could not infer type for formal parameter.    
+     	 Formal parameter name: i
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:67-69: The loop iterator is a Point whose rank is not the same as the rank of the loop domain.
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:73: No valid method call found for call in given type.    
+     	 Call: sort(Array[x10.lang.Int])    
+     	 Type: Mergesort
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:80: Could not infer type for formal parameter.    
+     	 Formal parameter name: i
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:81: Possible closure call on uninitialized variable sorted.
+/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen/scripts/x10/Mergesort.x10:80-82: The loop iterator is a Point whose rank is not the same as the rank of the loop domain.
+35 errors.
