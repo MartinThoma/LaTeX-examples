@@ -23,8 +23,11 @@ und Objekte.
 
 \begin{itemize}
     \item \texttt{Place.FIRST\_PLACE} ist der place 0.
-    \item \texttt{here} ist der Prozess-eigene place.
+    \item \texttt{here} ist der Prozess-eigene place und \texttt{here.next()} ist
+          der darauf folgende Place.
     \item \texttt{main} wird in \texttt{place 0} ausgeführt.
+    \item \texttt{Place.places()} liefert einen Iterator für alle verfügbaren places.
+          Ein spezifischer Place kann durch \texttt{Place(n)} ausgewählt werden.
 \end{itemize}
 
 \section{Erste Schritte}
@@ -63,6 +66,33 @@ Durch \texttt{atomic S} wird das Statement \texttt{S} atomar ausgeführt. Auch
 Methoden können atomar gemacht werden.
 
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/atomic-example.x10}
+
+\subsection[Bedingtes Warten]{Bedingtes Warten\footnote{WS 2013/2014, Kapitel 43, Folie 22}}\xindex{when}%
+Durch \texttt{when (E) S} kann eine Aktivität warten, bis die Bedingung \texttt{E}
+wahr ist um dann das Statement \texttt{S} auszuführen.
+
+An \texttt{E} werden einige Forderungen gestellt:
+
+\begin{itemize}
+    \item \texttt{E} muss ein boolescher Ausdruck sein.
+    \item \texttt{E} darf nicht blockieren.
+    \item \texttt{E} darf keine nebenläufigen Aktivitäten erstellen, muss also
+          sequenziell laufen.
+    \item \texttt{E} darf nicht auf \textit{remote data} zugreifen, muss also
+          lokal arbeiten.
+    \item \texttt{E} muss frei von Seiteneffekten sein.
+\end{itemize}
+
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/when-example.x10}
+
+\subsection{Lokalisierung}\footnote{WS 2013/2014, Kapitel 43, Folie 23}\xindex{at}%
+Durch \texttt{at (p) S} wird sichergestellt, dass das Statement \texttt{S} auf
+dem place \texttt{p} ausgeführt wird. Dabei ist zu beachten, dass die Eltern-Aktivität
+so lange blockiert, bis \texttt{S} beendet.
+
+Es wird eine Deep-Copy des lokalen Objektgraphen auf den place \texttt{p} erstellt.
+
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/at-example.x10}
 
 \section{Datentypen}
 Byte, UByte, Short, UShort, Char, Int, UInt, Long, ULong, Float, Double, Boolean, 

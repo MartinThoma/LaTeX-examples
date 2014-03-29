@@ -14,7 +14,7 @@ Bytecode ist unabhängig von realer Hardware.
 \end{definition}
 
 \textit{Activation Record} ist ein \textit{Stackframe}.\index{Activation Record|see{Stackframe}}
-\section{Instruktionen}
+\section{Instruktionen}\xindex{imul@\texttt{imul}}\xindex{iadd@\texttt{iadd}}\xindex{fadd@\texttt{fadd}}\xindex{iaload@\texttt{iaload}}\xindex{faload@\texttt{faload}}\xindex{iastore@\texttt{iastore}}\xindex{fastore@\texttt{fastore}}\xindex{iconst\_<i>@\texttt{iconst\_<i>}}\xindex{fconst\_<f>@\texttt{fconst\_<f>}}\xindex{idiv@\texttt{idiv}}\xindex{fdiv@\texttt{fdiv}}\xindex{imul@\texttt{imul}}%
 \begin{table}[h]
     \begin{tabular}{p{6cm}|ll}
     \textbf{Beschreibung}                               & \textbf{int} & \textbf{float} \\ \hline
@@ -26,6 +26,62 @@ Bytecode ist unabhängig von realer Hardware.
     Multipliziere die obersten beiden Zahlen des Stacks & imul         & fmul           \\
     \end{tabular}
 \end{table}
+
+Weitere:\xindex{iload\_0@\texttt{iload\_0}}%
+
+\begin{itemize}
+    \item \texttt{iload\_0}: Läd die lokale Variable 0 auf den Stack.
+    \item \texttt{iload\_1}: Läd die lokale Variable 1 auf den Stack.
+    \item \texttt{iload\_2}: Läd die lokale Variable 2 auf den Stack.
+    \item \texttt{iload\_3}: Läd die lokale Variable 3 auf den Stack.
+\end{itemize}
+
+\subsection{if-Abfragen}\xindex{if\_icmp<comperator>@\texttt{if\_icmp<comperator>}}%
+Im Java-Bytecode gibt es einige verschiedene if-Abfragen. Diese sind immer nach
+dem Schema \texttt{<if> <label>} aufgebaut. Wenn also \texttt{<if>} wahr ist,
+wird zu \texttt{<label>} gesprungen.
+
+Im Folgenden sei $a$ tiefer im Stack als $b$. Die Operation \texttt{push(a)} wurde also
+vor \texttt{push(b)} durchgeführt.
+
+Eine Gruppe von if-Abfragen hat folgendes Schema:
+
+\begin{center}
+    \texttt{if\_icmp<comperator> <label>}
+\end{center}
+
+Dabei steht das erste \texttt{i} für \enquote{integer} und \texttt{cmp} für
+\enquote{compare}. \texttt{<comperator>} kann folgende Werte annehmen:
+
+\xindex{eq@\texttt{eq}}\xindex{ge@\texttt{ge}}\xindex{gt@\texttt{gt}}\xindex{le@\texttt{le}}
+\xindex{lt@\texttt{lt}}\xindex{ne@\texttt{ne}}%
+\begin{itemize}
+    \item \texttt{eq}: equal -- $a == b$
+    \item \texttt{ge}: greater equal -- $a \ge b$
+    \item \texttt{gt}: greater than -- $a > b$
+    \item \texttt{le}: less equal -- $a \le b$
+    \item \texttt{lt}: less than -- $a < b$
+    \item \texttt{ne}: not equal -- $a \neq b$
+\end{itemize}
+
+Weitere if-Abfragen haben das Schema
+
+\begin{center}
+    \texttt{if<comperator>} -- $b \text{\texttt{<comperator>}} 0$
+\end{center}
+
+\subsection{Konstanten}\xindex{iconst\_<i>@\texttt{iconst\_<i>}}\xindex{iconst\_m1@\texttt{iconst\_m1}}%
+\begin{itemize}
+    \item \texttt{iconst\_m1}: Lade -1 auf den Stack
+    \item \texttt{iconst\_<i>}, wobei \texttt{<i>} die Werte 0, 1, 2, 3, 4, 5
+          annehmen kann.
+\end{itemize}
+
+\xindex{aload\_<i>@\texttt{aload\_<i>}}
+\begin{itemize}
+    \item \texttt{aload\_<i>} wobei \texttt{<i>} entweder 0, 1, 2 oder 3 ist: Lade eine
+          Referenz von einer lokalen Variable \texttt{<i>} auf den Stack.
+\end{itemize}
 
 \section{Polnische Notation}
 \begin{definition}[Schreibweise von Rechenoperationen]
@@ -75,6 +131,7 @@ Bytecode ist unabhängig von realer Hardware.
 
 \section{Weitere Informationen}
 \begin{itemize}
+    \item \url{https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings}
     \item \url{http://cs.au.dk/~mis/dOvs/jvmspec/ref-Java.html}
     \item \href{http://scanftree.com/Data_Structure/prefix-postfix-infix-online-converter}{scanftree.com}:
           Infix $\leftrightarrow$ Postfix Konverter

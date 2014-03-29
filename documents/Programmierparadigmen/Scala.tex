@@ -90,6 +90,14 @@ die Klasse.
 
 Das folgende Wetter-Beispiel zeigt, wie man Aktoren benutzen kann.
 
+\subsection{Message Passing}\xindex{! (Scala)}%
+Prozesse können nach dem Schema \texttt{adresse ! Nachricht} Nachrichten austauschen.
+Dieses Schema ist asynchron.
+
+Prozesse können mit \texttt{receive{case x => print(x)}} Nachrichten empfangen,
+wobei in diesem Beispiel \texttt{x} alles matcht. Wenn eine gesendete Nachricht
+vom Empfänger nicht gematcht wird, bleibt sie dennoch gespeichert.
+
 \section{Weiteres}
 \texttt{def awaitAll(timeout: Long, fts: Future[Any]*):}\\
 \-\hspace{1.8cm}\texttt{List[Option[Any]]}\xindex{awaitAll}\\
