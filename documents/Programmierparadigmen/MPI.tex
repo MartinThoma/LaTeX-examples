@@ -19,6 +19,9 @@ Das wird \texttt{mpicc hello-world.c} kompiliert.\\
 Mit \texttt{mpirun -np 14 scripts/mpi/a.out} werden 14 Kopien des Programms
 gestartet.
 
+Hierbei ist \texttt{MPI\_COMM\_WORLD}\xindex{MPI\_COMM\_WORLD} der Standard-Kommunikator,
+der von \texttt{MPI\_Init} erstellt wird.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{MPI Datatypes}\xindex{MPI datatypes}
 
@@ -169,6 +172,9 @@ Verteilt Daten vom Prozess \texttt{root} unter alle anderen Prozesse in der Grup
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-reduce-example.c}
 
 \section{Beispiele}
+
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-sum-reduce.c}
+
 \section{Weitere Informationen}
 \begin{itemize}
     \item \url{http://mpitutorial.com/}
