@@ -62,7 +62,7 @@ Zu lesen ist die Deklaration wie folgt:
 \todo[inline]{Gibt es Funktionsdeklarationen, die bis auf Wechsel des Namens und der Reihenfolge äquivalent sind?}
 
 \subsection{if / else}
-Das folgende Beispiel definiert den Binomialkoeffizienten (vgl. \cref{bsp:binomialkoeffizient})
+Das folgende Beispiel definiert den Binomialkoeffizienten (vgl. \cref{bsp:binomialkoeffizient}):
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/binomialkoeffizient.hs}
 
@@ -87,9 +87,9 @@ hat einen Speicherverbrauch von $\mathcal{O}(n)$. Durch einen
 \begin{itemize}
     \item \texttt{[]} erzeugt die leere Liste,
     \item \texttt{[1,2,3]} erzeugt eine Liste mit den Elementen $1, 2, 3$
-    \item \texttt{:} wird \textbf{cons}\xindex{cons} genannt und ist
+    \item \texttt{:}\xindex{: (Haskell)} wird \textbf{cons}\xindex{cons} genannt und ist
           der Listenkonstruktor.
-    \item \texttt{list !! i} gibt das $i$-te Element von \texttt{list} zurück.
+    \item \texttt{list !! i}\xindex{"!"! (Haskell)} gibt das $i$-te Element von \texttt{list} zurück.
     \item \texttt{head list} gibt den Kopf von \texttt{list} zurück,
           \texttt{tail list} den Rest:
           \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/list-basic.sh}
@@ -133,7 +133,7 @@ in etwa folgendem Haskell-Code:
 \subsection{Let und where}\xindex{let}\xindex{where}%
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/let-where-bindung.hs}
 
-\subsection{Funktionskomposition}\xindex{.}\xindex{Funktionskomposition}%
+\subsection{Funktionskomposition}\xindex{. (Haskell)}\xindex{Funktionskomposition}%
 In Haskell funktioniert Funktionskomposition mit einem Punkt:
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/function-composition.hs}
@@ -144,6 +144,12 @@ und \texttt{i (-3)} ergibt
 \[(f \circ g) (-3) = g(f(-3)) = g(9) = 8\]
 Es ist also anzumerken, dass die Reihenfolge \underline{nicht} der mathematischen
 konvention entspricht.
+
+\subsection{\$ (Dollar-Zeichen)}\xindex{\$ (Haskell)}
+Das Dollar-Zeichen \$ dient in Haskell dazu Klammern zu vermeiden. So sind die
+folgenden Zeilen äquivalent:
+
+\inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/dollar-example.hs}
 
 \section{Typen}
 \subsection{Standard-Typen}
@@ -161,8 +167,8 @@ Haskell kennt einige Basis-Typen:
 
 Des weiteren gibt es einige strukturierte Typen:
 \begin{itemize}
-  \item Listen: z.~B. $[1,2,3]$
-  \item Tupel: z.~B. $(1,'a',2)$
+  \item Listen: z.~B. \texttt{[1,2,3]}
+  \item Tupel: z.~B. \texttt{(1,'a',2)}
   \item Brüche (Fractional, RealFrac)
   \item Summen-Typen: Typen mit mehreren möglichen Repräsentationen
 \end{itemize}
