@@ -143,13 +143,27 @@ Dabei ergibt \texttt{h (-3)} in der mathematischen Notation
 und \texttt{i (-3)} ergibt
 \[(f \circ g) (-3) = g(f(-3)) = g(9) = 8\]
 Es ist also anzumerken, dass die Reihenfolge \underline{nicht} der mathematischen
-konvention entspricht.
+Konvention entspricht.
 
-\subsection{\$ (Dollar-Zeichen)}\xindex{\$ (Haskell)}
+\subsection{\$ (Dollar-Zeichen) und ++}\xindex{\$ (Haskell)}\xindex{++ (Haskell)@\texttt{++} (Haskell)}%
 Das Dollar-Zeichen \$ dient in Haskell dazu Klammern zu vermeiden. So sind die
 folgenden Zeilen äquivalent:
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/dollar-example.hs}
+
+Das doppelte Plus (\texttt{++}) wird verwendet um Listen mit einander zu verbinden.
+
+\subsection{Logische Operatoren}
+\begin{table}[h]
+    \centering 
+    \begin{tabular}{CCCC}
+    UND    & ODER     & Wahr  & Falsch \\ \hline\hline
+    \&\&   & ||       & True  & False \\[4ex]
+    GLEICH & UNGLEICH & NICHT & ~     \\ \hline\hline
+    ==     & /=       & not   & ~     \\ 
+    \end{tabular}
+    \caption{Logische Operatoren in Haskell}\xindex{Logische Operatoren!Haskell}
+\end{table}
 
 \section{Typen}
 \subsection{Standard-Typen}
@@ -212,7 +226,7 @@ Haskell wertet Ausdrücke nur aus, wenn es nötig ist.
 \end{beispiel}
 
 \section{Beispiele}
-\subsection{Quicksort}
+\subsection{Quicksort}\xindex{filter (Haskell)@\texttt{filter} (Haskell)}%
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=qsort.hs]{haskell}{scripts/haskell/qsort.hs}
 
 \begin{itemize}
