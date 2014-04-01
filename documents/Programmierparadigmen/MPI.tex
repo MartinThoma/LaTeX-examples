@@ -7,7 +7,7 @@ der den Nachrichtenaustausch bei parallelen Berechnungen auf
 verteilten Computersystemen beschreibt.
 
 Prozesse kommunizieren in MPI über sog. \textit{Kommunikatoren}. Ein Kommunikator
-(\texttt{MPI\_Comm}\xindex{MPI\_Comm})
+(\texttt{MPI\_Comm}\xindex{MPI\_Comm@\texttt{MPI\_Comm}})
 definiert eine Menge an Prozessen, die miteinander kommunizieren können. In dieser
 Prozessgruppe hat jeder Prozess einen eindeutigen \textit{rank}\xindex{rank} über den die Prozesse 
 sich identifizieren können.
@@ -19,7 +19,7 @@ Das wird \texttt{mpicc hello-world.c} kompiliert.\\
 Mit \texttt{mpirun -np 14 scripts/mpi/a.out} werden 14 Kopien des Programms
 gestartet.
 
-Hierbei ist \texttt{MPI\_COMM\_WORLD}\xindex{MPI\_COMM\_WORLD} der Standard-Kommunikator,
+Hierbei ist \texttt{MPI\_COMM\_WORLD}\xindex{MPI\_COMM\_WORLD@\texttt{MPI\_COMM\_WORLD}} der Standard-Kommunikator,
 der von \texttt{MPI\_Init} erstellt wird.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,7 +36,7 @@ der von \texttt{MPI\_Init} erstellt wird.
 \end{table}
 
 \section{Funktionen}
-\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-size.c}\xindex{MPI\_Comm\_size}%
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-size.c}\xindex{MPI\_Comm\_size@\texttt{MPI\_Comm\_size}}%
 Liefert die Größe des angegebenen Kommunikators; dh. die Anzahl der Prozesse in der Gruppe.
 
 \textbf{Parameter}
@@ -49,7 +49,7 @@ Liefert die Größe des angegebenen Kommunikators; dh. die Anzahl der Prozesse i
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-size-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
-\rule{\textwidth}{0.4pt}\xindex{MPI\_Comm\_rank}%
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Comm\_rank@\texttt{MPI\_Comm\_rank}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-rank.c}
 Bestimmt den Rang des rufenden Prozesses innerhalb des Kommunikators.
 
@@ -65,7 +65,7 @@ Der Rang wird von MPI zum Identifizieren eines Prozesses verwendet. Die Rangnumm
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/comm-rank-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
-\rule{\textwidth}{0.4pt}\xindex{MPI\_Send}%
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Send@\texttt{MPI\_Send}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-send.c}
 Senden einer Nachricht an einen anderen Prozeß innerhalb eines Kommunikators. (Standard-Send)
 
@@ -84,7 +84,7 @@ Ein Kommunikationsvorgang wird durch ein Tripel (Sender, Empfänger, tag) eindeu
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-send-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
-\rule{\textwidth}{0.4pt}\xindex{MPI\_Recv}%
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Recv@\texttt{MPI\_Recv}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-receive.c}
 Empfangen einer Nachricht (blockierend) 
 
@@ -105,7 +105,7 @@ Empfangen einer Nachricht (blockierend)
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-receive-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
-\rule{\textwidth}{0.4pt}\xindex{MPI\_Reduce}%
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Reduce@\texttt{MPI\_Reduce}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-reduce.c}
 Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhält das Resultat.
 
@@ -120,7 +120,7 @@ Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhäl
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
-\rule{\textwidth}{0.4pt}\xindex{MPI\_Alltoall}%
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Alltoall@\texttt{MPI\_Alltoall}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-alltoall.c}
 Teilt Daten von jedem Prozeß einer Gruppe an alle anderen auf.
 
@@ -138,7 +138,7 @@ Teilt Daten von jedem Prozeß einer Gruppe an alle anderen auf.
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-alltoall-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
-\rule{\textwidth}{0.4pt}\xindex{MPI\_Bcast}%
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Bcast@\texttt{MPI\_Bcast}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-bcast.c}
 Sendet eine Nachricht vom Prozess \texttt{root} an alle anderen Prozesse des 
 angegebenen Kommunikators.
@@ -153,7 +153,7 @@ angegebenen Kommunikators.
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
-\rule{\textwidth}{0.4pt}\xindex{MPI\_Scatter}%
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Scatter@\texttt{MPI\_Scatter}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-scatter.c}
 Verteilt Daten vom Prozess \texttt{root} unter alle anderen Prozesse in der Gruppe, so daß, soweit möglich, alle Prozesse gleich große Anteile erhalten.
 
