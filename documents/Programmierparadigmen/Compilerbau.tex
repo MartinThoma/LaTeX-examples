@@ -184,6 +184,79 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
     \item \textbf{Nachoptimierung}\todo{?}
 \end{itemize}
 
+\section{Weiteres}
+\subsection{First- und Follow}
+\begin{definition}[$k$-Präfix]\xindex{Präfix}\xindex{\# (Compilerbau)}%
+    Sei $G = (\Sigma, V, P, S)$ eine Grammatik, $k \in \mdn_{> 0}$ und
+    $x \in (V \cup \Sigma)^*$ mit
+    \[x = x_1 \dots x_m \text{ mit } x_i \in (V \cup \Sigma) \text{ wobei } i \in 1, \dots, m\]
+
+    Dann heißt $\tilde{x} \in (V \cup \Sigma \cup \Set{\#})^+$ ein $k$-\textbf{Präfix} von $x$,
+    wenn gilt:
+    \[\tilde{x} = 
+    \begin{cases}
+        x\#           &\text{falls } x = x_1 \dots x_m \text{ und } m < k\\
+        x_1 \dots x_k &\text{sonst}
+    \end{cases}\]
+    wobei $\#$ das Ende der Eingabe bezeichnet. In diesem Fall schreibt man
+    \[ \tilde{x} = k\ :\ x\]
+\end{definition}
+
+\begin{beispiel}[$k$-Präfixe]
+    Sei $G = (\Set{A, B, C, S}, \Set{a, b, c}, P, S)$ mit
+    \begin{align*}
+        P = \{ &A \rightarrow aa | ab, \\
+               &B \rightarrow AC,\\
+               &C \rightarrow c,\\
+               &S \rightarrow ABC\}
+    \end{align*}
+
+    Dann gilt:
+    \begin{bspenum}
+        \item $A = 1 : S$
+        \item $a = 1 : S$
+    \end{bspenum}
+
+    \todo[inline]{Das ist ein Problem! Damit wäre $k : x$ nicht wohldefiniert!}
+\end{beispiel}
+
+\begin{definition}[First- und Follow-Menge]\xindex{Firstkx@$\text{First}_k(x)$}\xindex{Followkx@$\text{Follow}_k(x)$}%
+    Sei $G = (\Sigma, V, P, S)$ eine Grammatik und $x \in V$.
+
+    \begin{defenum}
+        \item $\begin{aligned}[t]\First_k (x) := \{u \in (V \cup \Sigma)^+ | &\exists y \in \Sigma^*:\\
+              &x \Rightarrow^* y\\
+        \land &u = k : y \}\end{aligned}$
+        \item $\begin{aligned}[t]\Follow_k(x) := \{u \in (V \cup \Sigma)^+ | &\exists m, y \in (V \cup \Sigma)^* :\\
+              &S \Rightarrow^* mxy\\
+        \land &u \in \First_k(y)\}\end{aligned}$
+    \end{defenum}
+\end{definition}
+
+\begin{beispiel}[First- und Follow-Mengen\footnotemark]
+    Sei $G = (\Sigma, V, P, E)$ mit
+    \begin{align*}
+        \Sigma &= \Set{+, *, (, )}\\
+        V      &= \Set{T, T', E, E', F}\\
+        P      &= \{ E  \rightarrow  T E'\\
+               &\hphantom{= \{ } E' \rightarrow \varepsilon | +TE'\\
+               &\hphantom{= \{ } T  \rightarrow FT'\\
+               &\hphantom{= \{ } T' \rightarrow \varepsilon | *FT'\\
+               &\hphantom{= \{ } F  \rightarrow \id | (E)\}
+    \end{align*}
+
+    Dann gilt:
+    \begin{bspenum}
+        \item $\First(E) = \First(T) = \First(F) = \Set{\id, (\ )}$
+        \item $\First(E') = \Set{\#, +}$
+        \item $\First(T') = \Set{\#, *}$
+        \item $\Follow(E) = \Follow(E') = \Set{\#, )}$
+        \item $\Follow(T) = \Follow(T') = \Set{\#, ), +}$
+        \item $\Follow(F) = \Set{\#, ), +, *}$
+    \end{bspenum}
+\end{beispiel}
+\footnotetext{Folie 348}
+
 \section{Literatur}
 Ich kann das folgende Buch empfehlen:
 
