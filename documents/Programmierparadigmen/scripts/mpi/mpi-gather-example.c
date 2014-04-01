@@ -1,0 +1,19 @@
+#include "mpi.h"
+#define ROOT 0
+
+int numprocs, myid, bufsize;
+int *sendbuf, *recvbuf;
+
+...
+MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
+MPI_Comm_rank(MPI_COMM_WORLD, &myid);
+...
+... sendbuf allocieren, belegen ...
+... bufsize belegen ...
+if (myid==ROOT) {
+    ...
+    recvbuf=malloc(bufsize*sizeof(int));
+}
+MPI_Gather(sendbuf, bufsize, MPI_INT, recvbuf, bufsize, 
+           MPI_INT, ROOT, MPI_COMM_WORLD);
+...
