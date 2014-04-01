@@ -186,12 +186,12 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
 
 \section{Weiteres}
 \subsection{First- und Follow}
-\begin{definition}[$k$-Präfix]\xindex{Präfix}\xindex{\# (Compilerbau)}%
+\begin{definition}[$k$-Anfang]\xindex{k-Anfang@$k$-Anfang}\index{Anfang|see{$k$-Anfang}}\xindex{\# (Compilerbau)}%
     Sei $G = (\Sigma, V, P, S)$ eine Grammatik, $k \in \mdn_{> 0}$ und
-    $x \in (V \cup \Sigma)^*$ mit
-    \[x = x_1 \dots x_m \text{ mit } x_i \in (V \cup \Sigma) \text{ wobei } i \in 1, \dots, m\]
+    $x \in \Sigma^*$ mit
+    \[x = x_1 \dots x_m \text{ mit } x_i \in \Sigma \text{ wobei } i \in 1, \dots, m\]
 
-    Dann heißt $\tilde{x} \in (V \cup \Sigma \cup \Set{\#})^+$ ein $k$-\textbf{Präfix} von $x$,
+    Dann heißt $\tilde{x} \in (\Sigma \cup \Set{\#})^+$ ein $k$-\textbf{Präfix} von $x$,
     wenn gilt:
     \[\tilde{x} = 
     \begin{cases}
@@ -202,7 +202,7 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
     \[ \tilde{x} = k\ :\ x\]
 \end{definition}
 
-\begin{beispiel}[$k$-Präfixe]
+\begin{beispiel}[$k$-Anfang]
     Sei $G = (\Set{A, B, C, S}, \Set{a, b, c}, P, S)$ mit
     \begin{align*}
         P = \{ &A \rightarrow aa | ab, \\
@@ -213,11 +213,13 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
 
     Dann gilt:
     \begin{bspenum}
-        \item $A = 1 : S$
-        \item $a = 1 : S$
+        \item $a = 1 : aaaa$
+        \item $a = 1 : a$
+        \item $a = 1 : aba$
+        \item $ab = 2 : aba$
+        \item $aba = 3 : aba$
+        \item $aba\# = 4 : aba$
     \end{bspenum}
-
-    \todo[inline]{Das ist ein Problem! Damit wäre $k : x$ nicht wohldefiniert!}
 \end{beispiel}
 
 \begin{definition}[First- und Follow-Menge]\xindex{Firstkx@$\text{First}_k(x)$}\xindex{Followkx@$\text{Follow}_k(x)$}%

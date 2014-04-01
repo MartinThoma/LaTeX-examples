@@ -23,7 +23,7 @@ Hierbei ist \texttt{MPI\_COMM\_WORLD}\xindex{MPI\_COMM\_WORLD} der Standard-Komm
 der von \texttt{MPI\_Init} erstellt wird.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MPI Datatypes}\xindex{MPI datatypes}
+\section{MPI Datatypes}\label{sec:MPI-Datatypes}\xindex{MPI datatypes}%
 
 \begin{table}[h]
     \begin{tabular}{|l|l||p{3.2cm}|l|}
@@ -113,7 +113,7 @@ Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhäl
 \begin{itemize}
     \item \textbf{sendbuf}: Startadresse des Sendepuffers
     \item \textbf{count}: Anzahl der Elemente im Sendepuffer
-    \item \textbf{datatype}: Datentyp der Elemente von \texttt{sendbuf}
+    \item \textbf{datatype}: Datentyp der Elemente von \texttt{sendbuf} (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{op}: auszuführende Operation (handle)
     \item \textbf{root}: Rang des Root-Prozesses in comm, der das Ergebnis haben soll
     \item \textbf{comm}: Kommunikator (handle)
