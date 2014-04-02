@@ -86,6 +86,18 @@ Rumpf \texttt{T}.
 \xindex{split}Übergibt man \texttt{append(X,Y,[1,2,3,4,5])}, so werden durch Reerfüllung alle
 Möglichkeiten durchgegangen, wie man die Liste \texttt{[1,2,3,4,5]} splitten kann.
 
+Die Länge einer Liste \texttt{L} kann durch folgendes Prädikat ermittelt werden:\xindex{length(?List, ?Int)@\texttt{length(?List, ?Int)}}%
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/list-length.pl}
+
+\underline{Hinweis}: Da es das Prädikat \texttt{length(?List, ?Int)} bereits gibt, 
+musste dieses Prädikat \texttt{lengthof} genannt werden.
+
+Weitere nützliche Standard-Listenprädikate sind:\xindex{sort(+List, -Sorted)@\texttt{sort(+List, -Sorted)}}
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/standard-list-predicates.pl}
+
+\underline{Hinweis}: \texttt{sort} entfernt Duplikate, \texttt{msort} hingegen nicht.
+
 \section{Beispiele}
 \subsection{Humans}
 Erstelle folgende Datei:

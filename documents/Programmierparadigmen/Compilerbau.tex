@@ -147,6 +147,43 @@ Ausgegeben wird ein \textbf{abstrakter Syntaxbaum}\xindex{Syntaxbaum!abstrakter}
 	TODO
 \end{beispiel}
 
+\subsection{Abstrakte Syntax}\xindex{Syntax!abstrakte}%
+\begin{beispiel}[Abstrakte Syntax für reguläre Ausdrücke\footnotemark]
+    Die Grammatik $G = (\Set{\text{\texttt{char}}, (, ), \cup, \cdot, *, \varepsilon}, \Set{R}, P, R)$ mit den Produktionen
+    \[R \rightarrow \text{\texttt{char}} | \varepsilon | ( R \cup R ) | (R \cdot R) | (R)^*\]
+    erzeugt einfache reguläre Ausdrücke.
+
+    Die zugehörige abstrakte Syntax ist
+
+    \begin{align*}
+        \text{RegExp} &= \text{Char } | \text{ Epsilon } | \text{ Union } | \text{ Concatenation } | \text{ KleeneClosure }\\
+        \text{Union} &:: \text{RegExp RegExp}\\
+        \text{Concatenation} &:: \text{RegExp RegExp}\\
+        \text{KleeneClosure} &:: \text{RegExp}\\
+        \text{Char} &= \text{\texttt{char}}\\
+        \text{Epsilon} &= \varepsilon\\
+    \end{align*}
+\end{beispiel}
+\footnotetext{Klausur vom SS2012}
+
+\begin{beispiel}[Abstrakte Syntax für reguläre Ausdrücke\footnotemark]
+    Die Grammatik $G = (\Set{\text{\texttt{char}}, (, ), \cup, \cdot, *, \varepsilon}, \Set{R}, P, R)$ mit den Produktionen
+    \[R \rightarrow \text{\texttt{char}} | \varepsilon | ( R \cup R ) | (R \cdot R) | (R)^*\]
+    erzeugt einfache reguläre Ausdrücke.
+
+    Die zugehörige abstrakte Syntax ist
+
+    \begin{align*}
+        \text{RegExp} &= \text{Char } | \text{ Epsilon } | \text{ Union } | \text{ Concatenation } | \text{ KleeneClosure }\\
+        \text{Union} &:: \text{RegExp RegExp}\\
+        \text{Concatenation} &:: \text{RegExp RegExp}\\
+        \text{KleeneClosure} &:: \text{RegExp}\\
+        \text{Char} &= \text{\texttt{char}}\\
+        \text{Epsilon} &= \varepsilon\\
+    \end{align*}
+\end{beispiel}
+\footnotetext{Klausur vom SS2012}
+
 \section{Semantische Analyse}\xindex{Analyse!semantische}%
 Die semantische Analyse arbeitet auf einem abstrakten Syntaxbaum und generiert
 einen attributierten Syntaxbaum\xindex{Syntaxbaum!attributeriter}.
