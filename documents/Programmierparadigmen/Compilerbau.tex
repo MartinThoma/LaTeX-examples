@@ -228,7 +228,7 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
     $x \in \Sigma^*$ mit
     \[x = x_1 \dots x_m \text{ mit } x_i \in \Sigma \text{ wobei } i \in 1, \dots, m\]
 
-    Dann heißt $\tilde{x} \in (\Sigma \cup \Set{\#})^+$ ein $k$-\textbf{Präfix} von $x$,
+    Dann heißt $\tilde{x} \in (\Sigma \cup \Set{\#})^+$ ein $k$-\textbf{Anfang} von $x$,
     wenn gilt:
     \[\tilde{x} = 
     \begin{cases}
@@ -249,6 +249,7 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
     \end{align*}
 
     Dann gilt:
+    \begin{multicols}{2}
     \begin{bspenum}
         \item $a = 1 : aaaa$
         \item $a = 1 : a$
@@ -257,20 +258,37 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
         \item $aba = 3 : aba$
         \item $aba\# = 4 : aba$
     \end{bspenum}
+    \end{multicols}
 \end{beispiel}
 
 \begin{definition}[First- und Follow-Menge]\xindex{Firstkx@$\text{First}_k(x)$}\xindex{Followkx@$\text{Follow}_k(x)$}%
-    Sei $G = (\Sigma, V, P, S)$ eine Grammatik und $x \in V$.
+    Sei $G = (\Sigma, V, P, S)$ eine Grammatik und $x \in (V \cup \Sigma)$.
 
     \begin{defenum}
-        \item $\begin{aligned}[t]\First_k (x) := \{u \in (V \cup \Sigma)^+ | &\exists y \in \Sigma^*:\\
+        \item $\begin{aligned}[t]\First_k (x) := \{u \in \Sigma^+ | \exists &y \in \Sigma^*:\\
               &x \Rightarrow^* y\\
         \land &u = k : y \}\end{aligned}$
-        \item $\begin{aligned}[t]\Follow_k(x) := \{u \in (V \cup \Sigma)^+ | &\exists m, y \in (V \cup \Sigma)^* :\\
+        \item $\First(x) := \First_1(x)$
+        \item $\begin{aligned}[t]\Follow_k(x) := \{u \in \Sigma^+ | \exists &m, y \in (V \cup \Sigma)^* :\\
               &S \Rightarrow^* mxy\\
         \land &u \in \First_k(y)\}\end{aligned}$
+        \item $\Follow(x) := \Follow_1(x)$
     \end{defenum}
 \end{definition}
+
+Die $\First_k(x)$-Menge beinhaltet also alle Terminalfolgen, die entweder $k$ 
+Terminale lang sind oder kürzer sind und dafür mit \# enden und die zugleich
+der Anfang von Ableitungen von $x$ sind.
+
+Die $\Follow_k(x)$-Menge hingegen hat alle Terminalfolgen der Länge $k$ oder kürzer
+und dafür mit \# am Ende, die aus einer Ableitung des Startsymbols $S \Rightarrow^* mxy$ 
+auf die Teilfolge $x$ folgen können.
+
+Mit der $\Follow_k(x)$-Menge kann man also zu jedem Zeitpunkt sagen, was momentan
+folgen darf. Wenn der Parser etwas anderes liest, ist ein Fehler passiert.
+
+Da jede Terminalfolge, die sich aus $S$ folgern lässt mit \# endet, gilt immer:
+\[\# \in \Follow_k(x)\]
 
 \begin{beispiel}[First- und Follow-Mengen\footnotemark]
     Sei $G = (\Sigma, V, P, E)$ mit

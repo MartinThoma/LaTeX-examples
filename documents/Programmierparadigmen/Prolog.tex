@@ -33,6 +33,19 @@ und $Y$ Farben sind und $X \neq Y$ gilt:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/simple-term.pl}
 
+\subsection{= und ==}\xindex{= (Prolog)}\xindex{== (Prolog)}
+In Prolog entspricht \texttt{=} dem Prädikat \texttt{=/2}. Das Prädikat \texttt{<a> = <b>} wird
+erfüllt, wenn die beiden Terme \texttt{<a>} und \texttt{<b>} unifiziert werden
+können.
+
+Das Prädikat \texttt{<a> == <b>} ist im Gegensatz dazu jedoch nur erfüllt, wenn
+die beiden Terme bereits identisch sind.
+
+\begin{beispiel}[= und ==]
+    \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/equal.pl}
+\end{beispiel}
+
+Weitere Informationen: \url{http://stackoverflow.com/a/8220315/562769}
 
 \subsection{Arithmetik}
 Die Auswertung artihmetischer Ausdrücke muss in Prolog explizit durch \texttt{is}
