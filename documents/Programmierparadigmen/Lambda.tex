@@ -111,7 +111,13 @@ Die Call-By-Name Auswertung wird in Funktionen verwendet.
 Haskell verwendet die Call-By-Name Auswertungsreihenfolge zusammen mit \enquote{sharing}. Dies nennt man \textit{Lazy Evaluation}. Ein spezialfall der Lazy-Evaluation ist die sog. \textit{Kurzschlussauswertung}.\xindex{Kurzschlussauswertung}\xindex{Short-circuit evaluation}
 Das bezeichnet die Lazy-Evaluation von booleschen Ausdrücken.
 
-\todo[inline]{Was ist sharing?}
+\todo[inline]{Was ist sharing? Vermutlich so etwas wie in folgendem Beispiel:}
+
+\begin{beispiel}[Sharing]
+    In dem Ausdruck \texttt{(plus, (fac, 42), (fac, 42))} muss der Teilausdruck
+    \texttt{(fac, 42)} nicht zwei mal ausgewertet werden, wenn er Seiteneffektfrei 
+    ist.
+\end{beispiel}
 
 \begin{definition}[Call-By-Value]\xindex{Call-By-Value}%
     In der Call-By-Value Auswertung wird der linkeste Redex reduziert, der

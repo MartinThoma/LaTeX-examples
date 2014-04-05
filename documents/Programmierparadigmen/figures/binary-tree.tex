@@ -1,0 +1,16 @@
+\tikzstyle{vertex}=[draw,fill=black!15,circle,minimum size=20pt,inner sep=0pt]
+\begin{tikzpicture}[very thick,level/.style={sibling distance=60mm/#1}]
+\node [vertex] (r){$a$}
+  child {
+    node [vertex] (a) {$b$}
+    child {
+      node [vertex] {$c$}
+    }
+    child {
+      node [vertex] {$d$}
+    }
+  }
+  child {
+    node [vertex] {$e$}
+  };
+\end{tikzpicture}

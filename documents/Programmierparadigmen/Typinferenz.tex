@@ -67,7 +67,7 @@ Mit folgenderweise typisiert werden:
 In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 
 \section{Typsystem}
-\begin{definition}[Typsystem $\Gamma \vdash t: T$\footnotemark]\label{def:typsystem-t1}\xindex{Typregel}\xindex{Typsystem}%
+\begin{definition}[Typsystem $\Gamma \vdash t: T$\footnotemark]\label{def:typsystem-t1}\xindex{Typregel}\xindex{Typsystem}\xindex{APP@$\APP$}\xindex{ABS@$\ABS$}\xindex{VAR@$\VAR$}\xindex{CONST@$\CONST$}%
 	Ein Typkontext $\Gamma$ ordnet jeder freien Variable $x$ einen Typ $\Gamma(x)$
 	durch folgende Regeln zu:
 
@@ -78,7 +78,7 @@ In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 			   &\\
 		\ABS:  &\frac{\Gamma, x: \tau_1 \vdash t: \tau_2}{\Gamma \vdash \lambda x. t: \tau_1 \rightarrow \tau_2}\\
 			   &\\
-		\APP:  &\frac{\Gamma \vdash t_1, \tau_2 \tau\;\;\; \Gamma \vdash t_2: \tau_2}{\Gamma \vdash t_1 t_2: \tau}
+		\APP:  &\frac{\Gamma \vdash t_1: \tau_2 \rightarrow \tau\;\;\; \Gamma \vdash t_2: \tau_2}{\Gamma \vdash t_1 t_2: \tau} \\
 	\end{align*}
 \end{definition}
 \footnotetext{WS 2013 / 2014, Folie 192}
@@ -109,6 +109,19 @@ verwendet. Man schreibt also beispielsweise:
 	Das Folgende nennt man eine Typisierungsregel:\footnote{Klausur WS 2010 / 2011}
 	\[\frac{\Gamma \vdash b: \text{\texttt{bool}}\;\;\; \Gamma \vdash x: \tau \;\;\; \Gamma \vdash y: \tau }{\Gamma \vdash \text{\textbf{if} b \textbf{then} x \textbf{else} y} : \tau}\]
 \end{beispiel}
+
+\section{Constraint-Mengen}
+Die Konstraint-Mengen ergeben sich direkt aus den Typisierungsregeln:
+
+    \begin{align*}
+        \CONST:&\text{z.~B.} \CONST \frac{2 \in \text{Const}}{\Gamma \vdash 2 : \alpha_5} \text{ ergibt } \alpha_5 = \text{\texttt{int}}\\
+               &\\
+        \VAR:  &\\
+               &\\
+        \ABS:  &\frac{\alpha_2 \vdash \alpha_3}{\alpha_1} \text{ ergibt } \alpha_1 = \alpha_2 \rightarrow \alpha_3\\
+               &\\
+        \APP:  &\frac{\vdash \alpha_2 \;\;\; \vdash \alpha_3}{\alpha_1} \text{ ergibt } \alpha_2 = \alpha_3 \rightarrow \alpha_1\\
+    \end{align*}
 
 \section{Let-Polymorphismus}\xindex{let-Polymorphismus}\footnote{WS 2013 / 2014, Folie 205ff}%
 Das Programm $P = \text{let } f = \lambda x.\ 2 \text{ in } f\ (f\ \text{\texttt{true}})$

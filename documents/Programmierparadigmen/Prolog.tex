@@ -1,3 +1,4 @@
+%!TEX root = Programmierparadigmen.tex
 \chapter{Prolog}
 \index{Prolog|(}
 
@@ -110,6 +111,44 @@ Weitere nützliche Standard-Listenprädikate sind:\xindex{sort(+List, -Sorted)@\
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/standard-list-predicates.pl}
 
 \underline{Hinweis}: \texttt{sort} entfernt Duplikate, \texttt{msort} hingegen nicht.
+
+Eine Liste kann mit \texttt{rev/2}\xindex{rev/2@\texttt{rev/2}} umgedreht werden:
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/reverse-list.pl}
+
+\subsection{Bäume}
+Bäume können in Prolog wie folgt erstellt werden:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/binary-tree-example.pl}
+
+\begin{figure}[htp]
+    \centering
+     \input{figures/binary-tree.tex}
+    \caption{Binärbaum \texttt{T2}}
+    \label{fig:binary-tree-t2}
+\end{figure}
+
+Dabei ist 
+\begin{itemize}
+    \item \texttt{T0} der einzelne Knoten \texttt{a},
+    \item \texttt{T1} der Baum, der \texttt{a} als Wurzel und \texttt{b} und 
+          \texttt{c} als Kinder hat,
+    \item \texttt{T2} ist in \cref{fig:binary-tree-t2} dargestellt und
+    \item \texttt{T3} ist der leere Baum.
+\end{itemize}
+
+Die folgenden Prädikate stammen von \url{https://sites.google.com/site/prologsite/prolog-problems/4}:
+
+\subsection{Binärbaum-Check}
+Das folgende Prädikate \texttt{istree/1} überprüft, ob es sich bei dem Parameter
+um einen Binärbaum handelt:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/istree.pl}
+
+\subsection{Balancierte Binärbaumkonstruktion}
+Das folgende Prädikate \texttt{cbal\_tree(n, T)} erstellt einen balancierten 
+Binärbaum mit \texttt{n} Knoten in \texttt{T}:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/balancedtreeconstruction.pl}
 
 \section{Beispiele}
 \subsection{Humans}
