@@ -74,7 +74,7 @@ In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 	\begin{align*}
 		\CONST:&\frac{c \in \text{Const}}{\Gamma \vdash c: \tau_c}\\
 			   &\\
-		\VAR:  &\frac{\Gamma(x) = \tau}{\Gamma \vdash c: \tau}\\
+		\VAR:  &\frac{\Gamma(x) = \tau}{\Gamma \vdash x: \tau}\\
 			   &\\
 		\ABS:  &\frac{\Gamma, x: \tau_1 \vdash t: \tau_2}{\Gamma \vdash \lambda x. t: \tau_1 \rightarrow \tau_2}\\
 			   &\\
@@ -209,7 +209,7 @@ eine passende Regel.
 Für $\lambda x.\ \lambda y.\ x\ y$ wissen wir also schon, dass jeder Ableitungsbaum\xindex{Ableitungsbaum}
 von folgender Gestalt ist. Dabei sind $\alpha_i$ Platzhalter:
 
-\[\ABS \frac{\ABS\frac{\textstyle\ABS \frac{\textstyle\VAR \frac{(x: \alpha_2, y: \alpha_4)\ (x) = \alpha_6}{x: \alpha_2, y: \alpha_4 \vdash x: \alpha_6}\ \ \VAR \frac{(x:\alpha_2, y: \alpha_4)\ (y) = \alpha_7}{x: \alpha_2, y: \alpha_4 \vdash y : \alpha_7}}{\textstyle x: \alpha_2, y: \alpha_4 \vdash x\ y: \alpha_5}}{x:\alpha_2 \vdash \lambda y.\ x\ y\ :\ \alpha_3}}{\vdash \lambda x.\ \lambda \ y.\ x\ y: \alpha_1}\]
+\[\ABS \frac{\ABS\frac{\textstyle\APP \frac{\textstyle\VAR \frac{(x: \alpha_2, y: \alpha_4)\ (x) = \alpha_6}{x: \alpha_2, y: \alpha_4 \vdash x: \alpha_6}\ \ \VAR \frac{(x:\alpha_2, y: \alpha_4)\ (y) = \alpha_7}{x: \alpha_2, y: \alpha_4 \vdash y : \alpha_7}}{\textstyle x: \alpha_2, y: \alpha_4 \vdash x\ y: \alpha_5}}{x:\alpha_2 \vdash \lambda y.\ x\ y\ :\ \alpha_3}}{\vdash \lambda x.\ \lambda \ y.\ x\ y: \alpha_1}\]
 
 Das was wir haben wollen steht am Ende, also unter dem unterstem Schlussstrich.
 Dann bedeutet die letzte Zeile 
