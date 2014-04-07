@@ -1,1 +1,3 @@
-MPI_Bcast(buffer, count, datatype, root, comm)
+int MPI_Bcast( void *buffer, int count, 
+               MPI_Datatype datatype, int root, 
+               MPI_Comm comm )
