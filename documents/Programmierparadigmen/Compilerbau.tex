@@ -41,11 +41,27 @@ Die \textit{Just-in-time-Compiler}\xindex{Compiler!Just-in-time}\index{JIT|see{J
 Laufzeitübersetzung. Folgendes sind Vor- bzw. Nachteile von Just-in-time Compilern:
 \begin{itemize}
 	\item schneller als reine Interpretierer
-	\item Speichergewinn: Quelle kompakter als Zielprogramm\todo{Was ist hier gemeint?}
+	\item Speichergewinn: Quelle kompakter als Zielprogramm (vgl. \cref{bsp:code-kompaktheit})
 	\item Schnellerer Start des Programms
 	\item Langsamer (pro Funktion) als vollständige Übersetzung
 	\item kann dynamisch ermittelte Laufzeiteigenschaften berücksichtigen (dynamische Optimierung)
 \end{itemize}
+
+\begin{beispiel}[Code-Kompaktheit]\label{bsp:code-kompaktheit}%
+    Man betrachte folgende Codestücke:
+
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Hello.java]{java}{scripts/java/Hello.java}
+    \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=hello-world.c]{c}{scripts/c/hello-world.c}
+
+    Nun zum Größenvergleich:
+
+    \begin{itemize}
+        \item Der C-Code ist 83 Byte groß,
+        \item der Java-Codee ist 123 Byte groß, 
+        \item der generierte Java Bytecode ist 416 Byte groß und
+        \item der erzeugt Maschinencode aus C ist 8565 Byte groß.
+    \end{itemize}
+\end{beispiel}
 
 Moderne virtuelle Maschinen für Java und für .NET nutzen JIT-Compiler.
 
