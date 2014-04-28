@@ -1,0 +1,159 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}       % links im text
+\usepackage{csquotes}       % nice quotes
+\usepackage{parskip}        % I don't want indentation
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage[locale=DE,per=slash]{siunitx}    % for propper units
+\DeclareSIUnit{\EUR}{\text{~Euro}}
+\usepackage{multicol}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\S\thesection}{1em}{}
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Untermietvertrag}, 
+  pdftitle    = {Untermietvertrag} 
+} 
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\HauptmieterVorname}{Martin}                            %
+\newcommand{\HauptmieterNachname}{Thoma}                            %
+\newcommand{\HauptmieterAnschrift}{Parkstraße 17, 76131 Karlsruhe}  %
+\newcommand{\UntermieterVorname}{}                                  %
+\newcommand{\UntermieterNachname}{}                                 %
+\newcommand{\UntermieterAnschrift}{}                                %
+\newcommand{\UntermieteBeginn}{01.06.2014}                          %
+\newcommand{\UntermieteEnde}{31.08.2014}                            %
+\newcommand{\Monatsmiete}{200}                                      %
+\newcommand{\Kaution}{250}                                          %
+% Mietgegenstand
+\newcommand{\Strasse}{Parkstraße} % Deine Straße                    %
+\newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
+\newcommand{\PLZ}{76131}          % Deine PLZ                       %
+\newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
+\newcommand{\Wohnflaeche}{19}     % in m^2                          %
+% Konto
+\newcommand{\Kontoinhaber}{Martin Thoma}                            %
+\newcommand{\Kontonummer}{}                                         %
+\newcommand{\IBAN}{TODO}                                            %
+\newcommand{\Bank}{TODO}                                            %
+\newcommand{\BLZ}{TODO}                                             %
+\newcommand{\Verwendungszweck}{Miete von [Name des Untermieters]}   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section*{Untermietvertrag}
+Im Folgenden wird ein Untermietvertrag zwischen\\
+
+\HauptmieterVorname~\HauptmieterNachname,~\HauptmieterAnschrift\\
+\line(1,0){250}\\
+\vspace{-0.3cm}
+{\scriptsize Name, Anschrift}\\
+
+und
+
+\UntermieterVorname~\UntermieterNachname\\
+\line(1,0){250}\\
+\vspace{-0.3cm}
+{\scriptsize Name, Anschrift}\\
+
+geschlossen
+
+\section{Mietgegenstand}
+Es wird ein Zimmer in
+
+\indent \Strasse~\Hausnummer\\
+\indent \PLZ~\Ort
+
+zu Wohnzwecken vermietet. 
+Die Wohnfläche beträgt ca.~$\si{\Wohnflaeche}{\meter^2}$.
+
+Das Zimmer ist wie folgt ausgestattet:
+
+\begin{multicols}{2}
+\begin{itemize}
+  \item 1 Bett
+  \item 2 Matratzen
+  \item 1 großer Schrank
+  \item 2 kleine Schränke
+  \item 2 Wandregale
+  \item 1 Staubsauger
+  \item 1 19" LCD-Monitor
+\end{itemize}
+\end{multicols}
+
+Folgende Räume können mitbenutzt werden:
+
+\begin{multicols}{2}
+\begin{itemize}
+  \item Küche / Bad
+  \item WC
+\end{itemize}
+\end{multicols}
+
+\section{Mietdauer}
+Das Untermietverhältnis beginnt am \UntermieteBeginn.\\
+Es endet am \UntermieteEnde.
+
+\pagebreak
+
+\section{Miete}
+Es ist monatlich eine Miete von \Monatsmiete~Euro auf folgendes Konto zu
+überweisen:
+
+Kontoinhaber:~\Kontoinhaber\\
+Kontonummer:~\Kontonummer\\
+IBAN:~\IBAN\\
+Kreditinstitut:~\Bank\\
+Bankleitzahl (BLZ):~\BLZ\\
+Verwendungszweck:~\Verwendungszweck\\
+
+Die Miete ist vor Beginn des Monats zu zahlen.
+
+Es wird eine Kaution von $\si{\Kaution}{\EUR}$  erhoben. Diese wird im Falle
+einer Sachbeschädigung benutzt, um den Schaden zu beheben. Sie dient also der
+Absicherung des Hauptmieters.
+
+Liegt keine Beschädigung vor, wird die Kaution vollständig Rückerstattet.
+
+\section{Weiteres}
+\begin{enumerate}
+  \item Rauchen ist innerhalb der Wohnung verboten. Auch nicht aus dem
+        offenem Fenster.
+  \item Haustiere sind in der Wohnung verboten.
+  \item Eine weitere Untervermietung ist verboten.
+\end{enumerate}
+
+\section{Schlüsselübergabe}
+Die Schlüsselübergabe (Haus-, Etagen- und Wohnungsschlüssel) findet am
+
+\line(1,0){250}\\
+\vspace{-0.3cm}
+{\scriptsize Datum der Schlüsselübergabe}\\
+
+statt.
+
+
+\vspace{1.5cm}
+\line(1,0){250}\\
+\vspace{-0.3cm}
+{\scriptsize Datum und Unterschrift des Hauptmieters}\\
+
+
+\vspace{1cm}
+\line(1,0){250}\\
+\vspace{-0.3cm}
+{\scriptsize Datum und Unterschrift des Untermieters}\\
+\end{document}
