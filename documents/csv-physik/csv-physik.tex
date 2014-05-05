@@ -1,0 +1,25 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage[locale=DE]{siunitx} % Formats the units and values
+\usepackage{datatool}
+\usepackage{booktabs} % For \toprule, \midrule and \bottomrule
+% start every dtl table with \toprule from booktabs
+\renewcommand{\dtldisplaystarttab}{\toprule}
+
+% likewise for \midrule and \bottomrule from booktabs 
+\renewcommand{\dtldisplayafterhead}{\midrule}
+\renewcommand{\dtldisplayendtab}{\\\bottomrule}
+
+% Setup siunitx:
+\sisetup{
+  round-mode          = places, % Rounds numbers
+  round-precision     = 2, % to 2 places
+}
+
+\begin{document}
+    \DTLloaddb{stores}{messergebnisse.csv} % adjust the name
+    \DTLdisplaydb{stores}
+\end{document}
