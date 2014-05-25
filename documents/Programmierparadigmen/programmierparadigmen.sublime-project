@@ -2,7 +2,12 @@
 	"folders":
 	[
 		{
-			"path": "/home/moose/Downloads/LaTeX-examples/documents/Programmierparadigmen"
+			"follow_symlinks": true,
+			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/var/www/write-math/website/gallery"
 		}
 	]
 }

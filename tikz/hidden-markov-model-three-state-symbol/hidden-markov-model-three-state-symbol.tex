@@ -1,0 +1,29 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{units}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{calc} 
+
+\begin{document}
+\tikzstyle{vertex}=[draw,black,fill=blue,circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[very thick]
+\begin{tikzpicture}[scale=2.5]
+    \node (a)[vertex,fill=gray!10,align=left] at (0,0) {first};
+    \node (b)[vertex,fill=gray!10,align=left] at (1,0) {middle};
+    \node (c)[vertex,fill=gray!10,align=left] at (2,0)  {last};
+
+    \node (a1) at (0,-1)  {$(x(t), y(t))$};
+    \node (b1) at (1,-1)  {$(x(t), y(t))$};
+    \node (c1) at (2,-1)  {$(x(t), y(t))$};
+
+    \path[thick,->] (a)    edge node [anchor=center,above,sloped] {$p_{1,2}$} (b);
+    \path[thick,->] (b)    edge node [anchor=center,above,sloped] {$p_{2,3}$} (c);
+    \path[thick,->] (a)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$p_1$} (a);
+    \path[thick,->] (b)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$p_2$} (b);
+    \path[thick,->] (c)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$p_3$} (c);
+
+    \path[thick,->] (a)    edge node [anchor=center,above,sloped] {} (a1);
+    \path[thick,->] (b)    edge node [anchor=center,above,sloped] {} (b1);
+    \path[thick,->] (c)    edge node [anchor=center,above,sloped] {} (c1);
+\end{tikzpicture}
+\end{document}
