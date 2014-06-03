@@ -1,0 +1,40 @@
+\documentclass[hyperref={pdfpagelabels=false},usepdftitle=false]{beamer}
+\usepackage{../templates/myStyle}
+
+\begin{document}
+\selectlanguage{english}
+
+\title{\titleText}
+\subtitle{Bachelor's thesis of Martin Thoma}
+\author{\tutor}
+\date{5th of June, 2014}
+%\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Contents}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{What is my Bachelor's thesis about?}
+\input{introduction}
+
+\section{What did I do so far?}
+\input{work-done}
+
+\section{What will I do next?}
+\input{will-do}
+
+\section{End}
+\subsection{End}
+\input{sources}
+\framedgraphic{Thanks for Your Attention!}{../images/xi.png}
+
+\end{document}
