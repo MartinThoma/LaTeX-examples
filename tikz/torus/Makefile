@@ -1,11 +1,11 @@
-SOURCE = Torus
+SOURCE = TorusMain
 DELAY = 80
 DENSITY = 300
 WIDTH = 512
 
 make:
 	sketch torus.sketch > torus.tex
-	pdflatex Torus.tex -output-format=pdf
+	pdflatex $(SOURCE).tex -output-format=pdf
 	make clean
 
 clean:
