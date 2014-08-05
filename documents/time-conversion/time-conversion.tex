@@ -1,0 +1,47 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage{parskip}
+\usepackage{csquotes}
+
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{wasysym} % für die benutzten Symbole
+
+\title{Time conversion}
+\author{Martin Thoma}
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {}, 
+  pdftitle    = {} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+Germany (+1 + 1)\\
+Pittsburg, PA (-5 + 1)\\
+\begin{table}[htp]
+    \begin{tabular}{ll||ll}
+    Germany & Pittsburg & Germany & Pittsburgh \\ \hline
+    \cellcolor{red!25} 01:00     & \cellcolor{green!25} 19:00   & \cellcolor{green!25} 13:00     & \cellcolor{yellow!25} 07:00      \\
+    \cellcolor{red!25} 02:00     & \cellcolor{green!25} 20:00   & \cellcolor{green!25} 14:00     & \cellcolor{yellow!25} 08:00      \\
+    \cellcolor{red!25} 03:00     & \cellcolor{green!25} 21:00   & \cellcolor{green!25} 15:00     & \cellcolor{green!25} 09:00      \\
+    \cellcolor{red!25} 04:00     & \cellcolor{green!25} 22:00   & \cellcolor{green!25} 16:00     & \cellcolor{green!25} 10:00      \\
+    \cellcolor{red!25} 05:00     & \cellcolor{yellow!25} 23:00  & \cellcolor{green!25} 17:00     & \cellcolor{green!25} 11:00      \\
+    \cellcolor{yellow!25} 06:00  & \cellcolor{yellow!25} 00:00  & \cellcolor{green!25} 18:00     & \cellcolor{green!25} 12:00      \\
+    \cellcolor{yellow!25} 07:00  & \cellcolor{red!25} 01:00     & \cellcolor{green!25} 19:00     & \cellcolor{green!25} 13:00      \\
+    \cellcolor{yellow!25} 08:00  & \cellcolor{red!25} 02:00     & \cellcolor{green!25} 20:00     & \cellcolor{green!25} 14:00      \\
+    \cellcolor{green!25} 09:00   & \cellcolor{red!25} 03:00     & \cellcolor{green!25} 21:00     & \cellcolor{green!25} 15:00      \\
+    \cellcolor{green!25} 10:00   & \cellcolor{red!25} 04:00     & \cellcolor{green!25} 22:00     & \cellcolor{green!25} 16:00      \\
+    \cellcolor{green!25} 11:00   & \cellcolor{red!25} 05:00     & \cellcolor{yellow!25} 23:00    & \cellcolor{green!25} 17:00      \\
+    \cellcolor{green!25} 12:00   & \cellcolor{yellow!25} 06:00  & \cellcolor{yellow!25} 00:00    & \cellcolor{green!25} 18:00      \\
+    \end{tabular}
+\end{table}
+
+\end{document}
