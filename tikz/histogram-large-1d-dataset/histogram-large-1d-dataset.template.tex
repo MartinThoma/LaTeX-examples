@@ -1,0 +1,44 @@
+\documentclass[margin=10pt]{standalone}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+
+\newcommand\clipright[1][white]{
+  \fill[#1](current axis.south east)rectangle(current axis.north-|current axis.outer east);
+  \pgfresetboundingbox
+  \useasboundingbox(current axis.outer south west)rectangle([xshift=.5ex]current axis.outer north-|current axis.east);
+}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[/tikz/ybar interval,
+        ybar legend,
+        xtick align=outside,
+        ymin=0,
+        axis x line*=left,
+        enlarge x limits=false,
+        grid=major,
+        height=7cm,
+        title={All Results},
+        xlabel={recording time $t$ in ms},
+        ylabel={Number of Recordings},
+        xtick={0,...,16},
+        xticklabels={ {{xticklabels}} },
+        width=\textwidth,
+        xtick=data,
+        xticklabel style={
+            inner sep=0pt,
+            anchor=north east,
+            rotate=45
+        },
+        nodes near coords,
+        every node near coord/.append style={
+            anchor=mid west,
+            rotate=45},
+            ]
+    \addplot[blue, fill=blue!40!white] coordinates { {{coordinates}} };
+    \legend{Time}
+    \end{axis}
+    \clipright
+\end{tikzpicture}
+\end{document}
