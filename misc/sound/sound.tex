@@ -1,0 +1,109 @@
+\documentclass{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[scaled =.92]{helvet}
+\setlength{\paperwidth}{5.2075in}
+\setlength{\paperheight}{4.90in}
+\renewcommand*{\familydefault}{phv}
+\usepackage[pdftex,margin=0.5in]{geometry}
+\usepackage{soul}
+\usepackage{fancyhdr}
+\lhead{Sound and TeX}\chead{}
+\rhead{Can you hear me?}
+\lfoot{}\cfoot{}\rfoot{}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[pdftex,pdfpagelayout=SinglePage,
+pdftitle={Hello world},pdfsubject={Invest your new year improving your TeX skills}%
+]{hyperref}
+\definecolor{background}{rgb}{0.99,0.98,0.90}
+\pagecolor{background}
+\setlength{\parindent}{0.0cm}
+\usepackage[pdftex]{insdljs}
+
+\begin{insDLJS}[test]{test}{JavaScript}
+function Hello()
+{
+  var cSpeaker = tts.getNthSpeakerName(0);
+   tts.speaker = cSpeaker;
+   tts.qText ("Hello, Tex Stack Exchange. Helloooo, can anybody hear me? Helloooo?");
+   tts.talk();
+}
+
+
+function HelloWorld()
+{
+  var cSpeaker = tts.getNthSpeakerName(0);
+   tts.speaker = cSpeaker;
+   tts.qText ("Hello, Tex Stack Exchange. Helloooo, can anybody hear me?");
+   tts.qText("This is a new and alien TeX world.");
+   tts.talk();
+}
+
+function WhatsUp()
+{
+  var cSpeaker = tts.getNthSpeakerName(0);
+   tts.speaker = cSpeaker;
+   tts.qText ("Humans are not proud of their ancestors, and rarely invite them round to dinner.");
+   tts.qText("What\'s up?");
+   tts.talk();
+}
+
+function Universe()
+{
+  var cSpeaker = tts.getNthSpeakerName(0);
+   tts.speaker = cSpeaker;
+   tts.qText ("In the beginning the Universe was created. This has made a lot of people very angry and has been widely regarded as a bad move.In those days spirits were brave, the stakes were high, men were real men, women were real women and small furry creatures from Alpha Centauri were real small furry creatures from Alpha Centauri. There is a theory which states that if ever anybody discovers exactly what the Universe is for and why it is here, it will instantly disappear and be replaced by something even more bizarre and inexplicable. There is another theory which states that this has already happened. I am Douglas Adams");
+   tts.qText("Who are you? I may be a sorry case, but I don't write jokes in base 13");
+   tts.talk();
+}
+
+
+\end{insDLJS}
+
+%% This must be here
+\OpenAction{/S/JavaScript/JS(Hello();)}
+
+%% Short hand commands
+\newcommand{\textforlabel}[2]{%
+\TextField[name={#1}, value={#2}, width=9em,align=2,%
+    bordercolor={0.990 .980 .85},%
+ readonly=true]{}%
+}
+
+
+%% Define the heading
+\newcommand{\heading}[1]{\so{#1}}
+
+\begin{document}
+\phantom{0}
+\begin{center}
+\vspace{2cm}
+\textbf{\Huge Hello World!\\[0.2cm] Can you hear me?}
+\end{center}
+\vfill
+\newpage
+
+\begin{Form}
+\begin{center}
+%% Push button is defined here
+\PushButton[name=hello,%
+onclick={HelloWorld();}, bordercolor={0.650 .790 .94}%
+]{Hello World!} 
+\\[10pt]
+
+\PushButton[name=hello,%
+onclick={WhatsUp();}, bordercolor={0.650 .790 .94}%
+]{What's Up?} 
+\\[10pt]
+
+\PushButton[name=hello,%
+onclick={Universe();}, bordercolor={0.650 .790 .94}%
+]{What's with the Universe?} 
+\\[2cm]
+\heading{Press a button!}\\
+\end{center}
+\end{Form}
+
+
+\end{document}
