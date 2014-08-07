@@ -7,7 +7,7 @@ import fileinput
 import math
 
 
-def main(filename, bins, maximum, yticks):
+def main(filename, bins, maximum, yticks_number):
     with open(filename) as f:
         content = f.read().split("\n")
     numbers = []
