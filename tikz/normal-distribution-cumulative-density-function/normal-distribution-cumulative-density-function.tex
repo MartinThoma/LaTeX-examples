@@ -1,0 +1,40 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\def\cdf(#1)(#2)(#3){0.5*(1+(erf((#1-#2)/(#3*sqrt(2)))))}%
+% to be used: \cdf(x)(mean)(variance)
+
+\DeclareMathOperator{\CDF}{cdf}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        legend pos=north west,
+        axis x line=middle,
+        axis y line=middle,
+        grid = major,
+        width=8cm,
+        height=6cm,
+        grid style={dashed, gray!30},
+        xmin=-5.1,     % start the diagram at this x-coordinate
+        xmax= 5.1,    % end   the diagram at this x-coordinate
+        ymin=-0.1,     % start the diagram at this y-coordinate
+        ymax= 1.1,   % end   the diagram at this y-coordinate
+        %axis background/.style={fill=white},
+        x label style={at={(axis description cs:0.5,0)},anchor=north},
+        y label style={at={(axis description cs:0,.5)},rotate=90,anchor=south},
+        xlabel=$x$,
+        ylabel=$\Phi_{\mu, \sigma^2}(x)$,
+        %xticklabels={-2,-1.6,...,7},
+        %yticklabels={-8,-7,...,8},
+        tick align=outside,
+        minor tick num=-3,
+        enlargelimits=false,
+        tension=0.08]
+        \addplot[domain=-5.2:5.2,smooth,red!70!black,very thick,samples=200,] gnuplot{\cdf(x)(0)(1)};
+      \addlegendentry{$\sigma^2 = 1$}
+    \end{axis} 
+\end{tikzpicture}
+\end{document}
