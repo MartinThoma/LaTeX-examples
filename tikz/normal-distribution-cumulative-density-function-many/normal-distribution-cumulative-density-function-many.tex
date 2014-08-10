@@ -1,0 +1,66 @@
+\documentclass[varwidth=true, border=4pt]{article}
+\usepackage[active,tightpage]{preview}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\def\cdf(#1)(#2)(#3){0.5*(1+(erf((#1-#2)/(sqrt(#3*2)))))}%
+% to be used: \cdf(x)(mean)(variance)
+
+\DeclareMathOperator{\CDF}{cdf}
+
+\pgfplotsset{
+tick label style = {font=\sansmath\sffamily},
+every axis label/.append style={font=\sffamily\footnotesize},
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=13.5cm,
+        height=8.625cm,
+        % Grid
+        grid = major,
+        grid style={black, thin},
+        % size
+        xmin=-5.25,  % start the diagram at this x-coordinate
+        xmax= 5.25,  % end   the diagram at this x-coordinate
+        ymin=-0.05,  % start the diagram at this y-coordinate
+        ymax= 1.05,  % end   the diagram at this y-coordinate
+        % Legende
+        legend pos=north west,
+        legend style={font=\footnotesize},
+        % Ticks
+        tick align=inside,
+        minor tick num=3,
+        minor tick style={thick},
+        yticklabel style={
+            /pgf/number format/precision=1,
+            /pgf/number format/fixed,
+            /pgf/number format/fixed zerofill},
+        % Axis
+        axis line style = very thick,
+        xlabel=$x$,
+        x label style={at={(axis description cs:0.5,0)},
+                       anchor=north,
+                       font=\boldmath\Large},
+        ylabel=$\Phi_{\mu, \sigma^2}(x)$,
+        y label style={at={(axis description cs:0.05,0.5)},
+                       anchor=south,
+                       font=\boldmath\Large},
+        ]
+        \addplot[domain=-5.25:5.25,smooth,blue!70!black,ultra thick,samples=200,] gnuplot{\cdf(x)(0)(0.2)};
+        \addplot[domain=-5.25:5.25,smooth,red!70!black,ultra thick,samples=200,] gnuplot{\cdf(x)(0)(1.0)};
+        \addplot[domain=-5.25:5.25,smooth,yellow!80!black,ultra thick,samples=200,] gnuplot{\cdf(x)(0)(5)};
+        \addplot[domain=-5.25:5.25,smooth,green!70!black,ultra thick,samples=200,] gnuplot{\cdf(x)(-2)(0.5)};
+      \addlegendentry{$\mu=\hphantom{-}0,\quad \sigma^2 = 0.2$}
+      \addlegendentry{$\mu=\hphantom{-}0,\quad \sigma^2 = 1.0$}
+      \addlegendentry{$\mu=\hphantom{-}0,\quad \sigma^2 = 5.0$}
+      \addlegendentry{$\mu=-2,\quad \sigma^2 = 0.5$}
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}
