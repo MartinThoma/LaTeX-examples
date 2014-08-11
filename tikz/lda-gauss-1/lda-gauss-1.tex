@@ -1,0 +1,71 @@
+\documentclass[varwidth=true, border=4pt]{article}
+\usepackage[active,tightpage]{preview}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(sqrt(2*pi*#2))*exp(-((x-#1)^2)/(2*#2))}%
+}
+% to be used: \gauss(x)(mean)(variance)
+
+\pgfplotsset{
+tick label style = {font=\sansmath\sffamily},
+every axis label/.append style={font=\sffamily\footnotesize},
+}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=13.5cm,
+        height=8.625cm,
+        % Grid
+        grid = major,
+        grid style={black, thin},
+        % size
+        xmin= 0,     % start the diagram at this x-coordinate
+        xmax= 120,   % end   the diagram at this x-coordinate
+        ymin= 0,     % start the diagram at this y-coordinate
+        ymax= 0.045, % end   the diagram at this y-coordinate
+        % Legende
+        legend style={
+            font=\large\sansmath\sffamily,
+            at={(0.5,-0.18)},
+            anchor=north,
+            legend cell align=left,
+            legend columns=-1,
+            column sep=0.5cm
+        },
+        % Ticks
+        tick align=inside,
+        minor tick num=3,
+        minor tick style={thick},
+        scaled y ticks = false,
+        yticklabel={\pgfmathparse{\tick*100}\pgfmathprintnumber{\pgfmathresult}\%},
+        yticklabel style={
+            %/pgf/number format/precision=2,
+            /pgf/number format/fixed,
+            %/pgf/number format/fixed zerofill
+            },
+        % Axis
+        axis line style = very thick,
+        xlabel=$x$,
+        x label style={at={(axis description cs:0.5,0)},
+                       anchor=north,
+                       font=\boldmath\Large},
+        ylabel=$\mathcal{N}_{\mu, \sigma^2}(x)$,
+        y label style={at={(axis description cs:0.05,0.5)},
+                       anchor=south,
+                       font=\boldmath\Large},
+        ]
+        \addplot [domain=0:120,ultra thick,red!90!black,samples=200,] {gauss(80,100)};
+        \addplot [domain=0:120,ultra thick,cyan!50!black,samples=200] {gauss(40,100)};
+      \addlegendentry{$\mu=80,\enskip \sigma^2 = 100$}
+      \addlegendentry{$\mu=40,\enskip \sigma^2 = 100$}
+    \end{axis} 
+\end{tikzpicture}
+\end{preview}
+\end{document}
