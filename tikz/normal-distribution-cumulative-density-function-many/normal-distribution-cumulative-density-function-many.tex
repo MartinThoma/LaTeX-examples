@@ -31,8 +31,12 @@ every axis label/.append style={font=\sffamily\footnotesize},
         ymin=-0.05,  % start the diagram at this y-coordinate
         ymax= 1.05,  % end   the diagram at this y-coordinate
         % Legende
-        legend pos=north west,
-        legend style={font=\footnotesize},
+        legend style={
+            font=\large\sansmath\sffamily,
+            at={(0.7716,0.41)},
+            anchor=north,
+            legend cell align=left
+        },
         % Ticks
         tick align=inside,
         minor tick num=3,
@@ -56,10 +60,10 @@ every axis label/.append style={font=\sffamily\footnotesize},
         \addplot[domain=-5.25:5.25,smooth,red!70!black,ultra thick,samples=200,] gnuplot{\cdf(x)(0)(1.0)};
         \addplot[domain=-5.25:5.25,smooth,yellow!80!black,ultra thick,samples=200,] gnuplot{\cdf(x)(0)(5)};
         \addplot[domain=-5.25:5.25,smooth,green!70!black,ultra thick,samples=200,] gnuplot{\cdf(x)(-2)(0.5)};
-      \addlegendentry{$\mu=\hphantom{-}0,\quad \sigma^2 = 0.2$}
-      \addlegendentry{$\mu=\hphantom{-}0,\quad \sigma^2 = 1.0$}
-      \addlegendentry{$\mu=\hphantom{-}0,\quad \sigma^2 = 5.0$}
-      \addlegendentry{$\mu=-2,\quad \sigma^2 = 0.5$}
+      \addlegendentry{$\mu=\hphantom{-}0,\enskip \sigma^2 = 0.2$}
+      \addlegendentry{$\mu=\hphantom{-}0,\enskip \sigma^2 = 1.0$}
+      \addlegendentry{$\mu=\hphantom{-}0,\enskip \sigma^2 = 5.0$}
+      \addlegendentry{$\mu=-2,\enskip \sigma^2 = 0.5$}
     \end{axis} 
 \end{tikzpicture}
 \end{preview}
