@@ -1,2 +1,3 @@
-:- initialization(main).
-main :- write('Hello World!'), nl, halt.
+#!/usr/bin/swipl -q -t main -f
+
+main :- writeln('Hello world!').
