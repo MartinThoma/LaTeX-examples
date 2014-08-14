@@ -76,17 +76,17 @@ every axis label/.append style={font=\sffamily\footnotesize},
                   samples at={70},
                   mark=*,
                   mark options={scale=1, fill=red!90!black}] {gauss(80,100)}
-            node[pin={95:\large$f_I(x_0) = 70$}] {};
+            node[pin={95:\large$f_I(70)$}] {};
         \addplot+[plotB,
                   samples at={70},
                   mark=*,
                   mark options={scale=1, fill=cyan!50!black}] {gauss(40,100)}
-            node[pin={10:\large$f_{II}(x_0) = 70$}] {};
+            node[pin={10:\large$f_{II}(70)$}] {};
         \coordinate (a) at (axis cs:70,0.024);
         \draw[black,thick](a |- current plot begin) -- (a);
 
         % Add labels
-        \node[plotA,above] at (axis cs:100,0.03){\Large $\mathcal{N}(80, 100)$};
+        \node[plotA,above] at (axis cs:102,0.03){\Large $\mathcal{N}(80, 100)$};
         \node[plotB,above] at (axis cs:20,0.03){\Large $\mathcal{N}(40, 100)$};
       % \addlegendentry{$\mu=80,\enskip \sigma^2 = 100$}
       % \addlegendentry{$\mu=40,\enskip \sigma^2 = 100$}
