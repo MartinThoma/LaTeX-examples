@@ -30,3 +30,4 @@ svg:
 	# Necessary, as pdf2svg does not always create valid svgs:
 	inkscape $(SOURCE)1.svg --export-width=$(WIDTH) --export-plain-svg=$(SOURCE)1.svg
 	rsvg-convert -a -w 720 -f svg $(SOURCE)1.svg -o $(SOURCE).svg
+	rm $(SOURCE)1.svg

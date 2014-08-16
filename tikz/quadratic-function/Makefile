@@ -1,4 +1,4 @@
-SOURCE = 2d-parted-function
+SOURCE = quadratic-function
 DELAY = 80
 DENSITY = 300
 WIDTH = 512
@@ -28,6 +28,6 @@ svg:
 	#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
 	pdf2svg $(SOURCE).pdf $(SOURCE).svg
 	# Necessary, as pdf2svg does not always create valid svgs:
-	inkscape $(SOURCE)1.svg --export-width=$(WIDTH) --export-plain-svg=$(SOURCE)1.svg
+	inkscape $(SOURCE).svg --export-width=$(WIDTH) --export-plain-svg=$(SOURCE)1.svg
 	rsvg-convert -a -w 720 -f svg $(SOURCE)1.svg -o $(SOURCE).svg
 	rm $(SOURCE)1.svg
