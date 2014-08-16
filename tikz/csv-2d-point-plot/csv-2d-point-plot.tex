@@ -1,0 +1,29 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+            width=15cm, height=8cm,     % size of the image
+            xlabel=mean,
+            ylabel=variance,
+            visualization depends on={value \thisrow{label} \as \label},
+            % every node near coord/.append style={font={\tiny}},
+            nodes near coords={\label},
+            % nodes near coords align={horizontal}
+         ]
+          \addplot[scatter,
+                   mark=*,only marks,
+                   % nodes near coords*=\label,
+                   % ... which requires to define a visualization dependency:
+                   % visualization depends on={\thisrow{label} \as \label}
+                   ]
+                   table [x=mean, y=variance, col sep=comma] {data.csv};
+    \end{axis}
+\end{tikzpicture}
+\end{document}
