@@ -4,7 +4,7 @@
 \usepackage{amsmath}
 \usepackage{pgfplots}
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning} 
+\usetikzlibrary{arrows,positioning}
 \usepackage{helvet}
 \usepackage[eulergreek]{sansmath}
 
@@ -34,6 +34,8 @@ every axis label/.append style={font=\sffamily\footnotesize},
   }
 }
 
+\tikzset{>=latex}
+
 \begin{document}
 \begin{preview}
 \tikzstyle{plotA}=[ultra thick,red!90!black]
@@ -46,10 +48,10 @@ every axis label/.append style={font=\sffamily\footnotesize},
         grid = major,
         grid style={thin, dashed},
         % size
-        xmin= 0,     % start the diagram at this x-coordinate
-        xmax= 125,   % end   the diagram at this x-coordinate
+        xmin= 20,     % start the diagram at this x-coordinate
+        xmax= 105,   % end   the diagram at this x-coordinate
         ymin= 0,     % start the diagram at this y-coordinate
-        ymax= 0.045, % end   the diagram at this y-coordinate
+        ymax= 0.07, % end   the diagram at this y-coordinate
         % Legende
         legend style={
             font=\large\sansmath\sffamily,
@@ -61,10 +63,8 @@ every axis label/.append style={font=\sffamily\footnotesize},
         },
         % Ticks
         tick align=inside,
-        %minor tick num=3,
-        minor tick style={thick},
         scaled y ticks = false,
-        % xtick={40,70,80},
+        %xtick={20,30,...,100},
         ytick=\empty,
         % Axis
         axis lines = middle,
@@ -82,16 +82,22 @@ every axis label/.append style={font=\sffamily\footnotesize},
                        font=\boldmath\Large},
         ]
 
-        % Plots of the distributions
-        \addplot [domain=0:120,samples=200,plotA] {gauss(60,800)};
-        \addplot [domain=0:120,samples=200,plotB] {gauss(40,100)};
+        % Mark means
+        \coordinate (axisOrigin) at (axis cs:0,0);
+        \coordinate (meanA) at (axis cs:50,0.063);
+        \draw[black,thick](meanA |- axisOrigin) -- (meanA);
 
+        \coordinate (meanB) at (axis cs:40,0.063);
+        \draw[black,thick](meanB |- axisOrigin) -- (meanB);
+        \draw[black,ultra thick,<->](axis cs:40,0.007) -- (axis cs:50,0.007);
+
+        % Plots of the distributions
+        \addplot [domain=0:100,samples=400,plotA] {gauss(50,40)};
+        \addplot [domain=0:100,samples=400,plotB] {gauss(40,40)};
 
         % Add labels
-       \node[plotA,above] at (axis cs:102,0.01){\Large $\mathcal{N}(60, 800)$};
-       \node[plotB,above] at (axis cs:20,0.03){\Large $\mathcal{N}(40, 100)$};
-      % \addlegendentry{$\mu=80,\enskip \sigma^2 = 100$}
-      % \addlegendentry{$\mu=40,\enskip \sigma^2 = 100$}
+       \node[plotA,above] at (axis cs:63,0.055){\Large $\mathcal{N}(50, 40)$};
+       \node[plotB,above] at (axis cs:28,0.055){\Large $\mathcal{N}(40, 40)$};
     \end{axis} 
 \end{tikzpicture}
 \end{preview}
