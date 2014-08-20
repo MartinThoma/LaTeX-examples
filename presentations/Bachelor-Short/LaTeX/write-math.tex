@@ -13,25 +13,18 @@
 
 \framedgraphic{Classify}{../images/classify.png}
 \framedgraphic{Workflow}{../images/workflow.png}
-\framedgraphic{User page}{../images/user-page.png}
-\framedgraphic{Information about handwritten-data}{../images/view.png}
-\framedgraphic{Non-mathematical symbols}{../images/yinyang.png}
-\framedgraphic{Training}{../images/train.png}
+% \framedgraphic{User page}{../images/user-page.png}
+% \framedgraphic{Information about recordings}{../images/view.png}
+% \framedgraphic{Symbol page}{../images/symbol.png}
+% \framedgraphic{Training}{../images/train.png}
 \framedgraphic{Ranking}{../images/ranking.png}
-\framedgraphic{Symbol page}{../images/symbol.png}
 
-\begin{frame}{Statistics}
+
+\begin{frame}[fragile]{Statistics}
     \begin{itemize}
-        \item 40 users
-        \item 1076 symbols
-        \item 5519 handwritten symbols (e.g. 195 times the letter \enquote{A})
-        \begin{itemize}
-            \item only 264 have 4 lines
-            \item only 36 have 5 lines
-            \item only 16 have 6 lines
-            \item only 19 have 7 lines or more
-            \item none has more than 12 lines
-        \end{itemize}
+        \item 127 users with at least 5 recordings
+        \item 1109 symbols, but only 369 used for experiments
+        \item $\num{235831}$ recordings (e.g. $\num{3486}$ times \verb+\int+)
     \end{itemize}
 \end{frame}
 
@@ -40,12 +33,11 @@
         \item preprocessing: Scale to fit into unit square while keeping the aspect
               ratio
         \item applies dynamic time warping
-        \item compares a new handwritten symbol with every handwritten symbol
+        \item compares a new recording with every recording
               in the database
-        \item[$\Rightarrow$] Classification time is in $\mathcal{O}(\text{handwritten symbols})$,
+        \item[$\Rightarrow$] Classification time is in $\mathcal{O}(\text{recordings})$,
               but we rather would like $\mathcal{O}(\text{symbols})$
-        \item the current server / workflow can only handle about 4000 handwritten
-              symbols
+        \item the current server / workflow can only handle about 4000 recordings
         \item[$\Rightarrow$] Another way to classify is necessary
     \end{itemize}
 \end{frame}
