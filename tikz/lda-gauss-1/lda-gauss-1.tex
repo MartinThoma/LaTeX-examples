@@ -11,12 +11,14 @@
 \pgfmathdeclarefunction{gauss}{2}{%
   \pgfmathparse{1/(sqrt(2*pi*#2))*exp(-((x-#1)^2)/(2*#2))}%
 }
-% to be used: \gauss(x)(mean)(variance)
+% to be used: \gauss(mean)(variance)
 
 \pgfplotsset{
 tick label style = {font=\sansmath\sffamily},
 every axis label/.append style={font=\sffamily\footnotesize},
 }
+
+% Thanks to percusse for solving problems with the axis
 
 \begin{document}
 \begin{preview}
@@ -28,7 +30,6 @@ every axis label/.append style={font=\sffamily\footnotesize},
         height=8.625cm,
         % Grid
         grid = major,
-        %grid style={thin, dashed},
         % size
         xmin= 0,     % start the diagram at this x-coordinate
         xmax= 125,   % end   the diagram at this x-coordinate
@@ -45,18 +46,13 @@ every axis label/.append style={font=\sffamily\footnotesize},
         },
         % Ticks
         tick align=inside,
-        %minor tick num=3,
         minor tick style={thick},
         scaled y ticks = false,
         xtick={40,70,80},
         ytick=\empty,
-        % yticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}},
-        % yticklabel style={
-        %     %/pgf/number format/precision=2,
-        %     /pgf/number format/fixed,
-        %     %/pgf/number format/fixed zerofill
-        %     },
         % Axis
+        axis on top,
+        axis line style = {very thick,shorten <=-0.5\pgflinewidth},
         axis lines = middle,
         axis line style = very thick,
         xlabel=$x$,
@@ -96,7 +92,6 @@ every axis label/.append style={font=\sffamily\footnotesize},
                   mark options={scale=1, fill=cyan!50!black}] {gauss(40,100)};
         \coordinate (a) at (axis cs:70,0.024);
         \draw[black,thick](a |- current plot begin) -- (a);
-
 
         % Add labels
        \node[plotA,above] at (axis cs:102,0.03){\Large $\mathcal{N}(80, 100)$};
