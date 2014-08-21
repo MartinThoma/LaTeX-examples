@@ -4,7 +4,7 @@
 \usepackage{amsmath}
 \usepackage{pgfplots}
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning} 
+\usetikzlibrary{arrows,positioning}
 \usepackage{helvet}
 \usepackage[eulergreek]{sansmath}
 
@@ -34,12 +34,15 @@ every axis label/.append style={font=\sffamily\footnotesize},
   }
 }
 
-\newcommand{\meanI}{60}
-\newcommand{\meanII}{40}
-\newcommand{\varI}{800}
-\newcommand{\varII}{100}
+\tikzset{>=latex}
 
-\newcommand{\labelheight}{0.03}
+\newcommand{\meanI}{80}
+\newcommand{\meanII}{40}
+\newcommand{\varI}{40}
+\newcommand{\varII}{40}
+
+\newcommand{\arrowHeight}{0.02}
+\newcommand{\labelheight}{0.055}
 
 \pgfmathsetmacro{\meanIheight}{1/(sqrt(2*pi*\varI))}%
 \pgfmathsetmacro{\meanIIheight}{1/(sqrt(2*pi*\varII))}%
@@ -57,9 +60,9 @@ every axis label/.append style={font=\sffamily\footnotesize},
         grid = major,
         grid style={thin, dashed},
         % size
-        xmin= 0,           % start the diagram at this x-coordinate
-        xmax= 125,         % end   the diagram at this x-coordinate
-        ymin= 0,           % start the diagram at this y-coordinate
+        xmin= 20,     % start the diagram at this x-coordinate
+        xmax= 105,   % end   the diagram at this x-coordinate
+        ymin= 0,     % start the diagram at this y-coordinate
         ymax= \plotheight, % end   the diagram at this y-coordinate
         % Legende
         legend style={
@@ -72,7 +75,6 @@ every axis label/.append style={font=\sffamily\footnotesize},
         },
         % Ticks
         tick align=inside,
-        minor tick style={thick},
         scaled y ticks = false,
         ytick=\empty,
         % Axis
@@ -91,13 +93,22 @@ every axis label/.append style={font=\sffamily\footnotesize},
                        font=\boldmath\Large},
         ]
 
+        % Mark means
+        \coordinate (axisOrigin) at (axis cs:0,0);
+        \coordinate (meanA) at (axis cs:\meanI,\meanIheight);
+        \draw[black,thick](meanA |- axisOrigin) -- (meanA);
+
+        \coordinate (meanB) at (axis cs:\meanII,\meanIIheight);
+        \draw[black,thick](meanB |- axisOrigin) -- (meanB);
+        \draw[black,ultra thick,<->](axis cs:{\meanI-sqrt(\varI)}, \arrowHeight) -- (axis cs:{\meanI+sqrt(\varI)},\arrowHeight);
+
         % Plots of the distributions
-        \addplot [domain=0:120,samples=200,plotA] {gauss(\meanI,\varI)};
-        \addplot [domain=0:120,samples=200,plotB] {gauss(\meanII,\varII)};
+        \addplot [domain=0:120,samples=400,plotA] {gauss(\meanI,\varI)};
+        \addplot [domain=0:120,samples=400,plotB] {gauss(\meanII,\varII)};
 
         % Add labels
-       \node[plotA,above] at (axis cs:102,0.01){\Large $\mathcal{N}(\meanI,\varI)$};
-       \node[plotB,above] at (axis cs:20,0.03){\Large $\mathcal{N}(\meanII,\varII)$};
+       \node[plotA,above] at (axis cs:\meanI+11,\labelheight){\Large $\mathcal{N}(\meanI, \varI)$};
+       \node[plotB,above] at (axis cs:\meanII-11,\labelheight){\Large $\mathcal{N}(\meanII, \varII)$};
     \end{axis} 
 \end{tikzpicture}
 \end{preview}

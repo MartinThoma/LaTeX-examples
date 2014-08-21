@@ -20,6 +20,17 @@ every axis label/.append style={font=\sffamily\footnotesize},
 
 % Thanks to percusse for solving problems with the axis
 
+\newcommand{\meanI}{80}
+\newcommand{\meanII}{40}
+\newcommand{\varI}{100}
+\newcommand{\varII}{100}
+
+\newcommand{\labelheight}{0.03}
+
+\pgfmathsetmacro{\meanIheight}{1/(sqrt(2*pi*\varI))}%
+\pgfmathsetmacro{\meanIIheight}{1/(sqrt(2*pi*\varII))}%
+\pgfmathsetmacro{\plotheight}{max(\meanIheight, \meanIIheight, \labelheight+0.002)}%
+
 \begin{document}
 \begin{preview}
 \tikzstyle{plotA}=[ultra thick,red!90!black]
@@ -85,19 +96,17 @@ every axis label/.append style={font=\sffamily\footnotesize},
         \addplot+[plotA,
                   samples at={70},
                   mark=*,
-                  mark options={scale=1, fill=red!90!black}] {gauss(80,100)};
+                  mark options={scale=1, fill=red!90!black}] {gauss(\meanI,\varI)};
         \addplot+[plotB,
                   samples at={70},
                   mark=*,
-                  mark options={scale=1, fill=cyan!50!black}] {gauss(40,100)};
+                  mark options={scale=1, fill=cyan!50!black}] {gauss(\meanII,\varII)};
         \coordinate (a) at (axis cs:70,0.024);
         \draw[black,thick](a |- current plot begin) -- (a);
 
         % Add labels
-       \node[plotA,above] at (axis cs:102,0.03){\Large $\mathcal{N}(80, 100)$};
-       \node[plotB,above] at (axis cs:20,0.03){\Large $\mathcal{N}(40, 100)$};
-      % \addlegendentry{$\mu=80,\enskip \sigma^2 = 100$}
-      % \addlegendentry{$\mu=40,\enskip \sigma^2 = 100$}
+       \node[plotA,above] at (axis cs:102,\labelheight){\Large $\mathcal{N}(\meanI,\varI)$};
+       \node[plotB,above] at (axis cs:20,\labelheight){\Large $\mathcal{N}(\meanII,\varII)$};
     \end{axis} 
 \end{tikzpicture}
 \end{preview}
