@@ -1,0 +1,83 @@
+\documentclass[varwidth=true, border=5pt]{article}
+\usepackage[active,tightpage]{preview}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=13.4cm,
+        height=10.0cm,
+        % Grid
+        grid = major,
+        % size
+        xmin= 40,     % start the diagram at this x-coordinate
+        xmax= 90,   % end   the diagram at this x-coordinate
+        ymin= 0,     % start the diagram at this y-coordinate
+        ymax= 60, % end   the diagram at this y-coordinate
+        % Legende
+        legend style={
+            font=\large\sansmath\sffamily,
+            at={(0.5,-0.18)},
+            anchor=north,
+            legend cell align=left,
+            legend columns=-1,
+            column sep=0.5cm
+        },
+        % Ticks
+        tick align=inside,
+        every axis/.append style={font=\large\sansmath\sffamily},
+        minor tick style={thick},
+        scaled y ticks = false,
+        % Axis
+        axis line style = {very thick,shorten <=-0.5\pgflinewidth},
+        axis lines = middle,
+        axis line style = very thick,
+        xlabel=Gesamtausgaben,
+        x label style={at={(axis description cs:0.5,-0.05)},
+                       anchor=north,
+                       font=\boldmath\sansmath\sffamily\Large},
+        ylabel=Luxusausgaben,
+        y label style={at={(axis description cs:-0.05,0.5)},
+                       anchor=south,
+                       rotate=90,
+                       font=\boldmath\sansmath\sffamily\Large},
+        ]
+\addplot[
+scatter,
+only marks,
+point meta=explicit symbolic,
+scatter/classes={
+a={mark=x,red!90!black},%
+b={mark=x,cyan!50!black}},
+]
+table[col sep=comma, meta=label] {data.csv};
+
+\addplot[
+scatter,
+only marks,
+point meta=explicit symbolic,
+scatter/classes={
+b={mark=*,mark size=3pt,red!30!white,draw=black},%
+c={mark=*,mark size=3pt,cyan!30!white,draw=black},%
+a={mark=*,mark size=3pt,green!70!black,draw=black}},
+]
+table[meta=label] {
+    x   y   label
+    65  35  a
+    70  40  b
+    60  20  c
+};
+% \addlegendentry{Gruppe 1}
+% \addlegendentry{Gruppe 2}
+\end{axis}
+\end{tikzpicture}
+\end{preview}
+\end{document}
