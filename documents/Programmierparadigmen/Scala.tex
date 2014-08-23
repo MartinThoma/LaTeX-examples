@@ -89,6 +89,21 @@ Listen können erstellt und durchgegangen werden:
     \caption{Logische Operatoren in Scala}\xindex{Logische Operatoren!Scala}
 \end{table}
 
+\section{Datenstrukturen}
+\subsection{Listen}
+
+\begin{itemize}
+    \item Erstellt man mit \verb+var myList = List();+
+    \item Zugriff auf das \verb+i+-te Element mit \verb+myList(i)+
+\end{itemize}
+
+\subsection{Tupel}
+
+\begin{itemize}
+    \item Erstellt man mit \verb+var myTuple = (el1, el2, el3)+
+    \item Zugriff auf das \verb+i+-te Element mit \verb+myTuple._i+
+\end{itemize}
+
 \section{Companion Object}\xindex{Companion Object}
 Ein Companion Object ist ein Objekt mit dem Namen einer Klasse oder eines Traits.
 Im Gegensatz zu anderen Objekten / Traits hat das Companion Object zugriff auf
@@ -126,6 +141,13 @@ Das folgende Script sendet parallel Anfragen über verschiedene ZIP-Codes an
 die Yahoo-Server, parst das XML und extrahiert die Stadt sowie die Temperatur:
 
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=weather.scala]{scala}{scripts/scala/weather.scala}
+
+\subsection{High Product}
+Das folgende Skript berechnet folgendes: Wenn man aus den Ziffern 0 - 9 zwei
+Zahlen $a$, $b$ bilden darf, welche Zahlen muss man dann bilden um das größte Produkt
+$a \cdot b$ zu erhalten?
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=main.scala]{scala}{scripts/scala/HighProduct.scala}
 
 \section{Weitere Informationen}
 \begin{itemize}
