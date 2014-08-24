@@ -1,0 +1,36 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+
+\usepackage{siunitx}
+\usepackage{booktabs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+    \newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+    \newcolumntype{^}{>{\currentrowstyle}}
+    \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+    #1\ignorespaces
+    }
+
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{+l|^r^r^r}
+        \toprule
+        \rowstyle{\bfseries}%
+        Country / Property & Population       & Area     & HDI \\\midrule
+        France             & $66 \cdot 10^6$  & $\SI{668763}{\km\squared}$  & 0.89 \\
+        Germany            & $81 \cdot 10^6$  & $\SI{357167}{\km\squared}$  & 0.92 \\
+        United States      & $317 \cdot 10^6$ & $\SI{9629091}{\km\squared}$ & 0.94 \\\bottomrule
+        \end{tabular}
+        \caption{Information about countries}
+        \label{table:countries}
+    \end{table}
+\end{document}
