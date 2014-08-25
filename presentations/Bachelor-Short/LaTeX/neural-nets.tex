@@ -3,13 +3,19 @@
     \textbf{Preprocessing:} Scaling, shifting and linear interpolation\\
     \textbf{Features:} Coordinates of 80 points (4 strokes with 20 points each)\\
     \textbf{Learning:} MLP, 300 epochs, LR of 0.1
-    \begin{itemize}
-        \item[] \textit{toplogy       \tabto{6cm} error in training time}
-        \item 160:500:369             \tabto{6cm} 30.62 \% in \hphantom{0}9min 08s
-        \item 160:500:500:369         \tabto{6cm} 27.73 \% in 11min 49s
-        \item 160:500:500:500:369     \tabto{6cm} 34.79 \% in 14min 09s
-        \item 160:500:500:500:500:369 \tabto{6cm} 33.61 \% in 14min 06s
-    \end{itemize}
+
+\begin{table}[h]
+    \begin{tabular}{lrl}
+    \toprule
+    Topology                & Error    & Training time \\ \midrule
+    160:500:369             & 30.62 \% & \hphantom{0}9min 08s      \\
+    160:500:500:369         & 27.73 \% & 11min 49s     \\
+    160:500:500:500:369     & 34.79 \% & 14min 09s     \\
+    160:500:500:500:500:369 & 33.61 \% & 14min 06s     \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
 \end{frame}
 
 \begin{frame}[fragile]{Examples of confusable symbols}
