@@ -1,7 +1,7 @@
 About
 -----
-This is a short presentation for an English course. We explained
-the PageRank algorithm in 8 minutes.
+This is a 20 minutes presentation for my bachelors thesis. At this point,
+I still have one (of four) months left. So work is still in progress.
 
 KIT-Style
 ---------
