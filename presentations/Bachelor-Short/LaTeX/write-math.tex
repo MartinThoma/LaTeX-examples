@@ -29,7 +29,7 @@
               for recordings
         \item users can vote for \LaTeX{} answers:
               \Large $\leq$, $\leqq$, $\leqslant$, \dots \normalsize
-        \item user who wrote the formula can accept one answer
+        \item user who entered the recording can accept one answer
     \end{itemize}
 \end{frame}
 
@@ -45,8 +45,8 @@
 \begin{frame}[fragile]{Statistics}
     \begin{itemize}
         \item 127 users with at least 5 recordings
-        \item 1109 symbols, but only 369 used for experiments
-        \item $\num{235831}$ recordings (e.g. $\num{3486}$ times \verb+\int+)
+        \item $\num{1111}$ symbols, but only $\num{369}$ used for experiments
+        \item $\num{235831}$ recordings (e.g. $\num{3489}$ times \verb+\int+, but only 50 times \verb+X+)
     \end{itemize}
 \end{frame}
 
@@ -54,7 +54,7 @@
     \begin{itemize}
         \item preprocessing: Scale to fit into unit square while keeping the aspect
               ratio
-        \item applies dynamic time warping
+        \item applies greedy time warping
         \item compares a new recording with every recording
               in the database
         \item[$\Rightarrow$] Classification time is in $\mathcal{O}(\text{recordings})$,
