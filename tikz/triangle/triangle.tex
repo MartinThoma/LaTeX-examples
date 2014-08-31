@@ -2,55 +2,44 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
 \usetikzlibrary{shapes, calc, decorations} 
 \usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
 
 \begin{document}
 \begin{preview}
-\begin{tikzpicture}[thick]
-    \newcommand\XC{4}
-    \newcommand\ALPHA{30}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(3.2,0){B}
+    \tkzDefPoint(0.7,3){C}
 
-    \newcommand\XB{{(\XC*(cos(\ALPHA)*cos(\ALPHA) - sin(\ALPHA)*sin(\ALPHA)) + \XC)*0.5}}
-    \newcommand\YB{{sqrt(cos(\ALPHA)*\XC*cos(\ALPHA)*\XC - (\XC*(cos(\ALPHA)*cos(\ALPHA) - sin(\ALPHA)*sin(\ALPHA)) + \XC)*0.5*(\XC*(cos(\ALPHA)*cos(\ALPHA) - sin(\ALPHA)*sin(\ALPHA)) + \XC)*0.5)}}
+    \tkzLabelPoints[below left](A)
+    \tkzLabelPoints[below right](B)
+    \tkzLabelPoints[above](C)
 
-    % Draw the triangle
-    \draw[fill=gray!10]  (0,    0) coordinate (A) 
-        -- (\XB,\YB) coordinate (C) 
-        -- (\XC,  0) coordinate (B) 
-        -- (0,    0);
+    % Draw polygon
+    \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
 
-    % Draw nodes
-    \node at (A)[anchor=north] {A};
-    \node at (B)[anchor=north] {B};
-    \node at (C)[anchor=south] {C};
+    % Mark angles
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](B,A,C)
+    \tkzLabelAngle[pos=0.3](B,A,C){$\alpha$}
 
-    % Draw edge text
-    \node (c) at ($(A)!0.5!(B)$) [below] {c};
-    \node (b) at ($(A)!0.5!(C)$) [above] {b};
-    \node (a) at ($(B)!0.6!(C)$) [right] {a};
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](C,B,A)
+    \tkzLabelAngle[pos=0.4](C,B,A){$\beta$}
 
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=blue!30](A,C,B)
+    \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
 
-    % draw alpha
-    \draw[fill=green!30] (0,0) -- (0:0.75cm) arc (0:\ALPHA:.75cm);
-    \coordinate[label=right:$\alpha$] (Alpha) at (0.25,0.15);
+    % Label lines
+    \tkzLabelSegment[below](A,B){$c$}
+    \tkzLabelSegment[left](A,C){$b$}
+    \tkzLabelSegment[right](B,C){$a$}
 
-    % draw beta
-    \begin{scope}[shift={(\XC, 0)}]
-        \draw[fill=red!30] (0,0) -- (-180:0.50cm) arc (180:{180-(90-\ALPHA)}:0.5cm);
-        \draw (150:0.35cm) node {$\beta$};
-    \end{scope}
-
-    % draw gamma
-    \begin{scope}[shift={(\XB, \YB)}]
-        \draw[fill=blue!30] (0,0) -- ({180+\ALPHA}:0.5cm) arc ({180+\ALPHA}:{180+\ALPHA+90}:0.5cm);
-        \draw (-0.1, -0.05) node[below] {$\gamma$};
-    \end{scope}
-
-    \draw  (0,    0) coordinate (X) 
-        -- (\XB,\YB) coordinate (Y) 
-        -- (\XC,  0) coordinate (Z) 
-        -- (0,    0);
+    % Draw polygon
+    \tkzDrawPolygon[thick](A,B,C)
 \end{tikzpicture}
 \end{preview}
 \end{document}
