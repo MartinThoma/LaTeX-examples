@@ -63,6 +63,8 @@ b={mark=x,cyan!50!black,fill opacity=0.2}},
 ]
 table[col sep=comma, meta=label] {data.csv};
 
+\addplot[domain=40:90, thick, dashed, black!60!white,samples=10] {0.5*x-2.5};
+
 \filldraw [fill=red!30!white, draw=black, thick] (axis cs:70,40) circle [radius=5pt];
 \filldraw [fill=cyan!30!white, draw=black, thick] (axis cs:60,20) circle [radius=5pt];
 \filldraw [fill=green!70!black, draw=black, thick] (axis cs:65,35) circle [radius=5pt] node [label={[inner sep=1pt, fill=white,text=black, fill opacity=0.75, text opacity=1]above left:$(65, 35)$}] {};
