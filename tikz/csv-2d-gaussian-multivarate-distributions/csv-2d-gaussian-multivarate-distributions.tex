@@ -1,3 +1,5 @@
+% Thanks to Jake for helping me with this one: 
+% http://tex.stackexchange.com/a/198531/5645
 \documentclass[varwidth=true, border=5pt]{article}
 \usepackage[active,tightpage]{preview}
 \usepackage[latin1]{inputenc}
@@ -13,6 +15,7 @@
 \begin{preview}
 \begin{tikzpicture}
     \begin{axis}[
+        clip mode=individual,
         width=13.4cm,
         height=10.0cm,
         % Grid
@@ -55,26 +58,15 @@ scatter,
 only marks,
 point meta=explicit symbolic,
 scatter/classes={
-a={mark=x,red!90!black},%
-b={mark=x,cyan!50!black}},
+a={mark=*,red!90!black,fill opacity=0.2},%
+b={mark=*,cyan!50!black,fill opacity=0.2}},
 ]
 table[col sep=comma, meta=label] {data.csv};
 
-\addplot[
-scatter,
-only marks,
-point meta=explicit symbolic,
-scatter/classes={
-b={mark=*,mark size=4pt,red!30!white,draw=black},%
-c={mark=*,mark size=4pt,cyan!30!white,draw=black},%
-a={mark=*,mark size=4pt,green!70!black,draw=black,pin=135:{\color{black}$(65, 35)$},label={(65, 35)}] {}}},
-]
-table[meta=label] {
-    x   y   label
-    65  35  a
-    70  40  b
-    60  20  c
-};
+\filldraw [fill=red!30!white, draw=black, thick] (axis cs:70,40) circle [radius=5pt];
+\filldraw [fill=cyan!30!white, draw=black, thick] (axis cs:60,20) circle [radius=5pt];
+\filldraw [fill=green!70!black, draw=black, thick] (axis cs:65,35) circle [radius=5pt] node [label={[inner sep=1pt, fill=white,text=black, fill opacity=0.75, text opacity=1]above left:$(65, 35)$}] {};
+
 % \addlegendentry{Gruppe 1}
 % \addlegendentry{Gruppe 2}
 \end{axis}
