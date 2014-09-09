@@ -1,0 +1,26 @@
+\documentclass[a6paper,landscape,7pt]{scrartcl}
+\usepackage[ngerman]{babel}  % German umlauts
+\usepackage[utf8]{inputenc}  % German umlauts
+\usepackage{hyperref}  % seems to be important for multicols
+\pagenumbering{gobble}  % disable page numbering
+\usepackage{multicol}  % split page in two parts
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.2cm]{geometry}
+\usepackage{parskip}
+
+\setlength\columnseprule{.4pt}
+\begin{document}
+\begin{multicols}{2}
+    Skyline of Pittsburgh, Pennsylvania\\
+    {\small Photographer: Max Mustermann}
+    \columnbreak\par
+    \vspace*{0cm}
+    \hfill\framebox(40,50){\scriptsize Postage}\hspace*{1cm}\par
+    \vspace{0.2\textheight}
+    \rule{6.0cm}{0.01cm}\vspace*{1cm}\\ % Name
+    \rule{6.0cm}{0.01cm}\vspace*{1cm}\\ % Street + Nr
+    \rule{2.2cm}{0.01cm}\hspace*{0.2cm}\rule{3.6cm}{0.01cm}\vspace*{1cm}\\ % zip code + town
+    \rule{6.0cm}{0.01cm}\\ % country
+\end{multicols} 
+\end{document}
