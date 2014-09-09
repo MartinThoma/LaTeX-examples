@@ -1,0 +1,73 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}       % links im text
+\usepackage{csquotes}       % nice quotes
+\usepackage{parskip}        % I don't want indentation
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage[locale=DE,per=slash]{siunitx}    % for propper units
+\DeclareSIUnit{\EUR}{\text{~Euro}}
+\usepackage{multicol}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\S\thesection}{1em}{}
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Untermietvertrag}, 
+  pdftitle    = {Untermietvertrag} 
+} 
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\HauptmieterVorname}{Martin}                            %
+\newcommand{\HauptmieterNachname}{Thoma}                            %
+\newcommand{\HauptmieterAnschrift}{Parkstraße 17, 76131 Karlsruhe}  %
+\newcommand{\UntermieterVorname}{Max}                               %
+\newcommand{\UntermieterNachname}{Müller}                           %
+\newcommand{\UntermieterAnschrift}{}                                %
+\newcommand{\UntermieteBeginn}{01.06.2014}                          %
+\newcommand{\UntermieteEnde}{31.08.2014}                            %
+\newcommand{\Monatsmiete}{200}                                      %
+\newcommand{\Kaution}{250}                                          %
+% Mietgegenstand
+\newcommand{\Strasse}{Parkstraße} % Deine Straße                    %
+\newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
+\newcommand{\PLZ}{76131}          % Deine PLZ                       %
+\newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
+\newcommand{\Wohnflaeche}{19}     % in m^2                          %
+% Konto
+\newcommand{\Kontoinhaber}{Martin Thoma}                            %
+\newcommand{\Kontonummer}{}                                         %
+\newcommand{\IBAN}{TODO}                                            %
+\newcommand{\Bank}{TODO}                                            %
+\newcommand{\BLZ}{TODO}                                             %
+\newcommand{\Verwendungszweck}{Miete von [Name des Untermieters]}   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+I, \HauptmieterVorname~\HauptmieterNachname, hereby confirm that I have received 4 keys (house key,
+floor key, flat key and room key) from \UntermieterVorname~\UntermieterNachname 
+(Bogomil Georgiev).
+
+I, \UntermieterVorname~\UntermieterNachname (Bogomil Georgiev), hereby confirm that I have received the complete deposit of 250 Euro from \HauptmieterVorname~\HauptmieterNachname.
+
+\vspace{1.5cm}
+\line(1,0){250}\\
+\vspace{-0.3cm}
+{\scriptsize Date, Signature of \HauptmieterVorname~\HauptmieterNachname}\\
+
+
+\vspace{1cm}
+\line(1,0){250}\\
+\vspace{-0.3cm}
+{\scriptsize Date, Signature of \UntermieterVorname~\UntermieterNachname (Bogomil Georgiev)}\\
+\end{document}
