@@ -64,7 +64,7 @@ Zu lesen ist die Deklaration wie folgt:
 
 \todo[inline]{Gibt es Funktionsdeklarationen, die bis auf Wechsel des Namens und der Reihenfolge äquivalent sind?}
 
-\subsection{if / else}
+\subsection{if / else}\xindex{Haskell!if@\texttt{if}}
 Das folgende Beispiel definiert den Binomialkoeffizienten (vgl. \cref{bsp:binomialkoeffizient}):
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/binomialkoeffizient.hs}
@@ -127,6 +127,21 @@ in etwa folgendem Haskell-Code:
     \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/pythagorean-triples.hs}
 \end{beispiel}
 
+\begin{beispiel}[List-Comprehension]
+    Das folgende Beispiel zeigt, wie man die unendlich große Menge
+
+    \[\Set{p^i | p \text{ Primzahl}, 1 \leq i \leq n}\]
+
+    erstellt:
+
+    \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/primepowers.hs}
+
+    Dabei ist die Reihenfolge wichtig. Würde man zuerst die \verb+i+ und dann
+    die Primzahlen notieren, würde Haskell versuchen erst alle Primzahlen durch
+    zu gehen. Da dies eine unendliche Liste ist, würde also niemals die zweite
+    Potenz einer Primzahl auftauchen.
+\end{beispiel}
+
 \subsection{Strings}
 \begin{itemize}
     \item Strings sind Listen von Zeichen:\\
@@ -155,7 +170,7 @@ folgenden Zeilen äquivalent:
 
 Das doppelte Plus (\texttt{++}) wird verwendet um Listen mit einander zu verbinden.
 
-\subsection{Logische Operatoren}
+\subsection{Logische Operatoren}\xindex{Haskell!Logische Operatoren}
 
 \begin{table}[H]
     \centering 
@@ -229,6 +244,10 @@ Haskell wertet Ausdrücke nur aus, wenn es nötig ist.
 \end{beispiel}
 
 \section{Beispiele}
+
+\subsection{Primzahlsieb}\xindex{Primzahlsieb}%
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=primzahlsieb.hs]{haskell}{scripts/haskell/primzahlsieb.hs}
+
 \subsection{Quicksort}\xindex{filter (Haskell)@\texttt{filter} (Haskell)}%
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=qsort.hs]{haskell}{scripts/haskell/qsort.hs}
 
