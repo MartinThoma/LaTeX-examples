@@ -36,6 +36,20 @@
 $\mathcal{M} \models \varphi$& Semantische Herleitbarkeit\newline Im Modell $\mathcal{M}$ gilt das Prädikat $\varphi$.\\
 $\psi \vdash \varphi$        & Syntaktische Herleitbarkeit\newline Die Formel $\varphi$ kann aus der Menge der Formeln $\psi$ hergeleitet werden.\\
 \end{xtabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typinferenz                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Typinferenz}
+
+\settowidth\mylengtha{$\tau \succeq \tau'$}
+\setlength\mylengthb{\dimexpr\columnwidth-\mylengtha-2\tabcolsep\relax}
+
+\begin{xtabular}{@{} p{\mylengtha} P{\mylengthb} @{}}
+$\Gamma \vdash t: \tau$   & Im Typkontext $\Gamma$ hat der Term $t$ den Typ $\tau$\\
+$a \Parr b$  & $a$ wird zu $b$ unifiziert\\
+$\tau \succeq \tau'$& $\tau$ wird durch $\tau'$ instanziiert\\\
+\end{xtabular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Weiteres                                                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

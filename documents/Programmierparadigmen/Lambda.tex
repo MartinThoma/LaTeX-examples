@@ -164,7 +164,7 @@ Auch die gewohnten Operationen lassen sich so darstellen.
     \end{align*}
 \end{beispiel}
 
-\begin{beispiel}[Vorgänger-Operation]
+\begin{beispiel}[Vorgänger-Operation]\xindex{pred}\xindex{pair}\xindex{next}\xindex{fst}\xindex{snd}
     \begin{align*}
         \pair&:= \lambda a. \lambda b. \lambda f. f a b\\
         \fst &:= \lambda p. p (\lambda a. \lambda b. a)\\
@@ -239,10 +239,25 @@ zurückgibt:
 \end{definition}
 
 \begin{beispiel}[Kombinatoren\footnotemark]%
+    Folgende $\lambda$-Funktionen sind Beispiele für Kombinatoren:
     \begin{bspenum}
         \item $\lambda a.\ a$
         \item $\lambda a.\ \lambda b.\ a$
         \item $\lambda f.\ \lambda a.\ \lambda b. f\ b\ a$
+        \item $\lambda x.\ \lambda y.\ x$\\
+              Diese $\lambda$-Funktion hat nur die gebundene Variable $x$, also
+              ist es ein Kombinator.
+    \end{bspenum}
+
+    Folgende $\lambda$-Funktionen sind keine Kombinatoren:
+    \begin{bspenum}
+        \item $\lambda x.\ y$
+        \item $x\ \lambda y.\ y$\\
+              Der Gesamtausdruck ist kein $\lambda$-Ausdruck, also ist es auch
+              kein Kombinator. Außerdem ist $x$ eine freie Variable.
+        \item $(\lambda x.\ x)\ y$\\
+              Der Ausdruck ist kein $\lambda$-Ausdruck, sondern eine
+              Funktionsanwendung. Also ist es kein Kombinator.
     \end{bspenum}
 \end{beispiel}
 \footnotetext{Quelle: \url{http://www.haskell.org/haskellwiki/Combinator}}
@@ -259,6 +274,9 @@ Insbesondere ist also $f \ g$ ein Fixpunkt von $g$.
     \[Y := \lambda f.\ (\lambda x.\ f\ (x\ x))\ (\lambda x.\ f\ (x\ x))\]
     heißt $Y$-Kombinator.
 \end{definition}
+
+Der Y-Kombinator hat einen Paramter. Er nimmt eine nicht-rekursive Funktion
+und gibt eine rekursive zurück.
 
 \begin{behauptung}
     Der $Y$-Kombinator ist ein Fixpunktkombinator.
@@ -311,4 +329,5 @@ Insbesondere ist also $f \ g$ ein Fixpunkt von $g$.
 \begin{itemize}
     \item \url{http://c2.com/cgi/wiki?FreeVariable}
     \item \url{http://www.lambda-bound.com/book/lambdacalc/node9.html}
+    \item \url{http://mvanier.livejournal.com/2897.html}
 \end{itemize}

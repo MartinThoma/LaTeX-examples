@@ -40,7 +40,7 @@ Der Befehl \texttt{x10c HelloWorld.x10} erstellt eine ausführbare Datei namens
 \inputminted[numbersep=5pt, tabsize=4, frame=lines, label=HelloWorld.x10]{cpp}{scripts/x10/HelloWorld.x10}
 
 \section{Syntax}
-Genau wie Scala nutzt X10 \texttt{val}\xindex{val} und \texttt{var}\xindex{var}, wobei \texttt{val} für
+Genau wie Scala nutzt X10 \texttt{val}\xindex{val (X10)@\texttt{val} (X10)} und \texttt{var}\xindex{var (X10)@\texttt{var} (X10)}, wobei \texttt{val} für
 \enquote{value} steht und ein unveränderbarer Wert ist. \texttt{var} hingegen
 steht für \enquote{variable} und ist veränderbar.
 
@@ -71,7 +71,7 @@ Closres werden unterstützt:
 Durch \texttt{async S} kann das Statement \texttt{S} asynchron ausgeführt werden.
 Das bedeutet, dass ein neuer Kindprozess (eine Kind-Aktivität) erstellt wird, die
 \texttt{S} ausführt. Dabei wird nicht auf das Beenden von \texttt{S} gewartet.
-Will man das, so muss \texttt{finish}\xindex{finish} vor das Statement gestellt werden.
+Will man das, so muss \texttt{finish}\xindex{finish (X10)@\texttt{finish} (X10)} vor das Statement gestellt werden.
 
 \subsection{atomic}\xindex{atomic}%
 Durch \texttt{atomic S} wird das Statement \texttt{S} atomar ausgeführt. Auch
@@ -79,7 +79,7 @@ Methoden können atomar gemacht werden.
 
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/atomic-example.x10}
 
-\subsection[Bedingtes Warten]{Bedingtes Warten\footnote{WS 2013/2014, Kapitel 43, Folie 22}}\xindex{when}%
+\subsection[Bedingtes Warten]{Bedingtes Warten\footnote{WS 2013/2014, Kapitel 43, Folie 22}}\xindex{when (X10)@\texttt{when} (X10)}%
 Durch \texttt{when (E) S} kann eine Aktivität warten, bis die Bedingung \texttt{E}
 wahr ist um dann das Statement \texttt{S} auszuführen.
 
@@ -117,7 +117,7 @@ Arrays werden in X10 wie folgt definiert:
 
 Das ergibt den Array \texttt{[ 0, 2, 4, 6, 8 ]}.
 
-\subsection{struct}\xindex{struct}%
+\subsection{struct}\xindex{struct (X10)@\texttt{struct} (X10)}%
 In X10 gibt es, wie auch in C, den Typ \texttt{struct}. Dieser erlaubt im Gegensatz
 zu Objekten keine Vererbung, kann jedoch auch interfaces implementieren.
 

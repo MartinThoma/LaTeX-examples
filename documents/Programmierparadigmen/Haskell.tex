@@ -87,6 +87,9 @@ hat einen Speicherverbrauch von $\mathcal{O}(n)$. Durch einen
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/fakultaet-akkumulator.hs}
 
 \subsection{Listen}
+Listen sind in Haskell 0-indiziert, d.~h. das erste Element jeder Liste hat
+den Index 0.
+
 \begin{itemize}
     \item \texttt{[]} erzeugt die leere Liste,
     \item \texttt{[1,2,3]} erzeugt eine Liste mit den Elementen $1, 2, 3$
@@ -148,7 +151,7 @@ in etwa folgendem Haskell-Code:
           \texttt{tail "ABCDEF"} gibt \texttt{"BCDEF"} zurück.
 \end{itemize}
 
-\subsection{Let und where}\xindex{let}\xindex{where}%
+\subsection{Let und where}\xindex{let (Haskell)@\texttt{let} (Haskell)}\xindex{where (Haskell)@\texttt{where} (Haskell)}%
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/let-where-bindung.hs}
 
 \subsection{Funktionskomposition}\xindex{. (Haskell)}\xindex{Funktionskomposition}%
@@ -223,12 +226,12 @@ Ein paar Beispiele zur Typinferenz:
     \label{fig:haskell-type-hierarchy}
 \end{figure}
 
-\subsection{type}\xindex{type}%
+\subsection{type}\xindex{type (Haskell)@\texttt{type} (Haskell)}%
 Mit \texttt{type} können Typsynonyme erstellt werden:
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/alt-types.hs}
 
-\subsection{data}\xindex{data}%
+\subsection{data}\xindex{data (Haskell)@\texttt{data} (Haskell)}%
 Mit dem Schlüsselwort \texttt{data} können algebraische Datentypen\xindex{Datentyp!algebraischer}
 erzeugt werden:
 
@@ -267,7 +270,7 @@ sich das ganze sogar noch kürzer schreiben:
 \subsection{Fibonacci}\xindex{Fibonacci}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci.hs]{haskell}{scripts/haskell/fibonacci.hs}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-akk.hs]{haskell}{scripts/haskell/fibonacci-akk.hs}
-\xindex{zipWith}
+\xindex{zipWith (Haskell)@\texttt{zipWith} (Haskell)}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-zip.hs]{haskell}{scripts/haskell/fibonacci-zip.hs}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-pattern-matching.hs]{haskell}{scripts/haskell/fibonacci-pattern-matching.hs}
 
@@ -276,7 +279,7 @@ wird wie folgt erzeugt:
 
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=fibonacci-stream.hs]{haskell}{scripts/haskell/fibonacci-stream.hs}
 
-\subsection{Polynome}\xindex{Polynome}\xindex{zipWith}\xindex{foldr}\xindex{tail}%
+\subsection{Polynome}\xindex{Polynome}\xindex{zipWith (Haskell)@\texttt{zipWith} (Haskell)}\xindex{Folds!foldr (Haskell)@\texttt{foldr} (Haskell)}\xindex{tail (Haskell)@\texttt{tail} (Haskell)}%
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=polynome.hs]{haskell}{scripts/haskell/polynome.hs}
 
 \subsection{Hirsch-Index}\xindex{Hirsch-Index}\xindex{Ord}\xindex{Num}%
@@ -293,7 +296,7 @@ wird wie folgt erzeugt:
 
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=intersect.hs]{haskell}{scripts/haskell/intersect.hs}
 
-\subsection{Funktionen höherer Ordnung}\xindex{Folds}\xindex{foldl}\xindex{foldr}\label{bsp:foldl-und-foldr}
+\subsection{Funktionen höherer Ordnung}\xindex{Folds}\xindex{Folds!foldl (Haskell)@\texttt{foldl} (Haskell)}\xindex{Folds!foldr (Haskell)@\texttt{foldr} (Haskell)}\label{bsp:foldl-und-foldr}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=folds.hs]{haskell}{scripts/haskell/folds.hs}
 
 \subsection{Chruch-Zahlen}
@@ -320,7 +323,7 @@ Knoten anwendet:
 
 \subsection{Standard Prelude}
 Hier sind die Definitionen eininger wichtiger Funktionen:
-\xindex{zipWith}\xindex{zip}
+\xindex{zipWith (Haskell)@\texttt{zipWith} (Haskell)}\xindex{zip (Haskell)@\texttt{zip} (Haskell)}
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/standard-definitions.hs}
 
 \section{Weitere Informationen}

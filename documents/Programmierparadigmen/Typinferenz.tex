@@ -49,27 +49,37 @@ wenn $\alpha$ ein String ist und $\beta$ boolesch.
 
 Die Menge aller Operationen, die auf die Variablen angewendet werden, nennt man
 \textbf{Typkontext}\xindex{Typkontext}. Dieser wird üblicherweise mit $\Gamma$
-bezeichnet.
+bezeichnet. Der Typkontext weist freien Variablen $x$ ihren Typ $\Gamma(x)$ zu.
 
 Das Ableiten einer Typisierung für einen Ausdruck nennt man \textbf{Typinferenz}\xindex{Typinferenz}.
 Man schreibt: $\vdash(\lambda x.2): \alpha \rightarrow \text{int}$.
 
 Bei solchen Ableitungen sind häufig viele Typen möglich. So kann der Ausdruck
-\[\lambda x.2\]
-Mit folgenderweise typisiert werden:
+\[\lambda x.\ 2\]
+folgenderweise typisiert werden:
 \begin{itemize}
-	\item $\vdash(\lambda x.2): \text{bool} \rightarrow int$
-	\item $\vdash(\lambda x.2): \text{int} \rightarrow int$
-	\item $\vdash(\lambda x.2): \text{Char} \rightarrow int$
-	\item $\vdash(\lambda x.2): \alpha \rightarrow int$
+	\item $\vdash(\lambda x.\ 2): \text{bool} \rightarrow int$
+	\item $\vdash(\lambda x.\ 2): \text{int} \rightarrow int$
+	\item $\vdash(\lambda x.\ 2): \text{Char} \rightarrow int$
+	\item $\vdash(\lambda x.\ 2): \alpha \rightarrow int$
 \end{itemize}
 
 In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 
+Wichtig ist , dass man sich von unten nach oben arbeitet.
+
+\begin{beispiel}[Typinferenz\footnotemark]
+    Typisieren Sie den Term
+    \[\lambda a.\ a\ \text{true}\]
+    unter Verwendung der Regeln \verb+Var+, \verb+Abs+ und \verb+App+.
+
+    \[\ABS: \frac{\APP \frac{\VAR \frac{(a:\alpha_2)(a) = \alpha_4}{a: \alpha_2 \vdash a: \alpha_4} \;\;\;\;\;\; a: \alpha_2 \vdash \text{true}: \text{bool}}{a: \alpha_2 \vdash a\ \text{true}: \alpha_3}}{\vdash \lambda a.\ a\ \text{true}: \alpha_1}\]
+\end{beispiel}
+\footnotetext{Dieses Beispiel stammt aus der Klausur vom WS2013/2014}
+
 \section{Typsystem}
 \begin{definition}[Typsystem $\Gamma \vdash t: T$\footnotemark]\label{def:typsystem-t1}\xindex{Typregel}\xindex{Typsystem}\xindex{APP@$\APP$}\xindex{ABS@$\ABS$}\xindex{VAR@$\VAR$}\xindex{CONST@$\CONST$}%
-	Ein Typkontext $\Gamma$ ordnet jeder freien Variable $x$ einen Typ $\Gamma(x)$
-	durch folgende Regeln zu:
+	Ein Typsystem besteht aus einem Typkontext $\Gamma$ und folgenden Regeln:
 
 	\begin{align*}
 		\CONST:&\frac{c \in \text{Const}}{\Gamma \vdash c: \tau_c}\\
@@ -129,7 +139,7 @@ ist eine polymorphe Hilfsfunktion, da sie beliebige Werte auf 2 Abbildet.
 Auch solche Ausdrücke sollen typisierbar sein.
 
 Die Kodierung 
-\[\text{let} x = t_1 \text{ in } t_2\]
+\[\text{let } x = t_1 \text{ in } t_2\]
 ist bedeutungsgleich mit
 \[(\lambda x.\ t_2) t_1\]
 
@@ -145,6 +155,11 @@ in den Typkontext eingetragen werden. Dies ist jedoch nicht möglich. Stattdesse
 wird 
 \[\text{let} x = t_1 \text{ in } t_2\]
 als neues Konstrukt im $\lambda$-Kalkül erlaubt.
+
+Der Term
+\[\text{let } x = t_1 \text{ in } t_2\]
+ist bedeutungsgleich zu
+\[\lambda x.\ (t_2)\ t_1\]
 
 \begin{definition}[Typschema]\xindex{Typschema}%
     Ein Typ der Gestalt $\forall \alpha_1.\ \forall \alpha_2.\ \dots\ \forall \alpha_n. \tau$

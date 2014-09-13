@@ -69,7 +69,11 @@ Dabei wird die Von-Neumann-Architektur als \textit{SISD-Architektur} und die
 PRAM-Architektur als \textit{SIMD-Architektur} klassifiziert. Es ist so zu
 verstehen, dass ein einzelner Befehl auf verschiedene Daten angewendet wird.
 
-Bei heutigen Multicore-Rechnern liegt MIMD vor.
+Bei heutigen Multicore-Rechnern liegt MIMD vor, da verschiedene Befehle in den
+Programmspeichern möglich sind.
+
+Ein Beispiel für die SIMD sind GPUs. Sie haben einen Befehl im Programmspeicher
+der auf verschiedenen Daten (Pixel) angewendet wird.
 
 MISD ist nicht so richtig sinnvoll.
 

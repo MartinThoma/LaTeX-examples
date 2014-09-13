@@ -64,7 +64,7 @@ verglichen werden.
 
 \begin{beispiel}[Arithmetik in Prolog\footnotemark]
     \begin{bspenum}
-        \item \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/even.pl}\xindex{even}
+        \item \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/even.pl}\xindex{even (Prolog)@\texttt{even} (Prolog)}
         \item \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/fibonacci2.pl}\xindex{fib}
     \end{bspenum}
 \end{beispiel}
@@ -172,38 +172,44 @@ Dieses skript soll man \texttt{swipl -f test.pl} aufrufen. Dann erhält man:
 \subsection{Delete}\xindex{remove}\xindex{delete}%
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/delete.pl}
 
-\subsection{Zebrarätsel}
-Folgendes Rätsel wurde von \url{https://de.wikipedia.org/w/index.php?title=Zebrar%C3%A4tsel&oldid=126585006}
-entnommen:
+% \subsection{Zebrarätsel}
+% Folgendes Rätsel wurde von \url{https://de.wikipedia.org/w/index.php?title=Zebrar%C3%A4tsel&oldid=126585006}
+% entnommen:
 
-\begin{enumerate}
-    \item Es gibt fünf Häuser.
-    \item Der Engländer wohnt im roten Haus.
-    \item Der Spanier hat einen Hund.
-    \item Kaffee wird im grünen Haus getrunken.
-    \item Der Ukrainer trinkt Tee.
-    \item Das grüne Haus ist direkt rechts vom weißen Haus.
-    \item Der Raucher von Altem-Gold-Zigaretten hält Schnecken als Haustiere.
-    \item Die Zigaretten der Marke Kools werden im gelben Haus geraucht.
-    \item Milch wird im mittleren Haus getrunken.
-    \item Der Norweger wohnt im ersten Haus.
-    \item Der Mann, der Chesterfields raucht, wohnt neben dem Mann mit dem Fuchs.
-    \item Die Marke Kools wird geraucht im Haus neben dem Haus mit dem Pferd.
-    \item Der Lucky-Strike-Raucher trinkt am liebsten Orangensaft.
-    \item Der Japaner raucht Zigaretten der Marke Parliaments.
-    \item Der Norweger wohnt neben dem blauen Haus.
-\end{enumerate}
+% \begin{enumerate}
+%     \item Es gibt fünf Häuser.
+%     \item Der Engländer wohnt im roten Haus.
+%     \item Der Spanier hat einen Hund.
+%     \item Kaffee wird im grünen Haus getrunken.
+%     \item Der Ukrainer trinkt Tee.
+%     \item Das grüne Haus ist direkt rechts vom weißen Haus.
+%     \item Der Raucher von Altem-Gold-Zigaretten hält Schnecken als Haustiere.
+%     \item Die Zigaretten der Marke Kools werden im gelben Haus geraucht.
+%     \item Milch wird im mittleren Haus getrunken.
+%     \item Der Norweger wohnt im ersten Haus.
+%     \item Der Mann, der Chesterfields raucht, wohnt neben dem Mann mit dem Fuchs.
+%     \item Die Marke Kools wird geraucht im Haus neben dem Haus mit dem Pferd.
+%     \item Der Lucky-Strike-Raucher trinkt am liebsten Orangensaft.
+%     \item Der Japaner raucht Zigaretten der Marke Parliaments.
+%     \item Der Norweger wohnt neben dem blauen Haus.
+% \end{enumerate}
 
-Wer trinkt Wasser? Wem gehört das Zebra?
+% Wer trinkt Wasser? Wem gehört das Zebra?
 
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=zebraraetsel.pro]{prolog}{scripts/prolog/zebraraetsel.pro}
+% \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=zebraraetsel.pro]{prolog}{scripts/prolog/zebraraetsel.pro}
 
-TODO
+% TODO
 
-\section{Zahlen generieren}
+\subsection{Zahlen generieren}
 Folgendes Skript generiert durch reerfüllung die Zahlen $1, \dots, 10$:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/zahlen-bis-10.pl}
+
+\subsection{Reguläre ausdrücke}
+Folgendes Beispiel stammt aus der Programmierparadigmenklausur vom WS 2013/2014
+bei Prof. Dr. Snelting:
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/regex.pl}
 
 \section{Weitere Informationen}
 \begin{itemize}
