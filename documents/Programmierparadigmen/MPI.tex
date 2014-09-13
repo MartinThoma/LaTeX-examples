@@ -98,7 +98,7 @@ Empfangen einer Nachricht (blockierend)
                   Ein Kommunikationsvorgang wird durch ein Tripel (Sender, Empfänger, tag) eindeutig beschrieben. Um Nachrichten mit beliebigen tags zu empfangen, benutzt man die Konstante \texttt{MPI\_ANY\_TAG}.
     \item \textbf{comm}: Kommunikator (handle) 
     \item \textbf{status}: Status, welcher source und tag angibt (\texttt{MPI\_Status}).
-          Soll dieser Status ignoriert werden, kann \texttt{MPI\_STATUS\_IGNORE}\xindex{MPI\_STATUS\_IGNORE} angegeben werden.
+          Soll dieser Status ignoriert werden, kann \texttt{MPI\_STATUS\_IGNORE}\xindex{MPI\_STATUS\_IGNORE@\texttt{MPI\_STATUS\_IGNORE}} angegeben werden.
 \end{itemize}
 
 \textbf{Beispiel}
@@ -167,7 +167,29 @@ Verteilt Daten vom Prozess \texttt{root} unter alle anderen Prozesse in der Grup
     \item \textbf{root}: Rang des Prozesses in comm, der die Daten versendet
     \item \textbf{comm}: Kommunikator (handle)
 \end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\goodbreak
+\rule{\textwidth}{0.4pt}\xindex{MPI\_Allgather@\texttt{MPI\_Allgather}}%
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-allgather.c}
+Sammelt Daten, die in einer Prozeßgruppe verteilt sind, ein und verteilt das Resultat an alle Prozesse in der Gruppe.
 
+\textbf{Input-Parameter}
+\begin{itemize}
+    \item \textbf{sendbuf}: Startadresse des Sendepuffers 
+    \item \textbf{sendcount}: Anzahl der Elemente im Sendepuffer
+    \item \textbf{sendtype}: Datentyp der Elemente des Sendepuffers (handle) (vgl. \cpageref{sec:MPI-Datatypes})
+    \item \textbf{recvcount}:  Anzahl der Elemente, die jeder einzelne Prozeß sendet (integer) 
+    \item \textbf{recvtype}: Datentyp der Elemente im Empfangspuffer (handle) (vgl. \cpageref{sec:MPI-Datatypes})
+    \item \textbf{comm}: Kommunikator (handle)
+\end{itemize}
+
+\textbf{Output-Parameter}
+\begin{itemize}
+    \item \textbf{recvbuf}: Anfangsadresse des Empfangspuffers
+\end{itemize}
+
+\textbf{Beispiel}
+\inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-allgather-example.c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Gather@\texttt{MPI\_Gather}}%

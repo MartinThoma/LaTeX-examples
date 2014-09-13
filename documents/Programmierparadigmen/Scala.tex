@@ -54,16 +54,16 @@ einige Unterschiede.
 Weitere Informationen hat Graham Lea unter \url{http://tinyurl.com/scala-hello-world} zur Verfügung gestellt.
 
 \section{Syntax}
-In Scala gibt es sog. \textit{values}, die durch das Schlüsselwort \texttt{val}\xindex{val}
+In Scala gibt es sog. \textit{values}, die durch das Schlüsselwort \texttt{val}\xindex{val (Scala)@\texttt{val} (Scala)}
 angezeigt werden. Diese sind Konstanten. Die Syntax ist der UML-Syntax ähnlich.
 
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/val-syntax.scala}
 
-Variablen werden durch das Schlüsselwort \texttt{var}\xindex{var} angezeigt:
+Variablen werden durch das Schlüsselwort \texttt{var}\xindex{var (Scala)@\texttt{var} (Scala)} angezeigt:
 
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/var-syntax.scala}
 
-Methoden werden mit dem Schlüsselwort \texttt{def}\xindex{def} erzeugt:
+Methoden werden mit dem Schlüsselwort \texttt{def}\xindex{def (def)@\texttt{def} (Scala)} erzeugt:
 
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/method-syntax.scala}
 
@@ -73,12 +73,17 @@ Klassen werden wie folgt erstellt:
 und so instanziiert:
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/simple-class-instanciation.scala}
 
+\subsection{Schleifen}\xindex{for (Scala)@\texttt{for} (Scala)}
+Eine einfache \texttt{for}-Schleife sieht wie folgt aus:
+
+\inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/extended-for.scala}
+
 Listen können erstellt und durchgegangen werden:
 
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/scala/extended-for.scala}
 
 \subsection{Logische Operatoren}
-\begin{table}[h]
+\begin{table}[H]
     \centering 
     \begin{tabular}{CCCC}
     UND    & ODER     & Wahr  & Falsch \\ \hline\hline
