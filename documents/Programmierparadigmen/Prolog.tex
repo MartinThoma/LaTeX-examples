@@ -34,6 +34,14 @@ und $Y$ Farben sind und $X \neq Y$ gilt:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/simple-term.pl}
 
+\subsection{Kommentare}\xindex{Kommentare (Prolog)}
+Prolog kennt zwei Kommentar-Typen:
+
+\begin{itemize}
+    \item Zeilen-Kommentare, die mit \verb+%+ beginnen
+    \item Block-Kommentare, diem durch \verb+/* ... */+ markiert werden.
+\end{itemize}
+
 \subsection{= und ==}\xindex{= (Prolog)}\xindex{== (Prolog)}
 In Prolog entspricht \texttt{=} dem Prädikat \texttt{=/2}. Das Prädikat \texttt{<a> = <b>} wird
 erfüllt, wenn die beiden Terme \texttt{<a>} und \texttt{<b>} unifiziert werden
@@ -210,6 +218,10 @@ Folgendes Beispiel stammt aus der Programmierparadigmenklausur vom WS 2013/2014
 bei Prof. Dr. Snelting:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/regex.pl}
+
+\subsection{Two Bases}
+
+\inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/01-two-bases.prolog}
 
 \section{Weitere Informationen}
 \begin{itemize}
