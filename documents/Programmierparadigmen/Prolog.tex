@@ -56,6 +56,22 @@ die beiden Terme bereits identisch sind.
 
 Weitere Informationen: \url{http://stackoverflow.com/a/8220315/562769}
 
+\subsection{! (Cut)}\xindex{"! (Cut, Prolog)}
+Das \texttt{!} wird in Prolog als \textit{cut} bezeichnet. Ein Cut verhindert
+Backtracking nach dem cut.
+
+Die Klauseln eines Prädikates werden von Prolog von links nach rechts evaluiert.
+Prolog bindet einen Wert an eine Variable in der linkesten Klausel. Wenn diese
+Klausel als \texttt{true} ausgewertet wird, dann versucht Prolog die nächste
+Klausel auszuwerten. Falls nicht, wird eine neuer Wert an die momentan
+betrachtete Klausel gebunden.
+
+Da Klauseln über logische UND verbunden sind, führt eine nicht erfüllbare
+Klausel dazu, dass das gesamte Prädikat als \texttt{false} evaluiert wird.
+
+Der cut ist ein Gate: Sind die Klauseln vor dem cut ein mal wahr, werden die
+Werte festgelegt.
+
 \subsection{Arithmetik}
 Die Auswertung artihmetischer Ausdrücke muss in Prolog explizit durch \texttt{is}
 durchgeführt werden:
@@ -219,7 +235,7 @@ bei Prof. Dr. Snelting:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/regex.pl}
 
-\subsection{Two Bases}
+\subsection{Coffeetime 01: Two Bases}
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/01-two-bases.prolog}
 
