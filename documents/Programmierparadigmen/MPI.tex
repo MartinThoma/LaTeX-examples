@@ -109,7 +109,7 @@ Empfangen einer Nachricht (blockierend)
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-reduce.c}
 Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhält das Resultat.
 
-\textbf{Parameter}
+\textbf{Input-Parameter}
 \begin{itemize}
     \item \textbf{sendbuf}: Startadresse des Sendepuffers
     \item \textbf{count}: Anzahl der Elemente im Sendepuffer
@@ -118,13 +118,18 @@ Führt eine globale Operation \textbf{op} aus; der Prozeß \enquote{root} erhäl
     \item \textbf{root}: Rang des Root-Prozesses in comm, der das Ergebnis haben soll
     \item \textbf{comm}: Kommunikator (handle)
 \end{itemize}
+
+\textbf{Output-Parameter}
+\begin{itemize}
+    \item \textbf{recvbuf}: Adresse des Puffers, in den das Ergebnis abgelegt wird (nur für \texttt{root} signifikant)
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Alltoall@\texttt{MPI\_Alltoall}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-alltoall.c}
 Teilt Daten von jedem Prozeß einer Gruppe an alle anderen auf.
 
-\textbf{Parameter}
+\textbf{Input-Parameter}
 \begin{itemize}
     \item \textbf{sendbuf}: Startadresse des Sendepuffers 
     \item \textbf{sendcount}: Anzahl der Elemente im Sendepuffer
@@ -132,6 +137,11 @@ Teilt Daten von jedem Prozeß einer Gruppe an alle anderen auf.
     \item \textbf{recvcount}: Anzahl der Elemente, die von jedem einzelnen Prozeß empfangen werden
     \item \textbf{recvtype}: Typ der Elemente im Empfangspuffer (handle) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{comm}: Kommunikator (handle)
+\end{itemize}
+
+\textbf{Output-Parameter}
+\begin{itemize}
+    \item \textbf{recvbuf}: Anfangsadresse des Empfangspuffers
 \end{itemize}
 
 \textbf{Beispiel}
@@ -157,15 +167,20 @@ angegebenen Kommunikators.
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-scatter.c}
 Verteilt Daten vom Prozess \texttt{root} unter alle anderen Prozesse in der Gruppe, so daß, soweit möglich, alle Prozesse gleich große Anteile erhalten.
 
-\textbf{Parameter}
+\textbf{Input-Parameter}
 \begin{itemize}
-    \item \textbf{sendbuf}: Anfangsadresse des Sendepuffers (Wert ist lediglich für 'root' signifikant) 
+    \item \textbf{sendbuf}: Anfangsadresse des Sendepuffers (Wert ist lediglich für \texttt{root} signifikant) 
     \item \textbf{sendcount}: Anzahl der Elemente, die jeder Prozeß geschickt bekommen soll (integer) 
     \item \textbf{sendtype}: Typ der Elemente in sendbuf (handle) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{recvcount}: Anzahl der Elemente im Empfangspuffer. Meist ist es günstig, recvcount = sendcount zu wählen. 
     \item \textbf{recvtype}: Typ der Elemente des Empfangspuffers (handle) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{root}: Rang des Prozesses in comm, der die Daten versendet
     \item \textbf{comm}: Kommunikator (handle)
+\end{itemize}
+
+\textbf{Output-Parameter}
+\begin{itemize}
+    \item \textbf{recvbuf}: Adresse des Empfangsbuffers; auch \texttt{root} findet seinen Anteil an Daten nach der Operation dort
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \goodbreak
@@ -196,15 +211,20 @@ Sammelt Daten, die in einer Prozeßgruppe verteilt sind, ein und verteilt das Re
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-gather.c}
 Sammelt Daten, die in einer Prozeßgruppe verteilt sind, ein.
 
-\textbf{Parameter}
+\textbf{Input-Parameter}
 \begin{itemize}
-    \item \textbf{sendbuf}: Startadresse des Sendepuffers 
+    \item \textbf{sendbuf}: Startadresse des Sendepuffers
     \item \textbf{sendcount}: Anzahl der Elemente im Sendepuffer
-    \item \textbf{sendtype}: Datentyp der Elemente des Sendepuffers (handle) 
-    \item \textbf{recvcount}: Anzahl der Elemente, die jeder einzelne Prozeß sendet (nur für 'root' signifikant) 
-    \item \textbf{recvtype}: Typ der Elemente im Empfangspuffer (handle) (nur für 'root' signifikant) (vgl. \cpageref{sec:MPI-Datatypes})
+    \item \textbf{sendtype}: Datentyp der Elemente des Sendepuffers (handle)
+    \item \textbf{recvcount}: Anzahl der Elemente, die jeder einzelne Prozeß sendet (nur für \texttt{root} signifikant) 
+    \item \textbf{recvtype}: Typ der Elemente im Empfangspuffer (handle) (nur für \texttt{root} signifikant) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{root}: Rang des empfangenden Prozesses in \texttt{comm}
     \item \textbf{comm}: Kommunikator (handle)
+\end{itemize}
+
+\textbf{Output-Parameter}
+\begin{itemize}
+    \item \textbf{recvbuf}: Adresse des Empfangspuffers (nur für \texttt{root} signifikant)
 \end{itemize}
 
 \textbf{Beispiel}

@@ -58,15 +58,15 @@ Bei solchen Ableitungen sind häufig viele Typen möglich. So kann der Ausdruck
 \[\lambda x.\ 2\]
 folgenderweise typisiert werden:
 \begin{itemize}
-	\item $\vdash(\lambda x.\ 2): \text{bool} \rightarrow int$
-	\item $\vdash(\lambda x.\ 2): \text{int} \rightarrow int$
-	\item $\vdash(\lambda x.\ 2): \text{Char} \rightarrow int$
-	\item $\vdash(\lambda x.\ 2): \alpha \rightarrow int$
+	\item $\vdash(\lambda x.\ 2): \text{bool} \rightarrow \text{int}$
+	\item $\vdash(\lambda x.\ 2): \text{int} \rightarrow \text{int}$
+	\item $\vdash(\lambda x.\ 2): \text{Char} \rightarrow \text{int}$
+	\item $\vdash(\lambda x.\ 2): \alpha \rightarrow \text{int}$
 \end{itemize}
 
 In der letzten Typisierung stellt $\alpha$ einen beliebigen Typen dar.
 
-Wichtig ist , dass man sich von unten nach oben arbeitet.
+Wichtig ist, dass man sich von unten nach oben vorarbeitet.
 
 \begin{beispiel}[Typinferenz\footnotemark]
     Typisieren Sie den Term
@@ -90,6 +90,8 @@ Wichtig ist , dass man sich von unten nach oben arbeitet.
 			   &\\
 		\APP:  &\frac{\Gamma \vdash t_1: \tau_2 \rightarrow \tau\;\;\; \Gamma \vdash t_2: \tau_2}{\Gamma \vdash t_1 t_2: \tau} \\
 	\end{align*}
+
+    wobei $t_1, t_2$ immer $\lambda$-Terme bezeichnet.
 \end{definition}
 \footnotetext{WS 2013 / 2014, Folie 192}
 
