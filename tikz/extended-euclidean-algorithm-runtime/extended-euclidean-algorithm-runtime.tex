@@ -1,0 +1,77 @@
+\documentclass[varwidth=true, border=5pt]{article}
+\usepackage[active,tightpage]{preview}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning} 
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\pgfplotsset{
+    colormap={whitered}{
+        color(0cm)=(white);
+        color(1cm)=(orange!75!red)
+    }
+}
+\begin{tikzpicture}
+    \begin{axis}[
+        colormap name=whitered,
+        clip mode=individual,
+        width=10.0cm,
+        height=10.0cm,
+        % Grid
+        grid = major,
+        % size
+        %xmin= 40,     % start the diagram at this x-coordinate
+        %xmax= 90,   % end   the diagram at this x-coordinate
+        %ymin= 0,     % start the diagram at this y-coordinate
+        %ymax= 60, % end   the diagram at this y-coordinate
+        % Legende
+        legend style={
+            font=\large\sansmath\sffamily,
+            at={(0.5,-0.18)},
+            anchor=north,
+            legend cell align=left,
+            legend columns=-1,
+            column sep=0.5cm
+        },
+        % Ticks
+        tick align=inside,
+        every axis/.append style={font=\large\sansmath\sffamily},
+        minor tick style={thick},
+        scaled y ticks = false,
+        % Axis
+        axis line style = {very thick,shorten <=-0.5\pgflinewidth},
+        axis lines = middle,
+        axis line style = very thick,
+        xlabel=$m$,
+        x label style={at={(axis description cs:0.5,-0.05)},
+                       anchor=north,
+                       font=\boldmath\sansmath\sffamily\Large},
+        ylabel=$n$,
+        y label style={at={(axis description cs:-0.1,0.5)},
+                       anchor=south,
+                       rotate=90,
+                       font=\boldmath\sansmath\sffamily\Large},
+        colorbar,
+        colorbar style={
+            at={(-0.2,0)},
+            anchor=south west,
+            height=0.25*\pgfkeysvalueof{/pgfplots/parent axis height},
+            title={Schritte}  % ADJUST THIS TO YOUR LANGUAGE
+        }
+        ]
+\addplot[
+scatter,
+only marks,
+mark=square*
+]
+table[col sep=comma,point meta=\thisrow{steps}] {data.csv};
+\end{axis}
+\end{tikzpicture}
+\end{preview}
+\end{document}
