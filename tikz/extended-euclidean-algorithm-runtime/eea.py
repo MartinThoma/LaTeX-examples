@@ -26,7 +26,7 @@ def create_csv(n, filename):
         csvwriter.writerow(["x", "y", "steps"])
         for x in range(n):
             for y in range(n):
-                steps = eea(x, y)[-1]
+                gcd, u, v, steps = eea(x, y)
                 max_steps = max(steps, max_steps)
                 csvwriter.writerow([x, y, steps])
     print("Maximum step number: %i" % max_steps)
