@@ -4,31 +4,45 @@
 
 \usepackage{pgfplots}
 \usepackage{tikz}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+% Sans serif fonts do not look as nice as serif fonts,
+% but they are much easier to read when the image is small
+\pgfplotsset{
+  tick label style = {font=\sansmath\sffamily},
+  every axis label = {font=\sansmath\sffamily},
+  legend style = {font=\sansmath\sffamily},
+  label style = {font=\sansmath\sffamily}
+}
 
 \begin{document}
 \begin{preview}
 \begin{tikzpicture}
   \begin{axis}[
-    width=15cm,
-    height=10cm,
-    title=US military budget,
-    title style={font=\bfseries},
-    x tick label style={/pgf/number format/1000 sep=},
-    xlabel=Year,
-    ylabel=In constant (2010) billion US\$,
-    % enlargelimits=0.15,
-    ymin=340,
-    ymax=850,
-    xmin=1987,
-    xmax=2011.9,
-    legend style={at={(0.5,-0.15)},
-    anchor=north,legend columns=-1},
-    ybar=5pt,% configures ‘bar shift’
-    bar width=9pt,
+    title              = US military budget,
+    % xlabel             = Year,
+    ylabel             = In constant (2010) billion US\$,
+    % Display option
+    width  = 12cm,
+    height = 10cm,
+    ymin   = 340,
+    ymax   = 760,
+    xmin   = 1987,
+    xmax   = 2011.9,
+    % Configuration
+    title style                         = {font=\bfseries},
+    x tick label style                  = {/pgf/number format/1000 sep=,
+    inner sep=0pt,
+            anchor=north east,
+            rotate=45 },
+    legend style                        = {at={(0.5,-0.15)},
+    anchor                              = north,legend columns=-1},
+    ybar                                = 5pt,  % configures ‘bar shift’
+    bar width                           = 9pt,
     nodes near coords,
-    every node near coord/.append style={rotate=90, anchor=west},
-    point meta=y, % the displayed number
-    % point meta style={rotate=90}
+    every node near coord/.append style = {rotate=90, anchor=west, font=\small\sansmath\sffamily},
+    point meta                          = y,  % the displayed number
   ]
     \addplot
     coordinates {(1988, 540.415) (1989, 534.906) (1990, 510.998)
@@ -38,10 +52,6 @@
         (2003, 492.200) (2004, 536.459) (2005, 562.039) (2006, 570.769)
         (2007, 585.749) (2008, 629.095) (2009, 679.574) (2010, 698.281)
         (2011, 689.591) };
-    % \addplot
-    % coordinates {(1930,38e6) (1940,42e6)
-    % (1950,43e6) (1960,45e6) (1970,65e6)};
-    % \legend{Far,Near}
   \end{axis}
 \end{tikzpicture}
 \end{preview}
