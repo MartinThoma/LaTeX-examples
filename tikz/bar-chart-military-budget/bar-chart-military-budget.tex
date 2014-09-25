@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=15cm,
+    height=10cm,
+    title=US military budget,
+    title style={font=\bfseries},
+    x tick label style={/pgf/number format/1000 sep=},
+    xlabel=Year,
+    ylabel=In constant (2010) billion US\$,
+    % enlargelimits=0.15,
+    ymin=340,
+    ymax=850,
+    xmin=1987,
+    xmax=2011.9,
+    legend style={at={(0.5,-0.15)},
+    anchor=north,legend columns=-1},
+    ybar=5pt,% configures ‘bar shift’
+    bar width=9pt,
+    nodes near coords,
+    every node near coord/.append style={rotate=90, anchor=west},
+    point meta=y, % the displayed number
+    % point meta style={rotate=90}
+  ]
+    \addplot
+    coordinates {(1988, 540.415) (1989, 534.906) (1990, 510.998)
+        (1991, 448.806) (1992, 474.215) (1993, 449.281) (1994, 421.917)
+        (1995, 399.043) (1996, 377.342) (1997, 375.375) (1998, 366.918)
+        (1999, 367.822) (2000, 382.061) (2001, 385.142) (2002, 432.452)
+        (2003, 492.200) (2004, 536.459) (2005, 562.039) (2006, 570.769)
+        (2007, 585.749) (2008, 629.095) (2009, 679.574) (2010, 698.281)
+        (2011, 689.591) };
+    % \addplot
+    % coordinates {(1930,38e6) (1940,42e6)
+    % (1950,43e6) (1960,45e6) (1970,65e6)};
+    % \legend{Far,Near}
+  \end{axis}
+\end{tikzpicture}
+\end{preview}
+\end{document}
