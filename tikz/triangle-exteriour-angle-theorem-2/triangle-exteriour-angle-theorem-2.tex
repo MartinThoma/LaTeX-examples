@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \tkzDefPoint(-1,-1){A}
+    \tkzDefPoint(3.2,0){B}
+    \tkzDefPoint(0.7,3){C}
+
+    \tkzDefBarycentricPoint(A=-5,C=1)
+    \tkzGetPoint{D}
+
+    \tkzDefBarycentricPoint(C=1,B=-5)
+    \tkzGetPoint{E}
+
+    \tkzDefBarycentricPoint(A=1,C=-5)
+    \tkzGetPoint{F}
+
+    \tkzLabelPoints[above left,font=\sansmath\sffamily](A)
+    \tkzLabelPoints[above right,font=\sansmath\sffamily](B)
+    \tkzLabelPoints[above=0.3,font=\sansmath\sffamily](C)
+    % \tkzLabelPoints[below,font=\sansmath\sffamily](D)
+
+    % Draw polygon
+    \tkzDrawPolygon[fill=gray!10](A,B,C)
+
+    % Mark angles
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](B,A,C)
+    \tkzLabelAngle[pos=0.3](B,A,C){$\alpha$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](C,B,A)
+    \tkzLabelAngle[pos=-0.4](C,B,A){$\beta$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](A,C,B)
+    \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](D,A,B)
+    \tkzLabelAngle[pos=0.4](B,A,D){$\delta$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](A,B,E)
+    \tkzLabelAngle[pos=0.4](A,B,E){$\epsilon$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](B,C,F)
+    \tkzLabelAngle[pos=0.4](B,C,F){$\zeta$}
+
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=orange!30](D,C,A)
+    % \tkzLabelAngle[pos=0.4](D,C,A){$\delta$}
+
+    \tkzDrawLines(A,B B,C C,A)
+
+    % Label lines
+    % \tkzLabelSegment[below](A,B){$c$}
+    % \tkzLabelSegment[left](A,C){$b$}
+    % \tkzLabelSegment[right](B,C){$a$}
+
+    % Draw polygon
+    % \tkzDrawPolygon[thick](A,B,C)
+
+    % Make dots for points
+    \tkzDrawPoints[size=1.0](A,B,C)
+\end{tikzpicture}
+\end{preview}
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \tkzDefPoint(0.7,3){A}
+    \tkzDefPoint(0,0){B}
+    \tkzDefPoint(3.2,0){C}
+    \tkzDefPoint(4.5,0){D}
+
+    \tkzLabelPoints[above,font=\sansmath\sffamily](A)
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](B)
+    \tkzLabelPoints[below,font=\sansmath\sffamily](C)
+    \tkzLabelPoints[below,font=\sansmath\sffamily](D)
+
+    % Draw polygon
+    \tkzDrawPolygon[fill=gray!10](A,B,C)
+
+    % Mark angles
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](B,A,C)
+    \tkzLabelAngle[pos=0.3](B,A,C){$\alpha$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](C,B,A)
+    \tkzLabelAngle[pos=0.4](C,B,A){$\beta$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](A,C,B)
+    \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](D,C,A)
+    \tkzLabelAngle[pos=0.4](D,C,A){$\delta$}
+
+    \tkzDrawLines[arrows=->](B,D)
+
+    % Label lines
+    % \tkzLabelSegment[below](A,B){$c$}
+    % \tkzLabelSegment[left](A,C){$b$}
+    % \tkzLabelSegment[right](B,C){$a$}
+
+    % Draw polygon
+    \tkzDrawPolygon(A,B,C)
+
+    % Make dots for points
+    \tkzDrawPoints[size=1.0](A,B,C,D)
+\end{tikzpicture}
+\end{preview}
+\end{document}
