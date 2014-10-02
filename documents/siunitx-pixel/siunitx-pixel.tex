@@ -1,0 +1,16 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage[binary-units = true]{siunitx} % this package is for units!
+
+\DeclareSIUnit\px{px}
+
+\begin{document}
+My display has a resolution of $\SI{1366}{\px} \times \si{768}{\px}$.
+
+The speed of a modem is $\SI[per-mode=symbol]{57.6}{\kilo\bit\per\second}$
+\end{document}
