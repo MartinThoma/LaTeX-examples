@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=1.5,font=\sansmath\sffamily]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(4,0){B}
+    \tkzDefPoint(2,0){M}
+    \tkzDefPoint(3,2){H}
+
+    \tkzInterLC[/tikz/overlay](M,H)(M,B) \tkzGetPoints{E}{C}
+
+    \tkzLabelPoints[above right](C)
+
+    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](C,B,A)
+    \tkzLabelAngle[pos=0.4](A,B,C){$\beta$}
+
+    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](M,C,B)
+    \tkzLabelAngle[pos=0.4](B,C,M){$\beta$}
+
+    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](B,M,C)
+    \tkzLabelAngle[pos=0.4](B,M,C){$\delta$}
+
+    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](M,A,C)
+    \tkzLabelAngle[pos=0.4](M,A,C){$\alpha$}
+
+    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](A,C,M)
+    \tkzLabelAngle[pos=0.4](A,C,M){$\alpha$}
+
+    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](C,M,A)
+    \tkzLabelAngle[pos=0.4](C,M,A){$\gamma$}
+
+    \tkzDrawSector[thick](M,B)(A)
+
+    \tkzLabelSegment[below=-1pt](A,M){$r$}
+    \tkzLabelSegment[below=-1pt](M,B){$r$}
+    \tkzLabelSegment[right=-1pt](M,C){$r$}
+
+    \tkzLabelPoints[below left](A)
+    \tkzLabelPoints[below right](B)
+    \tkzLabelPoints[below](M)
+
+    \tkzDrawSegments(A,B B,C C,A)
+    \tkzDrawSegments(M,B B,C C,M)
+\end{tikzpicture}
+\end{preview}
+\end{document}
