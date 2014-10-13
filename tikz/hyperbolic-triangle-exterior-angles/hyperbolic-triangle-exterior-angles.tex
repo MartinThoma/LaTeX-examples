@@ -1,0 +1,54 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+% Thanks to Jan Hlavacek for giving an example
+% (http://tex.stackexchange.com/a/16749/5645)
+
+\begin{document}
+\begin{tikzpicture}[scale=3]
+    \tkzDefPoint(0,0){O}
+    \tkzDefPoint(1,0){Z}
+
+    % Define points
+    \tkzDefPoint(-0.7,-0.1){A}
+    \tkzDefPoint(0.4,-0.3){B}
+    \tkzDefPoint(0.1,0.4){C}
+
+    % Draw big circle
+    \tkzDrawCircle[fill=white](O,Z)
+
+    % I have no idea what this does,
+    % but when I remove it the rest of the image (the big circles)
+    % get visible. So it seems to crop the image to the size of the circle
+    \tkzClipCircle(O,Z)
+
+    % Draw angles
+    \tkzMarkAngles[fill= orange,size=0.3cm,opacity=.3](B,A,C)
+    \tkzLabelAngle[pos=0.2](B,A,C){$\alpha$}
+
+    \tkzMarkAngles[fill= orange,size=0.3cm,opacity=.3](C,B,A)
+    \tkzLabelAngle[pos=0.2](C,B,A){$\beta$}
+
+    \tkzMarkAngles[fill= orange,size=0.3cm,opacity=.3](A,C,B)
+    \tkzLabelAngle[pos=0.2](A,C,B){$\gamma$}
+
+
+    % "Clip" angles
+    \tkzDrawCircle[fill,orthogonal through=A and B,color=white](O,Z)
+    \tkzDrawCircle[fill,orthogonal through=A and C,color=white](O,Z)
+    \tkzDrawCircle[fill,orthogonal through=B and C,color=white](O,Z)
+
+    % Draw big circle
+    \tkzDrawCircle(O,Z)
+
+    % Draw lines
+    \tkzDrawCircle[orthogonal through=A and B,color=green](O,Z)
+    \tkzDrawCircle[orthogonal through=A and C,color=blue](O,Z)
+    \tkzDrawCircle[orthogonal through=B and C,color=red](O,Z)
+
+    % Draw points and label them
+    \tkzDrawPoints[color=black,fill=red,size=5](A,B,C)
+    \tkzLabelPoints(A,B,C)
+\end{tikzpicture}
+\end{document}

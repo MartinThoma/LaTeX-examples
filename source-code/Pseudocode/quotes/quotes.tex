@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\begin{document}
+\begin{preview}
+    This is a 'samle' with some "quotes".
+
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+            \State $a \gets \Call{map}{~}$
+            \State $a['x'] \gets 42$
+            \State $a["x"] \gets 1337$
+        \end{algorithmic}
+    \caption{Algorithmus von Stoer und Wanger}
+    \label{alg:seq1}
+    \end{algorithm}
+\end{preview}
+\end{document}
