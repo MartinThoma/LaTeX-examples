@@ -1,5 +1,9 @@
 \documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{amsmath,scalerel}
+
+\DeclareMathOperator*{\Bigcdot}{\scalerel*{\cdot}{\bigodot}}
 \usepackage{tkz-euclide}
+\usetikzlibrary{angles,quotes}
 
 \begin{document}
 \usetkzobj{all}
@@ -18,10 +22,10 @@
 
     % Draw polygons and mark right angle
     \tkzDrawPolygon[fill=red,fill opacity=0.3](A,B,X)
-    \tkzMarkRightAngle[very thick](A,X,B)
+    \draw pic[very thick, draw, angle radius=3mm,"$\Bigcdot$",angle eccentricity=.6]{angle= A--X--B};
 
     \tkzDrawPolygon[fill=green,fill opacity=0.3](A,B,Y)
-    \tkzMarkRightAngle[very thick](A,Y,B)
+    \draw pic[very thick, draw, angle radius=3mm,"$\Bigcdot$",angle eccentricity=.6]{angle= A--Y--B};
 
     % lines should not colored
     \tkzDrawPolygon(A,B,X)
