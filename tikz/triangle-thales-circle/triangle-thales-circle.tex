@@ -1,0 +1,31 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tkz-euclide}
+
+\begin{document}
+\usetkzobj{all}
+\begin{tikzpicture}
+    \tkzSetUpPoint[shape=circle,size=10,color=black,fill=black]
+    \tkzSetUpLine[line width=1]
+    \tkzDefPoints{0/0/O, -5/0/A, 5/0/B, 5/5/M, -5/5/N}
+    \tkzDefPoint(60:5){X}
+    \tkzDefPoint(150:5){Y}
+
+    \tkzDrawArc[color=black, thick, fill=gray!20](O,B)(A)
+
+    % Avoid too long edges of polygon
+    \tkzClipPolygon(A,B,M,N)
+    \tkzClipCircle(O,B)
+
+    \tkzDrawPolygon[fill=red,fill opacity=0.5](A,B,X)
+    \tkzMarkRightAngle(A,X,B)
+
+    \tkzDrawPolygon[fill=blue,fill opacity=0.5](A,B,Y)
+    \tkzMarkRightAngle(A,Y,B)
+
+    % lines should not colored
+    \tkzDrawPolygon(A,B,X)
+    \tkzDrawPolygon(A,B,Y)
+
+    \tkzDrawArc[color=black, thick](O,B)(A)
+\end{tikzpicture}
+\end{document}
