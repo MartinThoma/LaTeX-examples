@@ -10,17 +10,18 @@
     \tkzDefPoint(60:5){X}
     \tkzDefPoint(150:5){Y}
 
-    \tkzDrawArc[color=black, thick, fill=gray!20](O,B)(A)
+    \tkzDrawArc[color=black, thick, fill=gray!10](O,B)(A)
 
     % Avoid too long edges of polygon
     \tkzClipPolygon(A,B,M,N)
     \tkzClipCircle(O,B)
 
-    \tkzDrawPolygon[fill=red,fill opacity=0.5](A,B,X)
-    \tkzMarkRightAngle(A,X,B)
+    % Draw polygons and mark right angle
+    \tkzDrawPolygon[fill=red,fill opacity=0.3](A,B,X)
+    \tkzMarkRightAngle[very thick](A,X,B)
 
-    \tkzDrawPolygon[fill=blue,fill opacity=0.5](A,B,Y)
-    \tkzMarkRightAngle(A,Y,B)
+    \tkzDrawPolygon[fill=green,fill opacity=0.3](A,B,Y)
+    \tkzMarkRightAngle[very thick](A,Y,B)
 
     % lines should not colored
     \tkzDrawPolygon(A,B,X)
