@@ -1,0 +1,111 @@
+\subsection{Merged Symbols}
+\begin{frame}[fragile]{Merged symbols (MER error)}
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{lc|lc}
+        \toprule
+        \multicolumn{2}{c}{Base symbol} & \multicolumn{2}{c}{equivalent symbols}\\
+        \LaTeX         & Rendered       & \LaTeX                 & Rendered  \\\midrule
+        \verb+\sum+    & $\sum$         & \verb+$\Sigma$+        & $\Sigma$\\
+        \verb+\prod+   & $\prod$        & \verb+$\Pi$+           & $\Pi$\\
+        ~              & ~              & \verb+$\sqcap$+        & $\sqcap$\\
+        \verb+\coprod+ & $\coprod$      & \verb+$\amalg$+        & $\amalg$\\
+        ~              & ~              & \verb+$\sqcup$+        & $\sqcup$\\
+        \verb+\perp+   & $\perp$        & \verb+$\bot$+          & $\bot$\\
+        \verb+\models+ & $\models$      & \verb+$\vDash$+        & $\vDash$\\
+        \verb+|+       & |              & \verb+\mid+            & $\mid$  \\
+        \verb+\Delta+  & $\Delta$       & \verb+$\triangle$+     & $\triangle$\\
+        ~              & ~              & \verb+$\vartriangle$+  & $\vartriangle$\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Merged symbols (MER error)}
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{lc|lc}
+        \toprule
+        \multicolumn{2}{c}{Base symbol} & \multicolumn{2}{c}{equivalent symbols}\\
+        \LaTeX         & Rendered       & \LaTeX                 & Rendered  \\\midrule
+        \verb+\|+      & $\|$           & \verb+$\parallel$+     & $\parallel$\\
+        \verb+\ohm+    & $\Omega$         & \verb+$\Omega$+      & $\Omega$\\
+        \verb+\setminus+ & $\setminus$  & \verb+$\backslash$+    & $\backslash$\\
+        \verb+\checked+ & {\mbox {\wasyfamily \char 8}} & \verb+$\checkmark$+    & $\checkmark$\\
+        \verb+\&+      & $\&$           & \verb+$\with$+         & $\&$\\
+        \verb+\#+      & $\#$           & \verb+$\sharp$+        & $\sharp$\\
+        \verb+\S+      & $\S$           & \verb+$\mathsection$+  & $\mathsection$\\
+        \verb+\nabla+  & $\nabla$       & \verb+\triangledown+   & $\triangledown$\\
+        \verb+\lhd+    & $\lhd$         & \verb+$\triangleleft$+ & $\triangleleft$\\
+        ~              & ~              & \verb+$\vartriangleleft$+ & $\vartriangleleft$\\
+        \verb+\oiint+  & $\oiint$       & \verb+$\varoiint$+     & $\varoiint$\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[fragile]{Merged symbols (MER error)}
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{lc|lc}
+        \toprule
+        \multicolumn{2}{c}{Base symbol} & \multicolumn{2}{c}{equivalent symbols}\\
+        \LaTeX         & Rendered       & \LaTeX                 & Rendered  \\\midrule
+        \verb+\mathbb{R}+ & $\mathbb{R}$ & \verb+$\mathds{R}$+   & $\mathds{R}$\\
+        \verb+\mathbb{Q}+ & $\mathbb{Q}$ & \verb+\mathds{Q}+     & $\mathds{Q}$\\
+        \verb+\mathbb{Z}+ & $\mathbb{Z}$ & \verb+\mathds{Z}+     & $\mathds{Z}$\\
+        \verb+\mathcal{A}+ & $\mathcal{A}$ & \verb+\mathscr{A}+  & $\mathscr{A}$\\
+        \verb+\mathcal{D}+ & $\mathcal{D}$ & \verb+\mathscr{D}+  & $\mathscr{D}$\\
+        \verb+\mathcal{N}+ & $\mathcal{N}$ & \verb+\mathscr{N}+  & $\mathscr{N}$\\
+        \verb+\mathcal{R}+ & $\mathcal{R}$ & \verb+\mathscr{R}+  & $\mathscr{R}$\\
+        \verb+\propto+ & $\propto$      & \verb+$\varpropto$+    & $\varpropto$\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{frame}
+
+\subsection{Evaluation}
+\begin{frame}{Experiments}
+    \textbf{Preprocessing:} Scaling, shifting and linear interpolation\\
+    \textbf{Features:} Coordinates of 80 points (4 strokes with 20 points each)\\
+    \textbf{Learning:} MLP, 1000 epochs, LR $\eta=0.1$, Momentum $\alpha=0.1$
+\begin{table}[h]
+    \centering
+    \begin{tabular}{clrrr}
+    \toprule
+    \multirow{2}{*}{System}  & \multirow{2}{*}{Topology} & \multicolumn{3}{c}{Classification error}\\ 
+          &                         & TOP1                   & TOP3                  & MER \\\midrule
+    $B_1$ & 160:500:369             & $\SI{23.34}{\percent}$ & $\SI{6.80}{\percent}$ & $\SI{6.64}{\percent}$ \\
+    $B_2$ & 160:500:500:369         & \underline{$\SI{21.51}{\percent}$} & $\SI{5.75}{\percent}$ & $\SI{5.67}{\percent}$ \\
+    $B_3$ & 160:500:500:500:369     & $\SI{21.93}{\percent}$ & \underline{$\SI{5.74}{\percent}$} & \underline{$\SI{5.64}{\percent}$} \\
+    $B_4$ & 160:500:500:500:500:369 & $\SI{23.88}{\percent}$ & $\SI{6.12}{\percent}$ & $\SI{6.04}{\percent}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Baseline systems with three different classification error measures.
+             All errors were measured on the test set.}
+\label{table:baseline-systems}
+\end{table}
+\end{frame}
+
+\subsection{Complex classifier}
+\begin{frame}{Complex classifier}
+    \textbf{Preprocessing:} Connect strokes, scale, shift and linear interpolation\\
+    \textbf{Features:} Coordinates of 80 points (4 strokes with 20 points each), re-curvature per stroke, ink, stroke count, aspect ratio\\
+    \textbf{Learning:} MLP, 1000 epochs, LR $\eta=0.1$, Momentum $\alpha=0.1$
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{lrrrrrr}
+    \toprule
+    \multirow{2}{*}{System}  & \multicolumn{3}{c}{Classification error}\\ 
+              & TOP1                   & change                 & TOP3                  & change                 & MER                   & change \\\midrule
+    $B_{1,c}$ & $\SI{20.96}{\percent}$ & $\SI{-2.38}{\percent}$ & $\SI{5.24}{\percent}$ & $\SI{-1.56}{\percent}$ & $\SI{5.13}{\percent}$ & $\SI{-1.51}{\percent}$ \\
+    $B_{2,c}$ & $\SI{20.10}{\percent}$ & $\SI{-1.41}{\percent}$ & $\SI{4.44}{\percent}$ & $\SI{-1.31}{\percent}$ & $\SI{4.36}{\percent}$ & $\SI{-1.31}{\percent}$ \\
+    $B_{3,c}$ & $\SI{21.51}{\percent}$ & $\SI{-0.42}{\percent}$ & $\SI{4.89}{\percent}$ & $\SI{-0.85}{\percent}$ & $\SI{4.80}{\percent}$ & $\SI{-0.84}{\percent}$ \\
+    $B_{4,c}$ & $\SI{00.00}{\percent}$ & $\SI{-0.00}{\percent}$ & $\SI{0.00}{\percent}$ & $\SI{-0.00}{\percent}$ & $\SI{0.00}{\percent}$ & $\SI{-0.00}{\percent}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Error rates of the complex recognizer systems.}
+\label{table:complex-recognizer-systems-evaluation}
+\end{table}
+\end{frame}

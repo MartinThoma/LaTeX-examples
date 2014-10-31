@@ -1,0 +1,149 @@
+\subsection{Write Math}
+
+\begin{frame}{write-math.com}
+    \begin{itemize}
+        \item a website where users can add labeled training data and unlabeled
+              data which they want to classify. I call this data \enquote{recording}
+        \begin{figure}[ht]
+            \centering
+            \subfloat{
+                \includegraphics[height=0.1\textwidth]{../images/279952.pdf}
+            }%
+            \qquad
+            \subfloat{
+                \includegraphics[height=0.1\textwidth]{../images/281507.pdf}
+            }%
+            \qquad
+            \subfloat{
+                \includegraphics[height=0.1\textwidth]{../images/287612.pdf}
+            }%
+            \qquad
+            \subfloat{
+                \includegraphics[height=0.1\textwidth]{../images/292175.pdf}
+            }%
+            \caption*{4 recordings}
+        \end{figure}
+        \item works with desktop computers and touch devices
+        \item symbol recognition can be done by multiple classifiers
+        \item users can contribute formulas as recordings and as \LaTeX{} answers
+              for recordings
+        \item users can vote for \LaTeX{} answers:
+              \Large $\leq$, $\leqq$, $\leqslant$, \dots \normalsize
+        \item user who entered the recording can accept one answer
+    \end{itemize}
+\end{frame}
+
+% \framedgraphic{Classify}{../images/classify.png}
+% \framedgraphic{Workflow}{../images/workflow.png}
+% \framedgraphic{User page}{../images/user-page.png}
+% \framedgraphic{Information about recordings}{../images/view.png}
+% \framedgraphic{Symbol page}{../images/symbol.png}
+% \framedgraphic{Training}{../images/train.png}
+% \framedgraphic{Ranking}{../images/ranking.png}
+
+
+\begin{frame}[fragile]{Statistics}
+    \begin{itemize}
+        \item 127 users with at least 5 recordings
+        \item $\num{1111}$ symbols, but only $\num{369}$ used for experiments
+        \item $\num{235831}$ recordings (e.g. $\num{3489}$ times \verb+\int+, but only 50 times \verb+X+)
+    \end{itemize}
+\end{frame}
+
+% \begin{frame}{First classification worker}
+%     \begin{itemize}
+%         \item preprocessing: Scale to fit into unit square while keeping the aspect
+%               ratio
+%         \item applies greedy time warping
+%         \item compares a new recording with every recording
+%               in the database
+%         \item[$\Rightarrow$] Classification time is in $\mathcal{O}(\text{recordings})$,
+%               but we rather would like $\mathcal{O}(\text{symbols})$
+%         \item the current server / workflow can only handle about 4000 recordings
+%         \item[$\Rightarrow$] Another way to classify is necessary
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}[fragile]{Handwriting Recognition Toolkit (hwrt)}
+    \begin{itemize}
+        \item Many preprocessing algorithms / features implemented
+        \item Plug-in system for preprocessing algorithms / features
+        \item Needs neural network toolkit
+        \item Hosted at \url{https://github.com/MartinThoma/hwrt}
+        \item Installable via \verb+pip+ (Python package installer):\\
+              \verb+$ pip install hwrt+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{hwrt preprocessing configuration file}
+    \begin{verbatim}
+data-source: raw-datasets/2014-08-26-20-14-data-raw.pickle
+queue:
+  - RemoveDuplicateTime: null
+  - ScaleAndShift:
+      - max_width: 1.0
+      - max_height: 1.0
+      - center: true
+  - SpaceEvenlyPerStroke:
+      - kind: linear
+      - number: 20
+    \end{verbatim}
+\end{frame}
+
+\subsection{Preprocessing algorithms}
+\begin{frame}{Preprocessing algorithms}
+    \begin{itemize}
+        \item Normalizing
+        \begin{itemize}
+            \item Scaling
+            \item Shifting
+            \item Resampling
+        \end{itemize}
+        \item Noise reduction
+        \begin{itemize}
+            \item Smoothing (e.g. moving average)
+            \item Dot reduction
+            \item Filtering (by distance, speed or angle)
+            \item Stroke connection
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{hwrt feature configuration file}
+    \begin{verbatim}
+data-source: preprocessed/baseline
+data-multiplication:
+  - Multiply:
+      - nr: 1
+features:
+  - ConstantPointCoordinates:
+      - strokes: 4
+      - points_per_stroke: 20
+      - fill_empty_with: 0
+      - pen_down: false
+    \end{verbatim}
+\end{frame}
+
+\subsection{Features}
+\begin{frame}{Features}
+    \begin{itemize}
+        \item Local
+        \begin{itemize}
+            \item Coordinates
+            \item Speed
+            \item Binary pen pressure
+            \item Direction
+            \item Curvature
+            \item Bitmap-environment
+            \item Hat-Feature
+        \end{itemize}
+        \item Global
+        \begin{itemize}
+            \item \# of points
+            \item \# of strokes
+            \item Center point
+            \item Bitmap
+            \item Bounding box (width, height, time)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
