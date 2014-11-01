@@ -1,0 +1,363 @@
+%% Tikz-Styles for Palladio Component Model symbols
+%% by Erik Burger
+%%
+%% version 2010-12-13
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{fit}
+\usetikzlibrary{petri}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{fit}
+\usetikzlibrary{automata}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shadows}
+\usetikzlibrary{calc}
+
+%% Vertikal geteilter Kreis
+\pgfdeclareshape{circle vertical split}
+{
+  \inheritsavedanchors[from=circle]
+  \inheritanchorborder[from=circle]
+  \inheritanchor[from=circle]{north}
+  \inheritanchor[from=circle]{north west}
+  \inheritanchor[from=circle]{north east}
+  \inheritanchor[from=circle]{center}
+  \inheritanchor[from=circle]{west}
+  \inheritanchor[from=circle]{east}
+  \inheritanchor[from=circle]{mid}
+  \inheritanchor[from=circle]{mid west}
+  \inheritanchor[from=circle]{mid east}
+  \inheritanchor[from=circle]{base}
+  \inheritanchor[from=circle]{base west}
+  \inheritanchor[from=circle]{base east}
+  \inheritanchor[from=circle]{south}
+  \inheritanchor[from=circle]{south west}
+  \inheritanchor[from=circle]{south east}
+  \inheritbackgroundpath[from=circle]
+  \foregroundpath{
+    \centerpoint%
+    \pgf@xc=\pgf@x%
+    \pgf@yc=\pgf@y%
+    \pgfutil@tempdima=\radius%
+    \pgfmathsetlength{\pgf@xb}{\pgfkeysvalueof{/pgf/outer xsep}}%  
+    \pgfmathsetlength{\pgf@yb}{\pgfkeysvalueof{/pgf/outer ysep}}%  
+    \ifdim\pgf@xb<\pgf@yb%
+      \advance\pgfutil@tempdima by-\pgf@yb%
+    \else%
+      \advance\pgfutil@tempdima by-\pgf@xb%
+    \fi%
+    \advance\pgfutil@tempdima by-.5\pgflinewidth%  
+    \pgfsetshortenstart{0pt}%
+    \pgfsetshortenend{0pt}%
+    \pgfsetarrows{-}%  
+    \pgfpathmoveto{\pgfpointadd{\centerpoint}{\pgfqpoint{0pt}{-1\pgfutil@tempdima}}}%
+    \pgfpathlineto{\pgfpointadd{\centerpoint}{\pgfqpoint{0pt}{\pgfutil@tempdima}}}%
+    \pgfusepath{stroke}%
+  }
+}
+
+\tikzset{
+%% Color Shadings
+blueshading/.style={shade, top color=white, bottom color=kit-blue30, draw=kit-blue100, thick},
+greyshading/.style={shade, top color=white, bottom color=black!30, draw=black!50, thick},
+lightgreyshading/.style={shade, top color=white, bottom color=black!15, draw=black!50, thick},
+blackshading/.style={shade, top color=black!50, bottom color=black!95, middle color=black!95, draw=black!95, thick},
+greenshading/.style={shade, top color=white, bottom color=kit-green30, draw=kit-green100, thick},
+redshading/.style={shade, top color=white, bottom color=kit-red30, draw=kit-red100, thick},
+yellowshading/.style={shade, top color=white, bottom color=kit-yellow30, draw=kit-orange100, thick},
+%% Boxes
+roundbox/.style={rectangle, rounded corners=.5ex}, 
+%% PCM Actions
+seffaction/.style={rectangle split, rectangle split parts=2, rectangle split part align={center}, text centered, rounded corners},
+pcmball/.style={shade, ball color=kit-blue100,circle,fill},
+startaction/.style={pcmball,minimum size=1ex},
+stopaction/.style={startaction,draw=black,double},
+%% Petri net/Queueing Petri net symbols
+pnplace/.style={circle, draw, minimum size=2em},
+pntrans/.style={rectangle, draw, minimum height=2em},
+qpnplace/.style={circle vertical split, draw, minimum size=2em},
+subnetplace/.style={qpnplace, double},
+}
+
+%% Baseline adaptation for PCM symbols
+\tikzstyle{pcm} = [baseline=-.2ex]
+
+%% Ragged left text for boxes
+\tikzoption{text badly
+raggedleft}[]{\def\tikz@text@action{\raggedleft\relax}}
+\tikzoption{text raggedleft}[]%
+{\def\tikz@text@action{\raggedleft\rightskip\z@ plus2em
+\spaceskip.3333em \xspaceskip.5em\relax}}
+
+
+%% Layers
+\pgfdeclarelayer{l1}
+\pgfdeclarelayer{l2}
+\pgfdeclarelayer{l3}
+\pgfdeclarelayer{l4}
+\pgfdeclarelayer{l5}
+\pgfdeclarelayer{l6}
+\pgfdeclarelayer{l7}
+\pgfdeclarelayer{l8}
+\pgfdeclarelayer{l9}
+\pgfsetlayers{main,l1,l2,l3,l4,l5,l6,l7,l8,l9}
+
+% Internal Action
+
+\newcommand{\pcmintaction}[2][]{
+	\node[pcmball, minimum size=.7ex, text width=0ex, #1] (#2) {};
+	\draw[thick] (#2.north) -- ([yshift=.5ex]#2.north);
+	\draw[thick] (#2.south) -- ([yshift=-.5ex]#2.south);
+}
+
+\newcommand{\pcmextaction}[2][]{
+	\node[pcmball, minimum size=.7ex, text width=0ex, #1] (#2) {};
+	\draw[thick,<-] (#2.north) -- ([yshift=1ex]#2.north);
+	\draw[thick,->] (#2.south) -- ([yshift=-.8ex]#2.south);
+	\draw[ultra thick,->,color=red!70!black] (#2.east) -- ([xshift=1ex]#2.east);
+}
+
+
+\newcommand{\pcmloopaction}[2][]{
+	\node[pcmball, minimum size=.7ex, text width=0ex, #1] (#2) {} 
+	edge [->, in=30, out=90, looseness=1, distance=2ex, thick] node {} (#2);
+}
+
+\newcommand{\pcmiterator}[2][]{
+\begin{scope}[decoration={
+	markings, mark=at position .5 with {\arrow[red, line width=.2ex]{>}}}, #1]
+	\node[matrix,draw=black!75, row sep=.3ex, inner sep=.3ex]	(#2) {
+	\draw[red,thick] (0,0) -- (.7ex,0);\\
+	\draw[red,thick] (0,0) -- (.7ex,0);\\
+	\draw[red,thick] (0,0) -- (.7ex,0);\\ };
+	\draw [thick,black!75,postaction=decorate] 
+	(#2.south) .. controls (0,-1.5ex) and (1.4ex,-1.5ex) .. 
+	(1.4ex,0) .. controls (1.4ex,1.5ex) and (0,1.5ex) .. (#2.north);
+\end{scope}
+}
+
+\newcommand{\pcmbranch}[2][]{
+	{\pgfsetcornersarced{\pgfpointorigin}
+	\scriptsize
+	\node[diamond, shade, ball color=kit-blue100, inner sep=.1ex, text width=1.2ex, #1] (#2) {\color{white}\scriptsize\textbf?};
+	\draw[thick] (#2.north) -- ([yshift=.8ex]#2.north);
+	\draw[thick] (#2.south west) -- ([xshift=-.7ex,yshift=-.7ex]#2.south west);
+	\draw[thick] (#2.south east) -- ([xshift=.7ex, yshift=-.7ex]#2.south east);
+	}
+}
+
+\newcommand{\pcmfork}{
+\begin{scope}[very thick,black!75]
+	\draw (0,0) -- (0,.4em) -- (1em,.4em) -- (1em,0em);
+	\draw (.33em,.4em) -- (.33em,0em);
+	\draw (.66em,.4em) -- (.66em,0em);
+	\draw (.5em,1em) -- (.5em,.4em);
+	\draw (.2em,.75em) -- (.5em,.45em) -- (.8em,.75em);
+\end{scope}
+}
+
+\newcommand{\pcmnote}{
+	{\pgfsetcornersarced{\pgfpointorigin}
+	\path[draw, black!75, thick, shade, top color=white, bottom color=yellow] (0,0) -- (2ex,0) -- (2ex,1ex) -- (1.5ex,1.5ex) -- (0,1.5ex) -- cycle;
+	\draw[black!75, thick] (2ex,1ex) -- (1.5ex,1ex) -- (1.5ex,1.5ex);
+	}
+}
+
+\newcommand{\pcmstart}[2][]{
+	\node[startaction, text width=0cm, #1] (#2) {};
+}
+
+\newcommand{\pcmstop}[2][]{
+	\node[stopaction, text width=0cm, #1] (#2) {};
+}
+
+\newcommand{\pcmsetvar}[2][]{
+	\node[rectangle,draw=gray,ultra thick,dashed,#1] (#2) {\$x};
+}
+
+\newcommand{\pcmacq}{
+\begin{scope}[every token/.style={color=kit-blue100,minimum size=.2ex}]
+	\node[place, minimum size=1em,shade,
+		bottom color=kit-blue30,top color=white,shading angle=30] {}
+		[children are tokens, token distance=.4ex]
+		child {node [token] {}}
+		child {node [token] {}}
+		child {node (inlier) [token] {}}
+		child {node [token] {}}
+		child {node [token] {}}
+		child {node [token] {}}
+		child {node [token] {}};
+	\node[token] (outlier) at (.6em,.6em) {};
+	\draw[->, red, very thick] (inlier) -- (outlier);
+\end{scope}
+}
+
+\newcommand{\pcmrel}{
+\begin{scope}[every token/.style={color=kit-blue100,minimum size=.2ex}]
+	\node[place, minimum size=1em,shade,
+		bottom color=kit-blue30,top color=white,shading angle=30] {}
+		[children are tokens, token distance=.4ex]
+		child {node [token] {}}
+		child {node [token] {}}
+		child {node (inlier) [token] {}}
+		child {node [token] {}}
+		child {node [token] {}}
+		child {node [token] {}}
+		child {node [token] {}};
+	\node[token] (outlier) at (.6em,.6em) {};
+	\draw[<-, red, very thick] (inlier) -- (outlier);
+\end{scope}
+}
+
+\newcommand{\pcmdice}{
+	\tikzset{point/.style={circle,fill=black,minimum size=.4ex,inner sep=0pt}}
+\begin{scope}[every node/.append style={yslant=-0.5},yslant=-0.5]
+	\shade[right color=white, left color=kit-blue30, draw=black, 
+		rounded corners=.1ex] (0,0) rectangle +(1em,1em);
+	\node [point] 	at (.25em,.25em) {};
+	\node [point] 	at (.25em,.75em) {};
+	\node [point] 	at (.5em,.5em) {};
+	\node [point] 	at (.75em,.25em) {};
+	\node [point] 	at (.75em,.75em) {};
+\end{scope}
+
+\begin{scope}[every node/.append style={yslant=0.5},yslant=0.5]
+	\shade[left color=white, right color=kit-blue30, draw=black, 
+		rounded corners=.1ex] (1em,-1em) rectangle +(1em,1em);
+	\node [point] 	at (1.25em,-.25em) {};
+	\node [point] 	at (1.25em,-.75em) {};
+	\node [point] 	at (1.75em,-.25em) {};
+	\node [point] 	at (1.75em,-.75em) {};
+\end{scope}
+
+
+\begin{scope}[every node/.append style={
+    yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+  ]
+  \shade[bottom color=white, top color=kit-blue30, draw=black, 
+		rounded corners=.1ex] (2em,1em) rectangle +(-1em,-1em);
+	\node [point] 	at (1.25em,.25em) {};
+	\node [point] 	at (1.25em,.75em) {};
+	\node [point] 	at (1.5em,.25em) {};
+	\node [point] 	at (1.5em,.75em) {};
+	\node [point] 	at (1.75em,.25em) {};
+	\node [point] 	at (1.75em,.75em) {};
+\end{scope}
+
+	\draw[thick, color=black] (.5em,-.25em) -- +(-.7ex,-.7ex);
+	\draw[thick, color=black] (1.5em,-.25em) -- +(.7ex,-.7ex);
+
+}
+
+\newcommand{\pcmcertsign}{
+\begin{scope}[rotate=30]
+\node [draw, red, thick, circle, rotate=30] (certified) at (0,0) {\scriptsize CERTIFIED};
+\draw [red, thick] (.67,.2) arc (16.6:163.4:7mm) -- cycle;
+\draw [red, thick] (-.67,-.2) arc (196.6:343.4:7mm) -- cycle;
+\end{scope}
+}
+
+% #1 = Formatierung
+% #2 = Name des Nodes
+% #3 = Position
+
+\newcommand{\pcmcomponentsymbol}[3]{
+	\node[rectangle, minimum width=1.2em, minimum height=1.2em, #1]	
+		(#2)	#3 {};
+	\filldraw[#1]	
+		($(#2)+(-1em,.1em)$)	rectangle	+(.7em,.3em)
+		($(#2)+(-1em,-.1em)$)	rectangle	+(.7em,-.3em);
+}
+
+% #1 = Formatierung
+% #2 = Name des Nodes
+% #3 = Text
+% #4 = oberer Layer
+% #5 = unterer Layer
+% #6 = Position
+
+\newcommand{\pcmcomponentbodyonlayers}[6]{
+	\begin{pgfonlayer}{#4}
+	\node[minimum width=4em] (#2text) #6 {\small #3};
+	\pcmcomponentsymbol{fill=white, draw=black}{#2componentsymbol}{at ($(#2text.east)+(-1em,1.5em)$)}
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{#5}
+	\node[draw=black, rectangle, inner sep = .2em, #1] 	(#2) [fit=(#2text) (#2componentsymbol)] {};
+	\end{pgfonlayer}
+}
+
+% #1 = Formatierung
+% #2 = Name des Nodes
+% #3 = Text
+% #4 = Position
+\newcommand{\pcmcomponentbody}[4]{
+	\pcmcomponentbodyonlayers{#1}{#2}{#3}{l4}{l3}{#4}
+}
+
+% #1 = Formatierung
+% #2 = Name des Nodes
+% #3 = Position
+
+\newcommand{\pcmlolliwest}[3]{
+	\node[circle, minimum size=1ex, draw, anchor=east, xshift=-1em, #1] (#2) at #3 {};
+	\draw[#1] #3 -- (#2);
+}
+
+% #1 = Formatierung
+% #2 = Name des Nodes
+% #3 = Position
+
+\newcommand{\pcmarceast}[3]{
+	\node[xshift=1em] (#2) at #3 {};
+	\draw[#1] #3 -- (#2.center);
+	\draw[#1, fill opacity=transparent] ($(#2)+(1.4ex,1.4ex)$) arc (90:270:1.4ex);
+
+}
+
+% #1 = Formatierung
+% #2 = Name des Nodes
+% #3 = Text
+% #4 = oberer Layer
+% #5 = unterer Layer
+% #6 = Position
+
+\newcommand{\pcmcomponentonlayers}[6]{
+	\pcmcomponentbodyonlayers{#1}{#2}{#3}{#4}{#5}{#6}	
+
+	\begin{pgfonlayer}{#5}
+	\pcmlolliwest{#1}{#2lolli}{(#2.west)}
+	\pcmarceast{#1}{#2arc}{(#2.east)}
+	\end{pgfonlayer}
+}
+
+% #1 = Formatierung
+% #2 = Name des Nodes
+% #3 = Text
+% #4 = Position
+\newcommand{\pcmcomponent}[4]{
+	\pcmcomponentonlayers{#1}{#2}{#3}{l4}{l3}{#4}
+}
+
+
+% Extrudieren von rechteckigen Shapes
+%
+% #1 = Name des Nodes
+% #2 = Abstand
+% #3 = Zeichenoptionen
+
+\newcommand{\pcmextrude}[3]{
+\path[#3] (#1.north west) -- (#1.north east) -- (#1.south east) -- (#1.south west) -- (#1.north west) -- ++(#2,#2) -- ($(#1.north east)+(#2,#2)$) -- ($(#1.south east)+(#2,#2)$) -- (#1.south east) (#1.north east) -- ($(#1.north east)+(#2,#2)$); 
+}
+
+
+% Dummy-Bild
+\newcommand{\dummypic}[2]{
+\tikz \draw[kit-red100] (0,0) -- (#1,0) -- (#1,#2) -- (0,#2) -- (0,0) -- (#1,#2) (0,#2) -- (#1,0);
+}
