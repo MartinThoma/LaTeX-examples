@@ -92,17 +92,18 @@
 \begin{frame}{Complex classifier}
     \textbf{Preprocessing:} Connect strokes, scale, shift and linear interpolation\\
     \textbf{Features:} Coordinates of 80 points (4 strokes with 20 points each), re-curvature per stroke, ink, stroke count, aspect ratio\\
-    \textbf{Learning:} MLP, 1000 epochs, LR $\eta=0.1$, Momentum $\alpha=0.1$
+    \textbf{Learning:} MLP, 1000 epochs, LR $\eta=0.1$, Momentum $\alpha=0.1$, supervised layer-wise pretraining
 \begin{table}[htb]
     \centering
     \begin{tabular}{lrrrrrr}
     \toprule
-    \multirow{2}{*}{System}  & \multicolumn{3}{c}{Classification error}\\ 
+    \multirow{2}{*}{System}  & \multicolumn{6}{c}{Classification error}\\
+    \cmidrule(l){2-7}
               & TOP1                   & change                 & TOP3                  & change                 & MER                   & change \\\midrule
     $B_{1,c}$ & $\SI{20.96}{\percent}$ & $\SI{-2.38}{\percent}$ & $\SI{5.24}{\percent}$ & $\SI{-1.56}{\percent}$ & $\SI{5.13}{\percent}$ & $\SI{-1.51}{\percent}$ \\
-    $B_{2,c}$ & $\SI{20.10}{\percent}$ & $\SI{-1.41}{\percent}$ & $\SI{4.44}{\percent}$ & $\SI{-1.31}{\percent}$ & $\SI{4.36}{\percent}$ & $\SI{-1.31}{\percent}$ \\
-    $B_{3,c}$ & $\SI{21.51}{\percent}$ & $\SI{-0.42}{\percent}$ & $\SI{4.89}{\percent}$ & $\SI{-0.85}{\percent}$ & $\SI{4.80}{\percent}$ & $\SI{-0.84}{\percent}$ \\
-    $B_{4,c}$ & $\SI{00.00}{\percent}$ & $\SI{-0.00}{\percent}$ & $\SI{0.00}{\percent}$ & $\SI{-0.00}{\percent}$ & $\SI{0.00}{\percent}$ & $\SI{-0.00}{\percent}$ \\
+    $B_{2,c}$ & $\SI{18.26}{\percent}$ & $\SI{-3.25}{\percent}$ & $\SI{4.07}{\percent}$ & $\SI{-1.68}{\percent}$ & \underline{$\SI{3.98}{\percent}$} & $\SI{-1.69}{\percent}$ \\
+    $B_{3,c}$ & \underline{$\SI{18.19}{\percent}$} & $\SI{-3.74}{\percent}$ & \underline{$\SI{4.06}{\percent}$} & $\SI{-1.68}{\percent}$ & $\SI{3.99}{\percent}$ & $\SI{-1.65}{\percent}$ \\
+    $B_{4,c}$ & $\SI{18.57}{\percent}$ & $\SI{-5.31}{\percent}$ & $\SI{4.25}{\percent}$ & $\SI{-1.87}{\percent}$ & $\SI{4.18}{\percent}$ & $\SI{-1.86}{\percent}$ \\
     \bottomrule
     \end{tabular}
     \caption{Error rates of the complex recognizer systems.}
