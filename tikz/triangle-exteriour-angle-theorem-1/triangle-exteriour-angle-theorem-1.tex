@@ -15,12 +15,12 @@
     \tkzDefPoint(0.7,3){A}
     \tkzDefPoint(0,0){B}
     \tkzDefPoint(3.2,0){C}
-    \tkzDefPoint(4.5,0){D}
+    \tkzDefPoint(4.0,0){D}
 
     \tkzLabelPoints[above,font=\sansmath\sffamily](A)
     \tkzLabelPoints[below left,font=\sansmath\sffamily](B)
     \tkzLabelPoints[below,font=\sansmath\sffamily](C)
-    \tkzLabelPoints[below,font=\sansmath\sffamily](D)
+    % \tkzLabelPoints[below,font=\sansmath\sffamily](D)
 
     % Draw polygon
     \tkzDrawPolygon[fill=gray!10](A,B,C)
@@ -36,9 +36,9 @@
     \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
 
     \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](D,C,A)
-    \tkzLabelAngle[pos=0.4](D,C,A){$\delta$}
+    \tkzLabelAngle[pos=0.4](D,C,A){$\gamma'$}
 
-    \tkzDrawLines[arrows=->](B,D)
+    \tkzDrawLines(B,D)
 
     % Label lines
     % \tkzLabelSegment[below](A,B){$c$}
@@ -49,7 +49,7 @@
     \tkzDrawPolygon(A,B,C)
 
     % Make dots for points
-    \tkzDrawPoints[size=1.0](A,B,C,D)
+    \tkzDrawPoints[size=1.0](A,B,C)
 \end{tikzpicture}
 \end{preview}
 \end{document}
