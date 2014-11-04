@@ -1,7 +1,8 @@
 \subsection{Features}
 \begin{frame}{Features}
-    \begin{itemize}
-        \item Local
+    \begin{columns}[T] % contents are top vertically aligned
+    \begin{column}[T]{5cm} % each column can also be its own environment
+        \textbf{Local Features}
         \begin{itemize}
             \item Coordinates
             \item Speed
@@ -11,15 +12,18 @@
             \item Bitmap-environment
             \item Hat-Feature
         \end{itemize}
-        \item Global
+    \end{column}
+    \begin{column}[T]{6cm} % alternative top-align that's better for graphics
+        \textbf{Global Features}
         \begin{itemize}
-            \item \# of points
+            \item \# of dots ($i$, $j$, $\therefore$, $\because$, \dots)
             \item \# of strokes
-            \item Center point
+            \item Center point coordinates
             \item Bitmap
             \item Bounding box (width, height, time)
-            \item Re-curvature
+            \item Re-curvature per stroke $s$ $\left ( \frac{\text{height}(s)}{d(s[0], s[-1])} \right )$
             \item Ink
         \end{itemize}
-    \end{itemize}
+    \end{column}
+    \end{columns}
 \end{frame}

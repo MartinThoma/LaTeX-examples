@@ -1,3 +1,26 @@
+\subsection{Evaluation}
+\begin{frame}{Baseline Systems}
+    \textbf{Preprocessing:} Scaling, shifting and linear interpolation\\
+    \textbf{Features:} Coordinates of 80 points (4 strokes with 20 points each)\\
+    \textbf{Learning:} MLP, 1000 epochs, LR $\eta=0.1$, Momentum $\alpha=0.1$
+\begin{table}[h]
+    \centering
+    \begin{tabular}{clrrr}
+    \toprule
+    \multirow{2}{*}{System}  & \multirow{2}{*}{Topology} & \multicolumn{3}{c}{Classification error}\\ 
+          &                         & TOP1                   & TOP3                  & MER \\\midrule
+    $B_1$ & 160:500:369             & $\SI{23.34}{\percent}$ & $\SI{6.80}{\percent}$ & $\SI{6.64}{\percent}$ \\
+    $B_2$ & 160:500:500:369         & \underline{$\SI{21.51}{\percent}$} & $\SI{5.75}{\percent}$ & $\SI{5.67}{\percent}$ \\
+    $B_3$ & 160:500:500:500:369     & $\SI{21.93}{\percent}$ & \underline{$\SI{5.74}{\percent}$} & \underline{$\SI{5.64}{\percent}$} \\
+    % $B_4$ & 160:500:500:500:500:369 & $\SI{23.88}{\percent}$ & $\SI{6.12}{\percent}$ & $\SI{6.04}{\percent}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Baseline systems with three different classification error measures.
+             All errors were measured on the test set.}
+\label{table:baseline-systems}
+\end{table}
+\end{frame}
+
 \subsection{Merged Symbols}
 \begin{frame}[fragile]{Merged symbols (MER error)}
 \begin{table}[ht]
@@ -66,33 +89,57 @@
 \end{frame}
 
 \subsection{Evaluation}
-\begin{frame}{Experiments}
-    \textbf{Preprocessing:} Scaling, shifting and linear interpolation\\
-    \textbf{Features:} Coordinates of 80 points (4 strokes with 20 points each)\\
-    \textbf{Learning:} MLP, 1000 epochs, LR $\eta=0.1$, Momentum $\alpha=0.1$
+\begin{frame}{Preprocessing: Connect strokes}
 \begin{table}[h]
     \centering
-    \begin{tabular}{clrrr}
+    \begin{tabular}{lrrrrrr}
     \toprule
-    \multirow{2}{*}{System}  & \multirow{2}{*}{Topology} & \multicolumn{3}{c}{Classification error}\\ 
-          &                         & TOP1                   & TOP3                  & MER \\\midrule
-    $B_1$ & 160:500:369             & $\SI{23.34}{\percent}$ & $\SI{6.80}{\percent}$ & $\SI{6.64}{\percent}$ \\
-    $B_2$ & 160:500:500:369         & \underline{$\SI{21.51}{\percent}$} & $\SI{5.75}{\percent}$ & $\SI{5.67}{\percent}$ \\
-    $B_3$ & 160:500:500:500:369     & $\SI{21.93}{\percent}$ & \underline{$\SI{5.74}{\percent}$} & \underline{$\SI{5.64}{\percent}$} \\
-    $B_4$ & 160:500:500:500:500:369 & $\SI{23.88}{\percent}$ & $\SI{6.12}{\percent}$ & $\SI{6.04}{\percent}$ \\
+    \multirow{2}{*}{System} & \multicolumn{6}{c}{Classification error}\\
+    \cmidrule(l){2-7}
+                                         & TOP1                   & change                 & TOP3                   & change                 & MER                & change \\\midrule
+    $B_{1,\theta = \SI{5}{\pixel}}$ & $\SI{23.27}{\percent}$ & $\SI{-0.07}{\percent}$ &  $\SI{6.50}{\percent}$ & $\SI{-0.30}{\percent}$ & $\SI{6.37}{\percent}$ & $\SI{-0.27}{\percent}$ \\
+    $B_{2,\theta = \SI{5}{\pixel}}$ & $\SI{21.20}{\percent}$ & $\SI{-0.31}{\percent}$ &  $\SI{5.59}{\percent}$ & $\SI{-0.16}{\percent}$ & $\SI{5.50}{\percent}$ & $\SI{-0.17}{\percent}$ \\
+    $B_{3,\theta = \SI{5}{\pixel}}$ & $\SI{21.80}{\percent}$ & $\SI{-0.13}{\percent}$ &  $\SI{5.54}{\percent}$ & $\SI{-0.20}{\percent}$ & $\SI{5.47}{\percent}$ & $\SI{-0.17}{\percent}$ \\\midrule
+    $B_{1,\theta = \SI{10}{\pixel}}$& $\SI{23.17}{\percent}$ & $\SI{-0.17}{\percent}$ &  $\SI{6.61}{\percent}$ & $\SI{-0.19}{\percent}$ & $\SI{6.47}{\percent}$ & $\SI{-0.17}{\percent}$ \\
+    $B_{2,\theta = \SI{10}{\pixel}}$& \underline{$\SI{20.97}{\percent}$} & $\SI{-0.54}{\percent}$ &  $\SI{5.43}{\percent}$ & $\SI{-0.32}{\percent}$ & $\SI{5.34}{\percent}$ & $\SI{-0.33}{\percent}$ \\
+    $B_{3,\theta = \SI{10}{\pixel}}$& $\SI{21.34}{\percent}$ & $\SI{-0.59}{\percent}$ & \underline{$\SI{5.42}{\percent}$} & $\SI{-0.32}{\percent}$ & \underline{$\SI{5.33}{\percent}$} & $\SI{-0.31}{\percent}$ \\\midrule
+    $B_{1,\theta = \SI{20}{\pixel}}$& $\SI{22.81}{\percent}$ & $\SI{-0.53}{\percent}$ &  $\SI{6.28}{\percent}$ & $\SI{-0.52}{\percent}$ & $\SI{6.19}{\percent}$ & $\SI{-0.45}{\percent}$ \\
+    $B_{2,\theta = \SI{20}{\pixel}}$& $\SI{21.61}{\percent}$ & $\SI{+0.10}{\percent}$ &  $\SI{5.79}{\percent}$ & $\SI{+0.04}{\percent}$ & $\SI{5.69}{\percent}$ & $\SI{+0.02}{\percent}$ \\
+    $B_{3,\theta = \SI{20}{\pixel}}$& $\SI{21.71}{\percent}$ & $\SI{-0.22}{\percent}$ &  $\SI{5.55}{\percent}$ & $\SI{-0.19}{\percent}$ & $\SI{5.45}{\percent}$ & $\SI{-0.19}{\percent}$ \\
     \bottomrule
     \end{tabular}
-    \caption{Baseline systems with three different classification error measures.
-             All errors were measured on the test set.}
-\label{table:baseline-systems}
+    \caption{Models $B_1$--$B_4$ with additionally applied stroke
+             connect algorithm.}
+\label{table:stroke-connect-evaluation}
 \end{table}
 \end{frame}
 
-\subsection{Complex classifier}
-\begin{frame}{Complex classifier}
-    \textbf{Preprocessing:} Connect strokes, scale, shift and linear interpolation\\
-    \textbf{Features:} Coordinates of 80 points (4 strokes with 20 points each), re-curvature per stroke, ink, stroke count, aspect ratio\\
-    \textbf{Learning:} MLP, 1000 epochs, LR $\eta=0.1$, Momentum $\alpha=0.1$, supervised layer-wise pretraining
+\begin{frame}{Learning: Supervised layer-wise pretraining}
+\begin{table}[tb]
+    \centering
+    \begin{tabular}{lrrrrrr}
+    \toprule
+    \multirow{2}{*}{System}& \multicolumn{6}{c}{Classification error}\\
+    \cmidrule(l){2-7}
+              & TOP1                   & change                 & TOP3                  & change                 & MER                & change \\\midrule
+    $B_1$     & $\SI{23.34}{\percent}$ &                        & $\SI{6.80}{\percent}$ &                        & $\SI{6.64}{\percent}$ & \\%chktex 8
+    $B_{2,p}$ & $\SI{19.89}{\percent}$ & $\SI{-1.62}{\percent}$ & $\SI{4.76}{\percent}$ & $\SI{-0.99}{\percent}$ & $\SI{4.68}{\percent}$ & $\SI{-0.99}{\percent}$\\
+    $B_{3,p}$ & \underline{$\SI{19.43}{\percent}$} & $\SI{-2.50}{\percent}$ & \underline{$\SI{4.64}{\percent}$} & $\SI{-1.10}{\percent}$ & \underline{$\SI{4.54}{\percent}$} & $\SI{-1.10}{\percent}$\\
+    % $B_{4,p}$ (pretrained) & $\SI{19.63}{\percent}$ & $\SI{-4.25}{\percent}$ & $\SI{4.66}{\percent}$ & $\SI{-1.46}{\percent}$ & $\SI{4.55}{\percent}$ & $\SI{-1.49}{\percent}$\\
+    \bottomrule
+    \end{tabular}
+    \caption{Supervised layer-wise pretraining, 1000 epochs per layer}
+\label{table:pretraining-copy-before}
+\end{table}
+\end{frame}
+
+\definecolor{light-gray}{gray}{0.70}
+
+\subsection{Optimized classifier}
+\begin{frame}{Optimized classifier}
+    \textbf{Preprocessing:} Connect strokes{\color{light-gray}, scale, shift and linear interpolation}\\
+    \textbf{Features:} {\color{light-gray}Coordinates of 80 points (4 strokes with 20 points each),} re-curvature per stroke, ink, stroke count, aspect ratio\\
+    \textbf{Learning:} {\color{light-gray}MLP, 1000 epochs, LR $\eta=0.1$, Momentum $\alpha=0.1$,} supervised layer-wise pretraining
 \begin{table}[htb]
     \centering
     \begin{tabular}{lrrrrrr}
@@ -103,7 +150,7 @@
     $B_{1,c}$ & $\SI{20.96}{\percent}$ & $\SI{-2.38}{\percent}$ & $\SI{5.24}{\percent}$ & $\SI{-1.56}{\percent}$ & $\SI{5.13}{\percent}$ & $\SI{-1.51}{\percent}$ \\
     $B_{2,c}$ & $\SI{18.26}{\percent}$ & $\SI{-3.25}{\percent}$ & $\SI{4.07}{\percent}$ & $\SI{-1.68}{\percent}$ & \underline{$\SI{3.98}{\percent}$} & $\SI{-1.69}{\percent}$ \\
     $B_{3,c}$ & \underline{$\SI{18.19}{\percent}$} & $\SI{-3.74}{\percent}$ & \underline{$\SI{4.06}{\percent}$} & $\SI{-1.68}{\percent}$ & $\SI{3.99}{\percent}$ & $\SI{-1.65}{\percent}$ \\
-    $B_{4,c}$ & $\SI{18.57}{\percent}$ & $\SI{-5.31}{\percent}$ & $\SI{4.25}{\percent}$ & $\SI{-1.87}{\percent}$ & $\SI{4.18}{\percent}$ & $\SI{-1.86}{\percent}$ \\
+    % $B_{4,c}$ & $\SI{18.57}{\percent}$ & $\SI{-5.31}{\percent}$ & $\SI{4.25}{\percent}$ & $\SI{-1.87}{\percent}$ & $\SI{4.18}{\percent}$ & $\SI{-1.86}{\percent}$ \\
     \bottomrule
     \end{tabular}
     \caption{Error rates of the complex recognizer systems.}
