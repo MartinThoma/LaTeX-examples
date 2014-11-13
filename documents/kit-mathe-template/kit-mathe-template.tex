@@ -33,15 +33,14 @@
  
 % set letter variables
 \signature{\Vorname~\Nachname}
-% \customer{\Matrikelnr}
 \backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
-\newkomavar*[Matrikelnummer]{mtgldsnr}
-\setkomavar{mtgldsnr}{\Matrikelnr}
+\newkomavar*[Matrikelnummer]{matrikelnummer}
+\setkomavar{matrikelnummer}{\Matrikelnr}
 \newkomavar*[Email]{email}
 \setkomavar{email}{\email}
 % Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt \\ info@martin-thoma.de}
+    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
     \date{\today}%Change this if you want a different date than today
     \subject{\DocTitle}
     \opening{Sehr geehrte Damen und Herren des Informatik-Prüfungsausschusses,}
@@ -49,6 +48,7 @@
     hiermit beantrage ich die Zulassung zur Prüfung folgender Module für
     insgesamt 18~ECTS im Ergänzungsfach Mathematik für den Master Informatik:
 
+    % Adjust this to your needs:
     \begin{itemize}
         \item \texttt{[MATHBAST01]} Einführung in die Stochastik (6 ECTS)
         \item \texttt{[MATHBAST02]} Wahrscheinlichkeitstheorie (6 ECTS)
