@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    % \tkzInit[xmin=-1,xmax=2,ymin=-1,ymax=2] \tkzGrid
+
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(3,0){B}
+    \tkzDefPoint(0,3){C}
+
+    % \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    % \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    % \tkzLabelPoints[above,font=\sansmath\sffamily](C)
+
+    % Draw polygon
+    \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
+
+    % Mark angles
+    \tkzMarkAngle[arc=l,size=0.3cm,fill=green!30](B,A,C)
+    \tkzLabelAngle[pos=0.15](B,A,C){$\cdot$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](C,B,A)
+    % \tkzLabelAngle[pos=0.4](C,B,A){$\beta$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](A,C,B)
+    % \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
+
+    % Label lines
+    % \tkzLabelSegment[below](A,B){$c$}
+    % \tkzLabelSegment[left](A,C){$b$}
+    % \tkzLabelSegment[right](B,C){$a$}
+
+    % Draw polygon
+    \tkzDrawPolygon[thick](A,B,C)
+
+    \node at (-0.2,-0.2) (AText) {\tiny $(0,0)$};
+    \node at (3,-0.2) (BText) {\tiny $(1,0)$};
+    \node at (0,3.2) (CText) {\tiny $(0,1)$};
+
+    \tkzDrawPoints[size=1](A,B,C)
+\end{tikzpicture}
+\end{preview}
+\end{document}
