@@ -1,0 +1,95 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage{parskip}
+
+\title{Praktikum Spracherkennung}
+\author{Martin Thoma}
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {}, 
+  pdftitle    = {Praktikum Spracherkennung} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section{Aufgabe}
+Berechnen Sie den Logarithmus der Wahrscheinlichkeit des Musters $m$, wenn die
+eben definierte Gauß-Mixtur gegeben ist (d.h. die HMM
+Emissionswahrscheinlichkeit).
+
+\section{Gegeben}
+
+\begin{align}
+    m &= \begin{pmatrix}2\\2\end{pmatrix} \in \mathbb{R}^d & \Sigma_{s,i} &= \begin{pmatrix}1 & 0 \\0 & 1\end{pmatrix}  \in \mathbb{R}^{d \times d}\\
+    c_{s,1} &= 0.3 \in [0,1]  & c_{s,2} &= 0.7 \in [0,1]\\
+    \mu_{s,1} &= \begin{pmatrix}1\\3\end{pmatrix}  \in \mathbb{R}^d & \mu_{s,2} &= \begin{pmatrix}2\\4\end{pmatrix}  \in \mathbb{R}^d
+\end{align}
+
+\[p(x|s) = \sum_{i=1}^{n_s} c_{s, i} \frac{1}{\sqrt{(2 \pi)^d |\Sigma_{s,i}|}} e^{-\frac{1}{2} {(x-\mu_{s,i})}^T \Sigma_{s,i}^{-1}(x-\mu_{s,i})}\]
+
+mit
+
+\begin{itemize}
+    \item $s$ (für \textit{senone}) ist die kleinste Einheit die der
+          automatische Spracherkenner zu erkennen in der lage sein soll.
+    \item $m$ ist das zu klassifizierende Muster.
+    \item $c_{s,i}$ sind die Gewichte der Gauss-Verteilungen. Ihre Summe muss
+          1 ergeben, damit das Ergebnis wieder eine
+          Wahrscheinlichkeitsdichtefunktion ist.
+    \item $\Sigma_{s,i}$ ist die Kovarianzmatrix. Sie ist invertierbar und
+          ihre Determinate $|\Sigma_{s,i}| \neq 0$.
+    \item $d$ ist die Dimension der Feature-Vektoren.
+    \item $n_s$ ist die Anzahl der Gauss-Verteilungen
+    \item $p(x|s)$ ist die Wahrscheinlichkeitsdichtefunktion, gegeben das
+          Senone $s$ für das Muster $x$.
+\end{itemize}
+
+\section{Erklärung}
+
+Eine Gauss-Verteilung hat die Wahrscheinlichkeitsdichte $f:\mathbb{R} \rightarrow [0,1]$
+\[f(x) := \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{1}{2}(\frac{x - \mu}{\sigma})^2}\]
+wobei $\mu$ der Erwartungswert und $\sigma^2$ die Varianz ist.
+Man schreibt
+\[X \sim \mathcal{N}(\mu, \sigma^2)\]
+
+Eine multivariate Gauss-Verteilung ist eine Verallgemeinerung auf mehrdimensionale
+Zufallsvariablen. Sie hat die Wahrscheinlichkeitsdichte $f: \mathbb{R}^n \rightarrow [0,1]$
+\[f(x) := \frac{1}{\sqrt{(2\pi)^n|\Sigma|}} e^{-\tfrac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}\]
+wobei $\mu$ der Erwartungswert und $\Sigma$ die Kovarianz-Matrix ist.
+Man schreibt
+\[X \sim \mathcal{N}_n(\mu, \Sigma)\]
+
+Eine Multinomialverteilung ist eine diskrete Wahrscheinlichkeitsverteilung.
+
+
+\section{Einsetzen}
+
+\begin{align}
+    p(m|s) &= \sum_{i=1}^{2} c_{s, i} \frac{1}{\sqrt{(2 \pi)^2}} e^{-\frac{1}{2} {(m_1 - \mu_{1,s,i})^2+(m_2 - \mu_{2,s,i})^2}}\\
+    &= 0.3 \frac{1}{\sqrt{(2 \pi)^2}} e^{-\frac{1}{2} ({1^2+ (-1)^2})} + 0.7 \frac{1}{\sqrt{(2 \pi)^2}} e^{-\frac{1}{2} ({0^2+ (-2)^2}})\\
+    &= \frac{1}{2 \pi} (0.3 e^{-1} + 0.7 e^{-2})\\
+    &\approx 0.0326\\
+    \log(p(m|s)) &\approx -3.4234
+\end{align}
+
+\section{Fragen}
+
+$p(m|s)$ ist nicht die Wahrscheinlichkeit von $m$. Die Wahrscheinlichkeit
+eines einzelnen Wertes einer kontinuierlichen Zufallsvariable ist immer $0$,
+da sonst die Summe der Wahrscheinlichkeiten unendlich wäre. Ist das
+dennoch der gewünschte Wert?
+
+Was hat das mit den HMMs zu tun? Sollte da eventuell GMM stehen?
+
+Was ist eine multinominale multivariate Gauss-Verteilung? Wo ist der
+Unterschied zur multivariaten Gauss-Verteilung?
+
+\end{document}
