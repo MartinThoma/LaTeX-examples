@@ -1,0 +1,888 @@
+\NeedsTeXFormat{LaTeX2e}
+
+%WICHTIG: PAPERANDPECIL.STY funktioniert nur mit der Dokumentklasse SCRREPRT!!!
+%Als Randeinstellung bitte \usepackage[top=...cm,bottom=...cm,left=2.5cm,right=2.5cm]{geometry} wählen
+
+\ProvidesPackage{paperandpencil}[2009/08/11 v1.0]
+
+\RequirePackage{amssymb,latexsym,amsmath}
+\RequirePackage{stmaryrd}
+\RequirePackage{paralist}
+\RequirePackage{longtable}
+\RequirePackage{framed}
+\RequirePackage{color}
+\RequirePackage{array,booktabs,calc} 
+
+\definecolor{myColor}{rgb}{0.9,0.9,0.9} 
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+\definecolor{framecolor}{rgb}{0,0,0}
+\setlength{\fboxrule}{0.3mm}
+
+\parindent0cm 
+\pagestyle{empty}
+
+%%%%%%%%%%QUESTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand*\thechapter{\bf{\arabic{chapter}.}}
+\catcode `@11
+\def\question{\@startsection {chapter}{1}{\z@}{-3.5ex plus
+-1ex minus  -.2ex}{1.5ex plus .2ex}{}}%Fragenumgebung
+%%%%%%%%%%QUESTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%ANSWERSA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{answersA}{\vspace{0.25cm}\begin{addmargin}[2cm]{6cm}\begin{compactitem}[]}{\end{compactitem}\end{addmargin}}
+%Antwortumgebung für kürzere Antworten mit Kästchen rechts
+
+\newcommand{\pbox}[1]{#1\dotfill$\Box$}
+%Befehl füllt Zeile mit Punkten auf und fügt am Ende eine kleine Ankreuzbox ein.
+\newcommand{\pbigbox}[1]{#1\dotfill$\square$}
+%Befehl füllt Zeile mit Punkten auf und fügt am Ende eine große Ankreuzbox ein.
+\newcommand{\ebox}[1]{#1\hfill$\Box$}
+%Befehl füllt Zeile mit Leerraum auf und fügt am Ende eine kleine Ankreuzbox ein.
+\newcommand{\ebigbox}[1]{#1\hfill$\square$}
+%Befehl füllt Zeile mit Leerraum auf und fügt am Ende eine große Ankreuzbox ein.
+%%%%%%%%%%ANSWERSA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%ANSWERSB%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{answersB}{\vspace{0.25cm}\begin{addmargin}[2cm]{6cm}\begin{compactitem}[$\Box$\quad]}{\end{compactitem}\end{addmargin}}
+%Antwortumgebung für kürzere Antworten mit kleinem Kästchen links
+%%%%%%%%%%ANSWERSB%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%ANSWERSC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{answersC}{\vspace{0.25cm}\begin{addmargin}[2cm]{6cm}\begin{compactitem}[$\square$\quad]}{\end{compactitem}\end{addmargin}}
+%Antwortumgebung für kürzere Antworten mit großem Kästchen links
+%%%%%%%%%%ANSWERSC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%LONGANSWERS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{longanswersA}{\vspace{0.25cm}\begin{addmargin}[0.5cm]{0cm}\begin{compactitem}[]}{\end{compactitem}\end{addmargin}} 
+%Antwortumgebung für lange Antworten. Erstreckt sich über gesamte Seitenbreite.
+%%%%%%%%%%LONGANSWERS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%LONGANSWERSB%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{longanswersB}{\vspace{0.25cm}\begin{addmargin}[0.5cm]{0cm}\begin{compactitem}[$\Box$\quad]}{\end{compactitem}\end{addmargin}} 
+%Antwortumgebung für lange Antworten. Kleine Kästchen links.
+%%%%%%%%%%LONGANSWERSB%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%LONGANSWERSC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{longanswersC}{\vspace{0.25cm}\begin{addmargin}[0.5cm]{0cm}\begin{compactitem}[$\square$\quad]}{\end{compactitem}\end{addmargin}} 
+%Antwortumgebung für lange Antworten. Kleine Kästchen links.
+%%%%%%%%%%LONGANSWERSC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\df}[1]{#1\dotfill}
+%Befehl füllt Zeile mit Punkten auf.
+
+\def\line{~\hrulefill~}
+%Trennlinie zwischen einzelnen Fragen
+
+%%%%%%%%%%SONDERKATEGORIEN%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bbox}{\framebox[0.6cm]{\rule{0cm}{0.6cm}}}
+%Größere Box, um dort Zahlen einfügen zu können.
+\newcommand{\rbox}{\framebox[0.5cm]{\rule{0cm}{0.3cm}}}
+\def\year{$\hfill \bbox\ \bbox\ \bbox\ \bbox\hspace{4cm}$}
+\def\yearxxA{$\hfill 19\ \bbox\ \bbox\hspace{4cm}$}
+\def\yearxxB{$\hfill 20\ \bbox\ \bbox\hspace{4cm}$}
+\def\yearlineA{\hspace{0.5cm}19\raisebox{-4.5mm}{\parbox{1.5cm}{\hrule\strut}}}
+\def\yearlineB{\hspace{0.5cm}20\raisebox{-4.5mm}{\parbox{1.5cm}{\hrule\strut}}}
+%Geburtsjahr
+\def\monthandyearA{$\hfill\mbox{Monat}\ \bbox\ \bbox\quad\mbox{ Jahr } \bbox\ \bbox\ \bbox\ \bbox\hspace{4cm}$}
+\def\monthandyearB{$\hfill\stackrel{\bbox\ \bbox}{\mbox{\footnotesize Monat}}\qquad \stackrel{\bbox\ \bbox\ \bbox\ \bbox}{\mbox{ \footnotesize Jahr }}\hspace{4cm}$}
+%Monat und Jahr
+\def\km{$\hfill \bbox\ \bbox\ \bbox\ \bbox\ ,\ \bbox\mbox{ km}\hspace{6cm}$}
+%Kilometerangabe in xx,x km
+\def\xxbox{$\bbox\ \bbox\ $}
+%zwei leere Kästchen nebeneinander
+\def\xxxbox{$\bbox\ \bbox\ \bbox\ $}
+%drei leere Kästchen nebeneinander
+\def\percent{\raisebox{-4.5mm}{$\bbox\ \bbox\ \bbox\ \%$}}
+%Prozentangaben
+\newcommand{\linetext}[1]{\raisebox{-4.5mm}{\parbox{6.5cm}{\hrule\strut \centering\footnotesize {\em #1}}}}
+%Linie mit kursivem Text darunter
+%%%%%%%%%%SONDERKATEGORIEN%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%FILTER%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\goto{$\Box$\raisebox{0.45mm}{$\!\rightarrow$}}
+%Filterpfeil
+\newenvironment{linkanswers}{\begin{addmargin}{2cm}\begin{longtable}{p{6cm}p{7cm}}}{\end{longtable}\end{addmargin}\vspace{-0.5cm}}
+\newcommand{\framedlink}[2]{\df{#1}\goto&\fbox{#2}\\}
+\newcommand{\link}[2]{\df{#1}\goto&#2\\}
+\newcommand{\nolink}[1]{#1\phantom{ii\,\,}&\\}
+\newcommand{\linkwithquestion}[3]{\df{#1}\goto&#2\smallskip
+
+{#3}\\}
+%%%%%%%%%%FILTER%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{fshaded}{%
+\def\FrameCommand{\fcolorbox{framecolor}{shadecolor}}%
+\MakeFramed {\FrameRestore}}%
+{\endMakeFramed} %Sorgt für umrahmte Boxen in der vorher festegelgten Farbe 'shadecolor' und der Umrandung 'framecolor'.
+
+%%%%%%%%%%%%%%%%%%%%UPA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hupAeleven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 &			  &        && #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 & 10 & 11
+\end{tabular}
+\end{center}}
+\newcommand{\hupAten}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 &			  &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 & 10
+\end{tabular}
+\end{center}}
+\newcommand{\hupAnine}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 &			  & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 &      7 &      8 & 9
+\end{tabular}
+\end{center}}
+\newcommand{\hupAeight}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 &      7 & 8       
+\end{tabular}
+\end{center}}
+\newcommand{\hupAseven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &	#2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 & 7        
+\end{tabular}
+\end{center}}
+\newcommand{\hupAsix}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccp{2.5cm}}
+#1          &        &        &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill0     &      1 &      2 &      3 &      4 &      5 & 6       
+\end{tabular}
+\end{center}}
+\newcommand{\hupAfive}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccp{2.5cm}}
+#1          &        &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill0     &      1 &      2 &      3 &      4 & 5     
+\end{tabular}
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%UPA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%UPB%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hupBeleven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccccp{2.5cm}}
+#1          &        &        &        &        &        &				 &			  &        && #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$& $\Box$\\
+\hfill1     &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 & 10 & 11
+\end{tabular}
+\end{center}}
+\newcommand{\hupBten}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccp{2.5cm}}
+#1          &        &        &        &        &        &				 &			  &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill1     &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 & 10
+\end{tabular}
+\end{center}}
+\newcommand{\hupBnine}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccp{2.5cm}}
+#1          &        &        &        &        &        &				 &			  & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill1     &      2 &      3 &      4 &      5 &      6 &      7 &      8 & 9
+\end{tabular}
+\end{center}}
+\newcommand{\hupBeight}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccp{2.5cm}}
+#1          &        &        &        &        &        &				 & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill1     &      2 &      3 &      4 &      5 &      6 &      7 & 8       
+\end{tabular}
+\end{center}}
+\newcommand{\hupBseven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccp{2.5cm}}
+#1          &        &        &        &        &        &	#2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill1     &      2 &      3 &      4 &      5 &      6 & 7        
+\end{tabular}
+\end{center}}
+\newcommand{\hupBsix}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccp{2.5cm}}
+#1          &        &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill1     &      2 &      3 &      4 &      5 & 6       
+\end{tabular}
+\end{center}}
+\newcommand{\hupBfive}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccp{2.5cm}}
+#1          &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill1     &      2 &      3 &      4 & 5     
+\end{tabular}
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%UPB%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%UPC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hupCeleven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccccp{2.5cm}}
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 & 10&11\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$& $\Box$\\
+#1          &        &        &        &        &        &        &				 &			  &        && #2
+\end{tabular}
+\end{center}}
+\newcommand{\hupCten}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccccp{2.5cm}}
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 & 10\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &				 &			  &        & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hupCnine}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccp{2.5cm}}
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 &      7 &      8 & 9\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &				 &			  & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hupCeight}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccp{2.5cm}}
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 &      7 & 8 \\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &				 & #2      
+\end{tabular}
+\end{center}}
+\newcommand{\hupCseven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccp{2.5cm}}
+\hfill0     &      1 &      2 &      3 &      4 &      5 &      6 & 7\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &	#2        
+\end{tabular}
+\end{center}}
+\newcommand{\hupCsix}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccp{2.5cm}}
+\hfill0     &      1 &      2 &      3 &      4 &      5 & 6\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        & #2       
+\end{tabular}
+\end{center}}
+\newcommand{\hupCfive}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccp{2.5cm}}
+\hfill0     &      1 &      2 &      3 &      4 & 5\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        & #2    
+\end{tabular}
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%UPC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%UPD%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hupDeleven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccccp{2.5cm}}
+\hfill1     &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 & 10&11\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$& $\Box$\\
+#1          &        &        &        &        &        &				 &			  &       & & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hupDten}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccp{2.5cm}}
+\hfill1     &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 & 10\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &				 &			  &        & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hupDnine}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccp{2.5cm}}
+\hfill1     &      2 &      3 &      4 &      5 &      6 &      7 &      8 & 9\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &				 &			  & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hupDeight}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccp{2.5cm}}
+\hfill1     &      2 &      3 &      4 &      5 &      6 &      7 & 8\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &				 & #2       
+\end{tabular}
+\end{center}}
+\newcommand{\hupDseven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccp{2.5cm}}
+\hfill1     &      2 &      3 &      4 &      5 &      6 & 7\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &	#2        
+\end{tabular}
+\end{center}}
+\newcommand{\hupDsix}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccp{2.5cm}}
+\hfill1     &      2 &      3 &      4 &      5 & 6\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        & #2       
+\end{tabular}
+\end{center}}
+\newcommand{\hupDfive}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccp{2.5cm}}
+\hfill1     &      2 &      3 &      4 & 5\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        & #2     
+\end{tabular}
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%UPD%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%DOWNA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hdownAeleven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 &			  &        && #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$& $\Box$\\
+\hfill11&10     &      9 &      8 &      7 &      6 &      5 &      4 &      3 &      2 &      1 & 0
+\end{tabular}
+\end{center}}
+\newcommand{\hdownAten}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 &			  &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill10     &      9 &      8 &      7 &      6 &      5 &      4 &      3 &      2 &      1 & 0
+\end{tabular}
+\end{center}}
+\newcommand{\hdownAnine}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 &			  & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill9     &      8 &      7 &      6 &      5 &      4 &      3 &      2 &      1 & 0
+\end{tabular}
+\end{center}}
+\newcommand{\hdownAeight}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill8     &      7 &      6 &      5 &      4 &      3 &      2 &      1 & 0       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownAseven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &	#2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill7     &      6 &      5 &      4 &      3 &      2 &      1 & 0        
+\end{tabular}
+\end{center}}
+\newcommand{\hdownAsix}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccp{2.5cm}}
+#1          &        &        &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill6     &      5 &      4 &      3 &      2 &      1 & 0       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownAfive}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccp{2.5cm}}
+#1          &        &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill5     &      4 &      3 &      2 &      1 & 0     
+\end{tabular}
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%DOWNA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%DOWNB%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hdownBeleven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 &			  && #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$& $\Box$\\
+\hfill11&10     &      9 &      8 &      7 &      6 &      5 &      4 &      3 &      2 & 1
+\end{tabular}
+\end{center}}
+\newcommand{\hdownBten}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 &			  & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill10     &      9 &      8 &      7 &      6 &      5 &      4 &      3 &      2 & 1
+\end{tabular}
+\end{center}}
+\newcommand{\hdownBnine}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccp{2.5cm}}
+#1          &        &        &        &        &        &        &				 & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill9     &      8 &      7 &      6 &      5 &      4 &      3 &      2 & 1
+\end{tabular}
+\end{center}}
+\newcommand{\hdownBeight}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccp{2.5cm}}
+#1          &        &        &        &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill8     &      7 &      6 &      5 &      4 &      3 &      2 & 1       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownBseven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccp{2.5cm}}
+#1          &        &        &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill7     &      6 &      5 &      4 &      3 &      2 & 1       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownBsix}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccp{2.5cm}}
+#1          &        &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill6     &      5 &      4 &      3 &      2 & 1       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownBfive}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccp{2.5cm}}
+#1          &        &        &        & #2\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+\hfill5     &      4 &      3 &      2 & 1    
+\end{tabular}
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%DOWNB%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%DOWNC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hdownCeleven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccccp{2.5cm}}
+\hfill11&10     &      9 &      8 &      7 &      6 &      5 &      4 &      3 &      2 &      1 & 0\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$& $\Box$\\
+#1          &        &        &        &        &        &        &				 &			  &       & & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hdownCten}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccccp{2.5cm}}
+\hfill10     &      9 &      8 &      7 &      6 &      5 &      4 &      3 &      2 &      1 & 0\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &				 &			  &        & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hdownCnine}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccp{2.5cm}}
+\hfill9     &      8 &      7 &      6 &      5 &      4 &      3 &      2 &      1 & 0\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &				 &			  & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hdownCeight}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccp{2.5cm}}
+\hfill8     &      7 &      6 &      5 &      4 &      3 &      2 &      1 & 0\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &				 & #2       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownCseven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccp{2.5cm}}
+\hfill7     &      6 &      5 &      4 &      3 &      2 &      1 & 0\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &	#2        
+\end{tabular}
+\end{center}}
+\newcommand{\hdownCsix}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccp{2.5cm}}
+\hfill6     &      5 &      4 &      3 &      2 &      1 & 0\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        & #2       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownCfive}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccp{2.5cm}}
+\hfill5     &      4 &      3 &      2 &      1 & 0\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        & #2     
+\end{tabular}
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%DOWNC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%DOWND%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hdownDeleven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccccp{2.5cm}}
+\hfill11&10     &      9 &      8 &      7 &      6 &      5 &      4 &      3 &      2 & 1\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$& $\Box$\\
+#1          &        &        &        &        &        &        &				 &			  && #2
+\end{tabular}
+\end{center}}
+\newcommand{\hdownDten}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccccp{2.5cm}}
+\hfill10     &      9 &      8 &      7 &      6 &      5 &      4 &      3 &      2 & 1\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &				 &			  & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hdownDnine}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccccp{2.5cm}}
+\hfill9     &      8 &      7 &      6 &      5 &      4 &      3 &      2 & 1\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        &				 & #2
+\end{tabular}
+\end{center}}
+\newcommand{\hdownDeight}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccccp{2.5cm}}
+\hfill8     &      7 &      6 &      5 &      4 &      3 &      2 & 1\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        &        & #2       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownDseven}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccccp{2.5cm}}
+\hfill7     &      6 &      5 &      4 &      3 &      2 & 1\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        &        & #2       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownDsix}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}ccccp{2.5cm}}
+\hfill6     &      5 &      4 &      3 &      2 & 1\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        &        & #2       
+\end{tabular}
+\end{center}}
+\newcommand{\hdownDfive}[2]{\begin{center}
+\begin{tabular}{p{2.5cm}cccp{2.5cm}}
+\hfill5     &      4 &      3 &      2 & 1\\
+\hfill$\Box$& $\Box$ & $\Box$ & $\Box$ & $\Box$\\
+#1          &        &        &        & #2    
+\end{tabular}
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%DOWND%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%OPENQUESTIONS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\openone}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opentwo}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\openthree}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\openfour}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\openfive}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opensix}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\openseven}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\openeight}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opennine}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\openten}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+
+\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotsone}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotstwo}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotsthree}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotsfour}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotsfive}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotssix}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotsseven}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotseight}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotsnine}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+\newcommand{\opendotsten}{\begin{addmargin}{1.5cm}
+\vspace{0.4cm}\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+
+\dotfill\vspace{0.4cm}
+\end{addmargin}}
+%%%%%%%%%%%%%%%%%%%%OPENQUESTIONS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%HTEXT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\htextlinethree}[3]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{3cm}p{3cm}|p{3cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\\&&&\\\centering$\Box$&\centering$\Box$&\centering$\Box$&\\
+\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\htextlinefour}[4]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{2.5cm}p{2.5cm}p{2.5cm}|p{2.5cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\centering #4&\\&&&&\\\centering$\Box$&\centering$\Box$&\centering$\Box$& \centering$\Box$&\\\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\htextlinefive}[5]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}|p{2cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\&&&&&\\\centering$\Box$&\centering$\Box$&\centering$\Box$ &\centering$\Box$&\centering$\Box$&\\\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\htextlinesix}[6]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}|p{2cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\\&&&&&&\\\centering$\Box$&\centering$\Box$& \centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\htextlineseven}[7]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}|p{1.8cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\centering #7&\\&&&&&&&\\\centering$\Box$& \centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\\end{tabular}\end{center}
+\vspace{0.5cm}}
+\newcommand{\htextthree}[3]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{3cm}p{3cm}p{3cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\\&&&\\\centering$\Box$&\centering$\Box$&\centering$\Box$&\\
+\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\htextfour}[4]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\centering #4&\\&&&&\\\centering$\Box$&\centering$\Box$&\centering$\Box$& \centering$\Box$&\\\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\htextfive}[5]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\&&&&&\\\centering$\Box$&\centering$\Box$&\centering$\Box$ &\centering$\Box$&\centering$\Box$&\\\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\htextsix}[6]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\\&&&&&&\\\centering$\Box$&\centering$\Box$& \centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\htextseven}[7]{\vspace{0.5cm}
+\begin{center}\begin{tabular}{p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{0.001cm}}
+\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\centering #7&\\&&&&&&&\\\centering$\Box$& \centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\\end{tabular}\end{center}
+\vspace{0.5cm}}
+%%%%%%%%%%%%%%%%%%%%HTEXT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%VERTIKALBLOCK%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\vertikalblocktwo}[3]{\vspace{0.5cm}\begin{tabular}{p{6cm}p{2cm}p{2cm}p{0.001cm}}
+&\centering #1&\centering #2&\\#3\end{tabular}\vspace{0.5cm}}
+\newcommand{\blocktexttwo}[1]{#1\vspace{0.2cm}& \centering$\Box$ & \centering$\Box$&\\}
+\newcommand{\vertikalblockthree}[4]{\vspace{0.5cm}\begin{tabular}{p{6cm}p{2cm}p{2cm}p{2cm}p{0.001cm}}
+&\centering #1&\centering #2&\centering #3&\\#4\end{tabular}\vspace{0.5cm}}
+\newcommand{\blocktextthree}[1]{#1\vspace{0.2cm}& \centering$\Box$ & \centering$\Box$ & \centering$\Box$ &\\}
+\newcommand{\vertikalblockfour}[5]{\vspace{0.5cm}\begin{tabular}{p{6cm}p{2cm}p{2cm}p{2cm}p{2cm}p{0.001cm}}
+&\centering #1&\centering #2&\centering #3&\centering #4&\\#5\end{tabular}\vspace{0.5cm}}
+\newcommand{\blocktextfour}[1]{#1\vspace{0.2cm}& \centering$\Box$ & \centering$\Box$ & \centering$\Box$ & \centering$\Box$&\\}
+\newcommand{\vertikalblockfive}[6]{\vspace{0.5cm}\begin{tabular}{p{4.7cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{0.000001cm}}
+&\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\#6\end{tabular}\vspace{0.5cm}}
+\newcommand{\blocktextfive}[1]{#1\vspace{0.2cm}& \centering$\Box$ & \centering$\Box$ & \centering$\Box$ & \centering$\Box$&\centering$\Box$&\\}
+%%%%%%%%%%%%%%%%%%%%VERTIKALBLOCK%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%HYBRID%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hybridbracket}[2]{\begin{displaymath}\left.\begin{array}{p{6.5cm}}#1\end{array}\right\}\mbox{#2}\end{displaymath}}
+\newcommand{\hybridline}[2]{\begin{displaymath}\begin{array}{p{6.5cm}}\df{#1}\end{array}\linetext{#2}\end{displaymath}}
+\newcommand{\hybridclear}[1]{\begin{displaymath}\begin{array}{p{6.5cm}}#1\end{array}\end{displaymath}}
+\newcommand{\longline}{\raisebox{-4.5mm}{\parbox{8cm}{\hrule\strut}}}
+%%%%%%%%%%%%%%%%%%%%HYBRID%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%HORIZONTALTEXT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\horizontalthree}[2]{\vspace{0.5cm}\begin{center}\begin{tabular}{p{3cm}p{3cm}p{3cm}p{0.001cm}}
+#1\centering$\Box$&\centering$\Box$&\centering$\Box$&\\#2\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\upthree}[3]{\centering #1&\centering #2&\centering #3&\\}
+\newcommand{\downthree}[3]{\centering #1&\centering #2&\centering #3&\\}
+\newcommand{\horizontalfour}[2]{\vspace{0.5cm}\begin{center}\begin{tabular}{p{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}p{0.001cm}}
+#1\centering$\Box$&\centering$\Box$&\centering$\Box$& \centering$\Box$&\\#2\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\upfour}[4]{\centering #1&\centering #2&\centering #3&\centering #4&\\}
+\newcommand{\downfour}[4]{\centering #1&\centering #2&\centering #3&\centering #4&\\}
+\newcommand{\horizontalfive}[2]{\vspace{0.5cm}\begin{center}\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{0.001cm}}
+#1\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\#2\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\upfive}[5]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\}
+\newcommand{\downfive}[5]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\}
+\newcommand{\horizontalsix}[2]{\vspace{0.5cm}\begin{center}\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{0.001cm}}
+#1\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\#2\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\upsix}[6]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\\}
+\newcommand{\downsix}[6]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\\}
+\newcommand{\horizontalseven}[2]{\vspace{0.5cm}\begin{center}\begin{tabular}{p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{0.001cm}}#1\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$& \centering$\Box$&\\#2\end{tabular}\end{center}\vspace{0.5cm}}
+\newcommand{\upseven}[7]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\centering #7&\\}
+\newcommand{\downseven}[7]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\centering #7&\\}
+%%%%%%%%%%%%%%%%%%%%HORIZONTALTEXT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{coloredfilter}{\begin{fshaded}\begin{addmargin}{0.5cm}}{\end{addmargin}\end{fshaded}}
+
+%%%%%%%%%%%%%%%%%%%%SEMANTISCHES%DIFFERENTIAL%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{semanticfive}{\begin{center}\vspace{0.5cm}
+\begin{tabular}{p{3.5cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{3.5cm}}
+\cline{2-6}
+ & \centering1 & \centering2 & \centering3 & \centering4 & \centering5 & \\\hline}{\end{tabular}
+\end{center}\vspace{0.5cm}}
+\newcommand{\semfive}[2]{\multicolumn{1}{|c|}{#1} &&&&&& \multicolumn{1}{c|}{#2}\\\hline}
+
+\newenvironment{semanticsix}{\begin{center}\vspace{0.5cm}
+\begin{tabular}{p{3.5cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{3.5cm}}
+\cline{2-7}
+ & \centering1 & \centering2 & \centering3 & \centering4 & \centering5 & \centering6 & \\\hline}{\end{tabular}
+\end{center}\vspace{0.5cm}}
+\newcommand{\semsix}[2]{\multicolumn{1}{|c|}{#1} &&&&&&& \multicolumn{1}{c|}{#2}\\\hline}
+
+\newenvironment{semanticseven}{\begin{center}\vspace{0.5cm}
+\begin{tabular}{p{3.5cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{3.5cm}}
+\cline{2-8}
+ & \centering1 & \centering2 & \centering3 & \centering4 & \centering5 & \centering6 & \centering7 & \\\hline}{\end{tabular}
+\end{center}\vspace{0.5cm}}
+\newcommand{\semseven}[2]{\multicolumn{1}{|c|}{#1} &&&&&&&& \multicolumn{1}{c|}{#2}\\\hline}
+%%%%%%%%%%%%%%%%%%%%SEMANTISCHES%DIFFERENTIAL%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%RANKING%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{ranking}{\begin{center}\begin{tabular}{lp{0.1cm}l}}{\end{tabular}\end{center}}
+\newcommand{\categories}[2]{{\bf #1}&& {\bf #2}\\[0.2cm]}
+\newcommand{\rankbracket}[1]{#1&&[\ \ ]\\[0.1cm]}
+\newcommand{\rankbox}[1]{#1&&$\rbox$\\[0.1cm]}
+\newcommand{\rankopen}[1]{\linetext{}&& #1\\[0.2cm]}
+%%%%%%%%%%%%%%%%%%%%RANKING%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\endinput

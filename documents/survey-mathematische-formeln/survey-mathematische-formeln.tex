@@ -1,0 +1,121 @@
+\documentclass[a4paper]{scrreprt}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{parskip}
+\usepackage{paperandpencil}
+
+\title{Minimal distance to a cubic function}
+\author{Martin Thoma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\question{\bf Wie lautet der Name ihres (ehemaligen) Studienganges?}
+\linetext{Studiengang}
+
+\question{\bf In welchen Jahr wurden Sie geboren?}
+\linetext{Geburtsjahr}
+
+\question{\bf Wie viele wissenschaftliche Arbeiten (Abschlussarbeiten, Artikel für Konferenzen und ähnliche) haben Sie geschrieben?}
+\begin{answersC}
+\item 0 Arbeit
+\item 1 Arbeit
+\item 2 Arbeiten
+\item 3--5 Arbeiten
+\end{answersC}
+
+\question{\bf Mussten Sie schon mal Formeln in den Computer eingeben?}
+\begin{linkanswers}
+\framedlink{Ja}{\em Bitte weiter mit Frage 5}
+\framedlink{Nein}{\em Fragebogen komplett beantwortet.Vielen Dank!}
+\end{linkanswers}
+
+\question{\bf Schreiben Sie drei beliebige Formeln in folgende Felder:}
+\fbox{\parbox[b][4em][t]{\textwidth}{1} }
+\fbox{\parbox[b][4em][t]{\textwidth}{2} }
+\fbox{\parbox[b][4em][t]{\textwidth}{3} }
+
+\question{\bf Wie häufig müssen Sie in einem typischen Monat Formeln in den Computer eingeben?}
+\begin{answersC}
+\item nahezu täglich
+\item etwa jeden zweiten Tag
+\item etwa einmal in der Woche
+\item seltener
+\end{answersC}
+\clearpage
+
+\question{\bf Wie haben Sie gelernt, wie man Formeln eingibt?}
+(Mehrfachantworten möglich)
+\begin{longanswersC}
+\item Mit einem oder mehreren Lehrern / Dozenten
+\item Im Selbststudium über das Internet, und zwar \linetext{Website}
+\item Mit einem oder mehreren Büchern, und zwar \linetext{Buchtitel}
+\item Mit Freunden
+\end{longanswersC}
+
+\question{\bf Welche Strategien haben Sie, um herauszufinden, wie Formeln / Sybmole
+          in den Computer eingegeben werden?}
+(Mehrfachantworten möglich)
+\begin{longanswersC}
+\item Mit einer Website, und zwar \linetext{Website} \hfill\ebigbox{Keine}
+\item Mit einem Buch, und zwar \linetext{Buchtitel}
+\item Mit den \LaTeX-Hilfsdateien
+\item Mit einer Sybmol-Tabelle
+\item Ich frage einen Freund / eine Freundin
+\end{longanswersC}
+
+\question{\bf Welches Programm nutzen Sie, wenn Sie Formeln eingeben?}
+(Mehrfachantworten möglich)
+\begin{longanswersC}
+\item Microsoft Word
+\item OpenOffice
+\item LibreOffice
+\item LaTeX
+\item Sonstiges, und zwar \linetext{Programm}
+\end{longanswersC}
+
+\question{\bf Wie geben Sie Ihre Formeln ein?}
+
+\vertikalblockfive{so gut wie nie}{selten}{manchmal}{häufig}{so gut wie immer}{
+\blocktextfive{Tastatur}
+\blocktextfive{Maus}
+\blocktextfive{Trackball}
+\blocktextfive{Smartphone}}
+
+\question{\bf Wie zufrieden sind sie mit der Art Ihrer Eingabe?}
+\htextlinesix{sehr unzufrieden}{eher unzufrieden}{unentschieden}{eher zufrieden}{sehr zufrieden}{keine Angabe}
+
+
+\question{\bf Was stört Sie bei der Eingabe von Formeln bisher?}
+\vspace{3cm}
+
+\question{\bf Haben Sie eine Idee, wie man Probleme bei der Eingabe von Formeln beheben könnte bzw. was bei der Formeleingabe verbessert werden könnte?}
+\vspace{3cm}
+
+\question{\bf Haben Sie bereits Formeln über ein Touch-Gerät eingegeben?}
+\begin{answersC}
+\item Ja, und zwar mit \linetext{Name des Toch-Gerätes}
+\item Nein
+\end{answersC}
+
+\question{\bf Mit welchen Geräten können Sie sich vorstellen Formeln einzugeben?}
+
+\textit{Hinweis}: Ein Stylus ist ein stiftförmiges Eingabegerät für Touch-Geräte,
+das nur mit dem Touch-Gerät verwendbar ist. Ein Smartpen hingegen wird ohne
+Touch-Gerät und mit Papier verwendet.
+
+\vertikalblockfive{überhaupt nicht}{eher nicht}{unent\-schieden}{eher schon}{auf jeden Fall}{
+\blocktextfive{Tablet (Touch)}
+\blocktextfive{Smartphone (Touch)}
+\blocktextfive{Touch-Bildschirm}\hline
+\blocktextfive{Tablet (Stylus)}
+\blocktextfive{Smartphone (Stylus)}\hline
+\blocktextfive{Smartpen}
+\blocktextfive{Grafiktablett}}
+
+\end{document}
