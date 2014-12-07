@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \tkzDefPoint(0, 0){CircleCenter}
+    \tkzDrawCircle[R](CircleCenter,3cm)
+
+    % Define 5 points on a circle
+    \tkzDefPoint( 30:3){BCT}
+    \tkzDefPoint( 90:3){CDT}
+    \tkzDefPoint(135:3){DET}
+    \tkzDefPoint(215:3){EAT}
+    \tkzDefPoint(300:3){ABT}
+
+    % Tangents
+    \tkzDefLine[perpendicular=through EAT](CircleCenter,EAT)\tkzGetPoint{EAT2}
+    \tkzDefLine[perpendicular=through BCT](CircleCenter,BCT)\tkzGetPoint{BCT2}
+    \tkzDefLine[perpendicular=through CDT](CircleCenter,CDT)\tkzGetPoint{CDT2}
+    \tkzDefLine[perpendicular=through DET](CircleCenter,DET)\tkzGetPoint{DET2}
+    \tkzDefLine[perpendicular=through ABT](CircleCenter,ABT)\tkzGetPoint{ABT2}
+
+    % Find the points by intersecting the tangents
+    \tkzInterLL(EAT,EAT2)(ABT,ABT2)\tkzGetPoint{A}
+    \tkzInterLL(ABT,ABT2)(BCT,BCT2)\tkzGetPoint{B}
+    \tkzInterLL(BCT,BCT2)(CDT,CDT2)\tkzGetPoint{C}
+    \tkzInterLL(CDT,CDT2)(DET,DET2)\tkzGetPoint{D}
+    \tkzInterLL(DET,DET2)(EAT,EAT2)\tkzGetPoint{E}
+
+    % Background
+    \tkzDrawPolygon[thick,fill=gray!10](A,B,C,D,E)
+
+    \tkzDrawSegments(CircleCenter,EAT CircleCenter,BCT CircleCenter,CDT CircleCenter,DET CircleCenter,ABT)
+
+    % Draw points
+    \tkzDrawPoints[size=1pt](A,B,C,D,E)
+    \tkzDrawCircle[R,thick,draw=red](CircleCenter,3cm)
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    \tkzLabelPoints[above right,font=\sansmath\sffamily](C)
+    \tkzLabelPoints[above left,font=\sansmath\sffamily](D)
+    \tkzLabelPoints[left,font=\sansmath\sffamily](E)
+
+
+    % % Draw polygon
+    \tkzDrawPolygon[very thick](A,B,C,D,E)
+\end{tikzpicture}
+\end{preview}
+\end{document}
