@@ -1,0 +1,34 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage[TS1,T1]{fontenc}
+\usepackage{fourier}
+\usepackage{array, booktabs}
+\usepackage{graphicx}
+\usepackage[x11names]{xcolor}
+\usepackage{colortbl}
+\usepackage{caption}
+\DeclareCaptionFont{blue}{\color{LightSteelBlue3}}
+
+\newcommand{\foo}{\color{LightSteelBlue3}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
+\begin{document}
+\begin{table}
+\renewcommand\arraystretch{1.4}\arrayrulecolor{LightSteelBlue3}
+\captionsetup{singlelinecheck=false, font=blue, labelfont=sc, labelsep=quad}
+\caption{Zeitverlauf}\vskip -1.5ex
+\begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{5cm}}
+\toprule
+\addlinespace[1.5ex]
+2000 & Planungsarbeiten beginnen bei der Dornier GmbH (EADS, Friedrichshafen)\\
+2002 & Flugversuche auf Edwards Air Force Base (Kalifornien) mit RQ-4A Global Hawk + EADS Sensoren\\
+21. Oktober 2003 &  6 Testflüge mit dem Prototyp 01 der RQ-4A + EADS-Sensor\\
+2007 & BWB, EuroHawk GmbH, Northrop Grumman, EADS schließen Vertrag für die Entwicklung, Erprobung und Unterstützung des UAS-Demonstrators bis 2010 erteilt - Auftragsvolumen: 450 Mio. Euro -- 1300 Mio. Euro\\
+8. Oktober 2009 & Rollout\\
+29. Juni 2010   & Erstflug von Palmdale zur Edwards Air Force Base\\
+21. Juli 2011   & Erste Maschine trifft in Manching zur Einrüstung der Aufklärungselektronik ein. Es gab Schwierigkeiten bei der Überführung, weil US-Behörden Überflugrechte über die USA verweigerten.\\
+11. Januar 2013 & Erster Testflug über Deutschland ohne Schwierigkeiten\\
+Mai 2013 & De Maizière beendet projekt, weil kein Antikollisionssystem vorhanden ist, {obwohl ein Antikollisionssystem laut Hersteller vorhanden ist / sein sollte}
+\end{tabular}
+\end{table}
+\end{document}
