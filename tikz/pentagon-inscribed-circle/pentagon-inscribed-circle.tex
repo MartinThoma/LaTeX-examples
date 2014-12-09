@@ -41,8 +41,14 @@
 
     \tkzDrawSegments(CircleCenter,EAT CircleCenter,BCT CircleCenter,CDT CircleCenter,DET CircleCenter,ABT)
 
+    \tkzLabelSegment[left](CircleCenter,EAT){r}
+    \tkzLabelSegment[below](CircleCenter,BCT){r}
+    \tkzLabelSegment[right](CircleCenter,CDT){r}
+    \tkzLabelSegment[right](CircleCenter,DET){r}
+    \tkzLabelSegment[right](CircleCenter,ABT){r}
+
+
     % Draw points
-    \tkzDrawPoints[size=1pt](A,B,C,D,E)
     \tkzDrawCircle[R,thick,draw=red](CircleCenter,3cm)
     \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
     \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
