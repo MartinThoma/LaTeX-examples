@@ -21,12 +21,14 @@
 \question{\bf In welchen Jahr wurden Sie geboren?}
 \linetext{Geburtsjahr}
 
-\question{\bf Wie viele wissenschaftliche Arbeiten (Abschlussarbeiten, Artikel für Konferenzen und ähnliche) haben Sie geschrieben?}
+\question{\bf Wie viele wissenschaftliche Arbeiten (Abschlussarbeiten, Artikel
+für Konferenzen und ähnliches) haben Sie geschrieben?}
 \begin{answersC}
-\item 0 Arbeit
+\item 0 Arbeiten
 \item 1 Arbeit
 \item 2 Arbeiten
 \item 3--5 Arbeiten
+\item 6 oder mehr Arbeiten
 \end{answersC}
 
 \question{\bf Mussten Sie schon mal Formeln in den Computer eingeben?}
@@ -34,11 +36,6 @@
 \framedlink{Ja}{\em Bitte weiter mit Frage 5}
 \framedlink{Nein}{\em Fragebogen komplett beantwortet.Vielen Dank!}
 \end{linkanswers}
-
-\question{\bf Schreiben Sie drei beliebige Formeln in folgende Felder:}
-\fbox{\parbox[b][4em][t]{\textwidth}{1} }
-\fbox{\parbox[b][4em][t]{\textwidth}{2} }
-\fbox{\parbox[b][4em][t]{\textwidth}{3} }
 
 \question{\bf Wie häufig müssen Sie in einem typischen Monat Formeln in den Computer eingeben?}
 \begin{answersC}
@@ -50,19 +47,18 @@
 \clearpage
 
 \question{\bf Wie haben Sie gelernt, wie man Formeln eingibt?}
-(Mehrfachantworten möglich)
 \begin{longanswersC}
-\item Mit einem oder mehreren Lehrern / Dozenten
+\item Mit Lehrer(n) / Dozent(en)
+\item Mit Freund(in/en)
 \item Im Selbststudium über das Internet, und zwar \linetext{Website}
 \item Mit einem oder mehreren Büchern, und zwar \linetext{Buchtitel}
-\item Mit Freunden
 \end{longanswersC}
 
 \question{\bf Welche Strategien haben Sie, um herauszufinden, wie Formeln / Sybmole
           in den Computer eingegeben werden?}
-(Mehrfachantworten möglich)
 \begin{longanswersC}
-\item Mit einer Website, und zwar \linetext{Website} \hfill\ebigbox{Keine}
+\item Keine
+\item Mit einer Website, und zwar \linetext{Website}
 \item Mit einem Buch, und zwar \linetext{Buchtitel}
 \item Mit den \LaTeX-Hilfsdateien
 \item Mit einer Sybmol-Tabelle
@@ -70,12 +66,11 @@
 \end{longanswersC}
 
 \question{\bf Welches Programm nutzen Sie, wenn Sie Formeln eingeben?}
-(Mehrfachantworten möglich)
 \begin{longanswersC}
 \item Microsoft Word
 \item OpenOffice
 \item LibreOffice
-\item LaTeX
+\item \LaTeX
 \item Sonstiges, und zwar \linetext{Programm}
 \end{longanswersC}
 
@@ -91,7 +86,7 @@
 \htextlinesix{sehr unzufrieden}{eher unzufrieden}{unentschieden}{eher zufrieden}{sehr zufrieden}{keine Angabe}
 
 
-\question{\bf Was stört Sie bei der Eingabe von Formeln bisher?}
+\question{\bf Was stört Sie bei der Eingabe von Formeln?}
 \vspace{3cm}
 
 \question{\bf Haben Sie eine Idee, wie man Probleme bei der Eingabe von Formeln beheben könnte bzw. was bei der Formeleingabe verbessert werden könnte?}
@@ -99,15 +94,17 @@
 
 \question{\bf Haben Sie bereits Formeln über ein Touch-Gerät eingegeben?}
 \begin{answersC}
-\item Ja, und zwar mit \linetext{Name des Toch-Gerätes}
+\item Ja, und zwar mit \linetext{Name des Touch-Gerätes}
 \item Nein
 \end{answersC}
 
+\clearpage
 \question{\bf Mit welchen Geräten können Sie sich vorstellen Formeln einzugeben?}
 
-\textit{Hinweis}: Ein Stylus ist ein stiftförmiges Eingabegerät für Touch-Geräte,
-das nur mit dem Touch-Gerät verwendbar ist. Ein Smartpen hingegen wird ohne
-Touch-Gerät und mit Papier verwendet.
+\textit{Hinweis}: Ein \textit{Stylus} ist ein stiftförmiges Eingabegerät für Touch-Geräte,
+das nur mit dem Touch-Gerät verwendbar ist. Ein \textit{Smartpen} hingegen wird
+ohne Touch-Gerät und mit Papier verwendet. Ein \textit{Trackball} ist eine Art
+Maus, bei der der Ball mit dem Daumen bewegt wird.
 
 \vertikalblockfive{überhaupt nicht}{eher nicht}{unent\-schieden}{eher schon}{auf jeden Fall}{
 \blocktextfive{Tablet (Touch)}
@@ -116,6 +113,19 @@ Touch-Gerät und mit Papier verwendet.
 \blocktextfive{Tablet (Stylus)}
 \blocktextfive{Smartphone (Stylus)}\hline
 \blocktextfive{Smartpen}
-\blocktextfive{Grafiktablett}}
+\blocktextfive{Grafiktablett}
+\blocktextfive{Maus}
+\blocktextfive{Trackball}}
+
+\question{\bf Schreiben Sie drei beliebige Formeln, die Sie gerne automatisch erkennen lassen würden, in folgende Felder:}
+\textit{Hinweis}: Es besteht die Möglichkeit, dass Programme Formeln
+automatisch erkennen, die Sie z.B. mit einem Stylus auf ein Tablet geschrieben
+haben. Wenn Sie ein solches Programm hätten, was wären typische Formeln, die
+Sie nicht mehr auf die übliche Art eingeben würden, sondern erkennen lassen
+würden?
+
+\fbox{\parbox[b][4em][t]{\textwidth}{1} }
+\fbox{\parbox[b][4em][t]{\textwidth}{2} }
+\fbox{\parbox[b][4em][t]{\textwidth}{3} }
 
 \end{document}
