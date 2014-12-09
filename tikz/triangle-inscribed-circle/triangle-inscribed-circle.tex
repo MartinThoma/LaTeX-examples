@@ -39,7 +39,7 @@
     % \tkzLabelSegment[right](B,C){$a$}
 
     \tkzDefCircle[in,/tikz/overlay](A,B,C)\tkzGetPoint{I}\tkzGetLength{rIN}
-    \tkzDrawCircle[R](I,\rIN pt)
+    \tkzDrawCircle[R,color=red](I,\rIN pt)
 
     \tkzInterLC[R,/tikz/overlay](A,B)(I,\rIN pt)
     \tkzGetSecondPoint{ABq}
@@ -50,6 +50,20 @@
     \tkzInterLC[R,/tikz/overlay](C,A)(I,\rIN pt)
     \tkzGetSecondPoint{CAq}
 
+    % Get bisectors
+    \tkzDefLine[bisector,/tikz/overlay](B,A,C) \tkzGetPoint{a}
+    \tkzInterLL(A,a)(B,C) \tkzGetPoint{a2}
+    \tkzDrawLine[add=0 and 0.2,dashed](A,a2)
+
+    \tkzDefLine[bisector,/tikz/overlay](A,C,B) \tkzGetPoint{c}
+    \tkzInterLL(C,c)(A,B) \tkzGetPoint{c2}
+    \tkzDrawLine[add=0 and 0.2,dashed](C,c2)
+
+    \tkzDefLine[bisector,/tikz/overlay](C,B,A) \tkzGetPoint{b}
+    \tkzInterLL(B,b)(A,C) \tkzGetPoint{b2}
+    \tkzDrawLine[add=0 and 0.2,dashed](B,b2)
+
+    % Draw segments
     \tkzDrawSegments(I,ABq I,BCq I,CAq)
     \tkzLabelSegment[right](I,ABq){r}
     \tkzLabelSegment[above](I,BCq){r}
