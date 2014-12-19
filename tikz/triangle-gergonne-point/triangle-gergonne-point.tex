@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(6,0){B}
+    \tkzDefPoint(1,4){C}
+
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    \tkzLabelPoints[above,font=\sansmath\sffamily](C)
+
+    % Draw polygon
+    \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
+
+    % Draw polygon
+    \tkzDrawPolygon[thick](A,B,C)
+    \tkzDefCircle[in,/tikz/overlay](A,B,C) \tkzGetPoint{Ocircle}\tkzGetLength{dOcircle}
+    \tkzDrawCircle[R](Ocircle,\dOcircle pt)
+
+    \tkzInterLC[R,/tikz/overlay](B,C)(Ocircle,\dOcircle pt)\tkzGetPoints{X}{X2}
+    \tkzInterLC[R,/tikz/overlay](A,C)(Ocircle,\dOcircle pt)\tkzGetPoints{Y}{Y2}
+    \tkzInterLC[R,/tikz/overlay](A,B)(Ocircle,\dOcircle pt)\tkzGetPoints{Z}{Z2}
+    \tkzInterLL(A,X)(B,Y)\tkzGetPoint{G}
+
+    \tkzDrawSegments[dashed](A,X B,Y C,Z)
+
+    \tkzDrawPoints[size=2,fill=black](Ocircle,X,Y,Z)
+    \tkzDrawPoints[size=2,fill=red,color=red](G)
+
+    \tkzLabelPoints[above right,font=\sansmath\sffamily](X)
+    \tkzLabelPoints[left,font=\sansmath\sffamily](Y)
+    \tkzLabelPoints[below,font=\sansmath\sffamily](Z)
+    \tkzLabelPoints[red,above left,font=\sansmath\sffamily](G)
+\end{tikzpicture}
+\end{preview}
+\end{document}
