@@ -1,0 +1,313 @@
+\documentclass[9pt,technote]{IEEEtran}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage{hyperref}   % links im text
+\usepackage{parskip}
+\usepackage{csquotes}
+\usepackage{braket}
+\usepackage[noadjust]{cite}
+\usepackage[nameinlink,noabbrev]{cleveref} % has to be after hyperref, ntheorem, amsthm
+\usepackage[binary-units]{siunitx}
+\sisetup{per-mode=fraction,binary-units=true}
+\DeclareSIUnit\pixel{px}
+\usepackage{glossaries}
+\loadglsentries[main]{glossary}
+\makeglossaries
+
+\title{On-line Recognition of Handwritten Mathematical Symbols}
+\author{Martin Thoma}
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Mathematics,Symbols,recognition}, 
+  pdftitle    = {On-line Recognition of Handwritten Mathematical Symbols} 
+}
+\include{variables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\begin{abstract}
+Writing mathematical formulas with \LaTeX{} is easy as soon as one is used to
+commands like \verb+\alpha+ and \verb+\propto+. However, for people who have
+never used \LaTeX{} or who don't know the English name of the command, it can
+be difficult to find the right command. Hence the automatic recognition of
+handwritten mathematical symbols is desirable. This paper presents a system
+which uses the pen trajectory to classify handwritten symbols. Five
+preprocessing steps, one data multiplication algorithm, five features and five
+variants for multilayer Perceptron training were evaluated using $\num{166898}$
+recordings which were collected with two crowdsourcing projects. The evaluation
+results of these 21~experiments were used to create an optimized recognizer
+which has a TOP1 error of less than $\SI{17.5}{\percent}$ and a TOP3 error of
+$\SI{4.0}{\percent}$. This is an improvement of $\SI{18.5}{\percent}$ for the
+TOP1 error and $\SI{29.7}{\percent}$ for the TOP3 error compared to the
+baseline system.
+\end{abstract}
+
+\section{Introduction}
+On-line recognition makes use of the pen trajectory. This means the data is
+given as groups of sequences of tuples $(x, y, t) \in \mathbb{R}^3$, where
+each group represents a stroke, $(x, y)$ is the position of the pen on a canvas
+and $t$ is the time. One handwritten symbol in the described format is called
+a \textit{recording}. Recordings can be classified by making use of
+this data. One classification approach assigns a probability to each class
+given the data. The classifier can be evaluated by using recordings which
+were classified by humans and were not used by to train the classifier. The
+set of those recordings is called \textit{testset}. Then
+the TOP-$n$ error is defined as the fraction of the symbols where the correct
+class was not within the top $n$ classes of the highest probability.
+
+Various systems for mathematical symbol recognition with on-line data have been
+described so far~\cite{Kosmala98,Mouchere2013}, but most of them have neither
+published their source code nor their data which makes it impossible to re-run
+experiments to compare different systems. This is unfortunate as the choice of
+symbols is cruicial for the TOP-$n$ error. For example, the symbols $o$, $O$,
+$\circ$ and $0$ are very similar and systems which know all those classes will
+certainly have a higher TOP-$n$ error than systems which only accept one of
+them.
+
+Daniel Kirsch describes in~\cite{Kirsch} a system which uses time warping to
+classify on-line handwritten symbols and claimes to achieve a TOP3 error of
+less than $\SI{10}{\percent}$ for a set of $\num{100}$~symbols. He also
+published his data, which was collected by a crowd-sourcing approach via
+\url{http://detexify.kirelabs.org}, on
+\url{https://github.com/kirel/detexify-data}. Those recordings as well as
+some recordings which were collected by a similar approach via
+\url{http://write-math.com} were used to train and evaluated different
+classifiers. A complete description of all involved software, data,
+presentations and experiments is listed in~\cite{Thoma:2014}.
+
+\section{Steps in Handwriting Recognition}
+The following steps are used in all classifiers which are described in the
+following:
+
+\begin{enumerate}
+    \item \textbf{Preprocessing}: Recorded data is never perfect. Devices have
+          errors and people make mistakes while using devices. To tackle
+          these problems there are preprocessing algorithms to clean the data.
+          The preprocessing algorithms can also remove unnecessary variations of
+          the data that do not help classify but hide what is important.
+          Having slightly different sizes of the same symbol is an example of such a
+          variation. Nine preprocessing algorithms that clean or normalize
+          recordings are explained in
+          \cref{sec:preprocessing}.
+    \item \textbf{Data multiplication}: Learning algorithms need lots of data
+          to learn internal parameters. If there is not enough data available,
+          domain knowledge can be considered to create new artificial data from
+          the original data. In the domain of on-line handwriting recognition
+          data can be multiplied by adding rotated variants.
+    \item \textbf{Segmentation}: The task of formula recognition can eventually
+          be reduced to the task of symbol recognition combined with symbol
+          placement. Before symbol recognition can be done, the formula has
+          to be segmented. As this paper is only about single-symbol
+          recognition, this step will not be further discussed.
+    \item \textbf{Feature computation}: A feature is high-level information
+          derived from the raw data after preprocessing. Some systems like
+          Detexify, which was presented in~\cite{Kirsch}, simply take the
+          result of the preprocessing step, but many compute new features. This
+          might have the advantage that less training data is needed since the
+          developer can use knowledge about handwriting to compute highly
+          discriminative features. Various features are explained in
+          \cref{sec:features}.
+    \item \textbf{Feature enhancement}: Applying PCA, LDA, or
+          feature standardization might change the features in ways that could
+          improve the performance of learning algorithms.
+\end{enumerate}
+
+After these steps, we are faced with a classification learning task which consists of
+two parts:
+\begin{enumerate}
+    \item \textbf{Learning} parameters for a given classifier. This process is
+          also called \textit{training}.
+    \item \textbf{Classifying} new recordings, sometimes called
+          \textit{evaluation}. This should not be confused with the evaluation
+          of the classification performance which is done for multiple
+          topologies, preprocessing queues, and features in \Cref{ch:Evaluation}.
+\end{enumerate}
+
+Two fundamentally different systems for classification of time series data were
+evaluated. One uses greedy time warping, which has a very easy, fast learning
+algorithm which only stores some of the seen training examples. The other one is
+based on neural networks, taking longer to train, but is much faster in
+recognition and also leads to better recognition results.
+
+\section{Algorithms}
+\subsection{Preprocessing}\label{sec:preprocessing}
+Preprocessing in symbol recognition is done to improve the quality and
+expressive power of the data. It should make follow-up tasks like segmentation
+and feature extraction easier, more effective or faster. It does so by resolving
+errors in the input data, reducing duplicate information and removing irrelevant
+information.
+
+The preprocessing algorithms fall in two groups: Normalization and noise
+reduction algorithms.
+
+The most important normalization algorithm in single-symbol recognition is
+\textit{scale-and-shift}. It scales the recording so that
+its bounding box fits into a unit square. As the aspect ratio of a recording
+is almost never 1:1, only one dimension will fit exactly in the unit square.
+Then there are multiple ways how to shift the recording. For this paper, it was
+chosen to shift the bigger dimension to fit into the $[0,1] \times [0,1]$ unit
+square whereas the smaller dimension is centered in the $[-1,1] \times [-1,1]$
+square.
+
+Another normalization preprocessing algorithm is resampling. As the data points
+on the pen trajectory are generated asynchronously and with different
+time-resolutions depending on the used hardware and software, it is desirable
+to resample the recordings to have points spread equally in time for every
+recording. This was done with linear interpolation of the $(x,t)$ and $(y,t)$
+sequences and getting a fixed number of equally spaced samples.
+
+\textit{Connect strokes} is a noise reduction algorithm. It happens sometimes
+that the hardware detects that the user lifted the pen where he certainly
+didn't do so. This can be detected by measuring the distance between the end of
+one stroke and the beginning of the next stroke. If this distance is below a
+threshold, then the strokes are connected.
+
+Due to a limited resolution of the recording device and due to erratic
+handwriting, the pen trajectory might not be smooth. One way to smooth is
+calculating a weighted average and replacing points by the weighted average of
+their coordinate and their neighbors coordinates. Another way to do smoothing
+would be to reduce the number of points with the Douglas-Peucker algorithm to
+the most relevant ones and then interpolate those points. The Douglas-Peucker
+stroke simplification algorithm is usually used in cartography to simplify the
+shape of roads. The Douglas-Peucker algorithm works recursively to find a
+subset of control points of a stroke that is simpler and still similar to the
+original shape. The algorithm adds the first and the last point $p_1$ and $p_n$
+of a stroke to the simplified set of points $S$. Then it searches the control
+point $p_i$ in between that has maximum distance from the \gls{line} $p_1 p_n$.
+If this distance is above a threshold $\varepsilon$, the point $p_i$ is added
+to $S$. Then the algorithm gets applied to $p_1 p_i$ and $p_i p_n$ recursively.
+Pseudocode of this algorithm is on \cpageref{alg:douglas-peucker}. It is
+described as \enquote{Algorithm 1} in~\cite{Visvalingam1990} with a different
+notation.
+
+\subsection{Features}\label{sec:features}
+Features can be global, that means calculated for the complete recording or
+complete strokes. Other features are calculated for single points on the
+pen trajectory and are called \textit{local}.
+
+Global features are the \textit{number of strokes} in a recording, the
+\textit{aspect ratio} of the bounding box of a recordings bounding box or the
+\textit{ink} being used for a recording. The ink feature gets calculated by
+measuring the length of all strokes combined. The re-curvature, which was
+introduced in~\cite{Huang06}, is defined as
+\[\text{re-curvature}(stroke) := \frac{\text{height}(stroke)}{\text{length}(stroke)}\]
+and a stroke-global feature.
+
+The most important local feature is the coordinate of the point itself.
+Speed, curvature and a local small-resolution bitmap around the point, which
+was introduced by Manke et al. in~\cite{Manke94} are other local features.
+
+\subsection{Multilayer Perceptrons}\label{sec:mlp-training}
+\Glspl{MLP} are explained in detail in~\cite{Mitchell97}. They can have
+different numbers of hidden layers, the number of neurons per layer and the
+activation functions can be varied. The learning algorithm is parameterized by
+the learning rate $\eta$, the momentum $\alpha$ and the number of epochs. The
+learning of \glspl{MLP} can be executed in various different ways, for example
+with layer-wise supversided pretraining which means if a three layer \gls{MLP}
+of the topology $160:500:500:500:369$ should get trained, at first a \gls{MLP}
+with one hidden layer ($160:500:369$) is trained. Then the output layer is
+discarded, a new hidden layer and a new output layer is added and it is trained
+again. Then we have a $160:500:500:369$ \gls{MLP}. The output layer is
+discarded again, a new hidden layer is added and a new output layer is added
+and the training is executed again.
+
+\section{Evaluation}\label{ch:Evaluation}
+In order to evaluate the effect of different preprocessing algorithms, features
+and adjustments in the \gls{MLP} training and topology, the following baseline
+system was used:
+
+Scale the recording to fit into a unit square while keeping the aspect ratio,
+shift it into $[-1,1] \times [-1,1]$ as described in \cref{sec:preprocessing},
+resample it with linear interpolation to get 20~points per stroke, spaced
+evenly in time. Take the first 4~strokes with 20~points per stroke and
+2~coordinates per point as features, resulting in 160~features which is equal
+to the number of input neurons. If a recording has less than 4~strokes, the
+remaining features were filled with zeroes.
+
+All experiments were evaluated with four baseline systems $B_i$, $i \in \Set{1,
+2, 3, 4}$, where $i$ is the number of hidden layers as different topologies
+could have a severe influence on the effect of new features or preprocessing
+steps. Each hidden layer in all evaluated systems has $500$ neurons.
+
+Each \gls{MLP} was trained with a learning rate of $\eta = 0.1$ and a momentum
+of $\alpha = 0.1$. The activation function of every neuron is 
+
+%TODO: Evaluation randomnes
+%TODO:
+
+\section{Conclusion}
+The aim of this bachelor's thesis was to build a recognition system that
+can recognize many mathematical symbols with low error rates as well as to
+evaluate which preprocessing steps and features help to improve the recognition
+rate.
+
+All recognition systems were trained and evaluated with
+$\num{\totalCollectedRecordings{}}$ recordings for \totalClassesAnalyzed{}
+symbols. These recordings were collected by two crowdsourcing projects 
+(\href{http://detexify.kirelabs.org/classify.html}{Detexify} and
+\href{write-math.com}{write-math.com}) and created with various devices. While
+some recordings were created with standard touch devices such as tablets and
+smartphones, others were created with the mouse.
+
+\Glspl{MLP} were used for the classification task. Four baseline systems with
+different numbers of hidden layers were used, as the number of hidden layer
+influences the capabilities and problems of \glspl{MLP}. Furthermore, an error
+measure MER was defined, which takes the top three \glspl{hypothesis} of the classifier,
+merges symbols such as \verb+\sum+ ($\sum$) and \verb+\Sigma+ ($\Sigma$) to
+equivalence classes, and then calculates the error.
+
+All baseline systems used the same preprocessing queue. The recordings were
+scaled to fit into a unit square, shifted to $(0,0)$, resampled with linear
+interpolation so that every stroke had exactly 20~points which are spread
+equidistant in time. The 80~($x,y$) coordinates of the first 4~strokes were used
+to get exactly $160$ input features for every recording. The baseline systems
+$B_2$ has a MER error of $\SI{5.67}{\percent}$.
+
+Three variations of the scale and shift algorithm, wild point filtering, stroke
+connect, weighted average smoothing, and Douglas-Peucker smoothing were
+evaluated. The evaluation showed that the scale and shift algorithm is extremely
+important and the connect strokes algorithm improves the classification. All
+other preprocessing algorithms either diminished the classification performance
+or had less influence on it than the random initialization of the \glspl{MLP}
+weights.
+
+Adding two slightly rotated variants for each recording and hence tripling the
+training set made the systems $B_3$ and $B_4$ perform much worse, but improved
+the performance of the smaller systems.
+
+The global features re-curvature, ink, stoke count and aspect ratio improved the
+systems $B_1$--$B_3$, whereas the stroke center point feature made $B_2$ perform
+worse.
+
+The learning rate and the momentum were evaluated. A learning rate of $\eta=0.1$
+and a momentum of $\alpha=0.9$ gave the best results. Newbob training lead to
+much worse recognition rates. Denoising auto-encoders were evaluated as one way
+to use pretraining, but by this the error rate increased notably. However,
+supervised layer-wise pretraining improved the performance decidedly.
+
+The stroke connect algorithm was added to the preprocessing steps of the
+baseline system as well as the re-curvature feature, the ink feature, the number
+of strokes and the aspect ratio. The training setup of the baseline system was
+changed to supervised layer-wise pretraining and the resulting model was trained
+with a lower learning rate again. This optimized recognizer $B_{2,c}'$ had a MER
+error of $\SI{3.96}{\percent}$. This means that the MER error dropped by over
+$\SI{30}{\percent}$ in comparison to the baseline system $B_2$.
+
+A MER error of $\SI{3.96}{\percent}$ makes the system usable for symbol lookup.
+It could also be used as a starting point for the development of a
+multiple-symbol classifier.
+
+The aim of this bachelor's thesis was to develop a symbol recognition system
+which is easy to use, fast and has high recognition rates as well as evaluating
+ideas for single symbol classifiers. Some of those goals were reached. The
+recognition system $B_{2,c}'$ evaluates new recordings in a fraction of a second
+and has acceptable recognition rates. Many variations algorithms were evaluated.
+However, there are still many more algorithms which could be evaluated and, at
+the time of this work, the best classifier $B_{2,c}'$ is not publicly available.
+
+\bibliographystyle{IEEEtranSA}
+\bibliography{write-math-ba-paper}
+\end{document}
