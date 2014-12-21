@@ -29,7 +29,7 @@
     \tkzDefMidPoint(B,C) \tkzGetPoint{D}
 
     \tkzDefCircle[circum,/tikz/overlay](D,E,F)\tkzGetPoint{Icircle}\tkzGetLength{rIN}
-    \tkzDrawCircle[R](Icircle,\rIN pt)
+    \tkzDrawCircle[R,color=red, very thick](Icircle,\rIN pt)
 
     % Get 'Hoehe'
     \tkzInterLC[/tikz/overlay](B,C)(A,B)\tkzGetPoints{hah1}{hah2}
@@ -52,7 +52,7 @@
     % Draw polygon
     \tkzDrawPolygon[thick](A,B,C)
     \tkzDefCircle[circum,/tikz/overlay](A,B,C) \tkzGetPoint{Ocircle}
-    \tkzDrawCircle(Ocircle,A)
+    \tkzDrawCircle[color=blue](Ocircle,A)
     \tkzCalcLength(Ocircle,A) \tkzGetLength{dOcircle}
 
     % TODO: define shiftedOcircOrigin which is
@@ -67,7 +67,9 @@
     \tkzDrawSegments[dashed](Icircle,C'')
     \tkzLabelSegment[below](Icircle,C''){$r_2$} 
 
-    \tkzDrawPoints[size=2,fill=black](D,E,F,Icircle,Ocircle)
+    \tkzDrawPoints[size=2,fill=black](D,E,F)
+    \tkzDrawPoints[size=2,fill=blue,color=blue](Ocircle)
+    \tkzDrawPoints[size=2,fill=red,color=red](Icircle)
 \end{tikzpicture}
 \end{preview}
 \end{document}

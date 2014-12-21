@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \tkzDefPoint(0,1){A}
+    \tkzDefPoint(4,0){B}
+    \tkzDefPoint(3,6){C}
+
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    \tkzLabelPoints[above,font=\sansmath\sffamily](C)
+
+    % Draw polygon
+    \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
+
+    % Get mid points
+    \tkzDefMidPoint(A,B) \tkzGetPoint{F}
+    \tkzDefMidPoint(A,C) \tkzGetPoint{E}
+    \tkzDefMidPoint(B,C) \tkzGetPoint{D}
+
+    \tkzDefCircle[circum,/tikz/overlay](D,E,F)\tkzGetPoint{Icircle}\tkzGetLength{rIN}
+
+    % Get 'Hoehe'
+    \tkzInterLC[/tikz/overlay](B,C)(A,B)\tkzGetPoints{hah1}{hah2}
+    \tkzDefMidPoint(hah1,hah2) \tkzGetPoint{G}
+
+    \tkzInterLC[/tikz/overlay](A,B)(C,A)\tkzGetPoints{hch1}{hch2}
+    \tkzDefMidPoint(hch1,hch2) \tkzGetPoint{H}
+
+    \tkzInterLC[/tikz/overlay](A,C)(B,A)\tkzGetPoints{hbh1}{hbh2}
+    \tkzDefMidPoint(hbh1,hbh2) \tkzGetPoint{I}
+
+    % 'Hoehenschnittpunkt'
+    \tkzInterLL(A,G)(C,H)\tkzGetPoint{S}
+
+    % More points
+    \tkzInterLC[/tikz/overlay,R](A,G)(Icircle,\rIN pt)\tkzGetPoints{G}{J}
+    \tkzInterLC[/tikz/overlay,R](B,I)(Icircle,\rIN pt)\tkzGetPoints{L}{I}
+    \tkzInterLC[/tikz/overlay,R](C,H)(Icircle,\rIN pt)\tkzGetPoints{H}{K}
+
+    % Draw polygon
+    \tkzDrawPolygon[thick](A,B,C)
+    \tkzDefCircle[in,/tikz/overlay](A,B,C) \tkzGetPoint{Ocircle}\tkzGetLength{dOcircle}
+    \tkzDrawCircle[R](Ocircle,\dOcircle pt)
+
+    \tkzDefCircle[circum,/tikz/overlay](D,E,F)\tkzGetPoint{Icircle}\tkzGetLength{rIN}
+    \tkzClipCircle[R](Icircle,5cm)
+
+    % Get escribed circles
+    % first one
+    \tkzDefLine[bisector](B,A,C)\tkzGetPoint{alphaBisector}
+    \tkzDefBarycentricPoint(A=1,B=-2)\tkzGetPoint{ABproj}
+    \tkzDefLine[bisector](ABproj,B,C)\tkzGetPoint{betaOuterBisector}
+    % \tkzDrawSegments[blue](A,alphaBisector B,betaOuterBisector)
+    \tkzInterLL(A,alphaBisector)(B,betaOuterBisector) \tkzGetPoint{EscribedCircleCenter1}
+    \tkzInterLC(A,alphaBisector)(Icircle,H)\tkzGetPoints{EscribedCircleRadius1a}{EscribedCircleRadius2b}
+    \tkzDrawCircle[color=blue](EscribedCircleCenter1,EscribedCircleRadius1a)
+
+    % second one
+    \tkzDefLine[bisector](C,B,A)\tkzGetPoint{betaBisector}
+    \tkzDefBarycentricPoint(B=1,A=-2)\tkzGetPoint{BAproj}
+    \tkzDefLine[bisector](C,A,BAproj)\tkzGetPoint{alphaOuterBisector}
+    % \tkzDrawSegments[blue](B,betaBisector A,alphaOuterBisector)
+    \tkzInterLL(B,betaBisector)(A,alphaOuterBisector) \tkzGetPoint{EscribedCircleCenter2}
+    \tkzInterLC(B,betaBisector)(Icircle,H)\tkzGetPoints{EscribedCircleRadius2a}{EscribedCircleRadius2b}
+    \tkzDrawCircle[color=blue](EscribedCircleCenter2,EscribedCircleRadius2b)
+
+    % third one
+    \tkzDefLine[bisector](A,C,B)\tkzGetPoint{gammaBisector}
+    \tkzDefBarycentricPoint(A=-2,C=1)\tkzGetPoint{ACproj}
+    \tkzDefLine[bisector](ACproj,A,B)\tkzGetPoint{gammaOuterBisector}
+    % \tkzDrawSegments[blue](C,gammaBisector A,gammaOuterBisector)
+    \tkzInterLL(C,gammaBisector)(A,gammaOuterBisector) \tkzGetPoint{EscribedCircleCenter3}
+    \tkzInterLC(C,gammaBisector)(Icircle,H)\tkzGetPoints{EscribedCircleRadius3a}{EscribedCircleRadius3b}
+    \tkzDrawCircle[color=blue](EscribedCircleCenter3,EscribedCircleRadius3b)
+
+
+    \tkzDrawPoints[size=2,fill=black](D,E,F,Ocircle)
+    \tkzDrawPoints[size=2,fill=red,color=red](Icircle)
+    \tkzDrawCircle[R,color=red,very thick](Icircle,\rIN pt)
+\end{tikzpicture}
+\end{preview}
+\end{document}

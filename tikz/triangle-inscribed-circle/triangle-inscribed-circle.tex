@@ -14,7 +14,7 @@
 \begin{tikzpicture}[very thick,font=\sansmath\sffamily]
     \tkzDefPoint(0,0){A}
     \tkzDefPoint(5.0,0){B}
-    \tkzDefPoint(4.0,3){C}
+    \tkzDefPoint(3.5,3){C}
 
     \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
     \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
@@ -67,7 +67,7 @@
     \tkzDrawSegments(I,ABq I,BCq I,CAq)
     \tkzLabelSegment[right](I,ABq){r}
     \tkzLabelSegment[above](I,BCq){r}
-    \tkzLabelSegment[left](I,CAq){r}
+    \tkzLabelSegment[above](I,CAq){r}
 
     % Draw polygon
     \tkzDrawPolygon[thick](A,B,C)

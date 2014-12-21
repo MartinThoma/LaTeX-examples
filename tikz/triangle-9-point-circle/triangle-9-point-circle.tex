@@ -40,29 +40,29 @@
     \tkzLabelPoints[right,font=\sansmath\sffamily](G)
 
     \tkzInterLC[/tikz/overlay](A,B)(C,A)\tkzGetPoints{hch1}{hch2}
-    \tkzDefMidPoint(hch1,hch2) \tkzGetPoint{H}
-    \tkzLabelPoints[below,font=\sansmath\sffamily](H)
+    \tkzDefMidPoint(hch1,hch2) \tkzGetPoint{I}
+    \tkzLabelPoints[below,font=\sansmath\sffamily](I)
 
     \tkzInterLC[/tikz/overlay](A,C)(B,A)\tkzGetPoints{hbh1}{hbh2}
-    \tkzDefMidPoint(hbh1,hbh2) \tkzGetPoint{I}
-    \tkzLabelPoints[left,font=\sansmath\sffamily](I)
+    \tkzDefMidPoint(hbh1,hbh2) \tkzGetPoint{H}
+    \tkzLabelPoints[left,font=\sansmath\sffamily](H)
 
     % 'Hoehenschnittpunkt'
-    \tkzInterLL(A,G)(C,H)\tkzGetPoint{S}
+    \tkzInterLL(A,G)(C,I)\tkzGetPoint{S}
     \tkzLabelPoints[above right,font=\sansmath\sffamily](S)
 
     % More points
     \tkzInterLC[/tikz/overlay,R](A,G)(Icircle,\rIN pt)\tkzGetPoints{G}{J}
     \tkzLabelPoints[above,font=\sansmath\sffamily](J)
 
-    \tkzInterLC[/tikz/overlay,R](B,I)(Icircle,\rIN pt)\tkzGetPoints{L}{I}
+    \tkzInterLC[/tikz/overlay,R](B,H)(Icircle,\rIN pt)\tkzGetPoints{L}{H}
     \tkzLabelPoints[above,font=\sansmath\sffamily](L)
 
-    \tkzInterLC[/tikz/overlay,R](C,H)(Icircle,\rIN pt)\tkzGetPoints{H}{K}
+    \tkzInterLC[/tikz/overlay,R](C,I)(Icircle,\rIN pt)\tkzGetPoints{I}{K}
     \tkzLabelPoints[above left,font=\sansmath\sffamily](K)
 
     % Draw rest
-    \tkzDrawSegments[dashed](A,G C,H B,I)
+    \tkzDrawSegments[dashed](A,G C,I B,H)
     \tkzDrawSegments[thick](A,J J,S)  % red,very thick
     \tkzDrawSegments[thick](C,K K,S)  % green,very 
     \tkzDrawSegments[thick](B,L L,S)  % blue,very 
