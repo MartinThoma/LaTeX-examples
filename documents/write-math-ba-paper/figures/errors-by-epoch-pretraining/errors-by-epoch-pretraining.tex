@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+    \begin{axis}[
+            axis x line=middle,
+            axis y line=middle,
+            enlarge y limits=true,
+            xmin=0,
+            % xmax=1000,
+            ymin=0.18, ymax=0.4,
+            minor ytick={0, 0.01, ..., 1},
+            % width=15cm, height=8cm,     % size of the image
+            grid = both,
+            minor grid style={dashed, gray!30},
+            major grid style={gray!40},,
+            %grid style={dashed, gray!30},
+            ylabel=error,
+            xlabel=epoch,
+            legend cell align=left,
+            legend style={
+                at={(0.5,-0.1)},
+                anchor=north,
+                legend columns=2
+            }
+         ]
+          \addplot[mark=x,green] table [each nth point=20,x=epoch, y=testerror, col sep=comma] {baseline-1.csv};
+          \addplot[mark=x,orange] table [each nth point=20,x=epoch, y=testerror, col sep=comma] {baseline-2.csv};
+          \addplot[mark=x,red] table [each nth point=20,x=epoch, y=testerror, col sep=comma] {baseline-2-pretraining.csv};
+          \legend{{1 hidden layer},
+                  {2 hidden layers},
+                  {2 hidden layers with pretraining}}
+    \end{axis}
+\end{tikzpicture}
