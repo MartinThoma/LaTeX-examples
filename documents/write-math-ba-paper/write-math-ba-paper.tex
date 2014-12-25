@@ -75,22 +75,21 @@ Daniel Kirsch describes in~\cite{Kirsch} a system called Detexify which uses
 time warping to classify on-line handwritten symbols and claims to achieve a
 TOP-3 error of less than $\SI{10}{\percent}$ for a set of $\num{100}$~symbols.
 He also published his data on \url{https://github.com/kirel/detexify-data},
-which was collected by a crowd-sourcing approach via
+which was collected by a crowdsourcing approach via
 \url{http://detexify.kirelabs.org}. Those recordings as well as some recordings
 which were collected by a similar approach via \url{http://write-math.com} were
 used to train and evaluated different classifiers. A complete description of
 all involved software, data and experiments is given in~\cite{Thoma:2014}.
 
 \section{Steps in Handwriting Recognition}
-The following steps are used in all classifiers which are described in the
-following:
+The following steps are used in many classifiers:
 
 \begin{enumerate}
     \item \textbf{Preprocessing}: Recorded data is never perfect. Devices have
-          errors and people make mistakes while using devices. To tackle these
-          problems there are preprocessing algorithms to clean the data. The
-          preprocessing algorithms can also remove unnecessary variations of
-          the data that do not help in the classification process, but hide
+          errors and people make mistakes while using the devices. To tackle
+          these problems there are preprocessing algorithms to clean the data.
+          The preprocessing algorithms can also remove unnecessary variations
+          of the data that do not help in the classification process, but hide
           what is important. Having slightly different sizes of the same symbol
           is an example of such a variation. Four preprocessing algorithms that
           clean or normalize recordings are explained in
@@ -117,15 +116,16 @@ following:
           improve the performance of learning algorithms.
 \end{enumerate}
 
-After these steps, we are faced with a classification learning task which consists of
-two parts:
+After these steps, we are faced with a classification learning task which
+consists of two parts:
 \begin{enumerate}
     \item \textbf{Learning} parameters for a given classifier. This process is
           also called \textit{training}.
     \item \textbf{Classifying} new recordings, sometimes called
           \textit{evaluation}. This should not be confused with the evaluation
           of the classification performance which is done for multiple
-          topologies, preprocessing queues, and features in \Cref{ch:Evaluation}.
+          topologies, preprocessing queues, and features in
+          \Cref{ch:Evaluation}.
 \end{enumerate}
 
 The classification learning task can be solved with \glspl{MLP} if the number
@@ -141,7 +141,7 @@ and feature extraction easier, more effective or faster. It does so by resolving
 errors in the input data, reducing duplicate information and removing irrelevant
 information.
 
-Preprocessing algorithms fall in two groups: Normalization and noise
+Preprocessing algorithms fall into two groups: Normalization and noise
 reduction algorithms.
 
 A very important normalization algorithm in single-symbol recognition is
@@ -157,12 +157,12 @@ Another normalization preprocessing algorithm is resampling. As the data points
 on the pen trajectory are generated asynchronously and with different
 time-resolutions depending on the used hardware and software, it is desirable
 to resample the recordings to have points spread equally in time for every
-recording. This was done with linear interpolation of the $(x,t)$ and $(y,t)$
+recording. This was done by linear interpolation of the $(x,t)$ and $(y,t)$
 sequences and getting a fixed number of equally spaced points per stroke.
 
 \textit{Connect strokes} is a noise reduction algorithm. It happens sometimes
 that the hardware detects that the user lifted the pen where the user certainly
-didn't do so. This can be detected by measuring the euclidean distance between
+didn't do so. This can be detected by measuring the Euclidean distance between
 the end of one stroke and the beginning of the next stroke. If this distance is
 below a threshold, then the strokes are connected.
 
@@ -207,19 +207,20 @@ activation functions can be varied. The learning algorithm is parameterized by
 the learning rate $\eta \in (0, \infty)$, the momentum $\alpha \in [0, \infty)$
 and the number of epochs.
 
-The topology of \glspl{MLP} will be denoted in the following by separating
-the number of neurons per layer with colons. For example, the notation $160{:}500{:}500{:}500{:}369$
-means that the input layer gets 160~features, there are three hidden layers
-with 500~neurons per layer and one output layer with 369~neurons.
+The topology of \glspl{MLP} will be denoted in the following by separating the
+number of neurons per layer with colons. For example, the notation
+$160{:}500{:}500{:}500{:}369$ means that the input layer gets 160~features,
+there are three hidden layers with 500~neurons per layer and one output layer
+with 369~neurons.
 
-\glspl{MLP} training can be executed in
-various different ways, for example with \gls{SLP}.
-In case of a \gls{MLP} with the topology $160{:}500{:}500{:}500{:}369$,
-\gls{SLP} works as follows: At first a \gls{MLP} with one hidden layer ($160{:}500{:}369$)
-is trained. Then the output layer is discarded, a new hidden layer and a new
-output layer is added and it is trained again, resulting in a $160{:}500{:}500{:}369$
-\gls{MLP}. The output layer is discarded again, a new hidden layer is added and
-a new output layer is added and the training is executed again.
+\glspl{MLP} training can be executed in various different ways, for example
+with \gls{SLP}. In case of a \gls{MLP} with the topology
+$160{:}500{:}500{:}500{:}369$, \gls{SLP} works as follows: At first a \gls{MLP}
+with one hidden layer ($160{:}500{:}369$) is trained. Then the output layer is
+discarded, a new hidden layer and a new output layer is added and it is trained
+again, resulting in a $160{:}500{:}500{:}369$ \gls{MLP}. The output layer is
+discarded again, a new hidden layer is added and a new output layer is added
+and the training is executed again.
 
 Denoising auto-encoders are another way of pretraining. An
 \textit{auto-encoder} is a neural network that is trained to restore its input.
