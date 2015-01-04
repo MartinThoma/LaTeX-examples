@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(3.2,0){B}
+    \tkzDefPoint(2.3,2.4){C}
+
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    \tkzLabelPoints[above,font=\sansmath\sffamily](C)
+
+    % Draw polygon
+    \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
+
+    % Mark angles
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](B,A,C)
+    \tkzLabelAngle[pos=0.3](B,A,C){$\alpha$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](C,B,A)
+    \tkzLabelAngle[pos=0.4](C,B,A){$\beta$}
+
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=blue!30](A,C,B)
+    \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
+
+    % left red square
+    \tkzDefLine[perpendicular=through A,K=1](A,C)\tkzGetPoint{F}
+    \tkzInterLC(A,F)(A,C) \tkzGetPoints{E}{F}
+
+    \tkzDefLine[perpendicular=through C,K=1](A,C)\tkzGetPoint{G}
+    \tkzInterLC(C,G)(A,C) \tkzGetPoints{C}{C}
+
+    \tkzLabelPoints[above,font=\sansmath\sffamily](G)
+    \tkzLabelPoints[left,font=\sansmath\sffamily](F)
+    \tkzDrawPolygon[thick,fill=red!15!white](A,C,G,F)
+
+    % right blue square
+    \tkzDefLine[perpendicular=through B,K=-1](B,C)\tkzGetPoint{I}
+    \tkzInterLC(B,I)(B,C) \tkzGetPoints{I}{I}
+
+    \tkzDefLine[perpendicular=through C,K=-1](B,C)\tkzGetPoint{H}
+    \tkzInterLC(C,H)(B,C) %\tkzGetPoints{X}{H} - TODO
+
+    \tkzLabelPoints[above,font=\sansmath\sffamily](H)
+    \tkzLabelPoints[right,font=\sansmath\sffamily](I)
+    \tkzDrawPolygon[thick,fill=blue!15!white](C,B,I,H)
+
+    % below blue square
+    \tkzDefLine[perpendicular=through A,K=-1](A,B)\tkzGetPoint{Xtemp}
+    \tkzInterLC(A,Xtemp)(A,B) \tkzGetPoints{notNeeded}{D}
+
+    \tkzDefLine[perpendicular=through B,K=-1](A,B)\tkzGetPoint{X}
+    \tkzInterLC(B,X)(B,A) \tkzGetPoints{notNeeded}{E}
+
+    \tkzLabelPoints[below,font=\sansmath\sffamily](D,E)
+    \tkzDrawPolygon[thick,fill=blue!15!white](B,A,D,E)
+
+    % squares below
+    \tkzDefLine[perpendicular=through C,K=-1](A,B)\tkzGetPoint{Xtemp}
+    \tkzInterLL(C,Xtemp)(D,E)\tkzGetPoint{L}
+    \tkzInterLL(C,Xtemp)(A,B)\tkzGetPoint{K}
+    \tkzDrawPoints[size=2,fill=black](L,K)
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](L,K)
+
+    \tkzDrawLines[dashed](C,L)
+
+    \tkzDrawPolygon[fill=red!15!white](A,K,L,D)
+
+    % Label lines
+    \tkzLabelSegment[below](A,B){$c$}
+    \tkzLabelSegment[left](A,C){$b$}
+    \tkzLabelSegment[right](B,C){$a$}
+
+    \tkzDrawLines(C,D B,F)
+
+    % Draw polygons
+    \tkzDrawPolygon[thick](A,B,C)
+\end{tikzpicture}
+\end{preview}
+\end{document}
