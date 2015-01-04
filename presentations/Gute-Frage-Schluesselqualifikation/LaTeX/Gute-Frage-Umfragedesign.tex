@@ -1,0 +1,34 @@
+\documentclass[hyperref={pdfpagelabels=false},usepdftitle=false]{beamer}
+\usepackage{/home/moose/GitHub/LaTeX-examples/presentations/Gute-Frage-Schluesselqualifikation/templates/myStyle}
+
+\begin{document}
+\selectlanguage{ngerman}
+
+\title{\titleText}
+\subtitle{Pretest zur Umfrage \enquote{Textsetzung mathematischer Formeln} von Martin Thoma}
+\author{\tutor}
+\date{10. Januar 2015}
+%\subject{Programmieren}
+
+\frame{\titlepage}
+
+\frame{
+    \frametitle{Inhaltsverzeichnis}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+}
+
+%\AtBeginSection[]{
+%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%}
+
+\section{Umfrageergebnisse}
+\input{Umfrageergebnisse}
+
+\section*{End}
+\subsection{End}
+\input{end}
+\framedgraphic{Vielen Dank für eure Aufmerksamkeit}{../images/xi.png}
+
+\end{document}

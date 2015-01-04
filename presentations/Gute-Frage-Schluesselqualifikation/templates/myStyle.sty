@@ -1,0 +1,110 @@
+% use KIT-Theme
+% see http://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen
+%\usetheme{Frankfurt} % see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html as fallback
+\usepackage{/home/moose/GitHub/LaTeX-examples/presentations/Gute-Frage-Schluesselqualifikation/templates/beamerthemekit}
+\usefonttheme{professionalfonts}
+
+\usepackage{tabto}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{esint}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{siunitx}
+\DeclareSIUnit\pixel{px}
+\usepackage{wasysym}
+\usepackage{booktabs}
+\usepackage{wrapfig}        % see http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[english]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+\usetikzlibrary{arrows,shapes}
+\usepackage{relsize}
+\usepackage{subfig}
+\usepackage{algorithm,algpseudocode}
+\usepackage{minted}         % needed for the inclusion of source code
+\usepackage{menukeys}
+\usepackage{xcolor}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{soul}
+\usepackage[babel]{csquotes}
+\usepackage{algorithm,algpseudocode}
+
+% Define some styles for graphs
+\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{blue vertex} = [vertex, fill=blue!24]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{weight} = [font=\small]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
+
+%\algdef{SE}[IF]{NoThenIf}{EndIf}[1]{\algorithmicif\ #1\textbf{:}}{\algorithmicend\ \algorithmicif}%
+\algtext*{EndIf}        % Remove "end if" text
+\algtext*{EndWhile}     % Remove "end while" text
+\algtext*{EndFunction}  % Remove "end while" text
+\algnewcommand\Global{\textbf{global }}
+
+% http://tex.stackexchange.com/a/8388/5645
+\newcommand{\alertline}{%
+ \usebeamercolor[fg]{normal text}%
+ \only{\usebeamercolor[fg]{alerted text}}}
+
+\newcommand {\framedgraphic}[2] {
+    \begin{frame}{#1}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}
+        \end{center}
+    \end{frame}
+}
+
+\hypersetup{%
+    breaklinks=true,
+    linktocpage=false,
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=blue,
+    citecolor=black
+}
+
+\newcommand{\myCode}[1]{\colorbox{gray!30}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make source code easier to copy                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from http://tex.stackexchange.com/questions/57151/how-do-i-prevent-conflicts-between-accsupp-and-hyperref
+\usepackage{accsupp}
+\newcommand\emptyaccsupp[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+
+%default definition is: \def\theFancyVerbLine{\rmfamily\tiny\arabic{FancyVerbLine}}
+\let\theHFancyVerbLine\theFancyVerbLine% don't apply our patch to hyperref's version
+\def\theFancyVerbLine{\rmfamily\tiny\emptyaccsupp{\arabic{FancyVerbLine}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add some shortcuts                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cmark}{\ding{51}}% a checkmark
+\newcommand{\xmark}{\ding{55}}% a cross
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set some template options - other tutors will have to adjust this %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\tutor{Martin Thoma}
+\newcommand\titleText{Das ist eine gute Frage!}
+\institute{}
+\titleimage{formula-recognition-logo}
+
+\hypersetup{pdftitle={\titleText}}
+\beamertemplatenavigationsymbolsempty
+
+\newcommand\InsertToC[1][]{
+  \begin{frame}{Outline}
+    \tableofcontents[subsectionstyle=show/show/show, subsubsectionstyle=show/show/show, #1]
+  \end{frame}
+}
