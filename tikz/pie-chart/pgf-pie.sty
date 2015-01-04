@@ -1,0 +1,439 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Start of pgf-pie.sty
+% 
+% Some LaTeX macros for pie chart by using PGF/Tikz package.
+% Home page of project: http://pgf-pie.googlecode.com/
+% Author: Xu Yuan <xuyuan.cn@gmail.com>
+% 
+
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{pgf-pie}[2011/10/02 v0.2 Some LaTeX macros for pie
+chart by using PGF/Tikz package.]
+
+\RequirePackage{tikz}
+\RequirePackage{ifthen}
+\RequirePackage{scalefnt}
+
+
+% args:
+% #1: begin angle
+% #2: end angle
+% #3: number
+% #4: label
+% #5: explode
+% #6: fill color
+% #7: radius
+% #8: center
+\newcommand{\pgfpie@slice}[8]{
+  \pgfmathparse{0.5*(#1)+0.5*(#2)}
+  \let\midangle\pgfmathresult
+
+  \path (#8) -- ++(\midangle:#5) coordinate(O);
+
+  \pgfmathparse{#7+#5}
+  \let\radius\pgfmathresult
+  
+  % slice
+  \draw[line join=round, fill=#6, \style] (O) -- ++(#1:#7) arc (#1:#2:#7) -- cycle;
+
+  \pgfmathparse{min(((#2)-(#1)-10)/110*(-0.3),0)}
+  \let\temp\pgfmathresult
+  \pgfmathparse{(max(\temp,-0.5) + 0.8)*#7}
+  \let\innerpos\pgfmathresult
+
+  \ifthenelse{\equal{\pgfpie@text}{inside}}
+  {
+    % label and number together
+    \path (O) -- ++(\midangle:\innerpos) node
+    {\scalefont{#3}\shortstack{#4\\\beforenumber#3\afternumber}};
+  }
+  {
+    % label
+    \iflegend
+    \else
+    \path (O) -- ++ (\midangle:\radius)
+    node[inner sep=0, \pgfpie@text=\midangle:#4]{};
+    \fi
+
+    % number
+    \path (O) -- ++(\midangle:\innerpos) node
+    {\scalefont{#3}\beforenumber#3\afternumber};
+  }
+}
+
+\newcommand{\pgfpie@findColor}[1]
+{
+  \pgfmathparse{int(mod(#1,\value{pgfpie@colorLength}))}
+  \let\ci\pgfmathresult
+  \foreach \c [count=\j from 0] in \color {
+    \ifnum \j=\ci
+    \xdef\thecolor{\c}
+    \thecolor
+    \breakforeach
+    \fi
+  }
+}
+
+\newcommand{\pgfpie@findExplode}[1]
+{
+  \pgfmathparse{int(mod(#1,\value{pgfpie@explodeLength}))}
+  \let\ei\pgfmathresult
+  \foreach \e [count=\j from 0] in \explode {
+    \ifnum \j=\ei
+    \xdef\theexplode{\e}
+    \breakforeach
+    \fi
+  }
+}
+
+% #1: bottom left point
+% #2: size
+% #3: number
+% #4: color
+% #5: text
+\newcommand{\pgfpie@square}[5]
+{
+  \ifthenelse{\equal{\pgfpie@text}{inside}}
+  {
+    \draw[fill=#4, \style] (#1) rectangle node
+    {\scalefont{#3}\shortstack{#5\\\beforenumber#3\afternumber}} ++(#2);
+  }
+  {
+    \draw[fill=#4, \style] (#1) rectangle node
+    {\scalefont{#3}\beforenumber#3\afternumber} ++(#2);
+  }
+}
+
+% #1: pos
+% #2: radius
+% #3: number
+% #4: color
+% $5: style
+% $6: label
+\newcommand{\pgfpie@cloud}[6]
+{
+  \draw[fill=#4, #5] (#1) circle[radius=#2];
+  \ifthenelse{\equal{\pgfpie@text}{inside}}
+  {
+    \node at (#1) {\scalefont{#3}\shortstack{#6\\\beforenumber#3\afternumber}};
+  }
+  {
+    \node at (#1) {\scalefont{#3}\beforenumber#3\afternumber};
+  }
+}
+
+\newlength{\pgfpie@angleEnd}
+\newcounter{pgfpie@explodeLength}
+\newcounter{pgfpie@colorLength}
+\newcounter{pgfpie@sliceLength}
+
+\def\setexplode#1\pgfeov{\def\explode{#1}}
+\pgfkeyslet{/explode/.@cmd}{\setexplode}
+
+\def\setcolor#1\pgfeov{\def\color{#1}}
+\pgfkeyslet{/color/.@cmd}{\setcolor}
+
+\def\setradius#1\pgfeov{\def\radius{#1}}
+\pgfkeyslet{/radius/.@cmd}{\setradius}
+
+\def\setpos#1\pgfeov{\def\pos{#1}}
+\pgfkeyslet{/pos/.@cmd}{\setpos}
+
+\def\setstyle#1\pgfeov{\def\style{#1}}
+\pgfkeyslet{/style/.@cmd}{\setstyle}
+
+\def\setbeforenumber#1\pgfeov{\def\beforenumber{#1}}
+\pgfkeyslet{/before number/.@cmd}{\setbeforenumber}
+
+\def\setafternumber#1\pgfeov{\def\afternumber{#1}}
+\pgfkeyslet{/after number/.@cmd}{\setafternumber}
+
+\def\settext#1\pgfeov{\xdef\pgfpie@text{#1}}
+\pgfkeyslet{/text/.@cmd}{\settext}
+
+\def\setsum#1\pgfeov{\xdef\pgfpie@sum{#1}}
+\pgfkeyslet{/sum/.@cmd}{\setsum}
+
+\def\setrotate#1\pgfeov{\xdef\rotate{#1}}
+\pgfkeyslet{/rotate/.@cmd}{\setrotate}
+
+\newif\ifpolar
+\pgfkeys{/polar/.is if=polar}
+
+\newif\iflegend
+
+\newif\ifsquare
+\pgfkeys{/square/.is if=square}
+
+\newif\ifcloud
+\pgfkeys{/cloud/.is if=cloud}
+
+\newif\ifscalefont
+\pgfkeys{/scale font/.is if=scalefont}
+\let\scalefontorg\scalefont
+\renewcommand{\scalefont}[1]
+{
+  \ifscalefont
+  \pgfmathparse{#1 / \pgfpie@sum * 3 + 0.9}
+  \scalefontorg{\pgfmathresult}
+  \fi
+}
+
+\newcommand{\pie}[2][]
+{
+  % load default parameters
+  \pgfkeys{
+    explode=0,
+    color={blue!60, cyan!60, yellow!60, orange!60, red!60,
+      blue!60!cyan!60, cyan!60!yellow!60, red!60!cyan!60,
+      red!60!blue!60, orange!60!cyan!60},
+    radius=3,
+    pos={0,0},
+    style={thick},
+    before number=,
+    after number=,
+    text=label,
+    sum=100,
+    rotate=0,
+    polar=false,
+    square=false,
+    cloud=false,
+    scale font=false,
+  }
+  % load user's parameters
+  \pgfkeys{#1}
+  % add percentage automatically
+  \ifthenelse{\equal{\pgfpie@sum}{100}}
+  {
+    \pgfkeys{after number=\%}
+    \pgfkeys{#1}
+  }{}
+
+  % legend or not
+  \ifthenelse{\equal{\pgfpie@text}{legend}}
+  {\legendtrue}
+  {\legendfalse}
+
+  % handle sum
+  \ifthenelse{\equal{\pgfpie@sum}{auto}}
+  {
+    % sum all input
+    \xdef\pgfpie@sum{0}
+    \foreach \p/\t in {#2}
+    {
+      \pgfmathparse{\pgfpie@sum + \p}
+      \xdef\pgfpie@sum{\pgfmathresult}
+    }
+  }
+  {}
+
+  % init counters
+  \setcounter{pgfpie@explodeLength}{0}
+  \foreach \e in \explode { \addtocounter{pgfpie@explodeLength}{1} }
+
+  \setcounter{pgfpie@colorLength}{0}
+  \foreach \c in \color { \addtocounter{pgfpie@colorLength}{1} }
+  
+  \pgfmathsetlength{\pgfpie@angleEnd}{0}
+
+  \setcounter{pgfpie@sliceLength}{0}
+  \foreach \p/\e in {#2} { \addtocounter{pgfpie@sliceLength}{1} }
+
+  \ifsquare
+  %%%%%%%%%% SQUARE PIE BEGIN %%%%%%%%%%%
+  \pgfmathparse{\radius*2}
+  \xdef\verticalLength{\pgfmathresult}
+  \xdef\horizontalLength{\pgfmathresult}
+  \path (\pos) -- ++(-\radius, -\radius) coordinate (start);
+  \pgfmathparse{\verticalLength * \horizontalLength / \pgfpie@sum}
+  \let\squareUnit\pgfmathresult
+
+  % drawing loop
+  \foreach \p/\t [count=\i from 0] in {#2}
+  {
+    \pgfpie@findColor{\i}
+
+    \ifthenelse{\lengthtest{\verticalLength cm > \horizontalLength cm}}
+    {
+      \pgfmathparse{\p * \squareUnit / \horizontalLength}
+      \let\height\pgfmathresult
+      
+      \pgfpie@square{start}{\horizontalLength,\height}
+      {\p}
+      {\thecolor}
+      {\t}
+      %label
+      \iflegend
+      \else
+      \ifthenelse{\equal{\pgfpie@text}{inside}}
+      {}
+      {
+        \path (start) -- ++(\horizontalLength,\height*0.5) node[inner
+        sep=0, \pgfpie@text=0:\t]{};
+      }
+      \fi
+
+      \pgfmathparse{\verticalLength - \height}
+      \xdef\verticalLength{\pgfmathresult}
+      \path (start) -- ++(0, \height) coordinate (start);
+    }
+    {
+      \pgfmathparse{\p * \squareUnit / \verticalLength }
+      \let\width\pgfmathresult
+
+      \pgfpie@square{start}{\width,\verticalLength}
+      {\p}
+      {\thecolor}
+      {\t}
+      %label
+      \iflegend
+      \else
+      \ifthenelse{\equal{\pgfpie@text}{inside}}
+      {}
+      {
+        \path (start) -- ++(\width*0.5,\verticalLength) node[inner
+        sep=0, \pgfpie@text=90:\t]{};
+      }
+      \fi
+
+      \pgfmathparse{\horizontalLength - \width}
+      \xdef\horizontalLength{\pgfmathresult}
+      \path (start) -- ++(\width, 0) coordinate (start);
+    }
+  }
+  
+  %%%%%%%%%% SQUARE PIE END %%%%%%%%%%%
+  \else
+  \ifcloud
+  %%%%%%%%%% CLOUD PIE BGEIN %%%%%%%%%%%
+  % drawing loop
+  \foreach \p/\t [count=\i from 0] in {#2}
+  {
+    % find explode
+    \pgfpie@findExplode{\i}
+    \def\cloudGap{\theexplode + 0.1}
+    \pgfmathparse{sqrt(\p / \pgfpie@sum) * \radius}
+    \let\cloudR\pgfmathresult
+    \ifnum \i = 0
+    % first cloud
+    \coordinate (O) at (\pos);
+    \xdef\cloudRone{\cloudR}
+    \xdef\cloudExtendDir{180+\rotate}
+    \else
+    \ifnum \i = 1
+    % second cloud
+    \xdef\cloudRtwo{\cloudR}
+    \xdef\cloudExtendDir{45+\rotate}
+    \path (O) -- ++(\cloudExtendDir:\cloudRone+\cloudGap+\cloudRtwo) coordinate (O);
+    \else
+    % next cloud
+    \pgfmathparse{\cloudRone+\cloudGap+\cloudRtwo}
+    \let\la\pgfmathresult
+    \pgfmathparse{\cloudRone+\cloudGap+\cloudR}
+    \let\lb\pgfmathresult
+    \pgfmathparse{\cloudRtwo+\cloudGap+\cloudR}
+    \let\lc\pgfmathresult
+    \pgfmathparse{\la^2+\lc^2-\lb^2}
+    \let\tmp\pgfmathresult
+    \pgfmathparse{180 - acos(\tmp / 2 / \la / \lc)}
+    \let\cloudRot\pgfmathresult
+    \ifodd \i
+    \pgfmathparse{-\cloudRot}
+    \let\cloudRot\pgfmathresult
+    \fi
+    \pgfmathparse{\cloudExtendDir - \cloudRot}
+    \xdef\cloudExtendDir{\pgfmathresult}
+    \path (O) -- ++(\cloudExtendDir:\lc) coordinate (O);
+    \xdef\cloudRone{\cloudRtwo}
+    \xdef\cloudRtwo{\cloudR}
+    \fi
+    \fi
+
+    % find color
+    \pgfpie@findColor{\i}
+
+    \pgfpie@cloud{O}{\cloudR}{\p}
+    {\thecolor}{\style}{\t}
+
+    % label
+    \iflegend
+    \else
+    \ifthenelse{\equal{\pgfpie@text}{inside}}
+    {}
+    {
+      \path (O) -- ++(\cloudExtendDir:\cloudR)
+      node[inner sep=0, \pgfpie@text=\cloudExtendDir:\t] {};
+    }
+    \fi
+  }
+  %%%%%%%%%% CLOUD PIE BGEIN %%%%%%%%%%%
+  \else
+  %%%%%%%%%% CIRCLE PIE BGEIN %%%%%%%%%%%
+  \ifpolar
+  \xdef\maxValue{0}
+  \foreach \p/\e in {#2} {
+    \ifnum \maxValue < \p
+    \xdef\maxValue{\p}
+    \fi
+  }
+  \pgfmathparse{\pgfpie@sum / \value{pgfpie@sliceLength}}
+  \xdef\polarangle{\pgfmathresult}
+  \pgfmathparse{\radius / sqrt(\maxValue)}
+  \xdef\polarRadiusUnit{\pgfmathresult}
+  \else
+  \xdef\theradius{\radius}
+  \fi
+
+  \xdef\pgfpie@angleBegin{\the\pgfpie@angleEnd}
+  % drawing loop
+  \foreach \p/\t [count=\i from 0] in {#2}
+  {
+    \pgfmathsetlength{\pgfpie@angleEnd}{\pgfpie@angleBegin}
+    \ifpolar
+    % Polar area diagram
+    \pgfmathaddtolength{\pgfpie@angleEnd}{\polarangle}
+    \pgfmathparse{sqrt(\p) * \polarRadiusUnit}
+    \xdef\theradius{\pgfmathresult}
+    \else
+    % normal pie
+    \pgfmathaddtolength{\pgfpie@angleEnd}{\p}
+    \fi
+
+    % find explode
+    \pgfpie@findExplode{\i}
+
+    % find color
+    \pgfpie@findColor{\i}
+    \pgfpie@slice{\pgfpie@angleBegin/\pgfpie@sum*360+\rotate}
+    {\the\pgfpie@angleEnd/\pgfpie@sum*360+\rotate}
+    {\p}
+    {\t}
+    {\theexplode}
+    {\thecolor}
+    {\theradius}
+    {\pos}
+    \xdef\pgfpie@angleBegin{\the\pgfpie@angleEnd}
+  }
+  %%%%%%%%%% CIRCLE PIE END %%%%%%%%%%%
+  \fi
+  \fi
+
+  % legend
+  \iflegend
+  \coordinate[xshift=0.8cm,
+  yshift=(\value{pgfpie@sliceLength}*0.5+1)*0.5cm] (legendpos) at
+  (current bounding box.east);
+
+  \begin{scope}[node distance=0.5cm]
+    \foreach \p/\t  [count=\i from 0] in {#2}
+    {
+      \pgfpie@findColor{\i}
+      \node[draw, fill=\thecolor, \style, below of=legendpos, label=0:\t] (legendpos) {};
+    }
+  \end{scope}
+  \fi  
+}
+
+%%% End of pgf-pie.sty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
