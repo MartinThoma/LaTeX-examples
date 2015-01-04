@@ -7,7 +7,7 @@
 \usepackage{parskip}
 \usepackage{paperandpencil}
 
-\title{Minimal distance to a cubic function}
+\title{Umfrage: Mathemtatische Formeln}
 \author{Martin Thoma}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,14 +15,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\question{\bf Wie lautet der Name ihres (ehemaligen) Studienganges?}
+\question{\bf Wie lautet der Name Ihres (ehemaligen) Studienganges?}
 \linetext{Studiengang}
 
 \question{\bf In welchen Jahr wurden Sie geboren?}
 \linetext{Geburtsjahr}
 
 \question{\bf Wie viele wissenschaftliche Arbeiten (Abschlussarbeiten, Artikel
-für Konferenzen und ähnliches) haben Sie geschrieben?}
+für Konferenzen und alles, wobei jemand mit Doktorgrad Feedback
+zur Textsetzung gegeben hat) haben Sie geschrieben?}
 \begin{answersC}
 \item 0 Arbeiten
 \item 1 Arbeit
@@ -31,12 +32,6 @@ für Konferenzen und ähnliches) haben Sie geschrieben?}
 \item 6 oder mehr Arbeiten
 \end{answersC}
 
-\question{\bf Mussten Sie schon mal Formeln in den Computer eingeben?}
-\begin{linkanswers}
-\framedlink{Ja}{\em Bitte weiter mit Frage 5}
-\framedlink{Nein}{\em Fragebogen komplett beantwortet.Vielen Dank!}
-\end{linkanswers}
-
 \question{\bf Wie häufig müssen Sie in einem typischen Monat Formeln in den Computer eingeben?}
 \begin{answersC}
 \item nahezu täglich
@@ -44,46 +39,52 @@ für Konferenzen und ähnliches) haben Sie geschrieben?}
 \item etwa einmal in der Woche
 \item seltener
 \end{answersC}
-\clearpage
 
 \question{\bf Wie haben Sie gelernt, wie man Formeln eingibt?}
 \begin{longanswersC}
 \item Mit Lehrer(n) / Dozent(en)
 \item Mit Freund(in/en)
-\item Im Selbststudium über das Internet, und zwar \linetext{Website}
+\item Im Selbststudium über das Internet, und zwar\dots
+    \begin{longanswersC}
+    \item Google
+    \item Detexify
+    \item \linetext{Website}
+    \end{longanswersC}
 \item Mit einem oder mehreren Büchern, und zwar \linetext{Buchtitel}
 \end{longanswersC}
 
-\question{\bf Welche Strategien haben Sie, um herauszufinden, wie Formeln / Sybmole
+\clearpage
+
+\question{\bf Welche Strategien haben Sie, um herauszufinden, wie Formeln / Symbole
           in den Computer eingegeben werden?}
 \begin{longanswersC}
 \item Keine
 \item Mit einer Website, und zwar \linetext{Website}
 \item Mit einem Buch, und zwar \linetext{Buchtitel}
 \item Mit den \LaTeX-Hilfsdateien
-\item Mit einer Sybmol-Tabelle
+\item Mit einer Symbol-Tabelle
 \item Ich frage einen Freund / eine Freundin
 \end{longanswersC}
 
 \question{\bf Welches Programm nutzen Sie, wenn Sie Formeln eingeben?}
 \begin{longanswersC}
+\item \LaTeX
+\item LibreOffice
 \item Microsoft Word
 \item OpenOffice
-\item LibreOffice
-\item \LaTeX
 \item Sonstiges, und zwar \linetext{Programm}
 \end{longanswersC}
 
 \question{\bf Wie geben Sie Ihre Formeln ein?}
 
-\vertikalblockfive{so gut wie nie}{selten}{manchmal}{häufig}{so gut wie immer}{
+\vertikalblockfive{so gut wie nie / nie}{selten}{manchmal}{häufig}{so gut wie immer / immer}{
 \blocktextfive{Tastatur}
 \blocktextfive{Maus}
 \blocktextfive{Trackball}
 \blocktextfive{Smartphone}}
 
-\question{\bf Wie zufrieden sind sie mit der Art Ihrer Eingabe?}
-\htextlinesix{sehr unzufrieden}{eher unzufrieden}{unentschieden}{eher zufrieden}{sehr zufrieden}{keine Angabe}
+\question{\bf Wie zufrieden sind Sie mit der Art Ihrer Eingabe?}
+\htextfive{sehr unzufrieden}{eher unzufrieden}{unentschieden}{eher zufrieden}{sehr zufrieden}
 
 
 \question{\bf Was stört Sie bei der Eingabe von Formeln?}
@@ -98,7 +99,6 @@ für Konferenzen und ähnliches) haben Sie geschrieben?}
 \item Nein
 \end{answersC}
 
-\clearpage
 \question{\bf Mit welchen Geräten können Sie sich vorstellen Formeln einzugeben?}
 
 \textit{Hinweis}: Ein \textit{Stylus} ist ein stiftförmiges Eingabegerät für Touch-Geräte,
@@ -113,19 +113,9 @@ Maus, bei der der Ball mit dem Daumen bewegt wird.
 \blocktextfive{Tablet (Stylus)}
 \blocktextfive{Smartphone (Stylus)}\hline
 \blocktextfive{Smartpen}
-\blocktextfive{Grafiktablett}
+\blocktextfive{Grafiktablet}
 \blocktextfive{Maus}
 \blocktextfive{Trackball}}
 
-\question{\bf Schreiben Sie drei beliebige Formeln, die Sie gerne automatisch erkennen lassen würden, in folgende Felder:}
-\textit{Hinweis}: Es besteht die Möglichkeit, dass Programme Formeln
-automatisch erkennen, die Sie z.B. mit einem Stylus auf ein Tablet geschrieben
-haben. Wenn Sie ein solches Programm hätten, was wären typische Formeln, die
-Sie nicht mehr auf die übliche Art eingeben würden, sondern erkennen lassen
-würden?
-
-\fbox{\parbox[b][4em][t]{\textwidth}{1} }
-\fbox{\parbox[b][4em][t]{\textwidth}{2} }
-\fbox{\parbox[b][4em][t]{\textwidth}{3} }
 
 \end{document}
