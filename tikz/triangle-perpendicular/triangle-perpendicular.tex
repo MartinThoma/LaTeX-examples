@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetikzlibrary{angles,quotes}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations} 
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(6.4,0){B}
+    \tkzDefPoint(1.4,6){C}
+
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    \tkzLabelPoints[above,font=\sansmath\sffamily](C)
+
+    % Perpendiculars
+    \tkzDefLine[perpendicular=through A,/tikz/overlay](B,C)\tkzGetPoint{tmp}
+    \tkzInterLL(B,C)(A,tmp)\tkzGetPoint{ha}
+    \tkzLabelPoint[right,font=\sansmath\sffamily](ha){$h_a$}
+
+    \tkzDefLine[perpendicular=through B,/tikz/overlay](A,C)\tkzGetPoint{tmp}
+    \tkzInterLL(A,C)(B,tmp)\tkzGetPoint{hb}
+    \tkzLabelPoint[left,font=\sansmath\sffamily](hb){$h_b$}
+
+    \tkzDefLine[perpendicular=through C,/tikz/overlay](A,B)\tkzGetPoint{tmp}
+    \tkzInterLL(A,B)(C,tmp)\tkzGetPoint{hc}
+    \tkzLabelPoint[below,font=\sansmath\sffamily](hc){$h_c$}
+
+    \tkzInterLL(B,hb)(A,ha)\tkzGetPoint{H}
+
+    % Draw polygon
+    \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
+
+    % Mark angles
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](B,A,C)
+    % \tkzLabelAngle[pos=0.3](B,A,C){$\alpha$}
+
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](C,B,A)
+    % \tkzLabelAngle[pos=0.4](C,B,A){$\beta$}
+
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=blue!30](A,C,B)
+    % \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
+
+    % Label lines
+    % \tkzLabelSegment[below](A,B){$c$}
+    % \tkzLabelSegment[left](A,C){$b$}
+    % \tkzLabelSegment[right](B,C){$a$}
+
+    % Draw polygon
+    \tkzDrawPolygon[fill=yellow](ha,hb,hc)
+    \tkzDrawSegments[dashed](A,ha B,hb C,hc)
+    \tkzDrawPolygon[thick](A,B,C)
+    \tkzDrawPoints[size=2,fill=black](ha,hb,hc,H)
+    \tkzLabelPoint[below right,font=\sansmath\sffamily](H){$H$}
+
+    \draw pic[semithick, draw, angle radius=3mm,"$\cdot$",angle eccentricity=.6]{angle= B--hc--C};
+    \draw pic[semithick, draw, angle radius=3mm,"$\cdot$",angle eccentricity=.6]{angle= B--hb--C};
+    \draw pic[semithick, draw, angle radius=3mm,"$\cdot$",angle eccentricity=.6]{angle= C--ha--A};
+\end{tikzpicture}
+\end{preview}
+\end{document}
