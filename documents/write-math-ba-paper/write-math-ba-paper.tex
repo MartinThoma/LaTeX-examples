@@ -62,7 +62,7 @@ set}. The TOP-$n$ error is defined as the fraction of the symbols where
 the correct class was not within the top $n$ classes of the highest
 probability.
 
-Various systems for mathematical symbol recognition with on-line data have been
+Several systems for mathematical symbol recognition with on-line data have been
 described so far~\cite{Kosmala98,Mouchere2013}, but most of them have neither
 published their source code nor their data which makes it impossible to re-run
 experiments to compare different systems. This is unfortunate as the choice of
@@ -72,7 +72,7 @@ systems which know all those classes will certainly have a higher TOP-$n$ error
 than systems which only accept one of them.
 
 Daniel Kirsch describes in~\cite{Kirsch} a system called Detexify which uses
-time warping to classify on-line handwritten symbols and claims to achieve a
+time warping to classify on-line handwritten symbols and reports a
 TOP-3 error of less than $\SI{10}{\percent}$ for a set of $\num{100}$~symbols.
 He also published his data on \url{https://github.com/kirel/detexify-data},
 which was collected by a crowdsourcing approach via
@@ -81,8 +81,10 @@ which were collected by a similar approach via \url{http://write-math.com} were
 used to train and evaluated different classifiers. A complete description of
 all involved software, data and experiments is given in~\cite{Thoma:2014}.
 
+
 \section{Steps in Handwriting Recognition}
-The following steps are used in many classifiers:
+
+The following steps are used for symbol classification:
 
 \begin{enumerate}
     \item \textbf{Preprocessing}: Recorded data is never perfect. Devices have
@@ -106,7 +108,7 @@ The following steps are used in many classifiers:
           recognition, this step will not be further discussed.
     \item \textbf{Feature computation}: A feature is high-level information
           derived from the raw data after preprocessing. Some systems like
-          Detexify simply take the result of the preprocessing step, but many
+          Detexify take the result of the preprocessing step, but many
           compute new features. This might have the advantage that less
           training data is needed since the developer can use knowledge about
           handwriting to compute highly discriminative features. Various
@@ -537,11 +539,13 @@ The aim of this work was to develop a symbol recognition system which is easy
 to use, fast and has high recognition rates as well as evaluating ideas for
 single symbol classifiers. Some of those goals were reached. The recognition
 system $B_{2,c}'$ evaluates new recordings in a fraction of a second and has
-acceptable recognition rates. Many algorithms were evaluated.
-However, there are still many other algorithms which could be evaluated and, at
-the time of this work, the best classifier $B_{2,c}'$ is only available
-through the Python package \texttt{hwrt}. It is planned to add an web version
-of that classifier online.
+acceptable recognition rates.
+
+% Many algorithms were evaluated.
+% However, there are still many other algorithms which could be evaluated and, at
+% the time of this work, the best classifier $B_{2,c}'$ is only available
+% through the Python package \texttt{hwrt}. It is planned to add an web version
+% of that classifier online.
 
 \bibliographystyle{IEEEtranSA}
 \bibliography{write-math-ba-paper}
