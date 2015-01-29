@@ -1,0 +1,34 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{glossaries}
+\loadglsentries[main]{glossary}
+\makeglossaries
+
+\begin{document}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam elit,
+vestibulum nec facilisis at, condimentum id enim. Sed iaculis lacinia quam, vel
+accumsan eros tempor in. Integer ipsum metus, accumsan sit amet commodo a,
+egestas vitae sem. \Gls{SLP} Mauris ut orci ut dolor viverra convallis nec a
+erat. Aenean consequat elit vel eros fermentum vestibulum id at ipsum. In vitae
+orci mauris, et rhoncus odio. Pellentesque habitant morbi tristique senectus et
+netus et malesuada fames ac turpis egestas.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=\linewidth, keepaspectratio]{YourImage.jpg} 
+    \caption{adsfasdf \gls{SLP} adsfasdf.}
+\end{figure}
+
+Fusce libero nulla, euismod vel suscipit nec, elementum vel massa. Mauris ut
+sapien sed neque dignissim sodales. Proin accumsan, lectus non gravida dapibus,
+lorem leo tincidunt odio, in semper ligula libero bibendum lorem. Pellentesque
+venenatis massa a neque porttitor congue. Maecenas ornare lacus ac orci mattis
+a placerat sapien euismod. In sed eros enim, non interdum nisi. Curabitur quis
+magna et tortor interdum pharetra. Donec sit amet turpis neque, quis congue
+leo. Proin sit amet placerat dolor.
+\end{document}
