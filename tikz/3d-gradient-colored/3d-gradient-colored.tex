@@ -3,7 +3,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.11}
-\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 
 \begin{document}
 \pgfplotsset{
@@ -24,6 +24,10 @@
         domain=-2:2,
         view={0}{90},
         axis background/.style={fill=white},
+        xmin=-2, xmax=2,
+        ymin=-2, ymax=2,
+        axis equal image,
+        point meta rel=per plot
     ]
         \addplot3[surf,
                   samples=50,
@@ -35,12 +39,21 @@
         %           samples=30] 
         %         {x/exp(x^2+y^2)};
         \addplot3[blue,
+        point meta={
+            sqrt(
+                ((1-2*x^2)*exp(-x^2-y^2))^2+
+                (-2*x*y*exp(-x^2-y^2))^2
+            )        
+        },
                   quiver={
                           u={(1-2*x^2)*exp(-x^2-y^2)},
                           v={-2*x*y*exp(-x^2-y^2)},
                           scale arrows=0.3,
+                          every arrow/.append style={%
+                             -{Latex[scale length={max(0.01,\pgfplotspointmetatransformed/1000)}]},
+                             },
                          },
-                  -stealth,samples=15]
+                         samples=15]
                 {x/exp(x^2+y^2)};
     \end{axis}
 \end{tikzpicture}
