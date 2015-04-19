@@ -58,6 +58,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \node[pflicht] (rechnernetze)    [below of=wt] {Rechnernetze};
     \node[stammmodul]   (KogSys)    [right of=rechnernetze] {KogSys};
     \node[stammmodul]   (Echtzeitsysteme)    [right of=KogSys] {Echtzeit-Sys.};
+    \node[stammmodul]   (Rechnerstrukturen)  [right of=Echtzeitsysteme] {Rechnerstrukturen};
 
     \node[pflicht] (algii)  [right of=datenbanken, below of=datenbanken] {Algorithmen II};
 
@@ -95,7 +96,9 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (swti)    edge[red, bend right] node {} (pse);
     \path[->] (gbi)     edge[red] node {} (pse);
     \path[<->] (os)     edge node[anchor=center,above,sloped] {\tiny{Paging}} (algii);
-    \path[->] (ro)     edge[thick] node[anchor=center,above,sloped] {\tiny{Bus, ROS, CAS, Microprozessoraufbau}} (Echtzeitsysteme);
+    \path[->] (ro)      edge[thick] node[anchor=center,above,sloped] {\tiny{Bus, ROS, CAS, Microprozessoraufbau}} (Echtzeitsysteme);
+    \path[->] (anaii)   edge[bend right] node[anchor=center,above,sloped] {\tiny{Differenzialgleichungen}} (Echtzeitsysteme);
+    \path[->] (ro)   edge[bend left] node[anchor=center,above,sloped] {} (Rechnerstrukturen);
 
     \begin{customlegend}[legend entries={Pflichtmodul,Stammmodul,Wahlmodul,Softskill,Inhaltliche Abhängigkeit,Harte Abhängigkeit},legend style={at={(-3,-12)},anchor=center}]
     \addlegendimage{blue,fill=blue!20,area legend}

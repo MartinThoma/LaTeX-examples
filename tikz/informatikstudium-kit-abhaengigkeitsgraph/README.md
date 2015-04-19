@@ -2,9 +2,10 @@ Der hier abgebildete Graph gibt Abhängigkeiten an, wie ich sie wahrnehme.
 
 ![Example](informatikstudium-kit-abhaengigkeitsgraph.png)
 
-## Empfehlungen
+## Empfehlungen und Kommentare
 
 * Will man Caches verstehen, sollte man die TI-Klausuren rechnen. Weder die OS-Folien, noch die TI-Folien erklären sie so gut wie die TI-KLausuren.
+* Die OS zu Algorithmen 2 Abhängigkeit ist bei Prautzsch ist das nicht mehr vorhanden.
 
 ## Abkürzeungen
 
