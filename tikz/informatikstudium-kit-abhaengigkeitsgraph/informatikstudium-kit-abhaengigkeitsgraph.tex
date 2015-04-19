@@ -77,6 +77,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (lai)     edge[ultra thick] node[anchor=center,above,sloped] {\tiny{Gruppe, Körper, \dots}} (laii);
     \path[<->] (lai)    edge node {} (gbi);
     \path[->] (lai)     edge node[anchor=center,above,sloped] {\tiny{Matrixmultiplikation; Lösen von linearen Gleichungssystemen}} (numerik);
+    \path[->] (anai)     edge[bend left=10] node[anchor=center,above,sloped] {\tiny{Banachscher Fixpunktsatz}} (numerik);
     \path[<->] (gbi)    edge[bend left] node [anchor=center,above,sloped] {\tiny{Induktion}} (anai);
     \path[->] (anai)    edge[ultra thick] node {} (anaii);
     \path[->] (laii)    edge[bend left] node[anchor=center,above,sloped] {\tiny{Mathematische Strukturen}} (algii);
@@ -93,6 +94,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (anaii)   edge[red] node {} (pse);
     \path[->] (programmieren)   edge[red, bend right] node {} (pse);
     \path[->] (algi)    edge[red] node {} (pse);
+    \path[->] (algi)    edge[bend left] node[anchor=center,above,sloped] {\tiny{B-Bäume}} (datenbanken);
     \path[->] (swti)    edge[red, bend right] node {} (pse);
     \path[->] (gbi)     edge[red] node {} (pse);
     \path[<->] (os)     edge node[anchor=center,above,sloped] {\tiny{Paging}} (algii);
