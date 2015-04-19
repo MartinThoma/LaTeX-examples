@@ -1,4 +1,4 @@
-Der hier abgebildete Graph gibt abhängigkeiten an, wie ich sie wahrnehme.
+Der hier abgebildete Graph gibt Abhängigkeiten an, wie ich sie wahrnehme.
 
 ![Example](informatikstudium-kit-abhaengigkeitsgraph.png)
 
