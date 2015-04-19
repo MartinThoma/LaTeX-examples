@@ -61,6 +61,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \node[stammmodul]   (Rechnerstrukturen)  [right of=Echtzeitsysteme] {Rechnerstrukturen};
 
     \node[pflicht] (algii)  [right of=datenbanken, below of=datenbanken] {Algorithmen II};
+    \node[pflicht] (propa)  [right of=algii] {Programmierparadigmen};
 
     \node[wahl]    (icpc)   [below of=algii] {ICPC};
 
@@ -71,6 +72,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (gbi)     edge[thick] node[anchor=center,above,sloped] {\tiny{Automaten}} (tgi);
     \path[->] (algi)    edge node {} (algii);
     \path[->] (tgi)     edge node[anchor=center,above,sloped] {\tiny{ILP}} (algii);
+    \path[->] (tgi)     edge[red] node                        {}           (propa);
     \path[->] (wt)      edge node[anchor=center,above,sloped] {\tiny{Randomisierte Algorithmen}} (algii);
     \path[->] (wt)      edge node[anchor=center,above,sloped] {\tiny{Bayes Regel}} (KogSys);
     \path[->] (dt)      edge node[anchor=center,above,sloped] {\tiny{Zahlendarstellungen}} (ro);
@@ -84,7 +86,7 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (programmieren)    edge[very thick] node[anchor=center,above,sloped] {\tiny{Java}} (swti);
     \path[->] (programmieren)    edge[bend left] node {} (pse);
     \path[->] (programmieren)    edge node {} (os);
-    \path[->] (swti)    edge node {} (pse);
+    \path[->] (swti)    edge[red] node {} (pse);
     \path[<->] (ro)     edge node[anchor=center,above,sloped] {\tiny{Assembler, Adressierung, Caches}} (os);
     \path[<->] (algii)  edge [very thick] node {} (icpc);
     \path[->] (swti)    edge node[anchor=center,above,sloped] {\tiny{Prozessmodelle}} (web);
@@ -93,14 +95,14 @@ soft/.style ={rectangle, draw=red, thick, fill=red!20,align=center, rounded corn
     \path[->] (laii)    edge[red] node {} (pse);
     \path[->] (anaii)   edge[red] node {} (pse);
     \path[->] (programmieren)   edge[red, bend right] node {} (pse);
-    \path[->] (algi)    edge[red] node {} (pse);
+    %\path[->] (algi)    edge[red] node {} (pse);
     \path[->] (algi)    edge[bend left] node[anchor=center,above,sloped] {\tiny{B-Bäume}} (datenbanken);
     \path[->] (swti)    edge[red, bend right] node {} (pse);
     \path[->] (gbi)     edge[red] node {} (pse);
     \path[<->] (os)     edge node[anchor=center,above,sloped] {\tiny{Paging}} (algii);
     \path[->] (ro)      edge[thick] node[anchor=center,above,sloped] {\tiny{Bus, ROS, CAS, Microprozessoraufbau}} (Echtzeitsysteme);
     \path[->] (anaii)   edge[bend right] node[anchor=center,above,sloped] {\tiny{Differenzialgleichungen}} (Echtzeitsysteme);
-    \path[->] (ro)   edge[bend left] node[anchor=center,above,sloped] {} (Rechnerstrukturen);
+    \path[->] (ro)   edge[bend left] node[anchor=center,above,sloped] {\tiny{Pipelining, CISC, RISC}} (Rechnerstrukturen);
 
     \begin{customlegend}[legend entries={Pflichtmodul,Stammmodul,Wahlmodul,Softskill,Inhaltliche Abhängigkeit,Harte Abhängigkeit},legend style={at={(-3,-12)},anchor=center}]
     \addlegendimage{blue,fill=blue!20,area legend}
