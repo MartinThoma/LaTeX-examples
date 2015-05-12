@@ -1,0 +1,19 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{units}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{calc} 
+
+\begin{document}
+\tikzstyle{vertex}=[draw,black,fill=blue,circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[very thick]
+\begin{tikzpicture}[scale=2.5]
+    \node (a)[vertex,fill=gray!10,align=left] at (0,0) {S};
+    \node (b)[vertex,fill=gray!10,align=left] at (1,0)  {R};
+
+    \path[thick,->,bend left] (a)    edge node [anchor=center,above,sloped] {$\nicefrac{2}{10}$} (b);
+    \path[thick,->,bend left] (b)    edge node [anchor=center,below,sloped] {$\nicefrac{4}{10}$} (a);
+    \path[thick,->] (a)    edge[loop left, looseness=15] node [anchor=center,above] {$\nicefrac{8}{10}$} (a);
+    \path[thick,->] (b)    edge[loop right, looseness=15] node [anchor=center,above] {$\nicefrac{6}{10}$} (b);
+\end{tikzpicture}
+\end{document}
