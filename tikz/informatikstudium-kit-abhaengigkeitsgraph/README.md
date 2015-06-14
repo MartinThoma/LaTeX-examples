@@ -26,3 +26,7 @@ Der hier abgebildete Graph gibt Abhängigkeiten an, wie ich sie wahrnehme.
 * TGI: Theoretische Grundlagen der Informatik
 * TSE: Teamarbeit in der Software-Entwicklung
 * WT: Wahrscheinlichkeitstheorie
+
+## Master
+
+* Mustererkennung, Neuronale Netze, Machine Learning 1, Machine Learning 2
