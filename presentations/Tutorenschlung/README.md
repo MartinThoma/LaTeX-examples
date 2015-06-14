@@ -1,7 +1,6 @@
 About
 -----
-This is a short presentation for the "Tutorenprogramm - Start in die 
-Lehre".
+This is a short presentation for the "Tutorenprogramm - Start in die Lehre".
 
 KIT-Style
 ---------
