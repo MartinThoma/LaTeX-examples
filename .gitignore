@@ -36,6 +36,10 @@
 *.sublime-workspace
 *.class
 
+## PDF/A
+*.xmpi
+*.xmpdata
+
 ## I want to keep some PDFs
 documents/Analysis I/*.pdf
 documents/Analysis II/*.pdf
