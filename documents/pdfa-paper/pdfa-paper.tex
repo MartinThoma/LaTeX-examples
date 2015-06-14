@@ -9,11 +9,18 @@
 \providecommand{\xmpOrg}{An organization}
 
 \begin{filecontents*}{\jobname.xmpdata}
-\Keywords{recognition; pdf/a}
+\Keywords{recognition\sep pdf/a}
 \Title{A very interesting title}
-\Author{Martin Thoma}
+\Author{Martin Thoma\sep Max Mustermann}
 \Org{Institute for Anthropomatics and Robotics}
 \Doi{123456789}
+\Publisher{Whoever}
+\PublicationType{journal}
+\Journaltitle{KIT Scientific Publishing}
+\Journalnumber{ISSN}
+\Volume{}
+\Issue{}
+\CoverDate{2015}
 \end{filecontents*}
 
 \usepackage{xmpincl}
@@ -34,12 +41,12 @@
 \title{A very interesting title}
 \author{Martin Thoma}
 
-\hypersetup{
-  pdfauthor   = {Martin Thoma},
-  pdfkeywords = {recognition; pdf/a},
-  pdftitle    = {A very interesting title},
-  pdflang={en},
-}
+% \hypersetup{
+%   pdfauthor   = {Martin Thoma},
+%   pdfkeywords = {recognition; pdf/a},
+%   pdftitle    = {A very interesting title},
+%   pdflang={en},
+% }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin document                                                    %
