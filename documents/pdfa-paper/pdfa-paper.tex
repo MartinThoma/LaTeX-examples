@@ -1,0 +1,55 @@
+\documentclass[9pt,technote,a4paper]{IEEEtran}
+\usepackage{amssymb, amsmath} % needed for math
+
+\usepackage[a-1b]{pdfx}
+\usepackage{filecontents}
+\usepackage{xmpincl}
+
+\providecommand{\xmpProducer}{LaTeX2e}
+\providecommand{\xmpOrg}{An organization}
+
+\begin{filecontents*}{\jobname.xmpdata}
+\Keywords{recognition; pdf/a}
+\Title{A very interesting title}
+\Author{Martin Thoma}
+\Org{Institute for Anthropomatics and Robotics}
+\Doi{123456789}
+\end{filecontents*}
+
+\usepackage{xmpincl}
+
+\providecommand{\xmpPublisher}{Random}
+\providecommand{\xmpOrg}{An organization}
+
+\RequirePackage{ifpdf}
+\ifpdf \PassOptionsToPackage{pdfpagelabels}{hyperref} \fi
+\RequirePackage{hyperref}
+\usepackage[pdftex,final]{graphicx}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{tikz}
+
+
+\title{A very interesting title}
+\author{Martin Thoma}
+
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {recognition; pdf/a},
+  pdftitle    = {A very interesting title},
+  pdflang={en},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\begin{abstract}
+adsfadsf adsfasdf
+\end{abstract}
+
+\input{ch1-introduction}
+
+\end{document}
