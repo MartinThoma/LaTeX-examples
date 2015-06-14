@@ -1,0 +1,55 @@
+\documentclass[margin=10pt]{standalone}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.3}
+
+\newcommand\clipright[1][white]{
+  \fill[#1](current axis.south east)rectangle(current axis.north-|current axis.outer east);
+  \pgfresetboundingbox
+  \useasboundingbox(current axis.outer south west)rectangle([xshift=.5ex]current axis.outer north-|current axis.east);
+}
+
+\definecolor{mycolor}{rgb}{0.02,0.4,0.7}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        ymajorgrids,
+        xmajorgrids,
+        grid style={white,thick},
+        axis on top,
+        /tikz/ybar interval,
+        tick align=outside,
+        ymin=0,
+        axis line style={draw opacity=0},
+        tick style={draw=none},
+        enlarge x limits=false,
+        height=5cm,
+        title style={font=\Large},
+        xlabel={Collected Labeled Recordings},
+        ylabel={Number of Symbols},
+        ytick={ {{yticks}} },
+        scaled ticks=false,
+        yticklabels={ {{yticklabels}} },
+        xticklabels={ {{xticklabels}} },
+        width=\textwidth,
+        xtick=data,
+        label style={font=\large},
+        ticklabel style={
+            inner sep=1pt,
+            font=\small
+        },
+        nodes near coords,
+        every node near coord/.append style={
+            fill=white,
+            anchor=mid west,    
+            shift={(3pt,4pt)},
+            inner sep=0,
+            font=\footnotesize,
+            rotate=45},
+            ]
+    \addplot[mycolor!80!white, fill=mycolor, draw=none] coordinates { {{coordinates}} };
+    \end{axis}
+    \clipright
+\end{tikzpicture}
+\end{document}
