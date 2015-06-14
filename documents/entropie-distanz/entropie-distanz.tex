@@ -1,0 +1,147 @@
+\documentclass[a5paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+% \usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}   % links im text
+\usepackage{color}
+\usepackage{framed}
+\usepackage{parskip}
+\usepackage{braket}         % needed for \Set
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage{minted} % needed for the inclusion of source code
+\clubpenalty  = 10000   % Schusterjungen verhindern
+\widowpenalty = 10000   % Hurenkinder verhindern
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {ASR}, 
+  pdftitle    = {Entropie-Distanz von Martin Thoma} 
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom definition style, by                                       %
+% http://mathoverflow.net/questions/46583/what-is-a-satisfactory-way-to-format-definitions-in-latex/58164#58164
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newdimen\errorsize \errorsize=0.2pt
+% Frame with a label at top
+\newcommand\LabFrame[2]{%
+    \fboxrule=\FrameRule
+    \fboxsep=-\errorsize
+    \textcolor{FrameColor}{%
+    \fbox{%
+      \vbox{\nobreak
+      \advance\FrameSep\errorsize
+      \begingroup
+        \advance\baselineskip\FrameSep
+        \hrule height \baselineskip
+        \nobreak
+        \vskip-\baselineskip
+      \endgroup
+      \vskip 0.5\FrameSep
+      \hbox{\hskip\FrameSep \strut
+        \textcolor{TitleColor}{\textbf{#1}}}%
+      \nobreak \nointerlineskip
+      \vskip 1.3\FrameSep
+      \hbox{\hskip\FrameSep
+        {\normalcolor#2}%
+        \hskip\FrameSep}%
+      \vskip\FrameSep
+    }}%
+}}
+\definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
+\definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
+
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+  % Optional continuation label defaults to the first label plus
+  \def\Frame@Lab{#2}%
+  \def\FrameCommand{\LabFrame{#2}}%
+  \def\FirstFrameCommand{\LabFrame{#2}}%
+  \def\MidFrameCommand{\LabFrame{#1}}%
+  \def\LastFrameCommand{\LabFrame{#1}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore} 
+}{\endMakeFramed} 
+\newcounter{definition}
+\newenvironment{definition}[1]{%
+  \par
+  \refstepcounter{definition}%
+  \begin{contlabelframe}{Definition \thedefinition:\quad #1}
+ \noindent\ignorespaces}
+{\end{contlabelframe}} 
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section{Entropie-Distanz}
+
+\begin{definition}{Entropie}
+Sei $\Omega := \Set{z_1, z_2, \dots, z_n}$ eine endliche Zeichenmenge und
+$X: Z \rightarrow \mathbb{R}$ eine Zufallsvariable über dem Wahrscheinlichkeitsraum
+$(\Omega, \mathbb{P})$. Dann heißt
+\[H_1 = - \sum_{z \in \Omega} \mathbb{P}(z) \log_2 (\mathbb{P}(z))\]
+\textbf{Entropie}.
+\end{definition}
+
+Die Entropie wird maximal bei Gleichverteilung, also bei $P(z_i) = \frac{1}{|\Omega|}$.
+Dann gilt: $H = \log_2 |\Omega|$. Entsprechend wird die Entropie normiert,
+indem durch $\log_2 |\Omega|$ geteilt wird:
+\[H_{Norm} = \frac{H}{\log_2 |\Omega|}\]
+Der Wertebereich der normierten Entropie $H_{Norm}$ ist $[0, 1]$.
+
+\begin{definition}{Gewichtete Entropiedistanz}
+Seien $d_1, d_2$ disktrete Wahrscheinlichkeitsverteilung über $(\Omega, P)$,
+die mit $n_1, n_2 \in \mathbb{N}_0$ Daten geschätzt wurden.
+
+Dann ist die \textbf{gewichtete Entropiedistanz} von $d_1$ und $d_2$ definiert durch
+\[H_{dist}(d_1, d_2) := \left |\frac{n_1}{n_1+n_2} H(d_1) - \frac{n_2}{n_1+n_2} H(d_2) \right|\]
+\end{definition}
+
+Die folgenden Zeilen erstellen folgende Objekte:
+\begin{itemize}
+    \item \verb+FeatureSet+: Das FeatureSet macht die Signalverarbeitung im
+          Janus Spracherkenner. Das FeatureSet beinhaltet Objekte vom Typ
+          \verb+SVector+ oder \verb+FMatrix+.
+    \item \verb+CodebookSet+: Eine Menge von Codebooks. Jedes Codebook stellt
+          eine Gauß-Verteilung dar. Ein Codebook wird vollständig durch seine
+          Kovarianzmatrix und den Mittelwertsvektor beschrieben.
+    \item \verb+DistribSet+: Eine Menge von Gauß-Mixturen. Jede Mixtur verweist
+          auf eine Menge von $n$ Codebooks (Gauß-Verteilungen) und gewichtet diese
+          mit reelen Zahlen $c_i \in \mathbb{R}$. Damit dies wiederum eine
+          Gauß-Verteilung ergibt, muss jedes Gewicht nicht-negativ sein und die
+          Summe $\sum_{i=1}^n c_i = 1$ ergeben.
+\end{itemize}
+\inputminted[linenos, numbersep=5pt, tabsize=4]{tcl}{step1.tcl}
+
+Der Befehl in Zeile~1 erzeugt das \verb+CodebookSet+ und fügt ein Codebook mit
+dem Namen \verb+cb+, dem Feature-Space namen \verb+dummy+, 2~Referenzvektoren
+in einem 1-dimensionalen Feature-Raum hinzu.
+
+Die Gauß-Mixtur \verb+ds1+ gewichtet den ersten Referenzvektor mit $c_1 = 0.3$
+und den zweiten mit $c_2 = 0.7$. Für diese Gauß-Mixtur gibt es 2~Trainingsdaten
+
+Die Entropie der Verteilungen ist:\nobreak
+\begin{align*}
+    H_1(ds1) &= -(0.3 \cdot \log_2 0.3 + 0.7 \cdot \log_2 0.7) \approx 0.88\\
+    H_1(ds2) &= -(0.4 \cdot \log_2 0.4 + 0.6 \cdot \log_2 0.6) \approx 0.97\\
+    H_1(ds3) &= -(0.8 \cdot \log_2 0.8 + 0.2 \cdot \log_2 0.2) \approx 0.72
+\end{align*}
+
+Nun gilt:
+
+\begin{align*}
+    H_{dist}(ds1, ds2) &\approx |\frac{2}{5} \cdot 0.88 - \frac{3}{5} \cdot 0.97| = 0.23\\
+    H_{dist}(ds1, ds3) &\approx |\frac{2}{5} \cdot 0.88 - \frac{3}{5} \cdot 0.72| = 0.08\\
+    H_{dist}(ds2, ds3) &\approx |\frac{1}{2} \cdot 0.97 - \frac{1}{2} \cdot 0.72| = 0.125\\
+\end{align*}
+
+Da \verb+ds1+ und \verb+ds3+ die geringste Distanz haben, sind sie sich nach
+dem Entropiedistanzmaß am Ähnlichsten. Die Zusammenlegung dieser beiden
+Verteilungen richtet also den geringsten Schaden an.
+
+\textbf{Antwort für Teilaufgabe c}: Das Modell \verb+E(S|Y)-b+ ist sich selbst
+am ähnlichsten.
+
+\end{document}
