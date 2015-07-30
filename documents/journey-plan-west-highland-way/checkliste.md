@@ -5,10 +5,10 @@ Notizbuch, Kugelschreiber
 - [ ] Smartphone (Auslandstariv?) -- https://www.simyo.de/ausland-tarifoptionen.html
 - [ ] Blasenpflaster
 - [ ] Insektenspray
-- [ ] 2 Shirts
-- [ ] 1 Boxershorts
+- [ ] 1 Shirt
 - [ ] 1 Paar Socken
 - [ ] 1 warmer Pulli
+- [ ] Kernseife + Hülle
 
 ## Mitnehmen
 
@@ -19,10 +19,10 @@ Notizbuch, Kugelschreiber
   - [ ] 3 Boxershorts
   - [ ] 3 Paar Socken
   - [ ] 1 warmer Pulli
-  - [ ] 1 Badehose
+  - [ ] 1 lange Hose
+  - [ ] 1 Badehose / kurze Hose
   - [ ] 1 Regenhose
   - [ ] 1 Regenjacke
-  - [ ] 1 Regenhose
 - Zelten
   - [ ] Zelt
   - [ ] Schlafsack (moorhead MICRO LITE III 185, 830g)
