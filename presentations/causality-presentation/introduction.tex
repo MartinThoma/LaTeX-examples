@@ -1,0 +1,96 @@
+%!TEX root = interventions.tex
+\section{Einführung}
+\subsection{Einführung}
+\begin{frame}{Nierensteine}
+    \begin{itemize}
+        \item Kristalline Ablagerungen
+        \item \SIrange{2}{4}{\milli\meter} unkritisch,
+              ab \SI{10}{\milli\meter} operative Entfernung
+        \item 2~Methoden des Entfernens:
+        \begin{itemize}
+            \item \textbf{A}: Offene Operation
+            \item \textbf{B}: PCNL (Percutaneous nephrolithotomy): Entfernung
+                  durch ca 1cm große Punktuierung der Haut
+        \end{itemize}
+    \end{itemize}
+
+    \uncover<2->{Was ist besser: A oder B?}\\
+    \uncover<3->{Ist die Entscheidung abhängig von der Größe?}\\
+\end{frame}
+
+
+\begin{frame}{Simpson-Paradoxon}
+    \begin{table}
+        % \centering
+        \begin{tabular}{lrr}
+        \toprule
+        ~      & \multicolumn{2}{c}{\textbf{Behandlungserfolg}}  \\
+        \cmidrule{2-3}
+        ~                   & \multicolumn{1}{c}{\textbf{A}} & \multicolumn{1}{c}{\textbf{B}} \\ \midrule
+        Kleine Nierensteine & \textbf{93\%}  \onslide<2>{(\hphantom{0}81/\hphantom{0}87)}  & 87\% \onslide<2>{(234/270)} \\
+        Große Nierensteine  & \textbf{73\%} \onslide<2>{(192/263)} & 69\% \onslide<2>{(\hphantom{0}55/\hphantom{0}80)}\\
+        \textbf{Gesamt}     & 78\% \onslide<2>{(273/350)}          & \textbf{83\%} \onslide<2>{(289/350)} \\
+        \bottomrule
+        \end{tabular}
+        \caption{Nierensteine durch (A) offene Operation oder (B) PCNL entfernen.}
+        \label{table:countries}
+    \end{table}
+
+    % Quelle: Causality, 2015. Jonas Peters.  -- ist für den gesamten Vortrag die Quelle...
+\end{frame}
+
+\begin{frame}{Aufstellen eines SEM}
+    \begin{itemize}[label={}]
+        \item $Z \in \Set{\text{klein}, \text{groß}}$: Größe des Nierensteins
+        \item $T \in \Set{A, B}$: Behandlung (Treatment)
+        \item $R \in \Set{\text{erfolg}, \text{misserfolg}}$: Behandlungserfolg (Recovery)
+    \end{itemize}
+
+    Sei das \enquote{wahre} SEM:
+    \begin{figure}[!h]
+        \centering
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+      thick,main node/.style={circle,fill=blue!10,draw,font=\sffamily\Large\bfseries}]
+          \node (Z) at (1,1) {Z};
+          \node (T) at (0,0) {T};
+          \node (R) at (2,0) {R};
+
+          \foreach \from/\to in {Z/T,Z/R,T/R}
+            \draw (\from) -> (\to);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Nieren-Beispiel}
+    \begin{table}
+        \begin{tabular}{lrr}
+        \toprule
+        ~      & \multicolumn{2}{c}{\textbf{Behandlungserfolg}}  \\
+        \cmidrule{2-3}
+        ~                   & \multicolumn{1}{c}{\textbf{A}} & \multicolumn{1}{c}{\textbf{B}} \\ \midrule
+        Kleine Nierensteine & \textbf{93\%}  (\hphantom{0}81/\hphantom{0}87)  & 87\% (234/270) \\
+        Große Nierensteine  & \textbf{73\%} (192/263) & 69\% (\hphantom{0}55/\hphantom{0}80)\\
+        \textbf{Gesamt}     & 78\% (273/350)          & \textbf{83\%} (289/350) \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \begin{figure}[!h]
+        \centering
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+      thick,main node/.style={circle,fill=blue!10,draw,font=\sffamily\Large\bfseries}]
+          \node (Z) at (1,1) {Z};
+          \node (T) at (0,0) {T};
+          \node (R) at (2,0) {R};
+
+          \foreach \from/\to in {Z/T,Z/R,T/R}
+            \draw (\from) -> (\to);
+        \end{tikzpicture}
+    \end{figure}
+
+    % \begin{align*}
+    %     Z &= N_Z, \;\;\;& N_Z &\sim Ber(\nicefrac{1}{4})\\
+    %     T &= \lfloor 2 \cdot (1-Z+N_T) \rfloor \;\;\; & N_T &\sim \mathcal{N}(0, 1)\\
+    %     R &= \lfloor 2 \cdot (0.6 \cdot (1-Z) + 0.4 \cdot (1-T) + N_R) \rfloor  \;\;\; & N_R &\sim \mathcal{N}(0, 1)
+    % \end{align*}
+\end{frame}

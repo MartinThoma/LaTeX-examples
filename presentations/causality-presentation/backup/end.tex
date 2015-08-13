@@ -1,0 +1,23 @@
+%!TEX root = interventions.tex
+\section{Ende}
+\subsection{Quellen}
+\begin{frame}{Quellen}
+    \begin{itemize}
+        \item \href{https://stat.ethz.ch/people/jopeters/index/edit/causalityHomepage/causality_files/scriptChapter1-4.pdf}{Causality, 2015. Jonas Peters.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Definitionen}
+    \begin{block}{Unabhängigkeit}
+    $X$ und $Y$ sind unabhängig $:\Leftrightarrow p(x, y) = p(x) \cdot p(y) \;\;\;\forall x,y$.
+
+    Man schreibt dann: $X \perp\!\!\!\perp Y$ und andernfalls $X \not\!\perp\!\!\!\perp Y$
+    \end{block}
+
+    \begin{block}{Korrelation}
+        Seien $X$ und $Y$ Zufallsvariablen und
+        \[C(X,Y) := \mathbb{E}((X- \mathbb{E}X) \cdot (Y - \mathbb{E}Y))\]
+        die Kovarianz zwischen $X$ und $Y$. Gilt $C(X, Y) = 0$, so heißen
+        $X$ und $Y$ unkorreliert.
+    \end{block}
+\end{frame}
