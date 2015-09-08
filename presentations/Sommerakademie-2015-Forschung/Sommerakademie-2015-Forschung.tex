@@ -1,0 +1,93 @@
+\documentclass{beamer}
+\usetheme{Frankfurt}
+\usecolortheme{beaver}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{braket}         % needed for \Set
+\usepackage{csquotes}
+% \usepackage{enumitem}
+% \setitemize{label=\usebeamerfont*{itemize item}%
+%   \usebeamercolor[fg]{itemize item}
+%   \usebeamertemplate{itemize item}}
+\usepackage{array}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{movie15}
+\usepackage{bm}
+\usepackage{dsfont}
+\usepackage{nicefrac}
+\usefonttheme[onlymath]{serif}
+\usepackage{siunitx}        % this package is for units!
+\sisetup{range-phrase=--, range-units=single}
+
+\usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
+\selectlanguage{ngerman}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\usetikzlibrary{arrows,positioning, calc}
+
+\newcommand {\framedgraphic}[2] {
+    \begin{frame}{#1}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}
+        \end{center}
+    \end{frame}
+}
+
+\setbeamertemplate{navigation symbols}{}
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+\makeatletter
+\setbeamertemplate{footline}
+{%
+  \pgfuseshading{beamer@barshade}%
+  \ifbeamer@sb@subsection%
+    \vskip-9.75ex%
+  \else%
+    \vskip-7ex%
+  \fi%
+  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{\paperwidth}
+  \end{beamercolorbox}%
+  \ifbeamer@sb@subsection%
+    \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+}%
+\setbeamertemplate{headline}{%
+% \hskip1em\usebeamercolor[fg]{navigation symbols dimmed}%
+% \insertslidenavigationsymbol%
+% \insertframenavigationsymbol%
+% \insertsectionnavigationsymbol%
+% \insertsubsectionnavigationsymbol%
+% \insertdocnavigationsymbol%
+% \insertbackfindforwardnavigationsymbol%
+}
+\makeatother
+
+\begin{document}
+
+\title{On-line Recognition of Handwritten Mathematical Symbols}
+\subtitle{Oder: Eine Einführung in Neuronale Netze}
+\author{Martin Thoma}
+\date{6. August 2015}
+\subject{On-line Recognition of Handwritten Mathematical Symbols}
+
+\frame{\titlepage}
+
+\input{introduction}
+% \input{main}
+\input{end}
+\end{document}
