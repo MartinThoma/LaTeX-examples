@@ -1,0 +1,34 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+
+\begin{document}
+\tikzset{mark options={line width=0.5pt}}
+\begin{tikzpicture}
+    \begin{axis}[
+            width=7.5cm, height=15cm,     % size of the image
+            enlarge x limits=0.05,
+            enlarge y limits=0.05,
+            xmin = -5,
+            xmax = 5,
+            ymin = -10,
+            ymax = 10,
+            % xlabel=x,
+            % ylabel=y
+         ]
+          \addplot[scatter,
+                   only marks,
+                   mark=*,
+                   mark size = 1,
+                   point meta=1,
+                   ]
+                   table [x=x, y=y, col sep=comma] {data.csv};
+    \end{axis}
+\end{tikzpicture}
+\end{document}
