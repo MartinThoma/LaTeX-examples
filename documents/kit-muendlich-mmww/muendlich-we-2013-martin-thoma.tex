@@ -1,0 +1,190 @@
+\documentclass[a4paper]{article}
+\usepackage{myStyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier eigene Daten einfügen                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Studiengang}{Informatik (MA)}
+\newcommand{\Fach}{Mensch-Maschine Wechselwirkungen in der Anthropomatik: Basiswissen}
+\newcommand{\Pruefungsdatum}{14.07.2014}    % DD.MM.YYYY
+\newcommand{\Pruefer}{Dr. Geißler}
+\newcommand{\Beisitzer}{?}
+% Nicht zwingend, aber es waere nett, wenn du zumindest die Zahl vor
+% dem Komma angeben koenntest:
+\newcommand{\Note}{1,3}
+\newcommand{\Dauer}{15} % in Minuten
+
+%%% WEITER SCROLLEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{tabular}{p{2cm}p{15cm}}
+\ifpdf\vspace{-0.8cm}\fi
+\multirow{2}{2cm}{ \includegraphics[width=20mm]{FS-Eule}} &
+
+\Large Fragebogen der Fachschaft zu \\
+& \Large {\bfseries mündlichen Prüfungen} \\
+& \Large{im Informatikstudium}
+\\
+\end{tabular}
+
+ \begin{tabular}{p{8cm}p{8cm}}
+  \begin{flushleft}Dieser Fragebogen gibt den Studierenden,
+   die nach Dir die Prüfung ablegen wollen, einen Einblick in Ablauf
+   und Inhalt der Prüfung. Das erleichtert die Vorbereitung.
+
+   Bitte verwende zum Ausfüllen einen schwarzen Stift.
+   Das erleichtert das Einscannen. \\[0.5cm]
+%%% HIER GEHTS LOS! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Das Dokument                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   Dein Studiengang: \Studiengang \\[0.5cm]
+
+   \textbf{Prüfungsart:}\\
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+   $\boxtimes$ Wahlbereich  \\
+   $\boxempty$ Vertiefungsfach  \\
+   $\boxempty$ Ergänzungsfach  \\[0.5cm]
+%% Namen des Wahl/Vertiefungs/Ergaenzungsfachs hier bitte eintragen.
+   Welches? \Fach
+%% Jetzt kommt ein Barcode von uns.  Einfach weitergehen.  ;-)
+  \end{flushleft}
+  &
+  \begin{center}
+   Barcode:
+   \begin{tabular}{p{0.2cm}p{6.8cm}p{0.2cm}}
+   $\ulcorner$
+   \vskip 2cm
+   $\llcorner$ & & $\urcorner$
+   \vskip 2cm
+   $\lrcorner$ \\
+   \end{tabular}
+  \end{center}
+  \vskip 0.5cm
+%% Hier gehts weiter:
+  \begin{flushright}
+%% Pruefungsdatum, PrueferIn und BeisitzerIn bitte hier eintragen. Wichtig: Im Allgemeinen kann nur ein Professor der Pruefer gewesen sein.
+  \begin{tabular}{ll}
+   Prüfungsdatum:   & \Pruefungsdatum \\[0.5cm]
+   Prüfer/-in:      & \Pruefer \\[0.5cm]
+   Beisitzer/-in:   & \Beisitzer \\
+  \end{tabular}
+  \end{flushright} \\
+ \end{tabular}
+
+ \begin{tabular}{|p{8.2cm}|p{3cm}|p{1cm}|p{3.5cm}|}
+  \multicolumn{4}{l}{\bfseries Prüfungsfächer und Vorbereitung: } \\[0.2cm]
+  \hline
+  Veranstaltung & Dozent/-in  & Jahr & regelmäßig besucht? \\
+  \hline
+  \hline
+%% Beispiel:
+%% Interessante Vorlesung & Toller Prof & 2007 & Ich war immer 5 Minuten vorher da \\
+  MMWWdA: BW & Dr. Geißler & 14/15 &  Ja \\[0.2cm]
+  \hline
+ \end{tabular} \\[0.5cm]
+
+\begin{multicols}{2}
+Note: \Note\\[0.5cm]
+War diese Note angemessen?
+%% Hier ist Platz fuer deinen Kommentar
+Ja
+
+\columnbreak
+%% Bitte Pruefungsdauer eintragen
+Prüfungsdauer: \Dauer{} Minuten \\[0.5cm]
+\end{multicols}
+
+
+ \textbf{\ding{46}} Wie war der \textbf{Prüfungsstil des Prüfers / der Prüferin?} \\
+ \begin{footnotesize} (Prüfungsatmosphäre, (un)klare Fragestellungen, Frage nach Einzelheiten oder eher größeren Zusammenhängen, kamen häufiger Zwischenfragen oder ließ er/sie dich erzählen, wurde Dir weitergeholfen, wurde in Wissenslücken gebohrt?)\end{footnotesize}  \\
+ \begin{minipage}[t][10cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Die Fragen waren klar gestellt. Die Atmosphäre war angenehm.
+
+
+ \end{minipage}
+
+ \begin{flushright}$\hookrightarrow$\textbf{Rückseite bitte nicht vergessen!}\end{flushright}
+
+ \newpage
+ \columnseprule=.4pt
+
+ \begin{multicols}{2}
+
+  \ding{46} Hat sich der \textbf{Besuch / Nichtbesuch} der Veranstaltung für dich gelohnt? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Jein. Man hätte für die Prüfung auch einfach nur die Protokolle anschauen
+    können. In der Vorlesung wurde sehr viel wiederholt (ca. 20 min, jede
+    Vorlesung)
+
+  \end{minipage}
+
+  \ding{46} Wie lange und wie hast du dich \textbf{alleine bzw. mit anderen vorbereitet}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Alle Vorlesungen besucht; 2 Treffen à 3h mit Komilitonen; Anki-Karten für
+    ein halbes Jahr
+  \end{minipage}
+
+  \ding{46} Welche \textbf{Tips zur Vorbereitung} kannst du geben?
+  \begin{footnotesize}(Wichtige / Unwichtige Teile des Stoffes, gute Bücher / Skripten, Lernstil)\end{footnotesize} \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Model Human Processor (MHP), 3 Ebenen-Modell von Rasmussen, FILASSE. Das
+    muss sitzen. Beim MHP das Diagramm mit Pfeilen und den 3 Prozessoren /
+    Gedächtnistypen.
+  \end{minipage}
+
+\columnbreak
+
+  \ding{46} Kannst du ihn/sie \textbf{weiterempfehlen}?
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+  $\boxempty$ Ja / $\boxtimes$ Nein\newline Warum? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Die Vorlesung ist zwar einfach, hat mir aber nichts gebracht.
+
+  \end{minipage}
+
+  \ding{46} Fanden vor der Prüfung \textbf{Absprachen} zu Form oder Inhalt statt? Wurden sie \textbf{eingehalten}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Nein, es gab keine Absprachen.
+
+  \end{minipage}
+
+  \ding{46} Kannst du Ratschläge für das \textbf{Verhalten in der Prüfung} geben? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Nein.
+  \end{minipage}
+%
+\end{multicols}
+\clearpage
+
+\section*{Inhalte der Prüfung:}
+\fbox{\parbox{17cm}{
+ \begin{itemize}
+  \item Schreibe bitte möglichst viele Fragen und Antworten auf.
+  \item Wo wurde nach Herleitungen oder Beweisen gefragt oder sonstwie nachgehakt?
+  \item Worauf wollte der Prüfer / die Prüferin hinaus?
+  \item Welche Fragen gehörten nicht zum eigentlichen Stoff?
+ \end{itemize}
+}}
+
+
+    \begin{itemize}
+        \item Zeichnen Sie den MHP auf
+        \item[$\Rightarrow$] Perzeptiver-, Kognitiver- und Motorischer Prozessor,
+             Sinnes-, Arbeits- und Langzeitgedächtnis. Ich habe mich bei den
+             Pfeilen etwas vertan, daher nur eine 1.3.
+        \item Es wurde ein Video von seinem Telefon gezeigt, auf dem ein
+              Nachrichtensymbol blinkt. Dann wurde Schritt für Schritt das Menü
+              durchgegangen. Ich sollte mit dem MHP / Model von Rasmussen / Dem
+              Forderungs-, Belastungs-, Beanspruchungs-, Leistungskreislauf
+              die Beanspruchung erklären.
+    \end{itemize}
+\end{document}
