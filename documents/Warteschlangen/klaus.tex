@@ -223,7 +223,7 @@ Die Anfangsbedingung ergibt sich aus der Forderung, daß das System zur Zeit $0$
 negativ sein darf.
 
 Man kann sehr leicht die Lösung der Gleichung ohne Randbedingung finden, indem man die Laplace-Transformation anwendet:
-\[G(z,u)=\int_{-\infty}^{\infty} e^{-xz}F(x,u)dx ~.\]
+\[G(z,u)=\int_{-\infty}^{\infty} e^{-xz}F(x,u)\diff x ~.\]
 Wir erhalten nach einigen partiellen Integrationen:
 \[G_{u}(z,u) = (\mu-\lambda)zG(z,u)+\frac{1}{2}\lambda^{2}z^{2}G(z,u) ~, \]
 also
@@ -282,7 +282,7 @@ Wir betrachten die Jobs, die schon zwischen $u$ und $u+\Delta u$ Sekunden gerech
 Rechenzeit $\geq u$ ist. Die Ankunftsrate in dieser Schlange ist also $\lambda(1-B(u))$.\\
 Die mittlere Aufenthaltsdauer ist $T(u+\Delta u) - T(u)$, und die mittlere Anzahl von Jobs in dieser Schlange ist $\approx n(u)\Delta u$. \\
 Mithilfe des Satzes von Little ergibt sich die Beziehung
-\[n(u)=\lambda (1-B(u))\frac{dT(u)}{du} ~.  \]
+\[n(u)=\lambda (1-B(u))\frac{\diff T(u)}{\diff u} ~.  \]
 Wir betrachten die folgende Strategien:
 \begin{enumerate}
 \item {\bf FCFS} (\enquote{Batch})
@@ -306,7 +306,7 @@ also
 \[T(u)=\frac{u}{1-\rho} ~. \]
 Wir haben also ein \enquote{gerechtes} Verfahren gefunden.
 \item Wenn sich $N$ Programme im System befinden, bekommt ein bestimmtes Programm $\frac{1}{N}$ der gesamten Rechenzeit. \\
-Daher ist $dT(u) = Ndu$. Da nur gerechnet wird, wenn das System nicht leer ist, ergibt sich:
+Daher ist $\diff T(u) = N \diff u$. Da nur gerechnet wird, wenn das System nicht leer ist, ergibt sich:
 \[ T(u)=u\E(N \mid N \not= 0)=Cu, \]
 also wieder ein \enquote{gerechtes} System. Um $C$ zu bestimmen, betrachten wir den Fall $u \rightarrow \infty$. Wenn $u$ groß ist, werden die meisten Jobs, die während
 $T(u)$ ankommen, auch noch während $T(u)$ das System verlassen. Für großes $u$ ist also das Verhalten ähnlich wie im vorigen Fall, und wir erhalten wieder
@@ -461,11 +461,11 @@ p_{n} = \frac{1}{n!} P^{*^{n}} (0) ~.
 \item Die Laplace - Transformierte: Falls $f(x)$, $x \geq 0$ eine
 Dichtefunktion ist, d.h.
 \begin{displaymath}
-f \geq 0 \qquad \mbox{und} \qquad \int_{0}^{\infty} f(x)dx = 1 ~,
+f \geq 0 \qquad \mbox{und} \qquad \int_{0}^{\infty} f(x)\diff x = 1 ~,
 \end{displaymath}
 heißt
 \begin{displaymath}
-\hat F(t) = \int_{0}^{\infty} e^{-xt} f(x)dx
+\hat F(t) = \int_{0}^{\infty} e^{-xt} f(x) \diff x
 \end{displaymath}
 die \index{Laplace - Transformierte}Laplace - Transformierte von $f$. Dieses Integral ist für $t \geq 0$
 endlich, und es gibt auch hier eine eindeutige Beziehung zwischen $\hat F$
