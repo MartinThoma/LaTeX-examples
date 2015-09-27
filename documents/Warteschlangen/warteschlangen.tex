@@ -1,4 +1,9 @@
-\documentstyle[12pt,german,makeidx]{book}
+\documentclass[12pt,german,makeidx,oneside]{book}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{csquotes}
+\usepackage{makeidx}        % for automatically generation of an index
 \setlength{\parindent}{0mm}
 \setlength{\parskip}{0.25cm}
 \newcommand{\E}{{\rm I\kern-0.2em E}}
@@ -8,10 +13,10 @@
 Pantelis Christodoulides \\
 Karl Grill\thanks{ copyright\copyright 1999 by Karl Grill
 ( grill@ci.tuwien.ac.at )
-\protect\\ \LaTeX\ source erh"altlich bei:
+\protect\\ \LaTeX\ source erhältlich bei:
 \protect\\ http://www.ci.tuwien.ac.at/$\sim$grill
-\protect\\ Unterliegt der the GNU general public license
-\protect\\ Details siehe file ``copying''}}
+\protect\\ Unterliegt der GNU General Public License
+\protect\\ Details siehe Datei \enquote{copying}}}
 
 
 \makeindex

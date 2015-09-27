@@ -71,7 +71,7 @@ kennen. Dazu können wir etwa folgende Klassen von Verteilungen verwenden:
 \item {\bf Verteilungen mit rationaler Laplacetransformation}
 
 Man kann jede Verteilung durch Verteilungen mit rationalen Laplacetransformationen annähern. Für diese Verteilungen kann \\
- man die Spektralzerlegung für $G/G/1$ 'leicht' durchführen: \\
+ man die Spektralzerlegung für $G/G/1$ \enquote{leicht} durchführen: \\
 man findet die Nullstellen von Zähler und Nenner und ordnet sie, je nachdem in welcher Halbebene sie liegen, entweder
 der Funktion $\Psi^{+}$ oder $\Psi^{-}$zu.
 
@@ -104,11 +104,11 @@ Wir erhalten
 \end{eqnarray*}
 Falls wir mehr als zwei mögliche Werte für $x$ bzw. $t$ haben, müssen wir eine Rekursion höherer Ordnung lösen; dazu sind bekanntlich die Nullstellen des
 charakteristischen Polynoms zu bestimmen. Auch hier, ebenso wie im im vorigen Abschnitt, reduziert sich also das Problem auf die Lösung einer algebraischen
-Gleichung. Diese Lösung ist für hohe Polynomgrade nur numerisch möglich. Dies und die Tatsache, daß man nicht genau weiß, wie eine 'gute' Näherung zu
+Gleichung. Diese Lösung ist für hohe Polynomgrade nur numerisch möglich. Dies und die Tatsache, daß man nicht genau weiß, wie eine \enquote{gute} Näherung zu
 wählen
 ist, reduziert die Brauchbarkeit dieser beiden Näherungen.
 
-\item {\bf Approximation für starke Auslastung ('Heavy traffic approximation')}
+\item {\bf Approximation für starke Auslastung (\enquote{Heavy traffic approximation})}
 
 Wir betrachten den Fall $\rho \approx 1$. \\
 Ausgangspunkt unserer Betrachtungen ist die Spektralzerlegung der $G/G/1$:
@@ -138,7 +138,7 @@ Also ergibt sich für die Verteilungsfunktion der Wartezeit
 \[ F(y) \approx 1 - e^{-y\frac{2\E(t)(1-\rho)}{{\bf Var}(x)+{\bf Var}(t)}} ~.\]
 Die Wartezeit ist also näherungsweise exponentialverteilt mit Mittel
 \[\E(w)=\frac{{\bf Var}(x)+{\bf Var}(t)}{2\E(t)(1-\rho)} ~.\]
-Dieses Ergebnis kann man als \index{Satz!Zentraler Grenzwertsatz für Warteschlangen}'zentralen Grenzwertsatz' für Warteschlangen betrachten.
+Dieses Ergebnis kann man als \index{Satz!Zentraler Grenzwertsatz für Warteschlangen}\enquote{zentralen Grenzwertsatz} für Warteschlangen betrachten.
 
 Das Mittel dieser Exponentialverteilung haben wir bereits als obere
 Abschätzung für die mittlere Wartezeit erhalten.
@@ -186,7 +186,7 @@ Daraus ergibt sich für großes n
 $N_{a}(u)$ ist also näherungsweise normalverteilt mit Mittel $u\lambda$ und Varianz $u\lambda^{3}{\bf Var}(t)$. Genauso erhält man für die Anzahl $N_{b}(u)$
 der
 Kunden, die während der Zeit $u$ bedient werden (wenn die Schlange nicht leer ist) eine näherungsweise Normalverteilung mit Mittel $\mu u$ und Varianz
-$\mu^{3}u{\bf Var}(x)$. Wir nehmen jetzt an, daß diese Werte durch kontinuierliche Beiträge zustande kommen, d.h. die 'Anzahl' der Ankünfte (bzw.
+$\mu^{3}u{\bf Var}(x)$. Wir nehmen jetzt an, daß diese Werte durch kontinuierliche Beiträge zustande kommen, d.h. die \enquote{Anzahl} der Ankünfte (bzw.
 Bedienvorgänge)
 in der kurzen Zeit $\Delta u$ soll normalverteilt mit Mittel $\lambda\Delta u$ (bzw. $\mu\Delta u$) und Varianz $\lambda^{3}\Delta u{\bf Var}(t)$ (bzw.
 $\mu^{3}\Delta
@@ -248,8 +248,8 @@ Abschnitt $3.$ überein. Mit etwas mehr Arbeit kann man die folgende Lösung der
 \chapter{Time-Sharing}
 %------------------------------------------------------------------------------------
 Wir wollen jetzt unsere Kenntnisse auf eine Analyse von Fragen anwenden, die bei Time-sharing Anwendungen auftreten. \\
-Wir betrachten den einfachsten Fall, daß nur eine CPU vorhanden ist, die 'gleichzeitig' mehrere Programme bearbeiten muß.
-Dazu wird jeweils eines der wartenden Programme ausgewählt, in den Hauptspeicher geladen, eine kurze Zeit (die sog. \index{Zeitscheibe}'Zeitscheibe') gerechnet,
+Wir betrachten den einfachsten Fall, daß nur eine CPU vorhanden ist, die \enquote{gleichzeitig} mehrere Programme bearbeiten muß.
+Dazu wird jeweils eines der wartenden Programme ausgewählt, in den Hauptspeicher geladen, eine kurze Zeit (die sog. \index{Zeitscheibe}\enquote{Zeitscheibe}) gerechnet,
 aus dem
 Hauptspeicher entfernt, und das Spiel mit dem nächsten Programm fortgesetzt. Jedes Programm braucht eine bestimmte \index{Rechenzeit}Rechenzeit $x$, und sobald
 diese Zeit (in
@@ -260,7 +260,7 @@ Rechenzeit treffen. Dabei können wir verschiedene Ziele verfolgen:
 \begin{enumerate}
 \item kurze Programme sollen möglichst schnell erledigt werden. Dadurch wird die Anzahl der Programme im System klein gehalten, was den Verwaltungsaufwand
 reduziert; außerdem ist es psychologisch ungünstig, wenn ein Kunde auf ein 2-Sekunden-Programm eine Stunde warten muß.
-\item eine möglichst 'gerechte' Verteilung wäre eine, bei der die Zeit, die ein Job im System verbringt, proportional zur Rechenzeit ist; nur dann ist es nicht
+\item eine möglichst \enquote{gerechte} Verteilung wäre eine, bei der die Zeit, die ein Job im System verbringt, proportional zur Rechenzeit ist; nur dann ist es nicht
 möglich, durch Aufteilen eines langen Programmes in mehrere kürzere bzw. durch Zusammenfassen mehrere kürzere Programme einen Zeitgewinn zu erzielen.
 \end{enumerate}
 
@@ -285,7 +285,7 @@ Mithilfe des Satzes von Little ergibt sich die Beziehung
 \[n(u)=\lambda (1-B(u))\frac{dT(u)}{du} ~.  \]
 Wir betrachten die folgende Strategien:
 \begin{enumerate}
-\item {\bf FCFS} ('Batch')
+\item {\bf FCFS} (\enquote{Batch})
 \item {\bf LCFS} (prä-emptiv): ein Job, der das System betritt, wird sofort bearbeitet (ein eventuell laufender Job wird dazu unterbrochen); wenn ein Job fertig
 ist, wird der zuletzt unterbrochene weiterbearbeitet.
 \item {\bf \index{Round Robin}Round Robin (RR)}: alle Jobs, die im System sind, werden der Reihe nach bearbeitet (abwechselnd).
@@ -304,11 +304,11 @@ Während $T(u)$ kommen $\lambda T(u)$ Programme an, jedes bringt im Schnitt $\E(
 \[T(u) = u + \lambda T(u)\E(x)=u + \rho T(u) ~,\]
 also
 \[T(u)=\frac{u}{1-\rho} ~. \]
-Wir haben also ein 'gerechtes' Verfahren gefunden.
+Wir haben also ein \enquote{gerechtes} Verfahren gefunden.
 \item Wenn sich $N$ Programme im System befinden, bekommt ein bestimmtes Programm $\frac{1}{N}$ der gesamten Rechenzeit. \\
 Daher ist $dT(u) = Ndu$. Da nur gerechnet wird, wenn das System nicht leer ist, ergibt sich:
 \[ T(u)=u\E(N \mid N \not= 0)=Cu, \]
-also wieder ein 'gerechtes' System. Um $C$ zu bestimmen, betrachten wir den Fall $u \rightarrow \infty$. Wenn $u$ groß ist, werden die meisten Jobs, die während
+also wieder ein \enquote{gerechtes} System. Um $C$ zu bestimmen, betrachten wir den Fall $u \rightarrow \infty$. Wenn $u$ groß ist, werden die meisten Jobs, die während
 $T(u)$ ankommen, auch noch während $T(u)$ das System verlassen. Für großes $u$ ist also das Verhalten ähnlich wie im vorigen Fall, und wir erhalten wieder
 \[T(u)=\frac{u}{1-\rho} ~. \]
 \item Wenn wir ein Programm betrachten, das genau $u$ Sekunden Rechenzeit benötigt, dann sehen wir, daß für $T(u)$ von der Rechenzeit aller anderen Programme
@@ -463,7 +463,7 @@ Dichtefunktion ist, d.h.
 \begin{displaymath}
 f \geq 0 \qquad \mbox{und} \qquad \int_{0}^{\infty} f(x)dx = 1 ~,
 \end{displaymath}
-hei\3t
+heißt
 \begin{displaymath}
 \hat F(t) = \int_{0}^{\infty} e^{-xt} f(x)dx
 \end{displaymath}
@@ -490,7 +490,7 @@ Falls $X$ Dichte $f$ hat, ist
 \end{displaymath}
 \item Falls $X$, $T$ unabhängig sind, ist die Transformierte der Summe
 das Produkt der Transformierten.
-\item Weiters sei $N_{t}$ ein \index{Poissonproze\3}Poissonproze\3 (d.h. eine Folge von
+\item Weiters sei $N_{t}$ ein \index{Poissonprozeß}Poissonprozeß (d.h. eine Folge von
 Ereignissen, wobei die Zeit zwischen zwei Ereignissen nach $M_{\lambda}$
 verteilt ist. $N_{t}$ ist die Anzahl dieser Ereignisse im Intervall
 $[0,t])$. Für eine zufällige Zeit $T$ wollen wir die Anzahl $N_{T}$ von
