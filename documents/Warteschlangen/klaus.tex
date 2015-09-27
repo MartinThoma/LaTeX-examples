@@ -1,26 +1,26 @@
 
 %-----------------------------------------------------------------------------------------------------------------
-\chapter{Absch"atzungen und N"aherungen}
+\chapter{Abschätzungen und Näherungen}
 %-----------------------------------------------------------------------------------------------------------------
-\section{Absch"atzungen}
+\section{Abschätzungen}
 %------------------------------------------------------------------------------------------------------------------
-Die Ergebnisse des vorigen Abschnittes sind deswegen etwas unbefriedigend, weil die angestrebte Zerlegung nur in 
-Spezialf"allen m"oglich ist. Im allgemeinen Fall m"ussen wir uns darauf beschr"anken, Absch"atzungen und
-n"aherungsweise L"osungen zu finden.
+Die Ergebnisse des vorigen Abschnittes sind deswegen etwas unbefriedigend, weil die angestrebte Zerlegung nur in
+Spezialfällen möglich ist. Im allgemeinen Fall müssen wir uns darauf beschränken, Abschätzungen und
+näherungsweise Lösungen zu finden.
 
 Wir gehen wieder von unserer Rekursionsgleichung aus:
 \[w_{n+1} = (w_{n}+u_{n})_{+} \]
-Wir f"uhren eine neue Zufallsvariable $y_{n}$ ein, die den entsprechenden Negativteil darstellt:
+Wir führen eine neue Zufallsvariable $y_{n}$ ein, die den entsprechenden Negativteil darstellt:
 \[y_{n} = (w_{n}+u_{n})_{-}  ~ ~ ~ ~ ~ ((x)_{-} := (-x)_{+}) ~. \]
 Damit erhalten wir
 \[ w_{n+1}-y_{n} = w_{n}+u_{n} ~.\]
-Das gibt f"ur die Erwartungswerte:
+Das gibt für die Erwartungswerte:
 \[\E(w_{n+1})-\E(y_{n}) = \E(w_{n})+\E(u_{n}) ~.\]
-F"ur $n$ $\rightarrow$ $\infty$ ergibt sich
+Für $n$ $\rightarrow$ $\infty$ ergibt sich
 \[-\E(y) = \E(u) = \E(x) - \E(t) \qquad \mbox{oder} \qquad \E(y) = \E(t) - \E(x) ~.\]
-Leider haben wir keine Beziehung f"ur die Wartezeit (Anmerkung: in den letzten Gleichungen steht nur eine Beziehung f"ur die Verteilungen).
+Leider haben wir keine Beziehung für die Wartezeit (Anmerkung: in den letzten Gleichungen steht nur eine Beziehung für die Verteilungen).
 
-Als n"achstes quadrieren wir die Ausgangsgleichung
+Als nächstes quadrieren wir die Ausgangsgleichung
 \[ w_{n+1}^{2}+y_{n}^{2}-2w_{n+1}y_{n}=w_{n}^{2}+2w_{n}u_{n}+u_{n}^{2} ~.\]
 Wegen \( (x)_{+}(x)_{-} = 0 \)  ist \( w_{n+1}y_{n} = 0 ~,\) also
 \[w_{n+1}^2 + y_{n}^2 = w_{n}^2+2w_{n}u_{n}+u_{n}^2 ~.\]
@@ -29,104 +29,104 @@ Wenn wir wieder die Erwartungswerte berchnen und \(n \rightarrow \infty \) gehen
 \E(w^{2})+\E(y^{2})&=&\E(w^{2})+2\E(wu)+\E(u^{2}) = \\
                    &=&\E(w^{2})+2\E(w)\E(u)+\E(u^{2}) \\
 \end{eqnarray*}
-($w_{n}$ und $u_{n}$ sind ja unabh"angig).
+($w_{n}$ und $u_{n}$ sind ja unabhängig).
 
-Schlie"slich haben wir
+Schließlich haben wir
 \[\E(w) = \frac{\E(u^{2})-\E(y^{2})}{-2\E(u)} \qquad [\E(u) \mbox{ ist ja negativ}] ~.\]
-Wir erhalten eine obere Absch"atzung, wenn wir $\E(y^{2})$ nach unten absch"atzen. Dazu verhilft uns die Ungleichung
+Wir erhalten eine obere Abschätzung, wenn wir $\E(y^{2})$ nach unten abschätzen. Dazu verhilft uns die Ungleichung
 \[\E(y^{2}) \geq (\E(y))^{2} = (\E(u))^{2} \qquad  \mbox{also }\]
 \[\E(w^{2}) \leq \frac{{\bf Var}(u)}{-2\E(u)} = \frac{{\bf Var}(x)+{\bf Var}(t)}{-2\E(u)} ~.\]
-F"ur eine obere Absch"atzung f"ur $\E(y^{2})$ beachten wir, da"s
+Für eine obere Abschätzung für $\E(y^{2})$ beachten wir, daß
 \[y=(w+u)_{-} \leq (u)_{-} \quad \mbox{da} \quad w \geq 0 ~.\]
 Wegen$ \quad u^{2} = ((u)_{+}-(u)_{-})^{2} = ((u)_{+})^{2}+((u)_{-})^{2} \quad $erhalten wir
 \[\E(w) \geq \frac{(\E((u)_{+}))^{2}}{-2\E(u)} ~.\]
-Ein weiterer Weg, eine untere Absch"atzung zu finden ist folgender:
-\[\E(w_{n+1}) = \E(w_{n}+u_{n})_{+} = \E[\E((w_{n}+u_{n})_{+}\vert w_{n})] ~.\] 
-Wenn wir f"ur die Verteilungsfunktion von $u_{n}$
+Ein weiterer Weg, eine untere Abschätzung zu finden ist folgender:
+\[\E(w_{n+1}) = \E(w_{n}+u_{n})_{+} = \E[\E((w_{n}+u_{n})_{+}\vert w_{n})] ~.\]
+Wenn wir für die Verteilungsfunktion von $u_{n}$
 \[C(y)=\PP(u_{n} \leq y)    \]
 setzen, erhalten wir
 \[\E((w_{n}+u_{n})_{+} \vert w_{n} = y) = \int_{-y}^{\infty}(u+z)dC(z) = \int_{-y}^{\infty}(1-C(z))dz =: g(y) ~.\]
 Also
 \[\E(w_{n+1}) = \E(g(w_{n}))\]
-$g$ ist konvex ($g'$ ist monoton), also k"onnen wir die JENSEN'sche Ungleichung anwenden:
+$g$ ist konvex ($g'$ ist monoton), also können wir die JENSEN'sche Ungleichung anwenden:
 \[\E(g(w_{n})) \geq g(\E(w_{n}))~.\]
-F"ur $n \rightarrow \infty$ ergibt sich
+Für $n \rightarrow \infty$ ergibt sich
 \[\E(w) \geq g(\E(w)) ~.\]
-Wir betrachten die Gleichung 
+Wir betrachten die Gleichung
 \[g(y) = y ~.\]
 Die Funktion $y-g(y)$ hat die Ableitung $G(-y) \geq 0$, ist also monoton.\\
 Weiters ist $g(0) = \E((u_{n})_{+}) > 0 \mbox{ falls } W(u_{n} > 0) > 0$ ist (andernfalls ist $w = 0$).\\
-F"ur $n \rightarrow \infty$ ist $g(y) \rightarrow \E(u) < 0$, es gibt also eine eindeutig bestimmte L"osung $y_{0}$, f"ur die $g(y_{0}) = y_{o}$, und 
+Für $n \rightarrow \infty$ ist $g(y) \rightarrow \E(u) < 0$, es gibt also eine eindeutig bestimmte Lösung $y_{0}$, für die $g(y_{0}) = y_{o}$, und
 \[\E(w) \geq g(y_{o}) ~.\]
 
 %------------------------------------
-\section{N"aherungen}
+\section{Näherungen}
 %------------------------------------
 \bigskip
-"Ahnlich wie die Absch"atzungen des vorigen Kapitels sollen uns die N"aherungen dieses Abschnittes dazu dienen, ungef"ahre Aussagen "uber das qualitative
-Verhalten einer Warteschlange zu treffen. Eine M"oglichkeit besteht darin, die auftretenden Verteilungen durch solche zu ersetzen, f"ur die wir exakte Ergebnisse
-kennen. Dazu k"onnen wir etwa folgende Klassen von Verteilungen verwenden:
+Ähnlich wie die Abschätzungen des vorigen Kapitels sollen uns die Näherungen dieses Abschnittes dazu dienen, ungefähre Aussagen über das qualitative
+Verhalten einer Warteschlange zu treffen. Eine Möglichkeit besteht darin, die auftretenden Verteilungen durch solche zu ersetzen, für die wir exakte Ergebnisse
+kennen. Dazu können wir etwa folgende Klassen von Verteilungen verwenden:
 \begin{enumerate}
 
 \item {\bf Verteilungen mit rationaler Laplacetransformation}
 
-Man kann jede Verteilung durch Verteilungen mit rationalen Laplacetransformationen ann"ahern. F"ur diese Verteilungen kann \\
- man die Spektralzerlegung f"ur $G/G/1$ 'leicht' durchf"uhren: \\
-man findet die Nullstellen von Z"ahler und Nenner und ordnet sie, je nachdem in welcher Halbebene sie liegen, entweder
+Man kann jede Verteilung durch Verteilungen mit rationalen Laplacetransformationen annähern. Für diese Verteilungen kann \\
+ man die Spektralzerlegung für $G/G/1$ 'leicht' durchführen: \\
+man findet die Nullstellen von Zähler und Nenner und ordnet sie, je nachdem in welcher Halbebene sie liegen, entweder
 der Funktion $\Psi^{+}$ oder $\Psi^{-}$zu.
 
 \item {\bf Diskrete Verteilungen}
 
-"Ahnlich wie unter $1.$ kann man jede Verteilung durch eine diskrete Verteilung ann"ahern. Das folgende Beispiel zeigt, wie die diskreten Verteilungen behandelt
-werden k"onnen:\\
-Es sei 
+Ähnlich wie unter $1.$ kann man jede Verteilung durch eine diskrete Verteilung annähern. Das folgende Beispiel zeigt, wie die diskreten Verteilungen behandelt
+werden können:\\
+Es sei
 \begin{eqnarray*}
   \PP(t_{n}=1)=a, \quad \PP(t_{n}=2)=1-a \\
-  \PP(x_{n}=1)=b, \quad \PP(x_{n}=2)=1-b 
+  \PP(x_{n}=1)=b, \quad \PP(x_{n}=2)=1-b
 \end{eqnarray*}
 [$b>a$].
 
-F"ur $u_{n}=x_{n}-t_{n+1}$ ergibt sich:
+Für $u_{n}=x_{n}-t_{n+1}$ ergibt sich:
 \begin{eqnarray*}
    \PP(u_{n}=-1)&=&b(1-a) \\
    \PP(u_{n}=1)&=&a(1-b) \\
    \PP(u_{n}=0)&=&ab+(1-a)(1-b) ~.
 \end{eqnarray*}
-F"ur die station"are Verteilung der Wartezeit $w$ ergibt sich die Rekursion
+Für die stationäre Verteilung der Wartezeit $w$ ergibt sich die Rekursion
 \begin{eqnarray*}
   p_{k}&=&a(1-b)p_{k-1}+(ab+(1-a)(1-b))p_{k}+b(1-a)p_{k+1} \\
-  p_{0}&=&(a(1-b)+ab-(1-a)(1-b))p_{0}+b(1-a)p_{1} ~. 
-\end{eqnarray*} 
+  p_{0}&=&(a(1-b)+ab-(1-a)(1-b))p_{0}+b(1-a)p_{1} ~.
+\end{eqnarray*}
 Wir erhalten
 \begin{eqnarray*}
   p_{k}&=&p_{0}\left( \frac{a(1-b)}{b(1-a)}\right)^{k} \\
   p_{0}&=&1-\frac{a(1-b)}{b(1-a)}=\frac{b-a}{b(1-a)} ~.\\
 \end{eqnarray*}
-Falls wir mehr als zwei m"ogliche Werte f"ur $x$ bzw. $t$ haben, m"ussen wir eine Rekursion h"oherer Ordnung l"osen; dazu sind bekanntlich die Nullstellen des
-charakteristischen Polynoms zu bestimmen. Auch hier, ebenso wie im im vorigen Abschnitt, reduziert sich also das Problem auf die L"osung einer algebraischen
-Gleichung. Diese L"osung ist f"ur hohe Polynomgrade nur numerisch m"oglich. Dies und die Tatsache, da"s man nicht genau wei"s, wie eine 'gute' N"aherung zu
-w"ahlen
-ist, reduziert die Brauchbarkeit dieser beiden N"aherungen.
+Falls wir mehr als zwei mögliche Werte für $x$ bzw. $t$ haben, müssen wir eine Rekursion höherer Ordnung lösen; dazu sind bekanntlich die Nullstellen des
+charakteristischen Polynoms zu bestimmen. Auch hier, ebenso wie im im vorigen Abschnitt, reduziert sich also das Problem auf die Lösung einer algebraischen
+Gleichung. Diese Lösung ist für hohe Polynomgrade nur numerisch möglich. Dies und die Tatsache, daß man nicht genau weiß, wie eine 'gute' Näherung zu
+wählen
+ist, reduziert die Brauchbarkeit dieser beiden Näherungen.
 
-\item {\bf Approximation f"ur starke Auslastung ('Heavy traffic approximation')}
+\item {\bf Approximation für starke Auslastung ('Heavy traffic approximation')}
 
 Wir betrachten den Fall $\rho \approx 1$. \\
 Ausgangspunkt unserer Betrachtungen ist die Spektralzerlegung der $G/G/1$:
 \[\frac{\Psi^{+}(s)}{\Psi^{-}(s)}=\tilde A (-s)\tilde B (s)-1 ~.\]
-F"ur $s \rightarrow 0$ erhalten wir daraus die Entwicklung
+Für $s \rightarrow 0$ erhalten wir daraus die Entwicklung
 \begin{eqnarray*}
-  \frac{\Psi^{+}(s)}{\Psi^{-}(s)}&=&(\E(t)-\E(x))s+\frac{s^{2}}{2}\E((x-t)^{2})+o(s^{2})= \\   
+  \frac{\Psi^{+}(s)}{\Psi^{-}(s)}&=&(\E(t)-\E(x))s+\frac{s^{2}}{2}\E((x-t)^{2})+o(s^{2})= \\
                                  &=&(1-\rho)s\E(t)+\frac{s^{2}}{2}\E((x-t)^{2})+o(s^{2})=  \\
                                  &=&(1-\rho)s\E(t)+\frac{s^{2}}{2}({\bf Var}(x)+{\bf Var}(t)+ \\
                                  &+&(1-\rho)^{2}(\E(t))^{2}) + o(s^{2}) ~.
 \end{eqnarray*}
-F"ur $\rho \approx 1$ ist $(1-\rho)^{2}(\E(t))^{2}$ zu vernachl"assigen, also
+Für $\rho \approx 1$ ist $(1-\rho)^{2}(\E(t))^{2}$ zu vernachlässigen, also
 \begin{eqnarray*}
   \frac{\Psi^{+}(s)}{\Psi^{-}(s)}&\approx&(1-\rho)s\E(t)+\frac{s^{2}}{2}({\bf Var}(x)+{\bf Var}(t))+o(s^{2}) \approx \\
   &\approx&s(s-s_{0}) \frac{{\bf Var}(x)+{\bf Var}(t)}{2} ~.
 \end{eqnarray*}
 
-$\Psi^{+}(s)$ ist in der N"ahe von $0$ stetig, also haben wir
+$\Psi^{+}(s)$ ist in der Nähe von $0$ stetig, also haben wir
 \[\Psi^{+}(s) \approx Cs(s-s_{o})\]
 mit
 \[s_{0}=-\frac{2(1-\rho)\E(t)}{{\bf Var}(x)+{\bf Var}(t)} \]
@@ -134,47 +134,47 @@ und
 \[C=\Psi^{-}(0)\frac{{\bf Var}(x)+{\bf Var}(t)}{2} ~. \]
 Wir erhalten daraus
 \[\Phi(s) \approx -\frac{s_{0}}{s(s-s_{0})}=\frac{1}{s}-\frac{1}{s-s_{0}} ~.\]
-Also ergibt sich f"ur die Verteilungsfunktion der Wartezeit
+Also ergibt sich für die Verteilungsfunktion der Wartezeit
 \[ F(y) \approx 1 - e^{-y\frac{2\E(t)(1-\rho)}{{\bf Var}(x)+{\bf Var}(t)}} ~.\]
-Die Wartezeit ist also n"aherungsweise exponentialverteilt mit Mittel
+Die Wartezeit ist also näherungsweise exponentialverteilt mit Mittel
 \[\E(w)=\frac{{\bf Var}(x)+{\bf Var}(t)}{2\E(t)(1-\rho)} ~.\]
-Dieses Ergebnis kann man als \index{Satz!Zentraler Grenzwertsatz f\"{u}r Warteschlangen}'zentralen Grenzwertsatz' f"ur Warteschlangen betrachten.
+Dieses Ergebnis kann man als \index{Satz!Zentraler Grenzwertsatz für Warteschlangen}'zentralen Grenzwertsatz' für Warteschlangen betrachten.
 
 Das Mittel dieser Exponentialverteilung haben wir bereits als obere
-Absch"atzung f"ur die mittlere Wartezeit erhalten.
+Abschätzung für die mittlere Wartezeit erhalten.
 
 \item{\bf Die Flussapproximation}
 
-Diese N"aherung geht von einer einfachen Idee aus:\\
-Wir ersetzen die Ank"unfte und Bedienvorg"ange durch konstante Str"ome von $\lambda$ bzw. $\mu$ Kunden
-pro Zeiteinheit. In unserem Standardmodell $(\lambda < \mu)$ ergibt sich aus dieser N"aherung nat"urlich, da"s die 
+Diese Näherung geht von einer einfachen Idee aus:\\
+Wir ersetzen die Ankünfte und Bedienvorgänge durch konstante Ströme von $\lambda$ bzw. $\mu$ Kunden
+pro Zeiteinheit. In unserem Standardmodell $(\lambda < \mu)$ ergibt sich aus dieser Näherung natürlich, daß die
 Schlange stets leer ist, was offensichtlich nicht sehr brauchbar ist.
 
-F"ur zwei F"alle gibt diese Approximation aber doch interessante Resultate:
+Für zwei Fälle gibt diese Approximation aber doch interessante Resultate:
    \begin{enumerate}
-   \item Falls $\mu < \lambda$ ist, w"achst die Anzahl der Kunden im System um $(\lambda - \mu)$ Kunden pro Zeiteinheit. 
-   \item Falls $\lambda < \mu$ ist, und falls die Anzahl der Kunden gro"s ist, kann man die Zeit, bis das System wieder leer ist, mit Hilfe dieser
-         N"aherung berechnen.
+   \item Falls $\mu < \lambda$ ist, wächst die Anzahl der Kunden im System um $(\lambda - \mu)$ Kunden pro Zeiteinheit.
+   \item Falls $\lambda < \mu$ ist, und falls die Anzahl der Kunden groß ist, kann man die Zeit, bis das System wieder leer ist, mit Hilfe dieser
+         Näherung berechnen.
    \end{enumerate}
 
-\item{\bf Die Diffusionsn"aherung}
+\item{\bf Die Diffusionsnäherung}
 
-Dies ist wie die vorige N"aherung eine Approximation durch einen kontinuierlichen Proze"s. Diesmal wird auch die Varianz betrachtet.
+Dies ist wie die vorige Näherung eine Approximation durch einen kontinuierlichen Prozeß. Diesmal wird auch die Varianz betrachtet.
 
 Es sei $N_{a}(u)$ die Anzahl der Kunden, die bis zur Zeit $t$ ankommen.\\
 Es gilt die Beziehung
 \[ N_{a}(u) \geq n \Leftrightarrow T_{n} \geq u \]
-$T_{n}$ ist, wie "ublich, die Ankunftszeit des $n$-ten Kunden.
+$T_{n}$ ist, wie üblich, die Ankunftszeit des $n$-ten Kunden.
 
-Aus dem Gesetz der gro"sen Zahlen folgt:
+Aus dem Gesetz der großen Zahlen folgt:
 \[ T_{n} \approx n\E(t) ~.\]
 Das impliziert
 \[N_{a}(u) \approx \lambda u ~. \]
 Der zentrale Grenzwertsatz gibt uns
 \[\PP(T_{n} \leq n\E(t)+z\sqrt{n{\bf Var}(t)}) = \Phi (z) ~.   \]
-Daraus ergibt sich f"ur gro"ses n
+Daraus ergibt sich für großes n
 \begin{eqnarray*}
-& &\PP(N_{a}\geq\lambda u + y\sqrt{u}) = \\ 
+& &\PP(N_{a}\geq\lambda u + y\sqrt{u}) = \\
 & & ~ ~=\PP(T_{\lambda u + y\sqrt{u}} \leq u) = \\
 & & ~ ~=\PP(T_{\lambda u + y\sqrt{u}} \leq \E(t)(\lambda u + y\sqrt{u}) - y\E(t)\sqrt{u} ) = \\
 & & ~ ~=\PP(T_{\lambda u + y\sqrt{u}} \leq \E(t)(\lambda u + y\sqrt{u}) - \\
@@ -183,22 +183,22 @@ Daraus ergibt sich f"ur gro"ses n
 & & ~ ~ ~ ~ ~-\frac{y}{\sqrt{\lambda ^{3}{\bf Var}(t)}}\sqrt{{\bf Var}(t)(\lambda u + y\sqrt{u})}) \\
 & &~ ~=1 - \Phi(\frac{y}{\sqrt{\lambda ^{3}{\bf Var}(t)}}) ~.
 \end{eqnarray*}
-$N_{a}(u)$ ist also n"aherungsweise normalverteilt mit Mittel $u\lambda$ und Varianz $u\lambda^{3}{\bf Var}(t)$. Genauso erh"alt man f"ur die Anzahl $N_{b}(u)$
+$N_{a}(u)$ ist also näherungsweise normalverteilt mit Mittel $u\lambda$ und Varianz $u\lambda^{3}{\bf Var}(t)$. Genauso erhält man für die Anzahl $N_{b}(u)$
 der
-Kunden, die w"ahrend der Zeit $u$ bedient werden (wenn die Schlange nicht leer ist) eine n"aherungsweise Normalverteilung mit Mittel $\mu u$ und Varianz
-$\mu^{3}u{\bf Var}(x)$. Wir nehmen jetzt an, da"s diese Werte durch kontinuierliche Beitr"age zustande kommen, d.h. die 'Anzahl' der Ank"unfte (bzw.
-Bedienvorg"ange)
+Kunden, die während der Zeit $u$ bedient werden (wenn die Schlange nicht leer ist) eine näherungsweise Normalverteilung mit Mittel $\mu u$ und Varianz
+$\mu^{3}u{\bf Var}(x)$. Wir nehmen jetzt an, daß diese Werte durch kontinuierliche Beiträge zustande kommen, d.h. die 'Anzahl' der Ankünfte (bzw.
+Bedienvorgänge)
 in der kurzen Zeit $\Delta u$ soll normalverteilt mit Mittel $\lambda\Delta u$ (bzw. $\mu\Delta u$) und Varianz $\lambda^{3}\Delta u{\bf Var}(t)$ (bzw.
 $\mu^{3}\Delta
-u{\bf Var}(x)$) sein. Die Anzahl der Ank"unfte bzw. Bedienvorg"ange "uber disjunkten Intervallen sollen nat"urlich unabh"angig sein. Die "Anderung der Anzahl der
+u{\bf Var}(x)$) sein. Die Anzahl der Ankünfte bzw. Bedienvorgänge über disjunkten Intervallen sollen natürlich unabhängig sein. Die Änderung der Anzahl der
 Kunden
-im System w"ahrend der Zeit $\Delta u$ ist dann normalverteilt mit Mittel $\Delta u(\lambda - \mu)$ und Varianz $\Delta u\sigma^{2}$ mit $\sigma^{2} =
+im System während der Zeit $\Delta u$ ist dann normalverteilt mit Mittel $\Delta u(\lambda - \mu)$ und Varianz $\Delta u\sigma^{2}$ mit $\sigma^{2} =
 \lambda^{3}{\bf Var}(t) + \mu^{3}{\bf Var}(x)$.\\
-(Die letzte Beziehung gilt nat"urlich nur, wenn die Anzahl der Kunden im System $> 0$ ist).
+(Die letzte Beziehung gilt natürlich nur, wenn die Anzahl der Kunden im System $> 0$ ist).
 
-Es sei nun 
+Es sei nun
 \[F(x,u) = \PP(N(u) \leq x) ~.\]
-Wir stellen eine Gleichung f"ur $F(x,u+\Delta u)$ auf, dabei sei $X(\Delta u)$ die "Anderung der Kunden w"ahrend $\Delta u$: 
+Wir stellen eine Gleichung für $F(x,u+\Delta u)$ auf, dabei sei $X(\Delta u)$ die Änderung der Kunden während $\Delta u$:
 \begin{eqnarray*}
 F(x,u+\Delta u)&=&\PP(N(u+\Delta u) \leq x) = \\
                &=&\PP(N(u)+X(\Delta u) \leq x) = \\
@@ -211,7 +211,7 @@ F(x,u+\Delta u)&=&\PP(N(u+\Delta u) \leq x) = \\
                &=&F(x,u)-F_{x}(x,u)\Delta u(\lambda-\mu) + \\
                & &+\frac{1}{2}F_{xx}(x,u)\sigma^{2}\Delta u + o(\Delta u) ~.
 \end{eqnarray*}
-Wenn man $F(x,u)$ nach links bringt, durch $\Delta u$ dividiert, und $\Delta u \rightarrow 0$ gehen l"a"st, ergibt sich
+Wenn man $F(x,u)$ nach links bringt, durch $\Delta u$ dividiert, und $\Delta u \rightarrow 0$ gehen läßt, ergibt sich
 \begin{eqnarray*}
 F_{u}(x,u)&=&(\mu - \lambda)F_{x}(x,u) + \frac{1}{2}\sigma^{2}F_{xx}(x,u) \qquad (x \geq 0) \\
       & & \\
@@ -219,10 +219,10 @@ F(x,0)&=&1 \qquad (x \geq 0) \\
 F(x,0)&=&0 \qquad (x < 0) \\
 F(0,u)&=&0 \qquad (u > 0) ~.
 \end{eqnarray*}
-Die Anfangsbedingung ergibt sich aus der Forderung, da"s das System zur Zeit $0$ leer sein soll, und die Randbedingung daraus, da"s die Anzahl der Kunden nicht
+Die Anfangsbedingung ergibt sich aus der Forderung, daß das System zur Zeit $0$ leer sein soll, und die Randbedingung daraus, daß die Anzahl der Kunden nicht
 negativ sein darf.
 
-Man kann sehr leicht die L"osung der Gleichung ohne Randbedingung finden, indem man die Laplace-Transformation anwendet:
+Man kann sehr leicht die Lösung der Gleichung ohne Randbedingung finden, indem man die Laplace-Transformation anwendet:
 \[G(z,u)=\int_{-\infty}^{\infty} e^{-xz}F(x,u)dx ~.\]
 Wir erhalten nach einigen partiellen Integrationen:
 \[G_{u}(z,u) = (\mu-\lambda)zG(z,u)+\frac{1}{2}\lambda^{2}z^{2}G(z,u) ~, \]
@@ -232,49 +232,48 @@ und, da $G(z,0)=\frac{1}{z}$
 \[G(z,u) = \frac{1}{z}e^{\frac{1}{2}\sigma^{2}uz^{2}+(\mu - \lambda)zu} ~.\]
 Die Inversion der Laplace-Transformation liefert
 \[F(x,u)=\Phi\left(\frac{x+(\mu - \lambda)u}{\sqrt{\sigma^{2}u}}\right) ~.  \]
-Um die Gleichung mit der Randbedingung zu l"osen, suchen wir zuerst die station"are Verteilung. Diese ergibt sich aus der obigen Gleichung, wenn $F(x,u)$ nicht
-von $u$ abh"angt. Dann ist nat"urlich die Ableitung nach $u = 0$, und wir erhalten:
+Um die Gleichung mit der Randbedingung zu lösen, suchen wir zuerst die stationäre Verteilung. Diese ergibt sich aus der obigen Gleichung, wenn $F(x,u)$ nicht
+von $u$ abhängt. Dann ist natürlich die Ableitung nach $u = 0$, und wir erhalten:
 \[ F'_{0}(x)(\mu - \lambda)+\frac{1}{2}\sigma^{2}F''(x)=0 ~. \]
-Diese Gleichung hat die allgemeine L"osung
+Diese Gleichung hat die allgemeine Lösung
 \[F(x) = C_{1}+C_{2}e^{\frac{2(\lambda - \mu)}{\sigma^{2}}x} ~. \]
 Da $F(0) = 0$ und $F(\infty) = 1$ sein soll, erhalten wir
 \[F(x) = 1-e^{\frac{2(\lambda - \mu)}{\sigma^{2}}x} ~.  \]
-Es ergibt sich also wieder eine Exponentialverteilung f"ur die Wartezeit. F"ur $\rho \rightarrow 1$ stimmt diese Verteilung in erster N"aherung mit der aus
-Abschnitt $3.$ "uberein. Mit etwas mehr Arbeit kann man die folgende L"osung der partiellen Differentialgleichung erhalten:
+Es ergibt sich also wieder eine Exponentialverteilung für die Wartezeit. Für $\rho \rightarrow 1$ stimmt diese Verteilung in erster Näherung mit der aus
+Abschnitt $3.$ überein. Mit etwas mehr Arbeit kann man die folgende Lösung der partiellen Differentialgleichung erhalten:
 \[F(x,u)=\Phi\left(\frac{x+u(\mu - \lambda)}{\sqrt{\sigma^{2}u}}\right)-e^{\frac{2(\mu - \lambda)}{\sigma^{2}}x}\Phi\left(\frac{-x+u(\mu -
-\lambda)}{\sigma^{2}}\right) ~.\] 
+\lambda)}{\sigma^{2}}\right) ~.\]
 \end {enumerate}
 %------------------------------------------------------------------------------------
 \chapter{Time-Sharing}
 %------------------------------------------------------------------------------------
 Wir wollen jetzt unsere Kenntnisse auf eine Analyse von Fragen anwenden, die bei Time-sharing Anwendungen auftreten. \\
-Wir betrachten den einfachsten Fall, da"s nur eine CPU vorhanden ist, die 'gleichzeitig' mehrere Programme bearbeiten mu"s.
-Dazu wird jeweils eines der wartenden Programme ausgew"ahlt, in den Hauptspeicher geladen, eine kurze Zeit (die sog. \index{Zeitscheibe}'Zeitscheibe') gerechnet,
+Wir betrachten den einfachsten Fall, daß nur eine CPU vorhanden ist, die 'gleichzeitig' mehrere Programme bearbeiten muß.
+Dazu wird jeweils eines der wartenden Programme ausgewählt, in den Hauptspeicher geladen, eine kurze Zeit (die sog. \index{Zeitscheibe}'Zeitscheibe') gerechnet,
 aus dem
-Hauptspeicher entfernt, und das Spiel mit dem n"achsten Programm fortgesetzt. Jedes Programm braucht eine bestimmte \index{Rechenzeit}Rechenzeit $x$, und sobald
+Hauptspeicher entfernt, und das Spiel mit dem nächsten Programm fortgesetzt. Jedes Programm braucht eine bestimmte \index{Rechenzeit}Rechenzeit $x$, und sobald
 diese Zeit (in
-Form von einzelnen Zeitscheiben) abgearbeitet ist, verl"a"st das Programm das System. Da wir keine a-priori Information "uber die Rechenzeit eines Programmes 
-voraussetzen, k"onnen wir die Jobs nur aufgrund der schon verbrauchten Rechenzeit klassifizieren, und die Auswahl des n"achsten Programms nach dieser verbrauchten 
-Rechenzeit treffen. Dabei k"onnen wir verschiedene Ziele verfolgen:
+Form von einzelnen Zeitscheiben) abgearbeitet ist, verläßt das Programm das System. Da wir keine a-priori Information über die Rechenzeit eines Programmes
+voraussetzen, können wir die Jobs nur aufgrund der schon verbrauchten Rechenzeit klassifizieren, und die Auswahl des nächsten Programms nach dieser verbrauchten
+Rechenzeit treffen. Dabei können wir verschiedene Ziele verfolgen:
+
 \begin{enumerate}
-\begin{enumerate}
-\item kurze Programme sollen m"oglichst schnell erledigt werden. Dadurch wird die Anzahl der Programme im System klein gehalten, was den Verwaltungsaufwand
-reduziert; au"serdem ist es psychologisch ung"unstig, wenn ein Kunde auf ein 2-Sekunden-Programm eine Stunde warten mu"s. 
-\item eine m"oglichst 'gerechte' Verteilung w"are eine, bei der die Zeit, die ein Job im System verbringt, proportional zur Rechenzeit ist; nur dann ist es nicht 
-m"oglich, durch Aufteilen eines langen Programmes in mehrere k"urzere bzw. durch Zusammenfassen mehrere k"urzere Programme einen Zeitgewinn zu erzielen.
-\end{enumerate} 
+\item kurze Programme sollen möglichst schnell erledigt werden. Dadurch wird die Anzahl der Programme im System klein gehalten, was den Verwaltungsaufwand
+reduziert; außerdem ist es psychologisch ungünstig, wenn ein Kunde auf ein 2-Sekunden-Programm eine Stunde warten muß.
+\item eine möglichst 'gerechte' Verteilung wäre eine, bei der die Zeit, die ein Job im System verbringt, proportional zur Rechenzeit ist; nur dann ist es nicht
+möglich, durch Aufteilen eines langen Programmes in mehrere kürzere bzw. durch Zusammenfassen mehrere kürzere Programme einen Zeitgewinn zu erzielen.
 \end{enumerate}
 
 Wir machen folgende Annahmen:
 \begin{enumerate}
-\item Die Ank"unfte erfolgen nach einem Poissonproze"s mit Rate $\lambda$, die Rechenzeiten sind unabh"angig mit Verteilungsfunktion $B$ (wir haben also eine
+\item Die Ankünfte erfolgen nach einem Poissonprozeß mit Rate $\lambda$, die Rechenzeiten sind unabhängig mit Verteilungsfunktion $B$ (wir haben also eine
 $M/G/1$-Situation) mit Dichte $b$.
-\item Die Zeitscheibe nehmen wir als infinitesimal an; weiters nehmen wir an, da"s wir die Zeit zum Austauschen vernachl"assigen k"onnen.
-\item Wir betrachten nur die station"aren Verteilungen.
+\item Die Zeitscheibe nehmen wir als infinitesimal an; weiters nehmen wir an, daß wir die Zeit zum Austauschen vernachlässigen können.
+\item Wir betrachten nur die stationären Verteilungen.
 \end{enumerate}
-$N(u)$ sei die mittlere Anzahl von Jobs, deren verbrauchte Rechenzeit $\leq u$ ist. Dazu m"oge eine Dichte $n(u)$ existieren, soda"s
+$N(u)$ sei die mittlere Anzahl von Jobs, deren verbrauchte Rechenzeit $\leq u$ ist. Dazu möge eine Dichte $n(u)$ existieren, sodaß
 \[N(u)=\int_{0}^{u}n(s)ds  \]
-ist. 
+ist.
 
 $T(u)$ sei die Zeit, die im Durchschnitt vergeht, bis ein Job $u$ Sekunden Rechenzeit bekommt. \\
 $W(u)$ sei die Wartezeit eines Jobs mit $u$ Sekunden Rechenzeit, also
@@ -287,7 +286,7 @@ Mithilfe des Satzes von Little ergibt sich die Beziehung
 Wir betrachten die folgende Strategien:
 \begin{enumerate}
 \item {\bf FCFS} ('Batch')
-\item {\bf LCFS} (pr"a-emptiv): ein Job, der das System betritt, wird sofort bearbeitet (ein eventuell laufender Job wird dazu unterbrochen); wenn ein Job fertig
+\item {\bf LCFS} (prä-emptiv): ein Job, der das System betritt, wird sofort bearbeitet (ein eventuell laufender Job wird dazu unterbrochen); wenn ein Job fertig
 ist, wird der zuletzt unterbrochene weiterbearbeitet.
 \item {\bf \index{Round Robin}Round Robin (RR)}: alle Jobs, die im System sind, werden der Reihe nach bearbeitet (abwechselnd).
 \item Es wird jeweils der Job bearbeitet, der am wenigsten Rechenzeit verbraucht hat.
@@ -295,13 +294,13 @@ ist, wird der zuletzt unterbrochene weiterbearbeitet.
 Es sollte Strategie 4 kurze Jobs am meisten bevorzugen, 1 am wenigsten, 2 und 3 sollten dazwischen liegen.
 
 \begin{enumerate}
-\item Kennen wir von fr"uher; hier ist die Wartezeit $W(u)$ konstant, und zwar ist
+\item Kennen wir von früher; hier ist die Wartezeit $W(u)$ konstant, und zwar ist
 \[W(u) = \frac{\lambda \E(x^{2})}{2(1-\rho)} \]
 und
 \[T(u) = u + \frac{\lambda \E(x^{2})}{2(1-\rho)} ~.  \]
-\item Hier ist $T(u)$ leicht zu bestimmen. Denn $T(u)$ ist gleich der Rechenzeit $u$ plus der Summe der Rechenzeiten aller Programme, die w"ahrend $T(u)$
+\item Hier ist $T(u)$ leicht zu bestimmen. Denn $T(u)$ ist gleich der Rechenzeit $u$ plus der Summe der Rechenzeiten aller Programme, die während $T(u)$
 ankommen.
-W"ahrend $T(u)$ kommen $\lambda T(u)$ Programme an, jedes bringt im Schnitt $\E(x)$ Sekunden Rechenzeit mit, also gilt
+Während $T(u)$ kommen $\lambda T(u)$ Programme an, jedes bringt im Schnitt $\E(x)$ Sekunden Rechenzeit mit, also gilt
 \[T(u) = u + \lambda T(u)\E(x)=u + \rho T(u) ~,\]
 also
 \[T(u)=\frac{u}{1-\rho} ~. \]
@@ -309,11 +308,11 @@ Wir haben also ein 'gerechtes' Verfahren gefunden.
 \item Wenn sich $N$ Programme im System befinden, bekommt ein bestimmtes Programm $\frac{1}{N}$ der gesamten Rechenzeit. \\
 Daher ist $dT(u) = Ndu$. Da nur gerechnet wird, wenn das System nicht leer ist, ergibt sich:
 \[ T(u)=u\E(N \mid N \not= 0)=Cu, \]
-also wieder ein 'gerechtes' System. Um $C$ zu bestimmen, betrachten wir den Fall $u \rightarrow \infty$. Wenn $u$ gro"s ist, werden die meisten Jobs, die w"ahrend
-$T(u)$ ankommen, auch noch w"ahrend $T(u)$ das System verlassen. F"ur gro"ses $u$ ist also das Verhalten "ahnlich wie im vorigen Fall, und wir erhalten wieder
+also wieder ein 'gerechtes' System. Um $C$ zu bestimmen, betrachten wir den Fall $u \rightarrow \infty$. Wenn $u$ groß ist, werden die meisten Jobs, die während
+$T(u)$ ankommen, auch noch während $T(u)$ das System verlassen. Für großes $u$ ist also das Verhalten ähnlich wie im vorigen Fall, und wir erhalten wieder
 \[T(u)=\frac{u}{1-\rho} ~. \]
-\item Wenn wir ein Programm betrachten, das genau $u$ Sekunden Rechenzeit ben"otigt, dann sehen wir, da"s f"ur $T(u)$ von der Rechenzeit aller anderen Programme
-nur der Teil von Bedeutung ist, der kleiner als $u$ ist. Aus der Sicht dieses Programmes k"onnen wir also $x$ durch $(x \land u)$ ersetzen, und die
+\item Wenn wir ein Programm betrachten, das genau $u$ Sekunden Rechenzeit benötigt, dann sehen wir, daß für $T(u)$ von der Rechenzeit aller anderen Programme
+nur der Teil von Bedeutung ist, der kleiner als $u$ ist. Aus der Sicht dieses Programmes können wir also $x$ durch $(x \land u)$ ersetzen, und die
 Verteilungsfunktion $B$ durch:
 \[
 B_{u}(y) =  \left\{
@@ -321,30 +320,30 @@ B_{u}(y) =  \left\{
 B(y) & y<u \\
 1 & y \geq u
 \end{array} \right. ~.
-\] 
+\]
 $W(u)$ setzt sich jetzt zusammen aus der restlichen Rechenzeit aller Programme, die vor unserem Programm angekommen sind, plus der Summe der Rechenzeiten von
-allen Programmen, die w"ahrend $T(u)$ ankommen. Der erste Teil ist im Mittel gleich der Wartezeit in $M_{\lambda}/B_{u}/1$, also gleich
+allen Programmen, die während $T(u)$ ankommen. Der erste Teil ist im Mittel gleich der Wartezeit in $M_{\lambda}/B_{u}/1$, also gleich
 \[W_{u}=\frac{\lambda \E((x \land u)^{2})}{2(1-\rho _{u})}  \]
 mit
 \[\rho _{u}=\lambda \E(x \wedge u) ~.\]
-F"ur den zweiten Teil ergibt sich
+Für den zweiten Teil ergibt sich
 \[\lambda T(u)\E(x \wedge u) = T(u)\rho _{u} ~.\]
 Wir bekommen die Gleichung
 \[T(u)=u+W_{u}+\rho _{u}T(u) ~,  \]
 also
 \[T(u)=\frac{u+W_{u}}{1-\rho_{u}} ~. \]
-F"ur $u \rightarrow 0$ ergibt sich
+Für $u \rightarrow 0$ ergibt sich
 \[T(u) \approx u ~, \]
-f"ur $u \rightarrow \infty$
+für $u \rightarrow \infty$
 \[T(u) \approx \frac{u}{1-\rho} ~. \]
 \end{enumerate}
- 
+
 %-------------------------------------------------------------------------------------------
-\chapter{Priorit"aten}
+\chapter{Prioritäten}
 %----------------------------------------------------------------------------------------------
-Wir betrachten den Fall, da"s es mehrere \index{Klassen}Klassen von Kunden gibt, die von unserem System unterschiedlich behandelt werden. Genauer gesagt soll es
+Wir betrachten den Fall, daß es mehrere \index{Klassen}Klassen von Kunden gibt, die von unserem System unterschiedlich behandelt werden. Genauer gesagt soll es
 $p > 0$ Klassen
-von Kunden geben. Die Kunden aus Klasse $i$ kommen nach einem Poissonproze"s mit Rate $\lambda_{i}$ an und ben"otigen eine Bedienzeit mit Verteilungsfunktion
+von Kunden geben. Die Kunden aus Klasse $i$ kommen nach einem Poissonprozeß mit Rate $\lambda_{i}$ an und benötigen eine Bedienzeit mit Verteilungsfunktion
 $B_{i}$ (wir betrachten also wieder eine $M/G/1$-Situation). Weiters sei
 \begin{eqnarray*}
 \lambda &=& \sum_{i=1}^{p}\lambda _{i} \\
@@ -352,12 +351,12 @@ B(y) &=& \frac{1}{\lambda}\sum_{i=1}^{p}\lambda _{i}B_{i}(y) \\
 \rho _{i} &=& \lambda _{i}\int ydB_{i}(y) \\
 \rho &=& \lambda \int ydB(y) ~.
 \end{eqnarray*}
-Es gibt jetzt eine ganze Reihe von M"oglichkeiten, Disziplinen zu definieren, die eine Klasse gegeb"uber anderen bevorzugen. Wir sprechen von unterschiedlichen
-{\bf \index{Priorit\"{a}ten}Priorit"aten}.
+Es gibt jetzt eine ganze Reihe von Möglichkeiten, Disziplinen zu definieren, die eine Klasse gegebüber anderen bevorzugen. Wir sprechen von unterschiedlichen
+{\bf \index{Prioritäten}Prioritäten}.
 
 Die Disziplinen, die wir untersuchen, sollen folgende Eigenschaften haben:
 \begin{enumerate}
-\item {\bf Nicht-pr"a-emptiv}: Ein einmal begonnener Bedienvorgang wird ohne Unterbrechung zu Ende gef"uhrt.
+\item {\bf Nicht-prä-emptiv}: Ein einmal begonnener Bedienvorgang wird ohne Unterbrechung zu Ende geführt.
 \item {\bf Arbeitserhaltend}: Niemand, der wartet, wird weggeschickt, ohne bedient zu worden zu sein.
 \end{enumerate}
 Weiters soll immer, wenn das System nicht leer ist, bedient werden.
@@ -366,83 +365,83 @@ Weiters soll immer, wenn das System nicht leer ist, bedient werden.
 \section{Ein Erhaltungssatz}
 %------------------------------
 
-$U_{t}$ sei die unverrichtete Zeit im System, d.h. die Zeit, die ben"otigt wird, um alle anwesenden Kunden fertig zu bedienen. Offensichtlich ist die Verteilung
-von $U_{t}$  unabh"angig von der Disziplin:  \\
-$U_{t}$ w"achst mit jeder Ankunft eines Kunden um seine Bedienzeit an, und f"allt pro Sekunde um $1$ Sekunde, solange $U_{t}>0$ ist. Die station"are Verteilung
-von $U_{t}$ entspricht der Verteilung der Wartezeit eines zuf"allig ankommenden Kunden bei der FCFS-Disziplin. \\
+$U_{t}$ sei die unverrichtete Zeit im System, d.h. die Zeit, die benötigt wird, um alle anwesenden Kunden fertig zu bedienen. Offensichtlich ist die Verteilung
+von $U_{t}$  unabhängig von der Disziplin:  \\
+$U_{t}$ wächst mit jeder Ankunft eines Kunden um seine Bedienzeit an, und fällt pro Sekunde um $1$ Sekunde, solange $U_{t}>0$ ist. Die stationäre Verteilung
+von $U_{t}$ entspricht der Verteilung der Wartezeit eines zufällig ankommenden Kunden bei der FCFS-Disziplin. \\
 Insbesondere ist
 \[\E(U) = \frac{\lambda \E(x^{2})}{2(1-\rho)} ~  \]
 wobei $x$ nach der Funktion $B$ verteilt ist.
 
-Wir berechnen jetzt $\E(U)$ auf eine andere Art. Dazu bezeichnen wir mit $W_{i}$, $i=1, \dots , p$, die mittlere Wartezeit eines Kunden mit Priorit"at $i$, und
+Wir berechnen jetzt $\E(U)$ auf eine andere Art. Dazu bezeichnen wir mit $W_{i}$, $i=1, \dots , p$, die mittlere Wartezeit eines Kunden mit Priorität $i$, und
 mit
-$N_{i}$ die Anzahl der Kunden aus der $i$-ten Priorit"atsgruppe in der Warteschlange.
+$N_{i}$ die Anzahl der Kunden aus der $i$-ten Prioritätsgruppe in der Warteschlange.
 
-$\E(U)$ setzt sich jetzt aus folgenden Beitr"agen zusammen:
+$\E(U)$ setzt sich jetzt aus folgenden Beiträgen zusammen:
 \begin{enumerate}
-\item $W_{0}$: die mittlere restliche Bedienzeit f"ur den Kunden, der gerade bedient wird.
-\item Die Summe der mittleren Bedienzeiten f"ur alle Kunden, die sich in der Warteschlange befinden.
+\item $W_{0}$: die mittlere restliche Bedienzeit für den Kunden, der gerade bedient wird.
+\item Die Summe der mittleren Bedienzeiten für alle Kunden, die sich in der Warteschlange befinden.
 \end{enumerate}
-Um $W_{0}$ zu bestimmen, stellen wir fest, da"s $W_{0}$ gleich der Zeit ist, die ein zuf"allig ankommender Kunde warten mu"s, bis der Kunde fertig ist, der gerade
+Um $W_{0}$ zu bestimmen, stellen wir fest, daß $W_{0}$ gleich der Zeit ist, die ein zufällig ankommender Kunde warten muß, bis der Kunde fertig ist, der gerade
 bedient wird. Mit Wahrscheinlichkeit $(1-\rho)$ findet der ankommende Kunde das System leer vor. Falls der Server besetzt ist, kann man die Verteilung der
-restlichen Bedienzeit folgenderma"sen bestimmen: \\
-Wir betrachten eine gro"se Anzahl $n$ von unabh"angigen Variablen mit Verteilung $B$. Ihre Summe ist nach dem Gesetz der gro"sen Zahlen $\approx n\E(x)$. Wenn wir
-in dem Intervall der L"ange $n\E(x)$ einen Punkt zuf"allig w"ahlen, ist die Chance, da"s wir bis zum Ende des Teilintervalls, in das der zuf"allig gew"ahlte Punkt
-f"allt, einen Abstand zwischen $u$ und $u+\Delta u$ haben, gleich $\frac{\Delta u}{n\E(x)}$ mal der Anzahl der Intervalle mit L"ange $> u$, also
-\[  \approx \frac{\Delta u}{n\E(x)}n(1-B(u)) ~.  \] 
- F"ur $n \rightarrow \infty$ ergibt sich f"ur die Verteilung der restlichen Wartezeit die Dichte
+restlichen Bedienzeit folgendermaßen bestimmen: \\
+Wir betrachten eine große Anzahl $n$ von unabhängigen Variablen mit Verteilung $B$. Ihre Summe ist nach dem Gesetz der großen Zahlen $\approx n\E(x)$. Wenn wir
+in dem Intervall der Länge $n\E(x)$ einen Punkt zufällig wählen, ist die Chance, daß wir bis zum Ende des Teilintervalls, in das der zufällig gewählte Punkt
+fällt, einen Abstand zwischen $u$ und $u+\Delta u$ haben, gleich $\frac{\Delta u}{n\E(x)}$ mal der Anzahl der Intervalle mit Länge $> u$, also
+\[  \approx \frac{\Delta u}{n\E(x)}n(1-B(u)) ~.  \]
+ Für $n \rightarrow \infty$ ergibt sich für die Verteilung der restlichen Wartezeit die Dichte
 \[f(u)=\frac{1-B(u)}{\E(x)} ~. \]
-Schlie"slich ist
+Schließlich ist
 \[W_{0}=\rho \int_{0}^{\infty}uf(u)du = \frac{\rho \E(x^{2})}{2\E(x)}=\frac{\lambda \E(x^{2})}{2} ~. \]
-Die Summe der Bedienzeiten der Kunden in der Warteschlange ergibt sich nat"urlich aus der Summe der gesamten Bedienzeiten der Kunden in den einzelnen Gruppen.
-Es sind im Schnitt $N_{i}$ Kunden aus der $i$-ten Gruppe anwesend. F"ur jeden wird im Schnitt eine Bedienzeit $\E(x_{i})$ ($x_{i}$ soll eine $ZV$ mit Verteilung
-$B_{i}$ sein) ben"otigt. \\
+Die Summe der Bedienzeiten der Kunden in der Warteschlange ergibt sich natürlich aus der Summe der gesamten Bedienzeiten der Kunden in den einzelnen Gruppen.
+Es sind im Schnitt $N_{i}$ Kunden aus der $i$-ten Gruppe anwesend. Für jeden wird im Schnitt eine Bedienzeit $\E(x_{i})$ ($x_{i}$ soll eine $ZV$ mit Verteilung
+$B_{i}$ sein) benötigt. \\
 Damit gilt
 \[\E(U)=W_{0}+\sum_{i=1}^{p}\E(x_{i})N_{i}=\frac{W_{0}}{1-\rho} ~. \]
-Nach Little gilt $N_{i}=\lambda_{i}W_{i}$, also schlie"slich
+Nach Little gilt $N_{i}=\lambda_{i}W_{i}$, also schließlich
 \[ \sum_{i=1}^{p}\rho_{i}W_{i}=\frac{\rho W_{0}}{1-\rho}=\frac{\lambda \rho \E(x^{2})}{2(1-\rho)} ~.\]
-Dieses Ergebnis zeigt, da"s wir eine Gruppe nur bevorzugen k"onnen, indem eine andere Gruppe gr"o"sere Wartezeiten in Kauf nehmen mu"s.
+Dieses Ergebnis zeigt, daß wir eine Gruppe nur bevorzugen können, indem eine andere Gruppe größere Wartezeiten in Kauf nehmen muß.
 
 %----------------------------------------------------
-\section{Eine Methode zur Bestimmung der Wartezeit} 
+\section{Eine Methode zur Bestimmung der Wartezeit}
 %----------------------------------------------------
 
 Wir betrachten einen Kunden aus der Gruppe $i$, der das System betritt: \\
 $N_{ij} \dots$ mittlere Anzahl der Kunden aus Gruppe $j$, die unser Kunde im System antrifft, und die vor ihm bedient werden (ausgenommen der Kunde, der eventuell
 gerade bedient werden, wenn unser Kunde ankommt). \\
-$M_{ij} \dots$ mittlere Anzahl der Kunden aus Gruppe $j$, die w"ahrend der Wartezeit unseres Kunden ankommen und vor ihm bedient werden. \\
+$M_{ij} \dots$ mittlere Anzahl der Kunden aus Gruppe $j$, die während der Wartezeit unseres Kunden ankommen und vor ihm bedient werden. \\
 Damit gilt
 \[W_{i}=W_{0}+\sum_{j=1}^{p}(N_{ij}+M_{ij})\E(x_{j}) ~.  \]
-Wir verwenden diesen Zugang f"ur die einfachste Disziplin: \\
+Wir verwenden diesen Zugang für die einfachste Disziplin: \\
 Jeder Kunde aus Gruppe $i$ wird vor allen Kunden aus Gruppe $i-1$ bedient, und innerhalb einer Gruppe wird nach $FCFS$ gearbeitet. \\
 Dann ist
 \begin{eqnarray*}
 N_{ij}&=&0 \qquad j<i \\
 M_{ij}&=&0 \qquad j \leq i ~.
 \end{eqnarray*}
-F"ur $j \geq i$ ist
+Für $j \geq i$ ist
 \[N_{ij}=N_{j}=\lambda _{j}W_{j} ~. \]
-F"ur $j>i$ ist $M_{ij}$ die Anzahl der Kunden aus Gruppe $j$, die im Mittel w"ahrend $W_{i} = \lambda _{j}W_{i}$ ankommen.
+Für $j>i$ ist $M_{ij}$ die Anzahl der Kunden aus Gruppe $j$, die im Mittel während $W_{i} = \lambda _{j}W_{i}$ ankommen.
 
 Wir erhalten
 \begin{eqnarray*}
 W_{i}&=&W_{0}+\sum_{j=i}^{p}\rho _{j}W_{j}+\sum_{j=i+1}^{p}\rho_{j}W_{i} = \\
 &=&W_{0} + W_{i}\sum_{j=i}^{p}\rho_{j} + \sum_{j=i+1}^{p}\rho_{j}W_{j}
 \end{eqnarray*}
-oder 
+oder
 \[W_{i}(1-\sum_{j=i}^{p}\rho_{j})=W_{0}+\sum_{j=i+1}^{p}\rho_{j}W_{j} ~. \]
 Wir schreiben
 \[\sigma_{j} = \sum_{j=i}^{p}\rho_{j}  \]
 und erhalten
 \[W_{i-1}(1-\sigma_{i-1})=W_{i}(1-\sigma_{i})+\rho_{i}W_{i}=W_{i}(1-\sigma_{i+1}) ~, \]
-und schlie"slich
+und schließlich
 \[W_{i}=\frac{W_{0}}{(1-\sigma_{i})(1-\sigma_{i+1})} ~. \]
 
 %----------------------------------------------------------------------------
 \begin{appendix}
 \chapter{Transformationen}
 %----------------------------------------------------------------------------
-F"ur unsere Untersuchungen ben"otigen wir die folgenden Transformationen:
+Für unsere Untersuchungen benötigen wir die folgenden Transformationen:
 \begin{enumerate}
 \item Die erzeugende Funktion oder \index{erzeugende Funktion}$z$ - Transformierte: Falls $p_{n}$, $n
 \geq 0$ eine diskrete Verteilung ist, nennen wir
@@ -453,8 +452,8 @@ die erzeugende Funktion von $(p_{n})$. Falls $X$ die Verteilung $(p_{n})$
 hat, so gilt
 \begin{displaymath}
 P^{*}(z) = \E (z^{X}) ~.
-\end{displaymath}  
-$P^{*}(z)$ existiert jedenfalls f"ur $|z|<1$. Bekanntlich kann man aus 
+\end{displaymath}
+$P^{*}(z)$ existiert jedenfalls für $|z|<1$. Bekanntlich kann man aus
 $P^{*}$ eindeutig $(p_{n})$ bestimmen:
 \begin{displaymath}
 p_{n} = \frac{1}{n!} P^{*^{n}} (0) ~.
@@ -468,33 +467,33 @@ hei\3t
 \begin{displaymath}
 \hat F(t) = \int_{0}^{\infty} e^{-xt} f(x)dx
 \end{displaymath}
-die \index{Laplace - Transformierte}Laplace - Transformierte von $f$. Dieses Integral ist f"ur $t \geq 0$
+die \index{Laplace - Transformierte}Laplace - Transformierte von $f$. Dieses Integral ist für $t \geq 0$
 endlich, und es gibt auch hier eine eindeutige Beziehung zwischen $\hat F$
 und $f$. Falls $X$ mit der Dichte $f$ verteilt ist, ist
 \begin{displaymath}
 \hat F(t) = \E (e^{-Xt}) ~.
 \end{displaymath}
 Diese Beziehung kann man auch verwenden, um die Laplace - Transformierte
-f"ur nicht stetige Verteilungen zu definieren.
-\end{enumerate}    
+für nicht stetige Verteilungen zu definieren.
+\end{enumerate}
 Es bestehen folgende Eigenschaften der Transformationen:
 \begin{enumerate}
-\item $P^{*}(z)$ ist regul"ar f"ur $|z| \leq 1$.
-\item $ \hat F(z)$ ist regul"ar f"ur $ \Re (z) \geq 0$. Falls $X$ eine
+\item $P^{*}(z)$ ist regulär für $|z| \leq 1$.
+\item $ \hat F(z)$ ist regulär für $ \Re (z) \geq 0$. Falls $X$ eine
 Verteilung $(p_{n})$ hat, ist
 \begin{displaymath}
 \E(X) = (P^{*})^{'}(1) ~.
-\end{displaymath}  
+\end{displaymath}
 Falls $X$ Dichte $f$ hat, ist
 \begin{displaymath}
 \E(X) = -\hat F^{'}(0) ~.
-\end{displaymath}  
-\item Falls $X$, $T$ unabh"angig sind, ist die Transformierte der Summe
+\end{displaymath}
+\item Falls $X$, $T$ unabhängig sind, ist die Transformierte der Summe
 das Produkt der Transformierten.
 \item Weiters sei $N_{t}$ ein \index{Poissonproze\3}Poissonproze\3 (d.h. eine Folge von
 Ereignissen, wobei die Zeit zwischen zwei Ereignissen nach $M_{\lambda}$
 verteilt ist. $N_{t}$ ist die Anzahl dieser Ereignisse im Intervall
-$[0,t])$. F"ur eine zuf"allige Zeit $T$ wollen wir die Anzahl $N_{T}$ von
+$[0,t])$. Für eine zufällige Zeit $T$ wollen wir die Anzahl $N_{T}$ von
 Ereignissen in $[0,T]$ bestimmen. Falls $T=t$ ist, ist diese Anzahl
 Poisson - verteilt mit Parameter $\lambda t$:
 \begin{displaymath}

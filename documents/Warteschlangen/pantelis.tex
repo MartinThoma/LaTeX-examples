@@ -2,27 +2,27 @@
 \chapter{Einleitung}
 %-----------------------------------------------------------------------------
 Wir betrachten folgendes grundlegendes Modell:  Kunden kommen zu
-zuf"alligen Zeiten  $T_{1} < T_{2} < \dots <T_{n} < \dots$ im System an,
+zufälligen Zeiten  $T_{1} < T_{2} < \dots <T_{n} < \dots$ im System an,
 wobei $T_{n}$
 die \index{Ankunftszeit}Ankunftszeit des $n$-ten Kunden bezeichnet.
 
-Ein oder mehrere Bediener arbeiten die Schlange ab und f"ur jeden Kunden
-wird eine bestimmte \index{Bedienzeit}`Bedienzeit' ben"otigt. Es sei $x_{n}$ die Bedienzeit
-des $n$-ten Kunden. 
+Ein oder mehrere Bediener arbeiten die Schlange ab und für jeden Kunden
+wird eine bestimmte \index{Bedienzeit}`Bedienzeit' benötigt. Es sei $x_{n}$ die Bedienzeit
+des $n$-ten Kunden.
 Die Reihenfolge der Bedienung der Kunden wird durch
 die sogenannte \index{Disziplin}`Disziplin' der Warteschlange bestimmt.Wir nehmen meistens
-FCFS (First Come First Serve) an. Andere M"oglichkeiten w"aren LCFS (Last
-Come First Serve) oder `Priorit"aten'.
+FCFS (First Come First Serve) an. Andere Möglichkeiten wären LCFS (Last
+Come First Serve) oder `Prioritäten'.
 
 Folgende Annahmen werden getroffen:
 \begin{enumerate}
-\item Die $x_{n}$ sollen unabh"angig und identisch verteilt sein. 
-\item $t_{n}$ ist die $n$-te \index{Zwischenankunftszeit}Zwischenankunftszeit also $t_{n}= T_{n} - 
+\item Die $x_{n}$ sollen unabhängig und identisch verteilt sein.
+\item $t_{n}$ ist die $n$-te \index{Zwischenankunftszeit}Zwischenankunftszeit also $t_{n}= T_{n} -
 T_{n-1}$,  $T_{0}=0$ (Die Zeit zwischen der Ankunft des $n$-ten und des
-$(n-1)$-ten Kunden). Die $t_{n}$ sind auch unabh"angig und identisch
-verteilt. 
+$(n-1)$-ten Kunden). Die $t_{n}$ sind auch unabhängig und identisch
+verteilt.
 \end{enumerate}
-Wir verwenden folgende \index{Warteschlangen!Kurznotation}Kurznotation f"ur
+Wir verwenden folgende \index{Warteschlangen!Kurznotation}Kurznotation für
 Warteschlangen: $A/B/s$.
 
 $A \dots$ Verteilung der Zwischenankuftszeiten $t_{n}$, wobei $a$ die Dichte
@@ -31,19 +31,19 @@ $B \dots$ Verteilung der Bedienzeiten $x_{n}$ wobei $b$ die Dichte von
 $x_{n}$ ist. \\
 $s \dots$ Anzahl der Bediener \index{Server}(Server).
 
-Kurznotationen f"ur Verteilungen sind: \\
-$M$ $\dots$ \index{Verteilung!Exponential-}Exponentialverteilung (`memoryless'). \\ 
+Kurznotationen für Verteilungen sind: \\
+$M$ $\dots$ \index{Verteilung!Exponential-}Exponentialverteilung (`memoryless'). \\
 Dichtefunktion:
 \begin{displaymath}
 f(x) = \lambda e^{-\lambda x} \qquad x\geq 0.
 \end{displaymath}
-$E_{n}$ $\dots$ \index{Verteilung!Erlang-}Erlangverteilung: Die Summe von $n$ unabh"angigen
+$E_{n}$ $\dots$ \index{Verteilung!Erlang-}Erlangverteilung: Die Summe von $n$ unabhängigen
 Exponentialverteilungen.\\
  Dichtefunktion:
 \begin{displaymath}
 f(x)=\frac{\lambda^{n}x^{n-1}}{(n-1)!}e^{-\lambda x} \qquad x\geq 0.
-\end{displaymath} 
-$H$ $\dots$ \index{Verteilung!Hyperexponentelle}Hyperexponentielle Verteilung: Die Mischung von unabh"angigen
+\end{displaymath}
+$H$ $\dots$ \index{Verteilung!Hyperexponentelle}Hyperexponentielle Verteilung: Die Mischung von unabhängigen
 Exponentialverteilungen. Wir haben $p_{1} \dots p_{n}$,  $p_{i} \geq 0$,
  und
 $\sum_{i=1}^{n} p_{i} = 1$, $\lambda_{1} \dots \lambda_{n} \geq 0$. \\
@@ -52,55 +52,55 @@ Dichtefunktion:
 f(x)=\sum_{i=1}^{n} p_{i} \lambda_{i} e^{-\lambda_{i}x}.
 \end{displaymath}
 $D$ $\dots$ \index{Verteilung!Deterministische}Deterministisch: Ein fixer Wert wird angenommen. \\
-$G$ $\dots$ \index{Verteilung!Allgemeine}`General': Allgemeine Verteilung (alles, was nicht vorher erw"ahnt
-wurde). 
+$G$ $\dots$ \index{Verteilung!Allgemeine}`General': Allgemeine Verteilung (alles, was nicht vorher erwähnt
+wurde).
 
-Die Sonderstellung der Exponentialverteilung ist begr"undet durch ihre
-Ged"achtnislosigkeit. Falls n"amlich etwa eine Wartezeit
+Die Sonderstellung der Exponentialverteilung ist begründet durch ihre
+Gedächtnislosigkeit. Falls nämlich etwa eine Wartezeit
 exponentialverteilt ist, und wir schon t Zeiteinheiten gewartet haben, so
 ist die Verteilung der restlichen Wartezeit gegeben durch
 \begin{eqnarray*}
 \PP(\mbox{restliche Wartezeit} \geq x \mid \mbox{schon $t$
 gewartet}) = \\
-= \PP(T \geq t+x \mid T \geq t) = \frac{\PP(T \geq t+x)}{\PP(T\geq t)} ~.   
-\end{eqnarray*}  
+= \PP(T \geq t+x \mid T \geq t) = \frac{\PP(T \geq t+x)}{\PP(T\geq t)} ~.
+\end{eqnarray*}
 Angenommen $T$  sei exponentialverteilt $\Rightarrow$ $\PP(T \geq t) =
 e^{-\lambda t}$  $\Rightarrow$
 \begin{displaymath}
 \frac{\PP(T \geq t+x)}{\PP(T \geq t)} = \frac{e^{-\lambda
 (t+x)}}{e^{-\lambda
 t}}= e^{-\lambda x},
-\end{displaymath} 
-also unabh"angig davon, wie lange wir schon vorher gewartet haben.
+\end{displaymath}
+also unabhängig davon, wie lange wir schon vorher gewartet haben.
 
-Es gibt abgeleitete Gr"o\3en, die das Verhalten der Warteschlange
+Es gibt abgeleitete Grö\3en, die das Verhalten der Warteschlange
 beschreiben wie:
 \begin{enumerate}
 \item $w_{n}$ $\dots$ \index{Wartezeit}Wartezeit des $n$-ten Kunden.
 \item $z_{n} = w_{n} + x_{n} \dots$ Zeit, die der $n$-te Kunde im System
-verbringt. 
+verbringt.
 \item $N_{t}$ $\dots$ Anzahl der Kunden, die zum Zeitpunkt $t$ im System
 sind ($=$ wartende + eventuell die, die gerade bedient werden).
 \end{enumerate}
 Es gibt einige Fragen, die uns interessieren:
 \begin{enumerate}
 \item Die Verteilungen von $w_{n}$, $z_{n}$, $N_{t}$.
-\item Gibt es Grenzverteilungen f"ur $n \rightarrow \infty$ bzw. $t
+\item Gibt es Grenzverteilungen für $n \rightarrow \infty$ bzw. $t
 \rightarrow \infty$ (d.h. pendelt sich das Verhalten der Schlange auf
-einen station"aren Zustand ein?) und Bestimmung der Grenzverteilungen.
+einen stationären Zustand ein?) und Bestimmung der Grenzverteilungen.
 \item Erwartungswerte der Grenzverteilungen in 2.
-\item Absch"atzungen f"ur 3.
+\item Abschätzungen für 3.
 \end{enumerate}
 Die Aufgaben sind hier in abnehmender Schwierigkeit geordnet. Leider sind
-die genauen Verteilungen 1. nicht leicht zu bestimmen, also beschr"anken
+die genauen Verteilungen 1. nicht leicht zu bestimmen, also beschränken
 wir uns meist auf 2. ; im ganz allgemeinen Fall wird es sogar notwendig
-sein, nur Absch"atzungen zu betrachten. 
+sein, nur Abschätzungen zu betrachten.
 %-----------------------------------------------------------------------------
 \chapter{Erste Resultate}
-\section{Eine Rekursion f"ur die Wartezeit}
+\section{Eine Rekursion für die Wartezeit}
 %----------------------------------------------------------------------------
 Wir wollen nun die Wartezeit des $(n+1)$-ten Kunden durch die des $n$-ten
-Kunden ausdrucken. Dazu ist 
+Kunden ausdrucken. Dazu ist
 \begin{enumerate}
 \item $T_{n} \ldots $ die Ankunftszeit des $n$-ten Kunden.
 \item $T_{n} + w_{n} \ldots$ die Zeit, wenn der $n$-te Kunde bedient wird.
@@ -112,13 +112,13 @@ Kunden.
 Falls $T_{n+1} < T_{n} + w_{n} + x_{n}$,
 dann ist $w_{n+1} = T_{n+1} + w_{n} + x_{n} - T_{n+1} = w_{n} + x_{n} -
 t_{n+1}$. Falls  $T_{n+1} \geq T_{n} + w_{n} + x_{n}$ ist $w_{n+1} = 0$.
-Also 
+Also
 \begin{displaymath}
-w_{n+1}= \max (w_{n}+x_{n}-t_{n+1}, 0) =: (w_{n} + x_{n} - t_{n+1})_{+} ~. 
+w_{n+1}= \max (w_{n}+x_{n}-t_{n+1}, 0) =: (w_{n} + x_{n} - t_{n+1})_{+} ~.
 \end{displaymath}
-Sei  $u_{n} = x_{n} - t_{n+1}.$ Die $u_{i}$ sind unabh"angig und
+Sei  $u_{n} = x_{n} - t_{n+1}.$ Die $u_{i}$ sind unabhängig und
 identisch verteilt.
-\begin{eqnarray*}   
+\begin{eqnarray*}
 \Rightarrow w_{n} &=& \max (w_{n-1}+ u_{n-1}, 0) = 0 \\
 \Rightarrow w_{n} &=& \max (0, u_{n-1} + \max (w_{n-2} + u_{n-2}, 0)) = \\
  &=& \max (0, u_{n-1}, u_{n-1} + u_{n-2} + w_{n-2}) = \dots\\
@@ -132,22 +132,22 @@ Also ist die Verteilung von $w_{n}$ dieselbe wie die  von  $\tilde w_{n}$ mit
 \end{displaymath}
 Offensichtlich ist $\tilde w_{n}$ eine monoton nichtfallende Folge, also
 existiert
-\[ \tilde w = \lim_{n \rightarrow \infty} w_{n}. \] 
+\[ \tilde w = \lim_{n \rightarrow \infty} w_{n}. \]
 Falls $\E u > 0$, dann geht $u_{1}+ \cdots + u_{n-1}$ $\rightarrow
 \infty$, also auch  $\tilde w$. Falls $\E u < 0$, dann geht $u_{1}+ \cdots
-+ u_{n-1}$ $\rightarrow -\infty$, also ist f"ur $n>n_{0}$ $u_{1}+ \cdots +
++ u_{n-1}$ $\rightarrow -\infty$, also ist für $n>n_{0}$ $u_{1}+ \cdots +
 u_{n-1} <0 $, was bedeutet da\3 nur die ersten Glieder in der Definition
 von  $\tilde w_{n}$ wichtig sind; also ist $\tilde w$ endlich. Falls $\E
-u = 0$, ist k"onnen wir den einfachen Fall $D/D/1$ betrachten. In diesem
-Fall ist $w_{n}=0$, also ist das Verhalten station"ar. Leider ist das der
+u = 0$, ist können wir den einfachen Fall $D/D/1$ betrachten. In diesem
+Fall ist $w_{n}=0$, also ist das Verhalten stationär. Leider ist das der
 einzige Fall; sobald $A$ oder $B$ nicht degenerierte Verteilungen haben,
 kann $\tilde w_{n}$ nicht gegen eine endliche Zufallsvariable
-konvergieren, weil etwa nach dem zentralen Grenzwertsatz f"ur $n$ gro\3
+konvergieren, weil etwa nach dem zentralen Grenzwertsatz für $n$ gro\3
 genug
 \begin{displaymath}
 \PP(\tilde w_{n} > a \sqrt{n.{\bf Var}(u)}) \geq 1- \Phi(a)- \epsilon > 0 ~.
-\end{displaymath}  
-Somit ist f"ur jedes $n$
+\end{displaymath}
+Somit ist für jedes $n$
 \begin{displaymath}
 \PP(\tilde w > a \sqrt{n.{\bf Var}(u)}) \geq 1- \Phi(a)- \epsilon ~,
 \end{displaymath}
@@ -155,7 +155,7 @@ also
 \begin{displaymath}
 \PP(\tilde w = \infty)  \geq  1- \Phi(a)- \epsilon ~.
 \end{displaymath}
-Es bleibt uns also f"ur station"ares Verhalten (au\3er im Trivialfall \\
+Es bleibt uns also für stationäres Verhalten (au\3er im Trivialfall \\
 $D/D/1$) die Bedingung
 \begin{displaymath}
 \E (u) < 0 \Leftrightarrow \E (x) < \E (t) \Leftrightarrow \rho=
@@ -167,26 +167,26 @@ sind dies die Anzahl von Kunden, die in einem langen Zeitraum
 durchschnittlich pro Zeiteinheit ankommen bzw. bedient werden, falls
 ununterbrochen
 bedient wird. Mit diesen Bezeichnungen ist $\rho = \frac{\lambda}{\mu}$ \index{Auslastung}(Auslastung)
-und die Bedingung f"ur station"ares Verhalten wird zu $ \lambda < \mu$ bzw.\ 
+und die Bedingung für stationäres Verhalten wird zu $ \lambda < \mu$ bzw.\
 $\rho<1$.
 %--------------------------------------------------------------------------
 \section{Der Satz von Little}
 %---------------------------------------------------------------------------
-Wir nehmen jetzt an, da\3 in unserer Schlange station"ares Verhalten
+Wir nehmen jetzt an, da\3 in unserer Schlange stationäres Verhalten
 herrscht; wir wollen eine Beziehung zwischen der Ankuftsrate, der mittleren
 Anzahl der Kunden im System und der mittleren Aufenthaltsdauer finden.
-Dazu nehmen wir an, da\3 wir jeden Kunden f"ur die Zeit, die er im System
-verbringt, bezahlen m"ussen. Die Summe, die insgesamt zu bezahlen ist,
+Dazu nehmen wir an, da\3 wir jeden Kunden für die Zeit, die er im System
+verbringt, bezahlen müssen. Die Summe, die insgesamt zu bezahlen ist,
 berechnet sich als $T \E (N)$, da zu jedem Zeitpunkt durchschnittlich $\E
 (N)$
 Kunden anwesend sind. Andererseits bekommt jeder Kunde durchschnittlich
 $\E (z)$ bezahlt. In der Zeit $T$ kommen $\lambda T$ Kunden an, also ist
 die
-zu bezahlende Summe auch gleich $\lambda T \E (z)$. 
+zu bezahlende Summe auch gleich $\lambda T \E (z)$.
 
-Beide Gleichungen sind nicht vollst"andig exakt, weil in beiden F"allen
-noch zuf"allige Schwankungen dazukommen, und weil bei der zweiten
-Gleichung auch nicht ber"ucksichtigt wurde, da\3 einige Kunden noch nach
+Beide Gleichungen sind nicht vollständig exakt, weil in beiden Fällen
+noch zufällige Schwankungen dazukommen, und weil bei der zweiten
+Gleichung auch nicht berücksichtigt wurde, da\3 einige Kunden noch nach
 $T$ bleiben. Diese Fehler sind aber von kleineren Ordnung als $T$. Wir
 haben also
 \begin{displaymath}
@@ -202,7 +202,7 @@ Mittlere Anzahl der Kunden, die gerade bedient werden =
 \begin{displaymath}
 \lambda  \E (x) = \frac{\lambda}{\mu} = \rho ~.
 \end{displaymath}
-Da aber h"ochstens 1 Kunde bedient wird, ist das gleich der
+Da aber höchstens 1 Kunde bedient wird, ist das gleich der
 Wahrscheinlichkeit, da\3 der Server besetzt ist, oder der Auslastung des
 Servers.
 %---------------------------------------------------------------------------
@@ -210,8 +210,8 @@ Servers.
 \section{Die Schlange $M/M/1$}
 %---------------------------------------------------------------------------
 Im Folgenden gehen wir von der `FCFS'-Disziplin aus.
-Um die zuk"unftige Entwicklung einer Warteschlange bestimmen zu k"onnen,
-ben"otigen wir 3 Angaben zur Zeit $t$.
+Um die zukünftige Entwicklung einer Warteschlange bestimmen zu können,
+benötigen wir 3 Angaben zur Zeit $t$.
 \begin{enumerate}
 \item Die Anzahl $N_{t}$ der anwesenden Kunden.
 \item Die Zeit, die seit der letzten Ankunft vergangen ist.
@@ -219,16 +219,16 @@ ben"otigen wir 3 Angaben zur Zeit $t$.
 ist (falls dieser noch andauert).
 \end{enumerate}
 Die letzten beiden Angaben sind notwendig, damit wir die Verteilung der
-verbleibenden Zeit bis zur n"achsten Ankunft bzw. bis zum Ende des
-Bedienvorganges bestimmen k"onnen. F"ur den Fall $M/M/1$ sind diese
+verbleibenden Zeit bis zur nächsten Ankunft bzw. bis zum Ende des
+Bedienvorganges bestimmen können. Für den Fall $M/M/1$ sind diese
 Angaben nicht notwendig, weil diese Verteilungen wegen der
-Ged"achtnislosigkeit der Exponentialverteilung nicht von der schon
-verstrichenen Zeit abh"angen. Deshalb gen"ugt uns $N_{t}$ zur Beschreibung
+Gedächtnislosigkeit der Exponentialverteilung nicht von der schon
+verstrichenen Zeit abhängen. Deshalb genügt uns $N_{t}$ zur Beschreibung
 des Systems.
 
 Wir betrachten jetzt die Anzahl der Kunden zur Zeit $t+ \Delta t$, wenn
 die Anzahl zur Zeit t bekannt ist. Die Anzahl kann sich in folgender Weise
-"andern:
+ändern:
 \begin{enumerate}
 \item Es kann gar nichts geschehen.
 \item Es kann genau ein Kunde aufkommen.
@@ -238,58 +238,58 @@ die Anzahl zur Zeit t bekannt ist. Die Anzahl kann sich in folgender Weise
 Die Wahrscheinlichkeit, da\3 mindestens ein Kunde im Intervall $(t, t+ \Delta t)$
 ankommt, ist $1-e^{-\lambda \Delta t} = \lambda \Delta t + o (\Delta t)$.
 Ebenso ist die Wahrscheinlichkeit, da\3 ein Kunde fertig wird $\mu \Delta
-t + o(\Delta t)$. Die Wahrscheinlichkeit f"ur 4. ist, wie man leicht
-einsieht, $o(\Delta t)$. Das gibt f"ur 1. die Wahrscheinlichkeit $1 -
+t + o(\Delta t)$. Die Wahrscheinlichkeit für 4. ist, wie man leicht
+einsieht, $o(\Delta t)$. Das gibt für 1. die Wahrscheinlichkeit $1 -
 (\lambda + \mu) \Delta t + o(\Delta t)$. Falls die Schlange leer ist,
-fallen nat"urlich die Summanden mit $\mu$ weg (es kann ja niemand gehen).
-Somit gilt f"ur
+fallen natürlich die Summanden mit $\mu$ weg (es kann ja niemand gehen).
+Somit gilt für
 \begin{eqnarray*}
 p_{n}(t) &=& \PP (N_{t} = n) \\
 p_{n}(t+ \Delta t) &=& \mu \Delta t . p_{n+1}(t) + (1 - (\lambda +
 \mu) \Delta t) p_{n}(t) + \\
  & &+ \lambda \Delta t p_{n-1}(t) + o(\Delta t)
-\qquad [n \geq 1] \\ 
+\qquad [n \geq 1] \\
 p_{0}(t + \Delta t) &=& \mu \Delta t . p_{1}(t) + (1 - \lambda \Delta t)
 p_{0}(t) + o(\Delta t) ~.
 \end{eqnarray*}
 Wenn man $p_{n}(t)$ auf die linke Seite bringt und durch $\Delta t$
-dividiert und $\Delta t \rightarrow 0$ l"a\3t, ergibt sich
+dividiert und $\Delta t \rightarrow 0$ lä\3t, ergibt sich
 \begin{eqnarray*}
 p'_{n}(t) &=& \mu p_{n+1}(t)-(\lambda + \mu) p_{n}(t)+ \lambda p_{n-1}(t)
 \\
 p'_{0}(t) &=& \mu p_{1}(t)- \lambda p_{0}(t) ~.
 \end{eqnarray*}
-Diese Gleichungen lassen sich etwa mit Hilfe von Transformationen l"osen,
-aber das Ergebnis ist nicht besonders sch"on. Wir beschr"anken uns daher
-jetzt und in der Folge auf die Bestimmung der station"aren L"osung. Diese
-ist nat"urlich dadurch gekennzeichnet, da\3 $p_{n}(t)$ nicht von der Zeit
-$t$ abh"angt, also $p'_{n}(t)=0$. Das ergibt die Gleichungen
+Diese Gleichungen lassen sich etwa mit Hilfe von Transformationen lösen,
+aber das Ergebnis ist nicht besonders schön. Wir beschränken uns daher
+jetzt und in der Folge auf die Bestimmung der stationären Lösung. Diese
+ist natürlich dadurch gekennzeichnet, da\3 $p_{n}(t)$ nicht von der Zeit
+$t$ abhängt, also $p'_{n}(t)=0$. Das ergibt die Gleichungen
 \begin{eqnarray*}
 \mu p_{n+1}-(\lambda +\mu) p_{n} + \lambda p_{n-1} &=& 0 \\
 \mu p_{1} - \lambda p_{0} &=& 0 ~.
-\end{eqnarray*}  
+\end{eqnarray*}
 Durch Induktion erhalten wir daraus
 \begin{displaymath}
-\mu p_{n+1} - \lambda p_{n} = 0 ~, 
+\mu p_{n+1} - \lambda p_{n} = 0 ~,
 \end{displaymath}
 oder
 \begin{displaymath}
-p_{n+1} = \frac{\lambda}{\mu} p_{n} = \rho p_{n} ~. 
+p_{n+1} = \frac{\lambda}{\mu} p_{n} = \rho p_{n} ~.
 \end{displaymath}
 Also ist
 \begin{displaymath}
-p_{n} = \rho^{n}p_{0} 
+p_{n} = \rho^{n}p_{0}
 \end{displaymath}
 und wegen $\sum_{n=0}^{\infty} p_{n} = 1$
-\begin{displaymath} 
-p_{0} = 1- \rho  
+\begin{displaymath}
+p_{0} = 1- \rho
 \end{displaymath}
 und
 \begin{displaymath}
 p_{n} = \rho^{n} (1- \rho) ~.
 \end{displaymath}
 Die Anzahl der Kunden im System ist also geometrisch verteilt. Aus dieser
-Verteilung k"onnen wir jetzt die Verteilungen von $w$ und $z$ bestimmen.
+Verteilung können wir jetzt die Verteilungen von $w$ und $z$ bestimmen.
 Die Zeit im System $z$, falls bei der Ankunft $n$ Personen anwesend sind,
 ist die Summe von $(n+1)$ exponentialverteilten Zufallsvariablen (die
 Bedienzeiten der $n$ anwesenden + die der neu hinzugekommenen), hat also
@@ -314,16 +314,16 @@ Exponentialverteilung mit Parameter $\mu - \lambda$.
 %----------------------------------------------------------------------------
 \section{Das System $M/G/1$}
 %------------------------------------------------------------------------------
-Jetzt ben"otigen wir zus"atzlich zu $N_{t}$ die Information "uber die
+Jetzt benötigen wir zusätzlich zu $N_{t}$ die Information über die
 schon verbrauchte Bedienzeit. Die einfachste Methode besteht darin, das
 System nur in solchen Zeitpunkten zu betrachten, an denen die verbrauchte
-Bedienzeit bekannt ist (und zwar = 0), n"amlich die Zeitpunkte $T_{n}$, in
-denen der n-te Kunde das System verl"a\3t. Es sei $N_{n}$ die Anzahl der
+Bedienzeit bekannt ist (und zwar = 0), nämlich die Zeitpunkte $T_{n}$, in
+denen der n-te Kunde das System verlä\3t. Es sei $N_{n}$ die Anzahl der
 Kunden, die dann im System verbleiben. Es gilt: Falls $N_{n}=0$, so mu\3
 zuerst gewartet werden, bis ein neuer Kunde ankommt; wenn dieser Kunde
-geht, sind noch genau die Kunden da, die w"ahrend seiner Bedienzeit
+geht, sind noch genau die Kunden da, die während seiner Bedienzeit
 angekommen sind; bezeichnet man $M_{n}$ als die Anzahl der Kunden, die
-w"ahrend der Bedienzeit des $n$-ten Kunden ankommen, so gilt
+während der Bedienzeit des $n$-ten Kunden ankommen, so gilt
 \begin{displaymath}
 N_{n+1} = M_{n} ~.
 \end{displaymath}
@@ -335,8 +335,8 @@ Zusammengefa\3t ergibt sich:
 \begin{displaymath}
 N_{n+1} = (N_{n} - 1)_{+} + M_{n} ~.
 \end{displaymath}
-Wir suchen eine station"are L"osung; es sei also $\PP (N_{n}=k)=p_{k}$
-unabh"angig von $n$. Die erzeugende Funktion von $N_{n}$ ist
+Wir suchen eine stationäre Lösung; es sei also $\PP (N_{n}=k)=p_{k}$
+unabhängig von $n$. Die erzeugende Funktion von $N_{n}$ ist
 \begin{displaymath}
 P^{*}(z) = \sum_{}^{}p_{k}z^{k} ~.
 \end{displaymath}
@@ -345,9 +345,9 @@ Die erzeugende Funktion von $(N_{n}-1)_{+}=$
 = p_{0} + \sum_{k=1}^{\infty} p_{k} z^{k-1} &=& p_{0}+ \frac{\hat P
 (z) - p_{0}}{z} = \\
  &=& \frac{\hat P(z) - p_{0}(1-z)}{z} ~.
-\end{eqnarray*} 
+\end{eqnarray*}
 Mithilfe der Transformationen (Anhang A) ergibt sich die erzeugende Funktion von $M_{n}$
-(die Ank"unfte bilden ja einen Poisson - Proze\3) als 
+(die Ankünfte bilden ja einen Poisson - Proze\3) als
 \begin{displaymath}
 \tilde B (\lambda(1 - z)) ~,
 \end{displaymath}
@@ -368,8 +368,8 @@ P^{*}(z) = \frac{(1- \rho)(1-z) \tilde B ( \lambda (1-z))}{ \tilde B (
 \lambda(1-z)) - z} ~,
 \end{displaymath}
 eine sogenannte \index{Pollaczek - Khinchin Formel}Pollaczek - Khinchin Formel. Die Anzahl der Kunden, die der $n$-te
-Kunde zur"uckl"a\3t, ist genau die Anzahl der Kunden, die ankommen
-w"ahrend er im System ist (d.h. w"ahrend $z_{n}$), d.h. f"ur die
+Kunde zurücklä\3t, ist genau die Anzahl der Kunden, die ankommen
+während er im System ist (d.h. während $z_{n}$), d.h. für die
 $L$-Transformierte $ \tilde Z (t)$ der Verteilung von $z$ gilt:
 \begin{displaymath}
 \tilde Z (\lambda(1-z)) = P^{*}(z) ~,
@@ -378,18 +378,18 @@ also
 \begin{displaymath}
 \tilde Z (t) = \frac{(1- \rho)t \tilde B (t)}{t + \lambda \tilde B (t) -
 \lambda} ~.
-\end{displaymath} 
-Auch das nennt man eine Pollaczek - Khinchin Formel. F"ur die Wartezeit
+\end{displaymath}
+Auch das nennt man eine Pollaczek - Khinchin Formel. Für die Wartezeit
 gilt
 (wegen $z_{n} = w_{n} + x_{n}$)
 \begin{displaymath}
-\tilde Z (t) = \tilde W (t) \tilde B(t) ~, 
-\end{displaymath} 
+\tilde Z (t) = \tilde W (t) \tilde B(t) ~,
+\end{displaymath}
 also
 \begin{displaymath}
 \tilde W (t) = \frac{(1- \rho)t}{t + \lambda \tilde B (t) - \lambda} ~.
 \end{displaymath}
-F"ur die Erwartungswerte ergibt sich:
+Für die Erwartungswerte ergibt sich:
 \begin{eqnarray*}
 \E (N) &=& \rho + \frac{\lambda^{2} \E x^{2}}{2(1- \rho)} \\
 \E (Z) &=& \frac{1}{\mu} + \frac{\lambda \E x^{2}}{2(1 - \rho)} \\
@@ -402,49 +402,49 @@ Jetzt betrachten wir analog zum vorigen Kapitel das System zu den Zeiten
 $T_{n}$, wo der $n$-te Kunde ankommt. $N_{n}$ sei die Anzahl der
 anwesenden Kunden, die der $n$-te Kunde vorfindet.
 \begin{displaymath}
-N_{n+1} = N_{n}+1-\mbox{Anzahl der Kunden, die w"ahrend $t_{n+1}$ gehen.}
+N_{n+1} = N_{n}+1-\mbox{Anzahl der Kunden, die während $t_{n+1}$ gehen.}
 \end{displaymath}
-F"ur $n>0$ gilt, wenn wir $p_{k}= \PP (N_{n}=k)$ (station"ar!) setzen:
+Für $n>0$ gilt, wenn wir $p_{k}= \PP (N_{n}=k)$ (stationär!) setzen:
 \begin{displaymath}
 p_{k} = \sum_{j=k-1}^{\infty} p_{j} q_{j+1-k} \qquad [k \geq 1] ~,
 \end{displaymath}
 wobei
 \begin{displaymath}
-q_{s} = \PP (\mbox{ $s$ Kunden gehen w" ahrend
-$t_{n+1}$)} = 
+q_{s} = \PP (\mbox{ $s$ Kunden gehen während
+$t_{n+1}$)} =
 \end{displaymath}
 \begin{eqnarray*}
-= \PP (\mbox{w"ahrend $t_{n+1}$ treten genau $s$ Ereignisse eines Poissons 
+= \PP (\mbox{während $t_{n+1}$ treten genau $s$ Ereignisse eines Poissons
 -} \\
-\mbox{Prozesses mit Rate $\mu$ auf)} ~. & & 
-\end{eqnarray*} 
-Die Gleichung f"ur $k=0$ ist "uberfl"ussig, da sie aus den Gleichungen
-f"ur $k>0$ und der Beziehung $\sum_{}^{} p_{k}=1$ gefolgert werden kann.
-Man kann zeigen, da\3 diese Gleichung eine eindeutige L"osung besitzt.
-Falls nun $(p_{k})$ eine L"osung ist, ist auch 
+\mbox{Prozesses mit Rate $\mu$ auf)} ~. & &
+\end{eqnarray*}
+Die Gleichung für $k=0$ ist überflüssig, da sie aus den Gleichungen
+für $k>0$ und der Beziehung $\sum_{}^{} p_{k}=1$ gefolgert werden kann.
+Man kann zeigen, da\3 diese Gleichung eine eindeutige Lösung besitzt.
+Falls nun $(p_{k})$ eine Lösung ist, ist auch
 \begin{displaymath}
 \tilde p_{k} = \frac{p_{k+1}}{1-p_{0}}
 \end{displaymath}
-eine L"osung. Es mu\3 also
+eine Lösung. Es mu\3 also
 \begin{displaymath}
 \tilde p_{k} = p_{k} ~,
 \end{displaymath}
 somit
 \begin{displaymath}
-p_{k+1} = p_{k}(1-p_{0}) 
+p_{k+1} = p_{k}(1-p_{0})
 \end{displaymath}
 und
 \begin{displaymath}
-p_{k} = p_{0}(1-p_{0})^{k} = 
+p_{k} = p_{0}(1-p_{0})^{k} =
 \sigma^{k}(1- \sigma) \qquad [ \sigma := 1 - p_{0}] ~.
-\end{displaymath}  
-Setzt man das in die Gleichung f"ur $k=1$ ein, ergibt sich
+\end{displaymath}
+Setzt man das in die Gleichung für $k=1$ ein, ergibt sich
 \begin{displaymath}
 \sigma = \sum_{j=0}^{\infty} \sigma^{j} q_{j} = \tilde A (\mu(1-\sigma))
 ~.
 \end{displaymath}
-Falls $\rho < 1$, gibt es genau eine L"osung $\sigma \in (0,1)$. Dann ist
-$N$ geometrisch verteilt mit Parameter $\sigma$. Wie f"ur die Schlange
+Falls $\rho < 1$, gibt es genau eine Lösung $\sigma \in (0,1)$. Dann ist
+$N$ geometrisch verteilt mit Parameter $\sigma$. Wie für die Schlange
 $M/M/1$ ergibt sich die Verteilung der Zeit $z$ im System als
 Exponentialverteilt mit Parameter $\mu(1- \sigma)$; die Wartezeit $w$ hat
 $\PP (w=0)= 1 - \sigma$ und die bedingte Verteilung von $w$ unter $[w>0]$
@@ -455,19 +455,19 @@ ist wieder dieselbe Exponentialverteilung wie die von $z$.
 Hier sind beide Verteilungen - die der Zwischenankunftszeiten und die der
 Bedienzeiten - allgemeine Verteilungen. Der Trick der vorigen beiden
 Kapitel funktioniert jetzt nicht mehr gut. Um beide Zeiten zu
-kontrollieren, m"u\3ten wir das System nun zu den Zeitpunkten betrachten,
+kontrollieren, mü\3ten wir das System nun zu den Zeitpunkten betrachten,
 in denen ein Kunde das leere System betritt; diese Zeitpunkte sind aber zu
-selten, um vern"uftig damit zu arbeiten. Statt dessen gehen wir von der
-Rekursion f"ur die Wartezeiten aus:
+selten, um vernüftig damit zu arbeiten. Statt dessen gehen wir von der
+Rekursion für die Wartezeiten aus:
 \begin{displaymath}
 w_{n+1} = (w_{n} + u_{n})_{+} ~.
 \end{displaymath}
-Das bedeutet f"ur die Verteilungsfunktion $W(.)$ von $w$
+Das bedeutet für die Verteilungsfunktion $W(.)$ von $w$
 \begin{displaymath}
 W(x) = \PP (w_{n+1} \leq x) = \left\{
 \begin{array}{lc}
 \PP (w_{n} + u_{n} \leq x) & x \geq 0 \\
-0 & x < 0 
+0 & x < 0
 \end{array} \right. ~.
 \end{displaymath}
 Die Wahrscheinlichkeit $\PP (w_{n}+ u_{n} \leq x)$ berechnet sich als
@@ -475,8 +475,8 @@ Die Wahrscheinlichkeit $\PP (w_{n}+ u_{n} \leq x)$ berechnet sich als
 \PP (w_{n} + u_{n} \leq x) = \int_{- \infty}^{\infty} W(x-u) c(u) du ~,
 \end{displaymath}
 wobei $c(u)$ die Dichte von $u_{n} = x_{n} - t_{n+1}$ ist. Falls in der
-Gleichung f"ur $W(x)$ die Fallunterscheidung nicht auftreten w"urde, w"are
-sie leicht durch Transformationen zu l"osen. Wir erreichen dies durch
+Gleichung für $W(x)$ die Fallunterscheidung nicht auftreten würde, wäre
+sie leicht durch Transformationen zu lösen. Wir erreichen dies durch
 einen Kunstgriff: Wir setzen
 \begin{displaymath}
 Y(x) = \left\{
@@ -485,7 +485,7 @@ Y(x) = \left\{
 0 &  x \geq 0
 \end{array} \right. ~.
 \end{displaymath}
-Dann ist 
+Dann ist
 \begin{displaymath}
 W(x) + Y(x) = \int_{-\infty}^{\infty} W(x-u) c(u) du ~.
 \end{displaymath}
@@ -495,29 +495,29 @@ da\3
 \begin{displaymath}
 \Phi (t) = \frac{1}{t} \tilde W(t)
 \end{displaymath}
-gilt. F"ur die Transformationen ergeben sich die Formeln
+gilt. Für die Transformationen ergeben sich die Formeln
 \begin{displaymath}
 \Phi (t) + \Phi^{-}(t) = \Phi (t) \tilde C (t) = \Phi (t) \tilde A (-t)
-\tilde B (t) ~,  
+\tilde B (t) ~,
 \end{displaymath}
 oder
 \begin{displaymath}
 \frac{\Phi^{-}(t)}{\Phi (t)} = \tilde A (-t)  \tilde B (t) -1 ~.
 \end{displaymath}
-Wir nehmen an, da\3 $\tilde A(t)$ f"ur $t \geq -D$ existiert. (Das ist
-gleichbedeutend damit, da\3 $\PP (t_{n} \geq x)$ wie $e^{-Dx}$ f"allt).
-Dann existiert $\tilde A (-t) \tilde B (t) - 1$ f"ur $0 \leq t \leq D$;
-Ferner existiert $\Phi (t)$ f"ur $t >0$ und $t \Phi (t)$ ist in $\Re (t)
-\geq 0$ regul"ar und beschr"ankt; $\Phi^{-}(t)$ existiert f"ur $t \leq D$
-und in $\Re (t) < D$ ist $t\Phi^{-}(t)$ regul"ar und beschr"ankt. Wir
+Wir nehmen an, da\3 $\tilde A(t)$ für $t \geq -D$ existiert. (Das ist
+gleichbedeutend damit, da\3 $\PP (t_{n} \geq x)$ wie $e^{-Dx}$ fällt).
+Dann existiert $\tilde A (-t) \tilde B (t) - 1$ für $0 \leq t \leq D$;
+Ferner existiert $\Phi (t)$ für $t >0$ und $t \Phi (t)$ ist in $\Re (t)
+\geq 0$ regulär und beschränkt; $\Phi^{-}(t)$ existiert für $t \leq D$
+und in $\Re (t) < D$ ist $t\Phi^{-}(t)$ regulär und beschränkt. Wir
 versuchen 2 Funktionen $\Psi^{+}$ und $\Psi^{-}$ zu finden, die folgendes
-erf"ullen:
+erfüllen:
 \begin{enumerate}
 \item $\frac{\Psi^{+}(t)}{\Psi^{-}(t)} = \tilde A(-t) \tilde B(t) -1$ ~ ~\index{Spektralzerlegung}(Spektralzerlegung).
-\item $\frac{\Psi^{+}(t)}{t}$ ist f"ur $\Re(t)>0$ regul"ar und beschr"ankt
+\item $\frac{\Psi^{+}(t)}{t}$ ist für $\Re(t)>0$ regulär und beschränkt
 und hat dort keine Nullstellen.
-\item $\frac{\Psi^{-}(t)}{t}$ ist f"ur $\Re (t) < D$ regul"ar und
-beschr"ankt und hat dort keine Nullstellen.
+\item $\frac{\Psi^{-}(t)}{t}$ ist für $\Re (t) < D$ regulär und
+beschränkt und hat dort keine Nullstellen.
 \end{enumerate}
 Dann gilt
 \begin{displaymath}
@@ -528,9 +528,9 @@ oder
 \begin{displaymath}
 \Phi^{-}(t) \Psi^{-}(t) = \Psi^{+}(t) \Phi (t) \qquad 0< \Re (t) < D ~.
 \end{displaymath}
-Die linke Seite ist f"ur $\Re (t) < D$ regul"ar und beschr"ankt, die
-rechte Seite f"ur $\Re (t) > 0$. Es ist dadurch also eine Funktion
-bestimmt, die in der ganzen Ebene regul"ar und beschr"ankt ist. Nach dem
+Die linke Seite ist für $\Re (t) < D$ regulär und beschränkt, die
+rechte Seite für $\Re (t) > 0$. Es ist dadurch also eine Funktion
+bestimmt, die in der ganzen Ebene regulär und beschränkt ist. Nach dem
 Satz von \index{Satz!LIOUVILLE}LIOUVILLE mu\3 eine solche Funktion konstant sein. Es gilt also
 \begin{displaymath}
 \Phi (t) = \frac{K}{\Psi^{+}(t)} ~,
@@ -544,13 +544,13 @@ Es bleibt die Konstante $K$ zu bestimmen. Sie folgt wieder aus
 \tilde W (0) = 1 \qquad \mbox{zu} \qquad
 K = \frac{\Phi^{+}(t)}{t} \Bigg \bracevert_{t=0} = (\Phi^{+})^{'}(0) ~.
 \end{displaymath}
-{\bf Beispiel: $M/M/1$} 
+{\bf Beispiel: $M/M/1$}
 \begin{displaymath}
 A = M_{\lambda}: \quad \tilde A(t) = \frac{\lambda}{\lambda + t}, \quad
 B = M_{\mu}: \quad \tilde B(t) =\frac{\mu}{\mu +t}
 \end{displaymath}
 \begin{eqnarray*}
-\frac{\Psi^{+}(t)}{\Psi^{-}(t)} &=& \tilde A(-t) \tilde B(t)-1 = 
+\frac{\Psi^{+}(t)}{\Psi^{-}(t)} &=& \tilde A(-t) \tilde B(t)-1 =
 \frac{\lambda \mu}{(\lambda - t)(\mu + t)} - 1 = \\
  &=& \frac{t(\mu - \lambda + t)}{(\lambda - t)(\mu + t)}. \\
 \Psi^{+}(t) &=& \frac{t(\mu -\lambda + t)}{(t + \mu} \\
@@ -560,6 +560,6 @@ B = M_{\mu}: \quad \tilde B(t) =\frac{\mu}{\mu +t}
 \frac{1}{t} - \frac{\lambda}{\mu(\mu - \lambda + t)} \\
 \Psi^{+'}(0) &=& \frac{\Psi^{+}(t)}{t} \Bigg \bracevert_{t=0} =\frac{\mu -
 \lambda}{\mu} \\
-F(x) &=& 1 - \rho e^{-(\mu - \lambda)x} \quad \mbox{f"ur} \quad x \geq 0
+F(x) &=& 1 - \rho e^{-(\mu - \lambda)x} \quad \mbox{für} \quad x \geq 0
 \end{eqnarray*}
 also die Verteilung der Wartezeit aus dem ersten Kapitel.
