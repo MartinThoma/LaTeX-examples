@@ -4,6 +4,8 @@
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage{csquotes}
 \usepackage{makeidx}        % for automatically generation of an index
+\usepackage[bookmarks,bookmarksnumbered,hypertexnames=false,pdfpagelayout=OneColumn,colorlinks,hyperindex=false]{hyperref} % has to be after makeidx
+\usepackage[german,nameinlink,noabbrev]{cleveref} % has to be after hyperref, ntheorem, amsthm
 \setlength{\parindent}{0mm}
 \setlength{\parskip}{0.25cm}
 \newcommand{\E}{{\rm I\kern-0.2em E}}
@@ -19,7 +21,14 @@ Karl Grill\thanks{ copyright\copyright 1999 by Karl Grill
 \protect\\ Details siehe Datei \enquote{copying}}}
 
 
+\hypersetup{
+  pdfauthor   = {Klaus Berger, Pantelis Christodoulides, Karl Grill},
+  pdfkeywords = {},
+  pdftitle    = {Warteschlangentheorie}
+}
+
 \makeindex
+\usepackage{microtype}
 
 \begin{document}
 \title{Warteschlangentheorie}
