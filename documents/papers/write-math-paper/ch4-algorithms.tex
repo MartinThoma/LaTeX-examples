@@ -1,0 +1,113 @@
+%!TEX root = write-math-ba-paper.tex
+
+\section{Algorithms}
+\subsection{Preprocessing}\label{sec:preprocessing}
+Preprocessing in symbol recognition is done to improve the quality and
+expressive power of the data. It makes follow-up tasks like feature extraction
+and classification easier, more effective or faster. It does so by resolving
+errors in the input data, reducing duplicate information and removing
+irrelevant information.
+
+Preprocessing algorithms fall into two groups: Normalization and noise
+reduction algorithms.
+
+A very important normalization algorithm in single-symbol recognition is
+\textit{scale-and-shift}~\cite{Thoma:2014}. It scales the recording so that
+its bounding box fits into a unit square. As the aspect ratio of a recording is
+almost never 1:1, only one dimension will fit exactly in the unit square. For
+this paper, it was chosen to shift the recording in the direction of its bigger
+dimension into the $[0,1] \times [0,1]$ unit square. After that, the recording
+is shifted in direction of its smaller dimension such that its bounding box is
+centered around zero.
+
+Another normalization preprocessing algorithm is
+resampling~\cite{Guyon91,Manke01}. As the data points on the pen trajectory are
+generated asynchronously and with different time-resolutions depending on the
+used hardware and software, it is desirable to resample the recordings to have
+points spread equally in time for every recording. This was done by linear
+interpolation of the $(x,t)$ and $(y,t)$ sequences and getting a fixed number
+of equally spaced points per stroke.
+
+\textit{Stroke connection} is a noise reduction algorithm which is mentioned
+in~\cite{Tappert90}. It happens sometimes that the hardware detects that the
+user lifted the pen where the user certainly didn't do so. This can be detected
+by measuring the Euclidean distance between the end of one stroke and the
+beginning of the next stroke. If this distance is below a threshold, then the
+strokes are connected.
+
+Due to a limited resolution of the recording device and due to erratic
+handwriting, the pen trajectory might not be smooth. One way to smooth is
+calculating a weighted average and replacing points by the weighted average of
+their coordinate and their neighbors coordinates. Another way to do smoothing
+is to reduce the number of points with the Douglas-Peucker
+algorithm to the points that are more relevant for the
+overall shape of a stroke and then interpolate the stroke between those points.
+The Douglas-Peucker stroke simplification algorithm is usually used in
+cartography to simplify the shape of roads. It works recursively to find a
+subset of points of a stroke that is simpler and still similar to the original
+shape. The algorithm adds the first and the last point $p_1$ and $p_n$ of a
+stroke to the simplified set of points $S$. Then it searches the point $p_i$ in
+between that has maximum distance from the line $p_1 p_n$. If this distance is
+above a threshold $\varepsilon$, the point $p_i$ is added to $S$. Then the
+algorithm gets applied to $p_1 p_i$ and $p_i p_n$ recursively. It is described
+as \enquote{Algorithm 1} in~\cite{Visvalingam1990}.
+
+\subsection{Features}\label{sec:features}
+Features can be \textit{global}, that means calculated for the complete
+recording or complete strokes. Other features are calculated for single points
+on the pen trajectory and are called \textit{local}.
+
+Global features are the \textit{number of strokes} in a recording, the
+\textit{aspect ratio} of a recordings bounding box or the
+\textit{ink} being used for a recording. The ink feature gets calculated by
+measuring the length of all strokes combined. The re-curvature, which was
+introduced in~\cite{Huang06}, is defined as
+\[\text{re-curvature}(stroke) := \frac{\text{height}(stroke)}{\text{length}(stroke)}\]
+and a stroke-global feature.
+
+The simplest local feature is the coordinate of the point itself. Speed,
+curvature and a local small-resolution bitmap around the point, which was
+introduced by Manke, Finke and Waibel in~\cite{Manke1995}, are other local
+features.
+
+\subsection{Multilayer Perceptrons}\label{sec:mlp-training}
+\Glspl{MLP} are explained in detail in~\cite{Mitchell97}. They can have
+different numbers of hidden layers, the number of neurons per layer and the
+activation functions can be varied. The learning algorithm is parameterized by
+the learning rate $\eta \in (0, \infty)$, the momentum $\alpha \in [0, \infty)$
+and the number of epochs.
+
+The topology of \glspl{MLP} will be denoted in the following by separating the
+number of neurons per layer with colons. For example, the notation
+$160{:}500{:}500{:}500{:}369$ means that the input layer gets 160~features,
+there are three hidden layers with 500~neurons per layer and one output layer
+with 369~neurons.
+
+\glspl{MLP} training can be executed in various different ways, for example
+with \acrfull{SLP}. In case of a \gls{MLP} with the topology
+$160{:}500{:}500{:}500{:}369$, \gls{SLP} works as follows: At first a \gls{MLP}
+with one hidden layer ($160{:}500{:}369$) is trained. Then the output layer is
+discarded, a new hidden layer and a new output layer is added and it is trained
+again, resulting in a $160{:}500{:}500{:}369$ \gls{MLP}. The output layer is
+discarded again, a new hidden layer is added and a new output layer is added
+and the training is executed again.
+
+Denoising auto-encoders are another way of pretraining. An
+\textit{auto-encoder} is a neural network that is trained to restore its input.
+This means the number of input neurons is equal to the number of output
+neurons. The weights define an \textit{encoding} of the input that allows
+restoring the input. As the neural network finds the encoding by itself, it is
+called auto-encoder. If the hidden layer is smaller than the input layer, it
+can be used for dimensionality reduction~\cite{Hinton1989}. If only one hidden
+layer with linear activation functions is used, then the hidden layer contains
+the principal components after training~\cite{Duda2001}.
+
+Denoising auto-encoders are a variant introduced in~\cite{Vincent2008} that
+is more robust to partial corruption of the input features. It is trained to
+get robust by adding noise to the input features.
+
+There are multiple ways how noise can be added. Gaussian noise and randomly
+masking elements with zero are two possibilities.
+\cite{Deeplearning-Denoising-AE} describes how such a denoising auto-encoder
+with masking noise can be implemented. The corruption $\varkappa \in [0, 1)$ is
+the probability of a feature being masked.

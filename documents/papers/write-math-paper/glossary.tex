@@ -1,0 +1,74 @@
+%!TEX root = thesis.tex
+%Term definitions
+\newacronym{ANN}{ANN}{artificial neural network}
+\newacronym{CSR}{CSR}{cursive script recognition}
+\newacronym{DTW}{DTW}{dynamic time warping}
+\newacronym{GTW}{GTW}{greedy time warping}
+\newacronym{HMM}{HMM}{hidden Markov model}
+\newacronym{HWR}{HWR}{handwriting recognition}
+\newacronym{HWRT}{HWRT}{handwriting recognition toolkit}
+\newacronym{MLP}{MLP}{multilayer perceptron}
+\newacronym{MSE}{MSE}{mean squared error}
+\newacronym{OOV}{OOV}{out of vocabulary}
+\newacronym{TDNN}{TDNN}{time delay neural network}
+\newacronym{PCA}{PCA}{principal component analysis}
+\newacronym{LDA}{LDA}{linear discriminant analysis}
+\newacronym{CROHME}{CROHME}{Competition on Recognition of Online Handwritten Mathematical Expressions}
+\newacronym{GMM}{GMM}{Gaussian mixture model}
+\newacronym{SVM}{SVM}{support vector machine}
+\newacronym{PyPI}{PyPI}{Python Package Index}
+\newacronym{CFM}{CFM}{classification figure of merit}
+\newacronym{CE}{CE}{cross entropy}
+\newacronym{GPU}{GPU}{graphics processing unit}
+\newacronym{CUDA}{CUDA}{Compute Unified Device Architecture}
+\newacronym{SLP}{SLP}{supervised layer-wise pretraining}
+\newacronym{AEP}{AEP}{auto-encoder pretraining}
+
+% Term definitions
+\newglossaryentry{Detexify}{name={Detexify}, description={A system used for
+on-line handwritten symbol recognition which is described in \cite{Kirsch}}}
+
+\newglossaryentry{epoch}{name={epoch}, description={During iterative training of a neural network, an \textit{epoch} is a single pass through the entire training set, followed by testing of the verification set.\cite{Concise12}}}
+
+\newglossaryentry{hypothesis}{
+    name={hypothesis},
+    description={The recognition results which a classifier returns is called a hypothesis. In other words, it is the \enquote{guess} of a classifier},
+    plural=hypotheses
+}
+
+\newglossaryentry{reference}{
+    name={reference},
+    description={Labeled data is used to evaluate classifiers. Those labels are called references},
+}
+
+\newglossaryentry{YAML}{name={YAML}, description={YAML is a human-readable data format that can be used for configuration files}}
+\newglossaryentry{MER}{name={MER}, description={An error measure which combines symbols to equivalence classes. It was introduced on \cpageref{merged-error-introduction}}}
+
+\newglossaryentry{JSON}{name={JSON}, description={JSON, short for JavaScript Object Notation, is a language-independent data format that can be used to transmit data between a server and a client in web applications}}
+
+\newglossaryentry{hyperparamter}{name={hyperparamter}, description={A
+\textit{hyperparamter} is a parameter of a neural net, that cannot be learned,
+but has to be chosen}, symbol={\ensuremath{\theta}}}
+
+\newglossaryentry{learning rate}{name={learning rate}, description={A factor $0 \leq \eta \in \mdr$ that affects how fast new weights are learned. $\eta=0$ means that no new data is learned}, symbol={\ensuremath{\eta}}} % Andrew Ng: \alpha
+
+\newglossaryentry{learning rate decay}{name={learning rate decay}, description={The learning rate decay $0 < \alpha \leq 1$ is used to adjust the learning rate. After each epoch the learning rate $\eta$ is updated to $\eta \gets \eta \times \alpha$}, symbol={\ensuremath{\eta}}}
+
+\newglossaryentry{preactivation}{name={preactivation}, description={The preactivation of a neuron is the weighted sum of its input, before the activation function is applied}}
+
+\newglossaryentry{stroke}{name={stroke}, description={The path the pen took from
+the point where the pen was put down to the point where the pen was lifted first}}
+
+\newglossaryentry{line}{name={line}, description={Geometric object that is infinitely long
+and defined by two points.}}
+
+\newglossaryentry{line segment}{name={line segment}, description={Geometric object that has finite length
+and defined by two points.}}
+
+\newglossaryentry{symbol}{name={symbol}, description={An atomic semantic entity. A more detailed description can be found in \cref{sec:what-is-a-symbol}}}
+
+\newglossaryentry{weight}{name={weight}, description={A
+\textit{weight} is a parameter of a neural net, that can be learned}, symbol={\ensuremath{\weight}}}
+
+\newglossaryentry{control point}{name={control point}, description={A
+\textit{control point} is a point recorded by the input device.}}

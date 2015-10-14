@@ -1,0 +1,17 @@
+Autoren: Thoma, Martin; Kilgour, Kevin; Stüker, Sebastian; Waibel, Alexander
+Titel: On-line Recognition of Handwritten Mathematical Symbols
+Institut: Institute for Anthropomatics and Robotics
+
+Abstract (max 500 Zeichen):
+This paper presents a classification system which uses the pen trajectory to
+classify handwritten symbols. Five preprocessing steps, one data multiplication
+algorithm, five features and five variants for multilayer Perceptron training
+were evaluated using $\num{166898}$ recordings. The evaluation results of
+21~experiments were used to create an optimized recognizer. This improvement
+was achieved by \acrlong{SLP} and adding new features.
+
+Keywords (max 5): recognition; machine learning; neural networks; symbols;
+multilayer perceptron
+
+Geplanter Veröffentlichungstermin: 1. August 2015
+

@@ -1,0 +1,87 @@
+\documentclass[9pt,technote,a4paper]{IEEEtran}
+\usepackage{amssymb, amsmath} % needed for math
+
+\usepackage[a-1b]{pdfx}
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.xmpdata}
+    \Keywords{recognition\sep machine learning\sep neural networks\sep symbols\sep multilayer perceptron}
+    \Title{On-line Recognition of Handwritten Mathematical Symbols}
+    \Author{Martin Thoma, Kevin Kilgour, Sebastian St{\"u}ker and Alexander Waibel}
+    \Org{Institute for Anthropomatics and Robotics}
+    \Doi{}
+\end{filecontents*}
+
+\RequirePackage{ifpdf}
+\ifpdf \PassOptionsToPackage{pdfpagelabels}{hyperref} \fi
+\RequirePackage{hyperref}
+\usepackage{parskip}
+\usepackage[pdftex,final]{graphicx}
+\usepackage{csquotes}
+\usepackage{braket}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\usepackage{wasysym}
+\usepackage{caption}
+% \captionsetup{belowskip=12pt,aboveskip=4pt}
+\makeatletter
+\newcommand\mynobreakpar{\par\nobreak\@afterheading}
+\makeatother
+\usepackage[noadjust]{cite}
+\usepackage[nameinlink,noabbrev]{cleveref} % has to be after hyperref, ntheorem, amsthm
+\usepackage[binary-units,group-separator={,}]{siunitx}
+\sisetup{per-mode=fraction,binary-units=true}
+\DeclareSIUnit\pixel{px}
+\usepackage{glossaries}
+\loadglsentries[main]{glossary}
+\makeglossaries
+
+\title{On-line Recognition of Handwritten Mathematical Symbols}
+\author{Martin Thoma, Kevin Kilgour, Sebastian St{\"u}ker and Alexander Waibel}
+
+\hypersetup{
+  pdfauthor   = {Martin Thoma\sep Kevin Kilgour\sep Sebastian St{\"u}ker\sep Alexander Waibel},
+  pdfkeywords = {recognition\sep machine learning\sep neural networks\sep symbols\sep multilayer perceptron},
+  pdfsubject  = {Recognition},
+  pdftitle    = {On-line Recognition of Handwritten Mathematical Symbols},
+}
+\include{variables}
+\crefname{table}{Table}{Tables}
+\crefname{figure}{Figure}{Figures}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\begin{abstract}
+The automatic recognition of single handwritten symbols has three main
+applications: Supporting users who know how a symbol looks like, but not what
+its name is, providing the necessary commands for professional publishing, or
+as a building block for formula recognition.
+
+This paper presents a system which uses the pen trajectory to classify
+handwritten symbols. Five preprocessing steps, one data multiplication
+algorithm, five features and five variants for multilayer Perceptron training
+were evaluated using $\num{166898}$ recordings. Those recordings were made
+publicly available. The evaluation results of these 21~experiments were used to
+create an optimized recognizer which has a top-1 error of less than
+$\SI{17.5}{\percent}$ and a top-3 error of $\SI{4.0}{\percent}$. This is a
+relative improvement of $\SI{18.5}{\percent}$ for the top-1 error and
+$\SI{29.7}{\percent}$ for the top-3 error compared to the baseline system. This
+improvement was achieved by \acrlong{SLP} and adding new features. The
+improved classifier can be used via \href{http://write-math.com/}{write-math.com}.
+\end{abstract}
+
+\input{ch1-introduction}
+\input{ch2-general-system-design}
+\input{ch3-data-and-implementation}
+\input{ch4-algorithms}
+\input{ch5-optimization-of-system-design}
+\input{ch6-summary}
+\input{ch7-mfrdb-eval}
+
+
+\bibliographystyle{IEEEtranSA}
+\bibliography{write-math-ba-paper}
+\end{document}

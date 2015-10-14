@@ -1,0 +1,36 @@
+%!TEX root = write-math-ba-paper.tex
+
+\section{General System Design}
+The following steps are used for symbol classification:\nobreak
+\begin{enumerate}
+    \item \textbf{Preprocessing}: Recorded data is never perfect. Devices have
+          errors and people make mistakes while using the devices. To tackle
+          these problems there are preprocessing algorithms to clean the data.
+          The preprocessing algorithms can also remove unnecessary variations
+          of the data that do not help in the classification process, but hide
+          what is important. Having slightly different sizes of the same symbol
+          is an example of such a variation. Four preprocessing algorithms that
+          clean or normalize recordings are explained in
+          \cref{sec:preprocessing}.
+    \item \textbf{Data multiplication}: Learning systems need lots of data
+          to learn internal parameters. If there is not enough data available,
+          domain knowledge can be considered to create new artificial data from
+          the original data. In the domain of on-line handwriting recognition,
+          data can be multiplied by adding rotated variants.
+    \item \textbf{Feature extraction}: A feature is high-level information
+          derived from the raw data after preprocessing. Some systems like
+          Detexify take the result of the preprocessing step, but many compute
+          new features. Those features can be designed by a human engineer or
+          learned. Non-raw data features have the advantage that less
+          training data is needed since the developer uses knowledge about
+          handwriting to compute highly discriminative features. Various
+          features are explained in \cref{sec:features}.
+\end{enumerate}
+
+After these steps, it is a classification task for which the classifier has to
+learn internal parameters before it can classify new recordings.We classified
+recordings by computing constant-sized feature vectors and using
+\glspl{MLP}. There are many ways to adjust \glspl{MLP} (number of neurons and
+layers, activation functions) and their training (learning rate, momentum,
+error function). Some of them are described in~\cref{sec:mlp-training} and the
+evaluation results are presented in \cref{ch:Optimization-of-System-Design}.

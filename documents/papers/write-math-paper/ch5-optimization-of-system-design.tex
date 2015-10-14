@@ -1,0 +1,214 @@
+%!TEX root = write-math-ba-paper.tex
+
+\section{Optimization of System Design}\label{ch:Optimization-of-System-Design}
+In order to evaluate the effect of different preprocessing algorithms, features
+and adjustments in the \gls{MLP} training and topology, the following baseline
+system was used:
+
+Scale the recording to fit into a unit square while keeping the aspect ratio,
+shift it as described in \cref{sec:preprocessing},
+resample it with linear interpolation to get 20~points per stroke, spaced
+evenly in time. Take the first 4~strokes with 20~points per stroke and
+2~coordinates per point as features, resulting in 160~features which is equal
+to the number of input neurons. If a recording has less than 4~strokes, the
+remaining features were filled with zeroes.
+
+All experiments were evaluated with four baseline systems $B_{hl=i}$, $i \in \Set{1,
+2, 3, 4}$, where $i$ is the number of hidden layers as different topologies
+could have a severe influence on the effect of new features or preprocessing
+steps. Each hidden layer in all evaluated systems has $500$ neurons.
+
+Each \gls{MLP} was trained with a learning rate of $\eta = 0.1$ and a momentum
+of $\alpha = 0.1$. The activation function of every neuron in a hidden layer is
+the sigmoid function. The neurons in the
+output layer use the softmax function. For every experiment, exactly one part
+of the baseline systems was changed.
+
+
+\subsection{Random Weight Initialization}
+The neural networks in all experiments got initialized with a small random
+weight
+
+\[w_{i,j} \sim U(-4 \cdot \sqrt{\frac{6}{n_l + n_{l+1}}}, 4 \cdot \sqrt{\frac{6}{n_l + n_{l+1}}})\]
+
+where $w_{i,j}$ is the weight between the neurons $i$ and $j$, $l$ is the layer
+of neuron $i$, and $n_i$ is the number of neurons in layer $i$. This random
+initialization was suggested on
+\cite{deeplearningweights} and is done to break symmetry.
+
+This can lead to different error rates for the same systems just because the
+initialization was different.
+
+In order to get an impression of the magnitude of the influence on the different
+topologies and error rates the baseline models were trained 5 times with
+random initializations.
+\Cref{table:baseline-systems-random-initializations-summary}
+shows a summary of the results. The more hidden layers are used, the more do
+the results vary between different random weight initializations.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{crrr|rrr} %chktex 44
+    \toprule
+    \multirow{3}{*}{System}  & \multicolumn{6}{c}{Classification error}\\
+    \cmidrule(l){2-7}
+               & \multicolumn{3}{c}{Top-1}   & \multicolumn{3}{c}{Top-3}\\
+               & Min                   & Max                   & Mean                  & Min                  & Max                  & Mean\\\midrule
+    $B_{hl=1}$ & $\SI{23.1}{\percent}$ & $\SI{23.4}{\percent}$ & $\SI{23.2}{\percent}$ & $\SI{6.7}{\percent}$ & $\SI{6.8}{\percent}$ & $\SI{6.7}{\percent}$ \\
+    $B_{hl=2}$ & \underline{$\SI{21.4}{\percent}$} & \underline{$\SI{21.8}{\percent}$}& \underline{$\SI{21.6}{\percent}$} & $\SI{5.7}{\percent}$ & \underline{$\SI{5.8}{\percent}$} & \underline{$\SI{5.7}{\percent}$}\\
+    $B_{hl=3}$ & $\SI{21.5}{\percent}$ & $\SI{22.3}{\percent}$ & $\SI{21.9}{\percent}$ & \underline{$\SI{5.5}{\percent}$} & $\SI{5.8}{\percent}$ & \underline{$\SI{5.7}{\percent}$}\\
+    $B_{hl=4}$ & $\SI{23.2}{\percent}$ & $\SI{24.8}{\percent}$ & $\SI{23.9}{\percent}$ & $\SI{6.0}{\percent}$ & $\SI{6.4}{\percent}$ & $\SI{6.2}{\percent}$\\
+    \bottomrule
+    \end{tabular}
+    \caption{The systems $B_{hl=1}$ -- $B_{hl=4}$ were randomly initialized,
+             trained and evaluated 5~times to estimate the influence of random
+             weight initialization.}
+\label{table:baseline-systems-random-initializations-summary}
+\end{table}
+
+
+\subsection{Stroke connection}
+In order to solve the problem of interrupted strokes, pairs of strokes
+can be connected with stroke connection algorithm. The idea is that for
+a pair of consecutively drawn strokes $s_{i}, s_{i+1}$ the last point $s_i$ is
+close to the first point of $s_{i+1}$ if a stroke was accidentally split
+into two strokes.
+
+$\SI{59}{\percent}$ of all stroke pair distances in the collected data are
+between $\SI{30}{\pixel}$ and $\SI{150}{\pixel}$. Hence the stroke connection
+algorithm was evaluated with $\SI{5}{\pixel}$, $\SI{10}{\pixel}$ and
+$\SI{20}{\pixel}$.
+All models top-3 error improved with a threshold of $\theta = \SI{10}{\pixel}$
+by at least $\num{0.2}$ percentage points, except $B_{hl=4}$ which did not notably
+improve.
+
+
+\subsection{Douglas-Peucker Smoothing}
+The Douglas-Peucker algorithm was applied with a threshold of $\varepsilon =
+0.05$, $\varepsilon = 0.1$ and $\varepsilon = 0.2$ after scaling and shifting,
+but before resampling. The interpolation in the resampling step was done
+linearly and with cubic splines in two experiments. The recording was scaled
+and shifted again after the interpolation because the bounding box might have
+changed.
+
+The result of the application of the Douglas-Peucker smoothing with $\varepsilon
+> 0.05$ was a high rise of the top-1 and top-3 error for all models $B_{hl=i}$.
+This means that the simplification process removes some relevant information and
+does not---as it was expected---remove only noise. For $\varepsilon = 0.05$
+with linear interpolation some models top-1 error improved, but the
+changes were small. It could be an effect of random weight initialization.
+However, cubic spline interpolation made all systems perform more than
+$\num{1.7}$ percentage points worse for top-1 and top-3 error.
+
+The lower the value of $\varepsilon$, the less does the recording change after
+this preprocessing step. As it was applied after scaling the recording such that
+the biggest dimension of the recording (width or height) is $1$, a value of
+$\varepsilon = 0.05$ means that a point has to move at least $\SI{5}{\percent}$
+of the biggest dimension.
+
+
+\subsection{Global Features}
+Single global features were added one at a time to the baseline systems. Those
+features were re-curvature
+$\text{re-curvature}(stroke) = \frac{\text{height}(stroke)}{\text{length}(stroke)}$
+as described in \cite{Huang06}, the ink feature which is the summed length
+of all strokes, the stroke count, the aspect ratio and the stroke center points
+for the first four strokes. The stroke center point feature improved the system
+$B_{hl=1}$ by $\num{0.3}$~percentage points for the top-3 error and system $B_{hl=3}$ for
+the top-1 error by $\num{0.7}$~percentage points, but all other systems and
+error measures either got worse or did not improve much.
+
+The other global features did improve the systems $B_{hl=1}$ -- $B_{hl=3}$, but not
+$B_{hl=4}$. The highest improvement was achieved with the re-curvature feature. It
+improved the systems $B_{hl=1}$ -- $B_{hl=4}$ by more than $\num{0.6}$~percentage points
+top-1 error.
+
+
+\subsection{Data Multiplication}
+Data multiplication can be used to make the model invariant to transformations.
+However, this idea seems not to work well in the domain of on-line handwritten
+mathematical symbols. We tripled the data by adding a version that is rotated
+3~degrees to the left and another one that is rotated 3~degrees to the right
+around the center of mass. This data multiplication made all classifiers for
+most error measures perform worse by more than $\num{2}$~percentage points for
+the top-1 error.
+
+The same experiment was executed by rotating by 6~degrees and in another
+experiment by 9~degrees, but those performed even worse.
+
+Also multiplying the data by a factor of 5 by adding two 3-degree rotated
+variants and two 6-degree rotated variant made the classifier perform worse
+by more than $\num{2}$~percentage points.
+
+
+\subsection{Pretraining}\label{subsec:pretraining-evaluation}
+Pretraining is a technique used to improve the training of \glspl{MLP} with
+multiple hidden layers.
+
+\Cref{table:pretraining-slp} shows that \gls{SLP} improves the classification
+performance by $\num{1.6}$ percentage points for the top-1 error and
+$\num{1.0}$ percentage points for the top-3 error. As one can see in
+\cref{fig:training-and-test-error-for-different-topologies-pretraining}, this
+is not only the case because of the longer training as the test error is
+relatively stable after $\num{1000}$ epochs of training. This was confirmed
+by an experiment where the baseline systems where trained for $\num{10000}$
+epochs and did not perform notably different.
+
+\begin{figure}[htb]
+    \centering
+    \input{figures/errors-by-epoch-pretraining/errors-by-epoch-pretraining.tex}
+    \caption{Training- and test error by number of trained epochs for different
+             topologies with \acrfull{SLP}. The plot shows
+             that all pretrained systems performed much better than the systems
+             without pretraining. All plotted systems did not improve
+             with more epochs of training.}
+\label{fig:training-and-test-error-for-different-topologies-pretraining}
+\end{figure}
+
+\begin{table}[tb]
+    \centering
+    \begin{tabular}{lrrrr}
+    \toprule
+    \multirow{2}{*}{System}  & \multicolumn{4}{c}{Classification error}\\
+    \cmidrule(l){2-5}
+                & Top-1                  & Change               & Top-3                & Change                 \\\midrule
+    $B_{hl=1}$     & $\SI{23.2}{\percent}$  & -                    & $\SI{6.7}{\percent}$ & - \\
+    $B_{hl=2,SLP}$ & $\SI{19.9}{\percent}$ & $\SI{-1.7}{\percent}$ & $\SI{4.7}{\percent}$ & $\SI{-1.0}{\percent}$\\
+    $B_{hl=3,SLP}$ & \underline{$\SI{19.4}{\percent}$} & $\SI{-2.5}{\percent}$ & \underline{$\SI{4.6}{\percent}$} & $\SI{-1.1}{\percent}$\\
+    $B_{hl=4,SLP}$ & $\SI{19.6}{\percent}$ & $\SI{-4.3}{\percent}$ & \underline{$\SI{4.6}{\percent}$} & $\SI{-1.6}{\percent}$\\
+    \bottomrule
+    \end{tabular}
+    \caption{Systems with 1--4 hidden layers which used \acrfull{SLP}
+             compared to the mean of systems $B_{hl=1}$--$B_{hl=4}$ displayed
+             in \cref{table:baseline-systems-random-initializations-summary}
+             which used pure gradient descent. The \gls{SLP}
+             systems clearly performed worse.}
+\label{table:pretraining-slp}
+\end{table}
+
+
+Pretraining with denoising auto-encoder lead to the much worse results listed in
+\cref{table:pretraining-denoising-auto-encoder}. The first layer used a $\tanh$
+activation function. Every layer was trained for $1000$ epochs and the
+\gls{MSE} loss function. A learning-rate of $\eta = 0.001$, a corruption of
+$\varkappa = 0.3$ and a $L_2$ regularization of $\lambda = 10^{-4}$ were
+chosen. This pretraining setup made all systems with all error measures perform
+much worse.
+
+\begin{table}[tb]
+    \centering
+    \begin{tabular}{lrrrr}
+    \toprule
+    \multirow{2}{*}{System}  & \multicolumn{4}{c}{Classification error}\\
+    \cmidrule(l){2-5}
+                 & Top-1                  & Change               & Top-3                & Change                 \\\midrule
+    $B_{hl=1,AEP}$ & $\SI{23.8}{\percent}$ & $\SI{+0.6}{\percent}$ & $\SI{7.2}{\percent}$ & $\SI{+0.5}{\percent}$\\
+    $B_{hl=2,AEP}$ & \underline{$\SI{22.8}{\percent}$} & $\SI{+1.2}{\percent}$ & $\SI{6.4}{\percent}$ & $\SI{+0.7}{\percent}$\\
+    $B_{hl=3,AEP}$ & $\SI{23.1}{\percent}$ & $\SI{+1.2}{\percent}$ & \underline{$\SI{6.1}{\percent}$} & $\SI{+0.4}{\percent}$\\
+    $B_{hl=4,AEP}$ & $\SI{25.6}{\percent}$ & $\SI{+1.7}{\percent}$ & $\SI{7.0}{\percent}$ & $\SI{+0.8}{\percent}$\\
+    \bottomrule
+    \end{tabular}
+    \caption{Systems with denoising \acrfull{AEP} compared to pure
+             gradient descent. The \gls{AEP} systems performed worse.}
+\label{table:pretraining-denoising-auto-encoder}
+\end{table}

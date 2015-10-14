@@ -1,0 +1,20 @@
+%!TEX root = write-math-ba-paper.tex
+
+\section{Data and Implementation}
+We used $\num{369}$ symbol classes with a total of $\num{166898}$ labeled
+recordings. Each class has at least $\num{50}$ labeled recordings, but over
+$200$ symbols have more than $\num{200}$ labeled recordings and over $100$
+symbols have more than $500$ labeled recordings.
+The data was collected by two crowd-sourcing projects (Detexify and
+\href{http://write-math.com}{write-math.com}) where users wrote
+symbols, were then given a list ordered by an early classification system and
+clicked on the symbol they wrote.
+
+The data of Detexify and \href{http://write-math.com}{write-math.com} was
+combined, filtered semi-automatically and can be downloaded via
+\href{http://write-math.com/data}{write-math.com/data} as a compressed tar
+archive of CSV files.
+
+All of the following preprocessing and feature computation algorithms were
+implemented and are publicly available as open-source software in the Python
+package \texttt{hwrt}.

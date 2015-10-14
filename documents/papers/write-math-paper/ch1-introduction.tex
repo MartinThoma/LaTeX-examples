@@ -1,0 +1,46 @@
+%!TEX root = write-math-ba-paper.tex
+
+\section{Introduction}
+On-line recognition makes use of the pen trajectory. One possible
+representation of the data is given as groups of sequences of tuples $(x, y, t)
+\in \mathbb{R}^3$, where each group represents a stroke, $(x, y)$ is the
+position of the pen on a canvas and $t$ is the time.
+
+% On-line data was used to classify handwritten natural language text in many
+% different variants. For example, the $\text{NPen}^{++}$ system classified
+% cursive handwriting into English words by using hidden Markov models and neural
+% networks~\cite{Manke1995}.
+
+% Several systems for mathematical symbol recognition with on-line data have been
+% described so far~\cite{Kosmala98,Mouchere2013}, but no standard test set
+% existed to compare the results of different classifiers for single-symbol
+% classification of mathematical symbols. The used symbols differed in most
+% papers. This is unfortunate as the choice of symbols is crucial for the top-$n$
+% error. For example, the symbols $o$, $O$, $\circ$ and $0$ are very similar and
+% systems which know all those classes will certainly have a higher top-$n$ error
+% than systems which only accept one of them. But not only the classes differed,
+% also the used data to train and test had to be collected by each author again.
+
+\cite{Kirsch}~describes a system called Detexify which uses
+time warping to classify on-line handwritten symbols and reports a top-3 error
+of less than $\SI{10}{\percent}$ for a set of $\num{100}$~symbols. He did also
+recently publish his data on \url{https://github.com/kirel/detexify-data},
+which was collected by a crowdsourcing approach via
+\url{http://detexify.kirelabs.org}. Those recordings as well as some recordings
+which were collected by a similar approach via \url{http://write-math.com} were
+merged in a single data set, the labels were semi-automatically checked for
+correctness and used to train and evaluated different classifiers. A more
+detailed description of all used software, data and experiments is given
+in~\cite{Thoma:2014}.
+
+In this paper we present a baseline system for the classification of on-line
+handwriting into $369$ classes of which some are very similar. An optimized
+classifier was developed which has a $\SI{29.7}{\percent}$ relative improvement
+of the top-3 error. This was achieved by using better features and \gls{SLP}.
+The absolute improvements compared to the baseline of those changes will also
+be shown.
+
+In the following, we will give a general overview of the system design, give
+information about the used data and implementation, describe the algorithms
+we used to classify the data, report results of our experiments and present
+the optimized recognizer we created.

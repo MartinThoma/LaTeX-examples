@@ -1,0 +1,123 @@
+%!TEX root = write-math-ba-paper.tex
+
+\section{Summary}
+Four baseline recognition systems were adjusted in many experiments and their
+recognition capabilities were compared in order to build a recognition system
+that can recognize 396 mathematical symbols with low error rates as well as to
+evaluate which preprocessing steps and features help to improve the recognition
+rate.
+
+All recognition systems were trained and evaluated with
+$\num{\totalCollectedRecordings{}}$ recordings for \totalClassesAnalyzed{}
+symbols. These recordings were collected by two crowdsourcing projects
+(\href{http://detexify.kirelabs.org/classify.html}{Detexify} and
+\href{write-math.com}{write-math.com}) and created with various devices. While
+some recordings were created with standard touch devices such as tablets and
+smartphones, others were created with the mouse.
+
+\Glspl{MLP} were used for the classification task. Four baseline systems with
+different numbers of hidden layers were used, as the number of hidden layer
+influences the capabilities and problems of \glspl{MLP}.
+
+All baseline systems used the same preprocessing queue. The recordings were
+scaled and shifted as described in \ref{sec:preprocessing}, resampled with
+linear interpolation so that every stroke had exactly 20~points which are
+spread equidistant in time. The 80~($x,y$) coordinates of the first 4~strokes
+were used to get exactly $160$ input features for every recording. The baseline
+system $B_{hl=2}$ has a top-3 error of $\SI{5.7}{\percent}$.
+
+Adding two slightly rotated variants for each recording and hence tripling the
+training set made the systems $B_{hl=3}$ and $B_{hl=4}$ perform much worse, but
+improved the performance of the smaller systems.
+
+The global features re-curvature, ink, stoke count and aspect ratio improved
+the systems $B_{hl=1}$--$B_{hl=3}$, whereas the stroke center point feature
+made $B_{hl=2}$ perform worse.
+
+Denoising auto-encoders were evaluated as one way to use pretraining, but by
+this the error rate increased notably. However, \acrlong{SLP} improved the
+performance decidedly.
+
+The stroke connection algorithm was added to the preprocessing steps of the
+baseline system as well as the re-curvature feature, the ink feature, the
+number of strokes and the aspect ratio. The training setup of the baseline
+system was changed to \acrlong{SLP} and the resulting model was trained with a
+lower learning rate again. This optimized recognizer $B_{hl=2,c}'$ had a top-3
+error of $\SI{4.0}{\percent}$. This means that the top-3 error dropped by over
+$\num{1.7}$ percentage points in comparison to the baseline system $B_{hl=2}$.
+
+A top-3 error of $\SI{4.0}{\percent}$ makes the system usable for symbol
+lookup. It could also be used as a starting point for the development of a
+multiple-symbol classifier.
+
+The aim of this work was to develop a symbol recognition system which is easy
+to use, fast and has high recognition rates as well as evaluating ideas for
+single symbol classifiers. Some of those goals were reached. The recognition
+system $B_{hl=2,c}'$ evaluates new recordings in a fraction of a second and has
+acceptable recognition rates.
+
+% Many algorithms were evaluated. However, there are still many other
+% algorithms which could be evaluated and, at the time of this work, the best
+% classifier $B_{hl=2,c}'$ is only available through the Python package
+% \texttt{hwrt}. It is planned to add an web version of that classifier online.
+
+\section{Optimized Recognizer}
+All preprocessing steps and features that were useful were combined to create a
+recognizer that performs best.
+
+All models were much better than everything that was tried before. The results
+of this experiment show that single-symbol recognition with
+\totalClassesAnalyzed{} classes and usual touch devices and the mouse can be
+done with a top-1 error rate of $\SI{18.6}{\percent}$ and a top-3 error of
+$\SI{4.1}{\percent}$. This was
+achieved by a \gls{MLP} with a $167{:}500{:}500{:}\totalClassesAnalyzed{}$ topology.
+
+It used the stroke connection algorithm to connect of which the ends were less
+than $\SI{10}{\pixel}$ away, scaled each recording to a unit square and shifted
+as described in \ref{sec:preprocessing}. After that, a linear resampling step
+was applied to the first 4 strokes to resample them to 20 points each. All
+other strokes were discarded.
+
+\goodbreak
+The 167 features were\mynobreakpar%
+\begin{itemize}
+     \item the first 4 strokes with 20 points per stroke resulting in 160
+           features,
+     \item the re-curvature for the first 4 strokes,
+     \item the ink,
+     \item the number of strokes and
+     \item the aspect ratio of the bounding box
+\end{itemize}
+
+\Gls{SLP} was applied with $\num{1000}$ epochs per layer, a
+learning rate of $\eta=0.1$ and a momentum of $\alpha=0.1$. After that, the
+complete model was trained again for $1000$ epochs with standard mini-batch
+gradient descent resulting in systems $B_{hl=1,c}'$ -- $B_{hl=4,c}'$.
+
+After the models $B_{hl=1,c}$ -- $B_{hl=4,c}$ were trained the first $1000$ epochs,
+they were trained again for $\num{1000}$ epochs with a learning rate of $\eta =
+0.05$. \Cref{table:complex-recognizer-systems-evaluation} shows that
+this improved the classifiers again.
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{lrrrr}
+    \toprule
+    \multirow{2}{*}{System}  & \multicolumn{4}{c}{Classification error}\\
+    \cmidrule(l){2-5}
+              & Top-1                 & Change                & Top-3                & Change\\\midrule
+    $B_{hl=1,c}$ & $\SI{21.0}{\percent}$ & $\SI{-2.2}{\percent}$ & $\SI{5.2}{\percent}$ & $\SI{-1.5}{\percent}$\\
+    $B_{hl=2,c}$ & $\SI{18.3}{\percent}$ & $\SI{-3.3}{\percent}$ & $\SI{4.1}{\percent}$ & $\SI{-1.6}{\percent}$\\
+    $B_{hl=3,c}$ & \underline{$\SI{18.2}{\percent}$} & $\SI{-3.7}{\percent}$ & \underline{$\SI{4.1}{\percent}$} & $\SI{-1.6}{\percent}$\\
+    $B_{hl=4,c}$ & $\SI{18.6}{\percent}$ & $\SI{-5.3}{\percent}$ & $\SI{4.3}{\percent}$ & $\SI{-1.9}{\percent}$\\\midrule
+    $B_{hl=1,c}'$ & $\SI{19.3}{\percent}$ & $\SI{-3.9}{\percent}$ & $\SI{4.8}{\percent}$ & $\SI{-1.9}{\percent}$ \\
+    $B_{hl=2,c}'$ & \underline{$\SI{17.5}{\percent}$} & $\SI{-4.1}{\percent}$ & \underline{$\SI{4.0}{\percent}$} & $\SI{-1.7}{\percent}$\\
+    $B_{hl=3,c}'$ & $\SI{17.7}{\percent}$ & $\SI{-4.2}{\percent}$ & $\SI{4.1}{\percent}$ & $\SI{-1.6}{\percent}$\\
+    $B_{hl=4,c}'$ & $\SI{17.8}{\percent}$ & $\SI{-6.1}{\percent}$ & $\SI{4.3}{\percent}$ & $\SI{-1.9}{\percent}$\\
+    \bottomrule
+    \end{tabular}
+    \caption{Error rates of the optimized recognizer systems. The systems
+             $B_{hl=i,c}'$ were trained another $\num{1000}$ epochs with a learning rate
+             of $\eta=0.05$.}
+\label{table:complex-recognizer-systems-evaluation}
+\end{table}

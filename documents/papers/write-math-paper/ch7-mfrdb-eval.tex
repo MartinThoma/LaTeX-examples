@@ -1,0 +1,32 @@
+%!TEX root = write-math-ba-paper.tex
+
+\section{Evaluation}
+
+The optimized classifier was evaluated on three publicly available data sets:
+\verb+MfrDB_Symbols_v1.0+ \cite{Stria2012}, CROHME~2011 \cite{Mouchere2011},
+and CROHME~2012 \cite{Mouchere2012}.
+
+\verb+MfrDB_Symbols_v1.0+ contains recordings for 105~symbols, but for
+11~symbols less than 50~recordings were available. For this reason, the
+optimized classifier was evaluated on 94~of the 105~symbols.
+
+The evaluation results are given in \cref{table:public-eval-results}.
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{lcrr}
+    \toprule
+    \multirow{2}{*}{Dataset}  & \multirow{2}{*}{Symbols}  & \multicolumn{2}{c}{Classification error}\\
+    \cmidrule(l){3-4}
+              & & Top-1                 & Top-3                \\\midrule
+    MfrDB       & 94 & $\SI{8.4}{\percent}$  & $\SI{1.3}{\percent}$ \\
+    CROHME 2011 & 56 & $\SI{10.2}{\percent}$ & $\SI{3.7}{\percent}$ \\
+    CROHME 2012 & 75 & $\SI{12.2}{\percent}$ & $\SI{4.1}{\percent}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Error rates of the optimized recognizer systems. The systems
+             output layer was adjusted to the number of symbols it should
+             recognize and trained with the combined data from
+             write-math and the training given by the datasets.}
+\label{table:public-eval-results}
+\end{table}
