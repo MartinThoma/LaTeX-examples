@@ -21,11 +21,11 @@
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Bachelor proposal, LaTeX, handwriting recognition}, 
-  pdftitle    = {Proposal for a Bachelor of Science Thesis:\\Interactive on-line handwriting recognition of mathematical formulae} 
-} 
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {Bachelor proposal, LaTeX, handwriting recognition},
+  pdftitle    = {Proposal for a Bachelor of Science Thesis:\\Interactive on-line handwriting recognition of mathematical formulae}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -38,16 +38,16 @@
     simple mathematical formulae with \LaTeX{} like
     \[\pi/\alpha=\sum_{n=-\infty}^\infty \frac{\sin^2 (c+n)\alpha}{(c+n)^2}=\int_{-\infty}^\infty \frac{\sin^2 (c+n)\alpha}{(c+n)^2}\, \text{d}n\]
     or who need much time to do so. Currently, there are several online
-    services, programs and apps that help to write mathematical 
+    services, programs and apps that help to write mathematical
     formulae, but all programs I know have serious disadvantages:
     \begin{itemize}
         \item \href{http://detexify.kirelabs.org/classify.html}{detexify.kirelabs.org}
               recognizes \textbf{only symbols},
-        \item the formula editor of LibreOffice Writer 3.6 as shown 
+        \item the formula editor of LibreOffice Writer 3.6 as shown
               in \Fref{fig:libre-office-3.6} offers some
               guidance by grouping common operations while showing
               a WYSIWYG editor, but it has \textbf{no handwriting recognition}.
-              Another drawback is the fact that it is \textbf{not available 
+              Another drawback is the fact that it is \textbf{not available
               as an online service}, so you have to install LibreOffice
               which might not be possible on all devices.
         \item The \enquote{Daum Equation Editor} (see \Fref{fig:daum-editor}) is available online
@@ -55,12 +55,12 @@
               but does not offer handwriting recognition. Although
               it might be OpenSource, the \textbf{source code is difficult to
               find}. This means if you want to improve the recognition,
-              it is not possible. It also makes use of Adobe Flash 
+              it is not possible. It also makes use of Adobe Flash
               which is not available on many smartphones and tablet
               computers.
         \item Maple seems to offer handwritten symbol recognition (\href{http://www.maplesoft.com/products/maple/features/handwritten.aspx}{source}),
               but on the one hand I was not able to test that, because
-              it is \textbf{not available for free}. On the other hand you 
+              it is \textbf{not available for free}. On the other hand you
               have to install additional software, it seems not to be
               available for tablet computers and it does only recognize
               single symbols.
@@ -74,7 +74,7 @@
 
     A more comprehensive list can be found at \href{https://en.wikipedia.org/wiki/Formula_editor}{https://en.wikipedia.org/wiki/Formula\_editor}.
     A problem of some of the projects presented there is that they
-    require the client to execute Java Applets which is a security 
+    require the client to execute Java Applets which is a security
     risk.
 
     \begin{figure}[h]
@@ -94,12 +94,12 @@
 \section{The problem statement}
     What I would like to have is an interactive on-line handwriting
     recognition service, that is available as a web service which makes
-    use of touchscreens. Additionally, it should be for free and 
+    use of touchscreens. Additionally, it should be for free and
     OpenSource, the source code should be easy to find and documented.
     This means:
     \begin{itemize}
         \item \textbf{Service}: The program can be accessed over the web, so
-              that the user does only have to have a modern browser. 
+              that the user does only have to have a modern browser.
               As a consequence, the software could be used with any
               device that has a touch screen.
         \item \textbf{On-line handwriting recognition}: The service
@@ -126,7 +126,7 @@
     This information should be used to create a formula database.
 
 \section{Significance}
-For me as a Linux user, there no software that I can test and which 
+For me as a Linux user, there no software that I can test and which
 offers on-line, interactive math handwriting recognition. But the
 need of such a software is there.
 
@@ -135,7 +135,7 @@ Projects like \LaTeX{}, Linux, Apache or Firefox have shown that
 OpenSource software can enrich the development in specific areas. The
 \enquote{Browser Wars} might be the most famous result of an active
 OpenSource community. Internet Explorer 6 had
-a market share of over 80\% in 2003. Prequels of Firefox and the Mozilla 
+a market share of over 80\% in 2003. Prequels of Firefox and the Mozilla
 foundation already existed, but Firefox 1.0 was released not until
 November 2004. After that, Firefox and other open browsers added many
 features that Internet Explorer had to compete with, like tabbed browsing,
@@ -144,7 +144,7 @@ speed of HTML rendering and JavaScript execution.\footnote{\href{http://www.evol
 questions are interesting for science such as many problems related
 to layouts and just-in-time compilation (JIT). With OpenSource software
 that makes it easy to find its source and offers good documentation,
-researchers can simply try their ideas without being blocked by 
+researchers can simply try their ideas without being blocked by
 having to try to access the source code.
 
 Additionally, such a project might give researchers more time to
@@ -157,26 +157,26 @@ e.~g. a formula spotter for presentations or a math detector for speech.
 
 \section{Time schedule}
 \begin{itemize}
-    \item[70h] Literature research about on-line handwriting recognition 
+    \item[70h] Literature research about on-line handwriting recognition
                techniques and Gamification.
     \item[5h]  Defining browsers and devices that should get supported
                and required client side software like HTML5, CSS 3
                and ECMAScript (better known as JavaScript). Also,
                required input methods like touchscreens and stylus
                should be mentioned.
-    \item[20h] Writing use cases. This is includes writing example 
+    \item[20h] Writing use cases. This is includes writing example
                formula that the user should type and the system should
-               be able to recognize; finding people with different 
-               knowledge of \LaTeX{} and from different fields who 
+               be able to recognize; finding people with different
+               knowledge of \LaTeX{} and from different fields who
                want to participate in user tests.
     \item[60h] Implementing the core of the application: Handwriting
                recognition of digits and symbols by using only
                HTML, CSS and  on the client side. This includes implementing
                a way for the user to enter new symbols and to correct the
                symbol that was suggested by the recognition system.
-    \item[20h] Introduce testers that already know \LaTeX{} to the 
+    \item[20h] Introduce testers that already know \LaTeX{} to the
                current system. At this point, the system does only do
-               symbol recognition. The testers should train it, 
+               symbol recognition. The testers should train it,
                insert symbols like $a-z, A-Z, 0-9, \alpha-\omega, A-\Omega, \cdot, \circ, \dots$
     \item[10h] Get feedback by the users. This feedback will not be included
                in the thesis, but the improvements will get documented.
@@ -185,7 +185,7 @@ e.~g. a formula spotter for presentations or a math detector for speech.
                \begin{verbatim}\sum_{<some structure>}^{<another structure>} <a third structure>\end{verbatim}
                Implement the recognition of those structures.
     \item[30h] Observe \enquote{fresh} testers while they try to use
-               the system. 
+               the system.
     \item[70h] Improving the software to fix problems that were found
                with user tests
     \item[50h] Fix bugs, improve code quality and readability as well
@@ -199,7 +199,7 @@ e.~g. a formula spotter for presentations or a math detector for speech.
 \end{itemize}
 
 \section{Outline}
-I have described in which steps I would like to write the software, 
+I have described in which steps I would like to write the software,
 but almost all points include writing the bachelor's thesis document.
 A first draft of the outline could be like this:
 

@@ -15,7 +15,7 @@
 \newcommand*{\AddNote}[4]{%
     \begin{tikzpicture}[overlay, remember picture]
         \draw [decoration={brace,amplitude=0.5em},decorate,very thick]
-            ($(#3)!(#1.north)!($(#3)-(0,1)$)$) --  
+            ($(#3)!(#1.north)!($(#3)-(0,1)$)$) --
             ($(#3)!(#2.south)!($(#3)-(0,1)$)$)
                 node [align=center, text width=2.5cm, pos=0.5, anchor=west] {#4};
     \end{tikzpicture}

@@ -56,7 +56,7 @@ Seien $f:X\to\imdr$ messbare Funktionen.
 \item Ist $f$ integrierbar, so ist $f$ fast überall endlich.
 \item Ist $f \ge0$ auf $X$, so ist $\int_X f(x)\text{ d}x=0$ genau dann wenn fast überall $f=0$.
 \item Ist $f$ integrierbar und $N\subseteq X$ eine Nullmenge, so gilt:
-\[\int_N f(x)\text{ d}x=0\] 
+\[\int_N f(x)\text{ d}x=0\]
 \end{enumerate}
 \end{satz}
 
@@ -64,9 +64,9 @@ Seien $f:X\to\imdr$ messbare Funktionen.
 \begin{enumerate}
 \item ist gerade \ref{Folgerung 4.10}.
 \item ist gerade \ref{Satz 4.5}(3)
-\item Setze $g:=\mathds{1}_N f$. Aus \ref{Satz 4.11} folgt, dass g integrierbar ist, also ist nach \ref{Satz 4.9} auch $\lvert g \rvert$ integrierbar. Für $x\in X\setminus N$ gilt: 
+\item Setze $g:=\mathds{1}_N f$. Aus \ref{Satz 4.11} folgt, dass g integrierbar ist, also ist nach \ref{Satz 4.9} auch $\lvert g \rvert$ integrierbar. Für $x\in X\setminus N$ gilt:
 \[g(x)=\lvert g(x) \rvert =0\]
-D.h. $\lvert g \rvert =0$ fast überall. Aus (2) folgt damit $\int_X \lvert g \rvert \,dx = 0$. Dann ist mit \ref{Satz 4.11}: \[\left\lvert\int_X g\,dx \right\rvert \leq \int_X \lvert g \rvert \,dx =0\] 
+D.h. $\lvert g \rvert =0$ fast überall. Aus (2) folgt damit $\int_X \lvert g \rvert \,dx = 0$. Dann ist mit \ref{Satz 4.11}: \[\left\lvert\int_X g\,dx \right\rvert \leq \int_X \lvert g \rvert \,dx =0\]
 und somit $\int_X g\,dx=0$.
 \end{enumerate}
 \end{beweis}
@@ -78,7 +78,7 @@ $f,g:X\to\imdr$ seien messbar.
 \item Ist $f$ integrierbar und gilt fast überall $f=g$, so ist $g$ integrierbar und es gilt:
 \[\int_Xf\,dx=\int_Xg\,dx\]
 \item Ist $f$ integrierbar und $g:=\mathds{1}_{\{ \lvert f \rvert <\infty \}}\cdot f$, so ist $g$ integrierbar und es gilt: \[\int_Xf\,dx=\int_Xg\,dx\]
-\item Sind $f$ und $g$ beide $\geq0$ auf $X$, und ist fast überall $f=g$, so ist 
+\item Sind $f$ und $g$ beide $\geq0$ auf $X$, und ist fast überall $f=g$, so ist
 \[\int_Xf\,dx=\int_Xg\,dx\]
 \end{enumerate}
 \end{satz}
@@ -86,14 +86,14 @@ $f,g:X\to\imdr$ seien messbar.
 \begin{beweis}
 \begin{enumerate}
 \item Nach Voraussetzung existiert eine Nullmenge $N\subseteq X$, sodass gilt:
-\[\forall x\in X\setminus N:f(x)=g(x)\] 
+\[\forall x\in X\setminus N:f(x)=g(x)\]
 Aus \ref{Satz 5.2}(3) folgt dann $\int_N f\,dx=0$.
-Sei $x\in X\setminus N$ Dann gilt: 
-\[\left( \mathds{1}_N \lvert g \rvert \right)(x)=\mathds{1}_N(x)\cdot \lvert g(x) \rvert=0\] 
+Sei $x\in X\setminus N$ Dann gilt:
+\[\left( \mathds{1}_N \lvert g \rvert \right)(x)=\mathds{1}_N(x)\cdot \lvert g(x) \rvert=0\]
 D.h.: Fast überall ist $\mathds{1}_N \lvert g \rvert =0$. Aus \ref{Satz 5.2}(2) folgt $\int_N \lvert g \rvert\,dx=\int_X\mathds{1}_N\cdot \lvert g \rvert\,dx=0$.
 Dann gilt:
 \begin{align*}
-\int_X \lvert g\rvert\,dx & = \int_X \left(\mathds{1}_N \lvert g\rvert + \mathds{1}_{X\setminus N} \lvert g\rvert \right)\,dx\\ 
+\int_X \lvert g\rvert\,dx & = \int_X \left(\mathds{1}_N \lvert g\rvert + \mathds{1}_{X\setminus N} \lvert g\rvert \right)\,dx\\
  &= \int_X\mathds{1}_N \lvert g\rvert\,dx + \int _X\mathds{1}_{X\setminus N} \lvert g\rvert\,dx\\
  &= \int_X \mathds{1}_{X\setminus N} \lvert g \rvert\,dx\\
 & \leq\int_X \lvert f\rvert\,dx \overset{\ref{Satz 4.9}}< \infty
@@ -141,15 +141,15 @@ Ist \(g\) wie in (2), so muss \(g\) nicht messbar sein (ein Beispiel gibt es in 
 
 \begin{beweis}
 \begin{enumerate}
-\item Es existiert eine Nullmenge \(N_{1}\subseteq X:\,(f_{n}(x))\) konvergiert in \(\imdr\) für alle 
+\item Es existiert eine Nullmenge \(N_{1}\subseteq X:\,(f_{n}(x))\) konvergiert in \(\imdr\) für alle
 \(x\in X\setminus N_{1}\).
 \[
 f(x)=\begin{cases}0&x\in N_{1}\\\lim_{n\to\infty}{f_{n}(x)}&x\in X\setminus N_{1}\end{cases}
 \]
 \(g_{n}:=\mathds{1}_{X\setminus N}\cdot f_{n}\), \(g_{n}\) ist messbar und \(g_{n}(x)\to f(x)\) für alle \(x\in X\).
 Mit \ref{Satz 3.5} folgt: \(f\) ist messbar.
-\item Es existiert eine Nullmenge \(N_{2}\subseteq X:\,f_{n}(x)\to g(x)\,\forall x\in X\setminus N_{2}\). 
-\(N=N_{1}\cup N_{2}\). Aus \ref{Lemma 5.1} folgt: \(N\) ist eine Nullmenge. 
+\item Es existiert eine Nullmenge \(N_{2}\subseteq X:\,f_{n}(x)\to g(x)\,\forall x\in X\setminus N_{2}\).
+\(N=N_{1}\cup N_{2}\). Aus \ref{Lemma 5.1} folgt: \(N\) ist eine Nullmenge.
 
 Für \(x\in X\setminus N:\,f(x)=g(x)\).
 \end{enumerate}
@@ -159,19 +159,19 @@ Für \(x\in X\setminus N:\,f(x)=g(x)\).
 \label{Satz 5.5}
 Sei \((f_{n})\) eine Folge messbarer Funktionen \(f_{n}:\,X\to[0,+\infty]\) und für jedes \(n\in\mdn\) gelte:
 \(f_{n}\leq f_{n+1}\) fast überall.  Dann existiert eine messbare Funktion
-\(f:X\to[0,+\infty]\) mit: \(f_{n}\to f\) fast überall und 
+\(f:X\to[0,+\infty]\) mit: \(f_{n}\to f\) fast überall und
 \[\int_{X}{f\mathrm{d}x}=\lim_{n\to\infty}{\int_{X}{f_{n}\mathrm{d}x}}\]
 \end{satz}
 
 \begin{beweis}
-Zu jedem \(n\in\mdn\) existiert eine Nullmenge 
-\(N_{n}:\,f_{n}(x)\leq f_{n+1}(x)\;\forall x\in X\setminus N_{n}\).\\ 
+Zu jedem \(n\in\mdn\) existiert eine Nullmenge
+\(N_{n}:\,f_{n}(x)\leq f_{n+1}(x)\;\forall x\in X\setminus N_{n}\).\\
 \(N:=\bigcup_{n=1}^{\infty}{N_{n}}\) \folgtnach{\ref{Lemma 5.1}} \(N\) ist eine
 Nullmenge.
 
 Dann: \(f_{n}(x)\leq f_{n+1}(x)\forall x\in X\setminus N\forall n\in\mdn\).
 
-\(\hat{f}_{n}:=\mathds{1}_{X\setminus N}\cdot f_{n}\), \(\hat{f}_{n}\) ist 
+\(\hat{f}_{n}:=\mathds{1}_{X\setminus N}\cdot f_{n}\), \(\hat{f}_{n}\) ist
 messbar, \(\forall n\in\mdn: \hat{f}_{n}\leq\hat{f}_{n+1}\) auf $X$.
 
 \(f(x):=\lim_{n\to\infty}{\hat{f}_{n}(x)}\,(x\in X)\) \folgtnach{\ref{Satz 3.5}}

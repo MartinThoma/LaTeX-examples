@@ -15,12 +15,12 @@ nutzt Tiefensuche im Graphen
 
 
 \tikzstyle StackBox=[style=help lines,color=blue!50,fill=white]
-\tikzstyle{abstract}=[rectangle, draw=black, 
-		fill=orange!40, 
+\tikzstyle{abstract}=[rectangle, draw=black,
+		fill=orange!40,
         text centered, anchor=center, text=white, text width=0.4cm, text height=0.4cm]
-\tikzstyle{textstyle}=[rectangle, draw=white, 
+\tikzstyle{textstyle}=[rectangle, draw=white,
 		fill=white, anchor=base west, text=black, text width=3cm, text height=0.4cm]
-\tikzstyle{textstyleMini}=[rectangle, draw=white, 
+\tikzstyle{textstyleMini}=[rectangle, draw=white,
 		fill=white, anchor=center, text=black, text width=0.5cm, text height=0.4cm]
 
 \begin{frame}
@@ -54,10 +54,10 @@ nutzt Tiefensuche im Graphen
                     \Call{tarjan}{successor}
                 \EndIf
                 \State $node.lowlink \gets$ \Call{min}{$node.lowlink, successor.lowlink$}
-            \EndFor     
+            \EndFor
 
             \boxto<1->{a}\If{$node.lowlink == node.index$}
-                \Repeat 
+                \Repeat
                     \State $successor \gets stack.pop()$
                 \Until{$successor == node$}
             \EndIf\tikzmark{a}
@@ -68,7 +68,7 @@ nutzt Tiefensuche im Graphen
 
 % To insert the annotation
 \begin{tikzpicture}[remember picture,overlay]
-\coordinate (a) at ($(a)+(8.5,3)$); % <= adjust this parameter to move the position of the annotation 
+\coordinate (a) at ($(a)+(8.5,3)$); % <= adjust this parameter to move the position of the annotation
 \node[rectangle,draw, gray,text width=3cm,align=left,right] at (a) {SCC wurde gefunden, ggf. ausgeben};
 \end{tikzpicture}
 \end{frame}
@@ -81,7 +81,7 @@ nutzt Tiefensuche im Graphen
 
 			% Draw the vertices
 			\foreach \pos/\name in {{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
-				                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f}, 
+				                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f},
 									{(4,2)/g}, {(5,2)/h}, {(4,0)/i},
 									{(5,0)/j}}
 				\node[vertex] (\name) at \pos {$\name$};
@@ -94,15 +94,15 @@ nutzt Tiefensuche im Graphen
 										g/h/, h/j/, j/i/, i/g/}
 				\path (\source) edge [\pos] node {} (\dest);
 
-			% Start animating the vertex and edge selection. 
+			% Start animating the vertex and edge selection.
 			\foreach \vertex / \fr / \lowlink / \index in {a/1/0/0,b/2/1/1,c/3/2/2,d/4/0/3,e/5/2/4,f/6/5/5,g/7/6/6,h/8/7/7,j/9/8/8,i/10/5/9} {
 				\path<\fr-> node[selected vertex] at (\vertex) {$\vertex_{\lowlink, \index}$};
 				\path<\fr-> node[textstyleMini] at (RecDepth) {$\index$};
 			}
-			% Start animating the edge selection. 
+			% Start animating the edge selection.
 			% For convenience we use a background layer to highlight edges
 			% This way we don't have to worry about the highlighting covering
-			% weight labels. 
+			% weight labels.
 			\begin{pgfonlayer}{background}
 				    \path<4->[ignored edge] (d.center) edge [] node {} (a.center);
 				    \path<5->[ignored edge] (e.center) edge [] node {} (c.center);
@@ -112,7 +112,7 @@ nutzt Tiefensuche im Graphen
 				    \path<\fr->[selected edge] (\source.center) edge [\pos] node {} (\dest.center);
 			\end{pgfonlayer}
 			% go back in recursion
-			% Start animating. 
+			% Start animating.
 			\foreach \vertex / \fr / \lowlink / \index in {j/11/5/8,h/12/5/7,g/13/5/6,f/14/5/5} {
 				\path<\fr-> node[selected vertex] at (\vertex) {$\vertex_{\lowlink, \index}$};
 				\path<\fr-> node[textstyleMini] at (RecDepth) {$\index$};
@@ -122,7 +122,7 @@ nutzt Tiefensuche im Graphen
 				\path<15->[color=blue,fill=green!20] (4.2,1) circle (1.6cm);
 			\end{pgfonlayer}
 			% go back in recursion
-			% Start animating. 
+			% Start animating.
 			\foreach \vertex / \fr / \lowlink / \index in {e/16/2/4,c/17/0/3,b/18/0/1,a/19/0/0} {
 				\path<\fr-> node[selected vertex] at (\vertex) {$\vertex_{\lowlink, \index}$};
 				\path<\fr-> node[textstyleMini] at (RecDepth) {$\index$};

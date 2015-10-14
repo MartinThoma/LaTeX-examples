@@ -33,7 +33,7 @@ TODO
     }
 
     \foreach \nr in {2, ..., \n}{
-        \pgfmathtruncatemacro{\tmp}{\nr-1} 
+        \pgfmathtruncatemacro{\tmp}{\nr-1}
         \draw[->,very thick] (1, {(\n-\tmp)*3}) -- (1, {(\n-\nr)*3+1}) -- (D\nr);
     }
 

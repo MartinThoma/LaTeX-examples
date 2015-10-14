@@ -7,7 +7,7 @@ Für \(x\in\mdr^k\):
 \[F(x):=\int_{\mdr^l}f(x,y)\,dy=\int_{\mdr^l}f^x(y)\,dy\]
 Für \(y\in\mdr^l\):
 \[G(y):=\int_{\mdr^k}f(x,y)\,dx=\int_{\mdr^k}f_y(x)\,dx\]
-Dann sind $F,G$ messbar und 
+Dann sind $F,G$ messbar und
 \[\int_{\mdr^d}f(z)\,dz=\int_{\mdr^k}F(x)\,dx=\int_{\mdr^l}G(y)\,dy\]
 also
 \begin{align*}
@@ -26,7 +26,7 @@ Für \(x\in\mdr^k\) und \(\natn\) gilt:
 und nach Fall 2 ist \(F_n\) messbar. \\
 Aus \(0\leq f_n\leq f_{n+1}\) folgt \(0\leq F_n\leq F_{n+1}\) und \ref{Satz 4.6} liefert \(F_n\to F\) auf \(\mdr^k\). Dann gilt
 \[\int_{\mdr^d}f(z)\,dz = \lim \int_{\mdr^d}f_n(z)\,dz \overset{Fall 2}= \lim \int_{\mdr^k}F_n(x)\,dx \overset{\ref{Satz 4.6}}=\int_{\mdr^k}F(x)\,dx\]
-Genauso zeigt man 
+Genauso zeigt man
 \[\int_{\mdr^d}(f(z)\,dz=\int_{\mdr^l}G(y)\,dy\]
 \end{beweis}
 
@@ -35,7 +35,7 @@ Genauso zeigt man
 Es sei \(f\colon\mdr^d\to\imdr\) integrierbar. Dann existieren Nullmengen \(M\subseteq\mdr^k\) und \(N\subseteq\mdr^l\) mit
 \begin{align*}
 	 f^x\colon\mdr^l\to\imdr \text{ ist integrierbar für jedes } x\in\mdr^k\setminus M \\
-	 f_y\colon\mdr^k\to\imdr \text{ ist integrierbar für jedes } y\in\mdr^l\setminus N 
+	 f_y\colon\mdr^k\to\imdr \text{ ist integrierbar für jedes } y\in\mdr^l\setminus N
 \end{align*}
 Setze
 \begin{align*}
@@ -60,22 +60,22 @@ Es gilt also wieder \((\ast)\) aus \ref{Satz 10.1}.
 Wir zeigen nur die Aussagen über \(f^x\), $F$ und die erste der obigen beiden Gleichungen. Genauso zeigt man die Aussagen über \(f_n, G\) und die zweite Gleichung.\\
 Aus \ref{Lemma 8.1} folgt, dass \(f^x\) messbar ist. Definiere
 	\begin{align*}
-	\Phi(x) := \int_{\mdr^l}\lvert f^x(y)\rvert\,dy 
-	= \int_{\mdr^l}\lvert f(x,y)\rvert\,dy \ \text{ für } x\in\mdr^k 
+	\Phi(x) := \int_{\mdr^l}\lvert f^x(y)\rvert\,dy
+	= \int_{\mdr^l}\lvert f(x,y)\rvert\,dy \ \text{ für } x\in\mdr^k
 	\end{align*}
-Nach \ref{Satz 10.1} ist \(\Phi\) messbar und 
+Nach \ref{Satz 10.1} ist \(\Phi\) messbar und
 	\begin{align*}
-	\int_{\mdr^k}\Phi(x)\,dx 
-	= \int_{\mdr^k}\left(\int_{\mdr^l}\lvert f(x,y)\rvert\,dy\right)dx \overset{\ref{Satz 10.1}} 
-	= \int_{\mdr^d}\lvert f(z)\rvert\,dz 
+	\int_{\mdr^k}\Phi(x)\,dx
+	= \int_{\mdr^k}\left(\int_{\mdr^l}\lvert f(x,y)\rvert\,dy\right)dx \overset{\ref{Satz 10.1}}
+	= \int_{\mdr^d}\lvert f(z)\rvert\,dz
 	< \infty
 	\end{align*}
 (denn mit $f$ ist nach \ref{Satz 4.9} auch \(\lvert f\rvert\) integrierbar). Somit ist \(\Phi\) integrierbar.
-Setze \(M:=\{\Phi = \infty \}\) was nach \ref{Satz 4.10} eine Nullmenge ist. 
+Setze \(M:=\{\Phi = \infty \}\) was nach \ref{Satz 4.10} eine Nullmenge ist.
 Also gilt:
 	\begin{align*}
-	\int_{\mdr^l}\lvert f^x(y)\rvert\,dy 
-	= \Phi(x) < \infty \ \text{ für jedes } x\in\mdr^k\setminus M 
+	\int_{\mdr^l}\lvert f^x(y)\rvert\,dy
+	= \Phi(x) < \infty \ \text{ für jedes } x\in\mdr^k\setminus M
 	\end{align*}
 Das heißt, \(\lvert f^x\rvert\) ist für jedes \(x\in\mdr^k\setminus M\) integrierbar und es gilt nach \ref{Satz 4.9} auch
 	\begin{align*}
@@ -90,22 +90,22 @@ Setze
 		0	&\text{, falls } z\in M\times\mdr^l
 		\end{cases}
 	\end{align*}
-Aus \ref{Lemma 9.3} folgt, dass \(\tilde f\) messbar ist. Klar ist, dass fast überall \(f=\tilde f\) gilt. Es ist 
+Aus \ref{Lemma 9.3} folgt, dass \(\tilde f\) messbar ist. Klar ist, dass fast überall \(f=\tilde f\) gilt. Es ist
 \[\tilde f^x = \left(\mathds{1}_{(M\times\mdr^l)^C}\cdot f\right)^x\]
 Das heißt \(\tilde f^x\) ist integrierbar für jedes \(x\in\mdr^k\). Dann gilt
 	\begin{align*}
-	 F(x) \overset{\ref{Satz 5.3}} 
-	= \int_{\mdr^l}\tilde f(x,y)\,dy 
-	= \underbrace{\int_{\mdr^l}\tilde f_+ (x,y)\,dy}_{=:F^+(x)} - \underbrace{\int_{\mdr^l}\tilde f_- (x,y)\,dy}_{=:F^-(x)} 
+	 F(x) \overset{\ref{Satz 5.3}}
+	= \int_{\mdr^l}\tilde f(x,y)\,dy
+	= \underbrace{\int_{\mdr^l}\tilde f_+ (x,y)\,dy}_{=:F^+(x)} - \underbrace{\int_{\mdr^l}\tilde f_- (x,y)\,dy}_{=:F^-(x)}
 	\end{align*}
 Nach \ref{Satz 10.1} sind \(F^+\) und \(F^-\) messbar. Die Dreiecksungleichung liefert nun
 	\begin{align*}
-	\lvert F(x)\rvert 
-	\leq \int_{\mdr^l}\lvert \tilde f(x,y)\rvert\,dy 
-	\overset{\ref{Satz 5.3}}= \int_{\mdr^l}\lvert f(x,y)\rvert\,dy 
+	\lvert F(x)\rvert
+	\leq \int_{\mdr^l}\lvert \tilde f(x,y)\rvert\,dy
+	\overset{\ref{Satz 5.3}}= \int_{\mdr^l}\lvert f(x,y)\rvert\,dy
 	= \Phi(x) \ \text{ für } x\in\mdr^k
 	\end{align*}
-Also ist \(\lvert F\rvert\leq\Phi\) und \(\Phi\) ist integrierbar. Aus \ref{Satz 4.9} folgt, dass $F$ und \(\lvert F\rvert\) integrierbar sind 
+Also ist \(\lvert F\rvert\leq\Phi\) und \(\Phi\) ist integrierbar. Aus \ref{Satz 4.9} folgt, dass $F$ und \(\lvert F\rvert\) integrierbar sind
 und dann sind auch \(F^+\) und \(F^-\) integrierbar (zur Übung). Es folgt
 	\begin{align*}
 	\int_{\mdr^k}F(x)\,dx
@@ -138,15 +138,15 @@ Gegeben: \(\emptyset\neq D\subseteq\fb_d\) und messbares \(f\colon D\to\imdr\).
 Setze $f$ auf \(\mdr^d\) zu einer messbaren Funktion \(\tilde f\) fort (zum Beispiel wie in \ref{Lemma 9.3}).
 Aus \ref{Satz 3.8} folgt dann, dass \(\mathds{1}_{D}\tilde f\) messbar ist und \ref{Satz 10.1} liefert
 	\begin{align*}
-	\int_{\mdr^d}\lvert \mathds{1}_{D}\tilde f\rvert\,dz 
-	= \int_{\mdr^k}\left(\int_{\mdr^l}\lvert \mathds{1}_{D}\tilde f\rvert\,dy\right)dx 
+	\int_{\mdr^d}\lvert \mathds{1}_{D}\tilde f\rvert\,dz
+	= \int_{\mdr^k}\left(\int_{\mdr^l}\lvert \mathds{1}_{D}\tilde f\rvert\,dy\right)dx
 	= \int_{\mdr^l}\left(\int_{\mdr^k}\lvert \mathds{1}_{D}\tilde f\rvert\,dx\right)dy
 	\end{align*}
 Ist eines der drei obigen Integrale endlich, so ist \(\lvert \mathds{1}_{D}\tilde f\rvert\) integrierbar und
 damit ist nach \ref{Satz 4.9} auch \(\mathds{1}_{D}\tilde f\) integrierbar.\\
 Dann ist $f$ integrierbar und es folgt
 	\begin{align*}
-	\int_Df(z)\,dz 
+	\int_Df(z)\,dz
 	& = \int_{\mdr^d}\left(\mathds{1}_{D}\tilde f\right)(z)\,dz									\\
 	& \overset{\ref{Satz 10.2}}= \int_{\mdr^k}\left(\int_{\mdr^l}\left(\mathds{1}_{D}\tilde f\right)(x,y)\,dy\right)dx 	\\
 	& = \int_{\mdr^l}\left(\int_{\mdr^k}\left(\mathds{1}_{D}\tilde f\right)(x,y)\,dx\right)dy
@@ -154,11 +154,11 @@ Dann ist $f$ integrierbar und es folgt
 
 \begin{beispiel}
 \begin{enumerate}
-\item Sei \(D=[a_1,b_1]\times[a_2,b_2]\times\dots\times[a_d,b_d]\) mit \(a_i\leq b_i \ (i=1,\dots,d)\). 
+\item Sei \(D=[a_1,b_1]\times[a_2,b_2]\times\dots\times[a_d,b_d]\) mit \(a_i\leq b_i \ (i=1,\dots,d)\).
 Es sei \(f\colon D\to\mdr\) stetig. $D$ ist kompakt, also gilt \(D\in\fb_d\).
 Nach \ref{Satz 4.12}(2) ist \(f\in\mathfrak{L}^1(D)\) und aus obiger Bemerkung folgt
 	\begin{align*}
-	\int_Df(x_1,\dots,x_d)\,d(x_1,\dots,x_d) 
+	\int_Df(x_1,\dots,x_d)\,d(x_1,\dots,x_d)
 	= \int_{a_d}^{b^d} \left(\dots \left( \int_{a_2}^{b^2} \left(\int_{a_1}^{b^1}f(x_1,\dots,x_d)\,dx_1\right)dx_2\right)\dots\right)dx_d
 	\end{align*}
 Die Reihenfolge der Integrationen darf beliebig vertauscht werden. Aus \ref{Satz 4.13} folgt
@@ -167,7 +167,7 @@ Die Reihenfolge der Integrationen darf beliebig vertauscht werden. Aus \ref{Satz
 \textbf{Konkretes Beispiel}\\
 Sei  \(D:=[a,b]\times[c,d]\subseteq\mdr^2\), \(f\in C([a,b])\) und \(g\in C([c,d])\).
 	\begin{align*}
-	\int_Df(x)g(y)\,d(x,y)						
+	\int_Df(x)g(y)\,d(x,y)
 	& = \int_c^d\left(\int_a^bf(x)g(y)\,dx\right)dy			\\
 	& = \int_c^d\left(g(y)\left(\int_a^bf(x)\,dx\right)\right)dy		\\
 	&= \left(\int_a^bf(x)\,dx\right) \left(\int_c^dg(y)\,dy\right)
@@ -175,7 +175,7 @@ Sei  \(D:=[a,b]\times[c,d]\subseteq\mdr^2\), \(f\in C([a,b])\) und \(g\in C([c,d
 \item
 	Wir rechtfertigen die "'Kochrezepte"' aus Analysis II, Paragraph 15.
 	Seien \(a,b\in\mdr\) mit \(a<b\) und \(I:=[a,b]\). Weiter seien
-	\(h_1,h_2\in C(I)\) mit \(h_1\leq h_2\) auf \(I\) und 
+	\(h_1,h_2\in C(I)\) mit \(h_1\leq h_2\) auf \(I\) und
 	\[A:=\{(x,y)\in\mdr^2: x\in I, h_1(x)\leq y\leq h_2(x)\}\]
 	Sei \(f\colon A\to\mdr\) stetig. Da \(h_1\) und \(h_2\) stetig
 	sind, ist \(A\) kompakt und somit gilt \(A\in\fb_2\). Aus
@@ -187,15 +187,15 @@ Sei  \(D:=[a,b]\times[c,d]\subseteq\mdr^2\), \(f\in C([a,b])\) und \(g\in C([c,d
 		0	&\text{, falls } (x,y)\notin A
 		\end{cases}
 	\]
-	Nach \ref{Lemma 9.3} ist \(\tilde f\) messbar. Setze 
+	Nach \ref{Lemma 9.3} ist \(\tilde f\) messbar. Setze
 	\[M:=\max\{\lvert f(x,y)\rvert:(x,y)\in A\}\]
 	Dann gilt \(\lvert\tilde f\rvert \leq M\cdot\mathds{1}_A\).
-	Wegen \(\lambda_2(A)<\infty\) ist \(M\cdot\mathds{1}_A\) 
+	Wegen \(\lambda_2(A)<\infty\) ist \(M\cdot\mathds{1}_A\)
 	integrierbar und nach \ref{Satz 4.9} ist \(\lvert\tilde f\rvert\)
 	und damit auch \(\tilde f\) integrierbar. Dann ist
 	\begin{align*}
 		\int_A f(x,y)\,d(x,y) &= \int_{\mdr^2}\tilde f(x,y)\,d(x,y) \\
-		& \overset{\ref{Satz 10.3}}= 
+		& \overset{\ref{Satz 10.3}}=
 		\int_\mdr\left(\int_\mdr\tilde f	(x,y)\,dy\right)dx \\
 		&=\int_a^b\left(\int^{h_2(x)}_{h_1(x)}f(x,y)\,dy\right)dx
 	\end{align*}
@@ -211,7 +211,7 @@ Sei  \(D:=[a,b]\times[c,d]\subseteq\mdr^2\), \(f\in C([a,b])\) und \(g\in C([c,d
 	\(\tilde f\) ist eine Fortsetzung von \(f\) auf \(X\times Y\).
 	\(\tilde f\) ist also messbar. Es ist
 	\begin{align*}
-		\int_D\lvert f\rvert\,d(x,y) 
+		\int_D\lvert f\rvert\,d(x,y)
 		&=\int_Q\mathds{1}_D\cdot\lvert\tilde f\rvert\,d(x,y)	\\
 		&\overset{\ref{Satz 10.1}}=
 		\int_X\left(\int_Y\mathds{1}_D(x,y)\frac1x\lvert\cos(xy)\rvert
@@ -255,12 +255,12 @@ und daraus folgt \(\int_0^\infty e^{-xy}\,dy=\frac1x\)
 		1			&\text{, falls } x=0
 	\end{cases}\]
 	$g$ ist stetig auf \([0,\infty)\). Aus Analysis 1 ist bekannt, dass
-	\(\int_0^\infty g(x)\,dx\) konvergent, aber \textbf{ nicht } 
-	absolut konvergent ist. Aus \ref{Satz 4.14} folgt, dass 
+	\(\int_0^\infty g(x)\,dx\) konvergent, aber \textbf{ nicht }
+	absolut konvergent ist. Aus \ref{Satz 4.14} folgt, dass
 	\(g\notin\mathfrak{L}^1\left([0,\infty)\right)\)\\
 	\textbf{Behauptung: } \(\int^\infty_0 g(x)\,dx = \frac\pi{2}\)\\
 	\textbf{Beweis: } Setze \(X:=[0,R]\) mit \(R>0\), \(Y:=[0,\infty)\) und
-	\(D:=X\times Y\), sowie 
+	\(D:=X\times Y\), sowie
 	\[f(x,y):= e^{-xy}\sin x \text{ für } (x,y)\in D\]
 	Es ist \(D\in\fb_2\) und $f$ stetig, also messbar. Es ist weiter
 	\(f\in\mathfrak{L}^1(D)\) (warum?) und
@@ -301,8 +301,8 @@ und daraus folgt \(\int_0^\infty e^{-xy}\,dy=\frac1x\)
 		&\leq 2\int^\infty_0 e^{-yR}\,dy		\\
 		&\overset{\text{Vorbemerkung}}=\frac2R
 	\end{align*}
-	Das heißt also \(\tilde I_R\to 0 \ (R\to\infty)\) und damit folgt 
+	Das heißt also \(\tilde I_R\to 0 \ (R\to\infty)\) und damit folgt
 	die Behauptung durch
-	\[I_R=\frac{\pi}2-\tilde I_R\to\frac{\pi}2 \ (R\to\infty)\]	
+	\[I_R=\frac{\pi}2-\tilde I_R\to\frac{\pi}2 \ (R\to\infty)\]
 \end{enumerate}
 \end{beispiel}

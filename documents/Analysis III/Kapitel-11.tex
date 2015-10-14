@@ -1,10 +1,10 @@
 
 Die Sätze in diesem Kapitel geben wir \textbf{ohne} Beweis an. Es seien
-\(X,Y\subseteq\mdr^d\) nichtleer und offen. 
+\(X,Y\subseteq\mdr^d\) nichtleer und offen.
 
 \begin{definition}
 \index{Diffeomorphismus}
-Sei \(\Phi\colon X\to Y\) eine Abbildung. \(\Phi\) heißt 
+Sei \(\Phi\colon X\to Y\) eine Abbildung. \(\Phi\) heißt
 \textbf{Diffeomorphismus} genau dann wenn \(\Phi\in C^1(X,\mdr^d)\), \(\Phi\)
 ist bijektiv und \(\Phi^{-1}\in C^{1}(Y,\mdr^d)\).\\
 Es gilt \[x=\Phi^{-1}(\Phi(x))\text{ für jedes } x\in X\]
@@ -35,7 +35,7 @@ Sei \(A\subseteq\mdr^d\) und \(A^\circ:=\{x\in A :\text{ es existiert ein } r=r(
 \end{erinnerung}
 
 \begin{beispiel}
-Sei \(A=\mdr\setminus\mdq\). Es ist \(A^\circ=\emptyset\) und 
+Sei \(A=\mdr\setminus\mdq\). Es ist \(A^\circ=\emptyset\) und
 \(A\setminus A^\circ=A\). Aus \(\mdr=A\dot\cup\mdq\) folgt
 \[\infty=\lambda_1(\mdr)=\lambda_1(A)+\lambda_1(\mdq)=\lambda_1(A)\]
 Das heißt \(A\setminus A^\circ\) ist keine Nullmenge.
@@ -66,7 +66,7 @@ Ist $f \in \fl^{1}(B)$ so gilt $(\ast\ast)$
 \item	Sei $T\colon \MdR^d \to \MdR^d$ linear und $\det T \neq 0$. Weiter sei $A \in \fb_d$ und $v \in \MdR^d$.
 Dann ist $T(A) \in \fb_d$ und es gilt:
 \[\lambda_d(T(A)+v) = \lvert\det T\rvert \cdot\lambda_d(A)\]
-\item	$\Phi\colon X \to Y$ sei ein Diffeomorphismus und $A \in \fb(X)$. 
+\item	$\Phi\colon X \to Y$ sei ein Diffeomorphismus und $A \in \fb(X)$.
 Dann ist $\Phi(A) \in \fb_d$ und es gilt:
 \[\lambda_d(\Phi(A)) = \int_A |\det \Phi'(X)| \, dx\]
 \item	Sei $F \in C^1(X, \MdR^d)$ und $N \subseteq X$ eine Nullmenge.
@@ -101,9 +101,9 @@ y = r \sin(\varphi)
 \end{cases}\]
 Definiere nun für $(r,\varphi) \in [0,\infty)\times[0,2\pi]$:
 \[\Phi(r,\varphi) := (r \cos(\varphi), r \sin(\varphi))\]
-Dann ist $\Phi \in C^1(\MdR^2, \MdR^2)$ und es gilt: 
+Dann ist $\Phi \in C^1(\MdR^2, \MdR^2)$ und es gilt:
 \[\Phi'(r,\varphi) = \begin{pmatrix}
-\cos(\varphi) & -r \sin(\varphi) \\ 
+\cos(\varphi) & -r \sin(\varphi) \\
 \sin(\varphi) & r \cos(\varphi)
 \end{pmatrix}\]
 d.h. falls $r > 0$ ist gilt:
@@ -119,19 +119,19 @@ Mit \ref{Satz 11.2} folgt dann:
 
 \begin{beispiel}
 \begin{enumerate}
-\item	Sei $0 \le \rho < R$. Definiere 
+\item	Sei $0 \le \rho < R$. Definiere
 \[B := \{(x,y) \in \MdR^2 : \rho^2 \le x^2 + y^2 \le R^2\} \]
-Dann gilt: 
+Dann gilt:
 %% BILD: der Kreisfläche und Trafo
 \begin{align*}
-\lambda_2(B) &= \int_B 1 \text{ d}(x,y)\\ 
-&= \int_A 1 \cdot r \text{ d}(r,\varphi)\\ 
+\lambda_2(B) &= \int_B 1 \text{ d}(x,y)\\
+&= \int_A 1 \cdot r \text{ d}(r,\varphi)\\
 &\overset{\text{§\ref{Kapitel 10}}}= \int_{\rho}^{R} \left( \int_0^{2\pi} r \text{ d}\varphi \right) \text{ d}r\\
 &= \left[ 2\pi \frac{1}{2} r^2 \right]_\rho^R\\
 &= \pi (R^2 - \rho^2)
 \end{align*}
-		
-\item	Definiere 
+
+\item	Definiere
 \[B := \{ (x,y) \in \MdR^2 : x^2 + y^2 \le 1, y \ge 0 \}\]
 %% BILD: der (Halb)Kreisfläche und Trafo
 Dann gilt:
@@ -162,7 +162,7 @@ Außerdem gilt:
 &= \int_0^\rho \left( \int_0^\rho e^{-x^2} e^{-y^2} \text{ d}y \right) \text{ d}x \\
 &= \left( \int_0^\rho e^{-x^2} \text{ d}x \right)^2
 \end{align*}
-		
+
 Wegen $ B_\rho \subseteq Q_\rho \subseteq B_{\sqrt{2} \rho} $ und $f \ge 0$ folgt:
 \begin{center}
 \begin{tabular}{cccccc}
@@ -172,7 +172,7 @@ $\implies$ &$h(\rho)$ &$\le$ &$\left( \int_0^\rho e^{-x^2} \text{ d}x \right)^2$
 $\implies$ &$\sqrt{h(\rho)}$ &$\le$ &$\int_0^\rho e^{-x^2} \text{ d}x$ &$\le$ &$\sqrt{h(\sqrt{2} \rho)}$\\
 \end{tabular}
 \end{center}
-Mit $\rho \to \infty$ folgt daraus 
+Mit $\rho \to \infty$ folgt daraus
 \[\int_0^\infty e^{-x^2} \text{ d}x = \frac{\sqrt{\pi}}{2}\]
 und damit die Behauptung.
 \end{enumerate}

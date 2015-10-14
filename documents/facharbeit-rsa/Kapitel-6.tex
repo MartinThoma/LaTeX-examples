@@ -1,19 +1,19 @@
 \section{Multiplikativ inverses Element}\label{sec:Multiplikativ-Inverses}
 \subsection{Definition und Beispiele}
-Das multiplikativ inverse Element $d$ von $e$ ergibt bei der 
-Multiplikation mit $e$ das neutrale Element der Multiplikation, also 
+Das multiplikativ inverse Element $d$ von $e$ ergibt bei der
+Multiplikation mit $e$ das neutrale Element der Multiplikation, also
 die Eins: $d \cdot e = 1$
 
-In $\mathbb{R} \setminus \Set{0}$ hat jedes Element ein multiplikativ 
-Inverses, den Kehrbruch. In $\mathbb{Z}/7 \mathbb{Z}$ ist das 
-multiplikativ Inverse von zwei in der Restgruppe von vier, da 
+In $\mathbb{R} \setminus \Set{0}$ hat jedes Element ein multiplikativ
+Inverses, den Kehrbruch. In $\mathbb{Z}/7 \mathbb{Z}$ ist das
+multiplikativ Inverse von zwei in der Restgruppe von vier, da
 $2 \cdot 4 = 8$ und $8 \equiv 1 \imod{7}$.
-Mit dem erweitertem euklidischem Algorithmus kann man das 
-multiplikativ Inverse von $a$ in $\mathbb{Z}/n \mathbb{Z}$ finden. 
+Mit dem erweitertem euklidischem Algorithmus kann man das
+multiplikativ Inverse von $a$ in $\mathbb{Z}/n \mathbb{Z}$ finden.
 
 \subsection{Erweiterter euklidischer Algorithmus}
-Sind zwei Zahlen $a > b$ gegeben und will deren größten gemeinsamen 
-Teiler berechnen, so kann man den erweiterten euklidischen 
+Sind zwei Zahlen $a > b$ gegeben und will deren größten gemeinsamen
+Teiler berechnen, so kann man den erweiterten euklidischen
 Algorithmus anwenden:
 
 \begin{enumerate}
@@ -26,23 +26,23 @@ Algorithmus anwenden:
 
 Dann ist $r_{n-1} = ggT(a,b)$
 
-Mit diesem Algorithmus kann man nun das multiplikativ Inverse von $a$ 
-in $\mathbb{Z}/n \mathbb{Z}$ finden, wenn der größte gemeinsame Teiler von $a$ und 
-$n$ gleich 1 ist. Da im vorletzten Schritt $r_{n - 1} = 1$ ist, kann man 1 als 
-Linearkombination der Reste von $r_{n - 3}$ und $r_{n - 2}$ 
-darstellen. Diese Reste kann man wiederum als Linearkombination 
-vorhergehender Reste darstellen. Dies setzt man so lange fort, 
-bis man eine Linearkombination mit $a$ und $n$ von 1 hat. Da wir im 
-Restklassenring $n$ sind, muss man nur das Produkt mit $a$ betrachten 
-und kann das multiplikativ Inverse zu $a$ im Restklassenring 
-$\mathbb{Z}/n \mathbb{Z}$ ablesen. 
+Mit diesem Algorithmus kann man nun das multiplikativ Inverse von $a$
+in $\mathbb{Z}/n \mathbb{Z}$ finden, wenn der größte gemeinsame Teiler von $a$ und
+$n$ gleich 1 ist. Da im vorletzten Schritt $r_{n - 1} = 1$ ist, kann man 1 als
+Linearkombination der Reste von $r_{n - 3}$ und $r_{n - 2}$
+darstellen. Diese Reste kann man wiederum als Linearkombination
+vorhergehender Reste darstellen. Dies setzt man so lange fort,
+bis man eine Linearkombination mit $a$ und $n$ von 1 hat. Da wir im
+Restklassenring $n$ sind, muss man nur das Produkt mit $a$ betrachten
+und kann das multiplikativ Inverse zu $a$ im Restklassenring
+$\mathbb{Z}/n \mathbb{Z}$ ablesen.
 
 
 Hier ein Beispiel zur Veranschaulichung:
 
 Sei $a = (\text{Primzahl}_1 - 1) \cdot (\text{Primzahl}_2 - 1) =(3 - 1) \cdot (47 - 1) = 92$ und $b=71$
 
-Gesucht ist das multiplikativ Inverse $b \in \mathbb{Z} / a \mathbb{Z}$ von $x \cdot 71 \equiv 1 \imod{92}$: 
+Gesucht ist das multiplikativ Inverse $b \in \mathbb{Z} / a \mathbb{Z}$ von $x \cdot 71 \equiv 1 \imod{92}$:
 
 \begin{tabular}{lll}
 \textbf{Schritt 1}: euklidischer Algorithmus & & \textbf{Schritt 2}: nach Rest auflösen\\
@@ -65,7 +65,7 @@ $1 = x \cdot 92 + y \cdot 71$ gefunden ist:
 1 &= 11 \cdot 71 - 3 \cdot 92 - 24 \cdot (92 - 71) &&= 35 \cdot 71 - 27 \cdot 92
 \end{align*}
 
-Das bedeutet 35 ist das multiplikativ Inverse zu 71 in 
+Das bedeutet 35 ist das multiplikativ Inverse zu 71 in
 $ \mathbb{Z} / 92 \mathbb{Z}$ und erfüllt damit die Kongruenzgleichung
 $35 \cdot 71 \equiv 1 \imod{92}$.
 

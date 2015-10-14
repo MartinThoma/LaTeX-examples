@@ -23,10 +23,10 @@
         tick align=outside,
         enlargelimits=false]
       % plot the stirling-formulae
-      \addplot[domain=-1:1, red, ultra thick,samples=500] {1/(1+exp(-5*x))}; 
-      \addplot[domain=-1:1, blue, ultra thick,samples=500] {1/(1+exp(-10*x))}; 
+      \addplot[domain=-1:1, red, ultra thick,samples=500] {1/(1+exp(-5*x))};
+      \addplot[domain=-1:1, blue, ultra thick,samples=500] {1/(1+exp(-10*x))};
       \addlegendentry{$f(x)=\frac{1}{1+e^{-5x}}$}
       \addlegendentry{$g(x)=\frac{1}{1+e^{-10x}}$}
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
 \end{document}

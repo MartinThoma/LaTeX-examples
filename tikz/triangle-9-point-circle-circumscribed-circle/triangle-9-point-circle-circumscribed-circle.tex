@@ -4,7 +4,7 @@
 \usepackage{tikz}
 \usepackage{tkz-euclide}
 \usetkzobj{all}
-\usetikzlibrary{shapes, calc, decorations} 
+\usetikzlibrary{shapes, calc, decorations}
 \usepackage{amsmath,amssymb}
 \usepackage{helvet}
 \usepackage[eulergreek]{sansmath}
@@ -59,13 +59,13 @@
     % Ocircle, but shifted by dOcircle (x-axis)
     \tkzDefShiftPoint[Ocircle](\dOcircle pt,0){C'}
     \tkzDrawSegments[dashed](Ocircle,C')
-    \tkzLabelSegment[below](Ocircle,C'){$r_1$} 
+    \tkzLabelSegment[below](Ocircle,C'){$r_1$}
 
     % TODO: define shiftedIcircOrigin which is
     % Icircle, but shifted by rIN (x-axis)
-    \tkzDefShiftPoint[Icircle](\rIN pt,0){C''} 
+    \tkzDefShiftPoint[Icircle](\rIN pt,0){C''}
     \tkzDrawSegments[dashed](Icircle,C'')
-    \tkzLabelSegment[below](Icircle,C''){$r_2$} 
+    \tkzLabelSegment[below](Icircle,C''){$r_2$}
 
     \tkzDrawPoints[size=2,fill=black](D,E,F)
     \tkzDrawPoints[size=2,fill=blue,color=blue](Ocircle)

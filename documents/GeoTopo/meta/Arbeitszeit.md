@@ -68,7 +68,7 @@ in dem Erstellen dieses Skripts steckt:
 |07.02.2014 | 11:15 - 11:20 |   5 | Definitionen vereinfacht
 |07.02.2014 | 11:35 - 11:45 |  10 | Definition "operiert durch Homöomorphismen" korrigiert
 |07.02.2014 | 15:00 - 15:30 |  30 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 08.02.2014, umgesetzt.
-|07.02.2014 | 15:30 - 15:45 |  15 | Verbesserungen 
+|07.02.2014 | 15:30 - 15:45 |  15 | Verbesserungen
 |07.02.2014 | 19:30 - 21:20 | 110 | Textsetzung, kleine Fehler und Verbesserung eines Bildes
 |10.02.2014 | 10:30 - 11:05 |  35 | Formulierung in Definitionen vereinfacht; Textsetzung
 |10.02.2014 | 11:05 - 11:20 |  15 | Verbesserungsvorschläge von Marco, Email 1 vom 10.02.2014, umgesetzt.
@@ -92,6 +92,6 @@ in dem Erstellen dieses Skripts steckt:
 |20.02.2014 | 12:00 - 13:00 |  60 | Verbesserungsvorschläge von Jonathan (Facebook, 20.02.2014) eingearbeitet.
 |20.02.2014 | 13:00 - 13:45 |  45 | Verbesserungsvorschläge von Jérôme Urhausen, Email 1 vom 20.02.2014, umgesetzt.
 |20.02.2014 | 19:30 - 20:15 |  45 | Verbesserungsvorschläge von Jérôme Urhausen, Email 2 vom 20.02.2014, umgesetzt.
-| Zwischenstand | ---       | --- | 6081 Minuten => Über 100 Stunden! 
+| Zwischenstand | ---       | --- | 6081 Minuten => Über 100 Stunden!
 |17.03.2014 | 16:00 - 18:00 | 120 | Textsetzung
 |19.03.2014 | 08:00 - 10:00 | 120 | Verbesserung des Symbolverzeichnisses

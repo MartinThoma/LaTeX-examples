@@ -1,7 +1,7 @@
 \chapter{Cubic functions}
 \section{Defined on $\mdr$}
-Let $f:\mdr \rightarrow \mdr, f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$ 
-be a cubic function with $a \in \mdr \setminus \Set{0}$ and 
+Let $f:\mdr \rightarrow \mdr, f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$
+be a cubic function with $a \in \mdr \setminus \Set{0}$ and
 $b, c, d \in \mdr$.
 
 \begin{figure}[htp]
@@ -26,15 +26,15 @@ $b, c, d \in \mdr$.
         minor tick num=-3,
         enlargelimits=true,
         tension=0.08]
-      \addplot[domain=-3:3, thick,samples=50, red] {x*x*x}; 
+      \addplot[domain=-3:3, thick,samples=50, red] {x*x*x};
       \addplot[domain=-3:3, thick,samples=50, green] {x*x*x+x*x};
       \addplot[domain=-3:3, thick,samples=50, blue] {x*x*x+2*x*x};
-      \addplot[domain=-3:3, thick,samples=50, orange] {x*x*x+x}; 
+      \addplot[domain=-3:3, thick,samples=50, orange] {x*x*x+x};
       \addlegendentry{$f_1(x)=x^3$}
       \addlegendentry{$f_2(x)=x^3 + x^2$}
       \addlegendentry{$f_2(x)=x^3 + 2 \cdot x^2$}
       \addlegendentry{$f_1(x)=x^3 + x$}
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
     \caption{Cubic functions}
 \end{figure}
@@ -51,7 +51,7 @@ $b, c, d \in \mdr$.
 
 \subsection{Calculate points with minimal distance}
 \begin{theorem}\label{thm:no-finite-solution}
-    There cannot be a finite, closed form solution to the problem of finding 
+    There cannot be a finite, closed form solution to the problem of finding
     a closest point $(x, f(x))$ to a given point $P$ when $f$ is
     a polynomial function of degree $3$ or higher.
 \end{theorem}
@@ -89,11 +89,11 @@ $b, c, d \in \mdr$.
         \item With $x_p := cd - c y_P+\tilde{f}$, we can get any value of $\tilde{f} \in \mdr$.
     \end{enumerate}
 
-    The first restriction guaratees that we have a polynomial of 
+    The first restriction guaratees that we have a polynomial of
     degree 5. The second one is necessary, to get a high range of
     $\tilde{e}$.
 
-    This means that there is no finite solution formula for the problem of 
+    This means that there is no finite solution formula for the problem of
     finding the closest points on a cubic function to a given point,
     because if there was one, you could use this formula for finding
     roots of polynomials of degree 5. $\qed$
@@ -101,7 +101,7 @@ $b, c, d \in \mdr$.
 
 
 \subsection{Another approach}
-Just like we moved the function $f$ and the point to get in a 
+Just like we moved the function $f$ and the point to get in a
 nicer situation, we can apply this approach for cubic functions.
 
 \begin{figure}[htp]
@@ -126,9 +126,9 @@ nicer situation, we can apply this approach for cubic functions.
         minor tick num=-3,
         enlargelimits=true,
         tension=0.08]
-      \addplot[domain=-3:3, thick,samples=50, red] {x*x*x}; 
+      \addplot[domain=-3:3, thick,samples=50, red] {x*x*x};
       \addplot[domain=-3:3, thick,samples=50, green] {x*x*x+x};
-      \addplot[domain=-3:3, thick,samples=50, orange] {x*x*x-x}; 
+      \addplot[domain=-3:3, thick,samples=50, orange] {x*x*x-x};
       \addplot[domain=-3:3, thick,samples=50, blue, dotted] {x*x*x+2*x};
       \addplot[domain=-3:3, thick,samples=50, lime, dashed] {x*x*x+3*x};
       \addlegendentry{$f_1(x)=x^3$}
@@ -136,7 +136,7 @@ nicer situation, we can apply this approach for cubic functions.
       \addlegendentry{$f_1(x)=x^3 - x$}
       \addlegendentry{$f_2(x)=x^3 + 2 \cdot x$}
       \addlegendentry{$f_2(x)=x^3 + 3 \cdot x$}
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
     \caption{Cubic functions with $b = d = 0$}
 \end{figure}
@@ -176,8 +176,8 @@ As this leads to a polynomial of degree 5 of which we have to find
 roots, there cannot be more than 5 solutions.
 \todo[inline]{Can there be 3, 4 or even 5 solutions? Examples!
 
-After looking at function graphs of cubic functions, I'm pretty 
-sure that there cannot be 4 or 5 solutions, no matter how you 
+After looking at function graphs of cubic functions, I'm pretty
+sure that there cannot be 4 or 5 solutions, no matter how you
 chose the cubic function $f$ and $P$.
 
 I'm also pretty sure that there is no polynomial (no matter what degree)
@@ -193,7 +193,7 @@ You could interpolate the cubic function by a quadratic spline.
 
 \subsubsection{Newtons method}
 One way to find roots of functions is Newtons method. It gives an
-iterative computation procedure that can converge quadratically 
+iterative computation procedure that can converge quadratically
 if some conditions are met:
 
 \begin{theorem}[local quadratic convergence of Newton's method\footnotemark]
@@ -201,7 +201,7 @@ if some conditions are met:
     Let $x^* \in D$ with $f(x^*) = 0$ and the Jaccobi-Matrix $f'(x^*)$
     should not be invertable when evaluated at the root.
 
-    Then there is a sphere 
+    Then there is a sphere
     \[K := K_\rho(x^*) = \Set{x \in \mdr^n | \|x- x^*\|_\infty \leq \rho} \subseteq D\]
     such that $x^*$ is the only root of $f$ in $K$. Furthermore,
     the elements of the sequence
@@ -233,7 +233,7 @@ Muller's method was first presented by David E. Muller in 1956.
 \subsubsection{Bisection method}
 The idea of the bisection method is the following:
 
-Suppose you know a finite intervall $[a,b]$ in which you have 
+Suppose you know a finite intervall $[a,b]$ in which you have
 exactly one root $r \in (a,b)$ with $f(r) = 0$.
 
 Then you can half that interval:

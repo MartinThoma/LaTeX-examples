@@ -1,11 +1,11 @@
 \documentclass[a4paper,9pt]{scrartcl}
-\usepackage[ngerman]{babel} 
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb,amsmath}
 \usepackage{geometry}
 \usepackage{graphicx}
 
-\geometry{a4paper,left=18mm,right=18mm, top=1cm, bottom=2cm} 
+\geometry{a4paper,left=18mm,right=18mm, top=1cm, bottom=2cm}
 
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
@@ -16,21 +16,21 @@
 
  \setcounter{section}{1}
  \section*{Aufgabenstellung}
-    Der Kaiser von China spielt mit einem Bauern Schach. Nachdem er das Spiel 
-    verloren hat, ist der Kaiser großzügig und will dem Bauern jeden Wunsch 
-    erfüllen. Der Bauer gibt sich bescheiden und verlagt für das erste 
+    Der Kaiser von China spielt mit einem Bauern Schach. Nachdem er das Spiel
+    verloren hat, ist der Kaiser großzügig und will dem Bauern jeden Wunsch
+    erfüllen. Der Bauer gibt sich bescheiden und verlagt für das erste
     Schachfeld ein Reiskorn, für das zweite zwei Reiskörner, usw. \\
     Allgemein verlangt er für jedes Schachfeld doppelt so viele Reiskörner
     wie für das Vorhergehende.\\
     \\
     Wieviel Reis muss der Kaiser von China abtreten?
  \subsection*{Nummerische Lösung}
-    Ein Schachbrett hat $8 \cdot 8 = 64$ Felder. Für das $i$-te Feld, 
+    Ein Schachbrett hat $8 \cdot 8 = 64$ Felder. Für das $i$-te Feld,
     $1 \le i \le 64$, muss der Kaiser $2^{i-1}$ Reiskörner abgeben. \\
     Insgesamt muss er also $\sum_{i=1}^{64} 2^{i-1}$ Reiskörner abgeben.\\
-    Das sind 
-    $2^{64} - 1 = 18446744073709551615 \approx 1{,}84 \cdot 10^{19} $ 
-    Reiskörner. 
+    Das sind
+    $2^{64} - 1 = 18446744073709551615 \approx 1{,}84 \cdot 10^{19} $
+    Reiskörner.
  \subsection*{Vergleiche}
     Wie viel sind 18.446.744.073.709.551.615 Reiskörner?\\
 
@@ -39,9 +39,9 @@
     Schicht?\\
     \\
     Die Erde hat eine Oberfläche von ca. 510 Millionen $\text{km}^2$, ein Basmati-Reiskorn
-    ist ca 6,5 mm lang, hat einen Durchmesser von ca. 1,5 mm und hat vereinfacht 
+    ist ca 6,5 mm lang, hat einen Durchmesser von ca. 1,5 mm und hat vereinfacht
     eine Kreiszylinderform.\\
-    Daraus ergibt sich folgende Gleichung, bei der x die Höhe der Reisschicht 
+    Daraus ergibt sich folgende Gleichung, bei der x die Höhe der Reisschicht
     ist:\\
     \begin{align}
         x \cdot A_{Erde} &= (2^{64}-1) \cdot 6,5\text{mm} \cdot (1,5\text{mm})^2 \cdot \pi \\
@@ -50,13 +50,13 @@
         x &= \frac{8,47550 \cdot 10^{20} \text{mm}^3}{510 \cdot 10^{18} \text{mm}^2} \\
         x &= 1,662\text{mm}
     \end{align}
-    Die Erde könnte also komplett mit ca. 1,662 mm Reis, also etwas mehr als 
+    Die Erde könnte also komplett mit ca. 1,662 mm Reis, also etwas mehr als
     einem Reiskorn, bedeckt werden.\\
     \\
     \subsubsection{Reispackungen}
-    Den vorhergehenden Vergleich finde ich noch etwas unpraktisch. Wieviele Reispackungen 
+    Den vorhergehenden Vergleich finde ich noch etwas unpraktisch. Wieviele Reispackungen
     wären das? \\
-    Eine handelsübliche Packung Reis beinhaltet ca. 1 kg Reis. Ein Reiskorn 
+    Eine handelsübliche Packung Reis beinhaltet ca. 1 kg Reis. Ein Reiskorn
     wiegt ca. 65 mg.\\
     \begin{align}
         x &:= \text{Reispackungen} \\
@@ -65,7 +65,7 @@
         x &\approx 1,2 \cdot 10^{15}
     \end{align}
   \subsubsection{Reispackungen pro Person}
-    Auch $1,2 \cdot 10^{15}$ ist noch zu groß, um sich etwas darunter vorstellen 
+    Auch $1,2 \cdot 10^{15}$ ist noch zu groß, um sich etwas darunter vorstellen
     zu können.\\
     Wie viele Reispackungen wären das pro Person auf der Erde?\\
     \begin{align}
@@ -75,7 +75,7 @@
     \end{align}
     Jeder Mensch würde also 170.000 Packungen Reis von Kaiser von China bekommen.
     Um den täglichen Kalorienbedarf zu decken werden ca. 1,1 kg Reis benötigt.
-    Es könnten also alle Menschen der Erde ca. 154.545 Tage, das sind über 423 
+    Es könnten also alle Menschen der Erde ca. 154.545 Tage, das sind über 423
     Jahre, ernährt werden!\\
   \subsubsection{Marktwert}
     Reis kostet auf dem Weltmarkt ca. 600 US-Dollar pro metrischer Tonne\footnote{http://www.markt-daten.de/charts/imf/imf014.htm . Daten von 2010. Abgerufen am 8. Mai 2011.}.

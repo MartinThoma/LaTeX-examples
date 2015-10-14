@@ -25,7 +25,7 @@ Für alle tridiagonalen Matrizen gilt:
 
 Offensichtlich ändert diese Operation nur Zeile 2. $a_{21}$ wird zu 0,
 $a_{22}$ ändert sich irgendwie, alles andere bleibt unverändert.
-Die gesammte Matrix ist keine tridiagonale Matrix mehr, aber die 
+Die gesammte Matrix ist keine tridiagonale Matrix mehr, aber die
 um Submatrix  in $R^{(n-1) \times (n-1)}$ ist noch eine.
 
 Muss man zuvor Zeile 1 und 2 tauschen (andere Zeilen kommen nicht in
@@ -35,7 +35,7 @@ an der tridiagonalen Struktur der Submatrix.
 
 \paragraph{Teil 2: (ii) für $A \in \mathbb{R}^{2 \times 2}$}
 Sei $\begin{pmatrix}a_{11} & a_{12}\\a_{21} & a_{22} \end{pmatrix} \in \mathbb{R}^{2 \times 2}$
-beliebig. 
+beliebig.
 
 O.B.d.A sei die Spaltenpivotwahl bereits durchgeführt, also $|a_{11}| \geq |a_{21}|$.
 
@@ -55,7 +55,7 @@ Nun folgt:
     \end{gmatrix}
 \end{align}
 
-Wegen $|a_{11}| \geq |a_{21}|$ gilt: 
+Wegen $|a_{11}| \geq |a_{21}|$ gilt:
 \begin{align}
     \|\frac{a_{21}}{a_{11}}\| \leq 1
 \end{align}
@@ -71,7 +71,7 @@ Damit ist Aussage (ii) für $A \in \mathbb{R}^{2 \times 2}$ gezeigt.
 \paragraph{Teil 3: (ii) für allgemeinen Fall}
 
 Aus Teil 2 folgt die Aussage auch direkt für größere Matrizen.
-Der worst case ist, wenn man beim Addieren einer Zeile auf eine 
+Der worst case ist, wenn man beim Addieren einer Zeile auf eine
 andere mit $\max_{i,j}|a_{ij}|$ multiplizieren muss um das erste nicht-0-Element
 der Zeile zu entfernen und das zweite auch $\max_{i,j}|a_{ij}|$ ist.
 Dann muss man aber im nächsten schritt mit einem Faktor $\leq \frac{1}{2}$

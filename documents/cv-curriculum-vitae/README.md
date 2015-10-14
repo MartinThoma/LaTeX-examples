@@ -1,4 +1,4 @@
-This is from 
+This is from
 http://www.latextemplates.com/template/two-column-one-page-cv
 
 You can get the font from here:

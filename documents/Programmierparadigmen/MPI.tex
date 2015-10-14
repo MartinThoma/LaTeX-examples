@@ -2,14 +2,14 @@
 \chapter{MPI}
 \index{MPI|(}
 
-Message Passing Interface (kurz: MPI) ist ein Standard, 
-der den Nachrichtenaustausch bei parallelen Berechnungen auf 
+Message Passing Interface (kurz: MPI) ist ein Standard,
+der den Nachrichtenaustausch bei parallelen Berechnungen auf
 verteilten Computersystemen beschreibt.
 
 Prozesse kommunizieren in MPI über sog. \textit{Kommunikatoren}. Ein Kommunikator
 (\texttt{MPI\_Comm}\xindex{MPI\_Comm@\texttt{MPI\_Comm}})
 definiert eine Menge an Prozessen, die miteinander kommunizieren können. In dieser
-Prozessgruppe hat jeder Prozess einen eindeutigen \textit{rank}\xindex{rank} über den die Prozesse 
+Prozessgruppe hat jeder Prozess einen eindeutigen \textit{rank}\xindex{rank} über den die Prozesse
 sich identifizieren können.
 
 \section{Erste Schritte}
@@ -71,12 +71,12 @@ Senden einer Nachricht an einen anderen Prozeß innerhalb eines Kommunikators. (
 
 \textbf{Parameter}
 \begin{itemize}
-    \item \textbf{buf}: Anfangsadresse des Sendepuffers 
-    \item \textbf{count}: Anzahl der Elemente des Sendepuffers (nichtnegativ) 
+    \item \textbf{buf}: Anfangsadresse des Sendepuffers
+    \item \textbf{count}: Anzahl der Elemente des Sendepuffers (nichtnegativ)
     \item \textbf{datatype}: Typ der Elemente des Sendepuffers (handle) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{dest}: Rang des Empfängerprozesses in comm (integer)
-    \item \textbf{tag}: message tag zur Unterscheidung verschiedener Nachrichten; 
-Ein Kommunikationsvorgang wird durch ein Tripel (Sender, Empfänger, tag) eindeutig beschrieben. 
+    \item \textbf{tag}: message tag zur Unterscheidung verschiedener Nachrichten;
+Ein Kommunikationsvorgang wird durch ein Tripel (Sender, Empfänger, tag) eindeutig beschrieben.
     \item \textbf{comm}: Kommunikator (handle)
 \end{itemize}
 
@@ -86,7 +86,7 @@ Ein Kommunikationsvorgang wird durch ein Tripel (Sender, Empfänger, tag) eindeu
 \goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Recv@\texttt{MPI\_Recv}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-receive.c}
-Empfangen einer Nachricht (blockierend) 
+Empfangen einer Nachricht (blockierend)
 
 \textbf{Parameter}
 \begin{itemize}
@@ -96,7 +96,7 @@ Empfangen einer Nachricht (blockierend)
     \item \textbf{source}: Rang des Senderprozesses in comm oder \texttt{MPI\_ANY\_SOURCE}
     \item \textbf{tag}: message tag zur Unterscheidung verschiedener Nachrichten
                   Ein Kommunikationsvorgang wird durch ein Tripel (Sender, Empfänger, tag) eindeutig beschrieben. Um Nachrichten mit beliebigen tags zu empfangen, benutzt man die Konstante \texttt{MPI\_ANY\_TAG}.
-    \item \textbf{comm}: Kommunikator (handle) 
+    \item \textbf{comm}: Kommunikator (handle)
     \item \textbf{status}: Status, welcher source und tag angibt (\texttt{MPI\_Status}).
           Soll dieser Status ignoriert werden, kann \texttt{MPI\_STATUS\_IGNORE}\xindex{MPI\_STATUS\_IGNORE@\texttt{MPI\_STATUS\_IGNORE}} angegeben werden.
 \end{itemize}
@@ -131,7 +131,7 @@ Teilt Daten von jedem Prozeß einer Gruppe an alle anderen auf.
 
 \textbf{Input-Parameter}
 \begin{itemize}
-    \item \textbf{sendbuf}: Startadresse des Sendepuffers 
+    \item \textbf{sendbuf}: Startadresse des Sendepuffers
     \item \textbf{sendcount}: Anzahl der Elemente im Sendepuffer
     \item \textbf{sendtype}: Typ der Elemente des Sendepuffers (handle) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{recvcount}: Anzahl der Elemente, die von jedem einzelnen Prozeß empfangen werden
@@ -150,12 +150,12 @@ Teilt Daten von jedem Prozeß einer Gruppe an alle anderen auf.
 \goodbreak
 \rule{\textwidth}{0.4pt}\xindex{MPI\_Bcast@\texttt{MPI\_Bcast}}%
 \inputminted[numbersep=5pt, tabsize=4]{c}{scripts/mpi/mpi-bcast.c}
-Sendet eine Nachricht vom Prozess \texttt{root} an alle anderen Prozesse des 
+Sendet eine Nachricht vom Prozess \texttt{root} an alle anderen Prozesse des
 angegebenen Kommunikators.
 
 \textbf{Parameter}
 \begin{itemize}
-    \item \textbf{buffer}: Startadresse des Datenpuffers 
+    \item \textbf{buffer}: Startadresse des Datenpuffers
     \item \textbf{count}: Anzahl der Elemente im Puffer
     \item \textbf{datatype}: Typ der Pufferelemente (handle) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{root}: Wurzelprozeß; der, welcher sendet
@@ -169,10 +169,10 @@ Verteilt Daten vom Prozess \texttt{root} unter alle anderen Prozesse in der Grup
 
 \textbf{Input-Parameter}
 \begin{itemize}
-    \item \textbf{sendbuf}: Anfangsadresse des Sendepuffers (Wert ist lediglich für \texttt{root} signifikant) 
-    \item \textbf{sendcount}: Anzahl der Elemente, die jeder Prozeß geschickt bekommen soll (integer) 
+    \item \textbf{sendbuf}: Anfangsadresse des Sendepuffers (Wert ist lediglich für \texttt{root} signifikant)
+    \item \textbf{sendcount}: Anzahl der Elemente, die jeder Prozeß geschickt bekommen soll (integer)
     \item \textbf{sendtype}: Typ der Elemente in sendbuf (handle) (vgl. \cpageref{sec:MPI-Datatypes})
-    \item \textbf{recvcount}: Anzahl der Elemente im Empfangspuffer. Meist ist es günstig, recvcount = sendcount zu wählen. 
+    \item \textbf{recvcount}: Anzahl der Elemente im Empfangspuffer. Meist ist es günstig, recvcount = sendcount zu wählen.
     \item \textbf{recvtype}: Typ der Elemente des Empfangspuffers (handle) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{root}: Rang des Prozesses in comm, der die Daten versendet
     \item \textbf{comm}: Kommunikator (handle)
@@ -190,10 +190,10 @@ Sammelt Daten, die in einer Prozeßgruppe verteilt sind, ein und verteilt das Re
 
 \textbf{Input-Parameter}
 \begin{itemize}
-    \item \textbf{sendbuf}: Startadresse des Sendepuffers 
+    \item \textbf{sendbuf}: Startadresse des Sendepuffers
     \item \textbf{sendcount}: Anzahl der Elemente im Sendepuffer
     \item \textbf{sendtype}: Datentyp der Elemente des Sendepuffers (handle) (vgl. \cpageref{sec:MPI-Datatypes})
-    \item \textbf{recvcount}:  Anzahl der Elemente, die jeder einzelne Prozeß sendet (integer) 
+    \item \textbf{recvcount}:  Anzahl der Elemente, die jeder einzelne Prozeß sendet (integer)
     \item \textbf{recvtype}: Datentyp der Elemente im Empfangspuffer (handle) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{comm}: Kommunikator (handle)
 \end{itemize}
@@ -216,7 +216,7 @@ Sammelt Daten, die in einer Prozeßgruppe verteilt sind, ein.
     \item \textbf{sendbuf}: Startadresse des Sendepuffers
     \item \textbf{sendcount}: Anzahl der Elemente im Sendepuffer
     \item \textbf{sendtype}: Datentyp der Elemente des Sendepuffers (handle)
-    \item \textbf{recvcount}: Anzahl der Elemente, die jeder einzelne Prozeß sendet (nur für \texttt{root} signifikant) 
+    \item \textbf{recvcount}: Anzahl der Elemente, die jeder einzelne Prozeß sendet (nur für \texttt{root} signifikant)
     \item \textbf{recvtype}: Typ der Elemente im Empfangspuffer (handle) (nur für \texttt{root} signifikant) (vgl. \cpageref{sec:MPI-Datatypes})
     \item \textbf{root}: Rang des empfangenden Prozesses in \texttt{comm}
     \item \textbf{comm}: Kommunikator (handle)

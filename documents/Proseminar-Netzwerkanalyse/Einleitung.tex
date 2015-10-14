@@ -11,8 +11,8 @@ sowie von Nutzern vergebene Beschriftungen (sog. {\it Tags}) oder Kategorien als
 Wikipedia mit Artikeln als Knoten, Links als Kanten und Kategorien
 als Knotenbeschriftungen sowie soziale Netzwerke mit Eigenschaften der Benutzer
 als Knotenbeschriftungen sind drei Beispiele dafür.
-Häufig sind Knotenbeschriftungen nur teilweise vorhanden und es ist wünschenswert die 
-fehlenden Knotenbeschriftungen automatisiert zu ergänzen. 
+Häufig sind Knotenbeschriftungen nur teilweise vorhanden und es ist wünschenswert die
+fehlenden Knotenbeschriftungen automatisiert zu ergänzen.
 
 \subsection{Problemstellung}\label{sec:Problemstellung}
 Gegeben ist ein Graph, dessen Knoten teilweise beschriftet sind. Zusätzlich stehen
@@ -22,7 +22,7 @@ für alle Knoten, die bisher noch nicht beschriftet sind.\\
 \begin{definition}[Knotenklassifierungsproblem]\label{def:Knotenklassifizierungsproblem}
     Sei $G_t = (V_t, E_t, V_{L,t})$ ein gerichteter Graph,
     wobei $V_t$ die Menge aller Knoten,
-    $E_t \subseteq V_t \times V_t$ die Kantenmenge und $V_{L,t} \subseteq V_t$ die Menge der 
+    $E_t \subseteq V_t \times V_t$ die Kantenmenge und $V_{L,t} \subseteq V_t$ die Menge der
     beschrifteten Knoten jeweils zum Zeitpunkt $t$ bezeichne.
     Außerdem sei $L_t$ die Menge aller zum Zeitpunkt $t$ vergebenen
     Knotenbeschriftungen und $f:V_{L,t} \rightarrow L_t$ die Funktion, die einen
@@ -39,10 +39,10 @@ für alle Knoten, die bisher noch nicht beschriftet sind.\\
 \subsection{Herausforderungen}\label{sec:Herausforderungen}
 Die Graphen, für die dieser Algorithmus konzipiert wurde,
 sind viele $\num{10000}$~Knoten groß und dynamisch. \enquote{Dynamisch}
-bedeutet in diesem Kontext, dass neue Knoten und eventuell auch neue 
-Kanten hinzu kommen bzw. Kanten oder Knoten werden entfernt werden. 
-Außerdem stehen textuelle Inhalte zu den 
+bedeutet in diesem Kontext, dass neue Knoten und eventuell auch neue
+Kanten hinzu kommen bzw. Kanten oder Knoten werden entfernt werden.
+Außerdem stehen textuelle Inhalte zu den
 Knoten bereit, die bei der Klassifikation genutzt werden können.
-Bei kleinen Änderungen sollte nicht alles nochmals berechnen 
+Bei kleinen Änderungen sollte nicht alles nochmals berechnen
 werden müssen, sondern basierend auf zuvor
 berechneten Knotenbeschriftungen sollte die Klassifizierung angepasst werden.

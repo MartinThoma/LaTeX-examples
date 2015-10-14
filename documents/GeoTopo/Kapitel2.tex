@@ -15,7 +15,7 @@
               Familie $(U_i, \varphi_i)_{i \in I}$ von Karten auf $X$,
               sodass $\bigcup_{i \in I} U_i = X$.
         \item $X$ heißt (topologische) $n$-dimensionale \textbf{Mannigfaltigkeit}\xindex{Mannigfaltigkeit},
-              wenn $X$ hausdorffsch ist, eine abzählbare Basis der 
+              wenn $X$ hausdorffsch ist, eine abzählbare Basis der
               Topologie hat und einen $n$-dimensionalen Atlas besitzt.
     \end{defenum}
 \end{definition}
@@ -27,13 +27,13 @@ Anschaulich ist also ein $n$-dimensionale Mannigfaltigkeit lokal dem $\mdr^n$ ä
 \end{bemerkung}
 
 \begin{beweis}
-    Sei $(X, \fT)$ ein topologischer Raum und $(U, \varphi)$ mit $U \in \fT$ 
+    Sei $(X, \fT)$ ein topologischer Raum und $(U, \varphi)$ mit $U \in \fT$
     und $\varphi:U \rightarrow V \subseteq \mdr^n$,
     wobei $V$ offen und $\varphi$ ein Homöomorphismus ist, eine Karte auf $X$.
 
     Da jede offene Teilmenge des $\mdr^n$ genauso mächtig ist wie der $\mdr^n$,
-    $\varphi$ als Homöomorphismus insbesondere bijektiv ist und Mengen, zwischen 
-    denen eine Bijektion existiert, gleich mächtig sind, ist $U$ genauso mächtig 
+    $\varphi$ als Homöomorphismus insbesondere bijektiv ist und Mengen, zwischen
+    denen eine Bijektion existiert, gleich mächtig sind, ist $U$ genauso mächtig
     wie der $\mdr^n$. Da jede Mannigfaltigkeit mindestens eine Karte hat, muss
     jede Mannigfaltigkeit $X$ mindestens so mächtig sein wie der $\mdr^n$. $\qed$
 \end{beweis}
@@ -59,8 +59,8 @@ Mannigfaltigkeiten können beliebig viele Elemente haben.
 
 \begin{beispiel}[Mannigfaltigkeiten]
     \begin{bspenum}
-        \item Jede offene Teilmenge $U \subseteq \mdr^n$ ist eine 
-              $n$-dimensionale Mannigfaltigkeit mit einem Atlas aus 
+        \item Jede offene Teilmenge $U \subseteq \mdr^n$ ist eine
+              $n$-dimensionale Mannigfaltigkeit mit einem Atlas aus
               einer Karte.
         \item $\mdc^n$ ist eine $2n$-dimensionale Mannigfaltigkeit
               mit einem Atlas aus einer Karte:
@@ -106,7 +106,7 @@ Mannigfaltigkeiten können beliebig viele Elemente haben.
               Es gibt keine Umgebung von $0$ in $[0,1]$, die homöomorph
               zu einem offenem Intervall ist.
         \item $V_1 = \Set{(x,y) \in \mdr^2 | x \cdot y = 0}$ ist
-              keine Mannigfaltigkeit. 
+              keine Mannigfaltigkeit.
 
               Das Problem ist $(0,0)$. Wenn man diesen Punkt entfernt,
               zerfällt der Raum in 4 Zusammenhangskomponenten.
@@ -116,7 +116,7 @@ Mannigfaltigkeiten können beliebig viele Elemente haben.
               Mannigfaltigkeit.
         \item $X = (\mdr \setminus \Set{0}) \cup (0_1, 0_2)$ \label{bsp:mannigfaltigkeit8}
 
-              \[U \subseteq X \text{ offen } \gdw 
+              \[U \subseteq X \text{ offen } \gdw
                 \begin{cases}
                     U \text{ offen in } \mdr \setminus \Set{0}, &\text{falls } 0_1 \notin U, 0_2 \in U\\
                     \exists \varepsilon > 0: (-\varepsilon, \varepsilon) \subseteq U &\text{falls } 0_1 \in U, 0_2 \in U
@@ -128,7 +128,7 @@ Mannigfaltigkeiten können beliebig viele Elemente haben.
               \underline{Aber:} $X$ ist nicht hausdorffsch!
               Denn es gibt keine disjunkten Umgebungen von $0_1$ und
               $0_2$.
-        \item \label{bsp:gln-ist-mf}\xindex{Gruppe!allgemeine lineare}$\GL_n(\mdr)$ ist eine Mannigfaltigkeit der Dimension 
+        \item \label{bsp:gln-ist-mf}\xindex{Gruppe!allgemeine lineare}$\GL_n(\mdr)$ ist eine Mannigfaltigkeit der Dimension
               $n^2$, weil offene Teilmengen von $\mdr^{n^2}$ eine
               Mannigfaltigkeit bilden.
     \end{bspenum}
@@ -141,12 +141,12 @@ Mannigfaltigkeiten können beliebig viele Elemente haben.
     Seien $X, Y$ $n$-dimensionale Mannigfaltigkeiten, $U \subseteq X$
     und $V \subseteq Y$ offen, $\Phi: U \rightarrow V$ ein Homöomorphismus
     $Z = (X \dcup Y) /_\sim$ mit der von $u \sim \Phi(u)\;\forall{u \in U}$
-    erzeugten Äquivalenzrelation und der von $\sim$ induzierten 
+    erzeugten Äquivalenzrelation und der von $\sim$ induzierten
     Quotiententopologie.
 
     $Z$ heißt \textbf{Verklebung} von $X$ und $Y$ längs $U$ und $V$.
     $Z$ besitzt einen Atlas aus $n$-dimensionalen Karten.
-    Falls $Z$ hausdorffsch ist, ist $Z$ eine $n$-dimensionale 
+    Falls $Z$ hausdorffsch ist, ist $Z$ eine $n$-dimensionale
     Mannigfaltigkeit.
 \end{definition}
 
@@ -210,7 +210,7 @@ Mannigfaltigkeiten können beliebig viele Elemente haben.
               $G: U \rightarrow \mdr^n, \; u \mapsto (g(u), u)$
               eine stetige Abbildung auf eine offene Umgebung $V$ von
               $x$ in $X$ ist.
-    \end{enumerate}  
+    \end{enumerate}
     $\qed$
 \end{beweis}
 
@@ -244,8 +244,8 @@ Mannigfaltigkeiten können beliebig viele Elemente haben.
     Sei $X$ ein Hausdorffraum mit abzählbarer Basis der Topologie.
     $X$ heißt $n$-dimensionale \textbf{Mannigfaltigkeit mit Rand},
     wenn es einen Atlas $(U_i, \varphi_i)$ gibt, wobei $U_i \subseteq X_i$
-    offen und $\varphi_i$ ein Homöomorphismus auf eine offene 
-    Teilmenge von 
+    offen und $\varphi_i$ ein Homöomorphismus auf eine offene
+    Teilmenge von
     \[\mdr_{+,0}^n := \Set{(x_1, \dots, x_n) \in \mdr^n | x_n \geq 0}\]
     ist.
 \end{definition}
@@ -275,7 +275,7 @@ $\mdr_{+,0}^n$ ist ein \enquote{Halbraum}\xindex{Halbraum}.
 
 \begin{definition}\xindex{Rand}%
     Sei $X$ eine $n$-dimensionale Mannigfaltigkeit mit Rand und
-    Atlas $\atlas$. Dann heißt 
+    Atlas $\atlas$. Dann heißt
     \[\partial X := \bigcup_{(U, \varphi) \in \atlas} \Set{x \in U | \varphi (x) = 0}\]
     \textbf{Rand} von $X$.
 \end{definition}
@@ -322,7 +322,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 \textit{glatt} genannt.
 
 \begin{definition}%
-    Sei $X$ eine differenzierbare Mannigfaltigkeit der Klasse $C^k$ 
+    Sei $X$ eine differenzierbare Mannigfaltigkeit der Klasse $C^k$
     ($k \in \mdn \cup \Set{\infty}$) mit Atlas $\atlas = (U_i, \varphi_i)_{i \in I}$.
 
     \begin{defenum}
@@ -330,10 +330,10 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
               mit $\atlas$, wenn alle Kartenwechsel $\varphi \circ \varphi_i^{-1}$
               und $\varphi_i \circ \varphi^{-1}$ ($i \in I$ mit $U_i \cap U \neq \emptyset$)
               differenzierbar von Klasse $C^k$ sind.
-        \item Die Menge aller mit $\atlas$ verträglichen Karten auf 
+        \item Die Menge aller mit $\atlas$ verträglichen Karten auf
               $X$ bildet einen maximalen Atlas der Klasse $C^k$. Er
               heißt \textbf{$C^k$-Struktur}\xindex{Ck-Struktur@$C^k$-Struktur} auf $X$.
-            
+
               Eine $C^\infty$-Struktur heißt auch \textbf{differenzierbare Struktur}\xindex{Struktur!differenzierbare}
               auf $X$.
     \end{defenum}
@@ -357,7 +357,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
               gibt, sodass $\psi \circ f \circ \varphi^{-1}$ stetig
               differenzierbar von Klasse $C^k$ in $\varphi(x)$ ist.
         \item $f$ heißt \textbf{differenzierbar}
-              (von Klasse $C^k$), wenn $f$ in jedem $x \in X$ 
+              (von Klasse $C^k$), wenn $f$ in jedem $x \in X$
               differenzierbar ist.
         \item $f$ heißt \textbf{Diffeomorphismus}\xindex{Diffeomorphismus},
               wenn $f$ differenzierbar von Klasse $C^\infty$ ist und
@@ -375,7 +375,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 \begin{beweis}
     Seien $(U', \varphi')$ und $(V', \psi')$ Karten von $X$ bzw. $Y$
     um $x$ bzw. $f(x)$ mit $f(U') \subseteq V'$.
-    
+
     $\Rightarrow \psi' \circ f \circ (\varphi')^{-1}$\\
     $= \psi' \circ ( \psi^{-1} \circ \psi) \circ f \circ (\varphi^{-1} \circ \varphi ) \circ (\varphi')^{-1}$
 
@@ -397,8 +397,8 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
 \begin{definition}\label{def:8.5}\xindex{Fläche!reguläre}\xindex{Parametrisierung!reguläre}%
     $S \subseteq \mdr^3$ heißt \textbf{reguläre Fläche} $:\gdw$
-    $\forall s \in S\;\exists $ Umgebung $V(s) \subseteq \mdr^3$ $\exists U \subseteq \mdr^2$ offen: 
-    $\exists \text{ differenzierbare Abbildung } F: U \rightarrow V \cap S$: 
+    $\forall s \in S\;\exists $ Umgebung $V(s) \subseteq \mdr^3$ $\exists U \subseteq \mdr^2$ offen:
+    $\exists \text{ differenzierbare Abbildung } F: U \rightarrow V \cap S$:
     $\text{Rg}(J_F(u)) = 2\;\;\;\forall u \in U$.
 
     $F$ heißt (lokale) \textbf{reguläre Parametrisierung} von $S$.
@@ -440,7 +440,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
                 %\caption{}
             \end{figure}
 
-            \[J_F(u,v) = 
+            \[J_F(u,v) =
             \begin{pmatrix}
                 -r(v) \sin u & r'(v) \cos u\\
                 r(v) \cos u  & r'(v) \sin u\\
@@ -449,7 +449,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
             hat Rang 2 für alle $(u,v) \in \mdr^2$.
         \item Kugelkoordinaten: $F: \mdr^2 \rightarrow \mdr^3$,\\
               $(u, v) \mapsto (R \cos v \cos u, R \cos v \sin u, R \sin v)$\\
-              Es gilt: $F(u,v) \in S_R^2$, denn 
+              Es gilt: $F(u,v) \in S_R^2$, denn
                 \begin{align*}
                     & R^2 \cos^2(v) \cos^2(u) + R^2 \cos^2(v) \sin^2(u) + R^2 \sin^2(v)\\
                     =& R^2 (\cos^2(v) \cos^2(u) + \cos^2(v) \sin^2(u) + \sin^2(v))\\
@@ -459,7 +459,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
                 \end{align*}
 
                 Die Jacobi-Matrix
-                \[J_F(u,v) = 
+                \[J_F(u,v) =
                 \begin{pmatrix}
                     -R \cos v \sin u & -R \sin v \cos u\\
                     R \cos v \cos u  & -R \sin v \sin u\\
@@ -480,10 +480,10 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
 \begin{beweis}\leavevmode
 
-    $S \subseteq \mdr^3$ ist als reguläre Fläche eine 2-dimensionale Mannigfaltigkeit. 
+    $S \subseteq \mdr^3$ ist als reguläre Fläche eine 2-dimensionale Mannigfaltigkeit.
     Aus der Definition von regulären Flächen folgt direkt, dass Karten $(U_i, F_i)$ und
     $(U_j \subseteq \mdr^2, F_j:\mdr^2 \rightarrow \mdr^3)$ von $S$ mit
-    $U_i \cap U_j \neq \emptyset$ existieren, wobei $F_i$ und $F_j$ nach 
+    $U_i \cap U_j \neq \emptyset$ existieren, wobei $F_i$ und $F_j$ nach
     Definition differenzierbare Abbildungen sind.
 
     \underline{z.Z.:} $F_j^{-1} \circ F_i$ ist ein Diffeomorphismus.
@@ -494,15 +494,15 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
         \caption{Reguläre Fläche $S$ zum Beweis von \cref{kor:regular-surface-mannigfaltigkeit}}
         \label{fig:parametric-surface-mapping}
     \end{figure}
-    
+
 
     \underline{Idee:} Finde differenzierbare Funktion $\widetilde{F_j^{-1}}$
     in Umgebung $W$ von $s$, sodass $\widetilde{F_j^{-1}}|_{S \cap W} = F_j^{-1}$.
 
     \underline{Ausführung:} Sei $u_0 \in U_i$, $v_0 \in U_j$ mit $F_i(u_0) = s = F_j(v_0)$.
 
-    Da $\rang(J_{F_j}(v_0)) = 2$ ist, ist \obda 
-    \[\det 
+    Da $\rang(J_{F_j}(v_0)) = 2$ ist, ist \obda
+    \[\det
         \begin{pmatrix}
             \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v}\\
             \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
@@ -513,10 +513,10 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
     Definiere $\widetilde{F_j}: U_j \times \mdr \rightarrow \mdr^3$ durch
     \[\widetilde{F_j} (u, v, t) := \left(x(u,v), y(u,v), z(u,v)+t \right )\]
-    
+
     Offensichtlich: $\widetilde{F_j} |_{U_j \times \Set{0}} = F_j$
 
-    \[J_{\widetilde{F_j}} = 
+    \[J_{\widetilde{F_j}} =
     \begin{pmatrix}
         \frac{\partial x}{\partial u}   & \frac{\partial x}{\partial v} & 0\\
         \frac{\partial y}{\partial u}   & \frac{\partial y}{\partial v} & 0\\
@@ -553,7 +553,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 \begin{beispiel}[Lie-Gruppen]
     \begin{bspenum}
         \item Alle endlichen Gruppen sind 0-dimensionale Lie-Gruppen.
-        \item $\GL_n(\mdr)$ 
+        \item $\GL_n(\mdr)$
               % ist eine Lie-Gruppe, da sie nach \cref{bsp:gln-ist-mf} eine Mannigfaltigkeit ist.
               % $\det: \GL_n \rightarrow \mdr$ ist eine stetige Abbildung.
         \item $(\mdr^\times, \cdot)$
@@ -653,10 +653,10 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
             \begin{enumerate}[label=(\roman*),ref=\theenumii.\roman*]
                 \item Für $\Delta \in K$ und $S \subseteq \Delta$ Teilsimplex
                       ist $S \in K$.
-                \item \label{def:simplizialkomplex.ii} Für $\Delta_1, \Delta_2 \in K$ ist 
-                      $\Delta_1 \cap \Delta_2$ leer oder ein 
-                        Teilsimplex von $\Delta_1$ und von 
-                      $\Delta_2$. 
+                \item \label{def:simplizialkomplex.ii} Für $\Delta_1, \Delta_2 \in K$ ist
+                      $\Delta_1 \cap \Delta_2$ leer oder ein
+                        Teilsimplex von $\Delta_1$ und von
+                      $\Delta_2$.
             \end{enumerate}
         \item $|K| := \bigcup_{\Delta \in K} \Delta$ (mit Teilraumtopologie)
               heißt \textbf{geometrische Realisierung}\xindex{Realisierung!geometrische}
@@ -723,7 +723,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
               \input{figures/topology-linear-mapping.tex}
 
-        \item Folgende Abbildung $\varphi: \Delta^n \rightarrow \Delta^{n-1}$ 
+        \item Folgende Abbildung $\varphi: \Delta^n \rightarrow \Delta^{n-1}$
               ist simplizial:
 
               \input{figures/topology-triangle-to-line.tex}
@@ -742,7 +742,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     Sei $K$ ein endlicher Simplizialkomplex. Für $n \geq 0$ sei
     $a_n(K)$ die Anzahl der $n$-Simplizes in $K$.
 
-    Dann heißt 
+    Dann heißt
     \[\chi(K) := \sum_{n=0}^{\dim K} (-1)^n a_n(K)\]
     \textbf{Eulerzahl} (oder Euler-Charakteristik\index{Euler-Charakteristik|see{Eulerzahl}})
     von $K$.
@@ -842,7 +842,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 
 \begin{bemerkung}\label{kor:simplex-unterteilung}
     Sei $\Delta$ ein $n$-Simplex und $x \in \Delta^\circ \subseteq \mdr^n$.
-    Sei $K$ der Simplizialkomplex, der aus $\Delta$ durch 
+    Sei $K$ der Simplizialkomplex, der aus $\Delta$ durch
     \enquote{Unterteilung} in $x$ entsteht. Dann ist $\chi(K) = \chi(\Delta) = 1$.
 \end{bemerkung}
 
@@ -920,7 +920,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
               $\partial P$ von $0$ aus auf $\partial \fB_1(0) = S^2$.
               Erhalte Triangulierung von $S^2$.
         \item Sind $P_1$ und $P_2$ konvexe Polygone und $T_1, T_2$
-              die zugehörigen Triangulierungen von $S^2$, so gibt es 
+              die zugehörigen Triangulierungen von $S^2$, so gibt es
               eine Triangulierung $T$, die sowohl um $T_1$ als
               auch um $T_2$ Verfeinerung ist (vgl. \cref{fig:topology-3}).
 
@@ -947,7 +947,7 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
     und $C_n(K)$ der $\mdr$-Vektorraum mit Basis $A_n(K)$, d.~h.
     \[C_n(K) = \Set{\sum_{\sigma \in A_n(K)} c_\sigma \cdot \sigma | c_\sigma \in \mdr}\]
 
-    Sei $\sigma = \Delta(x_0, \dots, x_n) \in A_n(K)$, sodass 
+    Sei $\sigma = \Delta(x_0, \dots, x_n) \in A_n(K)$, sodass
     $x_0 < x_1 < \dots < x_n$.
 
     Für $i = 0, \dots, n$ sei $\partial_i \sigma := \Delta(x_0, \dots, \hat{x_i}, \dots, x_n)$
@@ -1001,14 +1001,14 @@ Differenzierbare Mannigfaltigkeiten der Klasse $C^\infty$ werden auch
 \end{beweis}
 
 \begin{definition}%
-    Sei $K$ ein Simplizialkomplex, 
-    $Z_n := \text{Kern}(d_n) \subseteq C_n$ und 
+    Sei $K$ ein Simplizialkomplex,
+    $Z_n := \text{Kern}(d_n) \subseteq C_n$ und
     $B_n := \text{Bild}(d_{n+1}) \subseteq C_n$.
 
     \begin{defenum}
-        \item $H_n = H_n(K, \mdr) := Z_n / B_n$ heißt $n$-te 
+        \item $H_n = H_n(K, \mdr) := Z_n / B_n$ heißt $n$-te
               \textbf{Homologiegruppe}\xindex{Homologiegruppe} von $K$.
-        \item $b_n(K) := \dim_{\mdr} H_n$ heißt $n$-te 
+        \item $b_n(K) := \dim_{\mdr} H_n$ heißt $n$-te
               \textbf{Betti-Zahl}\xindex{Betti-Zahl} von $K$.
     \end{defenum}
 \end{definition}

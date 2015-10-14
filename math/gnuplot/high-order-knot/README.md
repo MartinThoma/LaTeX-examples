@@ -2,7 +2,7 @@ Use gnuplot within latex
 ========================
 * First make sure that you can use gnuplot:
   * Execute `gnuplot` in your command line
-    * Doesn't work: 
+    * Doesn't work:
       * Look up where the binary is located (e.g. `C:\Programs\gnuplot\bin\gnuplot.exe`)
       * Add the binary directory to your path (Windows + Pause -> System variables -> Path)
       * Try executing `gnuplot` in terminal again

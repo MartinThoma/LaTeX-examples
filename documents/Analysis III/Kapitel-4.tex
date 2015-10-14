@@ -53,7 +53,7 @@ Sei $f:X\to[0,\infty]$ messbar. $(f_n)$ sei eine für $f$ zulässige Folge. Das 
 \end{align*}
 \end{definition}
 
-\begin{bemerkung}\ 
+\begin{bemerkung}\
 \begin{enumerate}
 \item In \ref{Satz 4.3} werden wir sehen, dass $(*)$ unabhängig ist von der Wahl der für $f$ zulässigen Folge $(f_n)$.
 \item $(f_n(x))$ ist wachsend für alle $x\in X$, d.h.:
@@ -92,8 +92,8 @@ Es folgt \(x\in B_n\) für jedes \(n\geq n(x)\).\\
 \textbf{Fazit:} \(X=\bigcup B_n\). \[A_j=A_j\cap X=A_j\cap\left(\bigcup B_n\right) = \bigcup(A_j\cap B_n) \text{ und } A_j\cap B_n\subseteq A_j\cap B_{n+1} \]
 Aus \ref{Satz 1.7} folgt \(\lambda(A_j)=\lim\limits_{n\to\infty}\lambda(A_j\cap B_n)\). Das liefert:
 \begin{align*}
-   \int\limits_Xg\,dx &= \sum\limits_{j=1}^m y_j\lambda(A_j) 
-   = \sum\limits_{j=1}^m y_j\lim\limits_{n\to\infty}\lambda(A_j\cap B_n)\\ 
+   \int\limits_Xg\,dx &= \sum\limits_{j=1}^m y_j\lambda(A_j)
+   = \sum\limits_{j=1}^m y_j\lim\limits_{n\to\infty}\lambda(A_j\cap B_n)\\
    &=\lim\limits_{n\to\infty}\sum\limits_{j=1}^m y_j\lambda(A_j\cap B_n)
    \overset{\ref{Satz 4.1}}= \lim\limits_{n\to\infty} \int\limits_X \mathds{1}_{B_n}g\,dx\\
    &\leq  \lim\limits_{n\to\infty} \int\limits_X \alpha f_n\,dx
@@ -127,7 +127,7 @@ Dann ist wegen \ref{Satz 3.7} und \(\alpha , \beta \geq 0\), dass \((h_n)\) zul�
 \begin{enumerate}
 \item["'$\implies$"'] Sei \(\int_Xf\,dx=0\) und \(A_n:=\{f>\frac{1}{n}\}\). Dann ist \(A=\bigcup A_n\) und \(f\geq\frac{1}{n}\mathds{1}_{A_n}\). Damit folgt:
 \begin{align*}
-0 = \int_Xf\,dx 
+0 = \int_Xf\,dx
 \overset{\text{(2)}}\geq \int_X\frac1{n}\mathds{1}_{A_n}\,dx
 =\frac1{n}\lambda(A_n)
 \intertext{Es ist also \(\lambda(A_n)=0\) und damit gilt weiter}
@@ -212,7 +212,7 @@ Sei $X \in \fb_1$, $f(x) := \begin{cases} 1&,x\in X\cap\MdQ\\ 0&,x\in X\setminus
 $X, \MdQ \in \fb_1 \implies X \cap \MdQ \in \fb_1 \implies f$ ist messbar.
 \[0 \leq \int_X f(x) \text{ d}x = \int_X \mathds{1}_{X\cap\MdQ} \text{ d}x = \lambda(X\cap\MdQ) \leq \lambda(\MdQ) = 0\]
 \textbf{Das heißt:} $f \in \fl^1(X)$, $\int_X f \text{ d}x = 0$.
-Ist speziell $X = [a,b]\quad (a<b)$, so gilt: $f \in \fl^1([a,b])$, aber $f \not\in R([a,b])$. 
+Ist speziell $X = [a,b]\quad (a<b)$, so gilt: $f \in \fl^1([a,b])$, aber $f \not\in R([a,b])$.
 \end{beispiel}
 
 \begin{satz}[Charakterisierung der Integrierbarkeit]
@@ -258,9 +258,9 @@ Sei $f:X\to\imdr$ integrierbar und $N := \{\lvert f \rvert = +\infty\} = \{x\in 
 \end{folgerungen}
 
 \begin{beweis}
- $\ref{Satz 3.4} \implies N \in \fb(X).$ $n\mathds{1}_N \leq \lvert f \rvert$ für alle $n\in \MdN$. Dann: 
+ $\ref{Satz 3.4} \implies N \in \fb(X).$ $n\mathds{1}_N \leq \lvert f \rvert$ für alle $n\in \MdN$. Dann:
 \[n \cdot \lambda(N) = \int_X n\mathds{1}_N \text{ d}x \stackrel{4.5}{\leq} \int_X \lvert f \rvert \text{ d}x \stackrel{4.9}{<} \infty \text{  für alle } n \in \mdn\]
-Also: $0 \leq n\lambda(N) \leq \int_X \lvert f \rvert \text{ d}x \quad \forall n \in \mdn \implies \lambda(N) = 0$ 
+Also: $0 \leq n\lambda(N) \leq \int_X \lvert f \rvert \text{ d}x \quad \forall n \in \mdn \implies \lambda(N) = 0$
 \end{beweis}
 
 \begin{satz}
@@ -277,13 +277,13 @@ $f, g: X \to \imdr$ seien integrierbar und es sei $\alpha \in \mdr$.
  \item $\lvert \int_X f \text{ d}x \rvert \leq \int_X \lvert f \rvert \text{ d}x$. (Dreiecksungleichung für Integrale)
  \item Sei $\emptyset\ne Y \in \fb(X)$. Dann sind die Funktionen $f_{|Y}: Y \to \imdr$ und $\mathds{1}_Y\cdot f: X \to \imdr$ integrierbar und
 \[\int_Y f(x) \text{ d}x := \int_Y f_{|Y} (x) \text{ d}x = \int_X(\mathds{1}_Y \cdot f)(x) \text{ d}x\]
- \item Sei $\lambda(X) < \infty$ und $h: X \to \mdr$ sei messbar und beschränkt. Dann: $h \in \fl^1(X)$ und $\lvert \int_X h \text{ d}x\rvert \leq \|h\|_\infty \lambda(X) \quad$ (mit $\|h\|_\infty := \sup\{|h(x)| : x\in X\}$) 
+ \item Sei $\lambda(X) < \infty$ und $h: X \to \mdr$ sei messbar und beschränkt. Dann: $h \in \fl^1(X)$ und $\lvert \int_X h \text{ d}x\rvert \leq \|h\|_\infty \lambda(X) \quad$ (mit $\|h\|_\infty := \sup\{|h(x)| : x\in X\}$)
 \end{enumerate}
 \end{satz}
 
 \begin{beweis}
-\begin{enumerate} 
-\item folgt aus \(\alpha f)_{\pm}=\alpha f_{\pm}\), falls \(\alpha\geq0\) und \(\alpha f)_{\pm}=-\alpha f_{\mp}\), falls 
+\begin{enumerate}
+\item folgt aus \(\alpha f)_{\pm}=\alpha f_{\pm}\), falls \(\alpha\geq0\) und \(\alpha f)_{\pm}=-\alpha f_{\mp}\), falls
     \(\alpha<0\).
 \item Es gilt \(f+g=\underbrace{f_{+}+g_{+}}_{=:u}-\underbrace{(f_{-}+g_{-})}_{=:v}=u-v\). Dann:
 \[
@@ -309,11 +309,11 @@ Es folgt:
 \[
 \int_{X}{f\mathrm{d}x}=\int_{X}{f_{+}\mathrm{d}x}-\int_{X}{f_{-}\mathrm{d}x}\overset{\ref{Satz 4.5}}{\leq}\int_{X}{g_{+}\mathrm{d}x}-\int_{X}{g_{-}\mathrm{d}x}=\int_{X}{g\mathrm{d}x}
 \]
-\item Es ist \(\pm f\leq\lvert f\rvert\). Mit Aussage (1) und (5) folgt: 
+\item Es ist \(\pm f\leq\lvert f\rvert\). Mit Aussage (1) und (5) folgt:
     \(\pm\int_{X}{f\mathrm{d}x}=\int_{X}{(\pm f)\mathrm{d}x}\leq\int_{X}{\lvert f\rvert\mathrm{d}x}\).\\
 Es ist \(\int_{X}{f\mathrm{d}x}=\lvert\int_{X}{f\mathrm{d}x}\rvert\) oder \(-\int_{X}{f\mathrm{d}x}=\lvert\int_{X}{f\mathrm{d}x}\rvert\)
 \item Mit Bemerkung (2) vor \ref{Satz 3.1} und Satz \ref{Satz 3.6}.(2) folgt: \(f_{|Y}\) und \(\mathds{1}_{Y}\cdot f\) sind
-messbar. Es gilt: \((f_{|Y})_{\pm}=(f_{\pm})_{|Y}\) und \((\mathds{1}_{Y}\cdot f)_{\pm}=\mathds{1}\cdot f_{\pm}\). Weiterhin 
+messbar. Es gilt: \((f_{|Y})_{\pm}=(f_{\pm})_{|Y}\) und \((\mathds{1}_{Y}\cdot f)_{\pm}=\mathds{1}\cdot f_{\pm}\). Weiterhin
 gilt \(0\leq\mathds{1}_{Y}f_{\pm}\leq f_{\pm}\). Mit \ref{Satz 4.9} folgt dann, daß\ \(\mathds{1}_{Y}f_{\pm}\) integrierbar
 ist. Dann:
 \begin{align*}
@@ -325,7 +325,7 @@ Es folgt: \(f_{|Y}\) ist integrierbar und \(\int_{Y}{f_{|Y}\mathrm{d}x}=\int_{Y}
 \[
 \int_{X}{\lvert h\rvert\mathrm{d}x}\leq\int_{X}{\lVert h\rVert_{\infty}\mathds{1}_{X}\mathrm{d}x}=\lVert h\rVert_{\infty}\lambda(X)<\infty
 \]
-Damit: \(\lvert h\rvert\) ist integrierbar und mit \ref{Satz 4.9} auch \(h\). Da \(h\) beschränkt ist, folgt: 
+Damit: \(\lvert h\rvert\) ist integrierbar und mit \ref{Satz 4.9} auch \(h\). Da \(h\) beschränkt ist, folgt:
 \(h\in\fl^{1}(X)\). Schließlich:
 \[
 \left\lvert\int_{X}{h\mathrm{d}x}\right\rvert\leq\int_{X}{\lvert h\rvert\mathrm{d}x}\leq\lVert h\lVert_{\infty}\lambda(X)
@@ -345,7 +345,7 @@ Damit: \(\lvert h\rvert\) ist integrierbar und mit \ref{Satz 4.9} auch \(h\). Da
 
 \begin{beweis}
 \begin{enumerate}
- \item Aus \ref{Satz 4.11}(7) folgt: $f$ ist integrierbar über $A$ und integrierbar über $B$. Es ist 
+ \item Aus \ref{Satz 4.11}(7) folgt: $f$ ist integrierbar über $A$ und integrierbar über $B$. Es ist
 \[ \int_X f(x) \text{ d}x = \int_X \left( \mathds{1}_{A\cup B} \cdot f \right)(x) \text{ d}x = \int_X \left( \left( \mathds{1}_A + \mathds{1}_B \right) f\right)(x) \text{ d}x \]
 \[= \int_X \left(\mathds{1}_A f + \mathds{1}_B f \right)(x) \text{ d}x \stackrel{4.11(2)}{=} \int_X \mathds{1}_A f \text{ d}x + \int_X \mathds{1}_B f \text{ d}x \stackrel{4.11(7)}{=} \int_A f \text{ d}x + \int_B f \text{ d}x.\]
 
@@ -364,8 +364,8 @@ Sei $\natn$, $t_j^{(n)}:=a+j\frac{b-a}{n}$ ($j=0,\dots,n$) und $I_j^{(n)}:=\left
 \begin{align*}
 S_n:=\sum^n_{j=1} f \left(t_j^{(n)}\right) \underbrace{ \frac{b-a}{n}}_{= \lambda_1 \left(I_j^{(n)}\right)} \text{ ist Riemannsche Zwischensumme für R-} \int_a^bf(x)\,dx.
 \end{align*}
-Aus Analysis I folgt $S_n\to\text{R-}\int_a^bf(x)\,dx$ ($n\to\infty$). 
-Definiere $f_n:=\sum^n_{j=1}f \left(t_j^{(n)} \right) \mathds{1}_{I_j^{(n)}} $. Dann ist $f_n$ einfach und 
+Aus Analysis I folgt $S_n\to\text{R-}\int_a^bf(x)\,dx$ ($n\to\infty$).
+Definiere $f_n:=\sum^n_{j=1}f \left(t_j^{(n)} \right) \mathds{1}_{I_j^{(n)}} $. Dann ist $f_n$ einfach und
 \[\int_X f_n(x)\,dx=\sum_{j=1}^n f \left(t_j^{(n)} \right) \lambda_1 \left(I_j^{(n)}\right)=S_n\]
 $f$ ist auf $X$ gleichmäßig stetig also konvergiert $f_n$ auf $X$ gleichmäßig gegen $f$ (Übung!), also gilt:
 \[\lVert f_n-f \rVert_{\infty}=\text{sup} \left \{ \lvert f_n(x)-f(x) \rvert : x\in X \right\} \to 0 \  (n\to \infty)\]

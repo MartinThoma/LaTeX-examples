@@ -1,14 +1,14 @@
 \subsection{Überblick}
-DYCOS (\underline{DY}namic \underline{C}lassification 
-algorithm with c\underline{O}ntent and \underline{S}tructure) ist ein 
-Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011} vorgestellt 
+DYCOS (\underline{DY}namic \underline{C}lassification
+algorithm with c\underline{O}ntent and \underline{S}tructure) ist ein
+Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011} vorgestellt
 wurde.
 
 Ein zentrales Element des DYCOS-Algorithmus ist der sog.
 {\it Random Walk}:
 
 \begin{definition}[Random Walk, Sprung]
-    Sei $G = (V, E)$ mit $E \subseteq V \times V$ ein Graph und 
+    Sei $G = (V, E)$ mit $E \subseteq V \times V$ ein Graph und
     $v_0 \in V$ ein Knoten des Graphen.
 
     %Sei außerdem $f: V \rightarrow \mathcal{P}(V)$ eine Abbildung
@@ -17,7 +17,7 @@ Ein zentrales Element des DYCOS-Algorithmus ist der sog.
 
     Ein Random Walk der Länge $l$ auf $G$, startend bei $v_0$ ist
     nun der zeitdiskrete stochastische Prozess, der $v_i$
-    auf einen zufällig gewählten Nachbarn $v_{i+1}$ abbildet 
+    auf einen zufällig gewählten Nachbarn $v_{i+1}$ abbildet
     (für $i \in 0, \dots, l-1$).
     Die Abbildung $v_i \mapsto v_{i+1}$ heißt ein Sprung.
 \end{definition}
@@ -28,26 +28,26 @@ werden die Beschriftungen der besuchten Knoten gezählt. Die Beschriftung, die a
 vorgekommen ist, wird als Beschriftung für $v$ gewählt.
 DYCOS nutzt also die sog. Homophilie, d.~h. die Eigenschaft, dass
 Knoten, die nur wenige Hops von einander entfernt sind, häufig auch
-ähnlich sind \cite{bhagat}. Der DYCOS-Algorithmus arbeitet jedoch nicht 
-direkt auf dem Graphen, sondern erweitert ihn mit 
-Hilfe der zur Verfügung stehenden Texte. Wie diese Erweiterung 
+ähnlich sind \cite{bhagat}. Der DYCOS-Algorithmus arbeitet jedoch nicht
+direkt auf dem Graphen, sondern erweitert ihn mit
+Hilfe der zur Verfügung stehenden Texte. Wie diese Erweiterung
 erstellt wird, wird im Folgenden erklärt.\\
-Für diese Erweiterung wird zuerst wird Vokabular $W_t$ bestimmt, das 
+Für diese Erweiterung wird zuerst wird Vokabular $W_t$ bestimmt, das
 charakteristisch für eine Knotengruppe ist. Wie das gemacht werden kann
 und warum nicht einfach jedes Wort in das Vokabular aufgenommen wird,
 wird in \cref{sec:vokabularbestimmung} erläutert.\\
-Nach der Bestimmung des Vokabulars wird für 
+Nach der Bestimmung des Vokabulars wird für
 jedes Wort im Vokabular ein Wortknoten zum Graphen hinzugefügt. Alle
 Knoten, die der Graph zuvor hatte, werden nun \enquote{Strukturknoten}
 genannt.
 Ein Strukturknoten $v$ wird genau dann mit einem Wortknoten $w \in W_t$
 verbunden, wenn $w$ in einem Text von $v$ vorkommt. \Cref{fig:erweiterter-graph}
 zeigt beispielhaft den so entstehenden, semi-bipartiten Graphen.
-Der DYCOS-Algorithmus betrachtet also die Texte, die einem Knoten 
-zugeordnet sind, als eine Multimenge von Wörtern. Das heißt, zum einen 
-wird nicht auf die Reihenfolge der Wörter geachtet, zum anderen wird 
-bei Texten eines Knotens nicht zwischen verschiedenen 
-Texten unterschieden. Jedoch wird die Anzahl der Vorkommen 
+Der DYCOS-Algorithmus betrachtet also die Texte, die einem Knoten
+zugeordnet sind, als eine Multimenge von Wörtern. Das heißt, zum einen
+wird nicht auf die Reihenfolge der Wörter geachtet, zum anderen wird
+bei Texten eines Knotens nicht zwischen verschiedenen
+Texten unterschieden. Jedoch wird die Anzahl der Vorkommen
 jedes Wortes berücksichtigt.
 
 \begin{figure}[htp]
@@ -86,17 +86,17 @@ springt über einen Wortknoten und ist ein Pfad der Länge~2.
 
 Ob in einem Sprung der Random Walks ein struktureller Sprung oder
 ein inhaltlicher Zweifachsprung gemacht wird, wird jedes mal zufällig
-neu entschieden. Dafür wird der Parameter $0 \leq p_S \leq 1$ für den Algorithmus 
+neu entschieden. Dafür wird der Parameter $0 \leq p_S \leq 1$ für den Algorithmus
 gewählt. Mit einer Wahrscheinlichkeit von $p_S$ wird ein struktureller
 Sprung durchgeführt und mit einer Wahrscheinlichkeit
 von $(1-p_S)$ ein modifizierter inhaltlicher Zweifachsprung, wie er in
-\cref{sec:sprungtypen} erklärt wird, gemacht. Der 
+\cref{sec:sprungtypen} erklärt wird, gemacht. Der
 Parameter $p_S$ gibt an, wie wichtig die Struktur des Graphen im Verhältnis
 zu den textuellen Inhalten ist. Bei $p_S = 0$ werden ausschließlich
 die Texte betrachtet, bei $p_S = 1$ ausschließlich die Struktur des
 Graphen.
 
-Die Vokabularbestimmung kann zu jedem Zeitpunkt $t$ durchgeführt 
+Die Vokabularbestimmung kann zu jedem Zeitpunkt $t$ durchgeführt
 werden, muss es aber nicht.
 
 In \cref{alg:DYCOS} steht der DYCOS-Algorithmus in Form von Pseudocode:
@@ -108,8 +108,8 @@ In \cref{alg1:l11} wird eine temporäre Variable für den aktuell
 betrachteten Knoten angelegt.
 
 In \cref{alg1:l12} bis \cref{alg1:l21} werden einzelne Random Walks
-der Länge $l$ durchgeführt, wobei die beobachteten Beschriftungen 
-gezählt werden und mit einer Wahrscheinlichkeit von $p_S$ ein 
+der Länge $l$ durchgeführt, wobei die beobachteten Beschriftungen
+gezählt werden und mit einer Wahrscheinlichkeit von $p_S$ ein
 struktureller Sprung durchgeführt wird.
 
 \begin{algorithm}[ht]
@@ -148,7 +148,7 @@ struktureller Sprung durchgeführt wird.
             \EndIf
             \\
             \State \textit{//Wähle aus der Menge der häufigsten Beschriftungen $M_H$ zufällig eine aus}
-            \State $label \gets \Call{Random}{M_H}$ 
+            \State $label \gets \Call{Random}{M_H}$
             \State $v.\Call{AddLabel}{label}$ \Comment{und weise dieses $v$ zu}
         \EndFor
         \State \Return Beschriftungen für $V_t \setminus V_{L,t}$
@@ -158,19 +158,19 @@ struktureller Sprung durchgeführt wird.
 \end{algorithm}
 
 \subsection{Datenstrukturen}
-Zusätzlich zu dem gerichteten Graphen $G_t = (V_t, E_t, V_{L,t})$ 
+Zusätzlich zu dem gerichteten Graphen $G_t = (V_t, E_t, V_{L,t})$
 verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
 \begin{itemize}
     \item Für jeden Knoten $v \in V_t$ werden die vorkommenden Wörter,
           die auch im Vokabular $W_t$ sind,
-          und deren Anzahl gespeichert. Das könnte z.~B. über ein 
-          assoziatives Array (auch \enquote{dictionary} oder 
-            \enquote{map} genannt) geschehen. Wörter, die nicht in 
+          und deren Anzahl gespeichert. Das könnte z.~B. über ein
+          assoziatives Array (auch \enquote{dictionary} oder
+            \enquote{map} genannt) geschehen. Wörter, die nicht in
           Texten von $v$ vorkommen, sind nicht im Array. Für
-          alle vorkommenden Wörter ist der gespeicherte Wert zum 
-          Schlüssel $w \in W_t$ die Anzahl der Vorkommen von 
+          alle vorkommenden Wörter ist der gespeicherte Wert zum
+          Schlüssel $w \in W_t$ die Anzahl der Vorkommen von
           $w$ in den Texten von $v$.
-    \item Für jedes Wort des Vokabulars $W_t$ wird eine Liste von 
+    \item Für jedes Wort des Vokabulars $W_t$ wird eine Liste von
           Knoten verwaltet, in deren Texten das Wort vorkommt.
           Diese Liste wird bei den inhaltlichen Zweifachsprung,
           der in \cref{sec:sprungtypen} erklärt wird,

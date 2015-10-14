@@ -3,7 +3,7 @@
 \usepackage[ngerman]{babel} % this is needed for umlauts
 \usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
 \usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
- 
+
 % Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Vorname}{Martin}     % Vorname                         %
 \newcommand{\Nachname}{Thoma}     % Nachname                        %
@@ -22,8 +22,8 @@
 % Datum der Kündigung                                               %
 \newcommand{\Kuendigungsdatum}{nächstmöglichen Termin}              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
- 
+
+
 % pdfinfo
 \pdfinfo{
    /Author (\Nachname, \Vorname)
@@ -31,21 +31,21 @@
    /Subject (\DocTitle)
    /Keywords (Kündigung)
 }
- 
+
 % set letter variables
 \signature{\Vorname~\Nachname}
 \customer{\Kundennr}
 \backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
- 
+
 % Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
     \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
     \date{\today}%Change this if you want a different date than today
     \subject{Kündigung}
     \opening{Sehr geehrte Damen und Herren,}
-    hiermit kündige ich meinen Vertrag für die Kundennummer 
+    hiermit kündige ich meinen Vertrag für die Kundennummer
     \Kundennr~ zum \Kuendigungsdatum.\\
- 
+
     \noindent Ich bitte um eine Bestätigung der Kündigung.
     \closing{Mit freundlichen Grüßen,}
     \end{letter}

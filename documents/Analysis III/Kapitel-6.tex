@@ -41,7 +41,7 @@ Dann gilt \(f=\mathds{1}_{X\setminus N}\cdot f\) fast überall.
     &\overset{(1)}{\leq}\liminf_{n\to\infty}\int_{X}{\mathds{1}_{X\setminus N}f_{n}\mathrm{d}x}\\
     &\overset{\text{\ref{Satz 5.3}.(3)}}{=}\liminf_{n\to\infty}\int_{X}{f_{n}\mathrm{d}x}
 \end{align*}
-\item folgt aus (2). Nach Voraussetzung gilt 
+\item folgt aus (2). Nach Voraussetzung gilt
 \[
 0\leq\int_{X}{f\mathrm{d}x}\overset{\text{(2)}}{\leq}\liminf_{n\to\infty}\int_{X}{f_{n}\mathrm{d}x}<\infty
 \]
@@ -67,8 +67,8 @@ Dann sind alle \(f_{n}\) integrierbar und es existiert ein \(f\in\fl^{1}(X)\) mi
 \[
 \int_{X}{f_{n}\mathrm{d}x}=n\cdot\lambda_{1}\left(\left(0,\frac{1}{n}\right)\right)=n\cdot\frac{1}{n}=1\quad\forall n\in\mdn
 \]
-Es gilt \(f_{n}\to f:=0\) punktweise und \(\int_{X}{f\mathrm{d}x}=0 \neq 1 = \int_{X}{f_{n}\mathrm{d}x}\). 
-$\Rightarrow$ \ref{Satz 6.2} ist ohne die integrierbare Majorante 
+Es gilt \(f_{n}\to f:=0\) punktweise und \(\int_{X}{f\mathrm{d}x}=0 \neq 1 = \int_{X}{f_{n}\mathrm{d}x}\).
+$\Rightarrow$ \ref{Satz 6.2} ist ohne die integrierbare Majorante
 $g$ im allgemeinen falsch.
 \item Sei $X = [1, \infty), \alpha > 1, f_n(x) := \frac{1}{x^\alpha} \sin{\frac{x}{n}} (x \in X, n \in \mathbb{N})$.\\
 Berechne $\lim_{n \rightarrow \infty} \int_X f_n(x) \mathrm{d}x$\\
@@ -132,9 +132,9 @@ Also gilt auch:
 
 \begin{beispiel}
 Sei \(X:=[1,\infty)\) und \(f_n(x):=\frac1{x^\frac32}\sin\left(\frac xn \right) \) für alle \(x\in X, n\in\mdn\) mit \(f_n(x)\to f(x)\equiv 0\) für jedes \(x\in X\).
-Dann ist \(\lvert f_n(x) \rvert\leq \frac1{x^\frac32}\) für jedes \(x\in X\) und $\natn$. 
+Dann ist \(\lvert f_n(x) \rvert\leq \frac1{x^\frac32}\) für jedes \(x\in X\) und $\natn$.
 Definiere nun \[g(x):=\frac1{x^\frac32}\]
-Aus Analysis I ist bekannt, dass \(\int^\infty_1 g(x)\,dx\) (absolut) konvergent ist 
+Aus Analysis I ist bekannt, dass \(\int^\infty_1 g(x)\,dx\) (absolut) konvergent ist
 und aus \ref{Satz 4.14} folgt \[g\in\mathfrak{L}^1(X) \text{ sowie } \int_X g(x)\,dx = \text{R-}\int^\infty_1 g(x)\,dx\]
 Weiter folgen aus \ref{Satz 6.2}:
 \[\int_X f_n\,dx\to 0 \text{ und } \int_X\lvert f_n\rvert\,dx\to 0 \ (n\to\infty) \]
@@ -155,17 +155,17 @@ Weiter folgen aus \ref{Satz 6.2}:
 
 \begin{beweis}
 \begin{enumerate}
-	\item 	Sei \(x\in X\). Es exisitert ein $m\in\mdn$, für das \(x\in A_m\) ist und somit auch \(x\in A_n \) für jedes \(n\geq m\). Nach der Definition von $f_n$ gilt dann \(f_n(x)=f(x)\) für jedes 				\(n\geq m\) und somit \(f_n\to f\) auf $X$. Damit gilt auch \[\lvert f_n\rvert\to\lvert f\rvert \text{ auf } X\] Durch die Konstruktion der $f_n$ ergibt sich: 
+	\item 	Sei \(x\in X\). Es exisitert ein $m\in\mdn$, für das \(x\in A_m\) ist und somit auch \(x\in A_n \) für jedes \(n\geq m\). Nach der Definition von $f_n$ gilt dann \(f_n(x)=f(x)\) für jedes 				\(n\geq m\) und somit \(f_n\to f\) auf $X$. Damit gilt auch \[\lvert f_n\rvert\to\lvert f\rvert \text{ auf } X\] Durch die Konstruktion der $f_n$ ergibt sich:
 		\[ \lvert f_n\rvert=\lvert \mathds{1}_{A_n}f\rvert=\mathds{1}_{A_n}\lvert f\rvert \leq \mathds{1}_{A_{n+1}}\lvert f\rvert=\lvert f_{n+1}\rvert \]
 		Dann gilt:
 		\[ \int_X \lvert f\rvert\,dx \overset{\ref{Satz 4.6}}=\lim\int_X \lvert f_n\rvert\,dx = \lim\int_{A_n} \lvert f\rvert\,dx \overset{Vor.}<\infty \]
-		Es folgt, dass \(\lvert f\rvert\) integrierbar ist und somit ist nach \ref{Satz 4.9} auch $f$ integrierbar. Da \(\lvert f_n\rvert \leq \lvert f\rvert\) auf $X$ für jedes \(\natn\) gilt, ist $f$ eine 		
+		Es folgt, dass \(\lvert f\rvert\) integrierbar ist und somit ist nach \ref{Satz 4.9} auch $f$ integrierbar. Da \(\lvert f_n\rvert \leq \lvert f\rvert\) auf $X$ für jedes \(\natn\) gilt, ist $f$ eine
 		integrierbare Majorante und es folgt mit \ref{Satz 6.2}:
 		\[ \int_Xf\,dx = \lim\int_Xf_n\,dx = \lim\int_{A_n}f\,dx \]
 	\item 	Setze \(A_n:=[a,n]\ (\natn)\) und es gelte o.B.d.A.: \(a\leq 1\). Dann gilt:
 		\[ \int_{A_n}\lvert f\rvert\,dx \overset{\ref{Satz 4.13}}= \text{R-}\int^n_a \lvert f\rvert\,dx \overset{Vor.}\longrightarrow \text{R-}\int^\infty_a \lvert f\rvert\,dx \]
 		D.h.\(\left(\int_{A_n}\lvert f\rvert\,dx\right)\) ist beschränkt. Definiere \(f_n:=\mathds{1}_{A_n}f\) mit \ref{Satz 4.13} folgt daraus, dass $f_n$ integrierbar ist. Weiter folgt
-		aus (1) \(f\in\mathfrak{L}^1(X)\) (denn es ist \(f(X)\subseteq\mdr\)) und 
+		aus (1) \(f\in\mathfrak{L}^1(X)\) (denn es ist \(f(X)\subseteq\mdr\)) und
 		\[ \text{L-}\int_Xf\,dx = \lim\int_{A_n}f\,dx \overset{\ref{Satz 4.13}}= \lim\left(\text{R-}\int^n_a f\,dx \right) = \text{R-}\int^\infty_a f\,dx. \]
 \end{enumerate}
 \end{beweis}
@@ -177,12 +177,12 @@ Weiter folgen aus \ref{Satz 6.2}:
 \begin{folgerung}
 \label{Folgerung 6.4}
 \begin{enumerate}
-	\item 	\((f_n)\) sei eine Folge integrierbarer Funktionen \(f_n\colon X\to\imdr\), \(g\colon X\to[0,+\infty]\) sei ebenfalls integrierbar und 
+	\item 	\((f_n)\) sei eine Folge integrierbarer Funktionen \(f_n\colon X\to\imdr\), \(g\colon X\to[0,+\infty]\) sei ebenfalls integrierbar und
 		\[g_n:=f_1+f_2+\dots+f_n \ (\natn)\]
-		Weiter sei $N$ eine Nullmenge in $X$ so, dass \((g_n(x))\) für jedes \(x\in X\setminus N\) in $\imdr$  konvergiert und 
+		Weiter sei $N$ eine Nullmenge in $X$ so, dass \((g_n(x))\) für jedes \(x\in X\setminus N\) in $\imdr$  konvergiert und
 		\[\lvert g_n(x)\rvert \leq g(x) \text{ für jedes } \natn \text{ und } x\in X\setminus N\]
 		Setzt man
-		\[f(x):=\sum^\infty_{j=1}f_j(x):=	
+		\[f(x):=\sum^\infty_{j=1}f_j(x):=
 		\begin{cases}
 			0, 				& \text{falls } x\in N 			\\
 			\lim\limits_{n\to\infty}g_n(x), & \text{falls } x\in X\setminus N
@@ -198,7 +198,7 @@ Weiter folgen aus \ref{Satz 6.2}:
 \begin{enumerate}
 	\item 	Fast überall gelten \(g_n\to f\) und für jedes \(\natn\) auch \(\lvert g_n\rvert \leq g\). Aus \ref{Satz 6.2} folgt
 		\begin{align*}
-			\int_X \left(\sum^\infty_{j=1}f_j(x)\right) \,dx 
+			\int_X \left(\sum^\infty_{j=1}f_j(x)\right) \,dx
 			&= \int_Xf\,dx  					\\
 			&\overset{\ref{Satz 6.2}}= \lim\int_Xg_n\,dx 	\\
 			&= \lim\int_X\left(\sum^n_{j=1}f_j\right)\,dx 	\\

@@ -11,18 +11,18 @@
 		Es existiert ein Eulerkreis\\
 		$\Leftrightarrow$ Der Graph ist zusammenhängend und jeder Knoten hat geraden Grad
 	\end{block}
-	
+
 	\begin{block}{Im gerichteten Graph}
 		Es existiert ein Eulerkreis\\
 		$\Leftrightarrow$ Der Graph ist stark zusammenhängend und für jeden Knoten gilt: Eingangsgrad = Ausgangsgrad
-	\end{block}	
+	\end{block}
 \end{frame}
 
 \begin{frame}{Algorithmus von Fleury}
 	Das Eulerkreisproblem ist effizient lösbar:
 
 	Algorithmus von Fleury $\in {\cal O}(|E|^2) $:
-	
+
 	\begin{enumerate}
 		\item Start bei einem beliebigen Knoten
 		\item Wähle eine unmarkierte von dem Knoten ausgehende Kante, die wenn möglich im Restgraphen keine Brückenkante ist. Wenn es nur Brückenkanten gibt, dann dann wird die Kante zu dem Knoten genommen, der den höhere Ausgangsgrad hat
@@ -34,7 +34,7 @@
 
 %\begin{frame}{Algorithmus von Fleury}{Anwendungsbeispiel}
 %	Wortmenge: $\{$as, man, meet, nets, set, sum, tea, team$\}$
-%	
+%
 %	Menge der Anfangs- und Endbuchstaben: $\{$a, m, n, s, t$\}$
 %	\begin{figure}
 %		\begin{tikzpicture}[->,scale=1.8, auto,swap]
@@ -63,13 +63,13 @@
 			% Connect vertices with edges and draw weights
 			\foreach \source/ \dest /\pos in {b/a/,c/a/,a/d/,a/e/,c/b/, d/b/, b/e/, e/c/, g/c/, e/d/, d/f/, f/g/}
 				\path (\source) edge [\pos] node {} (\dest);
-			% Start animating the edge selection. 
+			% Start animating the edge selection.
 			% For convenience we use a background layer to highlight edges
 			% This way we don't have to worry about the highlighting covering
-			% weight labels. 
+			% weight labels.
 			\begin{pgfonlayer}{background}
 				\foreach \source / \dest / \fr / \pos in {a/a/1/, a/e/2/, e/d/3/, d/b/4/, b/a/5/,
-														a/d/6/, d/f/7/, f/g/8/, g/c/9/, c/b/10/, 
+														a/d/6/, d/f/7/, f/g/8/, g/c/9/, c/b/10/,
 														b/e/11/, e/c/12/, c/a/13/}
 				    \path<\fr->[selected edge] (\source.center) edge [\pos] node {} (\dest.center);
 			\end{pgfonlayer}
@@ -98,13 +98,13 @@
 			% Connect vertices with edges and draw weights
 			\foreach \source/ \dest /\pos in {b/a/,c/a/,a/d/,a/e/,c/b/, d/b/, b/e/, e/c/, g/c/, e/d/, d/f/, f/g/}
 				\path (\source) edge [\pos] node {} (\dest);
-			% Start animating the edge selection. 
+			% Start animating the edge selection.
 			% For convenience we use a background layer to highlight edges
 			% This way we don't have to worry about the highlighting covering
-			% weight labels. 
+			% weight labels.
 			\begin{pgfonlayer}{background}
 				\foreach \source / \dest / \fr / \pos in {a/a/1/, a/e/2/, e/d/3/, d/b/4/, b/a/5/,
-														e/c/6/, c/b/7/, b/e/8/, d/f/9/, f/g/10/, 
+														e/c/6/, c/b/7/, b/e/8/, d/f/9/, f/g/10/,
 														g/c/11/, c/a/12/, a/d/13/}
 				    \path<\fr->[selected edge] (\source.center) edge [\pos] node {} (\dest.center);
 			\end{pgfonlayer}
@@ -123,10 +123,10 @@
 			% Connect vertices with edges and draw weights
 			\foreach \source/ \dest /\pos in {a/b/,b/c/, c/d/, d/e/, a/c/, a/d/, b/d/, c/e/}
 				\path (\source) edge [\pos] node {} (\dest);
-			% Start animating the edge selection. 
+			% Start animating the edge selection.
 						% For convenience we use a background layer to highlight edges
 			% This way we don't have to worry about the highlighting covering
-			% weight labels. 
+			% weight labels.
 			\begin{pgfonlayer}{background}
 				\foreach \source / \dest / \fr / \pos in {a/a/1/, b/d/2/, d/c/3/, c/e/4/, e/d/5/, d/a/6/,
 														a/b/7/, b/c/8/, c/a/9/}

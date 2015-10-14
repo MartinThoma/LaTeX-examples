@@ -5,8 +5,8 @@
 \usetikzlibrary{positioning}
 %% helper macros
 
-% The 3D code is based on The drawing is based on Tomas M. Trzeciak's 
-% `Stereographic and cylindrical map projections example`: 
+% The 3D code is based on The drawing is based on Tomas M. Trzeciak's
+% `Stereographic and cylindrical map projections example`:
 % http://www.texample.net/tikz/examples/map-projections/
 \newcommand\pgfmathsinandcos[3]{%
   \pgfmathsetmacro#1{sin(#3)}%
@@ -147,13 +147,13 @@
 \draw[->] (O) -- (P);
 \draw[dashed] (XE) -- (O) -- (PE);
 \draw[dashed] (O) -- (QE);
-		
+
 \draw[pzplane,->,thin] (0:0.5*\R) to[bend right=15]
     node[midway,right] {$v$} (\angBeta:0.5*\R);
 \path[pzplane] (0.5*\angBeta:\R) node[right] {$$};
 \path[qzplane] (0.5*\angBeta:\R) node[right] {$$};
 \draw[equator,->,thin] (\angAz:0.5*\R) to[bend right=30]
     node[pos=0.4,above] {$u$} (\angPhiOne:0.5*\R);
-	
+
 \end{tikzpicture}
 \end{document}

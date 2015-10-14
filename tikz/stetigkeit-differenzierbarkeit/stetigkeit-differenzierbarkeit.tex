@@ -7,7 +7,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes,decorations,calc,patterns} 
+\usetikzlibrary{shapes,decorations,calc,patterns}
 \usepackage{amsmath,amssymb}
 \begin{document}
 \begin{preview}
@@ -59,7 +59,7 @@
     \draw (0, 0) node[algebraicName] (A) {gleichmäßig stetig}
           (3, 0) node[explanation]   (B) {
             \begin{minipage}{0.90\textwidth}
-                \tiny 
+                \tiny
                 $\forall \varepsilon >0 \ \exists \delta=\delta(\varepsilon)>0\colon\\ |f(x)-f(z)| < \varepsilon\\ \forall x,z \in D \text{ mit } |x-z|<\delta$
             \end{minipage}
           }
@@ -69,7 +69,7 @@
           (0,-2) node[algebraicName, purple] (C) {Lipschitz-stetig}
           (3.5,-2) node[explanation]   (X) {
             \begin{minipage}{90\textwidth}
-                \tiny 
+                \tiny
 $f$ heißt auf $D$ \textbf{Lipschitz-stetig}\\
 $:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
             \end{minipage}
@@ -86,7 +86,7 @@ $:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
           (9, 0) node[algebraicName] (O) {stetig}
           (12,0) node[explanation]   (X) {
             \begin{minipage}{0.9\textwidth}
-                \tiny 
+                \tiny
                 $f$ heißt stetig in $x_0 :\Leftrightarrow$\\
                 $\forall \varepsilon > 0\  \exists \delta = \delta(\varepsilon)\colon$\\
                 $|f(x)-f(x_0)|<\varepsilon$ \\
@@ -101,7 +101,7 @@ $:\Leftrightarrow \exists L\ge 0: |f(x)-f(z)|\le L|x-z|\ \forall x,z \in D$
           (9, -4) node[algebraicName] (random1) {differenzierbar}
           (9.8, -4.7) node[explanation]   (X) {
             \begin{minipage}{0.9\textwidth}
-                \tiny 
+                \tiny
                 $f$ heißt differenzierbar in $x_0 :\Leftrightarrow$\\
                 $\lim_{h \rightarrow 0} \frac{f(x_0+h) - f(x_0)}{h}$
                 existiert

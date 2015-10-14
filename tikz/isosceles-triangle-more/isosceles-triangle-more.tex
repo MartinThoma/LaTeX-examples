@@ -9,7 +9,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes, calc} 
+\usetikzlibrary{shapes, calc}
 
 \begin{document}
 \begin{preview}
@@ -21,7 +21,7 @@
     % Draw the background of the triangle
     \node[isosceles triangle, isosceles triangle apex angle=44,draw,
         inner sep=0pt,anchor=lower side,rotate=90,draw=black,
-        line width=1.5pt, minimum height=4cm, fill=gray!2] 
+        line width=1.5pt, minimum height=4cm, fill=gray!2]
         (triangle) at (1.6,-0.05) {};
 
     % Rechte Winkel
@@ -87,7 +87,7 @@
     \begin{scope}[shift={($(B)$)}]
         \draw (146:4) node (BEnd) {};
     \end{scope}
-    
+
     \draw[color=cWinkelhalbierende, densely dashed] (B) -- node {} (BEnd);
     %\draw[color=red, dashed] (C) -- node {} ($(A)!0.5!(B)$);
 
@@ -100,7 +100,7 @@
     % Draw the triangle
     \node[isosceles triangle, isosceles triangle apex angle=44,draw,
         inner sep=0pt,anchor=lower side,rotate=90,draw=black,
-        line width=1.5pt, minimum height=4cm] 
+        line width=1.5pt, minimum height=4cm]
         (triangle) at (1.6,-0.05) {};
   \end{tikzpicture}
 \end{preview}

@@ -8,12 +8,12 @@ Wie in Scala sind auch in X10 Funktionen First-Class Citizens.
 X10 nutzt das PGAS-Modell:
 
 \begin{definition}[PGAS\footnotemark]\xindex{PGAS}%
-    PGAS (partitioned global address space) ist ein Programmiermodell für 
-    Mehrprozessorsysteme und massiv parallele Rechner. Dabei wird der globale 
-    Adressbereich des Arbeitsspeichers logisch unterteilt. Jeder Prozessor 
-    bekommt jeweils einen dieser Adressbereiche als lokalen Speicher zugeteilt. 
-    Trotzdem können alle Prozessoren auf jede Speicherzelle zugreifen, wobei auf 
-    den lokalen Speicher mit wesentlich höherer Geschwindigkeit zugegriffen 
+    PGAS (partitioned global address space) ist ein Programmiermodell für
+    Mehrprozessorsysteme und massiv parallele Rechner. Dabei wird der globale
+    Adressbereich des Arbeitsspeichers logisch unterteilt. Jeder Prozessor
+    bekommt jeweils einen dieser Adressbereiche als lokalen Speicher zugeteilt.
+    Trotzdem können alle Prozessoren auf jede Speicherzelle zugreifen, wobei auf
+    den lokalen Speicher mit wesentlich höherer Geschwindigkeit zugegriffen
     werden kann als auf den von anderen Prozessoren.
 \end{definition}
 \footnotetext{\url{https://de.wikipedia.org/wiki/PGAS}}
@@ -50,12 +50,12 @@ Eine Besonderheit sind sog. \textit{Constrianed types}\xindex{types!constrained}
 
 \subsection{Logische Operatoren}
 \begin{table}[H]
-    \centering 
+    \centering
     \begin{tabular}{CCCC}
     UND    & ODER     & Wahr  & Falsch \\ \hline\hline
     \&\&   & ||       & true  & false \\[4ex]
     GLEICH & UNGLEICH & NICHT & ~     \\ \hline\hline
-    ==     & !=       & !     & ~     \\ 
+    ==     & !=       & !     & ~     \\
     \end{tabular}
     \caption{Logische Operatoren in X10}\xindex{Logische Operatoren!X10}
 \end{table}
@@ -107,7 +107,7 @@ Es wird eine Deep-Copy des lokalen Objektgraphen auf den place \texttt{p} erstel
 \inputminted[numbersep=5pt, tabsize=4]{scala}{scripts/x10/at-example.x10}
 
 \section{Datentypen}
-Byte, UByte, Short, UShort, Char, Int, UInt, Long, ULong, Float, Double, Boolean, 
+Byte, UByte, Short, UShort, Char, Int, UInt, Long, ULong, Float, Double, Boolean,
 Complex, String, Point, Region, Dist, Array
 
 \subsection{Arrays}%

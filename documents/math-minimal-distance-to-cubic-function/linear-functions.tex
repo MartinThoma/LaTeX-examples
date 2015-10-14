@@ -1,8 +1,8 @@
 \chapter{Linear function}
 \section{Defined on $\mdr$}
 \begin{theorem}[Solution formula for linear functions on $\mdr$]
-    Let $f: \mdr \rightarrow \mdr $ be a linear function 
-    $f(x) := m \cdot x + t$ with $m \in \mdr \setminus \Set{0}$ and 
+    Let $f: \mdr \rightarrow \mdr $ be a linear function
+    $f(x) := m \cdot x + t$ with $m \in \mdr \setminus \Set{0}$ and
     $t \in \mdr$ be a linear function.
 
     Then there is only one point $(x, f(x))$ on the graph of $f$ with
@@ -42,7 +42,7 @@
           \addplot[red, nodes near coords=$f$,every node near coord/.style={anchor=225}] coordinates {(0.9, 0.5)};
           \addlegendentry{$f(x)=\frac{1}{2}x$}
           \addlegendentry{$f_\bot(x)=-2x+6$}
-        \end{axis} 
+        \end{axis}
     \end{tikzpicture}
     \caption{The shortest distance of $P$ to $f$ can be calculated by using the perpendicular}
     \label{fig:linear-min-distance}
@@ -65,7 +65,7 @@
 \clearpage
 
 \section{Defined on a closed interval $[a,b] \subseteq \mdr$}
-Let $f:[a,b] \rightarrow \mdr$, $f(x) := m\cdot x + t$ with $a,b,m,t \in \mdr$ and 
+Let $f:[a,b] \rightarrow \mdr$, $f(x) := m\cdot x + t$ with $a,b,m,t \in \mdr$ and
 $a \leq b$, $m \neq 0$  be a linear function.
 
 \begin{figure}[htp]
@@ -102,7 +102,7 @@ $a \leq b$, $m \neq 0$  be a linear function.
           \addlegendentry{$f_\bot(x)=-2x+6, D=[-5,5]$}
           \addlegendentry{$h(x)=3x-3, D=[1,1.5]$}
           \addlegendentry{$h(x)=-x+5, D=[4,5]$}
-        \end{axis} 
+        \end{axis}
     \end{tikzpicture}
     \caption{Different situations when you have linear functions which
              are defined on a closed intervall}
@@ -121,7 +121,7 @@ because $S_1(f,P)$ gives all global minima of $f$. Those are also
 minima for the intervall $[a,b]$. There are not more minima, because
 $S_1$ gives all minima of $P$ to $f$.
 
-If $S_1(f, P) \cap [a,b] = \emptyset$, then it is not that simple. 
+If $S_1(f, P) \cap [a,b] = \emptyset$, then it is not that simple.
 But we can calculate the distance function:
 
 \begin{align}
@@ -131,7 +131,7 @@ But we can calculate the distance function:
     &= \sqrt{x^2(1+m^2) + x(-2 x_P + 2m(t-y_P)) + (x_P^2 + (t-y_P)^2)}
 \end{align}
 
-This function (defined on $\mdr$) is symmetry to the axis 
+This function (defined on $\mdr$) is symmetry to the axis
 \begin{align}
     x_S &= - \frac{-2 x_P + 2m(t-y_P)}{2(1+m^2)}\\
     &= \frac{x_P - m(t-y_P)}{1+m^2}\\
@@ -141,7 +141,7 @@ This function (defined on $\mdr$) is symmetry to the axis
 $f$ is on $(-\infty, x_S]$ strictly monotonically decreasing and
 on $[x_S, + \infty)$ strictly monotonically increasing.
 
-Thus we can conclude: 
+Thus we can conclude:
 \[\forall x,y \in \mdr: x \leq y < x_S \Rightarrow d_{P,f}(x_S) < d_{P,f}(y) \leq d_{P,f}(x)\]
 \[\forall x,y \in \mdr: x_S < y \leq x \Rightarrow d_{P,f}(x_S) < d_{P,f}(y) \leq d_{P,f}(x)\]
 
@@ -149,6 +149,6 @@ When $S_1(f, P) \cap [a,b] = \emptyset$, then you can have two cases:
 \begin{itemize}
     \item $a \leq b < x_S$: $b$ has the shortest distance in $[a,b]$
              on the graph of $f$ to $P$.
-    \item $x_S < a \leq b$: $a$ has the shortest distance in $[a,b]$ 
+    \item $x_S < a \leq b$: $a$ has the shortest distance in $[a,b]$
              on the graph of $f$ to $P$.
 \end{itemize}

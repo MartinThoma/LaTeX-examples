@@ -202,9 +202,9 @@ Deklarieren und initialisieren:
 \begin{frame}{Antipattern: Yoda-Conditions}
     \includegraphics[width=60mm]{yoda-condition.png}\\
     \begin{quote}
-        Using \myCode{if(constant == variable)} instead of 
-        \myCode{if(variable == constant)}, like \myCode{if(4 == foo)}. 
-        Because it's like saying ``if blue is the sky'' or ``if tall 
+        Using \myCode{if(constant == variable)} instead of
+        \myCode{if(variable == constant)}, like \myCode{if(4 == foo)}.
+        Because it's like saying ``if blue is the sky'' or ``if tall
         is the man''.
     \end{quote}
     Source: \href{http://www.codinghorror.com/blog/2012/07/new-programming-jargon.html}{codinghorror.com}\\
@@ -282,7 +282,7 @@ Source: \href{http://www.codinghorror.com/blog/2012/07/new-programming-jargon.ht
     \end{itemize}
   \end{block}
 \only<5->{
-  Ab nun: 
+  Ab nun:
   \begin{itemize}
     \item Attribute sind (fast) immer private
     \item Methoden können auch private sein
@@ -304,7 +304,7 @@ Source: \href{http://www.codinghorror.com/blog/2012/07/new-programming-jargon.ht
   \end{alertblock}
   \only<2->{
     \begin{block}{Auch hierzu gibt es aber eine Lösung:}
-        Mit \textbf{getter-Methoden} kann man den Lesezugriff auf Attribute 
+        Mit \textbf{getter-Methoden} kann man den Lesezugriff auf Attribute
         wieder erlauben.
     \end{block}
   }

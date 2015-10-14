@@ -10,6 +10,7 @@
        this should include the rendered image. For documents, there should be
        some example text explaining what it is about.
 3. Use spaces for indenting.
+4. Don't have trailing spaces.
 
 
 ## Commit messages

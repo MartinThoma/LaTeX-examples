@@ -1,5 +1,5 @@
 Dieses LaTeX-Dokument soll als Vorlage für Protokolle dienen.
-Falls es Verbesserungsvorschläge oder Wünsche (z.B. weitere 
+Falls es Verbesserungsvorschläge oder Wünsche (z.B. weitere
 Shortcuts) gibt, bitte an info@martin-thoma.de
 
 Shortcuts

@@ -11,7 +11,7 @@
         \item Ist $I$ eine Menge und $U_i \in \fT$ für jedes $i \in I$,
               so ist $\displaystyle \bigcup_{i \in I} U_i \in \fT$
     \end{defenumprops}
-    Die Elemente von $\fT$ heißen \textbf{offene Teilmengen} von $X$. 
+    Die Elemente von $\fT$ heißen \textbf{offene Teilmengen} von $X$.
 
     $A \subseteq X$ heißt \textbf{abgeschlossen}, wenn $X \setminus A$ offen ist.
 \end{definition}
@@ -44,7 +44,7 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
         \item Jeder metrische Raum $(X, d)$ ist auch ein topologischer Raum.
         \item Für eine Menge $X$ heißt $\fT_{\ts{Diskret}} = \powerset{X}$ \textbf{diskrete Topologie}\xindex{Topologie!diskrete}.
         \item $X :=\mdr, \fT_Z := \Set{U \subseteq \mdr | \mdr \setminus U \text{ endlich}} \cup \Set{\emptyset}$ heißt \textbf{Zariski-Topologie} \xindex{Topologie!Zariski}\\
-              Beobachtungen: 
+              Beobachtungen:
             \begin{itemize}
                 \item $U \in \fT_Z \gdw \exists f \in \mdr[X]$, sodass $\mdr \setminus U = V(f) = \Set{x \in \mdr | f(x) = 0}$
                 \item Es gibt keine disjunkten offenen Mengen in $\fT_Z$.
@@ -77,10 +77,10 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 
 \begin{beispiel}
     \begin{bspenum}
-        \item Sei $X = \mdr$ mit euklidischer Topologie und 
-              $M = \mdq$. Dann gilt: $\overline{M} = \mdr$ und 
+        \item Sei $X = \mdr$ mit euklidischer Topologie und
+              $M = \mdq$. Dann gilt: $\overline{M} = \mdr$ und
               $M^\circ = \emptyset$
-        \item Sei $X = \mdr$ und $M=(a,b)$. Dann gilt: 
+        \item Sei $X = \mdr$ und $M=(a,b)$. Dann gilt:
               $\overline{M} = [a,b]$
         \item Sei $X = \mdr, \fT = \fT_Z$ und $M = (a,b)$. Dann gilt:
               $\overline{M} = \mdr$
@@ -102,14 +102,14 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
 \begin{beispiel}[Basis und Subbasis]
     \begin{bspenum}
         \item Jede Basis ist auch eine Subbasis, z.B.\\
-              $S=\Set{ (a,b) | a,b \in \mdr, a<b }$ ist für $\mdr$ mit der 
+              $S=\Set{ (a,b) | a,b \in \mdr, a<b }$ ist für $\mdr$ mit der
               Standardtopologie sowohl Basis als auch Subbasis.
         \item Gegeben sei $X = \mdr^n$ mit euklidischer Topologie $\fT$. Dann ist
               \[\fB = \Set{B_r(x) | r \in \mdq_{> 0}, x \in \mdq^n}\]
               ist eine abzählbare Basis von $\fT$.
-        \item Sei $(X, \fT)$ ein topologischer Raum mit 
+        \item Sei $(X, \fT)$ ein topologischer Raum mit
               $X = \Set{0,1,2}$ und $\fT = \Set{\emptyset, \Set{0}, \Set{0,1}, \Set{0,2}, X}$.\\
-              Dann ist $\calS = \Set{\emptyset, \Set{0,1}, \Set{0,2}}$ eine Subbasis von 
+              Dann ist $\calS = \Set{\emptyset, \Set{0,1}, \Set{0,2}}$ eine Subbasis von
               $\fT$, da gilt:
               \begin{itemize}
                 \item $\calS \subseteq \fT$
@@ -132,11 +132,11 @@ Auch gibt es Mengen, die sowohl abgeschlossen als auch offen sind.
     Sei $(X, \fT)$ ein topologischer Raum und $Y \subseteq X$.\\
     $\fT_Y := \Set{U \cap Y | U \in \fT}$ ist eine Topologie auf $Y$.
 
-    $\fT_Y$ heißt \textbf{Teilraumtopologie} und $(Y, \fT_Y)$ heißt ein 
+    $\fT_Y$ heißt \textbf{Teilraumtopologie} und $(Y, \fT_Y)$ heißt ein
     \textbf{Teilraum} von $(X, \fT)$.
 \end{definition}
 
-Die Teilraumtopologie wird auch \textit{Spurtopologie} oder 
+Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \textit{Unterraumtopologie} genannt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,14 +190,14 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 
 \begin{beispiel}
     $X = \mdr, a \sim b :\Leftrightarrow a-b \in \mdz$
-    
+
     \input{figures/number-ray-circle-topology}
 
     $0 \sim 1$, d.~h. $[0] = [1]$
 \end{beispiel}
 
 \begin{beispiel}\xindex{Torus}%
-    Sei $X = \mdr^2$ und $(x_1, y_1) \sim (x_2, y_2) \gdw x_1 - x_2 \in \mdz$ 
+    Sei $X = \mdr^2$ und $(x_1, y_1) \sim (x_2, y_2) \gdw x_1 - x_2 \in \mdz$
     und $y_1 - y_2 \in \mdz$. Dann ist $X /_\sim$ ein Torus.
 \end{beispiel}
 
@@ -234,7 +234,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 
 \begin{definition}\xindex{Isometrie}\label{def:Isometrie}%
     Seien $(X, d_X)$ und $(Y, d_Y)$ metrische Räume und $\varphi: X \rightarrow Y$
-    eine Abbildung mit 
+    eine Abbildung mit
     \[\forall x_1, x_2 \in X: d_X(x_1, x_2) = d_Y(\varphi(x_1), \varphi(x_2)) \]
 
     Dann heißt $\varphi$ eine \textbf{Isometrie} von $X$ nach $Y$.
@@ -252,7 +252,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     0 & \text{falls } x=y\\
     1 & \text{falls } x \neq y
     \end{cases}\]
-    die \textbf{diskrete Metrik}. Die Metrik $d$ induziert die 
+    die \textbf{diskrete Metrik}. Die Metrik $d$ induziert die
     \textbf{diskrete Topologie}.
 \end{beispiel}
 \clearpage
@@ -280,7 +280,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \end{beispiel}
 \clearpage
 \begin{beispiel}[SNCF-Metrik\footnotemark]\xindex{Metrik!SNCF}
-    $X = \mdr^2$ 
+    $X = \mdr^2$
 
     \input{figures/sncf-metrik}
 \end{beispiel}
@@ -293,7 +293,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \end{definition}
 
 \begin{bemerkung}[Trennungseigenschaft]\label{Trennungseigenschaft}
-    Metrische Räume sind hausdorffsch, wegen 
+    Metrische Räume sind hausdorffsch, wegen
     \[d(x, y) > 0 \Rightarrow \exists \varepsilon > 0: \fB_\varepsilon(x) \cap \fB_\varepsilon(y) = \emptyset\]
 \end{bemerkung}
 
@@ -337,7 +337,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     Sei $(x_n)$ eine konvergierende Folge und $x$ und $y$ Grenzwerte der Folge.
 
     Da $X$ hausdorffsch ist, gibt es Umgebungen $U_x$ von $x$ und $U_y$
-    von $y$ mit $U_x \cap U_y = \emptyset$ falls $x \neq y$. Da 
+    von $y$ mit $U_x \cap U_y = \emptyset$ falls $x \neq y$. Da
     $(x_n)$ gegen $x$ und $y$ konvergiert, existiert ein
     $n_0$ mit $x_n \in U_x \cap U_y$ für alle $n \geq n_0$
     $\Rightarrow x = y \qed$
@@ -345,14 +345,14 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 
 \section{Stetigkeit}\index{Stetigkeit|(}
 \begin{definition}
-    Seien $(X, \fT_X), (Y, \fT_Y)$ topologische Räume und 
+    Seien $(X, \fT_X), (Y, \fT_Y)$ topologische Räume und
     $f:X \rightarrow Y$ eine Abbildung.
 
     \begin{defenum}
         \item \label{def:stetigkeit} $f$ heißt \textbf{stetig}\xindex{Abbildung!stetige}
               $:\gdw \forall U \in \fT_Y: f^{-1} (U) \in \fT_X$.
         \item \label{def:homoeomorphismus} $f$ heißt \textbf{Homöomorphismus}\xindex{Homöomorphismus}, wenn $f$ stetig ist
-              und es eine 
+              und es eine
               stetige Abbildung  $g: Y \rightarrow X$ gibt, sodass
               $g \circ f = \id_X$ und $f \circ g = \id_Y$.
     \end{defenum}
@@ -378,9 +378,9 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
     \enquote{$\Rightarrow$}: Sei $x \in X, \varepsilon > 0$ gegeben
     und $U := \fB_\varepsilon(f(x))$.\\
     Dann ist $U$ offen in $Y$.\\
-    $\xRightarrow{\crefabbr{def:stetigkeit}} f^{-1}(U)$  ist 
+    $\xRightarrow{\crefabbr{def:stetigkeit}} f^{-1}(U)$  ist
     offen in $X$. Dann ist $x \in f^{-1}(U)$.\\
-    $\Rightarrow \exists \delta > 0$, sodass 
+    $\Rightarrow \exists \delta > 0$, sodass
     $\fB_\delta(x) \subseteq f^{-1} (U)$\\
     $\Rightarrow f(\fB_\delta(x)) \subseteq U$\\
     $\Rightarrow \Set{y \in X | d_X(x,y) < \delta} \Rightarrow$ Beh.
@@ -415,18 +415,18 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
               \begin{figure}[htp]
                 \centering
                 \input{figures/topology-continuous-mapping}
-                \caption{Beispiel einer stetigen Funktion $f$, deren 
+                \caption{Beispiel einer stetigen Funktion $f$, deren
                          Umkehrabbildung $g$ nicht stetig ist.}
                 \label{fig:nicht-stetige-umkehrabbildung}
               \end{figure}
-              
+
               Die Umkehrabbildung $g$ ist nicht stetig, da $g^{-1}(U)$
               nicht offen ist (vgl. \cref{fig:nicht-stetige-umkehrabbildung}).
     \end{bspenum}
 \end{beispiel}
 
 \begin{bemerkung}[Verkettungen stetiger Abbildungen sind stetig]
-    Seien $X, Y, Z$ topologische Räume, $f:X \rightarrow Y$ und 
+    Seien $X, Y, Z$ topologische Räume, $f:X \rightarrow Y$ und
     $g:Y \rightarrow Z$ stetige Abbildungen.
 
     Dann ist $g \circ f: X \rightarrow Z$ stetig.
@@ -449,10 +449,10 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 
 \begin{bemerkung}
     \begin{bemenum}
-        \item \xindex{Homöomorphismengruppe}Für jeden topologischen Raum $X$ ist 
+        \item \xindex{Homöomorphismengruppe}Für jeden topologischen Raum $X$ ist
               \[\Homoo(X) := \Set{f: X \rightarrow X | f \text{ ist Homöomorphismus}}\]
               eine Gruppe.
-        \item \xindex{Isometrie}Jede Isometrie $f:X \rightarrow Y$ zwischen metrischen 
+        \item \xindex{Isometrie}Jede Isometrie $f:X \rightarrow Y$ zwischen metrischen
               Räumen ist ein Homöomorphismus.
         \item \xindex{Isometriegruppe}$\Iso(X) := \Set{f:X \rightarrow X | f \text{ ist Isometrie}}$ ist
               eine Untergruppe von $\Homoo(X)$ für jeden
@@ -462,7 +462,7 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 
 \begin{bemerkung}[Projektionen sind stetig]
     Seien $X, Y$ topologische Räume. $\pi_X: X \times Y \rightarrow X$
-    und $\pi_Y: X \times Y \rightarrow Y$ die Projektionen 
+    und $\pi_Y: X \times Y \rightarrow Y$ die Projektionen
     \[\pi_X: (x,y) \mapsto x \text{ und } \pi_Y: (x,y) \mapsto y\]
     Wird $X \times Y$ mit der Produkttopologie versehen, so sind $\pi_X$
     und $\pi_Y$ stetig.
@@ -482,8 +482,8 @@ Die Teilraumtopologie wird auch \textit{Spurtopologie} oder
 \end{bemerkung}
 
 \begin{beweis}
-    Nach Definition ist 
-    $U \subseteq \overline{X}$ offen $\gdw \pi^{-1}(U) \subseteq X$ 
+    Nach Definition ist
+    $U \subseteq \overline{X}$ offen $\gdw \pi^{-1}(U) \subseteq X$
     offen. $\qed$
 \end{beweis}
 
@@ -498,7 +498,7 @@ sodass $\pi$ stetig wird.
         S^n &= \Set{x \in \mdr^{n+1} | \|x\| = 1}\\
             &= \Set{x \in \mdr^{n+1} | \sum_{i=1}^{n+1} x_i^2 = 1}
     \end{align*}
-    
+
     \Obda sei $N = \begin{pmatrix}0\\ \vdots\\ 0\\1\end{pmatrix}$. Die
     Gerade durch $N$ und $P$ schneidet die Ebene $H$ in genau einem
     Punkt $\hat{P}$. $P$ wird auf $\hat{P}$ abgebildet.
@@ -523,7 +523,7 @@ sodass $\pi$ stetig wird.
     schneiden sich $L_P$ und $H$ in genau einem Punkt $\hat{P}$.
 
     Es gilt: $f$ ist bijektiv und die Umkehrabbildung ist ebenfalls
-    stetig.    
+    stetig.
 \end{beispiel}
 \index{Stetigkeit|)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -533,7 +533,7 @@ sodass $\pi$ stetig wird.
 \begin{definition}\xindex{Raum!zusammenhaengender@zusammenhängender}\xindex{Menge!zusammenhaengende@zusammenhängende}%
     \begin{defenum}
         \item Ein Raum $X$ heißt \textbf{zusammenhängend}, wenn es keine offenen,
-              nichtleeren Teilmengen $U_1, U_2$ von $X$ gibt mit 
+              nichtleeren Teilmengen $U_1, U_2$ von $X$ gibt mit
               $U_1 \cap U_2 = \emptyset$ und $U_1 \cup U_2 = X$.
         \item Eine Teilmenge $Y \subseteq X$ heißt zusammenhängend, wenn $Y$
               als topologischer Raum mit der Teilraumtopologie zusammenhängend ist.
@@ -542,7 +542,7 @@ sodass $\pi$ stetig wird.
 
 \begin{bemerkung}
     $X$ ist zusammenhängend $\gdw$ Es gibt keine abgeschlossenen,
-    nichtleeren Teilmengen $A_1, A_2$ mit $A_1 \cap A_2 = \emptyset$ 
+    nichtleeren Teilmengen $A_1, A_2$ mit $A_1 \cap A_2 = \emptyset$
     und $A_1 \cup A_2 = X$.
 \end{bemerkung}
 
@@ -553,20 +553,20 @@ sodass $\pi$ stetig wird.
             \underline{Annahme}: $\mdr^n = U_1 \dcup U_2$ mit $\emptyset \neq U_1, U_2 \in \fT_{\ts{Euklid}}$ existieren.
 
             Sei $x \in U_1, y \in U_2$ und $[x,y]$ die Strecke zwischen $x$
-            und $y$. Sei $V = [x,y]$. Nun betrachten wir $V \subsetneq \mdr^n$ als 
+            und $y$. Sei $V = [x,y]$. Nun betrachten wir $V \subsetneq \mdr^n$ als
             (metrischen) Teilraum mit der Teilraumtopologie $\fT_V$.
-            Somit gilt $U_1 \cap [x,y] \in \fT_V$ wegen der Definition der 
+            Somit gilt $U_1 \cap [x,y] \in \fT_V$ wegen der Definition der
             Teilraumtopologie.
 
             Dann gibt es $z \in [x,y]$ mit $z \in \partial (U_1 \cap [x,y])$,
-            aber $z \notin U_1 \Rightarrow z \in U_2$. In jeder Umgebung von 
+            aber $z \notin U_1 \Rightarrow z \in U_2$. In jeder Umgebung von
             $z$ liegt ein Punkt von $U_1 \Rightarrow$ Widerspruch zu $U_2$ offen.
         \item $\mdr \setminus \Set{0}$ ist nicht zusammenhängend, denn
               $\mdr \setminus \Set{0} = \mdr_{< 0} \cup \mdr_{> 0}$
         \item $\mdr^2 \setminus \Set{0}$ ist zusammenhängend.
-        \item $\mdq \subsetneq \mdr$ ist nicht zusammenhängend, da 
+        \item $\mdq \subsetneq \mdr$ ist nicht zusammenhängend, da
               $(\mdq \cap \mdr_{< \sqrt{2}}) \cup (\mdq \cap \mdr_{> \sqrt{2}}) = \mdq$
-        \item $\Set{x}$ ist zusammenhängend für jedes $x \in X$, 
+        \item $\Set{x}$ ist zusammenhängend für jedes $x \in X$,
               wobei $X$ ein topologischer Raum ist.
         \item $\mdr$ mit Zariski-Topologie ist zusammenhängend.\xindex{Topologie!Zariski}
     \end{bspenum}
@@ -590,7 +590,7 @@ sodass $\pi$ stetig wird.
     $\Rightarrow \overline{A} \subseteq A_2$\\
     $\Rightarrow A_1 = \emptyset$\\
     $\Rightarrow$ Widerspruch zu $A_1 \neq \emptyset$\\
-    $\Rightarrow A \cap A_1 \neq \emptyset$ und analog 
+    $\Rightarrow A \cap A_1 \neq \emptyset$ und analog
                 $A \cap A_2 \neq \emptyset$\\
     $\Rightarrow$ Widerspruch zu $A$ ist zusammenhängend. $ \qed$
 \end{beweis}
@@ -614,7 +614,7 @@ sodass $\pi$ stetig wird.
 
 \begin{definition}\xindex{Zusammenhangskomponente}%
     Sei $X$ ein topologischer Raum.
-    
+
     Für $x \in X$ sei $Z(x) \subseteq X$ definiert durch
     \[Z(x) := \bigcup_{\mathclap{\substack{A \subseteq X \text{zhgd.}\\ x \in A}}} A\]
 
@@ -647,7 +647,7 @@ sodass $\pi$ stetig wird.
               \begin{align*}
                 \Rightarrow Z(x) \cup Z(y) &\subseteq Z(x) \Rightarrow Z(y) \subseteq Z(x)\\
                                            &\subseteq Z(y) \Rightarrow Z(x) \subseteq Z(y)
-              \end{align*} 
+              \end{align*}
     \end{enumerate}
 
     $\qed$
@@ -678,7 +678,7 @@ sodass $\pi$ stetig wird.
     Ein topologischer Raum $X$ heißt \textbf{kompakt}, wenn jede
     offene Überdeckung von $X$
     \[\fU = \Set{U_i}_{i \in I} \text{ mit } U_i \text{ offen in } X\]
-    eine endliche Teilüberdeckung 
+    eine endliche Teilüberdeckung
     \[\bigcup_{\mathclap{i \in J \subseteq I}} U_i = X \text{ mit } |J| \in \mdn\]
     besitzt.
 \end{definition}
@@ -688,24 +688,24 @@ sodass $\pi$ stetig wird.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{bemerkung}\label{abgeschlossen01IstKompakt}
-    Das Einheitsintervall $I := [0,1]$ ist kompakt bezüglich der 
+    Das Einheitsintervall $I := [0,1]$ ist kompakt bezüglich der
     euklidischen Topologie.
 \end{bemerkung}
 
 \begin{beweis}
 Sei $(U_i)_{i \in J}$ eine offene Überdeckung von $I$.
 
-Es genügt zu zeigen, dass es ein $\delta > 0$ gibt, sodass jedes 
+Es genügt zu zeigen, dass es ein $\delta > 0$ gibt, sodass jedes
 Teilintervall der Länge $\delta$ von $I$ in einem der $U_i$ enthalten ist.
-Wenn es ein solches $\delta$ gibt, kann man $I$ in endlich viele 
+Wenn es ein solches $\delta$ gibt, kann man $I$ in endlich viele
 Intervalle der Länge $\delta$ unterteilen und alle $U_i$ in die endliche
 Überdeckung aufnehmen, die Teilintervalle enthalten.
 
-Angenommen, es gibt kein solches $\delta$. Dann gibt es für jedes 
+Angenommen, es gibt kein solches $\delta$. Dann gibt es für jedes
 $n \in \mdn$ ein Intervall $I_n \subseteq [0,1]$ der Länge $\nicefrac{1}{n}$
 sodass $I_n \subsetneq U_i$ für alle $i \in J$.
 
-Sei $x_n$ der Mittelpunkt von $I_n$. Die Folge $(x_n)$ hat einen 
+Sei $x_n$ der Mittelpunkt von $I_n$. Die Folge $(x_n)$ hat einen
 Häufungspunkt $x \in [0,1]$. Dann gibt es $i \in J$ mit $x \in U_i$.
 Da $U_i$ offen ist, gibt es ein $\varepsilon > 0$, sodass $(x - \varepsilon, x + \varepsilon) \subseteq U_i$.
 Dann gibt es $n_0$, sodass gilt:
@@ -713,7 +713,7 @@ $\nicefrac{1}{n_0} < \nicefrac{\varepsilon}{2}$ und für unendlich viele\footnot
 $n\geq n_0: |x - x_n| < \nicefrac{\varepsilon}{2}$, also $I_n \subseteq (x - \varepsilon, x + \varepsilon) \subseteq U_i$
 für mindestens ein $n \in \mdn$.\footnote{Sogar für unendlich viele.}
 
-$\Rightarrow$ Widerspruch 
+$\Rightarrow$ Widerspruch
 
 Dann überdecke $[0,1]$ mit endlich vielen Intervallen $I_1, \dots, I_d$
 der Länge $\delta$. Jedes $I_j$ ist in $U_{ij}$ enthalten.
@@ -727,7 +727,7 @@ $\qed$
         \item $\mdr$ ist nicht kompakt.
         \item $(0,1)$ ist nicht kompakt.\\
               $U_n = (\nicefrac{1}{n}, 1-\nicefrac{1}{n}) \Rightarrow \bigcup_{n \in \mdn} U_n = (0,1)$
-        \item $\mdr$ mit der Zariski-Topologie ist kompakt und jede 
+        \item $\mdr$ mit der Zariski-Topologie ist kompakt und jede
               Teilmenge von $\mdr$ ist es auch.\xindex{Topologie!Zariski}
     \end{bspenum}
 \end{beispiel}
@@ -770,12 +770,12 @@ $\qed$
 
     Die offenen Mengen $U_{x_0, y} \times V_{x_0, y}$ für festes $x_0$
     und alle $y \in Y$ überdecken $\Set{x_0} \times y$. Da $Y$ kompakt
-    ist, ist auch $\Set{x_0} \times Y$ kompakt. Also gibt es 
-    $y_1, \dots, y_{m(x_0)}$ mit 
+    ist, ist auch $\Set{x_0} \times Y$ kompakt. Also gibt es
+    $y_1, \dots, y_{m(x_0)}$ mit
     $\bigcup_{i=1}^{m(x_0)} U_{x_0, y_i} \times V_{x_0, y_i} \supseteq \Set{x_0} \times Y$.
 
     Sei ${\color{blue} U_{x_0}} := \bigcap_{i=1}^{m(x)} U_{x_0, y_i}$.
-    Da $X$ kompakt ist, gibt es $x_1, \dots, x_n \in X$ mit 
+    Da $X$ kompakt ist, gibt es $x_1, \dots, x_n \in X$ mit
     $\bigcup_{j=1}^n U_{x_j} = X$\\
     $\Rightarrow \bigcup_{j=1}^k \bigcup_{i=1}^{m(x_j)} \underbrace{\left ( U_{x_j, y_i} \times V_{x_j, y_i} \right)}_{\mathclap{\text{Ein grün-oranges Kästchen}}} \supseteq X \times Y$\\
     $\Rightarrow \bigcup_j \bigcup_i W_i (x_j, y_i) = X \times Y \qed$
@@ -789,7 +789,7 @@ $\qed$
 \begin{beweis}
     \underline{z.~Z.:} Komplement ist offen
 
-    Ist $X = K$, so ist $K$ abgeschlossen in $X$. Andernfalls sei 
+    Ist $X = K$, so ist $K$ abgeschlossen in $X$. Andernfalls sei
     $y \in X \setminus K$. Für jedes $x \in K$ seien $U_x$ bzw. $V_y$
     Umgebungen von $x$ bzw. von $y$, sodass $U_x \cap V_y = \emptyset$.
 
@@ -819,10 +819,10 @@ $\qed$
 \begin{beweis}
     Sei $(V_i)_{i \in I}$ offene Überdeckung von $f(K)$\\
     $\xRightarrow{f \text{ stetig}} (f^{-1}(V_i))_{i \in I}$ ist offene Überdeckung von $K$\\
-    $\xRightarrow{\text{Kompakt}}$ es gibt $i_1, \dots, i_n$, 
+    $\xRightarrow{\text{Kompakt}}$ es gibt $i_1, \dots, i_n$,
     sodass $f^{-1}(V_{i_1}), \dots, f^{-1}(V_{i_n})$ Überdeckung von
     $K$ ist.\\
-    $\Rightarrow f(f^{-1}( V_{i_1})), \dots, f(f^{-1}(V_{i_n}))$ 
+    $\Rightarrow f(f^{-1}( V_{i_1})), \dots, f(f^{-1}(V_{i_n}))$
     überdecken $f(K)$.
 
     Es gilt: $f(f^{-1}(V)) = V \cap f(X) \qed$
@@ -839,7 +839,7 @@ $\qed$
 
     Da $\mdr^n$ und $\mdc^n$ hausdorffsch sind, ist $K$ nach
     \cref{hausdorffraumKompakteTeilmengeAbgeschlossen} abgeschlossen.
-    Nach Voraussetzung kann $K$ mit endlich vielen offenen Kugeln von 
+    Nach Voraussetzung kann $K$ mit endlich vielen offenen Kugeln von
     Radien 1 überdeckt werden $\Rightarrow K$ ist beschränkt.
 
     \enquote{$\Leftarrow$} Sei $A \subseteq \mdr^n$ (oder $\mdc^n$)
@@ -852,7 +852,7 @@ $\qed$
     Nach \cref{kompaktTimesKompaktIstKompakt} und
     \cref{abgeschlossen01IstKompakt} ist $W$ kompakt, also ist $A$
     nach \cref{abgeschlossenInKomaktIstKompakt} auch kompakt.
-    Genauso ist $Z$ kompakt, weil 
+    Genauso ist $Z$ kompakt, weil
     \[\Set{z \in \mdc | |z| \leq 1}\]
     homöomorph zu
     \[\Set{(x,y) \in \mdr^2 | \|(x,y)\| \leq 1}\]
@@ -864,11 +864,11 @@ $\qed$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Wege und Knoten}\index{Knoten|(}
 \begin{definition}\xindex{Weg}\xindex{Weg!geschlossener}\xindex{Weg!einfacher}%
-    Sei $X$ ein topologischer Raum. 
+    Sei $X$ ein topologischer Raum.
     \begin{defenum}
         \item Ein \textbf{Weg} in $X$ ist eine stetige Abbildung $\gamma:[0,1] \rightarrow X$.
         \item $\gamma$ heißt \textbf{geschlossen}, wenn $\gamma(1) = \gamma(0)$ gilt.
-        \item $\gamma$ heißt \textbf{einfach}, wenn $\gamma|_{[0,1)}$ 
+        \item $\gamma$ heißt \textbf{einfach}, wenn $\gamma|_{[0,1)}$
               injektiv ist.
     \end{defenum}
 \end{definition}
@@ -901,11 +901,11 @@ $\qed$
     $A_1 \cup A_2 = X$. Sei $x \in A_1, y \in A_2, \gamma:[0,1] \rightarrow X$
     ein Weg von $x$ nach $y$.
 
-    Dann ist $C:= \gamma([0,1]) \subseteq X$ zusammenhängend, weil 
+    Dann ist $C:= \gamma([0,1]) \subseteq X$ zusammenhängend, weil
     $\gamma$ stetig ist.
     \[C = \underbrace{(C \cap A_1)}_{\ni x} \cup \underbrace{(C \cap A_2)}_{\ni y}\]
     ist Zerlegung in nichtleere, disjunkte, abgeschlossene Teilmengen
-    $\Rightarrow$ Widerspruch 
+    $\Rightarrow$ Widerspruch
 
     \item Sei $X = \Set{(x,y) \in \mdr^2| x^2 + y^2 = 1 \lor y = 1 +2\cdot e^{-\frac{1}{10} x}}$.
 
@@ -943,7 +943,7 @@ $\qed$
 \end{beweis}
 
 \begin{beispiel}[Hilbert-Kurve]\xindex{Hilbert-Kurve}%
-    Es gibt stetige, surjektive Abbildungen 
+    Es gibt stetige, surjektive Abbildungen
     $[0,1] \rightarrow [0,1] \times [0,1]$. Ein Beispiel ist die
     in \cref{fig:hilbert-curve} dargestellte Hilbert-Kurve.
 
@@ -952,7 +952,7 @@ $\qed$
 
 \begin{definition}\xindex{Jordankurve}\xindex{Jordankurve!geschlossene}%
     Sei $X$ ein topologischer Raum. Eine
-    \textbf{Jordankurve} in $X$ ist ein Homöomorphismus 
+    \textbf{Jordankurve} in $X$ ist ein Homöomorphismus
     $\gamma: [0,1] \rightarrow C \subseteq X$ bzw.
     $\gamma: S^1 \rightarrow C \subseteq X$, wobei $C := \Bild{\gamma}$.
 \end{definition}
@@ -967,7 +967,7 @@ Jede Jordankurve ist also ein einfacher Weg.
 
 \begin{figure}[htp]
     \centering
-    \input{figures/topology-jordan} 
+    \input{figures/topology-jordan}
     \label{fig:jordan-kurvensatz}
     \caption{Die unbeschränkte Zusammenhangskomponente wird häufig inneres, die beschränkte äußeres genannt.}
 \end{figure}
@@ -993,15 +993,15 @@ Jede Jordankurve ist also ein einfacher Weg.
             \label{fig:knot-unknot}
         }%
         \subfloat[Kleeblattknoten]{
-            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-trefoil-knot.png} 
+            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-trefoil-knot.png}
             \label{fig:knot-trefoil}
         }%
         \subfloat[Achterknoten]{
-            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-eight-knot.png} 
+            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-eight-knot.png}
             \label{fig:knot-eight-knot}
         }%
         \subfloat[$6_2$-Knoten]{
-            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-6-2-knot.png} 
+            \includegraphics[width=0.2\linewidth, keepaspectratio]{figures/blue-6-2-knot.png}
             \label{fig:knot-6-2}
         }
 
@@ -1014,20 +1014,20 @@ Jede Jordankurve ist also ein einfacher Weg.
     Zwei Knoten $\gamma_1, \gamma_2: S^1 \rightarrow \mdr^3$ heißen
     \textbf{äquivalent}, wenn es eine stetige Abbildung
     \[H: S^1 \times [0,1] \rightarrow \mdr^3\]
-    gibt mit 
+    gibt mit
     \begin{align*}
         H(z,0) &= \gamma_1(z) \;\;\;\forall z \in S^1\\
         H(z,1) &= \gamma_2(z) \;\;\;\forall z \in S^1
     \end{align*}
     und für jedes
-    feste $t \in [0,1]$ ist 
+    feste $t \in [0,1]$ ist
     \[H_z: S^1 \rightarrow \mdr^3, z \mapsto H(z,t)\]
     ein Knoten. Die Abbildung $H$ heißt \textbf{Isotopie} zwischen
     $\gamma_1$ und $\gamma_2$.
 \end{definition}
 
 \begin{definition}\xindex{Knotendiagramm}%
-    Sei $\gamma: [0,1] \rightarrow \mdr^3$ ein Knoten, $E$ eine Ebene und 
+    Sei $\gamma: [0,1] \rightarrow \mdr^3$ ein Knoten, $E$ eine Ebene und
     $\pi: \mdr^3 \rightarrow E$ eine Projektion auf $E$.
 
     $\pi$ heißt \textbf{Knotendiagramm} von $\gamma$, wenn gilt:
@@ -1047,16 +1047,16 @@ Jede Jordankurve ist also ein einfacher Weg.
 \begin{figure}[htp]
     \centering
     \subfloat[$\Omega_1$]{
-        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-1.png} 
+        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-1.png}
         \label{fig:reidemeister-1}
     }\qquad\qquad%
     \subfloat[$\Omega_2$]{
-        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-2.png} 
+        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-2.png}
         \label{fig:reidemeister-2}
     }
 
     \subfloat[$\Omega_3$]{
-        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-3.png} 
+        \includegraphics[height=0.2\linewidth, keepaspectratio]{figures/reidemeister-move-3.png}
         \label{fig:reidemeister-3}
     }
 
@@ -1069,15 +1069,15 @@ Jede Jordankurve ist also ein einfacher Weg.
 \end{beweis}
 
 \begin{definition}\xindex{Färbbarkeit}%
-    Ein Knotendiagramm heißt \textbf{3-färbbar}, 
-    wenn jeder Bogen von $D$ so mit einer Farbe gefärbt werden kann, 
-    dass an jeder Kreuzung eine oder 3 Farben auftreten und alle 3 
+    Ein Knotendiagramm heißt \textbf{3-färbbar},
+    wenn jeder Bogen von $D$ so mit einer Farbe gefärbt werden kann,
+    dass an jeder Kreuzung eine oder 3 Farben auftreten und alle 3
     Farben auftreten.
 \end{definition}
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[height=0.3\linewidth, keepaspectratio]{figures/tricoloring.png} 
+    \includegraphics[height=0.3\linewidth, keepaspectratio]{figures/tricoloring.png}
 
     \caption{Ein 3-gefärber Kleeblattknoten}
     \label{fig:treefoil-knot-three-colors}

@@ -1,5 +1,5 @@
 \documentclass[a4paper,9pt]{scrartcl}
-\usepackage[ngerman]{babel} 
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb,amsmath}
 \usepackage{geometry}
@@ -28,7 +28,7 @@ rulesepcolor=\color{blue},
 otherkeywords={1, 2, 3, 4, 5, 6, 7, 8 ,9 , 0, -, =, +, [, ], (, ), \{, \}, :, *, !},
 numbers=left,                   % where to put the line-numbers
 numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
-stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
                                 % will be numbered
 numbersep=5pt,                  % how far the line-numbers are from the code
 showspaces=false,               % show spaces adding particular underscores
@@ -43,16 +43,16 @@ title=\lstname,                 % show the filename of files included with \lsti
 escapeinside={\%*}{*)},         % if you want to add a comment within your code
 morekeywords={*,...},           % if you want to add more keywords to the set
 literate=%
-{Ö}{{\"O}}1 
-{Ä}{{\"A}}1 
-{Ü}{{\"U}}1 
-{ß}{{\ss}}2 
-{ü}{{\"u}}1 
-{ä}{{\"a}}1 
+{Ö}{{\"O}}1
+{Ä}{{\"A}}1
+{Ü}{{\"U}}1
+{ß}{{\ss}}2
+{ü}{{\"u}}1
+{ä}{{\"a}}1
 {ö}{{\"o}}1
 }
 
-\geometry{a4paper,left=18mm,right=18mm, top=1cm, bottom=2cm} 
+\geometry{a4paper,left=18mm,right=18mm, top=1cm, bottom=2cm}
 
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
@@ -72,11 +72,11 @@ literate=%
 
  \setcounter{section}{1}
  \section*{Aufgabenstellung}
-    Ein Handlungsreisender will seine Produkte in den zehn größten Städten 
-    Deutschlands verkaufen. Er startet in Berlin und will seine Reise dort 
+    Ein Handlungsreisender will seine Produkte in den zehn größten Städten
+    Deutschlands verkaufen. Er startet in Berlin und will seine Reise dort
     beenden.
 
-    Die zehn einwohnerreichsten Städte Deutschlands sind Berlin, Hamburg, 
+    Die zehn einwohnerreichsten Städte Deutschlands sind Berlin, Hamburg,
     München, Köln, Frankfurt am Main, Stuttgart, Düsseldorf, Dortmund, Essen
     und Bremen. \\
     Folgende Tabelle gibt die Entfernung zwischen den Städten für eine Autoreise
@@ -103,17 +103,17 @@ literate=%
 
   \subsection{Größenordnung des Problems}
     Es gibt $9! = 9 \cdot 8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 362.880$ mögliche Routen,
-    da der Handlungsreisende in Berlin startet und 9 Möglichkeiten für die erste 
+    da der Handlungsreisende in Berlin startet und 9 Möglichkeiten für die erste
     Stadt hat, 8 für die zweite, usw.\\
-    Allgemein kann man sagen, dass bei $n$ Städten insgesamt $(n-1)!$ mögliche 
+    Allgemein kann man sagen, dass bei $n$ Städten insgesamt $(n-1)!$ mögliche
     Routen bestehen, da die Wahl des Startpunktes egal ist. \\
-    Falls das  Problem symmetrisch wäre, also die Strecke von Berlin nach 
+    Falls das  Problem symmetrisch wäre, also die Strecke von Berlin nach
     München genauso lang wie die von München nach Berlin wäre, könnte man die
-    Anzahl der Routen auf $\frac{(n-1)!}{2}$ reduzieren. Allerdings ist das 
-    Problem offensichtlich asymmetrisch (siehe München $\rightarrow$ Berlin und 
+    Anzahl der Routen auf $\frac{(n-1)!}{2}$ reduzieren. Allerdings ist das
+    Problem offensichtlich asymmetrisch (siehe München $\rightarrow$ Berlin und
     München $\leftarrow$ Berlin)
 
-    Die Tabelle \ref{tab:functionGrowth} macht deutlich, wie schnell so etwas 
+    Die Tabelle \ref{tab:functionGrowth} macht deutlich, wie schnell so etwas
     wächst.
     \begin{table}[hc]
         \centering
@@ -139,7 +139,7 @@ literate=%
     \end{table}
   \newpage
   \subsection{Intuitive Lösung}
-    Wenn man die Städte so auf der Karte sieht sollte man einfach mal die Route 
+    Wenn man die Städte so auf der Karte sieht sollte man einfach mal die Route
     suchen, von der man denkt sie wäre gut. \\
     \begin{center}
     %\includegraphics{Germany_location_map.png}
@@ -148,18 +148,18 @@ literate=%
     \begin{center}
     %\includegraphics{Germany_location_map-intuitiv.png}
     \end{center}
-    Das ist die Route Berlin $\rightarrow$ München $\rightarrow$ Stuttgart 
-    $\rightarrow$ Frankfurt a. M. $\rightarrow$ Köln $\rightarrow$ Düsseldorf 
-    $\rightarrow$ Essen $\rightarrow$ Dortmund $\rightarrow$ Bremen 
-    $\rightarrow$ Hamburg $\rightarrow$ Berlin. 
-    Diese Route ist 1969 km lang. 
+    Das ist die Route Berlin $\rightarrow$ München $\rightarrow$ Stuttgart
+    $\rightarrow$ Frankfurt a. M. $\rightarrow$ Köln $\rightarrow$ Düsseldorf
+    $\rightarrow$ Essen $\rightarrow$ Dortmund $\rightarrow$ Bremen
+    $\rightarrow$ Hamburg $\rightarrow$ Berlin.
+    Diese Route ist 1969 km lang.
 
   \newpage
   \subsection{Optimale Lösung}
   \subsubsection{Alle Routen durchgehen}
-    Die primitivste und langsamste Methode zum Finden der optimalen Lösung ist 
-    einfach alle möglichen Routen durch zu gehen. Dieser Algorithmus ist, was 
-    die Ausführungszeit angeht, in $\mathcal{O}(n!)$. Wie schnell diese wächst 
+    Die primitivste und langsamste Methode zum Finden der optimalen Lösung ist
+    einfach alle möglichen Routen durch zu gehen. Dieser Algorithmus ist, was
+    die Ausführungszeit angeht, in $\mathcal{O}(n!)$. Wie schnell diese wächst
     sollte mit Tabelle \ref{tab:functionGrowth} klar geworden sein.\\
     Dieser Ansatz ist also nur für sehr kleine Instanzen des Problems geeignet.\\
     \\
@@ -173,22 +173,22 @@ literate=%
     %\includegraphics{Kurve.png}
     \\
     Würde man eine maximale Abweichung von $5\%$ akzeptieren, wären nur $0,002\%$
-    aller Routen akzeptabel. Durch eine zufällig gewählte Strecke wird man also 
+    aller Routen akzeptabel. Durch eine zufällig gewählte Strecke wird man also
     kaum ein gutes Ergebnis erziehlen
   \subsection{Heuristiken}
-    Eine Heuristik ist in diesem Zusammenhang ein vereinfachtes Verfahren, das 
-    keine optimale Lösung liefert, aber eine akzeptable Näherung daran. Dafür 
+    Eine Heuristik ist in diesem Zusammenhang ein vereinfachtes Verfahren, das
+    keine optimale Lösung liefert, aber eine akzeptable Näherung daran. Dafür
     ist die Heuristik deutlich schneller.\\
   \subsubsection{Nächster Nachbar}
-    Eine mögliche Heurisik ist das auswählen der Stadt, die am nächsten zur 
-    aktuellen Stadt liegt. Mit diesem Verfahren erhält man bei der gegebenen 
-    Städtekonstellation eine Route der Länge 2.162 km. Das sind 193 km oder 
+    Eine mögliche Heurisik ist das auswählen der Stadt, die am nächsten zur
+    aktuellen Stadt liegt. Mit diesem Verfahren erhält man bei der gegebenen
+    Städtekonstellation eine Route der Länge 2.162 km. Das sind 193 km oder
     $9,8\%$ mehr als die optimale Lösung benötigt.
 
   \subsubsection{Nächster Nachbar - Dynamisch Einfügen}
-    Die Methode des nächsten Nachbars kann verbessert werden, indem der Nachbar 
-    nicht einfach am Ende in die Route eingefügt wird, sondern an die Stelle, an 
-    der die resultierende Route am kleinsten wäre. Damit erhält man bei der 
+    Die Methode des nächsten Nachbars kann verbessert werden, indem der Nachbar
+    nicht einfach am Ende in die Route eingefügt wird, sondern an die Stelle, an
+    der die resultierende Route am kleinsten wäre. Damit erhält man bei der
     gegebenen Städtekonstellation eine optimale Route.
 
   \newpage

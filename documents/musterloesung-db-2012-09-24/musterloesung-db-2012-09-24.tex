@@ -15,7 +15,7 @@
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage{minted} % needed for the inclusion of source code
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing,intersections} 
+\usetikzlibrary{arrows,positioning, calc,lindenmayersystems,decorations.pathmorphing,intersections}
 \tikzstyle{vertex}=[draw,
 fill=yellow,
 circle,minimum size=10pt,inner sep=0pt]
@@ -23,11 +23,11 @@ circle,minimum size=10pt,inner sep=0pt]
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Datenbanksysteme,KIT}, 
-  pdftitle    = {Musterlösung: Datenbanksysteme} 
-} 
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {Datenbanksysteme,KIT},
+  pdftitle    = {Musterlösung: Datenbanksysteme}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin document                                                    %
@@ -59,7 +59,7 @@ Schlüssel in R:
     \item $\Set{I, C}$
 \end{itemize}
 
-Die Relation befindet sich nur in 1NF, da $I \rightarrow H$ eine 
+Die Relation befindet sich nur in 1NF, da $I \rightarrow H$ eine
 partielle Abhängigkeit darstellt. Daher kann die Relation nicht in
 2NF sein.
 
@@ -71,7 +71,7 @@ F^{(2)} = \{  & A \rightarrow B,\\
     & C \rightarrow A,C \rightarrow D,C \rightarrow F,\\
     & D \rightarrow E,D \rightarrow F,D \rightarrow G,D \rightarrow H,D \rightarrow H,\\
     & F \rightarrow G,\\
-    & I \rightarrow H 
+    & I \rightarrow H
 \}
 \end{align*}
 
@@ -82,7 +82,7 @@ F^{(3)} = \{  & A \rightarrow B,\\
     & C \rightarrow A,\\
     & D \rightarrow E,D \rightarrow F,D \rightarrow H,\\
     & F \rightarrow G,\\
-    & I \rightarrow H 
+    & I \rightarrow H
 \}
 \end{align*}
 
@@ -96,7 +96,7 @@ aufgelöst wurden wie folgt:
     $D \rightarrow G$ & $D \rightarrow F \land F \rightarrow G$\\
   \end{tabular}
 
-ergibt die Zerlegung 
+ergibt die Zerlegung
 
 \begin{align*}
     R = \{\\
@@ -153,7 +153,7 @@ Beispielhaftes Ergebnis für gegebene Situation und id=4:
 "5","2"
 "5","3"
 \end{verbatim}
- 
+
 \subsubsection{Version B}
 \inputminted[linenos, numbersep=5pt, tabsize=4]{sql}{d2c2.sql}
 

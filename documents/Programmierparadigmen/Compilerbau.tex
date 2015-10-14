@@ -17,10 +17,10 @@ Jedoch gibt es verschiedene Ebenen der Interpretation bzw. Übersetzung:
 	\item \textbf{Vollständige Übersetzung}: C, C++, Fortran
 \end{enumerate}
 
-Zu sagen, dass Python eine interpretierte Sprache ist, ist in etwa so korrekt 
+Zu sagen, dass Python eine interpretierte Sprache ist, ist in etwa so korrekt
 wie zu sagen, dass die Bibel ein Hardcover-Buch ist.\footnote{Quelle: stackoverflow.com/a/2998544, danke Alex Martelli für diesen Vergleich.}
 
-Reine Interpretierer lesen den Quelltext Anweisung für Anweisung und führen 
+Reine Interpretierer lesen den Quelltext Anweisung für Anweisung und führen
 diese direkt aus.
 
 \todo[inline]{Bild}
@@ -57,7 +57,7 @@ Laufzeitübersetzung. Folgendes sind Vor- bzw. Nachteile von Just-in-time Compil
 
     \begin{itemize}
         \item Der C-Code ist 83 Byte groß,
-        \item der Java-Codee ist 123 Byte groß, 
+        \item der Java-Codee ist 123 Byte groß,
         \item der generierte Java Bytecode ist 416 Byte groß und
         \item der erzeugt Maschinencode aus C ist 8565 Byte groß.
     \end{itemize}
@@ -107,10 +107,10 @@ zusammengefasst werden.
 
 TODO: Bild einfügen
 
-Zu jedem regulären Ausdruck im Sinne der theoretischen Informatik kann ein 
-nichtdeterministischer Automat generiert werden. Dieser kann mittels 
-Potenzmengenkonstruktion\footnote{\url{http://martin-thoma.com/potenzmengenkonstruktion/}} 
-in einen deterministischen Automaten überführen. Dieser kann dann mittels 
+Zu jedem regulären Ausdruck im Sinne der theoretischen Informatik kann ein
+nichtdeterministischer Automat generiert werden. Dieser kann mittels
+Potenzmengenkonstruktion\footnote{\url{http://martin-thoma.com/potenzmengenkonstruktion/}}
+in einen deterministischen Automaten überführen. Dieser kann dann mittels
 Äquivalenzklassen minimiert werden.
 
 \todo[inline]{Alle Schritte beschreiben}
@@ -124,7 +124,7 @@ Eine Flex-Datei besteht aus 3 Teilen, die durch \texttt{\%\%} getrennt werden:
 \begin{verbatim}
 Definitionen: Definiere Namen
 %%
-Regeln: Definiere reguläre Ausdrücke und 
+Regeln: Definiere reguläre Ausdrücke und
         zugehörige Aktionen (= Code)
 %%
 Code: zusätzlicher Code
@@ -153,8 +153,8 @@ Code: zusätzlicher Code
 
 
 \section{Syntaktische Analyse}\xindex{Analyse!syntaktische}%
-In der syntaktischen Analyse wird überprüft, ob die Tokenfolge zur 
-kontextfreien Sprache\todo{Warum kontextfrei?} gehört. Außerdem soll die 
+In der syntaktischen Analyse wird überprüft, ob die Tokenfolge zur
+kontextfreien Sprache\todo{Warum kontextfrei?} gehört. Außerdem soll die
 hierarchische Struktur der Eingabe erkannt werden.\todo{Was ist gemeint?}
 
 Ausgegeben wird ein \textbf{abstrakter Syntaxbaum}\xindex{Syntaxbaum!abstrakter}.
@@ -227,7 +227,7 @@ Dabei sind viele Optimierungen vorstellbar. Ein paar davon sind:
 \end{itemize}
 
 \section{Codegenerierung}
-Der letzte Schritt besteht darin, aus dem generiertem Zwischencode den 
+Der letzte Schritt besteht darin, aus dem generiertem Zwischencode den
 Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
 \begin{itemize}
     \item \textbf{Konventionen}: Wie werden z.~B. im Laufzeitsystem Methoden aufgerufen?
@@ -246,7 +246,7 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
 
     Dann heißt $\tilde{x} \in (\Sigma \cup \Set{\#})^+$ ein $k$-\textbf{Anfang} von $x$,
     wenn gilt:
-    \[\tilde{x} = 
+    \[\tilde{x} =
     \begin{cases}
         x\#           &\text{falls } x = x_1 \dots x_m \text{ und } m < k\\
         x_1 \dots x_k &\text{sonst}
@@ -292,12 +292,12 @@ Maschinencode oder Assembler zu erstellen. Dabei muss folgendes beachtet werden:
     \end{defenum}
 \end{definition}
 
-Die $\First_k(x)$-Menge beinhaltet also alle Terminalfolgen, die entweder $k$ 
+Die $\First_k(x)$-Menge beinhaltet also alle Terminalfolgen, die entweder $k$
 Terminale lang sind oder kürzer sind und dafür mit \# enden und die zugleich
 der Anfang von Ableitungen von $x$ sind.
 
 Die $\Follow_k(x)$-Menge hingegen hat alle Terminalfolgen der Länge $k$ oder kürzer
-und dafür mit \# am Ende, die aus einer Ableitung des Startsymbols $S \Rightarrow^* mxy$ 
+und dafür mit \# am Ende, die aus einer Ableitung des Startsymbols $S \Rightarrow^* mxy$
 auf die Teilfolge $x$ folgen können.
 
 Mit der $\Follow_k(x)$-Menge kann man also zu jedem Zeitpunkt sagen, was momentan

@@ -6,7 +6,7 @@
 \section{Homotopie von Wegen}
 \begin{figure}[ht]
     \centering
-    \subfloat[$\gamma_1$ und $\gamma_2$ sind homotop, da man sie 
+    \subfloat[$\gamma_1$ und $\gamma_2$ sind homotop, da man sie
              \enquote{zueinander verschieben} kann.]{
         \input{figures/topology-homotop-paths.tex}
         \label{fig:homotope-wege-anschaulich}
@@ -20,7 +20,7 @@
 \end{figure}
 
 \begin{definition}%
-    Sei $X$ ein topologischer Raum, $a, b \in X$, 
+    Sei $X$ ein topologischer Raum, $a, b \in X$,
     $\gamma_1, \gamma_2: I \rightarrow X$ Wege von $a$ nach $b$,
     d.~h. $\gamma_1(0) = \gamma_2(0) = a$, $\gamma_1(1) = \gamma_2(1) = b$
 
@@ -38,7 +38,7 @@
 \end{definition}
 
 \begin{bemerkung}
-    Sei $X$ ein topologischer Raum, $a, b \in X$, 
+    Sei $X$ ein topologischer Raum, $a, b \in X$,
     $\gamma_1, \gamma_2: I \rightarrow X$ Wege von $a$ nach $b$
     und $H$ eine Homotopie zwischen $\gamma_1$ und $\gamma_2$.
 
@@ -70,7 +70,7 @@
               H'(t, 2s)    &\text{falls } 0 \leq s \leq \frac{1}{2}\\
               H''(t, 2s-1) &\text{falls } \frac{1}{2} \leq s \leq 1\end{cases}$
 
-              $\Rightarrow$ $H$ ist stetig und Homotopie von $\gamma_1$ nach 
+              $\Rightarrow$ $H$ ist stetig und Homotopie von $\gamma_1$ nach
               $\gamma_3$.
     \end{itemize}
     $\qed$
@@ -78,12 +78,12 @@
 
 \begin{beispiel}
     \begin{bspenum}
-        \item Sei $X = S^1$. $\gamma_1$ und $\gamma_2$ aus 
+        \item Sei $X = S^1$. $\gamma_1$ und $\gamma_2$ aus
               \cref{fig:circle-two-paths} nicht homotop.
         \item Sei $X = T^2$. $\gamma_1, \gamma_2$ und $\gamma_3$
               aus \cref{fig:torus-three-paths} sind paarweise
               nicht homotop.
-        \item Sei $X = \mdr^2$ und $a=b=(0,0)$. 
+        \item Sei $X = \mdr^2$ und $a=b=(0,0)$.
 
               Je zwei Wege im $\mdr^2$ mit Anfangs- und Endpunkt $(0,0)$
               sind homotop.
@@ -99,7 +99,7 @@
               $\gamma_0(t) = (0,0) \; \forall t \in I$. Sei
               $\gamma(0) = \gamma(1) = (0,0)$.
 
-              $H(t,s) := (1-s) \gamma(t)$ ist stetig, 
+              $H(t,s) := (1-s) \gamma(t)$ ist stetig,
               $H(t,0) = \gamma(t)\; \forall t \in I$ und
               $H(t,1) = (0,0) \; \forall t \in I$.
     \end{bspenum}
@@ -123,7 +123,7 @@
 % Mitschrieb vom 05.12.2013                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{bemerkung}\label{kor:homotope-wege}
-    Sei $X$ ein topologischer Raum, $\gamma: I \rightarrow X$ ein 
+    Sei $X$ ein topologischer Raum, $\gamma: I \rightarrow X$ ein
     Weg und $\varphi: I \rightarrow I$ stetig mit $\varphi(0) = 0$,
     $\varphi(1) = 1$. Dann sind $\gamma$ und $\gamma \circ \varphi$
     homotop.
@@ -139,7 +139,7 @@
 
 \begin{definition}\xindex{Weg!zusammengesetzter}%
     Seien $\gamma_1, \gamma_2$ Wege in $X$ mit $\gamma_1(1) = \gamma_2(0)$.
-    Dann ist 
+    Dann ist
     \[\gamma (t) = \begin{cases}
         \gamma_1(2t)   &\text{falls } 0 \leq t < \frac{1}{2}\\
         \gamma_2(2t-1) &\text{falls } \frac{1}{2} \leq t \leq 1
@@ -149,7 +149,7 @@
 \end{definition}
 
 \begin{bemerkung}\label{kor:assoziativitaet-von-zusammensetzen-von-wegen}
-    Das Zusammensetzen von Wegen ist nur bis auf 
+    Das Zusammensetzen von Wegen ist nur bis auf
     Homotopie assoziativ, d.~h.:
     \begin{align*}
         \gamma_1 * (\gamma_2 * \gamma_3) &\neq (\gamma_1 * \gamma_2) * \gamma_3\\
@@ -203,13 +203,13 @@
     Sei $H_i$ eine Homotopie zwischen $\gamma_i$ und $\gamma_i'$,
     $i=1,2$.
 
-    Dann ist 
+    Dann ist
     \[H(t,s) := \begin{cases}
         H_1(2t, s)  &\text{falls } 0 \leq t \leq \frac{1}{2}\;\;\;\forall s \in I\\
         H_2(2t-1,s) &\text{falls } \frac{1}{2} \leq t \leq 1
     \end{cases}\]
 
-    eine Homotopie zwischen 
+    eine Homotopie zwischen
     $\gamma_1 * \gamma_2$ und $\gamma_1' * \gamma_2 '$.
 \end{beweis}
 
@@ -219,7 +219,7 @@ Eine spezielle Homotopieäquivalenz sind sog. Deformationsretraktionen:
     und $\iota = (\id_X)|_A$.
 
     \begin{defenum}
-        \item $\iota: A \rightarrow X$ mit $\iota(x) = x$ heißt die 
+        \item $\iota: A \rightarrow X$ mit $\iota(x) = x$ heißt die
               \textbf{Inklusionsabbildung}\xindex{Inklusionsabbildung} und
               man schreibt: $\iota: A \hookrightarrow X$.
         \item $r$ heißt \textbf{Retraktion}\xindex{Retraktion}, wenn $r|_A = \id_A$ ist.
@@ -264,7 +264,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
         \item Assoziativität folgt aus \cref{kor:assoziativitaet-von-zusammensetzen-von-wegen}
         \item Neutrales Element $e = [\gamma_0], \gamma_0(t) = x \;\;\; \forall t \in I$.
               $e * [\gamma] = [\gamma] = [\gamma] * e$, da $\gamma_0 * \gamma \sim \gamma$
-        \item \xindex{Weg!inverser} Inverses Element  $[\gamma]^{-1} = [\overline{\gamma}] = [\gamma(1-t)]$, 
+        \item \xindex{Weg!inverser} Inverses Element  $[\gamma]^{-1} = [\overline{\gamma}] = [\gamma(1-t)]$,
               denn $\overline{\gamma} * \gamma \sim \gamma_0 \sim \gamma * \overline{\gamma}$
     \end{enumerate}
 \end{beweis}
@@ -280,7 +280,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
               $[\gamma^k] \mapsto k$ ist ein Isomorphismus.
         \item $\pi_1 (\mdr^2, 0) = \pi_1 (\mdr^2, x) = \Set{e}$ für jedes $x \in \mdr^2$
         \item $\pi_1 (\mdr^n, x) = \Set{e}$ für jedes $x \in \mdr^n$
-        \item $G \subseteq \mdr^n$ heißt \textbf{sternförmig}\xindex{sternförmig} bzgl. $x \in G$, 
+        \item $G \subseteq \mdr^n$ heißt \textbf{sternförmig}\xindex{sternförmig} bzgl. $x \in G$,
             wenn für jedes $y \in G$ auch die Strecke $[x, y] \subseteq G$
             ist.
 
@@ -338,7 +338,7 @@ Für einen Weg $\gamma$ sei $[\gamma]$ seine \textbf{Homotopieklasse}\xindex{Hom
     für ein $x \in X$.
 \end{definition}
 
-Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen 
+Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 \cref{kor:gruppenisomorphismus-wege} sogar für alle $x \in X$.
 
 \begin{bemerkung}\label{korr:11.5}
@@ -359,7 +359,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
         \item $f_*$ ist wohldefiniert: Seien $\gamma_1, \gamma_2$ homotope
               Wege von $x$. z.Z.: $f \circ \gamma_1 \sim f \circ \gamma_2$:
               Nach Voraussetzung gibt es stetige Abbildungen $H:I\times I \rightarrow X$
-              mit 
+              mit
               \begin{align*}
                 H(t,0) &= \gamma_1(t),\\
                 H(t,1) &= \gamma_2(t),\\
@@ -376,7 +376,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 
 \begin{beispiel}
     \begin{bspenum}
-        \item $f:S^1 \hookrightarrow \mdr^2$ ist injektiv, aber 
+        \item $f:S^1 \hookrightarrow \mdr^2$ ist injektiv, aber
               $f_*:\pi_1(S^1, 1) \cong \mdz \rightarrow \pi_1(\mdr^2, 1) = \Set{e}$
               ist nicht injektiv.
         \item $f: \mdr \rightarrow S^1, t \mapsto (\cos 2 \pi t, \sin 2 \pi t)$
@@ -406,7 +406,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     stetig mit $f(x_0) = y_0 = g(x_0)$.
 
     $f$ und $g$ heißen \textbf{homotop} ($f \sim g$), wenn es eine stetige
-    Abbildung $H: X \times I \rightarrow Y$ mit 
+    Abbildung $H: X \times I \rightarrow Y$ mit
     \begin{align*}
         H(x,0)    &= f(x) \; \forall x \in X\\
         H(x,1)    &= g(x) \; \forall x \in X\\
@@ -426,7 +426,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
     Z.~z.: $f \circ \gamma \sim g \circ \gamma$
 
     Sei dazu $H_\gamma: I \times I \rightarrow Y, (t,s) \mapsto H(\gamma(t), s)$.
-    Dann gilt: 
+    Dann gilt:
         \begin{align*}
             H_\gamma(t,0) &= H(\gamma(t), 0) = (f \circ \gamma)(t) \;\forall t \in I\\
             H_\gamma(1,s) &= H(\gamma(1), s) = H(x_0, s) = y_0\;\forall s \in I\\
@@ -450,7 +450,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 \end{beispiel}
 
 \begin{satz}[Satz von Seifert und van Kampen \enquote{light}]\label{thm:seifert-van-kampen}
-    Sei $X$ ein topologischer Raum, $U, V \subseteq X$ offen mit 
+    Sei $X$ ein topologischer Raum, $U, V \subseteq X$ offen mit
     $U \cup V = X$ und $U \cap V$ wegzusammenhängend.
 
     Dann wird $\pi_1(X,x)$ für $x \in U \cap V$ erzeugt von geschlossenen
@@ -460,14 +460,14 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 \begin{beweis}
     Sei $\gamma: I \rightarrow X$ ein geschlossener Weg um $x$.
     Überdecke $I$ mit endlich vielen offenen Intervallen
-    $I_1, I_2, \dots, I_n$, die ganz in 
+    $I_1, I_2, \dots, I_n$, die ganz in
     $\gamma^{-1}(U)$ oder ganz in $\gamma^{-1}(V)$ liegen.
 
     \Obda sei $\gamma(I_1) \subseteq U, \gamma(I_2) \subseteq V$, etc.
 
     Wähle $t_i \in I_i \cap I_{i+1}$, also $\gamma(t_i) \in U \cap V$.
     Sei $\sigma_i$ Weg in $U \cap V$ von $x_0$ nach $\gamma(t_i) \Rightarrow \gamma$
-    ist homotop zu 
+    ist homotop zu
     \[\underbrace{\gamma_1 * \overline{\sigma_1}}_{\text{in } U} * \underbrace{\sigma_1 * \gamma_2 * \overline{\sigma_2}}_{\text{in } V} * \dots * \sigma_{n-1} * \gamma_2 \text{ mit } \gamma_i := \gamma |_{I_i}\]
 \end{beweis}
 
@@ -547,17 +547,17 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 \begin{beweis}
     Sei $p: Y \rightarrow X$ eine Überlagerung und $x \in X$ beliebig.
     Dann existiert eine offene Umgebung $U(x) \subseteq X$ und offene
-    Teilmengen $V_j \subseteq X$ mit 
+    Teilmengen $V_j \subseteq X$ mit
     $p^{-1}(U) = \Dcup V_j$ und
     $p|_{V_j}: V_j \rightarrow U$ ist Homöomorphismus.
 
     D.~h. es existiert ein $y \in V_j$, so dass $p|_{V_j}(y) = x$.
-    Da $x \in X$ beliebig war und ein $y \in Y$ existiert, mit 
+    Da $x \in X$ beliebig war und ein $y \in Y$ existiert, mit
     $p(y) = x$, ist $p$ surjektiv.    $\qed$
 \end{beweis}
 
 \begin{definition}\xindex{Abbildung!offene}%
-    Seien $(X, \fT_X), (Y, \fT_Y)$ topologische Räume und $f:X \rightarrow Y$ eine 
+    Seien $(X, \fT_X), (Y, \fT_Y)$ topologische Räume und $f:X \rightarrow Y$ eine
     Abbildung.
 
     $f$ heißt \textbf{offen} $:\gdw \forall U \in \fT_X: f(U) \in \fT_Y$.
@@ -600,7 +600,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 \begin{definition}\xindex{diskret}%
     Sei $X$ ein topologischer Raum und $M \subseteq X$.
 
-    $M$ heißt \textbf{diskret} in $X$, wenn $M$ in $X$ keinen 
+    $M$ heißt \textbf{diskret} in $X$, wenn $M$ in $X$ keinen
     Häufungspunkt hat.
 \end{definition}
 
@@ -628,11 +628,11 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
         $\Rightarrow V_{j_1} \cap V_{j_2} = \emptyset$ nach Voraussetzung.
 
         \underline{2. Fall}: $p(y_1) \neq p(y_2)$.
-        
+
         Dann seien $U_1$ und $U_2$ disjunkte Umgebungen von $p(y_1)$
         und $p(y_2)$.
 
-        $\Rightarrow p^{-1}(U_1)$ und $p^{-1}(U_2)$ sind disjunkte 
+        $\Rightarrow p^{-1}(U_1)$ und $p^{-1}(U_2)$ sind disjunkte
         Umgebungen von $y_1$ und $y_2$.
 
         \item Sei $x \in X$ beliebig, aber fest.
@@ -717,7 +717,7 @@ Wenn $\pi_1(X,x) = \Set{e}$ für ein $x \in X$ gilt, dann wegen
 
     Sei $q:U \rightarrow V$ die Umkehrabbildung zu $p|_V$.
 
-    Sei $W:= f^{-1}(U) \cap f_0^{-1}(V) \cap f_1^{-1}(V)$. $W$ ist 
+    Sei $W:= f^{-1}(U) \cap f_0^{-1}(V) \cap f_1^{-1}(V)$. $W$ ist
     offene Umgebung in $Z$ von $z$.
 
     \underline{Behauptung:} $W \subseteq T$
@@ -749,7 +749,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
 \begin{bemerkung}%Bemerkung 12.6 der Vorlesung
     Wege in $X$ lassen sich zu Wegen in $Y$ liften.
 
-    Zu jedem $y \in p^{-1}(\gamma(0))$ gibt es genau einen Lift von 
+    Zu jedem $y \in p^{-1}(\gamma(0))$ gibt es genau einen Lift von
     $\gamma$.
 \end{bemerkung}
 
@@ -757,7 +757,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
     Seien $p: Y \rightarrow X$ eine Überlagerung, $a,b \in X$,
     $\gamma_0, \gamma_1: I \rightarrow X$ homotope Wege von $a$ nach
     $b$, $\tilde{a} \in p^{-1}(a), \tilde{\gamma_0}, \tilde{\gamma_1}$
-    Liftungen von $\gamma_0$ bzw. $\gamma_1$ mit 
+    Liftungen von $\gamma_0$ bzw. $\gamma_1$ mit
     $\tilde{\gamma_i}(0) = \tilde{a}$.
 
     Dann ist $\tilde{\gamma_0}(1) = \tilde{\gamma_1}(1)$ und
@@ -784,7 +784,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
 
     Da $p^{-1}(b)$ diskrete Teilmenge von $Y$ ist\\
     $\Rightarrow \tilde{b_s} = \tilde{H}(1,s) = \tilde{H}(1,0) \;\forall s \in I$\\
-    $\Rightarrow \tilde{b_0} = \tilde{b_1}$ und $\tilde{H}$ ist Homotopie 
+    $\Rightarrow \tilde{b_0} = \tilde{b_1}$ und $\tilde{H}$ ist Homotopie
     zwischen $\tilde{\gamma_0}$ und $\tilde{\gamma_1}$. $\qed$
 \end{beweis}
 
@@ -801,7 +801,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
         \item Sei $\tilde{\gamma}$ ein Weg in $Y$ um $y_0$ und
               $p_* ([\tilde{\gamma}]) = e$, also $p \circ \tilde{\gamma} \sim \gamma_{x_0}$
 
-              Nach \cref{proposition:12.7} ist dann 
+              Nach \cref{proposition:12.7} ist dann
               $\tilde{\gamma}$ homotop zum Lift des konstanten Wegs
               $\gamma_{x_0}$ mit Anfangspunkt $y_0$, also zu
               $\gamma_{y_0} \Rightarrow [\tilde{\gamma}] = e$
@@ -823,9 +823,9 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
 
               Zu $i \in \Set{0, \dots, d-1}$ gibt es Weg $\delta_i$ in
               $Y$ mit $\delta_i(0) = y_0$ und $\delta_i(1) = y_i$\\
-              $\Rightarrow p \cup \delta_i$ ist geschlossener Weg in 
+              $\Rightarrow p \cup \delta_i$ ist geschlossener Weg in
               $X$ um $x_0$.\\
-              $\Rightarrow$ Jedes $y_i$ mit $i=0, \dots, d-1$ ist 
+              $\Rightarrow$ Jedes $y_i$ mit $i=0, \dots, d-1$ ist
               $\tilde{\gamma}(1)$ für ein $[\gamma] \in \pi_1(X,x_0)$.
     \end{enumerate}
 \end{beweis}
@@ -885,7 +885,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
     Offensichtlich ist $q(\tilde{p}(z)) = p(z)$.
 
     \underline{Zu zeigen:} $\tilde{p}$ ist stetig in $z \in \tilde{X}$:
-    
+
     Sei $W \subseteq Y$ offene Umgebung von $\tilde{p}(z)$.
 
     $\xRightarrow{q \text{ offen}} q(W)$ ist offene Umgebung von $p(z) \cdot d(\tilde{p}(z))$.
@@ -915,8 +915,8 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
 \end{folgerung}
 
 \begin{beweis}
-    Seien $x_0 \in X, \tilde{x_0} \in \tilde{X}$ mit 
-    $p(\tilde{x_0}) = x_0$ und 
+    Seien $x_0 \in X, \tilde{x_0} \in \tilde{X}$ mit
+    $p(\tilde{x_0}) = x_0$ und
     $\tilde{y_0} \in q^{-1}(x_0) \subseteq \tilde{Y}$.
 
     Nach \cref{thm:12.11} gibt es genau eine Überlagerung
@@ -925,7 +925,7 @@ $p|_{V_j}: V_j \rightarrow U$ Homöomorphismus.
     \[g: \tilde{Y} \rightarrow \tilde{X} \text{ mit } g(\tilde{y_0}) = \tilde{x_0} \text{ und } p \circ g = q\]
 
     Damit gilt: $p \circ q \circ f = q \circ f = p$, $q \circ f \circ g = p \circ g = q$.
-    Also ist $g \circ f: \tilde{X} \rightarrow \tilde{X}$ Lift von 
+    Also ist $g \circ f: \tilde{X} \rightarrow \tilde{X}$ Lift von
     $p:\tilde{X} \rightarrow X$ mit $(g \circ f) (\tilde{x_0}) = \tilde{x_0}$.
 
     Da auch $\id_{\tilde{x}}$ diese Eigenschaft hat, folgt mit
@@ -961,7 +961,7 @@ der folgende Satz:
     \[\tilde{U} = \tilde{U}(x, [\gamma]) := \Set{(y, [\gamma * \alpha]) | y \in U, \alpha \text{ Weg in } U \text{ von } x \text{ nach } y} \]
 
     $p$ ist Überlagerung: $p|_{\tilde{U}} : \tilde{U} \rightarrow U$
-    bijektiv. $p$ ist stetig und damit $p|_{\tilde{U}}$ ein 
+    bijektiv. $p$ ist stetig und damit $p|_{\tilde{U}}$ ein
     Homöomorphismus.
 
     Sind $\gamma_1, \gamma_2$ Wege von $x_0$ nach $x$ und $\gamma_1 \sim \gamma_2$,
@@ -990,7 +990,7 @@ der folgende Satz:
 
     \begin{defenum}
         \item $f$ heißt \textbf{Decktransformation} von $p :\gdw p \circ f = p$.
-        \item Die Decktransformationen von $p: Y \rightarrow X$ bilden mit der Verkettung eine Gruppe, 
+        \item Die Decktransformationen von $p: Y \rightarrow X$ bilden mit der Verkettung eine Gruppe,
           die sog. \textbf{Decktransformationsgruppe}\xindex{Decktransformationsgruppe}.
           Man schreibt:
           $\Deck(p)$, $\Deck(Y/X)$ oder $\Deck(Y \rightarrow X)$.
@@ -1023,10 +1023,10 @@ der folgende Satz:
             \end{itemize}
         \item Die Menge
               \[\Fix(f) = \Set{y \in Y | f(y) = y}\]
-              ist abgeschlossen als Urbild der Diagonale 
+              ist abgeschlossen als Urbild der Diagonale
               $\Delta \subseteq Y \times Y$ unter der stetigen
               Abbildung $y \mapsto (f(y),y)$. Außerdem ist $\Fix(f)$
-              offen, denn ist $y \in \Fix(f)$, so sei $U$ eine 
+              offen, denn ist $y \in \Fix(f)$, so sei $U$ eine
               Umgebung von $p(y) \in X$ wie in \cref{def:12.1}
               und $U \subseteq p^{-1}(U)$ die Komponente, die $y$
               enthält; also $p:V \rightarrow U$ ein Homöomorphismus.
@@ -1041,7 +1041,7 @@ der folgende Satz:
         \item Es sei $x_0 \in X$, $\deg(p) = d$ und $p^{-1}(x_0) = \Set{y_0, \dots, y_{d-1}}$.
               Für $f \in \Deck(Y/X)$ ist $f(y_0)= \Set{y_0, \dots, y_{d-1}}$.
 
-              Zu $i \in \Set{0, \dots, d-1}$ gibt es höchstens ein 
+              Zu $i \in \Set{0, \dots, d-1}$ gibt es höchstens ein
               $f \in \Deck(Y/X)$ mit $f(y_0) = y_1$, denn ist
               $f(y_0) = g(y_0)$, so ist $(g^{-1} \circ f)(y_0) = y_0$,
               also nach \cref{kor:12.14c} $g^{-1} \circ f = \id_Y$.
@@ -1061,7 +1061,7 @@ Nun werden wir eine Verbindung zwischen der Decktransformationsgruppe
 und der Fundamentalgruppe herstellen:
 
 \begin{satz}\label{thm:12.15}%In Vorlesung: Satz 12.15
-    Ist $p: \tilde{X} \rightarrow X$ eine universelle Überlagerung, 
+    Ist $p: \tilde{X} \rightarrow X$ eine universelle Überlagerung,
     so gilt:
     \[\Deck(\tilde{X}/X) \cong \pi_1(X, x_0)\;\;\;\forall x_0 \in X\]
 \end{satz}
@@ -1074,11 +1074,11 @@ und der Fundamentalgruppe herstellen:
     eindeutig bestimmt und damit auch $\rho$ wohldefiniert.
 
     \begin{itemize}
-        \item \underline{$\rho$ ist Gruppenhomomorphismus}: Seien 
+        \item \underline{$\rho$ ist Gruppenhomomorphismus}: Seien
             $f, g \in \Deck(\tilde{X}/ X) \Rightarrow \gamma_{g \circ f} = \gamma_g * g(\gamma_f)$
             $\Rightarrow p(\gamma_{g \circ f}) = p(\gamma_g) * \underbrace{(p \circ g)}_{=p} (\gamma_f) = \rho(g) \neq \rho(f)$
         \item \underline{$\rho$ ist injektiv}: $\rho(f) = e \Rightarrow p (\gamma_f) \sim \gamma_{x_0}$
-            $\xRightarrow{\cref{thm:ueberlagerung-weg-satz-12.6}} \gamma_f \sim \gamma_{\tilde{x_0}}$ 
+            $\xRightarrow{\cref{thm:ueberlagerung-weg-satz-12.6}} \gamma_f \sim \gamma_{\tilde{x_0}}$
             $\Rightarrow f(x_0) = \tilde{x_0} \xRightarrow{\crefabbr{kor:12.14c}} f = \id_{\tilde{x}}$.
         \item \underline{$\rho$ ist surjektiv}: Sei $[\gamma] \in \pi_1(X, x_0)$,
             $\tilde{\gamma}$ Lift von $\gamma$ nach $\tilde{x}$ mit
@@ -1086,7 +1086,7 @@ und der Fundamentalgruppe herstellen:
             sei $\tilde{x_1}$.
 
             \underline{$p$ ist reguläre Überlagerung}: Seien
-            $\tilde{x_0}, \tilde{x_1} \in \tilde{X}$ mit 
+            $\tilde{x_0}, \tilde{x_1} \in \tilde{X}$ mit
             $p(\tilde{x_0}) = p(\tilde{x_1})$. Nach \cref{thm:12.11}
             gibt es genau eine Überlagerung $\tilde{p}: \tilde{X} \rightarrow X$
             mit $p=p \circ \tilde{p}$ und $\tilde{p}(\tilde{x_0}) = \tilde{x_1}$.
@@ -1163,7 +1163,7 @@ und der Fundamentalgruppe herstellen:
               \[m_g: X \rightarrow X, x \mapsto g \circ x\]
               ein Homöomorphismus ist.
         \item Ist $G$ eine topologische Gruppe, so heißt die Gruppenoperation $\circ$
-              \textbf{stetig}\xindex{Gruppenoperation!stetige}, wenn 
+              \textbf{stetig}\xindex{Gruppenoperation!stetige}, wenn
               \[\forall g \in G: m_g \text{ ist stetig}\]
               gilt.
     \end{defenum}
@@ -1175,7 +1175,7 @@ und der Fundamentalgruppe herstellen:
 \begin{beweis}\leavevmode
     Nach Voraussetzung ist $m_g := \circ |_{\Set{g} \times X} : X \rightarrow X, x \mapsto g \circ x$ stetig.
 
-    Die Umkehrabbildung zu $m_g$ ist $m_{g^{-1}}$: 
+    Die Umkehrabbildung zu $m_g$ ist $m_{g^{-1}}$:
     \begin{align*}
         (m_{g^{-1}} \circ m_g)(x) &= m_{g^{-1}} (m_g (x))\\
             &= m_{g^{-1}} (g \circ x)\\
@@ -1196,7 +1196,7 @@ und der Fundamentalgruppe herstellen:
     \begin{bemenum}
         \item Die Gruppenoperation von $G$ auf $X$ entsprechen bijektiv
               den Gruppenhomomorphismen $\varrho: G \rightarrow \Perm(X) = \Sym(X) = \Set{f: X \rightarrow X | f \text{ ist bijektiv}}$
-        \item Ist $X$ ein topologischer Raum, so entsprechen dabei 
+        \item Ist $X$ ein topologischer Raum, so entsprechen dabei
               die Gruppenoperationen durch Homöomorphismus den Gruppenhomomorphismen
               $G \rightarrow \Homoo(X)$
     \end{bemenum}
@@ -1213,7 +1213,7 @@ und der Fundamentalgruppe herstellen:
 
           Umgekehrt: Sei $\varrho: G \rightarrow \Perm(X)$ Gruppenhomomorphismus. Definiere $\circ: G \times X \rightarrow X$ durch $g \circ x = \varrho (g)(x)$.
 
-          z.~z. \cref{def:gruppenoperation.2}: 
+          z.~z. \cref{def:gruppenoperation.2}:
           \begin{align*}
             g_1 \circ (g_2 \circ x) &= \varrho (g_1) (g_2 \circ x)\\
             &= \varrho(g_1) (\varrho(g_2)(x))\\
@@ -1222,8 +1222,8 @@ und der Fundamentalgruppe herstellen:
             &= (g_1 \cdot g_2) \circ x
           \end{align*}
 
-            z.~z. \cref{def:gruppenoperation.1}: 
-            $1_G \cdot x = \varrho(1_G)(x) = \id_X(x) = x$, weil $\varrho$ ein 
+            z.~z. \cref{def:gruppenoperation.1}:
+            $1_G \cdot x = \varrho(1_G)(x) = \id_X(x) = x$, weil $\varrho$ ein
             Homomorphismus ist.
 \end{beweis}
 
@@ -1253,7 +1253,7 @@ und der Fundamentalgruppe herstellen:
     \begin{enumerate}[label=\roman*)]
         \item $[e] \circ \tilde{x} = \rtilde{e * \delta} = \tilde{x}$
         \item $\rtilde{\gamma_1 * \gamma_2 * \delta}(1) = [\gamma_1 * \gamma_2] \circ \tilde{x} = ([\gamma_1] * [\gamma_2]) \circ \tilde{x}$\\
-              $\gamma_1 * \gamma_2 * \delta(1) = [\gamma_1] \circ (\tilde{\gamma_2 * \delta})(1) = [\gamma_1] \circ ([\gamma_2] \circ \tilde{x})$ 
+              $\gamma_1 * \gamma_2 * \delta(1) = [\gamma_1] \circ (\tilde{\gamma_2 * \delta})(1) = [\gamma_1] \circ ([\gamma_2] \circ \tilde{x})$
     \end{enumerate}
 \end{beispiel}
 

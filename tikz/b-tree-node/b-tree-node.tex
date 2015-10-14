@@ -1,21 +1,21 @@
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
- 
+
 \usepackage{tikz}
-\usetikzlibrary{calc,shapes.multipart,chains,arrows,positioning} 
+\usetikzlibrary{calc,shapes.multipart,chains,arrows,positioning}
 
 \tikzset{
-    font=\tt, 
-    >= stealth, 
-    every picture/.style={thick}, 
+    font=\tt,
+    >= stealth,
+    every picture/.style={thick},
     pointer/.style={*->},
     node/.style={
         align=center,
         rectangle split, rectangle split horizontal,
         rectangle split parts=#1,
-        draw, 
-        anchor=center, 
+        draw,
+        anchor=center,
         rectangle split part align={center},
         rectangle split empty part width=1.5,
         rectangle split part fill = {orange!50, blue!50, white}

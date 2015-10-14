@@ -33,7 +33,7 @@
   \foreach \line [count=\y] in \pixels {
     \foreach \pix [count=\x] in \line {
       \draw[fill=pixel \pix] (\x,-\y) rectangle +(1,1);
-      
+
       \ifthenelse{\equal{0}{\pix}}
            {}
            {\node at ($(\x,-\y) + (0.5,0.5)$)    {\Huge \pix};}

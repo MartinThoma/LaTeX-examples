@@ -2,22 +2,22 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes, calc} 
+\usetikzlibrary{shapes, calc}
 \tikzstyle{vertex}=[draw,fill=black!15,rectangle,minimum size=20pt,inner sep=10pt]
 
 \begin{document}
 \begin{preview}
 \begin{tikzpicture}[font=\sffamily,thick,level/.style={sibling distance=120mm/#1}]
     \node[vertex] {Halbleiterspeicher}
-        child { 
+        child {
             node[vertex] {Festwertspeicher}
-            child { 
-                node[vertex] {Irreversibel} 
+            child {
+                node[vertex] {Irreversibel}
                 child { node[vertex] {ROM} }
                 child { node[vertex] {PROM} }
             }
-            child { 
-                node[vertex] {Reversibel} 
+            child {
+                node[vertex] {Reversibel}
                 child { node[vertex] {EPROM} }
                 child { node[vertex] {EEPROM} }
             }

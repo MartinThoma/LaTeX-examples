@@ -29,15 +29,15 @@
       \addplot[domain=-1:1, ultra thick,samples=100,blue]  {1};
       \label{plot one}
       \addplot[domain=-1:1, ultra thick,samples=100,red] {0};
-      \label{plot two} 
+      \label{plot two}
       \node [draw,fill=white] at (rel axis cs: 0.8,0.8) {\shortstack[l]{
-      $f(x) = 
+      $f(x) =
     \left\lbrace\begin{array}{@{}l@{}l@{}l@{}}
        \tikz[baseline=-0.5ex]\node{\ref{plot one}}; \phantom{1cm}& 1 &  \text{ if } x \in \mathbb{Q}\\
        \tikz[baseline=-0.5ex]\node{\ref{plot two}}; & 0 & \text{ if } x \in \mathbb{R} \setminus \mathbb{Q}
     \end{array}\right.
 $}};
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
 \end{preview}
 \end{document}

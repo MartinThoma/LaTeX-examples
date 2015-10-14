@@ -36,14 +36,14 @@
                 {x/exp(x^2+y^2)};
         % \addplot3[contour gnuplot={number=15, labels=false},
         %           very thick,
-        %           samples=30] 
+        %           samples=30]
         %         {x/exp(x^2+y^2)};
         \addplot3[blue,
         point meta={
             sqrt(
                 ((1-2*x^2)*exp(-x^2-y^2))^2+
                 (-2*x*y*exp(-x^2-y^2))^2
-            )        
+            )
         },
                   quiver={
                           u={(1-2*x^2)*exp(-x^2-y^2)},

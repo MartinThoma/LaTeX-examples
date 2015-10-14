@@ -9,7 +9,7 @@
 Ein Beispiel für eine Sprachspezifikation ist die \textit{Java Language Specification}.\footnote{Zu finden unter \url{http://docs.oracle.com/javase/specs/}} Obwohl es kein guter Stil ist, ist auch
 eine Referenzimplementierung eine Form der Spezifikation.
 
-Im Folgenden wird darauf eingegangen, anhand welcher Kriterien man 
+Im Folgenden wird darauf eingegangen, anhand welcher Kriterien man
 Programmiersprachen unterscheiden kann.
 
 \section{Abstraktion}
@@ -18,7 +18,7 @@ Wie nah ist sie an einer mathematisch / algorithmischen Beschreibung?
 
 \begin{definition}\xindex{Maschinensprache}\xindex{Befehlssatz}%
     Eine \textbf{Maschinensprache} beinhaltet ausschließlich Instruktionen, die direkt
-    von einer CPU ausgeführt werden können. Die Menge dieser Instruktionen 
+    von einer CPU ausgeführt werden können. Die Menge dieser Instruktionen
     sowie deren Syntax wird \textbf{Befehlssatz} genannt.
 \end{definition}
 
@@ -49,8 +49,8 @@ Wie nah ist sie an einer mathematisch / algorithmischen Beschreibung?
 \end{beispiel}
 
 \begin{definition}[Domänenspezifische Sprache]\xindex{Sprache!domänenspezifische}%
-    Eine domänenspezifische Sprache (engl. domain-specific language; kurz DSL) 
-    ist eine formale Sprache, die für ein bestimmtes Problemfeld 
+    Eine domänenspezifische Sprache (engl. domain-specific language; kurz DSL)
+    ist eine formale Sprache, die für ein bestimmtes Problemfeld
     entworfen wurde.
 \end{definition}
 
@@ -68,7 +68,7 @@ man Probleme löst.
 
 \begin{definition}[Imperatives Paradigma]\xindex{Programmierung!imperative}%
     In der \textit{imperativen Programmierung} betrachtet man Programme als
-    eine Folge von Anweisungen, die vorgibt auf welche Art etwas 
+    eine Folge von Anweisungen, die vorgibt auf welche Art etwas
     Schritt für Schritt gemacht werden soll.
 \end{definition}
 
@@ -80,7 +80,7 @@ man Probleme löst.
 
 \begin{definition}[Prozedurales Paradigma]\xindex{Programmierung!prozedurale}%
     Die prozeduralen Programmierung ist eine Erweiterung des imperativen
-    Programmierparadigmas, bei dem man versucht die Probleme in 
+    Programmierparadigmas, bei dem man versucht die Probleme in
     kleinere Teilprobleme zu zerlegen.
 \end{definition}
 
@@ -106,7 +106,7 @@ Wichtige Vorteile von funktionalen Programmiersprachen sind:
 \end{itemize}
 
 \begin{definition}[Logisches Paradigma]\xindex{Programmierung!logische}%
-    Das \textbf{logische Programmierparadigma} baut auf der formalen Logik auf. 
+    Das \textbf{logische Programmierparadigma} baut auf der formalen Logik auf.
     Man verwendet \textbf{Fakten} und \textbf{Regeln}
     und einen Inferenzalgorithmus um Probleme zu lösen.
 \end{definition}
@@ -129,7 +129,7 @@ Programmiersprachen können anhand der Art ihrer Typisierung unterschieden werde
 \end{definition}
 
 \begin{beispiel}[Typisierungsstärke]
-    Die stärke der Typisierung ist abhängig von dem Anwendungszenario. So hat C im 
+    Die stärke der Typisierung ist abhängig von dem Anwendungszenario. So hat C im
     Gegensatz zu Python, Java oder Haskell beispielsweise keine booleschen Datentypen.
 
     Im Gegensatz zu Haskell hat Java keine GADTs\footnote{generalized algebraic data type}.
@@ -154,9 +154,9 @@ Programmiersprachen können anhand der Art ihrer Typisierung unterschieden werde
 
 \begin{definition}[Statische und dynamische Typisierung]\xindex{Typisierung!statische}\xindex{Typisierung!dynamische}%
     \begin{defenum}
-        \item Eine Programmiersprache heißt \textbf{statisch typisiert}, wenn eine 
+        \item Eine Programmiersprache heißt \textbf{statisch typisiert}, wenn eine
               Variable niemals ihren Typ ändern kann.
-        \item Eine Programmiersprache heißt \textbf{dynamisch typisiert}, wenn eine 
+        \item Eine Programmiersprache heißt \textbf{dynamisch typisiert}, wenn eine
               Variable ihren Typ ändern kann.
     \end{defenum}
 \end{definition}
@@ -188,7 +188,7 @@ als Container vor.
 \begin{definition}[Explizite und implizite Typisierung]\xindex{Typisierung!explizite}\xindex{Typisierung!implizite}%
     Sei $X$ eine Programmiersprache.
     \begin{defenum}
-        \item $X$ heißt \textbf{explizit typisiert}, wenn für jede 
+        \item $X$ heißt \textbf{explizit typisiert}, wenn für jede
               Variable der Typ explizit genannt wird.
         \item $X$ heißt \textbf{implizit typisiert}, wenn der Typ einer
               Variable aus den verwendeten Operationen abgeleitet werden kann.
@@ -219,7 +219,7 @@ Vorteile impliziter Typisierung sind:
 
 \begin{definition}[Duck-Typing und strukturelle Typisierung]\xindex{Duck-Typing}\xindex{Typisierung!strukturelle}%
     \begin{defenum}
-        \item Eine Programmiersprache verwendet \textbf{Duck-Typing}, wenn die Parameter einer 
+        \item Eine Programmiersprache verwendet \textbf{Duck-Typing}, wenn die Parameter einer
               Methode nicht durch die explizite Angabe von Typen festgelegt werden, sondern
               durch die Art wie die Parameter verwendet werden.
         \item Eine Programmiersprache verwendet \textbf{strukturelle Typisierung}, wenn die
@@ -228,7 +228,7 @@ Vorteile impliziter Typisierung sind:
     \end{defenum}
 \end{definition}
 
-Strukturelle Typsierung wird auch \textit{typsicheres Duck-Typing} genannt. 
+Strukturelle Typsierung wird auch \textit{typsicheres Duck-Typing} genannt.
 Der Satz, den man im Zusammenhang mit Duck-Typing immer höhrt, ist
 
 \enquote{When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.}
@@ -269,11 +269,11 @@ Meistens meint man insbesondere unerwünschte oder überaschende Zustandsänderu
         A_1 &= \left(X, Y, f(b) \right)\\
         A_2 &= \left(a, b, Z \right)
     \end{align*}
-    Großbuchstaben stehen dabei für Variablen und Kleinbuchstaben für atomare 
+    Großbuchstaben stehen dabei für Variablen und Kleinbuchstaben für atomare
     Ausdrücke.
 
-    Ersetzt man in $A_1$ nun $X$ durch $a$, $Y$ durch $b$ und in $A_2$ 
-    die Variable $Z$ durch $f\left(b\right)$, so sind sie gleich oder 
+    Ersetzt man in $A_1$ nun $X$ durch $a$, $Y$ durch $b$ und in $A_2$
+    die Variable $Z$ durch $f\left(b\right)$, so sind sie gleich oder
     \enquote{unifiziert}. Man erhält
 
     \begin{align*}
@@ -286,7 +286,7 @@ Meistens meint man insbesondere unerwünschte oder überaschende Zustandsänderu
 \end{beispiel}
 
 \begin{definition}[Allgemeinster Unifikator]\xindex{Unifikator!allgemeinster}%
-    Ein Unifikator $\sigma$ heißt \textit{allgemeinster Unifikator}, wenn 
+    Ein Unifikator $\sigma$ heißt \textit{allgemeinster Unifikator}, wenn
     es für jeden Unifikator $\gamma$ eine Substitution $\delta$ mit
     \[\gamma = \delta \circ \sigma\]
     gibt.
@@ -297,7 +297,7 @@ Meistens meint man insbesondere unerwünschte oder überaschende Zustandsänderu
     \[C = \Set{f(a,D) = Y, X = g(b), g(Z) = X}\]
     eine Menge von Gleichungen über Terme.
 
-    Dann ist 
+    Dann ist
     \[\gamma = [Y \text{\pointer} f(a,b), D \text{\pointer} b, X \text{\pointer} g(b), Z \text{\pointer} b]\]
     ein Unifikator für $C$. Jedoch ist
     \[\sigma = [Y \text{\pointer} f(a,D), X \text{\pointer} g(b), Z \text{\pointer} b]\]

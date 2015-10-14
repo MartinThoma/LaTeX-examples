@@ -1,6 +1,6 @@
 \chapter{Quadratic functions}
 \section{Defined on $\mdr$}
-Let $f:\mdr \rightarrow \mdr, f(x) = a \cdot x^2 + b \cdot x + c$ with $a \in \mdr \setminus \Set{0}$ and 
+Let $f:\mdr \rightarrow \mdr, f(x) = a \cdot x^2 + b \cdot x + c$ with $a \in \mdr \setminus \Set{0}$ and
 $b, c \in \mdr$ be a quadratic function.
 
 \begin{figure}[htp]
@@ -25,8 +25,8 @@ $b, c \in \mdr$ be a quadratic function.
         minor tick num=-3,
         enlargelimits=true,
         tension=0.08]
-      \addplot[domain=-3:3, thick,samples=50, red]    {0.5*x*x}; 
-      \addplot[domain=-3:3, thick,samples=50, green]  { x*x}; 
+      \addplot[domain=-3:3, thick,samples=50, red]    {0.5*x*x};
+      \addplot[domain=-3:3, thick,samples=50, green]  { x*x};
       \addplot[domain=-3:3, thick,samples=50, blue]   { x*x +   x};
       \addplot[domain=-3:3, thick,samples=50, orange,dotted] { x*x + 2*x};
       \addplot[domain=-3:3, thick,samples=50, black,dashed]  {-x*x + 6};
@@ -35,13 +35,13 @@ $b, c \in \mdr$ be a quadratic function.
       \addlegendentry{$f_3(x)=x^2+x$}
       \addlegendentry{$f_4(x)=x^2+2x$}
       \addlegendentry{$f_5(x)=-x^2+6$}
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
     \caption{Quadratic functions}
 \end{figure}
 
 \subsection{Calculate points with minimal distance}
-In this case, $d_{P,f}^2$ is polynomial of degree $n^2 = 4$. 
+In this case, $d_{P,f}^2$ is polynomial of degree $n^2 = 4$.
 We use Theorem~\ref{thm:fermats-theorem}:\nobreak
 \begin{align}
     0     &\overset{!}{=} (d_{P,f}^2)'\\
@@ -80,7 +80,7 @@ Example~\ref{ex:false-positive}.
 
 \subsection{Number of points with minimal distance}
 \begin{theorem}
-    A point $P$ has either one or two points on the graph of a 
+    A point $P$ has either one or two points on the graph of a
     quadratic function $f$ that are closest to $P$.
 \end{theorem}
 
@@ -93,8 +93,8 @@ minimal distance.
 
 In the following, I will do some transformations with $f = f_0$ and
 $P = P_0$. This will make it easier to calculate the minimal distance
-points. Moving $f_0$ and $P_0$ simultaneously in $x$ or $y$ direction does 
-not change the minimum distance. Furthermore, we can find the 
+points. Moving $f_0$ and $P_0$ simultaneously in $x$ or $y$ direction does
+not change the minimum distance. Furthermore, we can find the
 points with minimum distance on the moved situation and calculate
 the minimum points in the original situation.
 
@@ -104,7 +104,7 @@ First of all, we move $f_0$ and $P_0$ by $\frac{b}{2a}$ in $x$ direction, so
 Because:\footnote{The idea why you subtract $\frac{b}{2a}$ within
 $f$ is that when you subtract something from $x$ before applying
 $f$ it takes more time ($x$ needs to be bigger) to get to the same
-situation. In consequence, if we want to move the whole graph by 1 
+situation. In consequence, if we want to move the whole graph by 1
 to the left, we have to add $+1$.}
 \begin{align}
     f(x-\nicefrac{b}{2a}) &= a (x-\nicefrac{b}{2a})^2 + b (x-\nicefrac{b}{2a}) + c\\
@@ -117,7 +117,7 @@ to the left, we have to add $+1$.}
 Then move $f_1$ and $P_1$ by $\frac{b^2}{4a}-c$ in $y$ direction. You get:
 \[f_2(x) = ax^2\;\;\;\text{ and }\;\;\; P_2 = \Big (\underbrace{x_P+\frac{b}{2a}}_{=: z},\;\; \underbrace{y_P+\frac{b^2}{4a}-c}_{=: w} \Big )\]
 
-As $f_2(x) = ax^2$ is symmetric to the $y$ axis, only points 
+As $f_2(x) = ax^2$ is symmetric to the $y$ axis, only points
 $P = (0, w)$ could possilby have three minima.
 
 Then compute:
@@ -132,7 +132,7 @@ Then compute:
 
 This means, the term
 \[a^2 x^2 + (\nicefrac{1}{2a}- w)\]
-has to get as close to $0$ as possilbe when we want to minimize 
+has to get as close to $0$ as possilbe when we want to minimize
 $d_{P,{f_2}}$. For $w \leq \nicefrac{1}{2a}$ you only have $x = 0$ as a minimum.
 For all other points $P = (0, w)$, there are exactly two minima $x_{1,2} = \pm \sqrt{\frac{\frac{1}{2a} - w}{a}}$.
 $\qed$
@@ -176,7 +176,7 @@ I will make use of the following identities:
     (a-b)^3              &= a^3-3 a^2 b+3 a b^2-b^3
 \end{align*}
 
-\textbf{Case 2.1:} 
+\textbf{Case 2.1:}
 \input{quadratic-case-2.1}
 \goodbreak
 \textbf{Case 2.2:}
@@ -211,12 +211,12 @@ If one of the minima in $S_2(P,f)$ is in $[a,b]$, this will be the
 shortest distance as there are no shorter distances.
 
 \todo[inline]{
-The following IS WRONG! Can I include it to help the reader understand the 
+The following IS WRONG! Can I include it to help the reader understand the
 problem?}
 
 If the function (defined on $\mdr$) has only one shortest distance
 point $x$ for the given $P$, it's also easy: The point in $[a,b]$ that
-is closest to $x$ will have the sortest distance. 
+is closest to $x$ will have the sortest distance.
 
 \[\underset{x\in[a,b]}{\arg \min d_{P,f}(x)} = \begin{cases}
  S_2(f, P) \cap [a,b] &\text{if } S_2(f, P) \cap [a,b] \neq \emptyset \\

@@ -3,7 +3,7 @@
 In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
 \begin{definition}
     \index{Ring}
-    Sei \(\emptyset\neq \fr \subseteq \cp(X)\). 
+    Sei \(\emptyset\neq \fr \subseteq \cp(X)\).
     $\fr$ heißt ein \textbf{Ring} auf \(X\), genau dann wenn gilt:
     \begin{enumerate}
         \item[(R1)] \(\emptyset \in \fr\)
@@ -12,7 +12,7 @@ In diesem Kapitel sei \(X\) eine Menge, \(X\neq\emptyset\).
 \end{definition}
 
 \textbf{Hinweis}: $(\fr, \cup, \setminus)$ ist kein Ring im Sinne
-der linearen Algebra, $(\fr, \cup)$ kein Inverses Element hat und 
+der linearen Algebra, $(\fr, \cup)$ kein Inverses Element hat und
 $(\fr, \cup)$ nicht kommutativ ist.
 
 \begin{definition}
@@ -21,7 +21,7 @@ $(\fr, \cup)$ nicht kommutativ ist.
     Sei \(d\in\MdN\).
     \begin{enumerate}
         \item \(\ci_d :=\Set{(a,b] | a,b \in \MdR^{d}, \, a \leq b} (\emptyset \in \ci_d)\).
-              Seien \(a=(a_{1},\dots,a_{d}),\,b=(b_{1},\dots,b_{d})\in\MdR^d\) 
+              Seien \(a=(a_{1},\dots,a_{d}),\,b=(b_{1},\dots,b_{d})\in\MdR^d\)
               und \(I:=(a,b] \in \ci_{d}\)
               \[
               \lambda_{d}(I)= \begin{cases}
@@ -31,7 +31,7 @@ $(\fr, \cup)$ nicht kommutativ ist.
         \item \(\cf_d:=\Set{\bigcup_{j=1}^{n}I_{j} | n\in\MdN,\,I_{1},\dots,I_{n}\in \ci_d}\) (\textbf{Menge der Figuren})
     \end{enumerate}
 \end{definition}
-Ziel dieses Kapitels: Fortsetzung von \(\lambda_{d}\) auf \(\cf_{d}\) 
+Ziel dieses Kapitels: Fortsetzung von \(\lambda_{d}\) auf \(\cf_{d}\)
 und dann auf \(\fb_d\) (\(\leadsto\) Lebesgue-Maß)
 
 Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}=\sigma(\ci_{d})=\sigma(\cf_{d})\)
@@ -40,7 +40,7 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
     Seien \(I,I'\in\ci_{d}\) und \(A\in\cf_{d}\). Dann:
     \begin{enumerate}
         \item \(I\cap I'\in\ci_{d}\)
-        \item \(I\setminus I'\in\cf_{d}.\) 
+        \item \(I\setminus I'\in\cf_{d}.\)
               Genauer: \(\exists\left\{I_{1}',\dots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt:
               \(I\setminus I'=\bigcup_{j=1}^{l}{I_{j}'}\) % \bigcupdot
         \item \(\exists\left\{I_{1}',\dots,I_{l}'\right\}\subseteq\ci_{d}\) disjunkt: \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
@@ -67,7 +67,7 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
                         \(I=I_{1}\times I_{2},\,I'=I_{1}'\times I_{2}'\)
                         % Graphik einfuegen!
 
-                        Nachrechnen: 
+                        Nachrechnen:
                         \[
                         I\setminus I'=(I_{1}\setminus I_{1}')\times I_{2}\dot \cup(I_{1}\cap I_{1}')\times(I_{2}\setminus I_{2}')
                         \]
@@ -76,11 +76,11 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
                         Daraus folgt die Behauptung für \(d+1\)
           \end{itemize}
     \item \begin{itemize}
-            \item[\underline{Vor.:}] Sei $n \in \mdn$ und 
-                \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit 
-                \(I_{1},\dots,I_{d}\in\ci_{d}\) 
+            \item[\underline{Vor.:}] Sei $n \in \mdn$ und
+                \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit
+                \(I_{1},\dots,I_{d}\in\ci_{d}\)
             \item[\underline{Beh.:}] Es existiert
-                \(\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt: 
+                \(\{I_{1}',\dots,I_{l}'\}\subseteq\ci_{d}\) disjunkt:
                 \(A=\bigcup_{j=1}^{l}{I_{j}'}\)
           \item[\underline{Bew.:}] mit Induktion nach $n$:
           \begin{itemize}
@@ -93,7 +93,7 @@ Beachte: \(\ci_{d}\subseteq\cf_{d}\subseteq\fb_{d}\overset{1.4}{\implies}\fb_{d}
 
                         Dann: \(A=I_{n+1}\cup\bigcup_{j=1}^{l}{I_{j}'}=I_{n+1}\cup\bigcup_{j=1}^{l}{(I_{j}'\setminus I_{n+1})}\) % \cupdot
 
-                        Wende (2) auf jedes \(I_{j}'\setminus I_{n+1}\) an \((j=1,\dots,l)\): 
+                        Wende (2) auf jedes \(I_{j}'\setminus I_{n+1}\) an \((j=1,\dots,l)\):
                         \(I_{j}'\setminus I_{n+1}=\bigcup_{j=1}^{l_{j}}{I_{j}''}\quad(I_{j}''\in\ci_{d})\)
 
                         Damit folgt:
@@ -124,14 +124,14 @@ ohne Beweis:
 \begin{lemma}[Unabhängigkeit von der Darstellung]
     \label{Lemma 2.2}
     Sei \(A\in\cf_{d}\) und \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\) disjunkt und
-    \(\{I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\) disjunkt mit 
+    \(\{I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\) disjunkt mit
     \(\bigcup_{j=1}^{n}{I_{j}}=A=\bigcup_{j=1}^{m}{I_{j}'}\). Dann:
     \[
     \sum_{j=1}^{n}{\lambda_{d}(I_{j})}=\sum_{j=1}^{m}{\lambda_{d}(I_{j}')}
     \]
 \end{lemma}
 \begin{definition}
-    Sei \(A\in\cf_{d}\) und \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit 
+    Sei \(A\in\cf_{d}\) und \(A=\bigcup_{j=1}^{n}{I_{j}}\) mit
     \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\)
     disjunkt (beachte Lemma \ref{Lemma 2.1}, Punkt 3).
     \[
@@ -147,23 +147,23 @@ ohne Beweis:
         \item \(A\cap B=\emptyset\implies\lambda_{d}(A\cup B)=\lambda_{d}(A)+\lambda_{d}(B)\)
         \item \(A\subseteq B\implies\lambda_{d}(A)\leq\lambda_{d}(B)\)
         \item \(\lambda_{d}(A\cup B)\leq\lambda_{d}(A)+\lambda_{d}(B)\)
-        \item Sei \(\delta>0\). Es existiert \(C\in\cf_{d}:\overline{C}\subseteq B\) 
+        \item Sei \(\delta>0\). Es existiert \(C\in\cf_{d}:\overline{C}\subseteq B\)
               und \(\lambda_{d}(B\setminus C)\leq\delta\).
-        \item Ist \(B_{n+1}\subseteq B_{n}\forall n\in\mdn\) und 
-              \(\bigcap B_{n}=\emptyset\), so gilt: 
+        \item Ist \(B_{n+1}\subseteq B_{n}\forall n\in\mdn\) und
+              \(\bigcap B_{n}=\emptyset\), so gilt:
               \(\lambda_{d}(B_{n})\to 0\,(n\to \infty)\)
     \end{enumerate}
 \end{satz}
 
 \begin{beweis}
 \begin{enumerate}
-\item Aus Lemma \ref{Lemma 2.1} folgt: Es existiert 
+\item Aus Lemma \ref{Lemma 2.1} folgt: Es existiert
 \(\{I_{1},\dots,I_{n}\}\subseteq\ci_{d}\)
 disjunkt und es existiert \(\{I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\) disjunkt:
 \(A=\bigcup_{j=1}^{n}{I_{j}},\,B=\bigcup_{j=1}^{m}{I_{j}'}\).
 
-\(J:=\{I_{1},\dots,I_{n},I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\). Aus 
-\(A\cap B=\emptyset\) folgt: \(J\) ist disjunkt. Dann: 
+\(J:=\{I_{1},\dots,I_{n},I_{1}',\dots,I_{m}'\}\subseteq\ci_{d}\). Aus
+\(A\cap B=\emptyset\) folgt: \(J\) ist disjunkt. Dann:
 \(A\cup B=\bigcup_{I\in J}{I}\)	% Hier auch wieder: \bigcupdot
 
 Also:
@@ -187,7 +187,7 @@ Dann:
 Aus der Definition von Kompaktheit (Analysis II, \S 2) folgt:
 \(\exists m\in\mdn:\,\bigcup_{j=1}^{m}{\overline{C}_{j}^{c}}\supseteq\overline{B}_{1}\)
 Dann: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\overline{B}_{1}^{c}\).
-Andererseits: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\bigcap_{j=1}^{m}{B_{j}}\subseteq B_{1}\subseteq\overline{B}_{1}\). 
+Andererseits: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}\subseteq\bigcap_{j=1}^{m}{B_{j}}\subseteq B_{1}\subseteq\overline{B}_{1}\).
 
 Also: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}=\emptyset\). Das heißt:
 \(\bigcap_{j=1}^{n}{\overline{C}_{j}}=\emptyset \quad \forall n\geq m\)
@@ -198,7 +198,7 @@ Also: \(\bigcap_{j=1}^{m}{\overline{C}_{j}}=\emptyset\). Das heißt:
 \begin{beweis} (induktiv)
 \begin{itemize}
 \item[I.A.] \(\lambda_{d}(B_{1}\setminus D_{1})=\lambda_{d}(B_{1}\setminus C_{1})\overset{\eqref{eq: Abschaetzung Mass -- Beweis Satz 2.3.(5)}}{\leq}\frac{\ep}{2}=\left(1-\frac{1}{2}\right)\ep\) \checkmark
-\item[I.V.] Sei \(n\in\mdn\) und es gelte 
+\item[I.V.] Sei \(n\in\mdn\) und es gelte
             $\lambda_{d}(B_{n}\setminus D_{n})\leq\left(1-\frac{1}{2^{n}}\right)\ep$
 \item[I.S.] \begin{align*}
     \lambda_{d}(B_{n+1}\setminus D_{n+1})&=\lambda_{d}\left((B_{n+1}\setminus D_{n})\cup(B_{n+1}\setminus C_{n+1})\right)\\
@@ -216,7 +216,7 @@ Für \(n\geq m:\,D_{n}=\emptyset\,\implies\,\lambda_{d}(B_{n})=\lambda_{d}(B_{n}
 
 \begin{definition}
 \index{Prämaß}
-Es sei \(\fr\) ein Ring auf \(X\). Eine Abbildung \(\mu:\fr\to[0,\infty]\) 
+Es sei \(\fr\) ein Ring auf \(X\). Eine Abbildung \(\mu:\fr\to[0,\infty]\)
 heißt ein \textbf{Prämaß} \ auf \(\fr\), wenn gilt:
 \begin{enumerate}
 \item \(\mu(\emptyset)=0\)
@@ -240,7 +240,7 @@ Für \(n\geq 2\):
 \[
 \lambda_{d}(A)=\lambda_{d}(A_{1}\cup\dots\cup A_{n-1}\cup B_{n})\overset{\ref{Satz 2.3}.(1)}{=}\sum_{j=1}^{n-1}{\lambda_{d}(A_{j})}+\lambda_{d}(B_{n})
 \]
-Daraus folgt: 
+Daraus folgt:
 \[
 \sum_{j=1}^{n-1}{\lambda_{d}(A_{j})}=\lambda_{d}(A)-\lambda_{d}(B_{n})\quad\forall n\geq 2
 \]
@@ -268,7 +268,7 @@ Sei \(\emptyset\neq\ce\subseteq\cp(X)\), es seien \(\nu,\,\mu\) Maße auf
 Es gelte:
 \begin{enumerate}
     \item \(E,F\in\ce\implies E\cap F\in\ce\quad\text{(durchschnittstabil)}\)
-    \item $\exists$ eine Folge \((E_{n})\) in \(\ce\): \(\bigcup{E_{n}}=X\) 
+    \item $\exists$ eine Folge \((E_{n})\) in \(\ce\): \(\bigcup{E_{n}}=X\)
           und \(\mu(E_{n})<\infty \quad \forall n\in\mdn\).
     \item \(\mu(E)=\nu(E) \quad \forall E\in\ce\)
 \end{enumerate}
@@ -286,18 +286,18 @@ und wird ebenfalls mit \(\lambda_{d}\) bezeichnet.
 \folgtnach{(\ref{Lemma 2.1}) und (\ref{Satz 2.4})}: \(\lambda_{d}\) ist ein
 Prämaß\ auf \(\fr:=\cf_{d}\); es ist \(\sigma(\fr)=\fb_{d}\).
 
-\folgtnach{\ref{Satz 2.5}}: \(\lambda_{d}\) kann zu einem Maß auf 
-\(\sigma(\cf_{d}) = \fb_{d}\) fortgesetzt werden. Für diese 
+\folgtnach{\ref{Satz 2.5}}: \(\lambda_{d}\) kann zu einem Maß auf
+\(\sigma(\cf_{d}) = \fb_{d}\) fortgesetzt werden. Für diese
 Fortsetzung schreiben wir wieder $\lambda_d$, also
 $\lambda_d: \fb_{d} \rightarrow [0, +\infty]$
 
-Sei \(\nu\) ein weiteres Maß\ auf \(\fb_{d}\) mit: 
+Sei \(\nu\) ein weiteres Maß\ auf \(\fb_{d}\) mit:
 \(\nu(A)=\lambda_{d}(A)\,\forall A\in\cf_{d}\). \(\ce:=\ci_{d}\). Dann:
 \(\sigma(\ce)\overset{\ref{Satz 1.4}}{=}\fb_{d}\).
 \begin{enumerate}
     \item \(E,F\in\ce\overset{\ref{Lemma 2.1}}{\implies}E\cap F\in\ce\)
     \item \(E_{n}:=(-n,n]^{d}\)
-          Klar: 
+          Klar:
           \begin{align*}
             \bigcup E_{n}&=\mdr^{d}\\
             \lambda_{d}(E_{n})&=(2n)^{d}<\infty
@@ -426,9 +426,9 @@ Also auch:
 \end{beweis}
 
 \textbf{Auswahlaxiom:}\\
-Sei $\emptyset\ne\Omega$ Indexmenge, es sei $\Set{X_\omega | \omega\in\Omega}$ 
-ein disjunktes System von nichtleeren Mengen $X_\omega$. Dann 
-existiert ein $C\subseteq\bigcup_{\omega\in\Omega}X_\omega$, sodass 
+Sei $\emptyset\ne\Omega$ Indexmenge, es sei $\Set{X_\omega | \omega\in\Omega}$
+ein disjunktes System von nichtleeren Mengen $X_\omega$. Dann
+existiert ein $C\subseteq\bigcup_{\omega\in\Omega}X_\omega$, sodass
 $C$ mit jedem $X_j$ genau ein Element gemeinsam hat.
 
 \begin{satz}[Satz von Vitali]
@@ -450,7 +450,7 @@ Es ist $\mdq^d\cap[-1,1]^d=\{q_1,q_2,\dots\}$ mit $q_i\ne q_j$ für $(i\ne j)$. 
 \end{align*}
 \begin{beweis}
 Sei $x\in[0,1]^d$. Wähle $y\in C$ mit $y\in[x]$, dann ist $x\sim y$, also $x-y\in\mdq^d\cap[-1,1]^d$. D.h.:
-\[\exists n\in\mdn: x-y=q_n\implies x=q_n+y\in q_n+C\] 
+\[\exists n\in\mdn: x-y=q_n\implies x=q_n+y\in q_n+C\]
 \end{beweis}
 Außerdem ist $\Set{q_n+C | n\in\mdn}$ disjunkt.
 \begin{beweis}

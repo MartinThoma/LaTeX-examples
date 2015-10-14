@@ -11,11 +11,11 @@
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Lineare Algebra}, 
-  pdftitle    = {Lineare Algebra} 
-} 
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {Lineare Algebra},
+  pdftitle    = {Lineare Algebra}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom definition style, by                                       %
@@ -51,22 +51,22 @@
 \definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
 \definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
 
-\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{%
   % Optional continuation label defaults to the first label plus
   \def\Frame@Lab{#2}%
   \def\FrameCommand{\LabFrame{#2}}%
   \def\FirstFrameCommand{\LabFrame{#2}}%
   \def\MidFrameCommand{\LabFrame{#1}}%
   \def\LastFrameCommand{\LabFrame{#1}}%
-  \MakeFramed{\advance\hsize-\width \FrameRestore} 
-}{\endMakeFramed} 
+  \MakeFramed{\advance\hsize-\width \FrameRestore}
+}{\endMakeFramed}
 \newcounter{definition}
 \newenvironment{definition}[1]{%
   \par
   \refstepcounter{definition}%
   \begin{contlabelframe}{Definition \thedefinition:\quad #1}
  \noindent\ignorespaces}
-{\end{contlabelframe}} 
+{\end{contlabelframe}}
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin document                                                    %

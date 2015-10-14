@@ -86,7 +86,7 @@
 \subsection{Nachbesprechung ÜB 2}
 \begin{frame}{Allgmeines}
     \begin{block}{Musterlösung}
-        Inoffizielle Musterlösung von Simon und mir ist unter 
+        Inoffizielle Musterlösung von Simon und mir ist unter
         \href{http://goo.gl/BfA6i}{http://goo.gl/BfA6i} erhältlich.\\
         Bitte dort anschauen.
     \end{block}
@@ -114,19 +114,19 @@
 \begin{frame}{Allgemeines}
     \begin{block}{Genau lesen}
       \begin{itemize}[<+->]
-        \item \textbf{A.1.1 Konstruktor von Bike}: "`Modifizieren Sie 
-              den Konstruktor der Klasse Bike, indem Sie aus der 
-              Signatur das Argument, nach dem bisher der Preis 
+        \item \textbf{A.1.1 Konstruktor von Bike}: "`Modifizieren Sie
+              den Konstruktor der Klasse Bike, indem Sie aus der
+              Signatur das Argument, nach dem bisher der Preis
               gesetzt wird, entfernen."'
-        \item \textbf{A.1.2 Setter für Gears} "`Schreiben Sie den 
-              Konstruktor so um,  dass er die Methode setSprockets 
-              benutzt, um einen  konsistenten Anfangszustand zu 
+        \item \textbf{A.1.2 Setter für Gears} "`Schreiben Sie den
+              Konstruktor so um,  dass er die Methode setSprockets
+              benutzt, um einen  konsistenten Anfangszustand zu
               garantieren."'
-        \item \textbf{A.2.1 Tribonacci-Folge}: "`Geben Sie \textbf{nur} die 
-              siebenunddreißigste Tribonacci-Zahl auf der Konsole 
+        \item \textbf{A.2.1 Tribonacci-Folge}: "`Geben Sie \textbf{nur} die
+              siebenunddreißigste Tribonacci-Zahl auf der Konsole
               aus."'
         \item[$\Rightarrow$] Es werden automatische Tests durchgeführt.
-              Stimmt die Ausgabe nicht exakt - also jedes einzelne 
+              Stimmt die Ausgabe nicht exakt - also jedes einzelne
               (Leer)zeichen -, schlägt der Test fehl.
       \end{itemize}
     \end{block}
@@ -162,7 +162,7 @@
     Nicht jede Zahl kann als Gleitkomma-Zahl dargestellt werden:
     \includegraphics[height=50mm]{Gleitkommazahlen.png}\\
     \tiny{Quelle: \href{http://de.wikipedia.org/wiki/Datei:Gleitkommazahlen.svg}{de.wikipedia.org/wiki/Datei:Gleitkommazahlen.svg}}\\
-    
+
 
 \end{frame}
 
@@ -185,10 +185,10 @@
   \begin{itemize}[<+->]
     \item Es gibt für jede Teilaufgabe ein Punktekontingent
     \item Bearbeitet ihr eine Teilaufgabe nicht, ziehe ich alle Punkte ab
-    \item Bearbeitet ihr einen Teil einer Teilaufgabe nicht, ziehe 
-          ich mindestens so viele Punkte ab, wie derjenige mit dem 
+    \item Bearbeitet ihr einen Teil einer Teilaufgabe nicht, ziehe
+          ich mindestens so viele Punkte ab, wie derjenige mit dem
           höchstem Abzug abgezogen bekommen hat
-    \item Wenn der Code nicht das tut, was gefordert wird, kann ich 
+    \item Wenn der Code nicht das tut, was gefordert wird, kann ich
           auch alles abziehen
     \item[$\Rightarrow$] Nein, es bringt keinen Vorteil
   \end{itemize}
@@ -219,7 +219,7 @@
         \begin{itemize}
             \item Pakete werden klein geschrieben
             \item Pakete können "`Unterpakete"' haben. Dies wird durch
-                  einen Punkt angedeutet: 
+                  einen Punkt angedeutet:
               \begin{itemize}
                 \item \href{http://docs.oracle.com/javase/7/docs/api/overview-summary.html}{Offizielle Pakete}:
                 \item \href{http://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html}{java.io}
@@ -237,7 +237,7 @@
         \myCode{public}     & \cmark & \cmark & \cmark & \cmark \\
         \myCode{protected}  & \cmark & \cmark & \cmark & \xmark \\
         no modifier         & \cmark & \cmark & \xmark & \xmark \\
-        \myCode{private}    & \cmark & \xmark & \xmark & \xmark 
+        \myCode{private}    & \cmark & \xmark & \xmark & \xmark
     \end{tabular}
 
     \small{Weitere Informationen: \href{http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html}{Controlling Access to Members of a Class}}
@@ -245,7 +245,7 @@
     \begin{block}{Tipp}
         \myCode{private} macht fast immer Sinn. Wenn ihr nicht wisst,
         ob ihr \myCode{private} oder \myCode{protected} nehmen sollt,
-        nehmt protected. Kein modifier macht selten Sinn. Das sieht 
+        nehmt protected. Kein modifier macht selten Sinn. Das sieht
         so aus, als ob ihr es dem Zufall überlasst.
     \end{block}
 \end{frame}
@@ -255,14 +255,14 @@
     Foreach \dots
     \begin{itemize}[<+->]
         \item wird in Java-Kreisen manchmal auch "`Enhanced for loop"' genannt
-        \item geht alle Elemente einer 
-              \href{http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html}{Collection} 
+        \item geht alle Elemente einer
+              \href{http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html}{Collection}
               durch zu gehen (genauer: \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html}{Iterable})
         \item sollte verwendet werden, wenn man es verwenden kann
         \item ist auch in der \href{http://docs.oracle.com/javase/1.5.0/docs/guide/language/foreach.html}{Dokumentation} (Nur in 1.5?)
               und im \href{http://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html}{Tutorial}
         \item ist in der \href{http://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html\#jls-14.14.2}{JLS SE7} spezifiziert
-        \item ist Teil des \href{http://docs.oracle.com/javase/tutorial/extra/certification/javase-7-programmer1.html}{Programmer Level I Exams} 
+        \item ist Teil des \href{http://docs.oracle.com/javase/tutorial/extra/certification/javase-7-programmer1.html}{Programmer Level I Exams}
               für das "`Programmer Language Certification"'
     \end{itemize}
 \end{frame}
@@ -302,7 +302,7 @@
     \end{itemize}
     \begin{alertblock}{Achtung!}
       Der Algorithmus muss modifiziert werden. Durch die Modifikationen entspricht
-      der Algorithmus nicht mehr den Varianten, die sich im Internet finden lassen. 
+      der Algorithmus nicht mehr den Varianten, die sich im Internet finden lassen.
       Ohne diese Modifikationen kann ich euch keine Punkte geben!
     \end{alertblock}
   \end{itemize}

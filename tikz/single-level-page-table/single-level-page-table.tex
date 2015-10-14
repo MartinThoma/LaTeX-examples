@@ -15,8 +15,8 @@
     \newcommand{\PageTable}{Seitentabelle};
     \newcommand{\textBoxHeight}{1};
 
-    \node[rectangle split, rectangle split horizontal, 
-          rectangle split parts=2, draw, fill=black!20,label=left:\textbf{\VirtualAdress}] 
+    \node[rectangle split, rectangle split horizontal,
+          rectangle split parts=2, draw, fill=black!20,label=left:\textbf{\VirtualAdress}]
          (VirtualAdressNode) at (5,0)
          {\nodepart{one}\PageNumber \nodepart{two}\Offset};
 
@@ -27,12 +27,12 @@
     \node[fill=white,font=\tiny,yshift=\titleShift] at ($(VirtualAdressNode.one west)!0.5!(VirtualAdressNode.one split)$) {n bit};
     \node[fill=white,font=\tiny,yshift=\titleShift] at ($(VirtualAdressNode.one split)!0.5!(VirtualAdressNode.one east)$) {m bit};
 
-    \node[rectangle split, 
-          rectangle split parts=10, draw, fill=black!20] 
+    \node[rectangle split,
+          rectangle split parts=10, draw, fill=black!20]
          (PageTableNode1) at (2,-3)
          {};
     \node[rectangle split, minimum width=3cm,anchor=west,
-          rectangle split parts=10, draw, fill=black!20,label=above:\textbf{\PageTable}] 
+          rectangle split parts=10, draw, fill=black!20,label=above:\textbf{\PageTable}]
          (PageTableNode2) at (2.2,-3)
          {};
 
@@ -41,8 +41,8 @@
     \draw[->,very thick] (StatusBitsNode)   -- (2, -5);
     \draw[->,very thick] (BasisadresseNode) -- (4, -5);
 
-    \node[rectangle split, rectangle split horizontal, 
-          rectangle split parts=2, draw, fill=black!20,label=left:\textbf{\RealAdress}] 
+    \node[rectangle split, rectangle split horizontal,
+          rectangle split parts=2, draw, fill=black!20,label=left:\textbf{\RealAdress}]
          (RealAdressNode) at (5,-6.4)
          {\nodepart{one}Basisadresse der realen Seite \nodepart{two}\Offset};
 

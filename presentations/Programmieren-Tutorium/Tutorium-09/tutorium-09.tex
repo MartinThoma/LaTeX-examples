@@ -65,7 +65,7 @@
         \item Eine Unterklasse kann alles, was die Oberklasse kann
         \item[$\rightarrow$] sie hat die gleichen Methoden, wenn auch eventuell überschrieben
         \item Eventuell ist uns die konkrete Klasse egal
-        \item oder wir benötigen einen Kontainter für viele verschiedene 
+        \item oder wir benötigen einen Kontainter für viele verschiedene
               Objekte mit einer gemeinsamen Oberklasse
     \end{itemize}
 
@@ -101,7 +101,7 @@
     \begin{itemize}
         \item Problem: Man schreibt genau eine verkettete Listen-Klasse
               für genau eine Klasse (z.B. "`Bike"'), obwohl
-              die Logik (hinzufügen, entfernen, suchen) von der 
+              die Logik (hinzufügen, entfernen, suchen) von der
               Klasse unabhängig ist
         \item Lösung: Generics
     \end{itemize}
@@ -119,14 +119,14 @@
 \subsection{Praxis}
 \begin{frame}{Praxis}
     \begin{block}{Arbeitsauftrag}
-        Programmiert die Einfach-verkettete Liste um, sodass sie 
+        Programmiert die Einfach-verkettete Liste um, sodass sie
         nirgends mehr "`Bike"' sondern nur noch Generics verwendet.
     \end{block}{Arbeitsauftrag}
 
     \begin{exampleblock}{Hinweis}
         \begin{itemize}
           \item URL für die Bike-Version: \href{http://goo.gl/RoiBC}{http://goo.gl/RoiBC}
-          \item Wer nur Zettel und Papier hat, implementiert die "`Node.java"' 
+          \item Wer nur Zettel und Papier hat, implementiert die "`Node.java"'
                 komplett neu und "`SinglyLinkedList.java"' mindestens mit "`add()"'
         \end{itemize}
     \end{exampleblock}
@@ -173,7 +173,7 @@
 
         Welche Bedeutung für die Laufzeit haben Generics?
     \end{block}
-    
+
     \begin{overprint}
     \onslide<1>
     \begin{itemize}
@@ -182,7 +182,7 @@
               Gründe warum der kompilierte Code mit Generics
               \textbf{schneller} läuft als ohne
         \item Generics haben \textbf{keinen Einfluss} auf die Laufzeit
-        \item Die erhöhte Flexibilität und Typsicherheit bedeutet, 
+        \item Die erhöhte Flexibilität und Typsicherheit bedeutet,
               dass der Compiler für jeden konkreten Typen Code aus
               dem generischen Code erstellen mus. Das bedeutet,
               die Programme sind \textbf{etwas langsamer}
@@ -218,9 +218,9 @@
         \begin{itemize}
             \item Zeile 2 ist ok
             \item Zeile 3 verursacht einen Laufzeitfehler
-            \item Der Rückgabewert der Methode \myCode{getElement} 
-                 in \myCode{Basket<Fruit>} ist \myCode{Fruit}. 
-                 Man kann eine \myCode{Fruit}-Variable 
+            \item Der Rückgabewert der Methode \myCode{getElement}
+                 in \myCode{Basket<Fruit>} ist \myCode{Fruit}.
+                 Man kann eine \myCode{Fruit}-Variable
                  keiner \myCode{Apple}-Variable ohne cast zuweisen.
         \end{itemize}
     \end{overprint}

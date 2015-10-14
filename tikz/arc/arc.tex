@@ -2,7 +2,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes, calc, decorations} 
+\usetikzlibrary{shapes, calc, decorations}
 \usepackage{amsmath,amssymb}
 
 \begin{document}
@@ -14,13 +14,13 @@
     \draw[fill=gray!2] (0,0) circle (\R);
 
     % draw the background
-    \draw [line width=0.1pt, fill=gray!10] 
-        (0,0) -- 
-        (170: \R) -- 
+    \draw [line width=0.1pt, fill=gray!10]
+        (0,0) --
+        (170: \R) --
         (45:\R) -- cycle;
 
     \begin{scope}[color=green]
-        \draw[fill=green!15] (0,0) -- 
+        \draw[fill=green!15] (0,0) --
                         (170:{\R*0.3}) arc (170:45:{{(\R)*0.3}});
     \end{scope}
 

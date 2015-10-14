@@ -2,8 +2,8 @@
 \chapter{Parallelität}
 \index{Parallelität|(}
 Systeme mit mehreren Prozessoren sind heutzutage weit verbreitet. Inzwischen
-sind sowohl in Desktop-PCs als auch Laptops, Tablets und Smartphones 
-\enquote{Multicore-CPUs} verbaut. Daher sollten auch Programmierer in der Lage 
+sind sowohl in Desktop-PCs als auch Laptops, Tablets und Smartphones
+\enquote{Multicore-CPUs} verbaut. Daher sollten auch Programmierer in der Lage
 sein, Programme für mehrere Kerne zu entwickeln.
 
 Parallelverarbeitung kann auf mehreren Ebenen statt finden:
@@ -37,14 +37,14 @@ vermittelt.
 \section{Architekturen}
 Es gibt zwei Ansätze, wie man Parallelrechner entwickeln kann:
 \begin{itemize}
-    \item \textbf{Gemeinsamer Speicher}: In diesem Fall kann jeder Prozessor 
+    \item \textbf{Gemeinsamer Speicher}: In diesem Fall kann jeder Prozessor
           jede Speicherzelle ansprechen. Dies ist bei Multicore-CPUs der Fall.
     \item \textbf{Verteilter Speicher}: Es ist auch möglich, dass jeder Prozessor
           seinen eigenen Speicher hat, der nur ihm zugänglich ist. In diesem Fall
           schicken die Prozessoren Nachrichten (engl. \textit{message passing}\xindex{message passing}). Diese Technik wird in Clustern eingesetzt.
 \end{itemize}
 
-Eine weitere Art, wie man Parallelverarbeitung klassifizieren kann, ist anhand 
+Eine weitere Art, wie man Parallelverarbeitung klassifizieren kann, ist anhand
 der verwendeten Architektur. Der der üblichen, sequentiellen Art der Programmierung,
 bei der jeder Befehl nach einander ausgeführt wird, liegt die sog.
 \textbf{Von-Neumann-Architektur}\xindex{Von-Neumann-Architektur} zugrunde.
@@ -91,7 +91,7 @@ MISD ist nicht so richtig sinnvoll.
         \item ausschließlich Probleme aus $\mathcal{P}$, also: $\mathcal{NC} \subseteq \mathcal{P}$
     \end{bspenum}
 
-    Es ist nicht klar, ob $\mathcal{P} \subseteq \mathcal{NC}$ gilt. Bisher 
+    Es ist nicht klar, ob $\mathcal{P} \subseteq \mathcal{NC}$ gilt. Bisher
     wurde also noch kein Problem $P \in \mathcal{P}$ gefunden mit $P \notin \mathcal{NC}$.
 \end{beispiel}
 
@@ -126,7 +126,7 @@ Die Prozesskommunikation wird durch einige Probleme erschwert:
 \end{beispiel}
 
 \begin{definition}[Semaphore]\xindex{Semaphore}%
-    Eine Semaphore $S=(c, r, f, L)$ ist eine Datenstruktur, die aus einer Ganzzahl, den beiden 
+    Eine Semaphore $S=(c, r, f, L)$ ist eine Datenstruktur, die aus einer Ganzzahl, den beiden
     atomaren Operationen $r$ = \enquote{reservieren probieren} und $f$ = \enquote{freigeben}
     sowie einer Liste $L$ besteht.
 
@@ -142,12 +142,12 @@ Die Prozesskommunikation wird durch einige Probleme erschwert:
 Semaphoren können eingesetzt werden um Wettlaufsituationen zu verhindern.
 
 \begin{definition}[Monitor]\xindex{Monitor}%
-    Ein Monitor $M = (m, c)$ ist ein Tupel, wobei $m$ ein Mutex und $c$ eine 
+    Ein Monitor $M = (m, c)$ ist ein Tupel, wobei $m$ ein Mutex und $c$ eine
     Bedingung ist.
 \end{definition}
 
-Monitore können mit einer Semaphore, bei der $c=1$ ist, implementiert werden. 
-Monitore sorgen dafür, dass auf die Methoden der Objekte, die sie repräsentieren, 
+Monitore können mit einer Semaphore, bei der $c=1$ ist, implementiert werden.
+Monitore sorgen dafür, dass auf die Methoden der Objekte, die sie repräsentieren,
 zu jedem Zeitpunkt nur ein mal ausgeführt werden können. Sie sorgen also für
 \textit{gegenseitigen Ausschluss}.
 
@@ -191,7 +191,7 @@ Interessante Stichwörder sind noch:
 \end{itemize}
 
 \section{Message Passing Modell}
-Das Message Passing Modell ist eine Art, wie man parallel laufende Programme 
+Das Message Passing Modell ist eine Art, wie man parallel laufende Programme
 schreiben kann. Dabei tauschen die Prozesse Nachrichten aus um die Arbeit zu
 verteilen.
 

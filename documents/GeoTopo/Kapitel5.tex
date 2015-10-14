@@ -12,16 +12,16 @@
 \section{Krümmung von Kurven}\label{sec:Kurvenkrümmung}
 \begin{definition}%In Vorlesung: Def.+Bem. 16.1
     Sei $\gamma: I = [a, b] \rightarrow \mdr^n$ eine Kurve.
-    
+
     \begin{defenum}
-        \item Die Kurve $\gamma$ heißt 
+        \item Die Kurve $\gamma$ heißt
               \textbf{durch Bogenlänge parametrisiert}\xindex{parametrisiert!durch Bogenlänge},
               wenn gilt:
               \[\|\gamma'(t)\|_2 = 1 \;\;\; \forall t \in I\]
               Dabei ist $\gamma'(t) = \left (\gamma_1'(t), \gamma_2'(t), \dots, \gamma_n'(t) \right)$.
         \item $l(\gamma) = \int_a^b \|\gamma'(t)\| \mathrm{d} t$ heißt
               \textbf{Länge von $\gamma$}\xindex{Kurve!Länge einer}.
-    \end{defenum}    
+    \end{defenum}
 \end{definition}
 
 \begin{bemerkung}[Eigenschaften von Kurven I]%In Vorlesung: Def.+Bem. 16.1
@@ -29,7 +29,7 @@
 
     \begin{bemenum}
         \item Ist $\gamma$ durch Bogenlänge parametrisiert, so ist $l(\gamma) = b-a$.
-        \item \label{bem:16.1d} Ist $\gamma$ durch Bogenlänge parametrisiert, so ist 
+        \item \label{bem:16.1d} Ist $\gamma$ durch Bogenlänge parametrisiert, so ist
               $\gamma'(t)$ orthogonal zu $\gamma''(t)$ für alle $t \in I$.
     \end{bemenum}
 \end{bemerkung}
@@ -85,8 +85,8 @@ Da $n(t)$ und $\gamma''(t)$ nach \cref{bem:16.1d} linear
     da gilt:
 
     \begin{align*}
-        \langle n(t), \gamma'(t) \rangle &= 
-        \left \langle 
+        \langle n(t), \gamma'(t) \rangle &=
+        \left \langle
             \begin{pmatrix}- \cos \frac{t}{r}\\ - \sin \frac{t}{r}\end{pmatrix},
             \begin{pmatrix}- \sin \frac{t}{r}\\ \cos \frac{t}{r}\end{pmatrix}
         \right \rangle\\
@@ -128,7 +128,7 @@ Da $n(t)$ und $\gamma''(t)$ nach \cref{bem:16.1d} linear
               Also gilt:
               \[\det(\gamma'(t), n(t), b(t)) = 1\]
               $b(t)$ heißt \textbf{Binormalenvektor}\xindex{Binormalenvektor},
-              die Orthonormalbasis 
+              die Orthonormalbasis
               \[\Set{\gamma'(t), n(t), b(t)}\]
               heißt \textbf{begleitendes Dreibein}\xindex{Dreibein!begleitendes}.
     \end{defenum}
@@ -185,16 +185,16 @@ für eine $C^\infty$-Funktion $f: \mdr^3 \rightarrow \mdr$.
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item \label{bew:tangentialebene.a} $J_F$ ist eine $3 \times 2$-Matrix, die mit einem $2 \times 1$-Vektor
-              multipliziert wird. Das ist eine lineare Abbildung und aus der 
+              multipliziert wird. Das ist eine lineare Abbildung und aus der
               linearen Algebra ist bekannt, das das Bild ein Vektorraum ist.
               Da $\rang(J_F) = 2$, ist auch $\dim (T_s S) = 2$.
         \item Hier kann man wie in \cref{bew:tangentialebene.a} argumentieren
-        \item $T_s S = \{x \in \mdr^3 | \exists \text{parametrisierte Kurve } 
-          \gamma:[- \varepsilon, + \varepsilon] \rightarrow S 
-          \text{ für ein } \varepsilon > 0 
+        \item $T_s S = \{x \in \mdr^3 | \exists \text{parametrisierte Kurve }
+          \gamma:[- \varepsilon, + \varepsilon] \rightarrow S
+          \text{ für ein } \varepsilon > 0
           \text{ mit } \gamma(0) = s \text{ und } \gamma'(0) = x
           \}$\\
-          Wenn jemand diesen Beweis führt, bitte an info@martin-thoma.de 
+          Wenn jemand diesen Beweis führt, bitte an info@martin-thoma.de
           schicken.%TODO
         \item Sei $x \in T_s S, \gamma:[-\varepsilon, +\varepsilon] \rightarrow S$
     eine parametrisierte Kurve mit $\varepsilon > 0$ und $\gamma'(0) = s$,
@@ -231,7 +231,7 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
               von $s$ und eine lokale Parametrisierung $F: U \rightarrow V$
               von $S$ um $s$, sodass auf $F(U) = V \cap S$
               ein stetiges Normalenfeld existiert.
-        \item $S$ ist genau dann orientierbar, wenn es einen 
+        \item $S$ ist genau dann orientierbar, wenn es einen
               differenzierbaren Atlas von $S$ aus lokalen Parametrisierungen
               $F_i: U_i \rightarrow V_i,\;i \in I$ gibt, sodass
               für alle $i, j \in F$ und alle $s \in V_i \cap V_j \cap S$
@@ -256,7 +256,7 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
 
 \begin{figure}[htp]\xindex{Möbiusband}
     \centering
-    \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/moebius-strip.pdf} 
+    \includegraphics[width=0.5\linewidth, keepaspectratio]{figures/moebius-strip.pdf}
     \caption{Möbiusband}
     \label{fig:moebius-strip}
 \end{figure}
@@ -266,7 +266,7 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
     Sei $S$ eine reguläre Fläche, $s \in S$, $n(s)$ ist ein Normalenvektor
     in $s$, $x \in T_s S$, $\|x\| = 1$.
 
-    Sei $E$ der von $x$ und $n(s)$ aufgespannte 2-dimensionale 
+    Sei $E$ der von $x$ und $n(s)$ aufgespannte 2-dimensionale
     Untervektorraum von $\mdr^3$.
 
     Dann gibt es eine Umgebung $V \subseteq \mdr^3$ von $s$, sodass
@@ -277,7 +277,7 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
 \end{bemerkung}
 
 \begin{beweis}
-    \enquote{Satz über implizite Funktionen}\footnote{Siehe z.~B. 
+    \enquote{Satz über implizite Funktionen}\footnote{Siehe z.~B.
     \url{https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Analysis\%20II}}
 \end{beweis}
 
@@ -362,18 +362,18 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
 \end{beweis}
 
 \begin{bemerkung}%In Vorlesung: Bem.+Def. 18.6
-    Sei $S$ eine reguläre Fläche und $n=n(s)$ ein Normalenvektor an 
+    Sei $S$ eine reguläre Fläche und $n=n(s)$ ein Normalenvektor an
     $S$ in $s$.
 
     Sei $T_{s}^{1} S = \Set{x \in T_s S | \|x\| = 1} \cong S^1$.
-    Dann ist 
+    Dann ist
     \[ \kappanor^n(s): T^1_s S \rightarrow \mdr, \;\;\; x \mapsto \kappanor(s,x)\]
-    eine glatte Funktion und 
+    eine glatte Funktion und
     $\Bild \kappanor^n(s)$ ist ein abgeschlossenes Intervall.
 \end{bemerkung}
 
 \begin{definition}\xindex{Hauptkrümmung}\xindex{Gauß-Krümmung}%In Vorlesung: Bem.+Def. 18.6
-    Sei $S$ eine reguläre Fläche und $n=n(s)$ ein Normalenvektor an 
+    Sei $S$ eine reguläre Fläche und $n=n(s)$ ein Normalenvektor an
     $S$ in $s$.
 
     \begin{defenum}
@@ -388,7 +388,7 @@ Im Folgenden werden diese Begriffe jedoch synonym benutzt.
 \end{definition}
 
 \begin{bemerkung}%In Vorlesung: Bem.+Def. 18.6
-    Ersetzt man $n$ durch $-n$, so gilt: 
+    Ersetzt man $n$ durch $-n$, so gilt:
 
     \begin{align*}
                 \kappanor^{-n}(s, x) &= - \kappanor^n(x)\; \forall x \in T_s^1 S\\
@@ -457,7 +457,7 @@ $s$. Weiter sei $p := F^{-1}(s)$.
         \item \label{bem:19.1a} Die Einschränkung des Standardskalarproduktes des $\mdr^3$ auf
               $T_s S$ macht $T_s S$ zu einem euklidischen Vektorraum.
         \item $\Set{D_p F(e_1), D_p F(e_2)}$ ist eine Basis von $T_s S$.
-        \item Bzgl. der Basis $\Set{D_p F(e_1), D_p F(e_2)}$ hat das 
+        \item Bzgl. der Basis $\Set{D_p F(e_1), D_p F(e_2)}$ hat das
               Standardskalarprodukt aus \cref{bem:19.1a} die Darstellungsmatrix
               $I_S$.
         \item $g_{i,j}(s)$ ist eine differenzierbare Funktion von $s$.
@@ -465,7 +465,7 @@ $s$. Weiter sei $p := F^{-1}(s)$.
 \end{bemerkung}
 
 \begin{bemerkung}
-    \[\det(I_S) = \left \| \frac{\partial F}{\partial u_1}(p) \times \frac{\partial F}{\partial u_2}(p) \right \|^2\] 
+    \[\det(I_S) = \left \| \frac{\partial F}{\partial u_1}(p) \times \frac{\partial F}{\partial u_2}(p) \right \|^2\]
 \end{bemerkung}
 
 \begin{beweis}\leavevmode
@@ -495,7 +495,7 @@ $s$. Weiter sei $p := F^{-1}(s)$.
     \begin{defenum}
         \item Das Differential $\mathrm{d} A = \sqrt{\det (I)} \mathrm{d} u_1 \mathrm{d} u_2$
               heißt \textbf{Flächenelement} von $S$ bzgl. der Parametrisierung $F$.
-        \item \label{def:berechenbares-integral}Für eine Funktion $f: V \rightarrow \mdr$ heißt 
+        \item \label{def:berechenbares-integral}Für eine Funktion $f: V \rightarrow \mdr$ heißt
               \[\int_V f \mathrm{d} A := \int_U f(\underbrace{F(u_1, u_2)}_{=: s}) \sqrt{\det I(s)} \mathrm{d} u_1 \mathrm{d} u_2\]
               der \textbf{Wert des Integrals} von $f$ über $V$, falls das Integral rechts
               existiert.
@@ -535,7 +535,7 @@ $s$. Weiter sei $p := F^{-1}(s)$.
 
     \begin{propenum}
         \item \label{prop:5.1a} $n$ induziert für jedes $s \in S$ eine lineare Abbildung $d_s n: T_s S \rightarrow T_{n(s)} S^2$
-              durch 
+              durch
               \[d_s n(x) = \frac{\mathrm{d}}{\mathrm{d} t} n (\underbrace{s \text{\enquote{+}} tx}_{\mathclap{\text{Soll auf Fläche $S$ bleiben}}}) \Bigr |_{t=0}\]
               Die Abbildung $d_s n$ heißt \textbf{Weingarten-Abbildung}
         \item $T_{n(s)} S^2 = T_s S$.
@@ -560,7 +560,7 @@ $s$. Weiter sei $p := F^{-1}(s)$.
 
         Sei $x_i = D_p F(e_i) = \frac{\partial F}{\partial u_i} (p)\;\;\; i = 1,2$
 
-        \underline{Beh.:} 
+        \underline{Beh.:}
           $\langle x_i, d_s n(x_j) \rangle = \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle$
 
         $\Rightarrow \langle \frac{\partial^2 F}{\partial u_i \partial u_j} (p), d_s n (x_i) \rangle = \langle x_j, d_s n (x_i) \rangle$
@@ -597,9 +597,9 @@ $s$. Weiter sei $p := F^{-1}(s)$.
 
 \begin{beweis}
     Nach \cref{def:18.4} ist $\kappanor(s, \gamma) = \langle \gamma''(0), n(s) \rangle$.
-    Nach Voraussetzung gilt 
+    Nach Voraussetzung gilt
     \[n(\gamma(t)) \perp \gamma'(t) \Leftrightarrow \langle \gamma''(0), n(s) \rangle = 0\]
-    Die Ableitung nach $t$ ergibt 
+    Die Ableitung nach $t$ ergibt
     \begin{align*}
         0 &= \frac{\mathrm{d}}{\mathrm{d}t}(\langle n (\gamma(t)), \gamma'(t))\\
         &= \left \langle \frac{\mathrm{d}}{\mathrm{d}t} n(\gamma(t)) \Bigr |_{t=0}, \gamma'(0) \right \rangle + \langle n(s), \gamma''(0) \rangle\\
@@ -629,7 +629,7 @@ $s$. Weiter sei $p := F^{-1}(s)$.
               Eigenvektoren $y_1, y_2$ von $II_s$. Ist $x \in T_s S$, $\|x\| = 1$,
               so gibt es $\varphi \in [0,2\pi)$ mit $x = \cos \varphi \cdot y_1 + \sin \varphi \cdot y_2$.
 
-              Seien $\lambda_1, \lambda_2$ die Eigenwerte von $II_s$, also 
+              Seien $\lambda_1, \lambda_2$ die Eigenwerte von $II_s$, also
               $II_s(y_i, y_i) = \lambda_i$. Dann gilt:
               \begin{align*}
                   II_s (x,x) &= \cos^2 \varphi \lambda_1 + \sin^2 \varphi \lambda_2\\

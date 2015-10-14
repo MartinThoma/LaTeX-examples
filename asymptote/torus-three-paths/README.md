@@ -5,7 +5,7 @@ Compiled example
 Currently, this one is not working, because of this error:
 
 ```
-/usr/local/texlive/2013/texmf-dist/asymptote/three.asy: 
+/usr/local/texlive/2013/texmf-dist/asymptote/three.asy:
 2906.13: runtime: to support onscreen rendering, please install glut library, run ./configure, and recompile
 ```
 

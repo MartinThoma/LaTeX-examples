@@ -3,7 +3,7 @@
 \usepackage[ngerman]{babel} % this is needed for umlauts
 \usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
 \usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
- 
+
 % Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Vorname}{Martin}     % Vorname                         %
 \newcommand{\VornameVater}{Otto}  % Vorname                         %
@@ -31,8 +31,8 @@
 \newcommand{\DatumZahnreinigung}{01.01.2014}                        %
 \newcommand{\GeldZahnreinigung}{90,00 Euro}                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
- 
+
+
 % pdfinfo
 \pdfinfo{
    /Author (\Nachname, \Vorname)
@@ -40,12 +40,12 @@
    /Subject (\DocTitle)
    /Keywords (Erstattung)
 }
- 
+
 % set letter variables
 \signature{\Vorname~\Nachname}
 \customer{\Kundennr}
 \backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort, \Email}
- 
+
 % Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
     \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt \\ Fax: \EFax }

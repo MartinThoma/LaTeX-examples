@@ -19,7 +19,7 @@ ausführbare Datei erzeugt.
 \section{Syntax}
 In Prolog gibt es Prädikate, die Werte haben. Prädikate werden immer klein geschrieben.
 So kann das Prädikat \texttt{farbe} mit den Werten \texttt{rot}, \texttt{gruen},
-\texttt{blau}, \texttt{gelb} - welche auch immer klein geschrieben werden - wie 
+\texttt{blau}, \texttt{gelb} - welche auch immer klein geschrieben werden - wie
 folgt definiert werden:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/praedikat-farbe.pl}
@@ -78,7 +78,7 @@ durchgeführt werden:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/arithmetik.pl}
 
-Dabei müssen alle Variablen, die im Term rechts von \texttt{is} vorkommen, 
+Dabei müssen alle Variablen, die im Term rechts von \texttt{is} vorkommen,
 istanziiert sein:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/arithmetik-fail.pl}
@@ -107,13 +107,13 @@ in \texttt{Liste} vorkommt, realisiert man wie folgt:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/liste-member.pl}\xindex{member}
 
-Eine Regel \texttt{append(A, B, C)}, die die Listen \texttt{A} und \texttt{B} 
+Eine Regel \texttt{append(A, B, C)}, die die Listen \texttt{A} und \texttt{B}
 zusammenfügt und als Liste \texttt{C} speichert, kann
 wie folgt erstellt werden:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/liste-append.pl}
 
-Die erste Regel besagt, dass das Hinzufügen der leeren Liste zu einer Liste 
+Die erste Regel besagt, dass das Hinzufügen der leeren Liste zu einer Liste
 \texttt{L} immer noch die Liste \texttt{L} ist.
 
 Die zweite Regel besagt: Wenn die Liste \texttt{R} und \texttt{L} die Liste \texttt{T}
@@ -128,7 +128,7 @@ Die Länge einer Liste \texttt{L} kann durch folgendes Prädikat ermittelt werde
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/list-length.pl}
 
-\underline{Hinweis}: Da es das Prädikat \texttt{length(?List, ?Int)} bereits gibt, 
+\underline{Hinweis}: Da es das Prädikat \texttt{length(?List, ?Int)} bereits gibt,
 musste dieses Prädikat \texttt{lengthof} genannt werden.
 
 Weitere nützliche Standard-Listenprädikate sind:\xindex{sort(+List, -Sorted)@\texttt{sort(+List, -Sorted)}}
@@ -151,10 +151,10 @@ Bäume können in Prolog wie folgt erstellt werden:
     \label{fig:binary-tree-t2}
 \end{figure}
 
-Dabei ist 
+Dabei ist
 \begin{itemize}
     \item \texttt{T0} der einzelne Knoten \texttt{a},
-    \item \texttt{T1} der Baum, der \texttt{a} als Wurzel und \texttt{b} und 
+    \item \texttt{T1} der Baum, der \texttt{a} als Wurzel und \texttt{b} und
           \texttt{c} als Kinder hat,
     \item \texttt{T2} ist in \cref{fig:binary-tree-t2} dargestellt und
     \item \texttt{T3} ist der leere Baum.
@@ -169,7 +169,7 @@ um einen Binärbaum handelt:
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/istree.pl}
 
 \subsection{Balancierte Binärbaumkonstruktion}
-Das folgende Prädikate \texttt{cbal\_tree(n, T)} erstellt einen balancierten 
+Das folgende Prädikate \texttt{cbal\_tree(n, T)} erstellt einen balancierten
 Binärbaum mit \texttt{n} Knoten in \texttt{T}:
 
 \inputminted[numbersep=5pt, tabsize=4]{prolog}{scripts/prolog/balancedtreeconstruction.pl}

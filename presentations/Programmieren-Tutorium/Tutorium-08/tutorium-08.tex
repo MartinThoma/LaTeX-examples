@@ -57,7 +57,7 @@
 
 \begin{frame}{Erklärung}
     \begin{itemize}
-        \item Zeile 2 und 3: \myCode{sound} im Konstruktor von \myCode{Cat} ist eine 
+        \item Zeile 2 und 3: \myCode{sound} im Konstruktor von \myCode{Cat} ist eine
               lokale Variable, kein Attribut
         \item In Java werden nur Methoden vererbt
             \begin{itemize}
@@ -127,7 +127,7 @@
 \begin{frame}{Beispiel}
     Wo kann Vererbung nützlich sein?
     \begin{itemize}[<+->]
-        \item Oberklasse Liste, Unterklassen SinglyLinkedList und 
+        \item Oberklasse Liste, Unterklassen SinglyLinkedList und
               DoubleLinkedList
           \begin{itemize}
             \item \myCode{contains()} ist gleich
@@ -135,7 +135,7 @@
             \item \myCode{remove()} ist unterschiedlich
           \end{itemize}
         \item Oberklasse Animal, Unterklassen Säugetier, Tiger, Schlange, Bär, \dots
-        \item Brettspiele: 
+        \item Brettspiele:
             \begin{itemize}
                 \item Klasse Spielbrett; Unterklassen: Schachbrett, Dame-Brett, Mensch-ärgere-dich-nicht
                 \item Klasse Spielfigur; Unterklassen: Bauer, Dame, Springer, Turm
@@ -160,11 +160,11 @@
 
 \begin{frame}{Allgemeines}
     \begin{block}{\href{http://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html\#jls-8.4.8}{JLS 8.4.8}}
-    A class C inherits from its direct superclass and direct 
-    superinterfaces all abstract and non-abstract methods of the 
-    superclass and superinterfaces that are public, protected, or 
-    declared with default access in the same package as C, and are 
-    neither overridden (§8.4.8.1) nor hidden (§8.4.8.2) by a 
+    A class C inherits from its direct superclass and direct
+    superinterfaces all abstract and non-abstract methods of the
+    superclass and superinterfaces that are public, protected, or
+    declared with default access in the same package as C, and are
+    neither overridden (§8.4.8.1) nor hidden (§8.4.8.2) by a
     declaration in the class.
     \end{block}
 \end{frame}
@@ -241,17 +241,17 @@
 \end{frame}
 \begin{frame}{Allgemeines}
     \begin{itemize}[<+->]
-        \item \myCode{\href{http://docs.oracle.com/javase/7/docs/api/java/lang/String.html\#charAt(int)}{char charAt(int index)}}: 
+        \item \myCode{\href{http://docs.oracle.com/javase/7/docs/api/java/lang/String.html\#charAt(int)}{char charAt(int index)}}:
               Returns the char value at the specified index.
         \item \myCode{\href{http://docs.oracle.com/javase/7/docs/api/java/lang/String.html\#matches(java.lang.String)}{public boolean matches(String regex)}}
               Tells whether or not this string matches the given regular expression.
         \item \myCode{\href{http://docs.oracle.com/javase/7/docs/api/java/lang/String.html\#substring(int, int)}{String substring(int beginIndex,
-               int endIndex)}} Returns a new string that is a substring of this string. 
+               int endIndex)}} Returns a new string that is a substring of this string.
     \end{itemize}
     \pause[\thebeamerpauses]
     \begin{block}{Eclipse-Tipp}
         Wenn Eclipse euch im Projektordner einen Fehler anzeigt, aber
-        keine Datei fehlerhaft ist, solltet ihr mal einen 
+        keine Datei fehlerhaft ist, solltet ihr mal einen
         Blick in \menu{Window > Show View > Problem} werfen.
     \end{block}
 \end{frame}

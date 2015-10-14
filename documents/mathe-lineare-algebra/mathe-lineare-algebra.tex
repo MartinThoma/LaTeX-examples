@@ -12,11 +12,11 @@
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Lineare Algebra}, 
-  pdftitle    = {Lineare Algebra - Definitionen} 
-} 
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {Lineare Algebra},
+  pdftitle    = {Lineare Algebra - Definitionen}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom definition style, by                                       %
@@ -52,22 +52,22 @@
 \definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
 \definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
 
-\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{%
   % Optional continuation label defaults to the first label plus
   \def\Frame@Lab{#2}%
   \def\FrameCommand{\LabFrame{#2}}%
   \def\FirstFrameCommand{\LabFrame{#2}}%
   \def\MidFrameCommand{\LabFrame{#1}}%
   \def\LastFrameCommand{\LabFrame{#1}}%
-  \MakeFramed{\advance\hsize-\width \FrameRestore} 
-}{\endMakeFramed} 
+  \MakeFramed{\advance\hsize-\width \FrameRestore}
+}{\endMakeFramed}
 \newcounter{definition}
 \newenvironment{definition}[1]{%
   \par
   \refstepcounter{definition}%
   \begin{contlabelframe}{Definition \thedefinition:\quad #1}
  \noindent\ignorespaces}
-{\end{contlabelframe}} 
+{\end{contlabelframe}}
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,7 +80,7 @@
   \refstepcounter{satz}%
   \begin{contlabelframe}{Satz \thedefinition:\quad #1}
  \noindent\ignorespaces}
-{\end{contlabelframe}} 
+{\end{contlabelframe}}
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin document                                                    %
@@ -114,7 +114,7 @@ Eine Relation $\leq$ heißt Ordnungsrelation in A und $(A, \leq)$ heißt
 \end{definition}
 
 \begin{definition}{Äquivalenzrelation}
-Sei $R \subseteq A \times A$ eine Relation. 
+Sei $R \subseteq A \times A$ eine Relation.
 R heißt Äquivalenzrelation, wenn für alle $a, b, c \in A$ gilt:
 
   \begin{description}
@@ -159,12 +159,12 @@ $(R, +, \cdot)$ heißt \textbf{Ring} $: \Leftrightarrow$
 
 \begin{definition}{Nullteiler}
 Sei $(R, +, \cdot)$ ein Ring.\\
-$a \in R$ heißt (linker) \textbf{Nullteiler} $:\Leftrightarrow a \neq 0 \land \exists b: a \cdot b = 0$ 
+$a \in R$ heißt (linker) \textbf{Nullteiler} $:\Leftrightarrow a \neq 0 \land \exists b: a \cdot b = 0$
 \end{definition}
 
 \begin{definition}{Ringhomomorphismus}
 Seien $(R_1, +, \cdot)$ und $(R_2, +, \cdot)$ Ringe und $\Phi:R_1 \rightarrow R_2$ eine Abbildung.\\
-$\Phi$ heißt \textbf{Ringhomomorphismus} $:\Leftrightarrow \forall x,y \in R_1: \Phi(x+y) = \Phi(x) + \Phi(y)$ und $\Phi(x \cdot y) = \Phi(x) \cdot \Phi(y)$ 
+$\Phi$ heißt \textbf{Ringhomomorphismus} $:\Leftrightarrow \forall x,y \in R_1: \Phi(x+y) = \Phi(x) + \Phi(y)$ und $\Phi(x \cdot y) = \Phi(x) \cdot \Phi(y)$
 \end{definition}
 
 \begin{definition}{Körper}
@@ -241,7 +241,7 @@ heißt (V, F) ein \textbf{euklidischer Vektorraum}.
 \end{definition}
 
 \begin{definition}{Hermitesche Form}
-Sei V ein komplexer Vektorraum. Eine Abbildung 
+Sei V ein komplexer Vektorraum. Eine Abbildung
 \[ F:V \times V \rightarrow \mathbb{C}, ~~~ (a,b) \mapsto F(a,b) \]
 heißt \textbf{hermitesche Form} auf V, falls für alle $a, a_1, a_2, b$
 und alle $\lambda_1, \lambda_2 \in \mathbb{C}$ gilt:
@@ -281,7 +281,7 @@ Gleichheit gilt genau dann, wenn a und b linear abhängig sind.
 
 \begin{definition}{Norm}
 Sei V ein reeler oder komplexer Vektorraum. Eine \textbf{Norm} auf V
-ist eine Funktion 
+ist eine Funktion
 \[ \| \| : V\to{\mathbb R}, ~~~ x \mapsto \| x \| \]
 mit folgenden Eigenschaften:\\
 Für alle $\lambda \in \mathbb{R}$ (oder $\mathbb{C}$) und alle $a, b \in V $ gilt:\\
@@ -293,7 +293,7 @@ Für alle $\lambda \in \mathbb{R}$ (oder $\mathbb{C}$) und alle $a, b \in V $ gi
 \end{definition}
 
 \begin{satz}{induzierte Norm}
-Es sei $V, \langle, \rangle$ ein euklidischer oder unitärer Vektorraum. 
+Es sei $V, \langle, \rangle$ ein euklidischer oder unitärer Vektorraum.
 Dann ist die Funktion
 \[ \| \| : V \rightarrow \mathbb{R} \text{ definiert durch } \|a\| := \sqrt{\langle a, a \rangle}\]
 eine Norm.
@@ -301,8 +301,8 @@ eine Norm.
 
 \begin{satz}{Parallelogramm-Identität}
 \begin{enumerate}[(a)]
-  \item Sei $(V, \langle, \rangle)$ ein euklidischer oder unitärer 
-        Vektorraum mit zugehöriger Norm $\|\|$. Dann gilt die 
+  \item Sei $(V, \langle, \rangle)$ ein euklidischer oder unitärer
+        Vektorraum mit zugehöriger Norm $\|\|$. Dann gilt die
         \textbf{Parallelogramm-Identität}, d.h. für alle $a, b \in V$ ist
         \[ \| a+ b \|^2 + \| a - b \|^2 = 2 \| a \|^2 +  2 \| b \|^2 \]
   \item Ist umgekehrt $\|\|$ eine Norm auf einem reelen Vektorraum V,
@@ -318,7 +318,7 @@ eine \textbf{Metrik}, wenn d die folgenden Eigenschaften erfüllt:
 \begin{enumerate}[(i)]
   \item $\forall p, q \in M: d(p, q) = d(q, p)$ (symmetrie)
   \item $\forall p, q, r \in M: d(p, r) \leq d(p, q) + d(q,r)$ (Dreiecks-Ungleichung)
-  \item $\forall p, q \in M: d(p, q) \geq 0$ und 
+  \item $\forall p, q \in M: d(p, q) \geq 0$ und
                              $d(p,q) = 0 \Leftrightarrow p = q$ (positiv definit)
 \end{enumerate}
 
@@ -405,7 +405,7 @@ Analog für unitäre Matrizen.
     \item Für eine orthogonale Matrix A gilt: $\det A = \pm 1$.
     \item Für eine unitäre Matrix gilt: $| \det A | = 1$.
   \end{enumerate}
-\end{satz} 
+\end{satz}
 
 \begin{definition}{Adjungierte lineare Abbildung}
 Es seien $(V, \langle, \rangle_V)$ und $(W, \langle, \rangle_W)$
@@ -417,11 +417,11 @@ alle $x \in V$ und alle $y \in W$ gilt:
 \end{definition}
 
 \begin{satz}{Spektralsatz}
-Es sei V ein n-dimensionaler Vektorraum mit Skalarprodukt und 
+Es sei V ein n-dimensionaler Vektorraum mit Skalarprodukt und
 $\Phi: V \rightarrow V$ ein selbstadjungierter Endomorphismus. Dann
-ist $\Phi$ diagonalisierbar. 
+ist $\Phi$ diagonalisierbar.
 
-Genauer: Es exisitiert eine Orthonormalbasis B von V, die aus 
+Genauer: Es exisitiert eine Orthonormalbasis B von V, die aus
 Eigenvektoren von $\Phi$ besteht und die Abbildung von $\Phi$ bzgl.
 dieser Orthonormalbasis hat Diagonalform
 \[M_B^B(\Phi) = \begin{pmatrix}
@@ -431,11 +431,11 @@ dieser Orthonormalbasis hat Diagonalform
 \end{pmatrix}\]
 wobei $\lambda_1, \dots, \lambda_n$ die $n$ (reelen) Eigenwerte von
 $\Phi$ sind.
-\end{satz} 
+\end{satz}
 
 \begin{satz}{Kriterium für "positiv definit"}
 Sei A eine reele, symmetrische Matrix.\\
 A ist positiv definit $\Leftrightarrow$ alle Eigenwerte von A sind positiv.
-\end{satz} 
+\end{satz}
 
 \end{document}

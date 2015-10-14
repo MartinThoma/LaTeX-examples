@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
- 
+
 \usepackage{tikz}
 \usetikzlibrary{calc,shapes.multipart,chains,arrows}
 
@@ -11,9 +11,9 @@
         inner sep=0pt, text=black,
         path picture = {
             \draw[black]
-            (path picture bounding box.north west) -- 
+            (path picture bounding box.north west) --
             (path picture bounding box.south east)
-            (path picture bounding box.south west) -- 
+            (path picture bounding box.south west) --
             (path picture bounding box.north east);
         }
     }
@@ -23,12 +23,12 @@
 \begin{preview}
 \begin{tikzpicture}[
         list/.style={
-            very thick, rectangle split, 
-            rectangle split parts=2, draw, 
+            very thick, rectangle split,
+            rectangle split parts=2, draw,
             rectangle split horizontal, minimum size=18pt,
             inner sep=4pt, text=black,
             rectangle split part fill={red!20, blue!20}
-        }, 
+        },
         ->, start chain, very thick
       ]
 

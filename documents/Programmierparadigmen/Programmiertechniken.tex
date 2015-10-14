@@ -39,7 +39,7 @@
     \end{bspenum}
 \end{beispiel}
 
-Ein Problem von rekursiven Funktionen in Computerprogrammen ist der 
+Ein Problem von rekursiven Funktionen in Computerprogrammen ist der
 Speicherbedarf. Für jeden rekursiven Aufruf müssen alle lokalen Variablen
 der aufrufenden Funktion (\enquote{stack frame}) gespeichert bleiben,
 bis der rekursive Aufruf beendet ist. Im Fall der Fibonacci-Funktion
@@ -47,7 +47,7 @@ sieht ist der Call-Stack in \cref{fig:fib-callstack} abgebildet.
 
 \begin{figure}[htp]
     \centering
-    \includegraphics*[width=0.5\linewidth, keepaspectratio]{figures/fib-callstack.png} 
+    \includegraphics*[width=0.5\linewidth, keepaspectratio]{figures/fib-callstack.png}
     \caption{Call-Stack der Fibonacci-Funktion}
     \label{fig:fib-callstack}
 \end{figure}
@@ -108,7 +108,7 @@ Auf Englisch heißen endrekursive Funktionen \textit{tail recursive}.
     \end{bspenum}
 \end{beispiel}
 
-Wenn eine rekursive Funktion nicht terminiert oder wenn 
+Wenn eine rekursive Funktion nicht terminiert oder wenn
 
 \index{Rekursion|)}
 \section{Backtracking}
@@ -135,14 +135,14 @@ Bekannte Beispiele sind:
           \texttt{map} wendet \texttt{function} auf jedes einzelne
           Element aus \texttt{list} an.
     \item \texttt{filter(function, list)}\xindex{filter}\\
-          \texttt{filter} gibt eine Liste aus Elementen zurück, für 
+          \texttt{filter} gibt eine Liste aus Elementen zurück, für
           die \texttt{function} mit \texttt{true} evaluiert.
     \item \texttt{reduce(function, list)}\xindex{reduce}\\
           \texttt{function} ist für zwei Elemente aus \texttt{list}
           definiert und gibt ein Element des gleichen Typs zurück.
           Nun steckt \texttt{reduce} zuerst zwei Elemente aus \texttt{list}
           in \texttt{function}, merkt sich dann das Ergebnis und nimmt
-          so lange weitere Elemente aus \texttt{list}, bis jedes 
+          so lange weitere Elemente aus \texttt{list}, bis jedes
           Element genommen wurde.\\
           Bei \texttt{reduce} ist die Assoziativität wichtig (vgl. \cpageref{bsp:foldl-und-foldr})
 \end{itemize}

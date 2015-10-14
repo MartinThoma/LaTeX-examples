@@ -1,9 +1,9 @@
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
- 
+
 \usepackage{tikz}
-\usetikzlibrary{shapes.multipart, calc} 
+\usetikzlibrary{shapes.multipart, calc}
 
 \begin{document}
 \begin{preview}
@@ -17,8 +17,8 @@
       child {node {3 \nodepart{two} 7}
         child {node {0 \nodepart{two} 1 \nodepart{three} 2}}
         child {node {4 \nodepart{two} 5 \nodepart{three} 6}}
-        child {node {8 \nodepart{two} 9 \nodepart{three} 10}}    
-      } 
+        child {node {8 \nodepart{two} 9 \nodepart{three} 10}}
+      }
       child {node {15 \nodepart{two} 18}
         child[sibling distance=20mm] {node {12 \nodepart{two} 13 \nodepart{three} 14}}
         child {node {16 \nodepart{two} 17}}

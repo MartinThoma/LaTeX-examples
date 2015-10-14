@@ -1,7 +1,7 @@
 Diese Lösungen sind noch im Aufbau.
 
 Wenn du einen Fehler findest (auch Textsetzungs- und Rechtschreibfehler
-oder missverständliche Stellen) 
+oder missverständliche Stellen)
 oder selbst eine Lösung geschrieben hast, kannst du mir eine Email
 schreiben (info@martin-thoma.de). Oder du machst direkt einen Pull-Request.
 

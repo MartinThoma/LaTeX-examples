@@ -8,11 +8,11 @@
 \usepackage{booktabs}
 
 % this is needed for forms and links within the text
-\usepackage{hyperref}  
+\usepackage{hyperref}
 
 % glossar, see http://en.wikibooks.org/wiki/LaTeX/Glossary
 % has to be loaded AFTER hyperref so that entries are clickable
-\usepackage[nonumberlist]{glossaries} 
+\usepackage[nonumberlist]{glossaries}
 
 % The following is needed in order to make the code compatible
 % with both latex/dvips and pdflatex.
@@ -23,7 +23,7 @@
 \DeclareGraphicsRule{*}{mps}{*}{}
 \fi
 
-\makeglossary 
+\makeglossary
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Variablen                                 						 %
@@ -45,8 +45,8 @@
   pdfauthor   = {\authorName},
   pdfkeywords = {\tags},
   pdftitle    = {\projektName~(Pflichtenheft)}
-} 
- 
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Create a shorter version for tables. DO NOT CHANGE               	 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,7 +57,7 @@
 \hline
 }
 
-\newcommand\addmulrow[2]{ \begin{minipage}[t][][t]{2.5cm}#1\end{minipage}% 
+\newcommand\addmulrow[2]{ \begin{minipage}[t][][t]{2.5cm}#1\end{minipage}%
    &\begin{minipage}[t][][t]{8cm}
     \begin{enumerate} #2   \end{enumerate}
     \end{minipage}\\ }
@@ -78,7 +78,7 @@
  \tableofcontents          % Inhaltsverzeichnis ausgeben
  \clearpage
  \pagenumbering{arabic}
- 
+
 \section{Zielbestimmung}
 \subsection{Musskriterien}
 \subsection{Wunschkriterien}
@@ -119,5 +119,5 @@
 \section{Entwicklungsumgebung}
 
 \clearpage
-\input{Glossar} 
+\input{Glossar}
 \end{document}

@@ -10,13 +10,13 @@
     \tkzDefLine[orthogonal=through P,/tikz/overlay](O,X) \tkzGetPoint{helper}
     \tkzInterLL(O,X)(P,helper) \tkzGetPoint{xp}
     \draw [decorate,decoration={brace,amplitude=4pt,mirror}]
-        (O) -- (xp) node [black,midway,xshift=0cm, yshift=-0.3cm] 
+        (O) -- (xp) node [black,midway,xshift=0cm, yshift=-0.3cm]
         {\footnotesize $x_P$};
 
     \tkzDefLine[orthogonal=through P,/tikz/overlay](O,Y) \tkzGetPoint{helper}
     \tkzInterLL(O,Y)(P,helper) \tkzGetPoint{yp}
     \draw [decorate,decoration={brace,amplitude=4pt}]
-        (O) -- (yp) node [black,midway,xshift=-0.4cm] 
+        (O) -- (yp) node [black,midway,xshift=-0.4cm]
         {\footnotesize $y_P$};
 
     \tkzDrawPolygon(O,xp,P,yp)

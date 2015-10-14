@@ -9,7 +9,7 @@ It will be at Thursday, the 6. November 2014 at 11:45 in [building 50.20](http:/
 
 KIT-Style
 ---------
-This one doesn't compile, as you need the KIT-Style (logos, layout, 
+This one doesn't compile, as you need the KIT-Style (logos, layout,
 color theme)
 
 Please take a look at the presentation "Tutorenschulung" for further

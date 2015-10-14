@@ -4,16 +4,16 @@ die im Folgenden erläutert werden. Außerdem werden Verbesserungen
 vorgeschlagen, die es allerdings noch zu untersuchen gilt.
 
 \subsection{Anzahl der Knotenbeschriftungen}
-So, wie der DYCOS-Algorithmus vorgestellt wurde, können nur Graphen bearbeitet werden, 
-deren Knoten jeweils höchstens eine Beschriftung haben. In vielen Fällen, wie z.~B. 
+So, wie der DYCOS-Algorithmus vorgestellt wurde, können nur Graphen bearbeitet werden,
+deren Knoten jeweils höchstens eine Beschriftung haben. In vielen Fällen, wie z.~B.
 Wikipedia mit Kategorien als Knotenbeschriftungen haben Knoten jedoch viele Beschriftungen.
 
-Auf einen ersten Blick ist diese Schwäche einfach zu beheben, indem 
+Auf einen ersten Blick ist diese Schwäche einfach zu beheben, indem
 man beim zählen der Knotenbeschriftungen für jeden Knoten jedes Beschriftung zählt. Dann
 wäre noch die Frage zu klären, mit wie vielen Beschriftungen der betrachtete
 Knoten beschriftet werden soll.
 
-Jedoch ist z.~B. bei Wikipedia-Artikeln auf den Knoten eine 
+Jedoch ist z.~B. bei Wikipedia-Artikeln auf den Knoten eine
 Hierarchie definiert. So ist die Kategorie \enquote{Klassifikationsverfahren}
 eine Unterkategorie von \enquote{Klassifikation}. Bei dem Kategorisieren
 von Artikeln sind möglichst spezifische Kategorien vorzuziehen, also
@@ -25,7 +25,7 @@ zählen.
 \subsection{Überanpassung und Reklassifizierung}
 Aggarwal und Li beschreiben in \cite{aggarwal2011} nicht, auf welche
 Knoten der Klassifizierungsalgorithmus angewendet werden soll. Jedoch
-ist die Reihenfolge der Klassifizierung relevant. Dazu folgendes 
+ist die Reihenfolge der Klassifizierung relevant. Dazu folgendes
 Minimalbeispiel:
 
 Gegeben sei ein dynamischer Graph ohne textuelle Inhalte. Zum Zeitpunkt
@@ -62,14 +62,14 @@ und die Kante $(v_2, v_3)$ hinzu.
 
 Würde man nun den DYCOS-Algorithmus erst jetzt, also anstelle von
 Zeitpunkt $t=2$ zum Zeitpunkt $t=3$ auf den Knoten $v_2$ anwenden, so
-würde eine $50\%$-Wahrscheinlichkeit bestehen, dass dieser mit $B$ 
+würde eine $50\%$-Wahrscheinlichkeit bestehen, dass dieser mit $B$
 beschriftet wird. Aber in diesem Beispiel wurde der Knoten schon
 zum Zeitpunkt $t=2$ beschriftet. Obwohl es in diesem kleinem Beispiel
 noch keine Rolle spielt, wird das Problem klar, wenn man weitere
 Knoten einfügt:
 
 Wird zum Zeitpunkt $t=4$ ein unbeschrifteter Knoten $v_4$ und die Kanten
-$(v_1, v_4)$, $(v_2, v_4)$, $(v_3, v_4)$ hinzugefügt, so ist die 
+$(v_1, v_4)$, $(v_2, v_4)$, $(v_3, v_4)$ hinzugefügt, so ist die
 Wahrscheinlichkeit, dass $v_4$ mit $A$ beschriftet wird bei $\frac{2}{3}$.
 Werden die unbeschrifteten Knoten jedoch erst jetzt und alle gemeinsam
 beschriftet, so ist die Wahrscheinlichkeit für $A$ als Beschriftung bei nur $50\%$.
@@ -78,7 +78,7 @@ Beschriftungen statt.
 
 Das Reklassifizieren von Knoten könnte eine mögliche Lösung für dieses
 Problem sein. Knoten, die durch den DYCOS-Algorithmus beschriftet wurden
-könnten eine Lebenszeit bekommen (TTL, Time to Live). Ist diese 
+könnten eine Lebenszeit bekommen (TTL, Time to Live). Ist diese
 abgelaufen, wird der DYCOS-Algorithmus erneut auf den Knoten angewendet.
 
 

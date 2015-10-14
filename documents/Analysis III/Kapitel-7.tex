@@ -6,7 +6,7 @@ Sei \(U\in\fb_k, t_0\in U\) und es sei \(f\colon U\times X\to \mdr\) eine Funkti
 \begin{enumerate}
 	\item 	Für jedes \(t\in U\) ist \(x\mapsto f(t,x)\) messbar.
 	\item 	Es existiert eine Nullmenge \(N\subseteq X\) so, dass \(t\mapsto f(t,x)\) für jedes \(x\in X\setminus N\) stetig in $t_0$ ist.
-	\item 	Es existiert eine integrierbare Funktion \(g\colon X\to [0,\infty]\) und zu jedem \(t\in U\) existiert eine Nullmenge \(N_t\subseteq X\) so, dass für 
+	\item 	Es existiert eine integrierbare Funktion \(g\colon X\to [0,\infty]\) und zu jedem \(t\in U\) existiert eine Nullmenge \(N_t\subseteq X\) so, dass für
 		jedes \(t\in U\) und jedes \(x\in X\setminus N_t\) gilt: \[ \lvert f(t,x)\rvert \leq g(x) \]
 \end{enumerate}
 Dann ist \(x\mapsto f(t,x)\) für jedes \(t\in U\) integrierbar. Ist \(F\colon U\to\mdr\) definiert durch
@@ -17,31 +17,31 @@ so ist $F$ stetig in $t_0$.
 Also: \[ \lim\limits_{t\to t_0}\int_X f(t,x)\,dx = \lim\limits_{t\to t_0}F(t)=F(t_0) = \int_X f(t_0,x)\,dx =\int_X\lim\limits_{t\to t_0} f(t,x)\,dx \]
 
 \begin{beweis}
-Aus (1) und (3) folgt, dass \(x\mapsto f(t,x)\) für jedes \(t\in U\) integrierbar ist (zur Übung). Sei \((t_n)\) eine Folge in $U$ mit \(t_n\to t_0\) und 
+Aus (1) und (3) folgt, dass \(x\mapsto f(t,x)\) für jedes \(t\in U\) integrierbar ist (zur Übung). Sei \((t_n)\) eine Folge in $U$ mit \(t_n\to t_0\) und
 \[g_n(x):=f(t_n,x) \ (\natn, x\in X) \]
 Setze \[ \tilde N := N\cup \left(\bigcup^\infty_{n=1}N_{t_n} \right) \]
-Aus \ref{Lemma 5.1} folgt, dass \(\tilde N\) eine Nullmenge ist. Voraussetzung (2) liefert \(g_n(x)\to f(t_0,x)\) für jedes \(x\in X\setminus\tilde N\), also gilt 
+Aus \ref{Lemma 5.1} folgt, dass \(\tilde N\) eine Nullmenge ist. Voraussetzung (2) liefert \(g_n(x)\to f(t_0,x)\) für jedes \(x\in X\setminus\tilde N\), also gilt
 \[g_n(x)\to f(t_0,x) \text{ fast überall auf } X\]
 Voraussetzung (3) liefert \(\lvert g_n(x)\rvert = \lvert f(t_n,x)\rvert \leq g(x) \) für jedes \(\natn\) und \(x\in X\setminus\tilde N\). Aus \ref{Satz 6.2} folgt
 \[ F(t_n) = \int_X f(t_n,x)\,dx = \int_Xg_n\,dx \longrightarrow \int_X f(t_0,x)\,dx = F(t_0) \]
 \end{beweis}
 
 \textbf{Bezeichnung}\\
-Sei \(I\subseteq\mdr\) ein Intervall, \(a:=\inf I\) und \(b:=\sup I\), wobei \(a=-\infty\) oder \(b=+\infty\) zugelassen sind. Weiter sei \(f\colon I\to\imdr\) integrierbar 
-(oder $f$ ist messbar und \(\geq 0\)) und 
+Sei \(I\subseteq\mdr\) ein Intervall, \(a:=\inf I\) und \(b:=\sup I\), wobei \(a=-\infty\) oder \(b=+\infty\) zugelassen sind. Weiter sei \(f\colon I\to\imdr\) integrierbar
+(oder $f$ ist messbar und \(\geq 0\)) und
 \[\int\limits^b_af(x)\,dx:=\int\limits_{(a,b)}f_{|(a,b)}(x)\,dx \]
-Dann ist 
+Dann ist
 \[ \int_I f(x) dx = \int_{(a,b)} f(x) dx\]
-Ist z.B. \(I=[a,b)\), dann gilt, da \(\{a\}\) eine Nullmenge ist: \[\int_If\,dx=\int_{\{a\}}f\,dx + \int_{(a,b)}f\,dx= \int_{(a,b)}f\,dx \] 
+Ist z.B. \(I=[a,b)\), dann gilt, da \(\{a\}\) eine Nullmenge ist: \[\int_If\,dx=\int_{\{a\}}f\,dx + \int_{(a,b)}f\,dx= \int_{(a,b)}f\,dx \]
 
 \begin{folgerung}
 \label{Folgerung 7.2}
-Sei \(I\subseteq\mdr\) ein Intervall, \(a=\inf I\) und \(f\colon I\to\mdr\) sei integrierbar. Definiert man \(F\colon I\to\mdr\) durch 
+Sei \(I\subseteq\mdr\) ein Intervall, \(a=\inf I\) und \(f\colon I\to\mdr\) sei integrierbar. Definiert man \(F\colon I\to\mdr\) durch
 \[F(t):=\int^t_a f(x)\,dx,\] so ist \(F\in C(I)\).
 \end{folgerung}
 
 \begin{beweis}
-Für \(x,t\in I\) definiere \(h(t,x):=\mathds{1}_{(a,t)}f(x)\). Dann ist \(F(t)=\int_I h(t,x)\,dx\) und 
+Für \(x,t\in I\) definiere \(h(t,x):=\mathds{1}_{(a,t)}f(x)\). Dann ist \(F(t)=\int_I h(t,x)\,dx\) und
 \[\lvert h(t,x)\rvert = \mathds{1}_{(a,t)}\cdot \lvert f(x)\rvert \leq \lvert f(x)\rvert \text{ für alle } t,x\in I\]
 Aus \ref{Satz 4.9} folgt, dass \(\lvert f\rvert\) integrierbar ist. Sei \(t_0\in I\) und \(N:=\{t_0\}\), also eine Nullmenge.
 Dann ist \(t\mapsto h(t,x)\) für jedes \(x\in I\setminus N\) stetig in \(t_0\) (zur Übung). Die Behauptung folgt aus \ref{Satz 7.1}.

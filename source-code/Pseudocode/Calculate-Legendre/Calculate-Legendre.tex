@@ -33,7 +33,7 @@
 				\EndIf \Comment{now: $a \in [3, \dots, p-2]$}
 			\ElsIf{!$\Call{isPrime}{a}$} \Comment{rule (II)}
 				\State $p_1, p_2, \dots, p_n \gets \Call{Factorize}{a}$
-				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$ 
+				\State \Return $\prod_{i=1}^n \Call{CalculateLegendre}{p_i, p}$
 			\Else \Comment{now: $a \in \mathbb{P}, \sqrt{p-2} \geq a \geq 3$}
 				\If{$\frac{p-1}{2} \equiv 0 \mod 2$ or $\frac{a-1}{2} \equiv 0 \mod 2$}
 					\State \Return $\Call{CalculateLegendre}{p, a}$

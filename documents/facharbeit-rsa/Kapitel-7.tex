@@ -1,36 +1,36 @@
 \section{RSA-Verfahren}\label{sec:RSA-Verfahren}
-Das RSA-Verfahren ist ein asymmetrisches Kryptosystem, das von 
-Ronald Linn \textbf{R}ivest, Adi \textbf{S}hamir und Leonard 
+Das RSA-Verfahren ist ein asymmetrisches Kryptosystem, das von
+Ronald Linn \textbf{R}ivest, Adi \textbf{S}hamir und Leonard
 \textbf{A}dleman entwickelt und im August 1977 veröffentlicht wurde\footnote{[msri], S. 2}.
 
-Da das RSA-Verfahren asymmetrisch ist, wird sowohl ein öffentlicher 
-Schlüssel als auch ein privater Schlüssel benötigt. Der öffentliche 
-Schlüssel dient der Verschlüsselung und besteht aus dem RSA-Modul $N$ 
-und dem Verschlüsselungsexponenten $e$. Der private Schlüssel 
+Da das RSA-Verfahren asymmetrisch ist, wird sowohl ein öffentlicher
+Schlüssel als auch ein privater Schlüssel benötigt. Der öffentliche
+Schlüssel dient der Verschlüsselung und besteht aus dem RSA-Modul $N$
+und dem Verschlüsselungsexponenten $e$. Der private Schlüssel
 besteht aus dem Entschlüsselungsexponenten $d$ und dem selben RSA-Modul $N$.
 
-Die Erzeugung dieser drei Zahlen $N$, $e$ und $d$ für das RSA-Verfahren 
+Die Erzeugung dieser drei Zahlen $N$, $e$ und $d$ für das RSA-Verfahren
 kann, in An-lehnung an [wiki-RSA], in fünf Schritte unterteilt werden:
 
 \begin{description}
-    \item[Schritt 1:] Als erstes werden zwei große Primzahlen  gewählt. 
-                      Je größer diese Primzahlen sind, desto sicherer 
+    \item[Schritt 1:] Als erstes werden zwei große Primzahlen  gewählt.
+                      Je größer diese Primzahlen sind, desto sicherer
                       ist die Verschlüsselung.
                      (vgl. \cref{sec:Security})
-    \item[Schritt 2:] In diesem Schritt wird RSA-Modul $N = p \cdot q$ 
-                      berechnet, das ein Teil des öffentlichen 
+    \item[Schritt 2:] In diesem Schritt wird RSA-Modul $N = p \cdot q$
+                      berechnet, das ein Teil des öffentlichen
                       Schlüssels ist.
-    \item[Schritt 3:] Schritt 3: Nun wird der Wert der Eulerschen 
-                      $\varphi$-Funktion bei $N$ berechnet. Da $p$ 
+    \item[Schritt 3:] Schritt 3: Nun wird der Wert der Eulerschen
+                      $\varphi$-Funktion bei $N$ berechnet. Da $p$
                       und $q$ Primzahlen sind, gilt $\varphi(N) = (p-1) \cdot (q-1)$ (vgl. \cref{sec:Eulersche-Phi-Funktion})
-    \item[Schritt 4:] Nachdem $\varphi(N)$ ermittelt wurde, kann der 
-                      zweite Teil des öffentlichen Schlüssel, der 
-                      Verschlüsselungsexponent $e$, ermittelt werden. 
+    \item[Schritt 4:] Nachdem $\varphi(N)$ ermittelt wurde, kann der
+                      zweite Teil des öffentlichen Schlüssel, der
+                      Verschlüsselungsexponent $e$, ermittelt werden.
                       Folgende Bedingungen müssen für $e$ gelten:
                       $1 < e < \varphi(N) $  und $ggT(e, \varphi(N)) = 1$
-    \item[Schritt 5:] Es folgt die Berechnung des Entschlüsselungsexponenten 
-                      $d$ als multiplikativ Inverses von $e$ 
-                      bezüglich des Modules $\varphi(N)$. Es soll 
+    \item[Schritt 5:] Es folgt die Berechnung des Entschlüsselungsexponenten
+                      $d$ als multiplikativ Inverses von $e$
+                      bezüglich des Modules $\varphi(N)$. Es soll
                       also folgende Kongruenz gelten:
                       $e \cdot d \equiv 1 \imod{\varphi(N)}$
 
@@ -38,13 +38,13 @@ kann, in An-lehnung an [wiki-RSA], in fünf Schritte unterteilt werden:
 
 
 \subsection{Verschlüsselung mit dem öffentlichen Schlüssel}
-Ein Text wird verschlüsselt, indem er in Zahlen umgewandelt wird. Für 
-diese Umwandlung kann der ASCII-Code verwendet werden. Sobald man 
-Zahlen hat, kann man den unverschlüsselten Klartext $K$ mit folgender 
+Ein Text wird verschlüsselt, indem er in Zahlen umgewandelt wird. Für
+diese Umwandlung kann der ASCII-Code verwendet werden. Sobald man
+Zahlen hat, kann man den unverschlüsselten Klartext $K$ mit folgender
 Kongruenzgleichung in den verschlüsselten Geheimtext $G$ umwandeln: $G \equiv K^e \imod{N}$.\\
 Die Zahl $N$ sollte deutlich größer sein als K\footnote{vgl. [Reiss], S. 288}.
 
-In folgendem Beispiel wird der Klartext "`12"' verschlüsselt. Dazu 
+In folgendem Beispiel wird der Klartext "`12"' verschlüsselt. Dazu
 werden als Erstes alle benötigten Variablen erzeugt oder berechnet:
 
 \begin{description}
@@ -55,7 +55,7 @@ werden als Erstes alle benötigten Variablen erzeugt oder berechnet:
     \item[Schritt 5:] $877 \cdot d \equiv 1 \imod{130788}$
 \end{description}
 
-Um ein $d$ zu finden, das diese Kongruenz erfüllt, wird der 
+Um ein $d$ zu finden, das diese Kongruenz erfüllt, wird der
 erweiterte euklidische Algorithmus angewendet:
 
 \begin{tabular}{lll}
@@ -87,8 +87,8 @@ Probe:
 
 \[\frac{d \cdot e - 1}{\varphi(N)} = \frac{877 \cdot 9097 - 1}{130788} = 61\]
 
-Nun wird der Geheimtext $G$ mit dem Verschlüsselungsexponenten $e$ 
-aus dem Klartext $K$ berechnet: 
+Nun wird der Geheimtext $G$ mit dem Verschlüsselungsexponenten $e$
+aus dem Klartext $K$ berechnet:
 
 \begin{align*}
 G &\equiv K^e \imod{N}\\
@@ -100,11 +100,11 @@ G &\equiv 29467 \imod{131513}
 
 \subsection{Entschlüsselung mit dem privaten Schlüssel}\label{sec:Decryption}
 \subsubsection{Entschlüsselung ohne den Chinesischen Restsatz}
-Der Geheimtext wird entschlüsselt, indem man ihn mit $d$ potenziert 
-und dann denn kleinsten positiven Repräsentanten der Restklasse $N$ 
+Der Geheimtext wird entschlüsselt, indem man ihn mit $d$ potenziert
+und dann denn kleinsten positiven Repräsentanten der Restklasse $N$
 berechnet: $K \equiv G^d \imod{N}$
 
-Im Folgenden wird die Entschlüsselung auf das vorhergehende Beispiel 
+Im Folgenden wird die Entschlüsselung auf das vorhergehende Beispiel
 angewendet:
 
 \begin{align*}
@@ -117,9 +117,9 @@ K &\equiv 12 \imod{131513}
 \end{align*}
 
 \subsubsection{Entschlüsselung mit dem Chinesischen Restsatz}
-Falls der Entschlüsselungsexponent $d$ sehr groß ist, kann das 
-Potenzieren lange dauern. Dies kann mit dem Chinesischem Restsatz 
-beschleunigt werden\footnote{[Paixão], S. 1}. 
+Falls der Entschlüsselungsexponent $d$ sehr groß ist, kann das
+Potenzieren lange dauern. Dies kann mit dem Chinesischem Restsatz
+beschleunigt werden\footnote{[Paixão], S. 1}.
 Diese Idee wurde [Paixão] entnommen:
 
 Der Geheimtext $G$ und der Exponent $d$ wird folgendermaßen geteilt:
@@ -148,7 +148,7 @@ K_p &\equiv {G_p} ^ {d_p} \imod{p}\\
 K_q &\equiv {G_q} ^ {d_q} \imod{q}
 \end{align*}
 
-Der Chinesische Restsatz ermöglicht es nun, eine Lösung $K$ für die 
+Der Chinesische Restsatz ermöglicht es nun, eine Lösung $K$ für die
 folgenden Kongruenzen zu finden:
 
 \begin{align*}
@@ -169,8 +169,8 @@ Diese Methode ist etwa vier mal schneller als die Entschlüsselung mit $d$\footn
 
 \subsection{Entschlüsselung ohne den privaten Schlüssel}
 Ist der Entschlüsselungsexponent $d$ unbekannt, so kann dieser durch
-Faktorisierung von $N$ zurückgewonnen werden. Faktorisiert man $N$, so 
-kann $\varphi(N)$ berechnet werden und die Kongruenz $e \cdot d \equiv 1 \imod{\varphi(N)}$ gelöst werden. 
+Faktorisierung von $N$ zurückgewonnen werden. Faktorisiert man $N$, so
+kann $\varphi(N)$ berechnet werden und die Kongruenz $e \cdot d \equiv 1 \imod{\varphi(N)}$ gelöst werden.
 
 Als praktische Arbeit wurde mir folgende Aufgabe gestellt:
 
@@ -184,66 +184,66 @@ y := 65087_24329_19692_65260_21005_67465_76581_27499;
 Wie lautet die Botschaft im Klartext?
 \end{mdframed}
 
-Um diese Aufgabe zu lösen, versucht man den privaten Schlüssel mit 
+Um diese Aufgabe zu lösen, versucht man den privaten Schlüssel mit
 Hilfe des öffentlichen Schlüssels wiederherzustellen.
 
-Der private Schlüssel $d$ muss die Kongruenzgleichung 
-$e \cdot d \equiv 1 \imod{\varphi(N)}$ erfüllen, allerdings sind 
-$\varphi(N)$ und $d$ nicht bekannt. Um $\varphi(N)$ zu berechnen, 
-werden die Primfaktoren $p$ und $q$, aus denen $N$ besteht, benötigt. 
-$N$ muss also faktorisiert werden. Sobald ein Faktor von $N$ bekannt 
-ist, kann man $N$ durch diesen Faktor teilen und man erhält den 
+Der private Schlüssel $d$ muss die Kongruenzgleichung
+$e \cdot d \equiv 1 \imod{\varphi(N)}$ erfüllen, allerdings sind
+$\varphi(N)$ und $d$ nicht bekannt. Um $\varphi(N)$ zu berechnen,
+werden die Primfaktoren $p$ und $q$, aus denen $N$ besteht, benötigt.
+$N$ muss also faktorisiert werden. Sobald ein Faktor von $N$ bekannt
+ist, kann man $N$ durch diesen Faktor teilen und man erhält den
 zweiten Faktor. Dann kann man wie in \cref{sec:RSA-Verfahren} vorgehen und $d$
 berechnen. Mit $d$ kann man wie in \cref{sec:Decryption} beschrieben die
 Geheimbotschaft entschlüsseln.
 
-Wird das Aribas-Skript im Anhang ausgeführt, das diese Schritte 
+Wird das Aribas-Skript im Anhang ausgeführt, das diese Schritte
 ausführt, erhält man den Klartext "`\textbf{RSAribas}"'.
 
 
 \subsection{Sicherheit des RSA-Algorithmus}\label{sec:Security}
-Der RSA-Algorithmus kann, wie oben beschrieben, "`geknackt"' werden, 
-indem der öffentliche Schlüssel faktorisiert wird. Allerdings ist das 
-bei großen Zahlen nahezu unmöglich, da die Algorithmen sehr lange 
-Laufzeiten haben\footnote{[RSA-2190]}. 
-Wie lange die Faktorisierung dauert hängt einerseits vom Algorithmus, 
-andererseits von der Hardware ab. 
+Der RSA-Algorithmus kann, wie oben beschrieben, "`geknackt"' werden,
+indem der öffentliche Schlüssel faktorisiert wird. Allerdings ist das
+bei großen Zahlen nahezu unmöglich, da die Algorithmen sehr lange
+Laufzeiten haben\footnote{[RSA-2190]}.
+Wie lange die Faktorisierung dauert hängt einerseits vom Algorithmus,
+andererseits von der Hardware ab.
 
-Um ein Gefühl dafür zu bekommen was "`sehr lange"' bedeutet, kann man 
-die "`RSA Factoring Challenge"' als Beispiel betrachten. Eine 
-193-stellige Zahl sollte Faktorisiert werden. Für diese Aufgabe 
-wurde am 18. März 1991 ein Preisgeld von 20.000 US-Dollar 
-ausgeschrieben. Ein Team des Instituts für Experimentelle Mathematik 
-in Essen hat am 2. November 2005 diese Aufgabe gelöst und dafür 
-über fünf Monate benötigt. Der Rechenaufwand betrug etwa 30 
+Um ein Gefühl dafür zu bekommen was "`sehr lange"' bedeutet, kann man
+die "`RSA Factoring Challenge"' als Beispiel betrachten. Eine
+193-stellige Zahl sollte Faktorisiert werden. Für diese Aufgabe
+wurde am 18. März 1991 ein Preisgeld von 20.000 US-Dollar
+ausgeschrieben. Ein Team des Instituts für Experimentelle Mathematik
+in Essen hat am 2. November 2005 diese Aufgabe gelöst und dafür
+über fünf Monate benötigt. Der Rechenaufwand betrug etwa 30
 2.2GHz-Opteron-CPU Jahre\footnote{[RSA-2964]}.
 
-Das Faktorisieren wird zwar immer schneller, da man über bessere und 
-billigere Computer sowie effizientere Algorithmen verfügt, allerdings 
-steigt mit den Hardwareverbesserungen die Sicherheit des 
-RSA-Algorithmus. Mit einer besseren Hardware können deutlich größere 
-Primzahlen erzeugt werden und damit auch ein deutlich längerer 
-öffentlicher Schlüssel generiert werden, der zur Verschlüsselung der 
+Das Faktorisieren wird zwar immer schneller, da man über bessere und
+billigere Computer sowie effizientere Algorithmen verfügt, allerdings
+steigt mit den Hardwareverbesserungen die Sicherheit des
+RSA-Algorithmus. Mit einer besseren Hardware können deutlich größere
+Primzahlen erzeugt werden und damit auch ein deutlich längerer
+öffentlicher Schlüssel generiert werden, der zur Verschlüsselung der
 Nachricht dient.
 
-Ein verbesserter Faktorisierungsalgorithmus würde die Sicherheit des 
-RSA-Kryptosystems gefährden. Es ist jedoch unwahrscheinlich, dass ein 
-solcher Algorithmus gefunden wird, da das Problem als schwer 
+Ein verbesserter Faktorisierungsalgorithmus würde die Sicherheit des
+RSA-Kryptosystems gefährden. Es ist jedoch unwahrscheinlich, dass ein
+solcher Algorithmus gefunden wird, da das Problem als schwer
 angesehen wird.\footnote{[RSA-2191]}
 
-Ein weiterer möglicher Angriff auf das RSA-Kryptosystem wäre die 
-$e$-te Wurzel $\imod{n}$ zu finden. Da $G \equiv K^e \imod{N}$ ist, 
-wäre $K \equiv \sqrt[e]{K^e} \imod{N}$. Allerdings ist kein Angriff, 
-der so funktioniert, bekannt4. Um zu veranschaulichen, dass bei einer 
-Kongruenzgleichung nicht wie gewohnt die Wurzel gezogen werden kann, 
-betrachte man folgendes Beispiel: $4 \equiv 16 \imod{3}$, aber 
+Ein weiterer möglicher Angriff auf das RSA-Kryptosystem wäre die
+$e$-te Wurzel $\imod{n}$ zu finden. Da $G \equiv K^e \imod{N}$ ist,
+wäre $K \equiv \sqrt[e]{K^e} \imod{N}$. Allerdings ist kein Angriff,
+der so funktioniert, bekannt4. Um zu veranschaulichen, dass bei einer
+Kongruenzgleichung nicht wie gewohnt die Wurzel gezogen werden kann,
+betrachte man folgendes Beispiel: $4 \equiv 16 \imod{3}$, aber
 $\sqrt{4} \neq \sqrt{16} \imod{3}$.
 
 \subsection{Warum der RSA-Algorithmus funktioniert}
-Der Geheimtext $G$ wird durch potenzieren mit $e$ gewonnen ($G \equiv K^e \imod{N}$) 
+Der Geheimtext $G$ wird durch potenzieren mit $e$ gewonnen ($G \equiv K^e \imod{N}$)
 und der Klartext durch potenzieren mit $d$ ($K \equiv G^d \imod{N}$).
 Zu zeigen ist, dass
-$K \equiv K^{e \cdot d} \imod{N}$ mit $ed \equiv 1 \imod{\varphi(N)}$ gilt. 
+$K \equiv K^{e \cdot d} \imod{N}$ mit $ed \equiv 1 \imod{\varphi(N)}$ gilt.
 
 Es kann folgende Umformung durchgeführt werden:
 \begin{align*}
@@ -262,10 +262,10 @@ $K^{\varphi(N)} \equiv 1 \imod{N}$  für $K, N \in \mathbb{N}$ und $ggT(N, K) = 
 Beweis nach [Reiss], S. 218 f.:
 \hangindent2em
 \hangafter=0
-Es gibt $\varphi(N)$ verschiedene, zu $N$ teilerfremde Reste. Da $K$ 
-zu $N$ teilerfremd ist, muss auch jedes der Produkte 
-$K \cdot r_1 , K \cdot r_2 , \dots, K \cdot r_{\varphi(N)}$ zu $N$ 
-teilerfremd sein. 
+Es gibt $\varphi(N)$ verschiedene, zu $N$ teilerfremde Reste. Da $K$
+zu $N$ teilerfremd ist, muss auch jedes der Produkte
+$K \cdot r_1 , K \cdot r_2 , \dots, K \cdot r_{\varphi(N)}$ zu $N$
+teilerfremd sein.
 
 Es gilt:
 \begin{align*}
@@ -273,9 +273,9 @@ Es gilt:
 K^{\varphi(N)} \prod_{i=1}^{n=\varphi(N)} r_i &\equiv \prod_{i=1}^{n=\varphi(N)} r_i \imod{N}
 \end{align*}
 
-Da alle $r_i$ teilerfremd zu N sind, kann man durch das Produkt teilen. Daraus ergibt sich: 
+Da alle $r_i$ teilerfremd zu N sind, kann man durch das Produkt teilen. Daraus ergibt sich:
 \[K^{\varphi(N)} \equiv 1 \imod{N}\]
 
 Das bedeutet für den RSA-Algorithmus:
 \[K \cdot K^{x \cdot \varphi(N)}  \equiv K \cdot (K^{\varphi(N)})^x \equiv K \cdot 1^x \equiv K \imod{N}\]
-	
+

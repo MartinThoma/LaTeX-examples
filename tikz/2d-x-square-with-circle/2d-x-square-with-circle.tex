@@ -26,15 +26,15 @@
         minor tick num=-3,
         enlargelimits=true,
         tension=0.08]
-      \addplot[domain=-1.5:1.5, red, thick,samples=50] {x*x}; 
+      \addplot[domain=-1.5:1.5, red, thick,samples=50] {x*x};
 	\draw[blue, thick] \pgfextra{
 	  \pgfpathellipse{\pgfplotspointaxisxy{0}{1}}
 		{\pgfplotspointaxisdirectionxy{0.87}{0}}
 		{\pgfplotspointaxisdirectionxy{0}{0.87}}
-	  % see also the documentation of 
+	  % see also the documentation of
 	  % 'axis direction cs' which
 	  % allows a simpler way to draw this ellipse
 	};
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
 \end{document}

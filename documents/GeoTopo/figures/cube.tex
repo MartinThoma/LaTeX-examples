@@ -18,9 +18,9 @@
    \path[name path=trpath] (tl) -- (fr);
    \path[name path=tlpath] (tr) -- (fl);
 
-   \draw[name intersections={of=brpath and rbpath}] (intersection-1)coordinate (br){}; 
-   \draw[name intersections={of=blpath and lbpath}] (intersection-1)coordinate (bl){}; 
-   \draw[name intersections={of=trpath and tlpath}] (intersection-1)coordinate (tb){}; 
+   \draw[name intersections={of=brpath and rbpath}] (intersection-1)coordinate (br){};
+   \draw[name intersections={of=blpath and lbpath}] (intersection-1)coordinate (bl){};
+   \draw[name intersections={of=trpath and tlpath}] (intersection-1)coordinate (tb){};
 
    \shade[right color=gray!10, left color=black!50, shading angle=105] (tf) -- (bf) -- (bl) -- (tl) -- cycle;
    \shade[left color=gray!10, right color=black!50, shading angle=75] (tf) -- (bf) -- (br) -- (tr) -- cycle;

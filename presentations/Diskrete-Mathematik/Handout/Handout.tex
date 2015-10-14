@@ -16,11 +16,11 @@
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Diskrete Mathematik}, 
-  pdftitle    = {Graphentheorie I: Handout} 
-} 
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {Diskrete Mathematik},
+  pdftitle    = {Graphentheorie I: Handout}
+}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -62,22 +62,22 @@
 \definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
 \definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
 
-\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{%
   % Optional continuation label defaults to the first label plus
   \def\Frame@Lab{#2}%
   \def\FrameCommand{\LabFrame{#2}}%
   \def\FirstFrameCommand{\LabFrame{#2}}%
   \def\MidFrameCommand{\LabFrame{#1}}%
   \def\LastFrameCommand{\LabFrame{#1}}%
-  \MakeFramed{\advance\hsize-\width \FrameRestore} 
-}{\endMakeFramed} 
+  \MakeFramed{\advance\hsize-\width \FrameRestore}
+}{\endMakeFramed}
 \newcounter{definition}
 \newenvironment{definition}[1]{%
   \par
   \refstepcounter{definition}%
   \begin{contlabelframe}{Definition \thedefinition:\quad #1}
  \noindent\ignorespaces}
-{\end{contlabelframe}} 
+{\end{contlabelframe}}
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Theorem                                                           %
@@ -120,8 +120,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \begin{definition}{Graph}
-Ein Graph ist ein Tupel $(E, K)$, wobei $E \neq \emptyset$ die Eckenmenge und 
-$K \subseteq E \times E$ die 
+Ein Graph ist ein Tupel $(E, K)$, wobei $E \neq \emptyset$ die Eckenmenge und
+$K \subseteq E \times E$ die
 Kantenmenge bezeichnet.
 \end{definition}
 
@@ -137,7 +137,7 @@ Hat eine Ecke den Grad 0, so nennt man sie \textbf{isoliert}.
 \begin{definition}{Schlinge}
 Sei $G=(E, K)$ ein Graph und $k=\Set{e_1, e_2} \in K$ eine Kante.
 
-$k$ heißt \textbf{Schlinge} $:\Leftrightarrow e_1 = e_2$ 
+$k$ heißt \textbf{Schlinge} $:\Leftrightarrow e_1 = e_2$
 \end{definition}
 
 \begin{definition}{Inzidenz}
@@ -178,11 +178,11 @@ $e_0, e_1, e_2, \dots, e_s$ gibt, so dass
     \item \dots
     \item $k_s = \Set{e_{s-1}, e_s}$
 \end{itemize}
-gilt ein \textbf{Kantenzug}, der $e_0$ und $e_s$ \textbf{verbindet} und $s$ 
+gilt ein \textbf{Kantenzug}, der $e_0$ und $e_s$ \textbf{verbindet} und $s$
 seine \textbf{Länge}.
 \end{definition}
 
-Ein Kantenzug wird durch den Tupel $(e_0, \dots, e_s) \in E^{s+1}$ 
+Ein Kantenzug wird durch den Tupel $(e_0, \dots, e_s) \in E^{s+1}$
 charakterisiert.
 
 \begin{definition}{Geschlossener Kantenzug}
@@ -221,7 +221,7 @@ A heißt \textbf{Kreis} $:\Leftrightarrow A$ ist geschlossen und ein Weg.
 \begin{definition}{Zusammenhängender Graph}
 Sei $G = (E, K)$ ein Graph.
 
-$G$ heißt \textbf{zusammenhängend} $:\Leftrightarrow \forall e_1, e_2 \in E: $ 
+$G$ heißt \textbf{zusammenhängend} $:\Leftrightarrow \forall e_1, e_2 \in E: $
 Es ex. ein Kantenzug, der $e_1$ und $e_2$ verbindet
 \end{definition}
 
@@ -246,13 +246,13 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
     \begin{Proof} Direkt\\
         Sei $C = (e_0, \dots, e_n, e_0) \in E^{n+2}$ ein Eulerkreis in $G$
         $\Rightarrow $ Es gilt: $\forall e \in E\;\exists i \in \Set{0, \dots, n}: e = e_i$ und alle Kanten aus $G$ sind genau ein einziges Mal in $C$.\\
-        Außerdem gilt: 
+        Außerdem gilt:
         \[\text{Grad}(e_i) = \begin{cases}
             2 \cdot \text{Anzahl der Vorkommen von } e_i \text{ in } C & \text{falls } i\neq 0\\
             2 \cdot (\text{Anzahl der Vorkommen von } e_i \text{ in } C -1)  & \text{falls } i = 0\\
         \end{cases}
         \]
-        $\Rightarrow \forall e \in E: \text{Grad}(e)$ ist gerade 
+        $\Rightarrow \forall e \in E: \text{Grad}(e)$ ist gerade
     \end{Proof}
 \end{theorem}
 \vspace{0.5cm}
@@ -269,8 +269,8 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
         $m=1$: Es gibt keinen Graphen in dem jede Ecke geraden Grad hat. \cmark\\
         $m=2$: Nur ein Graph ist zusammenhängend, hat zwei Kanten und nur Ecken geraden Grades. Dieser ist eulersch. \cmark
         \goodbreak
-        \underline{I.V.:} Sei $m \in \mathbb{N}_0$ beliebig, aber fest und 
-        es gelte: 
+        \underline{I.V.:} Sei $m \in \mathbb{N}_0$ beliebig, aber fest und
+        es gelte:
 
         Für alle zusammenhängenden Graphen $G$ mit höchstens $m$ Kanten, bei denen jede Ecke geraden Grad hat, ist $G$ eulersch.
 
@@ -278,14 +278,14 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
         $\Rightarrow$ Jede Ecke von $G$ hat min. Grad 2.
         $\stackrel{A5}{\Rightarrow}$ Es gibt einen Kreis $C$ in $G$.\\
 
-        Sei nun 
+        Sei nun
             \[G_C = (E_C, K_C) \text{ mit } E_C \subseteq E \text{ und } K_C \subseteq K \]
         der Graph, der durch $C$ induziert wird.
-        Sei 
+        Sei
 
             \[ G^* = (E, K \setminus K_C) \]
 
-        Es gilt: 
+        Es gilt:
         \begin{itemize}
             \item Jede Ecke in $G^*$ hat geraden Grad.
             \item Jede Zusammenhangskomponente hat weniger als $m$ Knoten.
@@ -301,7 +301,7 @@ Ein Graph heißt \textbf{eulersch}, wenn er einen eulerschen Kreis enthält.
 \begin{definition}{Offene eulersche Linie}
 Sei $G$ ein Graph und $A$ ein Weg, der kein Kreis ist.
 
-$A$ heißt \textbf{offene eulersche Linie} von $G :\Leftrightarrow$ Jede Kante 
+$A$ heißt \textbf{offene eulersche Linie} von $G :\Leftrightarrow$ Jede Kante
 in $G$ kommt genau ein mal in $A$ vor.
 \end{definition}
 \vspace{0.5cm}

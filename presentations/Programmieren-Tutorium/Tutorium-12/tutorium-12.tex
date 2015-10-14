@@ -48,7 +48,7 @@
 \section{Überladung}
 \subsection{Musterlösung}
 \begin{frame}{Musterlösung}
-    Eine Musterlösung zu Blatt 5 ist 
+    Eine Musterlösung zu Blatt 5 ist
     \href{https://github.com/MartinThoma/prog-ws1213/tree/master/Blatt-05/tutor-solution/Blatt5/src/mediabib}{hier}.
 \end{frame}
 
@@ -90,10 +90,10 @@
         \item \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html\#signum(double)}{Math.signum(double)},
               \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html\#signum(float)}{Math.signum(float)}
         \item PrintStream:
-              \href{http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html\#println()}{println();}, 
+              \href{http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html\#println()}{println();},
               \href{http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html\#println(boolean)}{println(boolean);},
               \href{http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html\#println(char)}{println(char);} \dots
-        \item Interface List: 
+        \item Interface List:
               \href{http://docs.oracle.com/javase/7/docs/api/java/util/List.html\#toArray()}{Object[] toArray();},
               \href{http://docs.oracle.com/javase/7/docs/api/java/util/List.html\#toArray(T[])}{<T> T[] toArray(T[] a)}
     \end{itemize}
@@ -121,7 +121,7 @@
     \begin{itemize}
         \item \href{http://en.wikipedia.org/wiki/Loose_coupling}{Loose coupling} (Lose Kopplung)
         \item Loose binding - nicht weit verbreitet, vermutlich falscher Begriff
-        \item \href{http://en.wikipedia.org/wiki/Dynamic_dispatch}{Dynamic dispatch}: 
+        \item \href{http://en.wikipedia.org/wiki/Dynamic_dispatch}{Dynamic dispatch}:
               Laut Wikipedia das gleiche wie "`dynamic binding"'.
     \end{itemize}
 \end{frame}
@@ -199,7 +199,7 @@
     Die Annotation \myCode{@Override} \dots
     \begin{itemize}[<+->]
         \item Sollte verwendet werden, damit der Compiler euch warnen
-              kann, wenn ihr nichts überschreibt 
+              kann, wenn ihr nichts überschreibt
         \item[$\Rightarrow$] Tippfehler werden unwahrscheinlicher
         \item Anderen ist klar, dass euch klar war, dass ihr etwas
               überschreibt
@@ -284,9 +284,9 @@
 \subsection{Allgemeines}
 \begin{frame}{Allgemeines}
     \begin{itemize}[<+->]
-        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/Dictionary.html}{Dictionary} 
-              is obsolete. New implementations should implement the 
-              \href{http://docs.oracle.com/javase/7/docs/api/java/util/Map.html}{Map} 
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/Dictionary.html}{Dictionary}
+              is obsolete. New implementations should implement the
+              \href{http://docs.oracle.com/javase/7/docs/api/java/util/Map.html}{Map}
               interface, rather than extending Dictionary.
         \item Telefonbuch-Anwendungsfälle
             \begin{itemize}
@@ -295,12 +295,12 @@
                 \item Schlüssel ist eindeutig, Wert darfs mehrfach geben (sowohl identisch als auch gleich sind ok)
             \end{itemize}
         \item Interface Map links vom \myCode{=}
-        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html}{HashMap}: 
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html}{HashMap}:
             \begin{itemize}
                 \item makes no guarantees as to the order of the map
                 \item $\mathcal{O}(1)$ für \myCode{get} und \myCode{put}
             \end{itemize}
-        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html}{TreeMap}: 
+        \item \href{http://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html}{TreeMap}:
             \begin{itemize}
                 \item sorted according to the natural ordering of its keys
                 \item $\mathcal{O}(\log n)$ für \myCode{containsKey}, \myCode{get}, \myCode{put} und \myCode{remove}
@@ -344,7 +344,7 @@ http://stackoverflow.com/questions/2889777/difference-between-hashmap-linkedhash
     ActionLister sind \dots
     \begin{itemize}[<+->]
         \item ein weit verbreitetes Konzept
-        \item Objekte, die auf bestimmte Aktionen warten und 
+        \item Objekte, die auf bestimmte Aktionen warten und
         \begin{itemize}
             \item dann was machen
             \item die Aktion "`delegieren"'

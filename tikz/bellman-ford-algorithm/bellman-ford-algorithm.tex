@@ -51,7 +51,7 @@
 \begin{tikzpicture}[scale=2.5, auto,swap]
     % First we draw the vertices
     \foreach \pos/\name in {{(0,2)/a}, {(1,2)/b}, {(2,2)/c},
-                            {(0,1)/d}, {(1,1)/e}, {(2,1)/f}, 
+                            {(0,1)/d}, {(1,1)/e}, {(2,1)/f},
                             {(0,0)/g}, {(1,0)/h}, {(2,0)/i}}
         \node[vertexOnly] (\name) at \pos {$\name$};
     % Connect vertices with edges and draw weights
@@ -73,14 +73,14 @@
             % First we draw the vertices
             \foreach \pos/\name/\weight/\pred in {
                 {(0,2)/a/$0$/-},{(1,2)/b/$\infty$/-}, {(2,2)/c/$\infty$/-},
-                {(0,1)/d/$\infty$/-}, {(1,1)/e/$\infty$/-}, {(2,1)/f/$\infty$/-}, 
+                {(0,1)/d/$\infty$/-}, {(1,1)/e/$\infty$/-}, {(2,1)/f/$\infty$/-},
                 {(0,0)/g/$\infty$/-}, {(1,0)/h/$\infty$/-}, {(2,0)/i/$\infty$/-}}
                     \node[vertex] (\name) at \pos {$\name$};
 
             % Connect vertices with edges and draw weights
             \foreach \source/ \dest /\weight/\style in {
-                a/b/0/, b/c/1/, a/d/2/, e/d/5/, b/e/3/bend right, 
-                e/b/-1/bend right, b/f/4/above, f/i/3/, i/e/1/, 
+                a/b/0/, b/c/1/, a/d/2/, e/d/5/, b/e/3/bend right,
+                e/b/-1/bend right, b/f/4/above, f/i/3/, i/e/1/,
                 g/h/1/}
                     \path (\source) edge[->,\style, thick] node {$\weight$} (\dest);
         \end{tikzpicture}
@@ -95,14 +95,14 @@
             % First we draw the vertices
             \foreach \pos/\name/\weight/\pred in {
                 {(1,2)/b/$\infty$/-}, {(2,2)/c/$\infty$/-},
-                {(0,1)/d/$\infty$/-}, {(1,1)/e/$\infty$/-}, {(2,1)/f/$\infty$/-}, 
+                {(0,1)/d/$\infty$/-}, {(1,1)/e/$\infty$/-}, {(2,1)/f/$\infty$/-},
                 {(0,0)/g/$\infty$/-}, {(1,0)/h/$\infty$/-}, {(2,0)/i/$\infty$/-}}
                     \node[vertex] (\name) at \pos {$\name$};
 
             % Connect vertices with edges and draw weights
             \foreach \source/ \dest /\weight/\style in {
-                a/b/0/, b/c/1/, a/d/2/, e/d/5/, b/e/3/bend right, 
-                e/b/-1/bend right, b/f/4/above, f/i/3/, i/e/1/, 
+                a/b/0/, b/c/1/, a/d/2/, e/d/5/, b/e/3/bend right,
+                e/b/-1/bend right, b/f/4/above, f/i/3/, i/e/1/,
                 g/h/1/}
                     \path (\source) edge[->,\style, thick] node {$\weight$} (\dest);
         \end{tikzpicture}

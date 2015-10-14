@@ -21,7 +21,7 @@
 \texttt{bool} durch ein einzelnes Bit repräsentiert werden oder eine Bitfolge
 zugrunde liegen.
 
-Auf Typen sind Operationen definiert. So kann man auf numerischen Typen eine 
+Auf Typen sind Operationen definiert. So kann man auf numerischen Typen eine
 Addition (+), eine Subtraktion (-), eine Multiplikation (*) und eine Division (/)
 definieren.\\
 Ich schreibe hier bewusst \enquote{eine} Multiplikation und nicht \enquote{die}
@@ -40,7 +40,7 @@ unterschiedlich wählen.
 
 \underline{Hinweis:} Üblicherweise werden kleine griechische Buchstaben ($\alpha, \beta, \tau_1, \tau_2, \dots$) als Typvariablen gewählt.
 
-Genau wie Typen bestimmte Operationen haben, die auf ihnen definiert sind, 
+Genau wie Typen bestimmte Operationen haben, die auf ihnen definiert sind,
 kann man sagen, dass Operationen bestimmte Typen, auf die diese Anwendbar sind. So ist
 \[\alpha+\beta\]
 für numerische $\alpha$ und $\beta$ wohldefiniert, auch wenn $\alpha$ und $\beta$ boolesch sind
@@ -97,7 +97,7 @@ Wichtig ist, dass man sich von unten nach oben vorarbeitet.
 
 
 Dabei ist der lange Strich kein Bruchstrich, sondern ein Symbol der Logik das als
-\textbf{Schlussstrich}\xindex{Schlussstrich} bezeichnet wird. Dabei ist der 
+\textbf{Schlussstrich}\xindex{Schlussstrich} bezeichnet wird. Dabei ist der
 Zähler als Voraussetzung und der Nenner als Schlussfolgerung zu verstehen.
 
 \begin{definition}[Typsubstituition]\xindex{Typsubstituition}%
@@ -140,21 +140,21 @@ Das Programm $P = \text{let } f = \lambda x.\ 2 \text{ in } f\ (f\ \text{\texttt
 ist eine polymorphe Hilfsfunktion, da sie beliebige Werte auf 2 Abbildet.
 Auch solche Ausdrücke sollen typisierbar sein.
 
-Die Kodierung 
+Die Kodierung
 \[\text{let } x = t_1 \text{ in } t_2\]
 ist bedeutungsgleich mit
 \[(\lambda x.\ t_2) t_1\]
 
-Das Problem ist, dass 
+Das Problem ist, dass
 \[P = \lambda f. \ f (f\ \text{\texttt{true}})\ (\lambda x.\ 2)\]
 so nicht typisierbar ist, da in
 \[\ABS \frac{f: \tau_f \vdash f\ (f\ \text{\texttt{true}}): \dots}{\vdash \lambda f.\ f\ (f\ \text{\texttt{true}}): \dots}\]
-müsste 
+müsste
 \[\tau_f = \text{bool} \rightarrow \text{int}\]
 und zugleich
 \[\tau_f = \text{int} \rightarrow \text{int}\]
 in den Typkontext eingetragen werden. Dies ist jedoch nicht möglich. Stattdessen
-wird 
+wird
 \[\text{let} x = t_1 \text{ in } t_2\]
 als neues Konstrukt im $\lambda$-Kalkül erlaubt.
 
@@ -219,7 +219,7 @@ Im Folgenden wird die Typinferenz für einige $\lambda$-Funktionen durchgeführt
 \subsection[$\lambda x.\ \lambda y.\ x\ y$]{$\lambda x.\ \lambda y.\ x\ y$\footnote{Lösung von Übungsblatt 6, WS 2013 / 2014}}
 Gesucht ist ein Typ $\tau$, sodass sich $\vdash \lambda x.\ \lambda y.\ x\ y: \tau$
 mit einem Ableitungsbaum nachweisen lässt. Es gibt mehrere solche $\tau$, aber
-wir suchen das allgemeinste. Die Regeln unseres Typsystems (siehe \cpageref{def:typsystem-t1}) 
+wir suchen das allgemeinste. Die Regeln unseres Typsystems (siehe \cpageref{def:typsystem-t1})
 sind \textit{syntaxgerichtet}, d.~h. zu jedem $\lambda$-(Teil)-Term gibt es genau
 eine passende Regel.
 
@@ -229,7 +229,7 @@ von folgender Gestalt ist. Dabei sind $\alpha_i$ Platzhalter:
 \[\ABS \frac{\ABS\frac{\textstyle\APP \frac{\textstyle\VAR \frac{(x: \alpha_2, y: \alpha_4)\ (x) = \alpha_6}{x: \alpha_2, y: \alpha_4 \vdash x: \alpha_6}\ \ \VAR \frac{(x:\alpha_2, y: \alpha_4)\ (y) = \alpha_7}{x: \alpha_2, y: \alpha_4 \vdash y : \alpha_7}}{\textstyle x: \alpha_2, y: \alpha_4 \vdash x\ y: \alpha_5}}{x:\alpha_2 \vdash \lambda y.\ x\ y\ :\ \alpha_3}}{\vdash \lambda x.\ \lambda \ y.\ x\ y: \alpha_1}\]
 
 Das was wir haben wollen steht am Ende, also unter dem unterstem Schlussstrich.
-Dann bedeutet die letzte Zeile 
+Dann bedeutet die letzte Zeile
 \[\vdash \lambda x.\ \lambda \ y.\ x\ y: \alpha_1\]
 
 Ohne (weitere) Voraussetzungen lässt sich sagen, dass der Term
@@ -247,7 +247,7 @@ Diese Zeile ist so zu lesen: Mit der Voraussetzung, dass $x$ vom Typ $\alpha_2$
 ist, lässt sich syntaktisch Folgern, dass der Term $\lambda y.\ x\ y$ vom
 Typ $\alpha_3$ ist.
 
-\underline{Hinweis:} Alles was in Zeile $i$ dem $\vdash$ steht, steht auch in 
+\underline{Hinweis:} Alles was in Zeile $i$ dem $\vdash$ steht, steht auch in
 jedem \enquote{Nenner} in Zeile $j < i$ vor jedem einzelnen $\vdash$.
 
 Folgende Typgleichungen $C$ lassen sich aus dem Ableitungsbaum ablesen:
@@ -286,7 +286,7 @@ Zuerst erstellt man den Ableitungsbaum:
 
 Dies ergibt die Constraint-Menge
 \begin{align}
-	C&= \Set{\alpha_1 = \alpha_2 \rightarrow \alpha_3}    &\text{$\ABS$-Regel}\label{eq:bsp2.c1}\\ 
+	C&= \Set{\alpha_1 = \alpha_2 \rightarrow \alpha_3}    &\text{$\ABS$-Regel}\label{eq:bsp2.c1}\\
      &\cup \Set{\alpha_5 = \alpha_4 \rightarrow \alpha_3} &\text{$\APP$-Regel}\label{eq:bsp2.c2}\\
      &\cup \Set{\alpha_5 = \alpha_2}                      &\text{Linke $\VAR$-Regel}\label{eq:bsp2.c3}\\
      &\cup \Set{\alpha_4 = \alpha_2}                      &\text{Rechte $\VAR$-Regel}\label{eq:bsp2.c4}
@@ -299,6 +299,6 @@ Also lässt sich \cref{eq:bsp2.c2} umformulieren:
 \[\alpha_2 = \alpha_2 \rightarrow \alpha_3\]
 
 Offensichtlich ist diese Bedingung nicht erfüllbar. Daher ist ist die Selbstapplikation
-nicht typisierbar. Dies würde im Unifikationsalgorithmus 
+nicht typisierbar. Dies würde im Unifikationsalgorithmus
 (vgl. \cref{alg:klassischer-unifikationsalgorithmus})
 durch den \textit{occur check} festgestellt werden.

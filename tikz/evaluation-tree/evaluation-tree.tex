@@ -2,17 +2,17 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes, calc} 
+\usetikzlibrary{shapes, calc}
 \tikzstyle{vertex}=[draw,fill=black!15,circle,minimum size=20pt,inner sep=0pt]
 
 \begin{document}
 \begin{preview}
 \begin{tikzpicture}
     \node[vertex] {+}
-        child { 
+        child {
             node[vertex] {+}
-            child { 
-                node[vertex] {+} 
+            child {
+                node[vertex] {+}
                 child { node[vertex] {i} }
                 child { node[vertex] {++i} }
             }

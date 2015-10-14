@@ -52,7 +52,7 @@ Die Funktionsapplikation sei linksassoziativ. Es gilt also:
 \end{definition}
 
 \begin{definition}[$\alpha$-Äquivalenz]\xindex{Reduktion!Alpha ($\alpha$)}\xindex{Äquivalenz!Alpha ($\alpha$)}%
-    Zwei Terme $T_1, T_2$ heißen $\alpha$-Äquivalent, wenn $T_1$ durch 
+    Zwei Terme $T_1, T_2$ heißen $\alpha$-Äquivalent, wenn $T_1$ durch
     konsistente Umbenennung in $T_2$ überführt werden kann.
 
     Man schreibt dann: $T_1 \overset{\alpha}{=} T_2$.
@@ -115,7 +115,7 @@ Das bezeichnet die Lazy-Evaluation von booleschen Ausdrücken.
 
 \begin{beispiel}[Sharing]
     In dem Ausdruck \texttt{(plus, (fac, 42), (fac, 42))} muss der Teilausdruck
-    \texttt{(fac, 42)} nicht zwei mal ausgewertet werden, wenn er Seiteneffektfrei 
+    \texttt{(fac, 42)} nicht zwei mal ausgewertet werden, wenn er Seiteneffektfrei
     ist.
 \end{beispiel}
 
@@ -128,7 +128,7 @@ Die Call-By-Value Auswertungsreihenfolge wird in C und Java verwendet.
 Auch in Haskell werden arithmetische Ausdrücke in der Call-By-Name Auswertungsreihenfolge reduziert.
 
 \section{Church-Zahlen}\xindex{Church-Zahlen}
-Im $\lambda$-Kalkül lässt sich jeder mathematische Ausdruck darstellen, also 
+Im $\lambda$-Kalkül lässt sich jeder mathematische Ausdruck darstellen, also
 insbesondere beispielsweise auch $\lambda x. x+3$. Aber \enquote{$3$} und
 \enquote{$+$} ist hier noch nicht das $\lambda$-Kalkül.
 
@@ -152,7 +152,7 @@ Auch die gewohnten Operationen lassen sich so darstellen.
         \succ :&= \lambda n f z. f (n f z)\\
                &= \lambda n. (\lambda f  (\lambda z f (n f z)))
     \end{align*}
-    Dabei ist $n$ die Zahl. 
+    Dabei ist $n$ die Zahl.
 
     Will man diese Funktion anwenden, sieht das wie folgt aus:
     \begin{align*}
@@ -223,7 +223,7 @@ zurückgibt:
 
 \begin{beispiel}[Fixpunkt]
     \begin{bspenum}
-        \item $f_1: \mdr \rightarrow \mdr; f(x) = x^2 \Rightarrow x_1 = 0$ ist 
+        \item $f_1: \mdr \rightarrow \mdr; f(x) = x^2 \Rightarrow x_1 = 0$ ist
               Fixpunkt von $f$, da $f(0) = 0$. $x_2 = 1$ ist der einzige weitere
               Fixpunkt dieser Funktion.
         \item $f_2: \mdn \rightarrow \mdn$ hat ganz $\mdn$ als Fixpunkte, also

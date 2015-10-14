@@ -11,14 +11,14 @@
 \usepackage{xcolor}
 \definecolor{horizontalLineColor}{HTML}{008000}
 \definecolor{verticalLineColor}{HTML}{FF0000}
- 
+
 \begin{document}
 
 % Define this as a command to ensure that it is same in both cases
 \newcommand*{\ShowIntersection}[2]{
-\fill 
-    [name intersections={of=#1 and #2, name=i, total=\t}] 
-    [red, opacity=1, every node/.style={above left, black, opacity=1}] 
+\fill
+    [name intersections={of=#1 and #2, name=i, total=\t}]
+    [red, opacity=1, every node/.style={above left, black, opacity=1}]
     \foreach \s in {1,...,\t}{(i-\s) circle (2pt)
         node [above left] {\s}};
 }
@@ -39,7 +39,7 @@
         %yticklabels={,,}
     ]
       \addplot3[surf] {-3/25*x*x+1/25*y*y};
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
 \end{preview}
 \end{document}

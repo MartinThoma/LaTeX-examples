@@ -2,7 +2,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning,fit,shapes} 
+\usetikzlibrary{arrows,positioning,fit,shapes}
 
 \begin{document}
 \begin{preview}
@@ -17,7 +17,7 @@
   \draw[->, below] (Kn)  to node {$\Theta_{B'}$} (Km);
   \draw[->, left] (Phi)  to node {$\Theta_B$} (Kn);
   \draw[->, right] (W)   to node {$\Theta_{B'}$} (Km);
-  \node [ellipse,fit={(Kn) (Km) (TS)}, draw=orange, thick, text=orange] 
+  \node [ellipse,fit={(Kn) (Km) (TS)}, draw=orange, thick, text=orange]
         {};
   \node [ellipse,fit={(Phi) (W) (TN)}, draw=green, thick, text=green]
         {};

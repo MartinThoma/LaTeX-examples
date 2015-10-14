@@ -1,13 +1,13 @@
-In diesem Kapitel sei \(\emptyset\neq B\subseteq\mdr^{2}\), \(B\) 
+In diesem Kapitel sei \(\emptyset\neq B\subseteq\mdr^{2}\), \(B\)
 kompakt, \(D\subseteq\mdr^{2}\) offen, \(B\subseteq D\)
-und \(\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\in C^{1}(D,\mdr^{3})\). Das heißt: \(\varphi_{|B}\) ist eine Fläche mit 
+und \(\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\in C^{1}(D,\mdr^{3})\). Das heißt: \(\varphi_{|B}\) ist eine Fläche mit
 Parameterbereich \(B\), \(S:=\varphi(B)\)
 
 \begin{definition}
 \index{Oberflächenintegral}
 Definiere die folgenden \textbf{Oberflächenintegrale}:
 \begin{enumerate}
-\item Sei \(f:\,S\to\mdr\) stetig. Dann: 
+\item Sei \(f:\,S\to\mdr\) stetig. Dann:
 \[
 \int_{\varphi}{f\mathrm{d}\sigma}:=\int_{B}{f(\varphi(u,v))\lVert N(u,v)\rVert\mathrm{d}(u,v)}
 \]
@@ -28,7 +28,7 @@ F(\varphi(u,v))\cdot N(u,v)&=F(u,v,u^{2}+v^{2})\cdot(-2u,-2v,1)\\
 &=-(u^{2}+v^{2})
 \end{align*}
 
-Also: 
+Also:
 \[
 \int_{\varphi}{F\cdot n\mathrm{d}\sigma}=-\int_{B}{(u^{2}+v^{2})\mathrm{d}(u,v)}=-\frac{\pi}{2}
 \]
@@ -47,7 +47,7 @@ Es sei \(B\) zulässig, \(\partial B=\Gamma_{\gamma}\), wobei \(\gamma=(\gamma_{
 \begin{beispiel}
 \(D,\,B,\,f,\,F\) und \(\varphi\) seien wie in obigem Beispiel.
 % Bild einfuegen
-Hier: \(\gamma(t)=(\cos t,\sin t)\quad(t\in [0,2\pi])\). 
+Hier: \(\gamma(t)=(\cos t,\sin t)\quad(t\in [0,2\pi])\).
 Dann: \((\varphi\circ\gamma)(t)=\varphi(\cos t, \sin t)=(\cos t, \sin t, 1)\quad(t\in [0,2\pi])\).
 
 Es ist \(\rot F=0\), also: \(\int_{\varphi}{\rot F\cdot n\mathrm{d}\sigma}=0\)
@@ -61,7 +61,7 @@ Es ist \(\rot F=0\), also: \(\int_{\varphi}{\rot F\cdot n\mathrm{d}\sigma}=0\)
 \end{beispiel}
 
 \begin{beweis}
-Sei \(\varphi:=\varphi\circ\gamma,\,\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\), also 
+Sei \(\varphi:=\varphi\circ\gamma,\,\varphi=(\varphi_{1},\varphi_{2},\varphi_{3})\), also
     \(\varphi_{j}=\varphi_{j}\circ\gamma\quad(j=1,2,3)\).
 
 Zu zeigen:

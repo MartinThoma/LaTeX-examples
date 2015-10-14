@@ -97,10 +97,10 @@
         \item \myCode{List<? extends Fruit> myList} kann als Elemente
               \myCode{Fruit} und \myCode{Apple} haben, nicht jedoch
               \myCode{Object}
-        \item Hinweis: "`extends"' ist hier nicht exakt das gleiche 
+        \item Hinweis: "`extends"' ist hier nicht exakt das gleiche
               wie bei der Vererbung. Es kann entweder wirklich "`extends"'
               oder "`implements"' bedeuten
-        \item Sowohl in \myCode{List<Fruit>} als auch in 
+        \item Sowohl in \myCode{List<Fruit>} als auch in
               \myCode{List<? extends Fruit>} können
               \myCode{Fruit} und \myCode{Apple} beinhalten
     \end{itemize}
@@ -150,7 +150,7 @@
 \subsection{Quellen und Ressourcen}
 \begin{frame}{Quellen und Ressourcen}
     \begin{itemize}
-        \item \href{http://docs.oracle.com/javase/tutorial/java/generics/wildcards.html}{JavaDoc Tutorial - Wildcards} 
+        \item \href{http://docs.oracle.com/javase/tutorial/java/generics/wildcards.html}{JavaDoc Tutorial - Wildcards}
         \item \href{http://docs.oracle.com/javase/tutorial/extra/generics/wildcards.html}{JavaDoc Tutorial - Wildcards} (extra)
         \item \href{http://stackoverflow.com/q/3009745/562769}{What does the question mark in Java generics' type parameter mean?}
         \item \href{http://stackoverflow.com/q/12340808/562769}{What's the difference between List<Object> and List<?>}
@@ -164,7 +164,7 @@
 \subsection{Allgemein}
 \begin{frame}{Allgemein}
     \begin{itemize}[<+->]
-        \item Man will ein beliebiges Objekt mit dem momentanen 
+        \item Man will ein beliebiges Objekt mit dem momentanen
               Objekt auf Gleichheit vergleichen
         \item Dazu nutzt man \myCode{myObject.equals(otherObject);}
         \item \myCode{myObject} muss dann die \myCode{equals(Object obj)} implementieren
@@ -196,7 +196,7 @@
     \begin{itemize}[<+->]
         \item \dots sind Objekte vom Typ Throwable
         \item \dots unterbrechen den normalen Ablauf eines Programms
-        \item Mit dem Schlüsselwort \myCode{throw} werden Exceptions 
+        \item Mit dem Schlüsselwort \myCode{throw} werden Exceptions
               geworfen und mit \myCode{catch} kann man sie abfangen.
     \end{itemize}
 
@@ -254,7 +254,7 @@
 
     Gründe:
     \begin{itemize}
-        \item Beim lesen eures Codes wird klarer, wo das Problem 
+        \item Beim lesen eures Codes wird klarer, wo das Problem
               auftreten kann
         \item Effizienz
     \end{itemize}
@@ -297,7 +297,7 @@
 
 \begin{frame}{Aufgaben}
     \begin{block}{Klasse "`Disc"'}
-        Schreiben Sie zunächst eine Klasse Disc, die eine gelochte 
+        Schreiben Sie zunächst eine Klasse Disc, die eine gelochte
         Scheibe repräsentiert und als Attribut einen Durchmesser hat.
     \end{block}
 
@@ -313,22 +313,22 @@
 
 \begin{frame}{Aufgaben}
     \begin{block}{Methode push}
-        Die Methode push(Disc d) legt die Scheibe d auf den Stab, 
+        Die Methode push(Disc d) legt die Scheibe d auf den Stab,
         falls dieser noch nicht voll ist und
-        der Durchmesser der Scheibe d kleiner ist als der Durchmesser 
+        der Durchmesser der Scheibe d kleiner ist als der Durchmesser
         der obersten Scheibe des Stabes. Wird
-        die Scheibe erfolgreich auf den Stab gelegt, so ist der 
+        die Scheibe erfolgreich auf den Stab gelegt, so ist der
         Rückgabewert der Methode true, andernfalls
         false.
     \end{block}
 
     \begin{block}{Methode pop}
-        Die Methode pop() entfernt die oberste Scheibe des Stabes und 
+        Die Methode pop() entfernt die oberste Scheibe des Stabes und
         liefert diese als Rückgabewert. Falls
         der Stab leer ist, soll der Rückgabewert null sein.
     \end{block}
 
-    Schreiben Sie, falls nötig, weitere Schnittstellen 
+    Schreiben Sie, falls nötig, weitere Schnittstellen
     (z.B. eine Methode size()) und toString()-Methoden.
 \end{frame}
 

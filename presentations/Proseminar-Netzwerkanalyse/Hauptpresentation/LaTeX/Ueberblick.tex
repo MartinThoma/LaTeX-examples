@@ -29,7 +29,7 @@
         \begin{tikzpicture}[->,scale=1.8, auto,swap]
             % Draw the vertices. First you define a list.
             \foreach \pos/\name/\ltext in {{(0,0)/a/}, {(0,2)/b/b}, {(1,2)/c/},
-                                    {(1,0)/d/}, {(2,1)/e/e}, {(3,1)/f/b}, 
+                                    {(1,0)/d/}, {(2,1)/e/e}, {(3,1)/f/b},
                                     {(4,2)/g/a}, {(5,2)/h/a}, {(4,0)/i/a},
                                     {(5,0)/j/}}
                 \node[draw,circle,fill=white] (\name) at \pos {$\ltext$};
@@ -55,13 +55,13 @@
                 }
                 \node<\fr->[fill=white] (Tlabel) at (2,0) {$\number$};
 
-            % Start animating the edge selection. 
-            % For convenience we use a background layer to 
-            % highlight edges. This way we don't have to worry about 
-            % the highlighting covering weight labels. 
+            % Start animating the edge selection.
+            % For convenience we use a background layer to
+            % highlight edges. This way we don't have to worry about
+            % the highlighting covering weight labels.
             \begin{pgfonlayer}{background}
                 \foreach \source / \dest / \fr / \colorf /\pos in {e/f/2/red/,f/g/3/red/,g/h/4/red/, e/f/5/blue/, f/i/6/blue/, i/g/7/blue/,e/c/8/green/,c/d/9/green/, d/a/10/green/,e/c/11/yellow/,c/e/12/yellow/bend left,e/f/13/yellow/}
-                    \path<\fr->[selected edge, \colorf!20] (\source.center) edge 
+                    \path<\fr->[selected edge, \colorf!20] (\source.center) edge
                                         [\pos] node {} (\dest.center);
             \end{pgfonlayer}
         \end{tikzpicture}

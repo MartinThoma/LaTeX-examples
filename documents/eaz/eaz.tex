@@ -12,11 +12,11 @@
 \clubpenalty  = 10000   % Schusterjungen verhindern
 \widowpenalty = 10000   % Hurenkinder verhindern
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {EAZ}, 
-  pdftitle    = {Einführung in die Algebra und Zahlentheorie} 
-} 
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {EAZ},
+  pdftitle    = {Einführung in die Algebra und Zahlentheorie}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom definition style, by                                       %
@@ -52,22 +52,22 @@
 \definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
 \definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
 
-\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{%
   % Optional continuation label defaults to the first label plus
   \def\Frame@Lab{#2}%
   \def\FrameCommand{\LabFrame{#2}}%
   \def\FirstFrameCommand{\LabFrame{#2}}%
   \def\MidFrameCommand{\LabFrame{#1}}%
   \def\LastFrameCommand{\LabFrame{#1}}%
-  \MakeFramed{\advance\hsize-\width \FrameRestore} 
-}{\endMakeFramed} 
+  \MakeFramed{\advance\hsize-\width \FrameRestore}
+}{\endMakeFramed}
 \newcounter{definition}
 \newenvironment{definition}[1]{%
   \par
   \refstepcounter{definition}%
   \begin{contlabelframe}{Definition \thedefinition:\quad #1}
  \noindent\ignorespaces}
-{\end{contlabelframe}} 
+{\end{contlabelframe}}
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NPC-Box                                                           %
@@ -102,22 +102,22 @@
 \definecolor{FrameColorNPC}{rgb}{0.25,0.25,0.25}
 \definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
 
-\newenvironment{contlabelframenpc}[2][\Frame@Lab\ (cont.)]{% 
+\newenvironment{contlabelframenpc}[2][\Frame@Lab\ (cont.)]{%
   % Optional continuation label defaults to the first label plus
   \def\Frame@Lab{#2}%
   \def\FrameCommand{\LabFrameNPC{#2}}%
   \def\FirstFrameCommand{\LabFrameNPC{#2}}%
   \def\MidFrameCommand{\LabFrameNPC{#1}}%
   \def\LastFrameCommand{\LabFrameNPC{#1}}%
-  \MakeFramed{\advance\hsize-\width \FrameRestore} 
-}{\endMakeFramed} 
+  \MakeFramed{\advance\hsize-\width \FrameRestore}
+}{\endMakeFramed}
 \newcounter{npcproblem}
 \newenvironment{satz}[2]{%
   \par
   \refstepcounter{npcproblem}%
   \begin{contlabelframenpc}{Satz \thenpcproblem:\quad {#1}}
  \noindent\ignorespaces}
-{\end{contlabelframenpc}} 
+{\end{contlabelframenpc}}
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,7 +128,7 @@
 \begin{satz}{Euklid}{}
 Es sein $n \in \mathbb{N}$. Die Zahl $m := n! + 1$ hat einen Primteiler,
 aber dieser kann nicht $\leq n$ sein, denn sonst müsste er wegen
-$p|m$ und $p|n!$ auch $1=m-n!$ teilen. 
+$p|m$ und $p|n!$ auch $1=m-n!$ teilen.
 Also gibt es eine Primzahl $> n \blacksquare$
 \end{satz}
 
@@ -189,16 +189,16 @@ Es sein $p \geq 3$ eine Primzahl. Für $a \in \mathbb{Z}$ sei
 	\item[(III)] $a \equiv b \mod p \Rightarrow \left(\frac{a}{p}\right) = \left(\frac{b}{p}\right)$
 	\item[(IV)] $\left(\frac{a}{3}\right) = a \mod 3$
 	\item[(V)] Quadratische Reziprozitätsgesetz: Es seinen $p \neq l$ zwei ungerade Primzahlen. Dann gilt:\\
-		$\left(\frac{p}{l}\right) \cdot \left(\frac{l}{p}\right) = 
+		$\left(\frac{p}{l}\right) \cdot \left(\frac{l}{p}\right) =
 				(-1)^{\frac{p-1}{2} \cdot \frac{l-1}{2}}
 				$
-	\item[(VI)] Erste Ergänzung: $\left(\frac{-1}{p}\right) = 
+	\item[(VI)] Erste Ergänzung: $\left(\frac{-1}{p}\right) =
 				\begin{cases}
 					1 	& \text{, falls } p \equiv 1 \mod 4\\
 				   -1	& \text{, falls } p \equiv 3 \mod 4
 				\end{cases}
 				$
-	\item[(VII)] Zweite Ergänzung: $\left(\frac{2}{p}\right) = 
+	\item[(VII)] Zweite Ergänzung: $\left(\frac{2}{p}\right) =
 				\begin{cases}
 					1 	& \text{, falls } p \equiv \pm 1 \mod 8\\
 				   -1	& \text{, falls } p \equiv \pm 3 \mod 8

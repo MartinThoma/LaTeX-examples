@@ -20,13 +20,13 @@
     $(X, \fT_X)$ ist also nicht hausdorffsch.
 
     \textbf{Teilaufgabe c)} Nach Bemerkung \ref{Trennungseigenschaft}
-    sind metrische Räume hausdorffsch. Da $(X, \fT_X)$ nach (b) nicht 
+    sind metrische Räume hausdorffsch. Da $(X, \fT_X)$ nach (b) nicht
     hausdorffsch ist, liefert die Kontraposition der Trennungseigenschaft,
     dass $(X, \fT_X)$ kein metrischer Raum sein kann.
 \end{solution}
 
 \begin{solution}[\ref{ub1:aufg4}]
-    \textbf{Teilaufgabe a)} 
+    \textbf{Teilaufgabe a)}
 
     \textbf{Beh.:}  $\forall a \in \mdz: \Set{a}$ ist abgeschlossen.
 
@@ -35,7 +35,7 @@
     Wenn jemand diese Aufgabe gemacht hat, bitte die Lösung an info@martin-thoma.de
     schicken.%TODO
 
-    \textbf{Teilaufgabe b)} 
+    \textbf{Teilaufgabe b)}
 
     \textbf{Beh.:} $\Set{-1, 1}$ ist nicht offen
 
@@ -50,7 +50,7 @@
     in dieser Topologie offen sein $\Rightarrow \Set{-1,1}$ ist
     nicht offen. $\qed$
 
-    \textbf{Teilaufgabe c)} 
+    \textbf{Teilaufgabe c)}
 
     \textbf{Beh.:} Es gibt unendlich viele Primzahlen.
 
@@ -58,7 +58,7 @@
 
     Annahme:  Es gibt nur endlich viele Primzahlen $p \in \mdp$
 
-    Dann ist 
+    Dann ist
     \[\mdz \setminus \Set{-1, +1} \overset{\text{FS d. Arithmetik}}= \bigcup_{p \in \mdp} U_{0,p}\]
     endlich. Das ist ein Widerspruch zu $|\mdz|$ ist unendlich und
     $|\Set{-1,1}|$ ist endlich. $\qed$
@@ -67,7 +67,7 @@
 \begin{solution}[\ref{ub2:aufg4}]
     \begin{enumerate}[label=(\alph*)]
         \item \textbf{Beh.:} Die offenen Mengen von $P$ sind
-              Vereinigungen von Mengen der Form 
+              Vereinigungen von Mengen der Form
               \[\prod_{j \in J} U_j \times \prod_{i \in \mdn, i \neq j} P_i\]
               wobei $J \subseteq \mdn$ endlich und $U_j \subseteq P_j$
               offen ist.
@@ -79,7 +79,7 @@
                 $\forall{j \in J}$
                 eine Basis der Topologie.
 
-                Damit sind die offenen 
+                Damit sind die offenen
                 Mengen von $P$ Vereinigungen von Mengen der obigen
                 Form. $\qed$
               \end{beweis}
@@ -95,10 +95,10 @@
                 für alle $i \in \mdn$ gilt entweder $p_i(Z) \subseteq \Set{0}$
                 oder $p_i(Z) \subseteq \Set{1}$. Es sei $z_i \in \Set{0,1}$
                 so, dass $p_i(Z) \subseteq \Set{z_i}$ für alle $i \in \mdn$.
-                Dann gilt also: 
+                Dann gilt also:
                 \[\underbrace{p_i(x)}_{= x_i} = z_i = \underbrace{p_i(y)}_{= y_i} \forall i \in \mdn\]
                 Somit folgt: $x = y \qed$
-                
+
               \end{beweis}
     \end{enumerate}
 \end{solution}
@@ -107,9 +107,9 @@
     \begin{enumerate}[label=(\alph*)]
         \item \textbf{Beh.:} $\GL_n(\mdr)$ ist nicht kompakt.\\
             \textbf{Bew.:} $\det: \GL_n(\mdr) \rightarrow \mdr \setminus \Set{0}$
-                ist stetig. Außerdem ist 
-                $\det(\GL_n(\mdr)) = \mdr \setminus \Set{0}$ nicht 
-                kompakt. $\overset{\ref{kor:5.6}}{\Rightarrow}$ 
+                ist stetig. Außerdem ist
+                $\det(\GL_n(\mdr)) = \mdr \setminus \Set{0}$ nicht
+                kompakt. $\overset{\ref{kor:5.6}}{\Rightarrow}$
                 $\GL_n(\mdr)$ ist nicht kompakt. $\qed$
         \item \textbf{Beh.:} $\SL_1(\mdr)$ ist nicht kompakt, für $n > 1$ ist $\SL_n(\mdr)$ kompakt.\\
             \textbf{Bew.:} Für $\SL_1(\mdr)$ gilt:
@@ -119,7 +119,7 @@
 
                 $\SL_n(\mdr) \subseteq \GL_n(\mdr)$ lässt sich mit einer
                 Teilmenge des $\mdr^{n^2}$ identifizieren. Nach \cref{satz:heine-borel}
-                sind diese genau dann kompakt, wenn sie beschränkt und 
+                sind diese genau dann kompakt, wenn sie beschränkt und
                 abgeschlossen sind. Definiere nun für für $n \in \mdn_{\geq 2}, m \in \mdn$:
                 \[A_m = \text{diag}_n(m, \frac{1}{m}, \dots, 1)\]
                 Dann gilt: $\det A_m = 1$, d.~h. $A_m \in \SL_n(\mdr)$,
@@ -138,7 +138,7 @@
     nachgelesen werden.
 
     \begin{definition}\xindex{Homomorphismus}%
-        Seien $(G, *)$ und $(H, \circ)$ Gruppen und 
+        Seien $(G, *)$ und $(H, \circ)$ Gruppen und
         $\varphi:G \rightarrow H$ eine Abbildung.
 
         $\varphi$ heißt \textbf{Homomorphismus}, wenn
@@ -161,16 +161,16 @@
 \begin{solution}[\ref{ub3:meinsExtra2}]
     Die Definition einer Isotopie kann auf \cpageref{def:Isotopie} nachgelesen
     werden, die einer Isometrie auf \cpageref{def:Isometrie}.
-    
+
     \begin{definition}\xindex{Isomorphismus}%
-        Seien $(G, *)$ und $(H, \circ)$ Gruppen und 
+        Seien $(G, *)$ und $(H, \circ)$ Gruppen und
         $\varphi:G \rightarrow H$ eine Abbildung.
 
         $\varphi$ heißt \textbf{Isomorphismus}, wenn $\varphi$ ein bijektiver
         Homomorphismus ist.
     \end{definition}
 
-    Eine Isotopie ist also für Knoten definiert, Isometrien machen nur in 
+    Eine Isotopie ist also für Knoten definiert, Isometrien machen nur in
     metrischen Räumen Sinn und ein Isomorphismus benötigt eine Gruppenstruktur.
 \end{solution}
 
@@ -180,7 +180,7 @@
               \textbf{Beh.:} $M$ ist wegzusammehängend $\gdw M$ ist zusammenhängend
               \begin{beweis}
                 \enquote{$\Rightarrow$}: Da $M$ insbesondere ein
-                topologischer Raum ist folgt diese Richtung direkt 
+                topologischer Raum ist folgt diese Richtung direkt
                 aus \cref{kor:wegzusammehang-impliziert-zusammenhang}.
 
                 \enquote{$\Leftarrow$}: Seien $x,y \in M$ und
@@ -192,7 +192,7 @@
                     \item $Z^C := \Set{\tilde{z} \in M | \nexists \text{Weg von } x \text{ nach } \tilde{z}}$ ist offen
 
                     Da $M$ eine Mannigfaltigkeit ist, existiert zu jedem
-                    $\tilde{z} \in Z^C$ eine offene und wegzusammenhängende Umgebung 
+                    $\tilde{z} \in Z^C$ eine offene und wegzusammenhängende Umgebung
                     $U_{\tilde{z}} \subseteq M$.
 
                     Es gilt sogar $U_{\tilde{z}} \subseteq Z^C$, denn
@@ -226,7 +226,7 @@
                 Da $(\mdr \setminus \Set{0}) \cup \Set{0_1}$ homöomorph
                 zu $\mdr$ ist, exisitert ein Weg $\gamma_1$ von $0_1$
                 zu einem beliebigen Punkt $a \in \mdr \setminus \Set{0}$.
-                
+
                 Da $(\mdr \setminus \Set{0}) \cup \Set{0_2}$ ebenfalls
                 homöomorph zu $\mdr$ ist, existiert außerdem ein Weg
                 $\gamma_2$ von $a$ nach $0_2$. Damit existiert ein
@@ -241,18 +241,18 @@
 %    \textbf{Beh.:} $H_k = \begin{cases}\mdr &\text{für } k\in \Set{0,1}\\
 %                                       0    &\text{für } k \geq 2$
 %    \newcommand{\triangleSimplizialkomplex}{\mathord{\includegraphics[height=5ex]{figures/triangleSimplizialkomplex.pdf}}}
-%    \textbf{Bew.:} $S^1$ ist homöomorph zum Simplizialkomplex 
+%    \textbf{Bew.:} $S^1$ ist homöomorph zum Simplizialkomplex
 %                   $X = \triangleSimplizialkomplex$, d.~h. dem Rand
 %                   von $\Delta^2$. Es gilt:
 %            \[X = \Set{\underbrace{v_0, v_1, v_2}_{A_0(X)}, \underbrace{\Delta (v_1, v_2)}_{=: a_0}, \underbrace{\underbrace{\Delta (v_0, v_2)}_{=: a_1}, \underbrace{\Delta(v_0, v_1)}_{=: a_2}}_{A_1(X)}}\]
-%            Damit folgt: 
+%            Damit folgt:
 %        \begin{enumerate}
-%            \item Für $k \geq 2$ ist $C_k(X) \cong 0$, da es in diesen 
+%            \item Für $k \geq 2$ ist $C_k(X) \cong 0$, da es in diesen
 %                Dimensionen keine Simplizes gibt, d.~h. $A_k(X) = \emptyset$ gilt.\\
 %                Also: $H_k(X) \cong 0 \; \forall k \geq 2$
-%            \item $C_0(X) = \Set{\sum_{i=0}^2 c_i v_i | c_i \in \mdr}$, da 
+%            \item $C_0(X) = \Set{\sum_{i=0}^2 c_i v_i | c_i \in \mdr}$, da
 %                $A_0(x)$ Basis von $C_0(X)$ ist;\\
-%                $C_1(X) = \Set{\sum_{i=0}^2 c_i a_i | c_i \in \mdr}$, da 
+%                $C_1(X) = \Set{\sum_{i=0}^2 c_i a_i | c_i \in \mdr}$, da
 %                $A_1(X)$ Basis von $C_1(X)$ ist.
 %            \item Für die Randabbildungen $d_i: C_i(X) \rightarrow C_{i-1}(X)$ gilt:
 %                $d_0 \equiv 0$, $d_1: C_1(X) \rightarrow C_0(X)$ ist definiert durch
@@ -287,7 +287,7 @@
               $\angle BCA \xRightarrow{\crefabbr{bem:14.9}} \measuredangle BC' A > \measuredangle BCA$\\
               $\Rightarrow \measuredangle BCA < \measuredangle BC' A = \measuredangle ABC' < \measuredangle ABC $
               Sei umgekehrt $\measuredangle ABC > \measuredangle BCA$,
-              kann wegen 1. Teil von \cref{ub11:aufg3.b} nicht 
+              kann wegen 1. Teil von \cref{ub11:aufg3.b} nicht
               $d(A,B) > d(A,C)$ gelten.\\
               Wegen \cref{ub11:aufg3.a} kann nicht $d(A,B) = d(A,C)$
               gelten.\\
@@ -343,7 +343,7 @@
         d(B, C)  &= d(B', C')
     \end{align*}
 
-    Sei $\varphi$ die Isometrie mit $\varphi(A) = A'$, $\varphi(B) = B'$ und 
+    Sei $\varphi$ die Isometrie mit $\varphi(A) = A'$, $\varphi(B) = B'$ und
     $\varphi(C')$ liegt in der selben Halbebene bzgl. $AB$ wie $C$. Diese
     Isometrie existiert wegen \ref{axiom:4}.
 

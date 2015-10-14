@@ -4,7 +4,7 @@
 \index{Parameterbereich}
 \index{Normalenvektor}
 \index{Flächeninhalt}
-	Es sei $\emptyset \ne B\subseteq \MdR^2$ kompakt, $D\subseteq\MdR^2$ offen und $B\subseteq D$. Weiter sei $\varphi = (\varphi_1,\varphi_2,\varphi_3) \in C^1(D,\MdR^3)$ und $\varphi = \varphi(u,v)$. Dann heißt $\varphi_{|B}$ eine \textbf{Fläche} (im $\MdR^3$), $S:= \varphi(B)$ heißt \textbf{Flächenstück} und $B$ heißt \textbf{Parameterbereich} der Fläche. Es ist 
+	Es sei $\emptyset \ne B\subseteq \MdR^2$ kompakt, $D\subseteq\MdR^2$ offen und $B\subseteq D$. Weiter sei $\varphi = (\varphi_1,\varphi_2,\varphi_3) \in C^1(D,\MdR^3)$ und $\varphi = \varphi(u,v)$. Dann heißt $\varphi_{|B}$ eine \textbf{Fläche} (im $\MdR^3$), $S:= \varphi(B)$ heißt \textbf{Flächenstück} und $B$ heißt \textbf{Parameterbereich} der Fläche. Es ist
 	\begin{displaymath}
 		\varphi' = \begin{pmatrix}\frac{\partial \varphi_1}{\partial u} & \frac{\partial\varphi_1}{\partial v}\\
 			\frac{\partial \varphi_2}{\partial u} & \frac{\partial\varphi_2}{\partial v}\\
@@ -16,10 +16,10 @@
 	\gamma(t) &:= \varphi(t,v_0) &\gamma'(t) &= \varphi_u(t,v_0) &\gamma'(u_0) &= \varphi_u(u_0,v_0)\\
 	\tilde{\gamma}(t)&:= \varphi(u_0,t) &\tilde{\gamma}'(t) &= \varphi_v(u_0,v) &\tilde{\gamma}'(v_0) &= \varphi_v(u_0,v_0)
 	\end{align*}
-	Definere damit den \textbf{Normalenvektor} in $\varphi(u_0,v_0)$: 
+	Definere damit den \textbf{Normalenvektor} in $\varphi(u_0,v_0)$:
 	\[N(u_0,v_0) := \varphi_u(u_0,v_0)\times\varphi_v(u_0,v_0)\]
 	Seien $\Delta u,\Delta v >0$ (aber "`klein"'). $a:= \Delta u\varphi_u(u_0,v_0)$, $b:= \Delta v\varphi_v(u_0,v_0)$.
-	\[P:= \{\lambda a+\mu b: \ \lambda,\mu\in [0,1]\}\] 
+	\[P:= \{\lambda a+\mu b: \ \lambda,\mu\in [0,1]\}\]
 	Aus der Linearen Algebra folgt, der "`Inhalt"' von $P$ ist $\|a \times b\| = \Delta u\Delta v \|N(u_0,v_0)\|$.
 	\begin{displaymath}
 		I(\varphi) = \int_B \|N(u,v)\| d(u,v)
@@ -31,12 +31,12 @@
 	$B:=[0,2\pi]\times[-\frac\pi2,\frac\pi2]$, $D=\MdR^2$\\
 	$\varphi(u,v) := (\cos u\cos v,\sin u\cos v,\sin v)$. Dann: $\varphi(B) = \{(x,y,z)\in\MdR^3:\ x^2+y^2+z^2 = 1\}$.\\
 	Nachrechnen: $N(u,v) = \cos v\varphi(u,v)$. Dann: $\|N(u,v)\| = |\cos v|\underbrace{\|\varphi(u,v)\|}_{=1} = \cos v\ \ \ \ ((u,v)\in B)$. \\
-	Damit gilt: 
+	Damit gilt:
 	\[I(\varphi) = \int_B \cos v d(u,v) = \int_0^{2\pi} (\int_{-\frac\pi2}^{\frac\pi2}\cos v d(v)) d(u) = 4\pi\]
 \end{beispiel}
 
 \section{Explizite Parameterdarstellung}
-Seien \(B\) und \(D\) wie in obiger Definition und \(f\in C^{1}(D,\,\mdr)\). Setze 
+Seien \(B\) und \(D\) wie in obiger Definition und \(f\in C^{1}(D,\,\mdr)\). Setze
 \[\varphi(u,v):=(u,v,f(u,v))\quad((u,v)\in D)\]
 Damit ist \(\varphi_{|B}\) eine Fläche (in expliziter Darstellung).
 % hier Graphik einfuegen
@@ -45,7 +45,7 @@ Dann ist \(S=\varphi(B)\) gleich dem Graph von \(f_{|B}\).
 \[
 \varphi_{u}=(1,0,f_{u}),\quad \varphi_{v}=(0,1,f_{v}),\quad N(u,v)=(-f_{u},-f_{v},1)\quad\text{(Nachrechnen!)}
 \]
-Damit gilt: 
+Damit gilt:
 \[I(\varphi)=\int_{B}{(f_{u}^{2}+f_{v}^{2}+1)^{\frac{1}{2}}\mathrm{d}(u,v)}\]
 
 \begin{beispiel}

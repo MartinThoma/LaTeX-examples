@@ -2,7 +2,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes, calc, shapes,snakes} 
+\usetikzlibrary{shapes, calc, shapes,snakes}
 \usepackage{amsmath,amssymb}
 
 \begin{document}
@@ -26,7 +26,7 @@
     \draw[dashed] (-{sin(\ALPHA)*\R},-\Add/2) -- (90+\ALPHA:\R);
     \draw[dashed] ( {sin(\ALPHA)*\R},-\Add/2) -- (90-\ALPHA:\R);
     \node[below] at (0,-\Add/2) (l) {$l$};
-    \draw[dashed] (0,0) -- (\R/2,0) -- (\R/2, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) node[pos=0.7,right] {$y_s$} -- 
+    \draw[dashed] (0,0) -- (\R/2,0) -- (\R/2, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) node[pos=0.7,right] {$y_s$} --
        (0, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) node [thick,draw,cross out,solid,inner sep=0pt,minimum width=4pt,minimum height=4pt] {};
     \node[left] at (0, {2*\R*\R*sin(\ALPHA)/(2*pi*\ALPHA/360*2*\R)}) {$S$};
     \node[thick,draw,cross out,solid,inner sep=0pt,minimum width=4pt,minimum height=4pt] (0,0) {};

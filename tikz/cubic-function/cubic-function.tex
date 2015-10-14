@@ -1,18 +1,18 @@
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
-  
+
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usetikzlibrary{arrows, positioning, calc, intersections}
- 
+
 \begin{document}
 
 % Define this as a command to ensure that it is same in both cases
 \newcommand*{\ShowIntersection}[2]{
-\fill 
-    [name intersections={of=#1 and #2, name=i, total=\t}] 
-    [red, opacity=1, every node/.style={above left, black, opacity=1}] 
+\fill
+    [name intersections={of=#1 and #2, name=i, total=\t}]
+    [red, opacity=1, every node/.style={above left, black, opacity=1}]
     \foreach \s in {1,...,\t}{(i-\s) circle (2pt)
         node [above left] {\s}};
 }
@@ -42,12 +42,12 @@
         tick align=outside,
         tension=0.08]
       % plot the stirling-formulae
-      \addplot[name path global=a, domain=-2:4, red, thick,samples=500] 
-        {-x*x*x + 4*x*x-x-4}; 
-      \addplot[name path global=b, domain=0.25:4, blue, thick, dashed] {x-1.2}; 
-      \addplot[name path global=c, domain=0.25:4, blue, thick, dashed] {x+0.42}; 
+      \addplot[name path global=a, domain=-2:4, red, thick,samples=500]
+        {-x*x*x + 4*x*x-x-4};
+      \addplot[name path global=b, domain=0.25:4, blue, thick, dashed] {x-1.2};
+      \addplot[name path global=c, domain=0.25:4, blue, thick, dashed] {x+0.42};
       \ShowIntersection{a}{b};
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
 \end{preview}
 \end{document}

@@ -2,7 +2,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes, calc, decorations} 
+\usetikzlibrary{shapes, calc, decorations}
 \usepackage{amsmath,amssymb}
 
 \begin{document}
@@ -16,19 +16,19 @@
     minimum width=4pt,
     minimum height=4pt}]
     % Draw the triangle
-    \draw[fill=green!10]  (0,    0) coordinate (a) 
-        -- (5cm,0) coordinate (b) 
-        -- (3.6cm,  4.8cm) coordinate (c) 
+    \draw[fill=green!10]  (0,    0) coordinate (a)
+        -- (5cm,0) coordinate (b)
+        -- (3.6cm,  4.8cm) coordinate (c)
         -- (0,    0)  -- cycle;
 
-    \draw[fill=blue!10]  (a) 
-        -- (b) 
-        -- (6.4cm,  4.8cm) coordinate (d) 
+    \draw[fill=blue!10]  (a)
+        -- (b)
+        -- (6.4cm,  4.8cm) coordinate (d)
         -- (0,    0)  -- cycle;
 
-    \draw[fill=red!10]  (a) 
-        -- (b) 
-        -- (4.1cm,3.07cm) coordinate (e) 
+    \draw[fill=red!10]  (a)
+        -- (b)
+        -- (4.1cm,3.07cm) coordinate (e)
         -- (0,    0)  -- cycle;
 
     %\node (a) [dot] at (0,0) {};

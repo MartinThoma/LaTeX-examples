@@ -12,7 +12,7 @@ Aus 3.2 folgt: $f$ ist messbar genau dann, wenn $u$ und $v$ messbar sind.
 \begin{definition}
 \index{integrierbar}\index{Integral}
 Sei $f$ messbar. $f$ heißt \textbf{integrierbar} (ib.) genau dann, wenn $u$ und $v$ integrierbar sind.
-In diesem Fall setze 
+In diesem Fall setze
 \[ \int_X f \text{ d}x := \int_X u \text{ d}x + i\int_X v \text{ d}x \quad ( \in \MdC) \]
 \end{definition}
 
@@ -23,22 +23,22 @@ Hieraus und aus 4.9 folgt: $f$ ist integrierbar genau dann, wenn $|f|$ integrier
 \[ \fl^p(X, \MdC) := \{ f : X \to \MdC | f  \text{ ist messbar und } \int_X |f|^p \text{ d}x < \infty  \} \]
 (Achtung: mit den Betragsstrichen in ob. Integral ist der komplexe Betrag gemeint!)
 \[ \cn := \{ f: X \to \MdC | f \text{ ist messbar und } f = 0 \text{ f.ü.} \} \]
-$\fl^p(X,\MdC )$ ist ein komplexer Vektorraum (siehe 17.1) und $\cn$ ist ein Untervektorraum von $\fl^p(X,\MdC )$. 
+$\fl^p(X,\MdC )$ ist ein komplexer Vektorraum (siehe 17.1) und $\cn$ ist ein Untervektorraum von $\fl^p(X,\MdC )$.
 \[ L^p(X,\MdC ) := \fl^p(X,\MdC)\diagup\cn \]
 \end{definition}
 
 \begin{definition}
 \index{orthogonal}
-Für $f,g \in L^2(X,\MdC )$ setze 
+Für $f,g \in L^2(X,\MdC )$ setze
 \[(f | g) := \int_X f(x) \overline{g(x)} \text{ d}x\]
-sowie 
+sowie
 \[f \bot g :\Longleftrightarrow (f | g) = 0 \quad \text{ ($f$ und $g$ sind \textbf{orthogonal}).} \]
 ( $\overline{z}$ bezeichne hierbei die komplex Konjugierte von $z$, vgl. Lineare Algebra).
 \end{definition}
 
 \textbf{Klar:} \begin{enumerate}
 \item $L^p(X,\MdC )$ ist mit $\| f \|_p := (\int_X |f|^p \text{ d}x )^{\frac{1}{p}}$ ein komplexer normierter Raum (NR).
-\item $(f | g)$ definiert ein Skalarprodukt auf $L^2(X,\MdC)$. Es ist 
+\item $(f | g)$ definiert ein Skalarprodukt auf $L^2(X,\MdC)$. Es ist
 \[(f | g) = \overline{(g | f)}, \]
 \[ (f | f) = \int_X f(x) \overline{f(x)} \text{ d}x = \int_X |f(x)|^2 \text{ d}x = \| f \|_2^2 \text{, also:} \]
 \[ \| f\|_2 = \sqrt{(f|f)} \quad (f,g \in L^2(X,\MdC )) \]
@@ -56,16 +56,16 @@ sowie
 \begin{enumerate}
 	\item 	Seien \(f,g\colon X\to\mdc\) integrierbar und \(\alpha,\beta\in\mdc\). Dann gelten:
 	\begin{enumerate}
-		\item[(i)] 	\(\alpha f+\beta g\) ist integrierbar und 
+		\item[(i)] 	\(\alpha f+\beta g\) ist integrierbar und
 				\[\int_X(\alpha f+\beta g)\,dx = \alpha\int_Xf\,dx+\beta\int_Xg\,dx\]
 		\item[(ii)]	\(\text{Re}\left(\int_Xf\,dx\right) = \int_X\text{Re}(f)\,dx\ \) und
 				\(\ \text{Im}\left(\int_Xf\,dx\right) = \int_X\text{Im}(f)\,dx\)
-		\item[(iii)]	\(\overline f\) ist integrierbar und 
+		\item[(iii)]	\(\overline f\) ist integrierbar und
 				\[\int_X\overline f\,dx=\overline{\int_Xf\,dx}\]
 	\end{enumerate}
-	\item 	Die Sätze \ref{Satz 16.1} bis \ref{Satz 16.3} und das Beispiel \ref{Beispiel 16.6} gelten in 
+	\item 	Die Sätze \ref{Satz 16.1} bis \ref{Satz 16.3} und das Beispiel \ref{Beispiel 16.6} gelten in
 			\(L^p(X,\mdc)\).
-	\item 	\(L^p(X,\mdc)\) ist ein komplexer Banachraum, \(L^2(X,\mdc)\) ist ein komplexer 
+	\item 	\(L^p(X,\mdc)\) ist ein komplexer Banachraum, \(L^2(X,\mdc)\) ist ein komplexer
 			Hilbertraum.
 \end{enumerate}
 \end{satz}
@@ -79,12 +79,12 @@ Sei \(X=[0,2\pi]\). Für \(k\in\MdZ\) und \(t\in\mdr\) setzen wir
 Dann gilt: \(b_k,e_k\in L^2([0,2\pi],\mdc)\) und \[\int_0^{2\pi}e_0(t)\,dt=2\pi\]
 Für \(k\in\MdZ\) und \(k\neq0\) ist
 \begin{align*}
-	\int_0^{2\pi}e_k(t)\,dt=\left.\frac1{ik}e^{ikt}\right\rvert_0^{2\pi} 
+	\int_0^{2\pi}e_k(t)\,dt=\left.\frac1{ik}e^{ikt}\right\rvert_0^{2\pi}
 	= \frac1{ik}\left(e^{2\pi ki}-1\right)=0
 \intertext{Damit ist}
 	(b_k\mid b_l) = \int^{2\pi}_0 b_k\overline{b_l}\,dt = \frac1{2\pi}\int_0^{2\pi}e^{ikt}e^{-ilt}\,dt
 	= \frac1{2\pi}\int_0^{2\pi}e^{i(k-l)t}\,dt =
-	\begin{cases} 
+	\begin{cases}
 		1 ,\text{falls } k=l\\
 		0 ,\text{falls }k\neq l
 	\end{cases}
@@ -95,19 +95,19 @@ Zur Übung: \(\{b_k\mid k\in\MdZ\}\) ist linear unabhängig in \(L^2([0,2\pi],\m
 \end{wichtigesbeispiel}
 
 \begin{definition}
-Sei \((\alpha_k)_{k\in\MdZ}\) eine Folge in \(\mdc\) und \((f_k)_{k\in\MdZ}\) eine Folge in 
+Sei \((\alpha_k)_{k\in\MdZ}\) eine Folge in \(\mdc\) und \((f_k)_{k\in\MdZ}\) eine Folge in
 \(L^2(X,\mdc)\).
 \begin{enumerate}
-	\item 	Für \(n\in\mdn_0\) setze 
+	\item 	Für \(n\in\mdn_0\) setze
 			\[s_n:=\sum^n_{k=-n}\alpha_k = \sum_{\lvert k\rvert\leq n}\alpha_k
 			=\alpha_{-n}+\alpha_{-(n-1)}+\dots+\alpha_0+\alpha_1+\dots+\alpha_n\]
 			Existiert \(\lim_{n\to\infty}s_n\) in \(\mdc\), so schreiben wir
 			\(\sum_{k\in\MdZ}\alpha_k:=\lim_{n\to\infty}s_n\)
-	\item 	Für \(n\in\mdn_0\) setze 
+	\item 	Für \(n\in\mdn_0\) setze
 			\[\sigma_n:=\sum^n_{k=-n}f_k=\sum_{\lvert k\rvert\leq n}f_k\]
-			Gilt für ein \(f\in L^2(X,\mdc)\): 
+			Gilt für ein \(f\in L^2(X,\mdc)\):
 			\(\| f-\sigma_n\|_2\overset{n\to\infty}\longrightarrow 0\), so schreiben
-			wir \[f\overset{\|\cdot\|_2}=\sum_{k\in\MdZ}f_k \ \ \ 
+			wir \[f\overset{\|\cdot\|_2}=\sum_{k\in\MdZ}f_k \ \ \
 			\left(=\lim_{n\to\infty}\sigma_n \text{ im Sinne der } L^2\text{-Norm}\right)\]
 \end{enumerate}
 \end{definition}
@@ -119,19 +119,19 @@ Sei \(\{b_k\mid k\in\MdZ\}\) wie in \ref{Beispiel 17.2}. \(\{b_k\mid k\in\MdZ\}\
 \(f\in L^2([0,2\pi],\mdc)\) eine Folge \[(c_k)_{k\in\MdZ}=(c_k(f))_{k\in\MdZ}\] gibt, mit
 \[(\ast)\ \ \ \ \ \ \ \ \ f\overset{\|\cdot\|_2}=\sum_{k\in\MdZ}c_kb_k \]
 \textbf{Frage:} Ist \(\{b_k\mid k\in\MdZ\}\) eine ONB von \(L^2([0,2\pi],\mdc)\)?\\
-\textbf{Antwort:} Ja! In \ref{Satz 18.5} werden wir sehen, dass \((\ast)\) gilt mit 
+\textbf{Antwort:} Ja! In \ref{Satz 18.5} werden wir sehen, dass \((\ast)\) gilt mit
 \(c_k=(f\mid b_k)\).
 \end{definition}
 
 \chapter{Fourierreihen}
 \label{Kapitel 18}
 
-In diesem Kapitel sei stets \(X=[0,2\pi]\), \(L^2:=L^2([0,2\pi],\mdc)\) und 
+In diesem Kapitel sei stets \(X=[0,2\pi]\), \(L^2:=L^2([0,2\pi],\mdc)\) und
 \(L^2_\mdr:=L^2([0,2\pi],\mdr)\).  Weiter sei \(\{b_k\mid k\in\MdZ\}\) wie in \ref{Beispiel 17.2}.
 
 \begin{satz}
 \label{Satz 18.1}
-Ist \(f\in L^2\) und gilt mit einer Folge \((c_k)_{k\in\MdZ}\) in \(\mdc\): 
+Ist \(f\in L^2\) und gilt mit einer Folge \((c_k)_{k\in\MdZ}\) in \(\mdc\):
 \(f\overset{\|\cdot\|_2}=\sum_{k\in\MdZ}c_kb_k \), so gilt:
 \[c_k=(f\mid b_k) \text{ für alle } k\in\MdZ\]
 \end{satz}
@@ -139,7 +139,7 @@ Ist \(f\in L^2\) und gilt mit einer Folge \((c_k)_{k\in\MdZ}\) in \(\mdc\):
 \begin{beweis}
 Für \(n\in\mdn_0\) setze \[\sigma_n:=\sum_{\lvert k\rvert\leq n}c_kb_k\] Aus der Voraussetzung folgt
 \(\| \sigma_n-f\|_2\to 0\) für \(n\to\infty\). Sei \(j\in\MdZ\) und \(n\in\mdn\) mit
-\(n\geq \lvert j\rvert\). Es gilt einerseits 
+\(n\geq \lvert j\rvert\). Es gilt einerseits
 \[(\sigma_n\mid b_j) = \sum_{\lvert k\rvert\leq n}c_k(b_k\mid b_j)=c_j, \text{ da gilt: }
 (b_k\mid b_j)=
 \begin{cases}
@@ -163,11 +163,11 @@ Sei \(f\in L^2\), \(n\in\mdn_0\) und \(k\in\MdZ\).
 	\to0\]
 \item	\((f\mid b_k)\) heißt \textbf{k-ter Fourierkoeffizient von f}.
 \item	\(\sum_{k\in\MdZ}(f\mid b_k)b_k\) heißt \textbf{Fourierreihe von f}.
-\item	Für \(n_0\in\mdn_0\) setze 
-	\(E_n:=[b_{-n},b_{-(n-1)},\dots,b_0,b_1,\dots,b_n]\) 
+\item	Für \(n_0\in\mdn_0\) setze
+	\(E_n:=[b_{-n},b_{-(n-1)},\dots,b_0,b_1,\dots,b_n]\)
 	(lineare Hülle). Es ist dann \[\dim E_n=2n+1\]
 	\textbf{Beachte: } Für \(v\in E_n\) gilt \(v(0)=v(2\pi)\).
-\end{enumerate} 
+\end{enumerate}
 \end{definition}
 
 \begin{satz}
@@ -177,7 +177,7 @@ Sei \(f\in L^2\), \(n\in\mdn_0\) und \(k\in\MdZ\).
 Seien \(f_1,\dots,f_n,f\in L^2\).
 \begin{enumerate}
 \item	Gilt \(f_\mu\perp f_\nu\) für \(\mu\neq\nu\) (\(\mu,\nu=1,\dots,n\)),
-	so gilt der Satz des Pythagoras 
+	so gilt der Satz des Pythagoras
 	\[\| f_1+\dots+f_n\|^2_2=
 	\| f_1\|^2_2+\dots+
 	\| f_n\|^2_2\]
@@ -186,15 +186,15 @@ Seien \(f_1,\dots,f_n,f\in L^2\).
 		L^2\to E_n\\
 		S_nf:=\sum_{\lvert k\rvert\leq n}(f\mid b_k)b_k
 	\end{cases}\]
-	ist linear und für jedes \(v\in E_n\) gilt \(S_nv=v\) und 
+	ist linear und für jedes \(v\in E_n\) gilt \(S_nv=v\) und
 	\((f-S_nf)\perp v\) mit \(f\in L^2\).
 \item 	Die \textbf{Besselsche Ungleichung} lautet:
 	\[\| S_nf\|^2_2
 	=\sum_{\lvert k\rvert\leq n}\lvert(f\mid b_k)\rvert^2
 	=\| f\|_2^2-\|(f-S_nf)\|^2_2
 	\leq\| f\|^2_2\]
-\item	Für alle \(v\in E_n\) gilt: 
-	\[\| f-S_nf\|_2\leq\| f-v\|_2 
+\item	Für alle \(v\in E_n\) gilt:
+	\[\| f-S_nf\|_2\leq\| f-v\|_2
 	\]
 \end{enumerate}
 \end{satz}
@@ -207,26 +207,26 @@ Seien \(f_1,\dots,f_n,f\in L^2\).
 	&= (f_1+f_2\mid f_1+f_2)						\\
 	&= (f_1\mid f_1)+(f_1\mid f_2)+(f_2\mid f_1)+(f_2\mid f_2)		\\
 	&= (f_1\mid f_1)+(f_2\mid f_2)						\\
-	&=\| f_1\|^2_2+\| f_2\|^2_2	
+	&=\| f_1\|^2_2+\| f_2\|^2_2
 	\end{align*}
 \item	Übung!
 \item	Es gilt
 	\begin{align*}
 	\| S_nf\|^2_2
 	&= \left\lvert\left\lvert\sum_{\lvert k\rvert\leq n}(f\mid b_k)b_k\right\rvert
-		\right\rvert^2_2	
+		\right\rvert^2_2
 	\overset{(1)}=
 		\sum_{\lvert k\rvert\leq n}\|(f\mid b_k)b_k\rvert
-		\rvert^2_2	
+		\rvert^2_2
 	= \sum_{\lvert k\rvert\leq n}\lvert(f\mid b_k)\rvert^2\| b_k\rvert
-		\rvert^2_2	
+		\rvert^2_2
 	= \sum_{\lvert k\rvert\leq n}\lvert(f\mid b_k)\rvert^2
 	\end{align*}
 	und
 	\begin{align*}
-	\| f\|^2_2 
+	\| f\|^2_2
 	= \|\underbrace{(f-S_nf)}_{\underset{(2)}\perp E_n}
-		+\underbrace{S_nf}_{\in E_n}\|^2_2		
+		+\underbrace{S_nf}_{\in E_n}\|^2_2
 	= \| f-S_nf\|^2_2 + \| S_nf\|^2_2
 	\end{align*}
 \item	Sei \(v\in E_n\). Dann gilt:
@@ -244,17 +244,17 @@ Seien \(f_1,\dots,f_n,f\in L^2\).
 
 \begin{wichtigebemerkung}
 \label{Bemerkung 18.3}
-Es sei \(\mdk\in\{\mdr,\mdc\},\,a,b\in\mdr,\,I:=[a,b]\,(a<b)\) und \(f_{n},\,f,\,g\in C(I,\mdk)\); es war 
+Es sei \(\mdk\in\{\mdr,\mdc\},\,a,b\in\mdr,\,I:=[a,b]\,(a<b)\) und \(f_{n},\,f,\,g\in C(I,\mdk)\); es war
 \(\lVert f\rVert_{\infty}:=\max_{t\in I}\lvert f(t)\rvert\).
 \begin{enumerate}
-\item \((f_{n})\) konvergiert auf \(I\) gleichmäßig gegen \(f\) genau dann, wenn 
+\item \((f_{n})\) konvergiert auf \(I\) gleichmäßig gegen \(f\) genau dann, wenn
     \(\lVert f_{n}-f\rVert_{\infty}\to 0\,(n\to\infty)\) (vgl. Analysis I/II).
 \item \(f\in\mathrm{L}^{p}(I,\mdk)\) und \(\lVert f\rVert_{p}\leq(b-a)^{\frac{1}{p}}\lVert f\rVert_{\infty}\) (siehe \ref{Satz 16.2}).
 \item Gilt \(f=g\) fast überall, so ist \(f=g\) auf \(I\).
 \begin{beweis}
 Es existiert eine Nullmenge \(N\subseteq I:\,f(x)=g(x)\,\forall x\in I\setminus N\).\\
-Sei \(x_{0}\in\mdn\). Für \(\ep>0\) gilt: \(U_{\ep}(x_{0})\cap I\not\subseteq N\) (andernfalls: 
-    \(\lambda_{1}(N)\geq\lambda_{1}(U_{\ep}(x_{0})\cap I)>0\)). Das heißt, es existiert ein 
+Sei \(x_{0}\in\mdn\). Für \(\ep>0\) gilt: \(U_{\ep}(x_{0})\cap I\not\subseteq N\) (andernfalls:
+    \(\lambda_{1}(N)\geq\lambda_{1}(U_{\ep}(x_{0})\cap I)>0\)). Das heißt, es existiert ein
     \(x_{\ep}\in U_{\ep}(x_{0})\cap I:\,x_{\ep}\not\in N\). Also:
     \(\forall n\in\mdn\,\exists x_{n}\in U_{\frac{1}{n}}(x_{0})\cap I:\, x_{n}\not\in N\). Also: \(x_{n}\to x_{0}\).\\
 Dann: \(f(x_{0})=\lim_{n\to\infty}f(x_{n})=\lim_{n\to\infty}g(x_{n})=g(x_{0})\)
@@ -287,9 +287,9 @@ Sei \(f\in\mathrm{L}^{2}\). Dann gilt: \(f\overset{\lVert\cdot\rVert_{2}}{=}\sum
 
 \begin{beweis}
 Zu zeigen: \(\lVert f-S_{n}f\rVert_{2}\to0\,(n\to\infty)\). Die Parsevalsche Gleichung folgt dann aus \ref{Satz 18.2}.\\
-Sei \(\ep>0\). Wende \ref{Satz 16.8}(2) auf \(\Re f\) und \(\Im f\) an. Dies liefert eine stetige Funktion 
+Sei \(\ep>0\). Wende \ref{Satz 16.8}(2) auf \(\Re f\) und \(\Im f\) an. Dies liefert eine stetige Funktion
 \(g:\,(0,2\pi)\to\mdc\) mit: \(K:=\supp(g)\subseteq(0,2\pi)\), \(K\) kompakt und \(\lVert f-g\rVert_{2}<\ep\).\\
-Setze \(g(0):=g(2\pi):=0\). Dann ist \(g\) stetig auf \([0,2\pi]\). Satz \ref{Satz 18.4} liefert nun: 
+Setze \(g(0):=g(2\pi):=0\). Dann ist \(g\) stetig auf \([0,2\pi]\). Satz \ref{Satz 18.4} liefert nun:
     \(\exists n\in\mdn\exists v\in\mathrm{E}_{n}:\,\lVert g-v\rVert_{\infty}<\ep\).\\
 Damit: \(\lVert g-v\rVert_{2}\leq\sqrt{2\pi}\lVert g-v\rVert_{\infty}<\sqrt{2\pi}\ep\). Somit:
 \begin{align*}
@@ -344,9 +344,9 @@ Fourierreihe von \(f\) ist eine \textbf{Sinusreihe}.
 \begin{enumerate}
 \item \(f(t):=\begin{cases}1,&0\leq t\leq\pi\\-1,&\pi<t\leq 2\pi\end{cases}\)
 
-\(f\) ist ungerade, also \(\alpha_{k}=0\,\forall k\in\mdn_{0}\). Es ist 
+\(f\) ist ungerade, also \(\alpha_{k}=0\,\forall k\in\mdn_{0}\). Es ist
 \(\beta_{k}=\frac{2}{\pi}\int_{0}^{\pi}{\sin(kt)\mathrm{d}t}=\begin{cases}0,&k\text{ gerade}\\\frac{4}{k\pi},&k\text{ ungerade}\end{cases}\).\\
-Damit: 
+Damit:
 \[
 f\overset{\lVert\cdot\rVert_{2}}{=}\frac{4}{\pi}\sum_{j=0}^{\infty}{\frac{\sin((2j+1)\cdot)}{2j+1}}
 \]

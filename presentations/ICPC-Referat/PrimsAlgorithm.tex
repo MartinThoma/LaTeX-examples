@@ -9,7 +9,7 @@
 	$S$ ist Menge aller erreichten Knoten, $E$ ist Menge der ausgewählten Kanten.\pause
 
 
-	
+
 	Starte bei einem beliebigen Knoten: füge zu $S$ hinzu.
 	\begin{enumerate}
 		\item wähle Kante am \emph{Rand} von $S$ mit dem geringsten Gewicht und füge zu $E$ hinzu. \pause
@@ -41,12 +41,12 @@
 				                                 f/d/6,f/e/8,
 				                                 g/e/9,g/f/11}
 				\path[edge] (\source) -- node[weight] {$\weight$} (\dest);
-			% Start animating the vertex and edge selection. 
+			% Start animating the vertex and edge selection.
 			\foreach \vertex / \fr in {d/1,a/2,f/3,b/4,e/5,c/6,g/7}
 				\path<\fr-> node[selected vertex] at (\vertex) {$\vertex$};
 			% For convenience we use a background layer to highlight edges
 			% This way we don't have to worry about the highlighting covering
-			% weight labels. 
+			% weight labels.
 			\begin{pgfonlayer}{background}
 				\pause
 				\foreach \source / \dest in {d/a,d/f,a/b,b/e,e/c,e/g}
@@ -68,7 +68,7 @@
 		\item 1957: Robert C. Prim
 		\item 1959 wiederentdeckt von Edsger Dijkstra
 	\end{itemize}
-	
+
 	\begin{figure}
 \centering
 \mbox{\subfigure{\includegraphics[width=0.6in]{Material/jarnik_vojtech.jpg}}\quad
@@ -81,5 +81,5 @@
 		\item Jarník algorithm
 		\item Prim–Jarník algorithm
 	\end{itemize}
-	
+
 \end{frame}

@@ -1,17 +1,17 @@
-In diesem Kapitel seien $X,Y,Z$ Mengen ($\ne\emptyset$) und 
+In diesem Kapitel seien $X,Y,Z$ Mengen ($\ne\emptyset$) und
 $f: X\to Y,\; g:Y\to Z$ Abbildungen.
 
 \begin{enumerate}
     \index{Potenzmenge}
     \index{Disjunktheit}
-    \item 
+    \item
     \begin{enumerate}
-        \item $\mathcal{P}(X):=\{A:A\subseteq X\}$ heißt 
+        \item $\mathcal{P}(X):=\{A:A\subseteq X\}$ heißt
               \textbf{Potenzmenge} von $X$.
-        \item Sei $\fm\subseteq\mathcal{P}(X)$, so heißt $\fm$ 
-              \textbf{disjunkt}, genau dann wenn $A\cap B=\emptyset$ 
+        \item Sei $\fm\subseteq\mathcal{P}(X)$, so heißt $\fm$
+              \textbf{disjunkt}, genau dann wenn $A\cap B=\emptyset$
               für $A,B\in\fm$ mit $A\ne B$.
-        \item Sei $(A_j)$ eine Folge in $\mathcal{P}(X)$ (also 
+        \item Sei $(A_j)$ eine Folge in $\mathcal{P}(X)$ (also
               $A_j\subseteq X$), so heißt $(A_j)$ \textbf{disjunkt},
               genau dann wenn $\{A_1,A_2,\dots\}$ disjunkt ist.\\
               \textbf{Schreibweise}:\\
@@ -22,16 +22,16 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
                 \sum_{j=1}^\infty a_j      &=: \sum a_j
               \end{align*}
     \end{enumerate}
-    \item Sei $A\subseteq X$, $\mathds{1}_A : X \rightarrow R$ 
+    \item Sei $A\subseteq X$, $\mathds{1}_A : X \rightarrow R$
           definiert durch:
           \[\mathds{1}_A(x):= \begin{cases}
                 1 &\text{falls } x\in A\\
                 0 &\text{falls } x\in A^c
             \end{cases}\]
           wobei $A^c:=X\setminus A$. $\mathds{1}_A$ heißt die
-          \textbf{charakteristische Funktion} oder 
+          \textbf{charakteristische Funktion} oder
           \textbf{Indikatorfunktion von A}.
-    \item Sei $B\subseteq Y$ dann ist $f^{-1}(B):=\{x\in X: f(x)\in B\}$ 
+    \item Sei $B\subseteq Y$ dann ist $f^{-1}(B):=\{x\in X: f(x)\in B\}$
           und es gelten folgende Eigenschaften:
           \begin{enumerate}
             \item $f^{-1}(B^c)=f^{-1}(B)^c$
@@ -47,12 +47,12 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
 
 \begin{definition}
     \index{offen}
-    Sei $n \in \mdn$ und $\emptyset \neq X \subseteq \mdr^n$ und 
+    Sei $n \in \mdn$ und $\emptyset \neq X \subseteq \mdr^n$ und
     $A \subseteq X$.
 
-    $A$ heißt $\stackrel{\text{offen}}{\text{abgeschlossen}}$ in 
-    $X :\Leftrightarrow \exists B \subseteq \mdr^n$. 
-    $B$ ist $\stackrel{\text{offen}}{\text{abgeschlossen}}$ und 
+    $A$ heißt $\stackrel{\text{offen}}{\text{abgeschlossen}}$ in
+    $X :\Leftrightarrow \exists B \subseteq \mdr^n$.
+    $B$ ist $\stackrel{\text{offen}}{\text{abgeschlossen}}$ und
     $A = B \cap X$
 \end{definition}
 
@@ -61,18 +61,18 @@ $f: X\to Y,\; g:Y\to Z$ Abbildungen.
     $f: X \rightarrow \mdr^n$.
 
     \begin{enumerate}
-        \item $A$ ist offen in $X \Leftrightarrow \forall x \in A$ 
+        \item $A$ ist offen in $X \Leftrightarrow \forall x \in A$
               ex. eine Umgebung $U$ von $x$ mit $U \cap X \subseteq A$
         \item $A$ ist abgeschlossen in $X$\\
               $\Leftrightarrow X \setminus A$ ist offen in $X$\\
-              $\Leftrightarrow$ für jede konvergente Folge $(a_k)$ 
+              $\Leftrightarrow$ für jede konvergente Folge $(a_k)$
               in $A$ mit $\lim a_k \in X$ ist $\lim a_k \in A$
         \item Die folgenden Aussagen sind äquivalent:
               \begin{enumerate}
                 \item $f \in C(X, \mdr^m)$
-                \item für jede offene Menge $B \subseteq \mdr^m$ ist 
+                \item für jede offene Menge $B \subseteq \mdr^m$ ist
                       $f^{-1}(B)$ offen in $X$
-                \item für jede abgeschlossene Menge $B \subseteq \mdr^m$ ist 
+                \item für jede abgeschlossene Menge $B \subseteq \mdr^m$ ist
                       $f^{-1}(B)$ abgeschlossen in $X$
               \end{enumerate}
     \end{enumerate}

@@ -5,7 +5,7 @@
 \usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
 \usepackage{pdfpages}  % Signatureinbingung und includepdf
 \usepackage{myInformation}
- 
+
 % pdfinfo
 \pdfinfo{
    /Author (\Nachname, \Vorname)
@@ -18,7 +18,7 @@
 \signature{\Vorname~\Nachname}
 \setkomavar{customer}[Steuernummer (Id-Nr.)]{\Idnr}
 \backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
- 
+
 % Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
     \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
@@ -26,7 +26,7 @@
     \subject{Einnahmenüberschussrechnung \Year}
     \opening{Sehr geehrte Damen und Herren,}
 
-    Im Anhang befindet sich die Überschussrechnung von \Year. 
+    Im Anhang befindet sich die Überschussrechnung von \Year.
 
     \closing{Mit freundlichen Grüßen,}
     \end{letter}

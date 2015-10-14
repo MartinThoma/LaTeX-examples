@@ -2,7 +2,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{shapes, calc, decorations} 
+\usetikzlibrary{shapes, calc, decorations}
 \usepackage{amsmath,amssymb}
 
 \begin{document}
@@ -15,9 +15,9 @@
     \newcommand\YB{{sqrt(cos(\ALPHA)*\XC*cos(\ALPHA)*\XC - (\XC*(cos(\ALPHA)*cos(\ALPHA) - sin(\ALPHA)*sin(\ALPHA)) + \XC)*0.5*(\XC*(cos(\ALPHA)*cos(\ALPHA) - sin(\ALPHA)*sin(\ALPHA)) + \XC)*0.5)}}
 
     % Draw the triangle
-    \draw[fill=gray!10]  (0,    0) coordinate (A) 
-        -- (\XB,\YB) coordinate (C) 
-        -- (\XC,  0) coordinate (B) 
+    \draw[fill=gray!10]  (0,    0) coordinate (A)
+        -- (\XB,\YB) coordinate (C)
+        -- (\XC,  0) coordinate (B)
         -- (0,    0);
 
     % Draw nodes
@@ -27,9 +27,9 @@
 
     % Draw edge text
     \node (c) at ($(A)!0.50!(B)$) [below,font=\tiny] {Hy­po­te­nu­se};
-    \node (b) at ($(A)!0.50!(C)$) [above,rotate=\ALPHA,font=\tiny] 
+    \node (b) at ($(A)!0.50!(C)$) [above,rotate=\ALPHA,font=\tiny]
                 {Ankathete zu Winkel $\alpha$};
-    \node (a) at ($(B)!0.35!(C)$) [above,rotate={\ALPHA-90},font=\tiny] 
+    \node (a) at ($(B)!0.35!(C)$) [above,rotate={\ALPHA-90},font=\tiny]
                 {\parbox{2cm}{Gegenkathete\\ zu Winkel $\alpha$}};
 
 

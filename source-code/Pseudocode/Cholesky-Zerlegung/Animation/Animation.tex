@@ -1,6 +1,6 @@
 \documentclass[aspectratio=169,hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
- 
+
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
 \usepackage[ngerman]{babel} % this is needed for german umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
@@ -11,7 +11,7 @@
 \usepackage{verbatim}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes}
- 
+
 % Define some styles for graphs
 \tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
 \tikzstyle{selected vertex} = [vertex, fill=red!24]
@@ -20,14 +20,14 @@
 \tikzstyle{weight} = [font=\small]
 \tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
 \tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
- 
+
 % see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
 %\usetheme{Frankfurt}
 \usefonttheme{professionalfonts}
- 
+
 % disables bottom navigation bar
 \beamertemplatenavigationsymbolsempty
- 
+
 % http://tex.stackexchange.com/questions/23727/converting-beamer-slides-to-animated-images
 \setbeamertemplate{navigation symbols}{}%
 
@@ -41,7 +41,7 @@
 \pgfsetlayers{background,main}
 \newcommand\hlight[1]{\tikz[overlay, remember picture,baseline=-\the\dimexpr\fontdimen22\textfont2\relax]\node[rectangle,fill=blue!50,rounded corners,fill opacity = 0.2,draw,thick,text opacity =1] {$#1$};}
 \newcommand\tocalculate[1]{\tikz[overlay, remember picture,baseline=-\the\dimexpr\fontdimen22\textfont2\relax]\node[rectangle,fill=green!50,rounded corners,fill opacity = 0.2,draw,thick,text opacity =1] {$#1$};}
- 
+
 \begin{frame}
     \begin{minipage}[b]{0.30\linewidth}
     \centering

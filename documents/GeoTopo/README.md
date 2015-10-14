@@ -5,23 +5,23 @@ wird, die die Inhalte noch lernen, sind sehr wahrscheinlich einige
 Fehler im Skript. Das können Übertragungsfehler, Tippfehler oder
 Verständnisprobleme sein.
 
-Verbesserungsvorschläge (auch wenn es nur einzelne Textsetzungsprobleme oder 
+Verbesserungsvorschläge (auch wenn es nur einzelne Textsetzungsprobleme oder
 Rechtschreibfehler sind) bitte immer direkt melden oder verbessern!
 
-Den Verbesserungsvorschlag kann man 
-* entweder direkt selbst umsetzen und einen pull request machen oder 
-* mir per Email (info@martin-thoma.de) schicken. 
+Den Verbesserungsvorschlag kann man
+* entweder direkt selbst umsetzen und einen pull request machen oder
+* mir per Email (info@martin-thoma.de) schicken.
 
 Ich werde dann versuchen die Verbesserungsvorschläge zeitnah einzuarbeiten.
 
 Zeichnungen
 ===========
-Das erstellen der Zeichnungen ist sehr zeitaufwendig. Das ist der 
+Das erstellen der Zeichnungen ist sehr zeitaufwendig. Das ist der
 Grund, warum manchmal nur ein "TODO" im Dokument steht.
 
 Ihr könnt mir gerne Zeichnungen schicken (entweder schön auf Papier
 Zeichnen und abfotographieren / einscannen oder schon mit Inscape /
-Gimp / ... oder sogar mit TikZ erstellen). 
+Gimp / ... oder sogar mit TikZ erstellen).
 
 Akzeptable Formate sind: .jpg, .pdf, .svg, .png, .gif, .tex, .sketch
 Alles andere kann ich vermutlich nicht einbinden.
@@ -37,8 +37,8 @@ Rechtliches
 ===========
 Die Autoren kann man über Git ermitteln. Ich schreibe meist nur den
 Tafelanschrieb der Vorlesung ab; eventuell noch mit ein paar
-Notizen meinerseits. Wenn mir Verbesserungsvorschläge per Email 
-geschickt werden, ist der Autor sowie das Datum der Email in der 
+Notizen meinerseits. Wenn mir Verbesserungsvorschläge per Email
+geschickt werden, ist der Autor sowie das Datum der Email in der
 Commit-Nachricht von Git zu sehen.
 
 Bilder habe ich entweder selbst erstellt oder von tex.stackexchange.com.

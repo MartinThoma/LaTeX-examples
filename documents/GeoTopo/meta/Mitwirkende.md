@@ -1,4 +1,4 @@
-Zu diesem Skript haben einige Leute beigetragen. Die Personen, die am 
+Zu diesem Skript haben einige Leute beigetragen. Die Personen, die am
 meisten beigetragen haben, stehen direkt im Skript unter "Danksagungen".
 
 Hier ist eine (hoffentlich bald) vollständige Liste der Mitwirkenden (alphabetisch geordnet) mit

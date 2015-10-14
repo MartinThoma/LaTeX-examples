@@ -1,7 +1,7 @@
 %!TEX root = Programmierparadigmen.tex
 \chapter{Haskell}
 \index{Haskell|(}
-Haskell ist eine funktionale Programmiersprache, die 1990 in Version~1.0 veröffentlicht 
+Haskell ist eine funktionale Programmiersprache, die 1990 in Version~1.0 veröffentlicht
 wurde. Namensgeber ist Haskell Brooks Curry, der die mathematischen Grundlagen der funktionalen Programmierung entwickelte.
 
 Wichtige Konzepte sind:
@@ -13,8 +13,8 @@ Wichtige Konzepte sind:
     \item Typinferenz
 \end{enumerate}
 
-Haskell kann mit \enquote{Glasgow Haskell Compiler} mittels 
-\texttt{ghci} interpretiert und mittels 
+Haskell kann mit \enquote{Glasgow Haskell Compiler} mittels
+\texttt{ghci} interpretiert und mittels
 
 \section{Erste Schritte}
 Haskell kann unter \href{http://www.haskell.org/platform/}{\path{www.haskell.org/platform/}}
@@ -41,7 +41,7 @@ definiert:
 
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/einfaches-beispiel-klammern.hs}
 
-Die Funktionsdeklarationen mit den Typen sind nicht notwendig, da 
+Die Funktionsdeklarationen mit den Typen sind nicht notwendig, da
 die Typen aus den benutzten Funktionen abgeleitet werden.
 
 Zu lesen ist die Deklaration wie folgt:
@@ -113,7 +113,7 @@ den Index 0.
 \inputminted[numbersep=5pt, tabsize=4]{haskell}{scripts/haskell/listenoperationen.sh}
 
 \subsubsection{List-Comprehensions}\xindex{List-Comprehension}%
-List-Comprehensions sind kurzschreibweisen für Listen, die sich an 
+List-Comprehensions sind kurzschreibweisen für Listen, die sich an
 der Mengenschreibweise in der Mathematik orientieren. So entspricht
 die Menge
 \begin{align*}
@@ -176,12 +176,12 @@ Das doppelte Plus (\texttt{++}) wird verwendet um Listen mit einander zu verbind
 \subsection{Logische Operatoren}\xindex{Haskell!Logische Operatoren}
 
 \begin{table}[H]
-    \centering 
+    \centering
     \begin{tabular}{CCCC}
     UND    & ODER     & Wahr  & Falsch \\ \hline\hline
     \&\&   & ||       & True  & False \\[4ex]
     GLEICH & UNGLEICH & NICHT & ~     \\ \hline\hline
-    ==     & /=       & not   & ~     \\ 
+    ==     & /=       & not   & ~     \\
     \end{tabular}
     \caption{Logische Operatoren in Haskell}\xindex{Logische Operatoren!Haskell}
 \end{table}
@@ -191,7 +191,7 @@ Das doppelte Plus (\texttt{++}) wird verwendet um Listen mit einander zu verbind
 Haskell kennt einige Basis-Typen:
 \begin{itemize}
   \item \textbf{Int}: Ganze Zahlen. Der Zahlenbereich kann je nach Implementierung variieren,
-  aber der Haskell-Standart garantiert, dass das Intervall 
+  aber der Haskell-Standart garantiert, dass das Intervall
   $[-2^{29}, 2^{29}-1]$ abgedeckt wird.
   \item \textbf{Integer}: beliebig große ganze Zahlen
   \item \textbf{Float}: Fließkommazahlen
@@ -257,7 +257,7 @@ Haskell wertet Ausdrücke nur aus, wenn es nötig ist.
 \begin{itemize}
     \item Die leere Liste ergibt sortiert die leere Liste.
     \item Wähle das erste Element \texttt{p} als Pivotelement und
-          teile die restliche Liste \texttt{ps} in kleinere und 
+          teile die restliche Liste \texttt{ps} in kleinere und
           gleiche sowie in größere Elemente mit \texttt{filter} auf.
           Konkateniere diese beiden Listen mit \texttt{++}.
 \end{itemize}
@@ -314,7 +314,7 @@ Einen allgemeinen Baum so:
 Hier ist \texttt{t} der polymorphe Typ des Baumes. \texttt{t} gibt also an welche
 Elemente der Baum enthält.
 
-Man kann auf einem solchen Baum auch eine Variante von \texttt{map} und 
+Man kann auf einem solchen Baum auch eine Variante von \texttt{map} und
 \texttt{reduce} definieren,
 also eine Funktion \texttt{mapT}, die eine weitere Funktion \texttt{f} auf jeden
 Knoten anwendet:

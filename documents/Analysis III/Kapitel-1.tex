@@ -2,7 +2,7 @@ In diesem Kapitel sei $X \neq \emptyset$ eine Menge.
 
 \begin{definition}
     \index{$\sigma$-!Algebra}
-    Sei $\fa\subseteq\mathcal{P}(X)$, $\fa$ heißt eine 
+    Sei $\fa\subseteq\mathcal{P}(X)$, $\fa$ heißt eine
     \textbf{$\sigma$-Algebra} auf $X$, wenn gilt:
     \begin{enumerate}
         \item[($\sigma_1$)] $X\in\fa$
@@ -14,11 +14,11 @@ In diesem Kapitel sei $X \neq \emptyset$ eine Menge.
 
 \begin{beispieleX}
     \begin{enumerate}
-        \item $\Set{X,\emptyset}$ und $\mathcal{P}(X)$ sind 
+        \item $\Set{X,\emptyset}$ und $\mathcal{P}(X)$ sind
               $\sigma$-Algebren auf $X$.
-        \item Sei $A\subseteq X$, dann ist $\Set{X,\emptyset, A, A^c}$ 
+        \item Sei $A\subseteq X$, dann ist $\Set{X,\emptyset, A, A^c}$
               eine $\sigma$-Algebra auf $X$.
-        \item $\fa:=\Set{A\subseteq X | A \text{ abzählbar oder } A^c \text{ abzählbar}}$ 
+        \item $\fa:=\Set{A\subseteq X | A \text{ abzählbar oder } A^c \text{ abzählbar}}$
               ist eine $\sigma$-Algebra auf $X$.
     \end{enumerate}
 \end{beispieleX}
@@ -41,13 +41,13 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 \begin{beweis}
     \begin{enumerate}
     \item \folgtnach{$\sigma_2$} $\emptyset=X^c\in\fa$.
-    \item $D:=\bigcap A_j$. $D^c=\bigcup A_j^c\in\fa$ (nach 
-          ($\sigma_2$) und ($\sigma_3$)), also gilt auch 
+    \item $D:=\bigcap A_j$. $D^c=\bigcup A_j^c\in\fa$ (nach
+          ($\sigma_2$) und ($\sigma_3$)), also gilt auch
           $D=(D^c)^c\in\fa$.
     \item \begin{enumerate}
-            \item \folgtnach{($\sigma_3$) mit $A_{n+j}:=\emptyset$ ($j\ge 1$)} 
+            \item \folgtnach{($\sigma_3$) mit $A_{n+j}:=\emptyset$ ($j\ge 1$)}
                   $A_1\cup\dots\cup A_n\in\fa$.
-            \item \folgtnach{(2) mit $A_{n+j}:=X$ ($j\ge 1)$} 
+            \item \folgtnach{(2) mit $A_{n+j}:=X$ ($j\ge 1)$}
                   $A_1\cap\dots\cap A_n\in\fa$.
             \item $A_1\setminus A_2=A_1\cap A_2^c\in\fa$
           \end{enumerate}
@@ -56,8 +56,8 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{lemma}
     \label{Lemma 1.2}
-    Sei $\cf \neq \emptyset$ eine Menge von $\sigma$-Algebren auf $X$. 
-    Dann ist 
+    Sei $\cf \neq \emptyset$ eine Menge von $\sigma$-Algebren auf $X$.
+    Dann ist
     \[\fa_0:=\bigcap_{\fa\in\cf}\fa\]
     eine $\sigma$-Algebra auf $X$.
 \end{lemma}
@@ -70,7 +70,7 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
             \forall\fa\in\cf:A\in\fa &\implies \forall\fa\in\cf:A^c\in\fa\\
                                      &\implies A^c\in\fa_0
           \end{align*}
-        \item[($\sigma_3$)] Sei $(A_j)$ eine Folge in $\fa_0$, dann 
+        \item[($\sigma_3$)] Sei $(A_j)$ eine Folge in $\fa_0$, dann
             ist $(A_j)$ Folge in $\fa$ für alle $\fa\in\cf$, dann gilt:
           \begin{align*}
             \forall\fa\in\cf:\bigcap A_j\in\fa \implies \bigcap A_j\in\fa_0
@@ -80,14 +80,14 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{definition}
     \index{Erzeuger}
-    Sei $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(X)$ und 
-    $\cf:=\{\fa:\fa$ ist $\sigma$-Algebra auf $X$ mit 
+    Sei $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(X)$ und
+    $\cf:=\{\fa:\fa$ ist $\sigma$-Algebra auf $X$ mit
     $\mathcal{E}\subseteq\fa\}$. Definiere
     \[\sigma(\mathcal{E}):=\bigcap_{\fa\in\cf}\fa\]
-    \folgtnach{1.2} $\sigma(\mathcal{E})$ ist eine $\sigma$-Algebra 
-    auf $X$. $\sigma(\mathcal{E})$ heißt die 
-    \textbf{von $\mathcal{E}$ erzeugte $\sigma$-Algebra}. 
-    $\mathcal{E}$ heißt ein \textbf{Erzeuger} von 
+    \folgtnach{1.2} $\sigma(\mathcal{E})$ ist eine $\sigma$-Algebra
+    auf $X$. $\sigma(\mathcal{E})$ heißt die
+    \textbf{von $\mathcal{E}$ erzeugte $\sigma$-Algebra}.
+    $\mathcal{E}$ heißt ein \textbf{Erzeuger} von
     $\sigma(\mathcal{E})$.
 \end{definition}
 
@@ -95,12 +95,12 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
     \label{Lemma 1.3}
     Sei $\emptyset\ne\mathcal{E}\subseteq\mathcal{P}(X)$.
     \begin{enumerate}
-        \item $\mathcal{E}\subseteq\sigma(\mathcal{E})$. 
-              $\sigma(\mathcal{E})$ ist die "`kleinste"' 
+        \item $\mathcal{E}\subseteq\sigma(\mathcal{E})$.
+              $\sigma(\mathcal{E})$ ist die "`kleinste"'
               $\sigma$-Algebra auf $X$, die $\mathcal{E}$ enthält.
-        \item Ist $\mathcal{E}$ eine $\sigma$-Algebra, so ist 
+        \item Ist $\mathcal{E}$ eine $\sigma$-Algebra, so ist
               $\sigma(\mathcal{E})=\mathcal{E}$.
-        \item Ist $\mathcal{E}\subseteq\mathcal{E}'$, so ist 
+        \item Ist $\mathcal{E}\subseteq\mathcal{E}'$, so ist
               $\sigma(\mathcal{E})\subseteq\sigma(\mathcal{E}')$.
     \end{enumerate}
 \end{lemma}
@@ -108,19 +108,19 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 \begin{beweis}
     \begin{enumerate}
         \item Klar nach Definition.
-        \item $\fa:=\mathcal{E}$, dann gilt 
+        \item $\fa:=\mathcal{E}$, dann gilt
               $\fa\subseteq\sigma(\mathcal{E})\subseteq\fa$.
-        \item $\mathcal{E}\subseteq\mathcal{E}'\subseteq\sigma(\mathcal{E}')$, 
-              also folgt nach Definition 
+        \item $\mathcal{E}\subseteq\mathcal{E}'\subseteq\sigma(\mathcal{E}')$,
+              also folgt nach Definition
               $\sigma(\mathcal{E})\subseteq\sigma(\mathcal{E}')$.
     \end{enumerate}
 \end{beweis}
 
 \begin{beispiel}
     \begin{enumerate}
-        \item Sei $A\subseteq X$ und $\mathcal{E}:=\{A\}$. Dann ist 
+        \item Sei $A\subseteq X$ und $\mathcal{E}:=\{A\}$. Dann ist
               $\sigma(\mathcal{E})=\{X,\emptyset,A,A^c\}$.
-        \item $X:=\{1,2,3,4,5\}, \mathcal{E}:=\{\{1\},\{1,2\}\}$. 
+        \item $X:=\{1,2,3,4,5\}, \mathcal{E}:=\{\{1\},\{1,2\}\}$.
               Dann gilt:
               \[\sigma(\mathcal{E}):=\{X,\emptyset, \{1\},\{2\},\{1,2\},\{3,4,5\},\{1,3,4,5\},\{2,3,4,5\}\}\]
     \end{enumerate}
@@ -128,11 +128,11 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
 
 \begin{erinnerung}
     \index{Offenheit}\index{Abgeschlossenheit}
-    Sei $d\in\mdn, X\subseteq\mdr^d$. $A\subseteq X$ heißt 
-    \textbf{offen} (\textbf{abgeschlossen}) in $X$, genau dann wenn 
-    ein offenes (abgeschlossenes) $G\subseteq\mdr^d$ existiert mit 
+    Sei $d\in\mdn, X\subseteq\mdr^d$. $A\subseteq X$ heißt
+    \textbf{offen} (\textbf{abgeschlossen}) in $X$, genau dann wenn
+    ein offenes (abgeschlossenes) $G\subseteq\mdr^d$ existiert mit
     $A=X\cap G$.\\
-    Beachte: $A$ abgeschlossen in $X$ $\iff$ $X\setminus A$ offen in 
+    Beachte: $A$ abgeschlossen in $X$ $\iff$ $X\setminus A$ offen in
     $X$.
 \end{erinnerung}
 
@@ -142,27 +142,27 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
     Sei $X\subseteq\mdr^d$.
     \begin{enumerate}
         \item $\mathcal{O}(X):=\Set{A\subseteq X | A \text{ ist offen in } X}$
-        \item $\fb(X):=\sigma(\mathcal{O}(X))$ heißt 
+        \item $\fb(X):=\sigma(\mathcal{O}(X))$ heißt
               \textbf{Borelsche $\sigma$-Algebra} auf $X$.
-        \item $\fb_d:=\fb(\mdr^d)$. Die Elemente von $\fb_d$ heißen 
+        \item $\fb_d:=\fb(\mdr^d)$. Die Elemente von $\fb_d$ heißen
               \textbf{Borelsche Mengen} oder \textbf{Borel-Mengen}.
     \end{enumerate}
 \end{definition}
 
 \begin{beispiel}
     \begin{enumerate}
-        \item Sei $\emptyset \neq X\subseteq\mdr^d$. Ist $A\subseteq$ 
+        \item Sei $\emptyset \neq X\subseteq\mdr^d$. Ist $A\subseteq$
               $\stackrel{\hbox{offen}}{\hbox{abgeschlossen}}$
               in $X$, so ist $A\in\fb(X)$.
-        \item Ist $A\subseteq\mdr^d$ 
+        \item Ist $A\subseteq\mdr^d$
               $\stackrel{\hbox{offen}}{\hbox{abgeschlossen}}$,
               so ist $A\in\fb_d$.
-        \item Sei $d=1, A=\mdq$. $\mdq$ ist abzählbar, also 
-              $\mdq=\{r_1,r_2,\dots\}$ (mit $r_i\ne r_j$ für $i\ne j$). 
-              Also ist $\mdq=\bigcup \{r_j\}$. Sei nun $r\in\mdq$, 
-              dann ist $B:=(-\infty,r)\cup(r,\infty)\in\fb_1$. Daraus 
+        \item Sei $d=1, A=\mdq$. $\mdq$ ist abzählbar, also
+              $\mdq=\{r_1,r_2,\dots\}$ (mit $r_i\ne r_j$ für $i\ne j$).
+              Also ist $\mdq=\bigcup \{r_j\}$. Sei nun $r\in\mdq$,
+              dann ist $B:=(-\infty,r)\cup(r,\infty)\in\fb_1$. Daraus
               folgt $\{r_j\}\in\fb_1$, also auch $\mdq\in\fb_1$.\\
-              Allgemeiner lässt sich zeigen: 
+              Allgemeiner lässt sich zeigen:
               $\mdq^d:=\{(x_1,\dots,x_n):x_j\in\mdq (j=1,\dots,n)\}\in\fb_d$.
         \item Sei $x_0 \in \mdr^d, \Set{x_0}$ ist abgeschlossen
               $\Rightarrow \Set{x_0} \in \fb$
@@ -173,8 +173,8 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
     \index{Intervall}
     \index{Halbraum}
     \begin{enumerate}
-    \item Seien $I_1,\dots,I_d$ Intervalle in $\mdr$. 
-          Dann heißt $I_1\times\dots\times I_d$ ein \textbf{Intervall} 
+    \item Seien $I_1,\dots,I_d$ Intervalle in $\mdr$.
+          Dann heißt $I_1\times\dots\times I_d$ ein \textbf{Intervall}
           in $\mdr^d$.
     \item Seien $a=(a_1,\dots,a_d), b=(b_1,\dots,b_d)\in\mdr^d$.
           \[a\le b:\iff a_j\le b_j \quad \forall j \in \Set{1, \dots, d}\]
@@ -185,9 +185,9 @@ Sei $\fa$ eine $\sigma$-Algebra auf $X$, dann:
             [a,b) &:= [a_1,b_1)\times[a_2,b_2)\times\dots\times[a_d,b_d)\\
             [a,b] &:= [a_1,b_1]\times[a_2,b_2]\times\dots\times[a_d,b_d]
         \end{align*}
-        mit der Festlegung $(a,b):=(a,b]:=[a,b):=\emptyset$, falls 
+        mit der Festlegung $(a,b):=(a,b]:=[a,b):=\emptyset$, falls
         $a_j=b_j$ für ein $j\in\{1,\dots,d\}$.
-    \item Für $k\in\{1,\dots,d\}$ und $\alpha\in\mdr$ definiere die 
+    \item Für $k\in\{1,\dots,d\}$ und $\alpha\in\mdr$ definiere die
           folgenden \textbf{Halbräume}:
           \begin{align*}
             H_k^-(\alpha) &:= \Set{(x_1,\dots,x_d)\in\mdr^d:x_k\le\alpha}\\
@@ -211,7 +211,7 @@ die beiden Halbräume:\\
 
     \fill[green!15] (a) -- (b) -- (c) -- (d) -- (a);
 
-    % Draw lines indicating intersection with y and x axis. Here we 
+    % Draw lines indicating intersection with y and x axis. Here we
     % use the perpendicular coordinate system
     \draw[dotted] (yaxis |- a) node[left] {$a_2$}
         -| (xaxis -| a) node[below] {$a_1$};
@@ -274,10 +274,10 @@ Entsprechendes gilt für die anderen Typen von Intervallen und Halbräumen.
 \end{satz}
 
 \begin{beweis}
-\[\fb_d 
-    \stackrel{(1)}{\subseteq} \sigma(\ce_1) 
-    \stackrel{(2)}{\subseteq} \sigma(\ce_2) 
-    \stackrel{(3)}{\subseteq} \sigma(\ce_3) 
+\[\fb_d
+    \stackrel{(1)}{\subseteq} \sigma(\ce_1)
+    \stackrel{(2)}{\subseteq} \sigma(\ce_2)
+    \stackrel{(3)}{\subseteq} \sigma(\ce_3)
     \stackrel{(4)}{\subseteq} \fb_d
 \]
 \begin{enumerate}
@@ -293,57 +293,57 @@ Entsprechendes gilt für die anderen Typen von Intervallen und Halbräumen.
           \[\exists N\in\mdn:\forall n\ge N: \forall j\in\{1,\dots,d\}:a_j<b_j-\frac1n\]
           Definiere $c_n:=(\frac1n,\dots,\frac1n)\in\mdq^d$. Dann gilt:
           \[(a,b)=\bigcup_{n\ge N}(a,b-c_n]\in\sigma(\ce_2)\]
-          Also auch $\ce_1\subseteq\sigma(\ce_2)$ und damit 
+          Also auch $\ce_1\subseteq\sigma(\ce_2)$ und damit
           $\sigma(\ce_1)\subseteq\sigma(\ce_2)$.
-    \item Seien $a = (a_1,\dots,a_d), b=(b_1,\dots,b_d) \in \mdq^d$ 
-          mit $a \leq b$. 
+    \item Seien $a = (a_1,\dots,a_d), b=(b_1,\dots,b_d) \in \mdq^d$
+          mit $a \leq b$.
           Nachrechnen:
           \[(a,b] = \bigcap_{k=1}^d (H^-_k(b_k) \cap H^-_k(a_k)^c) \in \sigma(\ce_3). \]
-          Das heißt $\ce_2 \subseteq \sigma(\ce_3)$ und damit auch 
-          $\sigma(\ce_2) \subseteq \sigma(\ce_3)$. 
-    \item $H^-_k(\alpha)$ ist abgeschlossen, somit ist 
-          $H^-_k(\alpha)^c$ offen und damit $H^-_k(\alpha)^c \in \fb_d$, 
-          also auch $H^-_k(\alpha) \in \fb_d$. Damit ist 
-          $\ce_3 \subseteq \fb_d \implies \sigma(\ce_3) \subseteq \fb_d$. 
+          Das heißt $\ce_2 \subseteq \sigma(\ce_3)$ und damit auch
+          $\sigma(\ce_2) \subseteq \sigma(\ce_3)$.
+    \item $H^-_k(\alpha)$ ist abgeschlossen, somit ist
+          $H^-_k(\alpha)^c$ offen und damit $H^-_k(\alpha)^c \in \fb_d$,
+          also auch $H^-_k(\alpha) \in \fb_d$. Damit ist
+          $\ce_3 \subseteq \fb_d \implies \sigma(\ce_3) \subseteq \fb_d$.
 \end{enumerate}
 \end{beweis}
 
 \begin{definition}
     \index{Spur}
-    Sei $\emptyset \neq \fm \subseteq \mathcal{P}(X)$ und 
-    $\emptyset \neq Y \subseteq X$. 
-    \[\fm_Y := \{A \cap Y : A \in \fm\}\] 
+    Sei $\emptyset \neq \fm \subseteq \mathcal{P}(X)$ und
+    $\emptyset \neq Y \subseteq X$.
+    \[\fm_Y := \{A \cap Y : A \in \fm\}\]
     heißt die \textbf{Spur von $\fm$ in $Y$}.
 \end{definition}
 
 \begin{beispiel}
-    $X = \mdr^d, \fm \subseteq \sigma(\mdr^d), \; Y \subseteq X$. 
+    $X = \mdr^d, \fm \subseteq \sigma(\mdr^d), \; Y \subseteq X$.
     Dann: $(\co(\mdr^d))_Y = \sigma(Y)$
 \end{beispiel}
 
 \begin{satz}[Spuren und $\sigma$-Algebren]
     \label{Satz 1.5}
-    Sei $\emptyset \neq Y \subseteq X$ und $\fa$ eine 
+    Sei $\emptyset \neq Y \subseteq X$ und $\fa$ eine
     $\sigma$-Algebra auf $X$.
     \begin{enumerate}
         \item $\fa_Y$ ist eine $\sigma$-Algebra auf $Y$.
         \item $\fa_Y \subseteq \fa \iff Y \in \fa$
-        \item Ist $\emptyset \neq \ce \subseteq \mathcal{P}(X)$, so 
+        \item Ist $\emptyset \neq \ce \subseteq \mathcal{P}(X)$, so
               ist $\sigma(\ce_Y) = \sigma(\ce)_Y$.
     \end{enumerate}
 \end{satz}
 
 \begin{beweis}
     \begin{enumerate}
-        \item 
+        \item
           \begin{enumerate}
             \item[($\sigma_1$)] Es ist $Y=Y\cap X\in\fa_Y$, da $X\in\fa$.
-            \item[($\sigma_2$)] Sei $B\in\fa_Y$, dann existiert ein 
+            \item[($\sigma_2$)] Sei $B\in\fa_Y$, dann existiert ein
                             $A\in\fa$ mit $B=A\cap Y$.\\
-                            Also ist 
+                            Also ist
                             $Y\setminus B=\overbrace{(X\setminus A)}^{\in\fa} \cap Y\in\fa_Y$.
-            \item[($\sigma_3$)] Sei $(B_j)$ eine Folge in $\fa_Y$, dann 
-                            existiert eine Folge $(A_j)\in\fa^\mdn$ 
+            \item[($\sigma_3$)] Sei $(B_j)$ eine Folge in $\fa_Y$, dann
+                            existiert eine Folge $(A_j)\in\fa^\mdn$
                             mit $B_j=A_j\cap Y$. Es gilt:
                             \[\bigcup B_j=\bigcup(A_j\cap Y)=(\bigcup A_j)\cap Y\in\fa_Y\]
             \end{enumerate}
@@ -392,10 +392,10 @@ Außerdem sei $[0,+\infty]:=[0,\infty)\cup\{+\infty\}$.
             \begin{cases}
                 \exists n \in \mdn \text{ mit } a_n = +\infty \text{ oder }\\
                 \sum a_n \text{ divergiert}
-            \end{cases} 
+            \end{cases}
           \]
-\end{enumerate} 
-Wegen Ana I, 13.1 können Reihen der obigen Form beliebig umgeordnet 
+\end{enumerate}
+Wegen Ana I, 13.1 können Reihen der obigen Form beliebig umgeordnet
 werden, ohne dass sich ihr Wert verändert.
 \end{definition}
 
@@ -405,13 +405,13 @@ werden, ohne dass sich ihr Wert verändert.
 \index{Maßraum}
 \index{Maß!endliches}
 \index{Wahrscheinlichkeitsmaß}\index{Maß!Wahrscheinlichkeits-}
-Sei $\fa$ eine $\sigma$-Algebra auf $X$ und $\mu:\fa\to[0,+\infty]$ 
-eine Abbildung. $\mu$ heißt ein \textbf{Maß} auf $\fa$, genau dann 
+Sei $\fa$ eine $\sigma$-Algebra auf $X$ und $\mu:\fa\to[0,+\infty]$
+eine Abbildung. $\mu$ heißt ein \textbf{Maß} auf $\fa$, genau dann
 wenn gilt:
 \begin{enumerate}
 \item[$(M_1)$] $\mu(\emptyset)=0$
-\item[$(M_2)$] Ist $(A_j)$ eine disjunkte Folge in $\fa$, so ist 
-$\mu(\bigcup A_j)=\sum\mu(A_j)$. Diese Eigenschaft heißt 
+\item[$(M_2)$] Ist $(A_j)$ eine disjunkte Folge in $\fa$, so ist
+$\mu(\bigcup A_j)=\sum\mu(A_j)$. Diese Eigenschaft heißt
 \textbf{$\sigma$-Additivität}.
 \end{enumerate}
 In diesem Fall heißt $(X,\fa,\mu)$ ein \textbf{Maßraum}.\\
@@ -424,7 +424,7 @@ Ein Maß $\mu$ heißt ein \textbf{Wahrscheinlichkeitsmaß} $:\Leftrightarrow\mu(
 \index{Dirac-Maß}\index{Maß!Dirac-}
 \index{Zählmaß}\index{Maß!Zähl-}
 \begin{enumerate}
-    \item Sei $\fa:=\cp(X)$ und $x_0\in X$. 
+    \item Sei $\fa:=\cp(X)$ und $x_0\in X$.
           $\delta_{x_0}:\fa\to[0,+\infty]$ sei definiert durch:
           \[\delta_{x_0}(A):=
           \begin{cases}
@@ -438,36 +438,36 @@ Ein Maß $\mu$ heißt ein \textbf{Wahrscheinlichkeitsmaß} $:\Leftrightarrow\mu(
           1,\ x_0\in\bigcup A_j\\
           0,\ x_0\not\in\bigcup A_j
           \end{cases}\right\}=\sum\delta_{x_0}(A_j)\]
-          $\delta_{x_0}$ ist ein Maß auf $\fa$ und heißt 
+          $\delta_{x_0}$ ist ein Maß auf $\fa$ und heißt
           \textbf{Punktmaß} oder \textbf{Dirac-Maß}.
-    \item Sei $X:=\mdn$, $\fa:=\cp(X)$ und $(p_j)$ eine Folge in 
+    \item Sei $X:=\mdn$, $\fa:=\cp(X)$ und $(p_j)$ eine Folge in
           $[0,+\infty]$. Definiere $\mu:\fa\to[0,+\infty]$ durch:
           \begin{align*}
-          \text{Für } A \in \fa: \quad 
+          \text{Für } A \in \fa: \quad
           \mu(A):=
           \begin{cases}
               0                &\text{, falls } A=\emptyset\\
               \sum_{j\in A}p_j &\text{, falls } A\ne\emptyset
           \end{cases}
           \end{align*}
-          Übung: $\mu$ ist ein Maß auf $\fa=\cp(\mdn)$ und heißt ein \textbf{Zählmaß}. 
-          Sind alle $p_j=1$, so ist $\mu(A)$ gerade die Anzahl der 
+          Übung: $\mu$ ist ein Maß auf $\fa=\cp(\mdn)$ und heißt ein \textbf{Zählmaß}.
+          Sind alle $p_j=1$, so ist $\mu(A)$ gerade die Anzahl der
           Elemente von $A$.
-    \item Sei $(X,\fa,\mu)$ ein Maßraum, $\emptyset\ne Y\subseteq X$ 
-          und $\fa_0\subseteq\fa$ eine $\sigma$-Algebra auf $Y$. 
-          Definiere $\mu_0:\fa_0\to[0,+\infty]$ durch 
+    \item Sei $(X,\fa,\mu)$ ein Maßraum, $\emptyset\ne Y\subseteq X$
+          und $\fa_0\subseteq\fa$ eine $\sigma$-Algebra auf $Y$.
+          Definiere $\mu_0:\fa_0\to[0,+\infty]$ durch
           $\mu_0(A):=\mu(A)$ ($A\in\fa_0$).\\
-          Dann ist 
+          Dann ist
           $(Y,\fa_0,\mu_0)$ ein Maßraum.\\
-          Ist spezieller $Y\in\fa$, so ist $\fa_0:=\fa_Y\subseteq\fa$ 
-          und man definiert $\mu_{|Y}:\fa_Y\to[0,+\infty]$ durch 
+          Ist spezieller $Y\in\fa$, so ist $\fa_0:=\fa_Y\subseteq\fa$
+          und man definiert $\mu_{|Y}:\fa_Y\to[0,+\infty]$ durch
           $\mu_{|Y}(A):=\mu(A)$ ist ein Maß auf $\fa_Y$.
 \end{enumerate}
 \end{beispiel}
 
 \begin{satz}
 \label{Satz 1.7}
-\((X,\fa,\mu)\) sei ein Maßraum, es seien \(A,B\in\fa\) und 
+\((X,\fa,\mu)\) sei ein Maßraum, es seien \(A,B\in\fa\) und
 \((A_{j})\) sei eine Folge in \(\fa\). Dann:
 \begin{enumerate}
 \item \(A\subseteq B\,\implies\,\mu(A)\leq\mu(B)\)
@@ -481,7 +481,7 @@ Ein Maß $\mu$ heißt ein \textbf{Wahrscheinlichkeitsmaß} $:\Leftrightarrow\mu(
 \end{satz}
 \begin{beweis}
 \begin{enumerate}
-% Eigentlich muesste es in folgender Zeile statt B=(B\setminus A)\cup A korrekt 
+% Eigentlich muesste es in folgender Zeile statt B=(B\setminus A)\cup A korrekt
 % heissen: B=(B\setminus A)\cupdot A -- Spaeter
 \item[(1)-(3)] \(B=(B\setminus A)\cup A\). Dann: \(\mu(B)=\underbrace{\mu(B\setminus A)}_{\geq0}+\mu(A)\geq\mu(A)\)
 \item[(4)] % Das muesste jetzt eigentlich Punkt 4 sein

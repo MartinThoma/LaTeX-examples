@@ -3,7 +3,7 @@
 \begin{frame}{Hamiltonkreisproblem}{Hamiltonian path}
 	\begin{block}{Erklärung}
 		Ein Hamiltonkreis ist ein Kreis in einem Graphen, in dem jeder Knoten genau einmal benutzt wird.\\
-		
+
 		Das Hamiltonkreisproblem ist NP-vollständig.
 	\end{block}
 \end{frame}
@@ -17,7 +17,7 @@
 		\end{itemize}
 	\end{block}
 	\begin{block}{Bedingungen}
-		Bei Graphen G mit $n \geq 3$ Knoten		
+		Bei Graphen G mit $n \geq 3$ Knoten
 		\begin{itemize}
 			\item G hat Minimalgrad $\frac{n}{2} \Rightarrow$ $\exists $ Hamiltonkreis
 			\item G ist vollständig $\Rightarrow \exists$ Hamiltonkreis
@@ -31,7 +31,7 @@
 		Eine Menge von Wörtern
 	\end{block}
 	\begin{block}{Gesucht}
-		Aneinanderreihung von Wörtern, sodass jeweils Anfangs- und Endbuchstaben gleich sind 
+		Aneinanderreihung von Wörtern, sodass jeweils Anfangs- und Endbuchstaben gleich sind
 		(auch im Ringschluss).
 	\end{block}
 \end{frame}
@@ -39,13 +39,13 @@
 
 \begin{frame}{Hamilton- und Eulerkreisproblem}{Anwendungsbeispiel}
 	Wortmenge: $\{$as, man, meet, nets, set, sum, tea, team$\}$
-	
+
 	Menge der Anfangs- und Endbuchstaben: $\{$a, m, n, s, t$\}$
 	\begin{figure}
 		\begin{tikzpicture}[->,scale=1.3, auto,swap]
 			% First we draw the vertices
 			\foreach \pos/\name in {{(1,0)/nets}, {(3,0)/set}, {(5,0)/tea},
-				                    {(0,2)/man}, {(6,2)/team}, {(1,4)/as}, 
+				                    {(0,2)/man}, {(6,2)/team}, {(1,4)/as},
 									{(3,4)/sum}, {(5,4)/meet}}
 				\node[vertex] (\name) at \pos {$\name$};
 			% Connect vertices with edges and draw weights
@@ -53,10 +53,10 @@
 									tea/as/, man/nets/, team/man/, team/meet/, as/set/,
 									as/sum/, sum/meet/, sum/man/, meet/team/bend left, meet/tea/}
 				\path (\source) edge [\pos] node {} (\dest);
-			% Start animating the edge selection. 
+			% Start animating the edge selection.
 			% For convenience we use a background layer to highlight edges
 			% This way we don't have to worry about the highlighting covering
-			% weight labels. 
+			% weight labels.
 			\begin{pgfonlayer}{background}
 				\foreach \source / \dest / \fr / \pos in { as/as/1/, as/sum/2/, sum/man/3/, man/nets/4/,
 									nets/set/5/, set/team/6/, team/meet/7/, meet/tea/8/, tea/as/9/}
@@ -70,7 +70,7 @@
 
 \begin{frame}{Hamilton- und Eulerkreisproblem}{Anwendungsbeispiel}
 	Wortmenge: $\{$as, man, meet, nets, set, sum, tea, team$\}$
-	
+
 	Menge der Anfangs- und Endbuchstaben: $\{$a, m, n, s, t$\}$
 	\begin{figure}
 		\begin{tikzpicture}[->,scale=1.8, auto,swap]
@@ -86,10 +86,10 @@
 										t/a/tea/bend left, t/m/team/bend left, n/s/nets/bend right}
 				%\path (\source) edge [\pos] node {\foo} (\dest);
 				\Edge[label=\foo,style={\pos}](\source)(\dest);
-			% Start animating the edge selection. 
+			% Start animating the edge selection.
 			% For convenience we use a background layer to highlight edges
 			% This way we don't have to worry about the highlighting covering
-			% weight labels. 
+			% weight labels.
 			\begin{pgfonlayer}{background}
 				\foreach \source / \dest / \fr / \pos in {s/s/1/, s/t/2/, t/m/3/bend left, m/n/4/bend right, n/s/5/bend right,
 														s/m/6/bend right, m/t/7/bend left, t/a/8/bend left, a/s/9/}

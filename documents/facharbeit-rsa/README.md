@@ -1,6 +1,6 @@
 Dies ist eine LaTeX-Version meiner Facharbeit. Die Original
-OpenOffice-Facharbeit ist unter `Facharbeit-Martin-Thoma-2.odt` zu 
-finden. Damals wurde es wie in `Facharbeit-Martin-Thoma-2.pdf` 
+OpenOffice-Facharbeit ist unter `Facharbeit-Martin-Thoma-2.odt` zu
+finden. Damals wurde es wie in `Facharbeit-Martin-Thoma-2.pdf`
 angezeigt.
 
 Bekannte Probleme:

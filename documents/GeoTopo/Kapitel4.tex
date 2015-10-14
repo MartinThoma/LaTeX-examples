@@ -12,25 +12,25 @@
 \section{Axiome für die euklidische Ebene}
 Axiome\xindex{Axiom} bilden die Grundbausteine jeder mathematischen Theorie. Eine
 Sammlung aus Axiomen nennt man Axiomensystem\xindex{Axiomensystem}.
-Da der Begriff des Axiomensystems so grundlegend ist, hat man auch 
+Da der Begriff des Axiomensystems so grundlegend ist, hat man auch
 ein paar sehr grundlegende Forderungen an ihn: Axiomensysteme sollen
 \textbf{widerspruchsfrei} sein, die Axiome sollen möglichst
 \textbf{unabhängig} sein und \textbf{Vollständigkeit} wäre auch toll.
 Mit Unabhängigkeit ist gemeint, dass kein Axiom sich aus einem anderem
 herleiten lässt. Dies scheint auf den ersten Blick eine einfache
-Eigenschaft zu sein. Auf den zweiten Blick muss man jedoch einsehen, 
-dass das Parallelenproblem, also die Frage ob das Parallelenaxiom 
-unabhängig von den restlichen Axiomen ist, über 2000 Jahre nicht 
+Eigenschaft zu sein. Auf den zweiten Blick muss man jedoch einsehen,
+dass das Parallelenproblem, also die Frage ob das Parallelenaxiom
+unabhängig von den restlichen Axiomen ist, über 2000 Jahre nicht
 gelöst wurde. Ein ganz anderes Kaliber ist die Frage nach der
 Vollständigkeit. Ein Axiomensystem gilt als Vollständig, wenn
 jede Aussage innerhalb des Systems verifizierbar oder falsifizierbar
-ist. Interessant ist hierbei der Gödelsche Unvollständigkeitssatz, 
+ist. Interessant ist hierbei der Gödelsche Unvollständigkeitssatz,
 der z.~B. für die Arithmetik beweist, dass nicht alle Aussagen
 formal bewiesen oder widerlegt werden können.
 
-Kehren wir nun jedoch zurück zur Geometrie. Euklid hat in seiner 
+Kehren wir nun jedoch zurück zur Geometrie. Euklid hat in seiner
 Abhandlung \enquote{Die Elemente} ein Axiomensystem für die Geometrie
-aufgestellt. 
+aufgestellt.
 
 \textbf{Euklids Axiome}
 \begin{itemize}
@@ -39,11 +39,11 @@ aufgestellt.
     \item \textbf{Kreis} (um jeden Punkt mit jedem Radius)
     \item Je zwei rechte Winkel sind gleich (Isometrie, Bewegung)
     \item Parallelenaxiom von Euklid:\xindex{Parallelenaxiom}\\
-        Wird eine Gerade so von zwei Geraden geschnitten, dass die 
+        Wird eine Gerade so von zwei Geraden geschnitten, dass die
         Summe der Innenwinkel kleiner als zwei Rechte ist, dann schneiden sich
         diese Geraden auf der Seite dieser Winkel.\\
         \\
-        Man mache sich klar, dass das nur dann nicht der Fall ist, 
+        Man mache sich klar, dass das nur dann nicht der Fall ist,
         wenn beide Geraden parallel sind und senkrecht auf die erste stehen.
 \end{itemize}
 
@@ -60,7 +60,7 @@ aufgestellt.
             \end{enumerate}
         \item \textbf{Abstandsaxiom}\xindex{Abstandsaxiom}: Zu $P, Q, R \in X$ gibt es \label{axiom:2}
               genau dann ein $g \in G$ mit $\Set{P, Q, R} \subseteq g$,
-              wenn gilt: 
+              wenn gilt:
               \begin{itemize}[]
                 \item $d(P, R) = d(P, Q) + d(Q, R)$ oder
                 \item $d(P, Q) = d(P, R) + d(R, Q)$ oder
@@ -72,7 +72,7 @@ aufgestellt.
 \begin{definition}
     Sei $(X, d, G)$ eine Geometrie und seien $P, Q, R \in X$.
     \begin{defenum}
-        \item $P, Q, R$ liegen \textbf{kollinear}\xindex{kollinear}, 
+        \item $P, Q, R$ liegen \textbf{kollinear}\xindex{kollinear},
               wenn es $g \in G$ gibt mit $\Set{P, Q, R} \subseteq g$.
         \item $Q$ \textbf{liegt zwischen}\xindex{liegt zwischen} $P$
               und $R$, wenn $d(P, R) = d(P, Q) + d(Q, R)$
@@ -103,10 +103,10 @@ aufgestellt.
 \begin{beweis}\leavevmode
     \begin{enumerate}[label=\alph*)]
         \item \enquote{$\subseteq$} folgt direkt aus der Definition von $PR^+$ und $PR^-$\\
-              \enquote{$\supseteq$}: Sei $Q \in PR \Rightarrow P, Q, R$ 
+              \enquote{$\supseteq$}: Sei $Q \in PR \Rightarrow P, Q, R$
               sind kollinear.\\
               $\overset{\ref{axiom:2}}{\Rightarrow}
-              \begin{cases} 
+              \begin{cases}
                 Q \text{ liegt zwischen } P \text{ und } R \Rightarrow Q \in PR\\
                 R \text{ liegt zwischen } P \text{ und } Q \Rightarrow Q \in PR\\
                 P \text{ liegt zwischen } Q \text{ und } R \Rightarrow Q \in PR
@@ -133,21 +133,21 @@ aufgestellt.
     \begin{enumerate}[label=§\arabic*),ref=§\arabic*,start=3]
         \item \label{axiom:3}\textbf{Anordnungsaxiome}\xindex{Anordnungsaxiome}
             \begin{enumerate}[label=(\roman*),ref=\theenumi{} (\roman*)]
-                \item \label{axiom:3.1} Zu jeder 
-                      Halbgerade $H$ mit Anfangspunkt $P \in X$ und jedem 
-                      $r \in \mdr_{\geq 0}$ gibt es genau ein 
+                \item \label{axiom:3.1} Zu jeder
+                      Halbgerade $H$ mit Anfangspunkt $P \in X$ und jedem
+                      $r \in \mdr_{\geq 0}$ gibt es genau ein
                       $Q \in H$ mit $d(P,Q) = r$.
-                \item \label{axiom:3.2} Jede Gerade zerlegt 
-                      $X \setminus g = H_1 \dcup H_2$ in zwei 
+                \item \label{axiom:3.2} Jede Gerade zerlegt
+                      $X \setminus g = H_1 \dcup H_2$ in zwei
                       nichtleere Teilmengen $H_1, H_2$,
                       sodass für alle $A \in H_i$, $B \in H_j$ mit
-                      $i,j \in \Set{1,2}$ gilt: 
+                      $i,j \in \Set{1,2}$ gilt:
                       $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$.\\
-                      Diese Teilmengen $H_i$ heißen 
-                      \textbf{Halbebenen}\xindex{Halbebene} bzgl. 
+                      Diese Teilmengen $H_i$ heißen
+                      \textbf{Halbebenen}\xindex{Halbebene} bzgl.
                       $g$.
             \end{enumerate}
-        \item \label{axiom:4}\textbf{Bewegungsaxiom}\xindex{Bewegungsaxiom}: 
+        \item \label{axiom:4}\textbf{Bewegungsaxiom}\xindex{Bewegungsaxiom}:
             Zu $P, Q, P', Q' \in X$
             mit $d(P,Q) = d(P', Q')$ gibt es mindestens 2 Isometrien $\varphi_1, \varphi_2$
             mit $\varphi_i (P) = P'$ und $\varphi_i(Q) = Q'$ mit $i=1,2$.\footnote{Die \enquote{Verschiebung} von $P'Q'$ nach $PQ$ und die Isometrie, die zusätzlich an der Gerade durch $P$ und $Q$ spiegelt.}
@@ -163,14 +163,14 @@ aufgestellt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{satz}[Satz von Pasch]\label{satz:pasch} %In Vorlesung: Bemerkung 14.5
     Seien $P$, $Q$, $R$ nicht kollinear, $g \in G$ mit $g \cap \Set{P, Q, R} = \emptyset$
-    und $g \cap \overline{PQ} \neq \emptyset$. 
+    und $g \cap \overline{PQ} \neq \emptyset$.
 
-    Dann ist entweder $g \cap \overline{PR} \neq \emptyset$ oder 
+    Dann ist entweder $g \cap \overline{PR} \neq \emptyset$ oder
                       $g \cap \overline{QR} \neq \emptyset$.
 \end{satz}
 
-Dieser Satz besagt, dass Geraden, die eine Seite eines Dreiecks 
-(also nicht nur eine Ecke) schneiden, auch eine weitere Seite 
+Dieser Satz besagt, dass Geraden, die eine Seite eines Dreiecks
+(also nicht nur eine Ecke) schneiden, auch eine weitere Seite
 schneiden.
 
 \begin{beweis}
@@ -182,7 +182,7 @@ schneiden.
 \end{beweis}
 
 \begin{bemerkung}\label{kor:beh3}
-    Sei $P, Q \in X$ mit $P \neq Q$ sowie $A, B \in X \setminus PQ$ 
+    Sei $P, Q \in X$ mit $P \neq Q$ sowie $A, B \in X \setminus PQ$
     mit $A \neq B$.
     Außerdem seien $A$ und $B$ in der selben Halbebene bzgl. $PQ$ sowie
     $Q$ und $B$ in der selben Halbebene bzgl. $PA$.
@@ -197,8 +197,8 @@ schneiden.
     \label{fig:geometry-5}
 \end{figure}
 
-Auch \cref{kor:beh3} lässt sich umgangssprachlich sehr viel 
-einfacher ausdrücken: Die Diagonalen eines konvexen Vierecks 
+Auch \cref{kor:beh3} lässt sich umgangssprachlich sehr viel
+einfacher ausdrücken: Die Diagonalen eines konvexen Vierecks
 schneiden sich.
 
 \begin{beweis}%In Vorlesung: Behauptung 3
@@ -217,7 +217,7 @@ schneiden sich.
               $\overline{AP'}$ liegt in der anderen Halbebene
               bzgl. $PA \Rightarrow C \notin \overline{P'A} \Rightarrow C \in \overline{AQ}$
     \end{enumerate}
-    Da $C \in PB^+$ und $C \in \overline{AQ}$ folgt nun direkt: 
+    Da $C \in PB^+$ und $C \in \overline{AQ}$ folgt nun direkt:
     $\emptyset \neq \Set{C} \subseteq PB^+ \cap \overline{AQ} \qed$
 \end{beweis}
 
@@ -286,7 +286,7 @@ schneiden sich.
 
 \begin{bemerkung}\label{kor:beh2'}
     Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:3}
-    erfüllt, $P, Q \in X$ mit $P \neq Q$ und $\varphi$ eine Isometrie mit 
+    erfüllt, $P, Q \in X$ mit $P \neq Q$ und $\varphi$ eine Isometrie mit
     $\varphi(P) = P$ und $\varphi(Q) = Q$.
 
     Dann gilt $\varphi(S) = S\;\;\;\forall S \in PQ$.
@@ -302,7 +302,7 @@ schneiden sich.
         &\overset{\mathclap{\ref{axiom:3.1}}}{\Rightarrow} \varphi(S) = S
     \end{align*}
 
-    $\qed$ 
+    $\qed$
 \end{beweis}
 
 \begin{proposition}\label{satz:14.4}%In Vorlesung: Satz 14.4
@@ -310,7 +310,7 @@ schneiden sich.
     gibt es zu $P, P', Q, Q'$ mit $d(P, Q) = d(P', Q')$ höchstens
     zwei Isometrien mit $\varphi(P) = P'$ und $\varphi(Q) = Q'$
 
-    Aus den Axiomen  folgt, dass es in 
+    Aus den Axiomen  folgt, dass es in
     der Situation von \ref{axiom:4} höchstens zwei Isometrien mit
     $\varphi_i(P) = P'$ und $\varphi_i(Q) = Q'$ gibt.
 \end{proposition}
@@ -332,11 +332,11 @@ schneiden sich.
 
     Nun zu den Beweisen der Teilaussagen:
     \begin{enumerate}[label=(Teil \roman*),ref=(Teil \roman*)]
-        \item Sei $R \in X \setminus PQ$. Von den drei Punkten 
+        \item Sei $R \in X \setminus PQ$. Von den drei Punkten
             $\varphi_1(R), \varphi_2(R), \varphi_3(R)$ liegen zwei
             in der selben Halbebene bzgl. $P'Q' = \varphi_i(PQ)$.
 
-            \Obda seien $\varphi_1(R)$ und $\varphi_2(R)$ in der 
+            \Obda seien $\varphi_1(R)$ und $\varphi_2(R)$ in der
             selben Halbebene.
 
             Es gilt: $\begin{aligned}[t]
@@ -392,7 +392,7 @@ schneiden sich.
 
     Also gilt insbesondere $\varphi(\triangle A'B'C') = \triangle ABC$. $\qed$
 \end{beweis}
-    
+
 \begin{bemerkung}[WSW-Kongruenzsatz]\xindex{Kongruenzsatz!WSW}%
     Sei $(X, d, G)$ eine Geometrie, die \ref{axiom:1}~-~\ref{axiom:4} erfüllt.
     Seien außerdem $\triangle ABC$ und $\triangle A'B'C'$ Dreiecke, für die gilt:
@@ -424,15 +424,15 @@ schneiden sich.
 
 \begin{definition}\label{def:14.8}%In Vorlesung: 14.8
     \begin{defenum}
-        \item \label{def:14.8a} Ein \textbf{Winkel}\xindex{Winkel} ist ein Punkt $P \in X$ 
+        \item \label{def:14.8a} Ein \textbf{Winkel}\xindex{Winkel} ist ein Punkt $P \in X$
               zusammen mit $2$ Halbgeraden mit Anfangspunkt $P$.\\
               Man schreibt: $\angle R_1 P R_2$ bzw. $\angle R_2 P R_1$\footnote{Für dieses Skript gilt: $\angle R_1 P R_2 = \angle R_2 P R_1$. Also sind insbesondere alle Winkel $ \leq 180^\circ$.}
-        \item Zwei Winkel sind \textbf{gleich}, wenn es eine Isometrie gibt, 
+        \item Zwei Winkel sind \textbf{gleich}, wenn es eine Isometrie gibt,
               die den einen Winkel auf den anderen abbildet.
         \item \label{def:14.8c} $\angle R_1' P' R_2'$ heißt \textbf{kleiner} als
               $\angle R_1 P R_2$, wenn es eine Isometrie $\varphi$
               gibt, mit $\varphi(P') = P$, $\varphi(P'R'^{+}_{1}) = PR_{1}^{+}$
-              und $\varphi(R_2')$ liegt in der gleichen Halbebene 
+              und $\varphi(R_2')$ liegt in der gleichen Halbebene
               bzgl. $PR_1$ wie $R_2$ und in der gleichen Halbebene
               bzgl. $PR_2$ wie $R_1$
         \item \label{def:14.8d} Im Dreieck $\triangle PQR$ gibt es \textbf{Innenwinkel}\xindex{Innenwinkel} und
@@ -455,7 +455,7 @@ schneiden sich.
 \end{figure}
 
 \begin{bemerkung}\label{bem:14.9}%In Vorlesung: Bemerkung 14.9
-    In einem Dreieck ist jeder Innenwinkel kleiner als jeder nicht 
+    In einem Dreieck ist jeder Innenwinkel kleiner als jeder nicht
     anliegende Außenwinkel.
 \end{bemerkung}
 
@@ -481,7 +481,7 @@ schneiden sich.
         \caption{Situation aus \cref{bem:14.9}}
     \end{figure}
 
-    Es gilt: $d(Q,M) = d(M,R)$ und $d(P,M) = d(M,A)$ sowie 
+    Es gilt: $d(Q,M) = d(M,R)$ und $d(P,M) = d(M,A)$ sowie
     $\angle PMR = \angle AMQ \Rightarrow \triangle MRQ$ ist
     kongruent zu $\triangle AMQ$, denn eine der beiden Isometrien, die
     $\angle PMR$ auf $\angle AMQ$ abbildet, bildet $R$ auf $Q$ und
@@ -496,7 +496,7 @@ schneiden sich.
 \begin{proposition}[Existenz der Parallelen]\label{prop:14.7}%In Vorlesung: Proposition 14.7
     Sei $(X, d, G)$ eine Geometrie mit den Axiomen \ref{axiom:1}~-~\ref{axiom:4}.
 
-    Dann gibt es zu jeder Geraden $g \in G$ und jedem Punkt $P \in X \setminus g$ 
+    Dann gibt es zu jeder Geraden $g \in G$ und jedem Punkt $P \in X \setminus g$
     mindestens eine Parallele $h \in G$ mit $P \in h$ und $g \cap h = \emptyset$.
 \end{proposition}
 
@@ -535,7 +535,7 @@ Halbebene bzgl. $PQ$ liegt wie $R$.
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.4\linewidth, keepaspectratio]{figures/Spherical_triangle_3d_opti.png} 
+    \includegraphics[width=0.4\linewidth, keepaspectratio]{figures/Spherical_triangle_3d_opti.png}
     \caption{In der sphärischen Geometrie gibt es, im Gegensatz zur euklidischen Geometrie, Dreiecke mit drei $90^\circ$-Winkeln.}
     \label{fig:spherical-triangle}
 \end{figure}
@@ -567,7 +567,7 @@ Sei im Folgenden \enquote{$\IWS$} die \enquote{Innenwinkelsumme}.
     Sei $\alpha$ ein Innenwinkel von $\triangle$.
 
     \begin{behauptung}
-        Es gibt ein Dreieck $\triangle'$ mit 
+        Es gibt ein Dreieck $\triangle'$ mit
         $\IWS(\triangle') = \IWS(\triangle)$ und einem Innenwinkel
         $\alpha' \leq \frac{\alpha}{2}$.
 
@@ -579,8 +579,8 @@ Sei im Folgenden \enquote{$\IWS$} die \enquote{Innenwinkelsumme}.
     \end{behauptung}
 
     \begin{beweis}
-        Es seien $A, B, C \in X$ und $\triangle $ das Dreieck mit den 
-        Eckpunkten $A, B, C$ und $\alpha$ sei der Innenwinkel bei $A$, 
+        Es seien $A, B, C \in X$ und $\triangle $ das Dreieck mit den
+        Eckpunkten $A, B, C$ und $\alpha$ sei der Innenwinkel bei $A$,
         $\beta$ der Innenwinkel bei $B$ und $\gamma$ der Innenwinkel bei $C$.
 
         Sei $M$ der Mittelpunkt der Strecke $\overline{BC}$. Sei außerdem
@@ -613,7 +613,7 @@ Sei im Folgenden \enquote{$\IWS$} die \enquote{Innenwinkelsumme}.
 \end{figure}
 
 \begin{beweis}
-    Sei $g$ eine Parallele von $AB$ durch $C$. 
+    Sei $g$ eine Parallele von $AB$ durch $C$.
 
     \begin{itemize}
         \item Es gilt $\alpha' = \alpha$ wegen \cref{prop:14.7}.
@@ -639,7 +639,7 @@ WSW.\xindex{Kongruenzsatz!SWW}
     \label{fig:hyperbolische-geometrie-2}
 \end{figure}
 
-Der Beweis wird hier nicht geführt. Für Beweisvorschläge wäre ich 
+Der Beweis wird hier nicht geführt. Für Beweisvorschläge wäre ich
 dankbar.
 
 \begin{figure}[htp]
@@ -730,10 +730,10 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
         \item $(\mdr^2, d_\text{Euklid})$ ist offensichtlich eine euklidische Ebene.
         \item Sei $(X,d)$ eine euklidische Ebene und $g_1, g_2$ Geraden
               in $X$, die sich in einem Punkt $0$ im rechten Winkel
-              schneiden. 
+              schneiden.
 
-              Sei $P \in X \setminus (g_1 \cup g_2)$ ein Punkt und $P_X$ der 
-              Fußpunkt des Lots von $P$ auf $g_1$ (vgl. \cref{ub11:aufg3.c}) 
+              Sei $P \in X \setminus (g_1 \cup g_2)$ ein Punkt und $P_X$ der
+              Fußpunkt des Lots von $P$ auf $g_1$ (vgl. \cref{ub11:aufg3.c})
               und $P_Y$ der Fußpunkt des Lots von $P$ auf $g_2$.
 
               Sei $x_P := d(P_X, 0)$ und $y_P := d(P_Y, 0)$.
@@ -754,11 +754,11 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
                 \label{fig:14.13.0.1}
             \end{figure}
 
-            
+
               Sei $h:X \rightarrow \mdr^2$ eine Abbildung mit
               $h(P) := (x_P, y_P)$
               Dadurch wird $h$ auf dem Quadranten
-              definiert, in dem $P$ liegt, d.~h. 
+              definiert, in dem $P$ liegt, d.~h.
               \[\forall Q \in X \text{ mit } \overline{PQ} \cap g_1 = \emptyset = \overline{PQ} \cap g_2\]
 
               Fortsetzung auf ganz $X$ durch konsistente Vorzeichenwahl.
@@ -833,7 +833,7 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
                     Betrachte nun $z_1$ und $z_2$ als Punkte in der
                     euklidischen Ebene. Die Mittelsenkrechte zu diesen
                     Punkten schneidet die $x$-Achse. Alle Punkte auf
-                    der Mittelsenkrechten zu $z_1$ und $z_2$ sind gleich 
+                    der Mittelsenkrechten zu $z_1$ und $z_2$ sind gleich
                     weit von $z_1$ und $z_2$ entfernt. Daher ist
                     der Schnittpunkt mit der $x$-Achse der Mittelpunkt
                     eines Kreises durch $z_1$ und $z_2$ (vgl. \cref{fig:hyperbolische-geometrie-axiom-1-2})
@@ -867,7 +867,7 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
 
               \underline{Zu zeigen:}
               $\forall A \in H_i$, $B \in H_j$ mit
-                      $i,j \in \Set{1,2}$ gilt: 
+                      $i,j \in \Set{1,2}$ gilt:
                       $\overline{AB} \cap g \neq \emptyset \Leftrightarrow i \neq j$\\
               \enquote{$\Leftarrow$}: $A \in H_1, B \in H_2: \overline{AB} \cap g \neq \emptyset$
 
@@ -882,10 +882,10 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
 
               Sei $h$ die Gerade, die durch $A$ und $B$ geht.
 
-              Da $A,B \notin g$, aber $A, B \in h$ gilt, haben $g$ und $h$ 
+              Da $A,B \notin g$, aber $A, B \in h$ gilt, haben $g$ und $h$
               insbesondere
               mindestens einen unterschiedlichen Punkt. Aus \ref{axiom:1.1} folgt, dass sich
-              $g$ und $h$ in höchstens einen Punkt schneiden. Sei $C$ dieser 
+              $g$ und $h$ in höchstens einen Punkt schneiden. Sei $C$ dieser
               Punkt.
 
               Aus $A,B \notin g$ folgt: $C \neq A$ und $C \neq B$. Also liegt
@@ -903,8 +903,8 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
 \end{beweis}
 
 \begin{definition}\xindex{Möbiustransformation}%
-    Es seien $a,b,c,d \in \mdr$ mit $ad - bc \neq 0$ und 
-    $\sigma: \mdc \rightarrow \mdc$ eine Abbildung definiert durch 
+    Es seien $a,b,c,d \in \mdr$ mit $ad - bc \neq 0$ und
+    $\sigma: \mdc \rightarrow \mdc$ eine Abbildung definiert durch
     \[\sigma(z) := \frac{az + b}{cz+d}\]
 
     $\sigma$ heißt \textbf{Möbiustransformation}.
@@ -953,7 +953,7 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
                     &= \frac{a(a'z+b')+b(c'z+d')}{c(a'z+b') + d(c'z+d')}\\
                     &= \frac{(aa'+bc')z + ab' + bd'}{(ca'+db')z + cb' + dd'}\\
                     &= \begin{pmatrix}aa'+bc'&ab'+bd'\\ca'+db'&cb'+dd'\end{pmatrix} \circ z\\
-                    &= \left ( \begin{pmatrix}a&b\\c&d\end{pmatrix} \cdot \begin{pmatrix}a'&b'\\c'&d'\end{pmatrix} \right ) \circ z 
+                    &= \left ( \begin{pmatrix}a&b\\c&d\end{pmatrix} \cdot \begin{pmatrix}a'&b'\\c'&d'\end{pmatrix} \right ) \circ z
               \end{align*}
         \item Es gilt $\sigma(z) = (-\sigma)(z)$ für alle $\sigma \in \SL_2(\mdr)$
               und $z \in \mdh$.
@@ -975,7 +975,7 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
 
               Daher genügt es zu zeigen, dass man mit $A_{\lambda}$, $B_t$ und $C$ alle Matrizen
               aus $\SL_2(\mdr)$ erzeugen kann, genügt es also von einer beliebigen
-              Matrix durch Multiplikation mit Matrizen der Form $A_{\lambda}$, 
+              Matrix durch Multiplikation mit Matrizen der Form $A_{\lambda}$,
               $B_t$ und $C$ die Einheitsmatrix zu generieren.
 
               Sei also
@@ -1056,9 +1056,9 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
 \begin{definition}\xindex{Doppelverhältnis}%In Vorlesung: Def+Prop 15.4
     Seien $z_1, z_2, z_3, z_4 \in \mdc$ paarweise verschieden.
 
-    Dann heißt 
+    Dann heißt
     \[\DV(z_1, z_2, z_3, z_4) := \frac{\frac{z_1 - z_4}{z_1 - z_2}}{\frac{z_3 - z_4}{z_3 - z_2}} = \frac{(z_1 - z_4) \cdot (z_3 - z_2)}{(z_1 - z_2) \cdot (z_3 - z_4)}\]
-    \textbf{Doppelverhältnis} von 
+    \textbf{Doppelverhältnis} von
     $z_1, \dots, z_4$.
 \end{definition}
 
@@ -1071,7 +1071,7 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
               oder wenn zwei der $z_i$ gleich sind.
         \item $\DV(0, 1, \infty, z_4) = z_4$ (Der Fall $z_4 \in \Set{0, 1, \infty}$ ist zugelassen).
         \item \label{bem:15.4d} Für $\sigma \in \PSL_2(\mdc)$ und $z_1, \dots, z_4 \in \mdc \cup \Set{\infty}$
-              ist 
+              ist
               \[\DV(\sigma(z_1), \sigma(z_2), \sigma(z_3), \sigma(z_4)) = \DV(z_1, z_2, z_3, z_4)\]
               und für $\sigma(z) = \frac{1}{\overline{z}}$ gilt
               \[\DV(\sigma(z_1), \sigma(z_2), \sigma(z_3), \sigma(z_4)) = \overline{\DV(z_1, z_2, z_3, z_4)}\]
@@ -1110,7 +1110,7 @@ $\xRightarrow{\text{Strahlensatz}} \frac{a}{h_c} = \frac{c}{h_a} \rightarrow a \
                     Durch Einsetzen ergibt sich $\DV(z_1, \dots, z_4)=1$.
             \end{itemize}
 
-            Im Fall, dass ein $z_i = \infty$ ist, ist 
+            Im Fall, dass ein $z_i = \infty$ ist, ist
             entweder $\DV(0, 1, \infty, z_4) = 0$ oder $\DV(0, 1, \infty, z_4) \pm \infty$
         \item $\DV(0, 1, \infty, z_4) = \frac{(0- z_4) \cdot (\infty - 1)}{(0 -1) \cdot (\infty - z_4)} = \frac{z_4 \cdot (\infty - 1)}{\infty - z_4} = z_4$
         \item Wenn jemand diesen Beweis führt, bitte an info@martin-thoma.de schicken.%TODO

@@ -10,11 +10,11 @@
 \semester{Wintersemester 04/05}
 \scriptstate{complete}
 
-\hypersetup{ 
-  pdfauthor   = {Die Mitarbeiter von http://mitschriebwiki.nomeata.de/ und GitHub-Beiträge}, 
-  pdfkeywords = {Analysis}, 
-  pdftitle    = {Analysis I} 
-} 
+\hypersetup{
+  pdfauthor   = {Die Mitarbeiter von http://mitschriebwiki.nomeata.de/ und GitHub-Beiträge},
+  pdfkeywords = {Analysis},
+  pdftitle    = {Analysis I}
+}
 
 \author{Die Mitarbeiter von \url{http://mitschriebwiki.nomeata.de/} und GitHub-Beiträge}
 \title{Analysis I}
@@ -95,7 +95,7 @@ In $\MdR$ sind zwei Verknüpfungen "`+"' und "`$\cdot$"' gegeben, die jedem Paar
 \end{liste}
 \end{axiom}
 
-Dabei nennt man \textbf{A1} und \textbf{A2} \begriff{Assoziativgesetze}, \textbf{A3} und \textbf{A4} \begriff{Kommutativgesetze} und \textbf{A9} \begriff{Distributivgesetz}, 
+Dabei nennt man \textbf{A1} und \textbf{A2} \begriff{Assoziativgesetze}, \textbf{A3} und \textbf{A4} \begriff{Kommutativgesetze} und \textbf{A9} \begriff{Distributivgesetz},
 
 Alle Regeln der Grundrechenarten lassen sich aus \textbf{(A1)} bis \textbf{(A9)} herleiten. Diese Regeln seien von nun an bekannt.
 
@@ -140,11 +140,11 @@ In \MdR\ ist eine Relation "`$\le$"' gegeben. Es sollen gelten:
 \end{schreibweisen}
 
 \begin{definition}[Betrag]
-Für $a \in \MdR$ heißt $ |a| := 
+Für $a \in \MdR$ heißt $ |a| :=
 \begin{cases}
  a & \mbox{falls } a \ge 0 \\
 -a & \mbox{falls } a < 0
-\end{cases} $. 
+\end{cases} $.
 
 $|a|$ wird der \begriff{Betrag} von a genannt und entspricht dem "`Abstand"' von $a$ und $0$. $|a-b|$ entspricht dem "`Abstand"' von $a$ und $b$.
 \end{definition}
@@ -275,12 +275,12 @@ Für jedes $n \in \MdN$ sei eine Aussage $A(n)$ gemacht. Es gelte: (I) $A(1)$ is
 \item $A(n) := n \ge 1$. $A(n)\ \forall n \in \MdN$. Beweis (induktiv):\\
 Induktionsanfang (IA): $1 \ge 1$, also ist $A(1)$ wahr. \\
 Induktionsvorausseztung (IV): Sei $n \in \MdN$ und $A(n)$ wahr (also $n \ge 1$) \\
-Induktionsschritt (IS, $n \curvearrowright n + 1$): $n+1 
+Induktionsschritt (IS, $n \curvearrowright n + 1$): $n+1
 \stackrel{(IV)}{\ge} 1 + 1 \ge 1$, also $A(n+1)$ wahr.
 \item Für $n \in \MdN$ sei $A_n:=(\MdN\ \cap\ [1,n])\ \cup\ [n+1, \infty)$. \\
 Behauptung: $\underbrace{A_n \text{ ist eine Induktionsmenge}}_{A(n)} \ \forall n \in \MdN$
 \item Sei $n \in \MdN, x \in \MdR$ und $n<x<n+1$. Behauptung: $x \notin \MdN$. Beweis: Annahme: $x \in \MdN$. Sei $A_m$ wie im oberen Beispiel (2) \folgt $A_m \in J \folgt \MdN \subseteq A_m \folgt x \in A_m \folgt x \le m$ oder $x\ge m+1$, Widerspruch!
-\item 
+\item
 Behauptung: $\underbrace{1+2+\dots +n = \frac{n(n+1)}{2}}_{A(n)}\ \forall n\in \MdN$\\
 \textbf{Beweis:} (induktiv)\\
 IA: $\frac{1+1}{2}=1 \folgt A(1)$ ist wahr.\\
@@ -294,7 +294,7 @@ $1+2+\dots +n+(n+1)
 \folgt \text{A(n+1) ist wahr}$
 \end{beispiele}
 
-\indexlabel{Summenzeichen} 
+\indexlabel{Summenzeichen}
 \indexlabel{Produktzeichen}
 \begin{definition}[Summen- und Produktzeichen]
 \begin{liste}
@@ -395,7 +395,7 @@ Also $C:=\{b_1,b_2,\ldots\} \subseteq B$. $\forall x \in B \folgt x \in A \folgt
 \begin{liste}
 \item Für $a \in\MdR$ und $n\in\MdN$ gilt $a^n := a\cdot a\cdot a\cdot a\cdot \ldots \cdot a$ ($n$ Faktoren) und heißt die \indexlabel{Potenz!natürliche}\textit{$n$-te Potenz} von $a$\\
     $a^0:=1$ \\
-    Für $a\ne 0$ gilt: $a^{-n}=\frac{1}{a^n}$ 
+    Für $a\ne 0$ gilt: $a^{-n}=\frac{1}{a^n}$
 \item Für $n\in\MdN$ gilt $n! := 1\cdot 2\cdot 3\cdot \ldots \cdot n $ und heißt die \begriff{Fakultät} von $n$, $0! := 1$.
 \item Für $n\in\MdN$, $k\in\MdN_{0}$ und $k\le n$ gilt $\binom{n}{k}:=\frac{n!}{k!(n-k)!}$ ("`n über k"')
 \end{liste}
@@ -554,7 +554,7 @@ $$ \mathop{\inf{a_n}}_{n=1}^{\infty} := \mathop{\inf{a_n}}_{n\in \MdN} := \matho
 \begin{definition}[Konvergente Folge]
 Sei $(a_n)$ eine Folge. $(a_n)$ heißt \begriff{konvergent} $:\equizu \exists a \in \MdR$, so dass es für \textit{jedes} $\varepsilon > 0$ ein $n_0 = n_0(\varepsilon) \in \MdN$ gibt, so dass $|a_n - a| < \varepsilon \ \forall n \ge n_0$ gilt. In diesem Fall heißt $a$ der \begriff{Grenzwert} (GW) oder \begriff{Limes} von $(a_n)$ und man schreibt: $\lim_{n \to \infty}(a_n) = a$ oder $\lim{a_n} = a$ oder $a_n \to a \ (n \to \infty)$ oder $a_n \to a$. Ist $(a_n)$ nicht konvergent, so heißt $(a_n)$ \begriff{divergent}.
 \begin{eqnarray*}
-\text{Also: } a_n \to a \ (n \to \infty) 
+\text{Also: } a_n \to a \ (n \to \infty)
   &\equizu& \forall\varepsilon > 0 \ \exists n_0 = n_0(\varepsilon) \in\MdN: |a_n - a| < \varepsilon \ \forall n \ge n_0 \\
   &\equizu& \forall\varepsilon > 0 \ \exists n_0 = n_0(\varepsilon) \in\MdN: a_n \in U_{\varepsilon}(a)\ \forall n \ge n_0 \\
   &\equizu& \forall\varepsilon > 0 \text{ gilt: } a_n \in U_\varepsilon(a) \text{ \ffa } n \in \MdN.
@@ -737,7 +737,7 @@ $a_n := \sqrt[n]{n} -1 \folgt a_n > 0 \ \forall n \in\MdN$. Zu zeigen ist: $a_n 
 Sei $c>0$. Dann: $\sqrt[n]{c} \to 1 \ (n\to\infty)$.
 \end{wichtigesbeispiel}
 
-\begin{beweis} 
+\begin{beweis}
 Fall 1: $c\ge 1 \ \exists m \in\MdN: m \ge c \folgt 1\le c\le n \ \forall n\ge m \folgt \sqrt[n]{n} \le \underbrace{\sqrt[n]{n}}_{\to 1} \folgtnach{7.4} \sqrt[n]{c} \to 1$ \\
 Fall 2: $c<1 \folgt \frac{1}{c} > 1 \folgtnach{Fall 1} \underbrace{\sqrt[n]{\frac{1}{c}}}_{=\frac{1}{\sqrt[n]{c}}} \to 1 \folgtnach{6.2(vii)} \sqrt[n]{c} \to 1$
 \end{beweis}
@@ -789,12 +789,12 @@ $(a_n)$ sei eine Folge und $\alpha \in\MdR$. $\alpha$ heißt ein \begriff{Häufu
 \end{definition}
 
 \begin{beispiele}
-\item $a_n = (-1)^n$. $a_{2n} = 1, a_{2n-1} = -1.$ 
-Sei $\ep > 0: a_{2n} \in U_{\ep}(1)\ \forall n \in \mathbb{N} \Rightarrow a_n \in U_{\ep}(1)$ 
-für unendlich viele $n \in \mathbb{N} \Rightarrow 1 \in H (a_n)$. 
-Analog: $a_n \in U_{\ep}(-1)$ für unendlich viele $n \in \mathbb{N} \Rightarrow -1 \in \H(a_n)$. 
-Sei $\alpha \in \mathbb{R}$ und 1 $\neq \alpha \neq -1$. 
-Wähle $\ep > 0$ so, dass $1, -1 \not\in U_{\ep}(\alpha) \Rightarrow a_n \not\in U_{\ep}(\alpha)\ \forall n \in \mathbb{N} \Rightarrow \alpha \not\in \H(a_{n})$. 
+\item $a_n = (-1)^n$. $a_{2n} = 1, a_{2n-1} = -1.$
+Sei $\ep > 0: a_{2n} \in U_{\ep}(1)\ \forall n \in \mathbb{N} \Rightarrow a_n \in U_{\ep}(1)$
+für unendlich viele $n \in \mathbb{N} \Rightarrow 1 \in H (a_n)$.
+Analog: $a_n \in U_{\ep}(-1)$ für unendlich viele $n \in \mathbb{N} \Rightarrow -1 \in \H(a_n)$.
+Sei $\alpha \in \mathbb{R}$ und 1 $\neq \alpha \neq -1$.
+Wähle $\ep > 0$ so, dass $1, -1 \not\in U_{\ep}(\alpha) \Rightarrow a_n \not\in U_{\ep}(\alpha)\ \forall n \in \mathbb{N} \Rightarrow \alpha \not\in \H(a_{n})$.
 Fazit: $\H(a_n) = \{1; -1\}$.
 \item $a_n = n$. Sei $\alpha \in \mathbb{R}$ und $\varepsilon > 0$. $\exists n_0 \in \mathbb{N}: n_0 > \alpha + \ep \Rightarrow n > \alpha + \ep\ \forall n \geq n_0 \Rightarrow a_n \not\in U_{\ep}(\alpha)\ \forall n \geq n_0 \Rightarrow a_n \in U_{\ep}(\alpha)$ für höchstens endlich viele $n \in \mathbb{N}$. $\Rightarrow \alpha \not\in \H(a_n)$. Fazit: $\H(a_n) = \emptyset$.
 \item $\mathbb{Q}$ ist abzählbar. Also: $\mathbb{Q} = \{a_1, a_2, \ldots\}$.\\
@@ -853,7 +853,7 @@ $(a_n)$ sei eine beschränkte Folge. Dann H$(a_n) \ne \emptyset$.
 \end{satz}
 
 \begin{beweis}
-$\exists c>0: |a_n| \le c \ \forall n\in\MdN$. Hilfssatz $\folgt (a_n)$ enthält eine monotone Teilfolge $(a_{n_k})$. $|a_{n_k}| \le c \ \forall k \in\MdN$. $(a_{n_k})$ ist aber schränkt. 6.3 $\folgt (a_{n_k})$ ist konvergent. $\alpha := \lim_{k\to\infty}a_{n_k}$. 8.1(1) $\folgt \alpha \in \H(a_n)$. 
+$\exists c>0: |a_n| \le c \ \forall n\in\MdN$. Hilfssatz $\folgt (a_n)$ enthält eine monotone Teilfolge $(a_{n_k})$. $|a_{n_k}| \le c \ \forall k \in\MdN$. $(a_{n_k})$ ist aber schränkt. 6.3 $\folgt (a_{n_k})$ ist konvergent. $\alpha := \lim_{k\to\infty}a_{n_k}$. 8.1(1) $\folgt \alpha \in \H(a_n)$.
 \end{beweis}
 
 \chapter{Oberer und unterer Limes}
@@ -1075,13 +1075,13 @@ klar.
 \end{beweis}
 
 \begin{definition}
-Die Reihe $\areihe$ heißt \begriff{absolut konvergent} $:\equizu \reihe{|a_n|}$ ist konvergent. 
+Die Reihe $\areihe$ heißt \begriff{absolut konvergent} $:\equizu \reihe{|a_n|}$ ist konvergent.
 \end{definition}
 
 \begin{satz}[Dreiecksungleichung für Reihen]
 Ist $\areihe$ absolut konvergent, so ist $\areihe$ konvergent und
 $$|\areihe| \le \reihe{|a_n|}$$
-\ 
+\
 \end{satz}
 
 \begin{beweis}
@@ -1099,7 +1099,7 @@ Die \begriff{alternierende Harmonische Reihe} $\reihe{(-1)^{n+1} \frac{1}n}$.\\
 Hier: $a_n = (-1)^{n+1}\frac{1}{n}$. $|a_n| = \frac{1}{n} \folgt \reihe{a_n}$ konvergiert nicht absolut.\\
 \textbf{Behauptung:} $\reihe{a_n}$ ist konvergent. (Später: $\reihe{a_n} = \log 2$)\\
 \textbf{Beweis:} $s_n = a_1 + a_2 + \ldots + a_n$. \\
-$s_{2n+2} = s_{2n} + a_{2n+1} + a_{2n+2} = s_{2n} + \underbrace{\frac{1}{2n+1} - \frac{1}{2n+2}}_{>0} \folgt (s_{2n})$ ist monoton wachsend. Analog: $(s_{2n-1})$ ist monoton fallend. 
+$s_{2n+2} = s_{2n} + a_{2n+1} + a_{2n+2} = s_{2n} + \underbrace{\frac{1}{2n+1} - \frac{1}{2n+2}}_{>0} \folgt (s_{2n})$ ist monoton wachsend. Analog: $(s_{2n-1})$ ist monoton fallend.
 $s_{2n} = s_{2n-1} + a_{2n} = s_{2n-1} - \frac{1}{2n}$ $(*)$\\
 Dann gilt $s_2 \le s_4 \le \ldots \le s_{2n} \gleichwegen{(*)} s_{2n-1} - \frac{1}{2n} < s_{2n-1} \le \ldots \le s_3 \le s_1 \folgt (s_{2n})$ und $(s_{2n-1})$ sind beschränkt. 6.3 $\folgt$ $(s_{2n})$ und $(s_{2n-1})$ sind konvergent. Aus $(*)$ folgt dann $\lim s_{2n} = \lim s_{2n-1}$. A16 $\folgt$ $(s_n)$ hat genau einen Häufungswert. 9.3 $\folgt$ $(s_n)$ ist konvergent.
 \end{beispiel}
@@ -1155,7 +1155,7 @@ Sei $(a_n)$ eine Folge und $\alpha := \limsup \sqrt[n]{|a_n|}$.
 
 \begin{beweise}
 \item $\alpha < 1 $. Sei $\ep>0$ so, dass $x:= \alpha+\ep<1$. 9.2 $\folgt \sqrt[n]{|a_n|} < \alpha + \ep = x \ffa n\in\MdN \folgt |a_n| < x^n \ffa n\in\MdN$. $\reihe{x^n}$ ist konvergent $\folgtnach{12.1(1)}$ Behauptung.
-\item 
+\item
  \begin{liste}
  \item $\alpha>1$, $\alpha<\infty$: Sei $\ep>0$ so, dass $\alpha-\ep>1$. 9.2 $\folgt \sqrt[n]{|a_n|}>\alpha-\ep>1$ für unendlich viele $n\in\MdN$ \folgt $|a_n|>1$ für unendlich viele $n\in\MdN$ \folgt $a_n \to 0 \folgtnach{11.1} \reihe{a_n}$ ist divergent.
  \item $\alpha = \infty \folgt \sqrt[n]{|a_n|} > 1$ für unendlich viele \natn \folgtnach{wie eben} $\reihe{a_n}$ ist divergent.
@@ -1194,7 +1194,7 @@ Sei $(a_n)$ eine Folge in $\MdR$ und $a_n \ne 0 \ffa \natn$. $\alpha_n := \frac{
 O.B.d.A.: $a_n \ne 0 \ \forall\natn$
 \begin{liste}
 \item Dann: $|a_2|\ge |a_1|>0$, $|a_3|\ge|a_2|\ge|a_1|>0$, \ldots allgemein: $|a_n|\ge|a_1|>0\ \forall\natn \folgt a_n\nrightarrow 0 \folgt$ die Behauptung.
-\item 
+\item
 \begin{liste}
 \item Sei $\beta >1$, Sei $\ep>0$ so, dass $\beta-\ep>1$. 9.2 $\folgt |\alpha_n|>\beta-\ep>1 \ffa n\in\MdN \folgt$ die Behauptung.
 \item Sei $\alpha < 1$. Sei $\ep>0$ so, dass $x:=\alpha+\ep<1$. 9.2 $\folgt |\alpha_n|<\alpha+\ep=x \ffa\natn$. Dann: $|a_2|\le|a_1|x$, $|a_3|\le|a_2|x\le|a_1|x^2$,\ldots allgemein: $|a_n|\le|a_n1|x^{n-1} \ffa\natn$. $\reihe{|a_1|x^{n-1}}$ ist konvergent \folgtnach{12.2} $\reihe{a_n}$ ist absolut konvergent.
@@ -1499,7 +1499,7 @@ $\displaystyle{a_n := (-1)^n\cdot\frac{x^{2n}}{(2n)!} \folgt \sqrt[n]{|a_n|} = \
 
 \begin{definition}[Potenzreihe]
 Sei $(a_n)_{n=0}^{\infty}$ eine Folge in \MdR. Eine Reihe der Form $\sum_{n=0}^{\infty}\
-{a_nx^n} = {\nobreak a_0 + a_1x + a_2x^2 + \ldots}$ heißt eine \begriff{Potenzreihe} (PR). Die Menge 
+{a_nx^n} = {\nobreak a_0 + a_1x + a_2x^2 + \ldots}$ heißt eine \begriff{Potenzreihe} (PR). Die Menge
 $\{x \in\MdR : \reihenull{a_nx^n}$ konvergent$\}$ heißt der \begriff{Konvergenzbereich} (KB) der Potenzreihe. Klar: Die Potenzreihe konvergiert für $x=0$.
 \end{definition}
 
@@ -1541,13 +1541,13 @@ $(\sqrt[n]{|a_nx^n|})=(\sqrt[n]{|a_n|}|x|) \folgt\ (\sqrt[n]{|a_nx^n|})$ ist nic
 n2^n&\text{n ungerade}\end{cases}$. A16 \folgt $\H(\sqrt[n]{|a_n|})=\{0, 2\}
 \folgt \rho=2 \folgt r=\frac{1}{2}$. Die Potenzreihe konvergiert absolut für $|x|<\frac{1}{2}$, sie divergiert für $|x|>\frac{1}{2}$. Sei $|x|=\frac{1}{2}$. $|a_nx^n|=|a_n|\frac{1}{2^n}=n$ falls $n$ ungerade \folgt $a_nx^n \nrightarrow 0 \folgt$ die Potenzreihe divergiert für $|x|=\frac{1}{2}$.
 \end{beispiele}
-Die folgenden Potenzreihen haben jeweils den Konvergenzradius $r=\infty:$\\ 
+Die folgenden Potenzreihen haben jeweils den Konvergenzradius $r=\infty:$\\
 $e^x=\reihenull{\frac{x^n}{n!},\ \sin x=\reihenull{(-1)^n\frac{x^{2n+1}}{(2n+1)!}}},\\ \cos x = \reihenull{(-1)^n\frac{x^{2n}}{(2n)!}},\ f'(x)=\reihenull{a_nnx^{n-1}}$, falls $f(x)=\reihenull{a_nx^n}$ KR $r=\infty$ hat.
 
 \begin{definition}
 $\cosh x:=\frac{1}{2}(e^x+e^{-x})\ (x\in\MdR)$ (Cosinus Hyperbolikus)\\
 $\sinh x:=\frac{1}{2}(e^x-e^{-x})\ (x\in\MdR)$ (Sinus Hyperbolikus)\\
-Nachrechnen: $\cosh x=\reihenull{\frac{x^{2n}}{(2n)!}}, 
+Nachrechnen: $\cosh x=\reihenull{\frac{x^{2n}}{(2n)!}},
 \sinh x=\reihenull{\frac{x^{2n+1}}{(2n+1)!}} (x\in\MdR)$
 \end{definition}
 
@@ -1571,7 +1571,7 @@ Sei $x \in (-R, R): (\reihenull{a_nx^n})(\reihenull{b_nx^n})\overset{\text{13.4}
 \end{beweis}
 
 \begin{bemerkung}
-Sei $(a_n)^{\infty}_{n=0}$ eine Folge und $x_0 \in\MdR$. Eine Reihe der Form $(*) \reihenull{a_n(x-x_0)^n}$ heißt ebenfalls eine Potenzreihe ($x_0$ heißt \begriff{Entwicklungspunkt} der Potenzreihe). Substitution $t:=x-x_0$, dann erhält man die Potenzreihe $\reihenull{a_nt^n}$. Sei $r$ der Konvergenzradius dieser Potenzreihe. Dann: ist $r=0$, so konvergiert die Potenzreihe in $(*)$ \emph{nur} in $x=x_0$. Ist $r=\infty$, so konvergiert die Potenzreihe absolut $\forall\ x\in\MdR.$ Ist $0<r<\infty$, so konvergiert die Potenzreihe in $(*)$ absolut für $|x-x_0|<r$, sie divergiert für $|x-x_0|>r.$ 
+Sei $(a_n)^{\infty}_{n=0}$ eine Folge und $x_0 \in\MdR$. Eine Reihe der Form $(*) \reihenull{a_n(x-x_0)^n}$ heißt ebenfalls eine Potenzreihe ($x_0$ heißt \begriff{Entwicklungspunkt} der Potenzreihe). Substitution $t:=x-x_0$, dann erhält man die Potenzreihe $\reihenull{a_nt^n}$. Sei $r$ der Konvergenzradius dieser Potenzreihe. Dann: ist $r=0$, so konvergiert die Potenzreihe in $(*)$ \emph{nur} in $x=x_0$. Ist $r=\infty$, so konvergiert die Potenzreihe absolut $\forall\ x\in\MdR.$ Ist $0<r<\infty$, so konvergiert die Potenzreihe in $(*)$ absolut für $|x-x_0|<r$, sie divergiert für $|x-x_0|>r.$
 \end{bemerkung}
 
 \chapter{$g$-adische Entwicklungen}
@@ -1619,7 +1619,7 @@ Sei $a=0,z_1z_2z_3\ldots$ ein $g$-adischer Bruch.
 
 \begin{beweise}
 \item $0 \le a = \reihe{\frac{z_n}{g^n}} \stackrel{\text{($*$)}, Bem. (2)}{<} \reihe{\frac{g-1}{g^n}} \gleichnach{15.1} 1$.
-\item \textbf{Annahme:} $\exists n\in\MdN: z_n \ne w_n$. Sei $m$ der kleinste solche Index, also $z_m \ne w_m$ und $z_j = w_j$ für $j=1,\ldots ,m-1$. Etwa $z_m < w_m \folgt z_m - w_m < 0 \overset{z_m - w_m \in\MdZ}{\folgt} z_m - w_m \le -1$. $\forall n\in\MdN: z_n - w_n \le z_n \le g-1$. $\exists \nu \in\MdN$ mit $\nu \ge m+1$ und $z_\nu - w_\nu < g-1$. (andererenfalls $z_\nu - w_\nu = g-1 \ \forall \nu \ge m+1 \folgt z_\nu = w_\nu + g-1 \ \forall \nu \ge m+1 \folgt w_\nu = 0 \ \forall \nu \ge m+1 \folgt z_\nu = g-1 \ \forall \nu \ge m+1$. Widerspruch zu $(*)$). Dann: 
+\item \textbf{Annahme:} $\exists n\in\MdN: z_n \ne w_n$. Sei $m$ der kleinste solche Index, also $z_m \ne w_m$ und $z_j = w_j$ für $j=1,\ldots ,m-1$. Etwa $z_m < w_m \folgt z_m - w_m < 0 \overset{z_m - w_m \in\MdZ}{\folgt} z_m - w_m \le -1$. $\forall n\in\MdN: z_n - w_n \le z_n \le g-1$. $\exists \nu \in\MdN$ mit $\nu \ge m+1$ und $z_\nu - w_\nu < g-1$. (andererenfalls $z_\nu - w_\nu = g-1 \ \forall \nu \ge m+1 \folgt z_\nu = w_\nu + g-1 \ \forall \nu \ge m+1 \folgt w_\nu = 0 \ \forall \nu \ge m+1 \folgt z_\nu = g-1 \ \forall \nu \ge m+1$. Widerspruch zu $(*)$). Dann:
 $\displaystyle{0 = a-a = \reihe{\frac{z_n}{g^n}} - \reihe{\frac{w_n}{g^n}} = \reihe{\frac{z_n - w_n}{g^n}} = \sum_{n=m}^\infty{\frac{z_n - w_n}{g^n}}}$\\
 $\displaystyle{= \underbrace{\frac{z_m - w_m}{g^m}}_{\le -\frac{1}{g^m}} + \underbrace{\sum_{n=m+1}^\infty{\frac{z_n-w_n}{g^n}}}_{< \sum_{n=m+1}^\infty{\frac{g-1}{g^n}}} < - \frac{1}{g^m} + \underbrace{\sum_{n=m+1}^\infty{\frac{g-1}{g^n}}}_{\gleichnach{15.1} \frac{1}{g^n}} = 0}$\\
 $\folgt 0<0 \text{  Widerspruch.}$
@@ -1651,7 +1651,7 @@ Die Menge der reellen Zahlen ist überabzählbar.
 \begin{beweis}
 Es genügt zu zeigen: $[0,1)$ ist überabzählbar.
 
-\textbf{Annahme}: $[0,1)$ ist abzählbar, also $[0,1) = \{a_1,a_2,\ldots\}, a_j \ne a_k$ für $j\ne k$. 
+\textbf{Annahme}: $[0,1)$ ist abzählbar, also $[0,1) = \{a_1,a_2,\ldots\}, a_j \ne a_k$ für $j\ne k$.
 Für $j \in\MdN$ sei $a_j = 0,z_1^{(j)} z_2^{(j)} z_3^{(j)}\ldots$ die 3-adische Entwicklung von $a_j$. ($z_k^{(j)} \in \{0,1,2\}$).
 $$ z_k := \begin{cases} 1 & \text{falls } z_k^{(k)} \in \{0,2\} \\0 & \text{falls } z_k^{(k)}= 1 \end{cases}$$
 Dann: $z_k \ne z_k^{(k)} \ \forall k \in\MdN$, $z_k \ne g-1 \ \forall k\in\MdN$. $a := 0,z_1z_2z_3\ldots = \reihe{\frac{z_n}{g^n}}.$ 15.2 $\folgt a \in [0,1) \folgt \exists m\in\MdN: a= a_m \folgt 0,z_1z_2z_3\ldots = 0,z_1^{(m)}z_2^{(m)}z_3^{(m)}\ldots$. 15.2 $\folgt z_j = z_j^{(m)} \ \forall j\in\MdN \folgt z_m = z_m^{(m)}$. Widerspruch!
@@ -1712,7 +1712,7 @@ Für $\delta >0$: $D_\delta(x_n) = D \cap U_\delta(x_0)$. $\dot D_\delta(x_0) = 
 \begin{satz}[Grenzwertsätze bei Funktionen]
 \begin{liste}
 \item $\displaystyle\lim_{x\to x_0}f(x)$ existiert $\equizu$ für jede Folge $(x_n)$ in $D\backslash\{x_0\}$ mit $x_n \to x_0$ ist $f(x_n)$ konvergent.
-\item Für $a\in\MdR$ gilt: $\displaystyle\lim_{x\to x_0}f(x)$ existiert und ist gleich $a$ $\equizu$ $\forall \ep>0 \ \exists \delta(\ep) > 0$ mit $(*)$ $|f(x) - a|< \ep \ \forall x \in \dot D_\delta(x_0)$. 
+\item Für $a\in\MdR$ gilt: $\displaystyle\lim_{x\to x_0}f(x)$ existiert und ist gleich $a$ $\equizu$ $\forall \ep>0 \ \exists \delta(\ep) > 0$ mit $(*)$ $|f(x) - a|< \ep \ \forall x \in \dot D_\delta(x_0)$.
 \item \textit{Cauchykriterium}\indexlabel{Cauchykriterium!bei Funktionsgrenzwerten}: $\displaystyle\lim_{x\to x_0} f(x)$ existiert $\equizu$ $\forall \ep>0 \ \exists \delta >0$: $|f(x) - f(x')|<\ep \forall x,x' \in \dot D_\delta(x_0)$
 \end{liste}
 \end{satz}
@@ -1744,8 +1744,8 @@ Zum Beispiel: (3) Sei $(x_n)$ Folge in $D\backslash\{x_0\}$ und $x_n \to x_0$. D
 \begin{definition}
 \begin{liste}
 \item Sei $(a_n)$ eine Folge in $\MdR$.\\
-$\lim a_n = \infty$ (oder $a_n \to \infty$) $:\equizu \forall c>0 \ \exists n_0 = n_0(c)\in\MdN: a_n > c \forall n\ge n_0$.\\ 
-$\lim a_n = -\infty$ (oder $a_n \to -\infty$) $:\equizu \forall c<0 \ \exists n_0 = n_0(c)\in\MdN: a_n < c \forall n\ge n_0$. 
+$\lim a_n = \infty$ (oder $a_n \to \infty$) $:\equizu \forall c>0 \ \exists n_0 = n_0(c)\in\MdN: a_n > c \forall n\ge n_0$.\\
+$\lim a_n = -\infty$ (oder $a_n \to -\infty$) $:\equizu \forall c<0 \ \exists n_0 = n_0(c)\in\MdN: a_n < c \forall n\ge n_0$.
 \item $\displaystyle\lim_{x\to x_0} f(x) = \infty$ (oder $f(x) \to \infty\ (x\to x_0)$) $:\equizu$ für jede Folge $(x_n)$ in $D\backslash\{x_0\}$  und $x_n \to x_0$ gilt: $f(x_n) \to \infty$. \\
 $\displaystyle\lim_{x\to x_0} f(x) = -\infty$ (oder $f(x) \to -\infty\ (x\to x_0)$) $:\equizu$ für jede Folge $(x_n)$ in $D\backslash\{x_0\}$  und $x_n \to x_0$ gilt: $f(x_n) \to -\infty$.
 \item Sei $D$ nicht nach oben beschränkt. $\displaystyle\lim_{x\to \infty} f(x) = a$ (oder $f(x) \to a$) $:\equizu$ für jede Folge $(x_n)$ in $D$ mit $x_n\to \infty$ gilt: $f(x_n) \to a$ ($a = \pm\infty$ zugelassen). \\
@@ -1896,8 +1896,8 @@ $B \subseteq \MdR$ heißt \indexlabel{offene Menge}\textbf{offen} $:\equizu \for
 \begin{beweis}
 \begin{liste}
 \item Übung
-\item "`\folgt "': Sei $(x_n)$ eine konvergente Folge in $\MdR\ \backslash\ B$ und $x_0:=\lim x_n$.Annahme: $x_0 \in B$. B offen $\folgt \exists \delta>0 : U_\delta(x_0) \subseteq B$. $x_n \to x_0 \folgt x_n \in U_\delta(x_0) \subseteq B \ffa n \in\MdN$, Widerspruch! "`$\Leftarrow$ "': Sei $x \in B$. Annahme: $U_\delta(x) \nsubseteq B \forall \delta>0$. 
-\folgt $U_{\frac{1}{n}}(x) \nsubseteq B \forall n \in \MdN 
+\item "`\folgt "': Sei $(x_n)$ eine konvergente Folge in $\MdR\ \backslash\ B$ und $x_0:=\lim x_n$.Annahme: $x_0 \in B$. B offen $\folgt \exists \delta>0 : U_\delta(x_0) \subseteq B$. $x_n \to x_0 \folgt x_n \in U_\delta(x_0) \subseteq B \ffa n \in\MdN$, Widerspruch! "`$\Leftarrow$ "': Sei $x \in B$. Annahme: $U_\delta(x) \nsubseteq B \forall \delta>0$.
+\folgt $U_{\frac{1}{n}}(x) \nsubseteq B \forall n \in \MdN
 \folgt \forall n \in \MdN \exists x_n \in U_{\frac{1}{n}}$ mit: $x_n \in \MdR\ \backslash\ B \folgt (x_n)$ ist eine Folge in $\MdR\ \backslash\ B: x_n \to x$. $\MdR\ \backslash\ B$ abgeschlossen \folgt $x \in \MdR\ \backslash\ B$, Widerspruch!
 \item "`\folgt "': Sei $(x_n)$ Folge in $D$. $D$ beschränkt \folgt $(x_n)$ beschränkt. 8.2 \folgt $(x_n)$ enthält eine konvergente Teilfolge $(x_{n_k})$. $D$ abgeschlossen $\folgt \lim x_{n_k} \in D$. "`$\Leftarrow$ "': Übung. Sei $D$ beschränkt und abgeschlossen. Sei $s:=\sup D$. z.z.: $s \in D$ (analog zeigt man $\inf D \in D$). $\forall n \in \MdN$ ist $s-\frac{1}{n}$ keine obere Schranke von s. \folgt $\forall n \in\MdN\exists\ x_n \in D$ mit $s - \frac{1}{n} < x_n \le s \folgt x_n \to s$. D abgeschlossen \folgt $s \in D$
 \end{liste}
@@ -1933,7 +1933,7 @@ Sei $I \subseteq \MdR$ ein Intervall und $f \in C(I)$.
 \end{beweis}
 
 \begin{satz}[Der Logarithmus]
-Sei $I=\MdR$ und $f(x)=e^x$. Bekannt: $f \in C(\MdR)$, f ist streng monoton wachsend und $f(I) = f(\MdR) = (0, \infty)$. Also existiert $f^{-1}: (0, \infty) \to \MdR$. 
+Sei $I=\MdR$ und $f(x)=e^x$. Bekannt: $f \in C(\MdR)$, f ist streng monoton wachsend und $f(I) = f(\MdR) = (0, \infty)$. Also existiert $f^{-1}: (0, \infty) \to \MdR$.
 \[ \log x := \ln x := f^{-1}(x)\ (x \in (0, \infty))\ \text{\emph{Logarithmus}} \]
 \end{satz}
 
@@ -2005,7 +2005,7 @@ $(f_n)$ konvergiert punktweise auf $D$ gegen $f$.
 Konvergiert $(f_n)$ auf $D$ punktweise gegen $f:D\to\MdR$, so bedeutet dies: Ist $\ep>0$ und $x\in D$, so existiert ein $n_0 = n_0(\ep,x)\in\MdN$: $|f_n(x)-f(x)|<\ep \ \forall n\ge n_0$
 
 \begin{definition}
-$(f_n)$ heißt auf $D$ \begriff{gleichmäßig konvergent} 
+$(f_n)$ heißt auf $D$ \begriff{gleichmäßig konvergent}
 $:\equizu \exists \text{ Funktion } f:D\to\MdR$ für die gilt:\\
 \hspace*{10mm} $\forall \ep>0 \ \exists n_0 = n_0(\ep) \in\MdN \ \forall n\ge n_0 \ \forall x\in D\colon |f_n(x) - f(x)|<\ep$.
 
@@ -2475,24 +2475,24 @@ Dann: $\sum_{k=0}^\infty \frac{f^{(k)}(0)}{k!}x^k = 0 \ne f(x) \ \forall x\in\Md
 
 \begin{definition}
 Sei $n\in\MdN_0$, $f\in C^n(I)$ und $x_0 \in I$.\\
-$T_n(x;x_0) := \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$ 
+$T_n(x;x_0) := \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$
 heißt das \begriff{k-te Taylorpolynom} von $f$ vom Grad $\leq k$.
 \end{definition}
 
 \begin{eigenschaftenNoCounter}
 \begin{enumerate}
-    \item $p$ ist ein Polynom vom Grad $\leq n$ und es gilt: 
+    \item $p$ ist ein Polynom vom Grad $\leq n$ und es gilt:
           $p^{(k)}(x_0) = f^{(k)}(x_0)$ für $k=0, 1, \dots, n$
     \item Ist $q$ ein Polynom vom Grad $\leq n$ und gilt $q^{(k)} (x_0) = f^{(k)} (x_0)$
           für $k=0, 1, \dots, n$, so ist $p=q$.
-    \item Ist $f \in C^\infty(1)$, so ist $T_n(x, x_0)$ die n-te 
+    \item Ist $f \in C^\infty(1)$, so ist $T_n(x, x_0)$ die n-te
           Teilsumme der Taylorreihe $f$ (in $x_0$).
 \end{enumerate}
 \end{eigenschaftenNoCounter}
 
 \begin{satz}[Satz von Taylor]
-Voraussetzungen wie in obiger Definition. Weiter sei $f\ (n+1)$-mal 
-differenzierbar auf $I$ und $x\in I$. Dann existiert ein $\xi$ 
+Voraussetzungen wie in obiger Definition. Weiter sei $f\ (n+1)$-mal
+differenzierbar auf $I$ und $x\in I$. Dann existiert ein $\xi$
 zwischen $x$ und $x_0$ mit:
 \[ f(x) = T_n(x;x_0) + \underbrace{\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}}_\text{Restglied nach Lagrange} \]
 \end{satz}
@@ -2501,7 +2501,7 @@ zwischen $x$ und $x_0$ mit:
 Ohne Beschränkung der Allgemeinheit sei $x_0 = 0$ und $x>x_0$.\\
 $\rho := (f(x) - T_n(x;0)) \frac{(n+1)!}{x^{n+1}} \folgt f(x) - T_n(x;0) = \frac{\rho}{(n+1)!}x^{n+1}$\\
 Zu zeigen ist: $\exists \xi\in[0,x]: \rho = f^{(n+1)}(\xi).$ \\
-Definiere $h: [0,x]\to \MdR$ durch $f(x) = f(x) - \sum_{k=0}^n \frac{f^{(k)}(t)}{k!} (x-t)^k - \rho\frac{(x-t)^{n+1}}{(n+1)!}$. 
+Definiere $h: [0,x]\to \MdR$ durch $f(x) = f(x) - \sum_{k=0}^n \frac{f^{(k)}(t)}{k!} (x-t)^k - \rho\frac{(x-t)^{n+1}}{(n+1)!}$.
 Nachrechnen: $h(0) = h(x)$ und $h'(t) = \rho\frac{(x-t)^n}{n!} - \frac{f^{(n+1)}(t)}{n!}(x-t)^n$. \\
 $0 = \frac{h(x)-h(0)}{x-0} \gleichnach{MWS} h'(\xi) \ \xi \in (0,x) \folgt \rho\frac{(x-\xi)^n}{n!} = \frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^n \folgt \rho = f^{(n+1)}(\xi)$.
 \end{beweis}
@@ -2684,16 +2684,16 @@ $f \in R[a,b] \equizu \forall \ep>0\ \exists Z \in \Z: S_f(Z)-s_f(Z) < \ep$.
 
 \begin{beweise}
 \item O.B.d.A: $f$ ist wachsend auf $[a,b]$.\\
-      Sei $n\in\MdN$ und $Z_n=\{x_0,\cdots,x_n\}$ sei die 
-      \begriff{äquidistante Zerlegung} von $[a,b]$ mit $n+1$ 
-      Teilpunkten. $x_j = a+j\frac{b-a}{n}\ (j=0,\cdots,n)$. 
-      Dann: $|I_j|=\frac{b-a}{n}$. $m_j, M_j$ wie immer: 
+      Sei $n\in\MdN$ und $Z_n=\{x_0,\cdots,x_n\}$ sei die
+      \begriff{äquidistante Zerlegung} von $[a,b]$ mit $n+1$
+      Teilpunkten. $x_j = a+j\frac{b-a}{n}\ (j=0,\cdots,n)$.
+      Dann: $|I_j|=\frac{b-a}{n}$. $m_j, M_j$ wie immer:
       $S_f(Z_n)-s_f(Z_n)=\sum^n_{j=1}(\underbrace{M_j}_{=f(x_j)}-\underbrace{m_j}_{f(x_{j-1})})|I_j|=\sum_{j=1}^n(f(x_j)_-f(x_{j-1}))\frac{b-a}{n}=\frac{b-a}{n}(f(x_1)-f(x_0)+f(x_2)-f(x_1)+\cdots+f(x_n)-f(x_{n-1}))=\frac{b-a}{n}(f(x_n)-f(x_0))=\frac{b-a}{n}(f(b)-f(a))=:\alpha_n$. Sei $\ep>0$, dann: $\exists n\in\MdN: \alpha_n <\ep\folgtnach{23.3}$Behauptung.
 \item Sei $f \in C[a, b]$ und $\ep>0$. $\exists \delta>0: (*)\ |f(t)-f(s)|<\frac{\ep}{b-a}\ \forall t,s\in[a,b]$ mit $|t-s|<\delta$. Sei $Z=\{x_0,\cdots,x_n\}\in\Z\ m_j,\ M_j,\ |I_J|$ seien wie immer; $z$ sei so gewählt, da"s $|I_j|<\delta\ (j=1,\cdots,n)$. Betrachte $I_j:$ 18.3$\folgt\ \exists s_j, t_j \in I_j: m_j=f(s_j),\ M_j=f(t_j)$. $|t_j-s_j|<\delta \folgtwegen{(*)}\underbrace{f(t_j)-f(s_j)}_{=M_j-m_j}<\frac{\ep}{b-a}\folgt S_f(Z)-s_f(Z)=\sum^n_{j=1}(\underbrace{M_j-m_j}_{\le\frac{\ep}{b-a}})|I_j|<\frac{\ep}{b-a}\sum^n_{j=1}|I_j|=\ep\folgtnach{23.3}f\in R[a,b]$
 \end{beweise}
 
 \begin{definition}
-Sei $J\subseteq\MdR$ ein Intervall und $G,g: J\to\MdR$ seien Funktionen. 
+Sei $J\subseteq\MdR$ ein Intervall und $G,g: J\to\MdR$ seien Funktionen.
 $G$ heißt eine \begriff{Stammfunktion} von $g$ auf $J$ :$\equizu$ G ist auf $J$ differenzierbar und $G'=g$ auf $J$.\\
 \end{definition}
 \textbf{Beachte:}
@@ -2715,7 +2715,7 @@ Sei $[a,b]=[-1,1]$, $f(x):=\begin{cases}
 \end{liste}
 
 \begin{satz}[1. Hauptsatz der Differential- und Integralrechnung]
-Es sei $f\in R[a,b]$ und $f$ besitze auf $[a,b]$ die Stammfunktion $F$. Dann: 
+Es sei $f\in R[a,b]$ und $f$ besitze auf $[a,b]$ die Stammfunktion $F$. Dann:
 $$\int_a^bf(x)dx = F(b) - F(a) =: F(x)|_a^b =: [F(x)]_a^b$$
 \end{satz}
 
@@ -2738,19 +2738,19 @@ Aber: $\lim_{n\to\infty}\int_0^1f_ndx = 1 \ne 0 = \int_0^1fdx = \int_0^1(\lim_{n
 \end{beispiele}
 
 \begin{satz}[Integrierbarkeit gleichmäßig konvergierender Funktionsfolgen]
-$(f_n)$ sei eine Folge in $R[a,b]$ und $(f_n)$ konvergiert auf $[a,b]$ \emph{gleichmäßig} gegen $f:[a,b]\to\MdR$. Dann ist $f\in R[a,b]$ und 
+$(f_n)$ sei eine Folge in $R[a,b]$ und $(f_n)$ konvergiert auf $[a,b]$ \emph{gleichmäßig} gegen $f:[a,b]\to\MdR$. Dann ist $f\in R[a,b]$ und
 $$\lim_{n\to\infty}\int_a^bf_n(x)dx  = \int_a^bfdx = \int_a^b(\lim_{n\to\infty} f_n)dx$$
 
-$(f_n)$ sei eine Folge in $R[a,b]$ und $\sum_{n=1}^{\infty}f_n$ konvergiert auf $[a,b]$ \emph{gleichmäßig} gegen $f:[a,b]\to\MdR$. Dann ist $f\in R[a,b]$ und 
+$(f_n)$ sei eine Folge in $R[a,b]$ und $\sum_{n=1}^{\infty}f_n$ konvergiert auf $[a,b]$ \emph{gleichmäßig} gegen $f:[a,b]\to\MdR$. Dann ist $f\in R[a,b]$ und
 $$\sum_{n=1}^\infty \int_a^bf_n(x)dx = \int_a^b \sum_{n=1}^\infty f_n(x)dx $$
 \end{satz}
 
 \begin{beweis}
 1. Zu $\ep=1 \ \exists m \in \MdN$: $f_m-1<f<f_m+1$ auf $[a,b]$. $f_n$ beschränkt auf $[a,b]$. \\
-2. $A_n := \int_a^bf_ndx$ $(n\in\MdN)$. Sei $\ep>0$. $\exists n_0\in\MdN: f_n-\ep<f<f_n+\ep$ auf $[a,b] \ \forall n\ge n_0 \folgt$ für $n\ge n_0$ folgt (wie im Beweis von 23.2(1)): 
+2. $A_n := \int_a^bf_ndx$ $(n\in\MdN)$. Sei $\ep>0$. $\exists n_0\in\MdN: f_n-\ep<f<f_n+\ep$ auf $[a,b] \ \forall n\ge n_0 \folgt$ für $n\ge n_0$ folgt (wie im Beweis von 23.2(1)):
 $$\underbrace{\uint_a^b(f_n-\ep)dx}_{=A_n-\ep(b-a)} \le \underbrace{\uint_a^bfdx}_{=: A} \le \underbrace{\oint_a^bfxds}_{=: B} \le \underbrace{\oint_a^b(f_n+\ep)dx}_{=A_n+\ep(b-a)}$$
-$\folgt |A_n - A| \le \ep(b-a)$, $|A_n -B|\le \ep (b-a)$ \\ 
-$\forall n\in n_0 \folgt A_n \to A, A_n \to B \ (n\to\infty) \folgt A = B $ \\ 
+$\folgt |A_n - A| \le \ep(b-a)$, $|A_n -B|\le \ep (b-a)$ \\
+$\forall n\in n_0 \folgt A_n \to A, A_n \to B \ (n\to\infty) \folgt A = B $ \\
 $\folgt f\in R[a,b]$ und $A_n \to \int_a^bfdx$
 \end{beweis}
 
@@ -2833,7 +2833,7 @@ $f,g: [a,b] \to \MdR$ seien Funktionen.
 
 Sei $\ep > 0.$ Wähle $\alpha \in (a,b)$ mit $2\gamma(\alpha-a) < \ep/2.$
 
-$f \in C[\alpha,b] \folgt f \in R[\alpha,b] \folgtnach{23.3}$ Es gibt eine Zerlegung $Z_1$ von $[\alpha,b]$ mit:\\ 
+$f \in C[\alpha,b] \folgt f \in R[\alpha,b] \folgtnach{23.3}$ Es gibt eine Zerlegung $Z_1$ von $[\alpha,b]$ mit:\\
 $S_f(Z_1) - s_f(Z_1) < \ep/2.\ Z:=Z_1 \cup \{a\} \folgt Z \in \Z$ und es gilt:\\
 \begin{align*}
 S_f(Z) - s_f(Z) &= \underbrace{\sup f([a,\alpha]) - \inf f([a,\alpha]))(\alpha-1)}_{\le 2 \gamma} + \underbrace{S_f(Z_1)-s_f(Z_1)}_{< \ep/2}\\
@@ -2927,7 +2927,7 @@ Es ist $\frac{F(x_0+h)-F(x_0)}{h}\gleichnach{s.o.}\frac{1}{h}\int_{x_0}^{x_0+h}f
 \end{beweise}
 
 \begin{satz}[Anwendung des 2. Hauptsatzes auf stetige Funktionen]
-Sei $J \subseteq \MdR$ ein beliebiges Intervall, $f \in C(J)$ und $\xi \in J$ (fest). $F:J\to\MdR$ sei definiert durch $F(x):=\int_{\xi}^xf(t)\dt$. Dann ist $F\in C^1(J)$ und $F'=f$ auf $J$. 
+Sei $J \subseteq \MdR$ ein beliebiges Intervall, $f \in C(J)$ und $\xi \in J$ (fest). $F:J\to\MdR$ sei definiert durch $F(x):=\int_{\xi}^xf(t)\dt$. Dann ist $F\in C^1(J)$ und $F'=f$ auf $J$.
 \end{satz}
 
 
@@ -3216,7 +3216,7 @@ $\folgt \exists c \in (1,\infty): \frac{f(x)}{g(x)} \ge \frac{1}{2}\ \forall x \
 
 \begin{definition}
 Sei $f:[a,b]\to\MdR$ und $Z=\{x_0,\ldots,x_n\} \in\Z$. $V_f(Z):=\sum_{j=1}^n|f(x_j)-f(x_{j-1})|$ ist die \begriff{Variation} von $f$ bezüglich Z.\\
-\textbf{Beachte}: Sind $Z_1,Z_2 \in \Z$ und $Z_1 \subseteq Z_2\folgt V_f(Z_1) \le V_f(Z_2)$. $M_f=\{V_f(Z):Z \in \Z\}.\ f$ heißt von \begriff{beschränkter Variation}, in Zeichen: $f\in\BV[a,b]\ :\equizu M_f$ ist nach oben beschränkt. In diesem Fall heißt $V_f[a,b]:=\sup M_f$ die \begriff{Totalvariation} von $f$ (auf $[a,b]$). 
+\textbf{Beachte}: Sind $Z_1,Z_2 \in \Z$ und $Z_1 \subseteq Z_2\folgt V_f(Z_1) \le V_f(Z_2)$. $M_f=\{V_f(Z):Z \in \Z\}.\ f$ heißt von \begriff{beschränkter Variation}, in Zeichen: $f\in\BV[a,b]\ :\equizu M_f$ ist nach oben beschränkt. In diesem Fall heißt $V_f[a,b]:=\sup M_f$ die \begriff{Totalvariation} von $f$ (auf $[a,b]$).
 \end{definition}
 
 \begin{beispiel}
@@ -3372,7 +3372,7 @@ Sei $g \in \BV[a,b]$ und $f \in R_{g}$. Dann: $${\left|\int_a^b fdg\right|}\le\g
 
 \begin{beweis}
 Sei $(Z, \xi) \in \Z^*, Z = \{x_0,\ldots,x_n\},\ \xi = (\xi_1,\ldots,\xi_n)$.\\
-$|\sigma_f(Z,\xi, g)|=|\displaystyle\sum_{j=1}^nf(\xi_j)(g(x_j)-g(x_{j-1}))|\le\displaystyle\sum_{j=1}^n|f(\xi_j)||g(x_j)-g(x_{j-1})|\le\gamma V_g(Z)\le\gamma V_g[a, b]$ 
+$|\sigma_f(Z,\xi, g)|=|\displaystyle\sum_{j=1}^nf(\xi_j)(g(x_j)-g(x_{j-1}))|\le\displaystyle\sum_{j=1}^n|f(\xi_j)||g(x_j)-g(x_{j-1})|\le\gamma V_g(Z)\le\gamma V_g[a, b]$
 \end{beweis}
 
 \begin{bezeichnungen}

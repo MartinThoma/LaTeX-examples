@@ -18,8 +18,8 @@ Seien die Bezeichnungen wie in obiger Definition, dann gilt:
 \begin{enumerate}
 \item $f$ sei $\fa$-$\fb$-messbar, $\fa'$ eine weitere $\sigma$-Algebra auf $X$ mit $\fa\subseteq\fa'$ und $\fb'$ sei eine $\sigma$-Algebra auf $Y$ mit $\fb'\subseteq\fb$.\\
 Dann ist $f$ $\fa'$-$\fb'$-messbar.
-\item Sei $X_0\in\fa$, dann gilt $\fa_{X_0}\subseteq\fa$ nach 
-\ref{Satz 1.5}. Nun sei $f:X\to Y$ $\fa$-$\fb$-messbar, dann ist 
+\item Sei $X_0\in\fa$, dann gilt $\fa_{X_0}\subseteq\fa$ nach
+\ref{Satz 1.5}. Nun sei $f:X\to Y$ $\fa$-$\fb$-messbar, dann ist
 $f_{\mid X_0}:X_0\to Y$ $\fa_{X_0}$-$\fb$-messbar.
 \end{enumerate}
 \end{bemerkung}
@@ -66,7 +66,7 @@ Dann: \(\fb=\sigma(\ce)\subseteq\fd\). Ist \(B\in\fb\), so ist \(B\in\fd\), also
 \index{messbar!Borel}\index{messbar}
 Sei \(X\in\fb_{d}\). Ist \(f:\,X\to\mdr^{k}\) \(\fb(X)-\fb_{k}-\)messbar, so heißt \(f\) \textbf{(Borel-)messbar}.
 \end{definition}
-Ab jetzt sei stets \(\emptyset \neq X\in\fb_{d}\). 
+Ab jetzt sei stets \(\emptyset \neq X\in\fb_{d}\).
 (Erinnerung: \(\fb(X)=\Set{A\in\fb_{d} | A\subseteq X}\))
 
 \begin{satz}
@@ -80,7 +80,7 @@ Seien \(f,\,g:\,X\to\mdr^{k}\) Abbildungen und \(\alpha,\beta\in\mdr\).
     \item Sei \(k=1\) und \(f\) und \(g\) seien messbar. Dann:
     \begin{enumerate}
         \item \(f \cdot g\) ist messbar
-        \item Ist \(f(x)\neq 0 \quad \forall x\in X\), so ist 
+        \item Ist \(f(x)\neq 0 \quad \forall x\in X\), so ist
               \(\frac{1}{f}\) messbar
         \item \(\Set{x\in X | f(x)\stackrel{>}{\geq} g(x)} \in \fb(X)\)
     \end{enumerate}
@@ -96,13 +96,13 @@ Seien \(f,\,g:\,X\to\mdr^{k}\) Abbildungen und \(\alpha,\beta\in\mdr\).
 stetig, also messbar.
 
 Es ist \(g=\vp\circ f\). \folgtnach{\ref{Satz 3.1}.(1)} \(g\) ist messbar.
-\item 
+\item
     \begin{itemize}
-        \item["`\(\Rightarrow:\)"'] Für \(j=1, \dots,k\) sei 
-            \(p_{j}:\mdr^{k}\to\mdr\) definiert durch 
+        \item["`\(\Rightarrow:\)"'] Für \(j=1, \dots,k\) sei
+            \(p_{j}:\mdr^{k}\to\mdr\) definiert durch
             \(p_{j}(x_{1},\dots,x_{k}):=x_{j}\)
-            \(p_{j}\) ist stetig, also messbar. Es ist 
-            \(f_{j}=p_{j}\circ f\) \folgtnach{\ref{Satz 3.1}.(1)} 
+            \(p_{j}\) ist stetig, also messbar. Es ist
+            \(f_{j}=p_{j}\circ f\) \folgtnach{\ref{Satz 3.1}.(1)}
             \(f_{j}\) ist messbar.
         \item["`\(\Leftarrow:\)"'] Sei \(I=(a,b]=\prod_{j=1}^{k}{(a_{j},b_{j}]}\in I_{k}\quad (a=(a_{1},\dots,a_{k}),\,b=(b_{1},\dots,b_{k}),\,a\leq b)\)\\
             Dann: \(f^{-1}(I)=\bigcap_{j=1}^{k}{\underbrace{f_{j}^{-1}(\underbrace{(a_{j},b_{j}]}_{\in\fb_{1}}}_{\in\fb(X)}}\in\fb(X)\)
@@ -114,7 +114,7 @@ Es ist \(g=\vp\circ f\). \folgtnach{\ref{Satz 3.1}.(1)} \(g\) ist messbar.
 
 \(\vp\) ist stetig, also messbar. Es ist \(\alpha f+\beta g=\vp\circ h\)
 \folgtnach{\ref{Satz 3.1}.(1)} \(\alpha f+\beta g\) ist messbar.
-\item 
+\item
 \begin{enumerate}
 \item \(h:=(f,g):\,X\to\mdr^{2k}\) ist messbar (nach (2)); \(\vp(x,y):=xy\), \(\vp\) ist stetig, also messbar.
 
@@ -130,10 +130,10 @@ Es ist \(fg=\vp\circ h\) \folgtnach{\ref{Satz 3.1}.(1)}  \(fg\) ist messbar.
 
 \begin{folgerungen}
 \label{Lemma 3.3}
-    Seien \(A,\,B\in\fb(X),\,A\cap B=\emptyset\) und \(X=A\cup B\). 
+    Seien \(A,\,B\in\fb(X),\,A\cap B=\emptyset\) und \(X=A\cup B\).
     Weiter seien \(f:A\to\mdr^{k}\) und
     \(g:B\to\mdr^{k}\) messbar.\\
-    Dann ist \(h:X\to\mdr^{k}\), definiert durch 
+    Dann ist \(h:X\to\mdr^{k}\), definiert durch
     \[
     h(x):=\begin{cases}f(x)&x\in A\\g(x)&x\in B\end{cases},
     \]
@@ -184,7 +184,7 @@ In \(\imdr\) gelten folgende Regeln, wobei \(a\in\mdr\):
 
 \begin{definition}
 \begin{enumerate}
-\item Sei \((x_{n})\) eine Folge in 
+\item Sei \((x_{n})\) eine Folge in
 \(\imdr\). \(x_{n}\rightarrow+\infty:\Leftrightarrow\forall c\in\mdr\,\exists n_{c}\in\mdn:x_{n}\geq c\quad\forall n\geq n_{c}\)\\
 Analog für \(-\infty\).
 \item Seien \(f,g: X\to\imdr\) Funktionen. Dann:
@@ -208,7 +208,7 @@ Analog für \(-\infty\).
 
 \begin{definition}
 \index{Borel!$\sigma$-Algebra}\index{messbar}
-\(\ifb_{1}:=\Set{B\cup E | B\in\fb_{1},\,E\subseteq\Set{-\infty,+\infty}}\). 
+\(\ifb_{1}:=\Set{B\cup E | B\in\fb_{1},\,E\subseteq\Set{-\infty,+\infty}}\).
 Dann: \(\fb_{1}\subseteq\ifb_{1}\)\\
 Übung: \(\ifb_{1}\) ist eine \(\sigma\)-Algebra auf \(\imdr\).\\
 Klar: \(\fb_{1} \subseteq \ifb_{1}\)
@@ -258,11 +258,11 @@ Die folgenden Beweise erfolgen exemplarisch für einen der Unterpunkte und funkt
     \item Es gilt:
     \[\forall a \in \mdq\colon \{f\le a\}=\Set{x\in X | f(x)\le a}=f^{-1}(\underbrace{[-\infty,a]}_{\ce_1}) (*)\]
     Die Äquivalenz folgt dann aus (1) und \ref{Satz 3.1}.
-    \item Die Funktion $f:X\to\imdr$ kann aufgefasst werden als Funktion $\overline{f}:X\to\imdr$. Es ist $f$ genau dann $\fb(X)$-$\fb_1$-messbar wenn $\overline{f}$ $\fb(X)$-$\overline{\fb_1}$-messbar ist. 
+    \item Die Funktion $f:X\to\imdr$ kann aufgefasst werden als Funktion $\overline{f}:X\to\imdr$. Es ist $f$ genau dann $\fb(X)$-$\fb_1$-messbar wenn $\overline{f}$ $\fb(X)$-$\overline{\fb_1}$-messbar ist.
 \end{enumerate}
 \end{beweis}
 
-\begin{bemerkung}\ 
+\begin{bemerkung}\
 \begin{enumerate}
 \item Ist $X \subseteq \mdr$ ein Intervall und $f: \bar X \rightarrow \mdr$ monoton, so ist
       $f$ messbar (vgl. 3. ÜB)
@@ -284,11 +284,11 @@ Es ist $|f(x)|=1 \quad \forall x \in \mdr^d$, also $|f| = \mathds{1}_{\mdr^d}$. 
 \begin{definition}
 Sei $M\subseteq\imdr$.
 \begin{enumerate}
-\item Ist $M=\emptyset$ oder $M=\{-\infty\}$, so sei 
+\item Ist $M=\emptyset$ oder $M=\{-\infty\}$, so sei
 \[\sup M:=-\infty\]
-\item Ist $M\setminus\{-\infty\}\ne\emptyset$ und nach oben beschränkt (also insbesondere $\infty\not\in M$), so sei 
+\item Ist $M\setminus\{-\infty\}\ne\emptyset$ und nach oben beschränkt (also insbesondere $\infty\not\in M$), so sei
 \[\sup M:= \sup (M\setminus\{-\infty\})\]
-\item Ist $M\setminus\{-\infty\}$ nicht nach oben beschränkt oder $\infty\in M$, so sei 
+\item Ist $M\setminus\{-\infty\}$ nicht nach oben beschränkt oder $\infty\in M$, so sei
 \[\sup M:=\infty\]
 \item Es sei $\inf M:=-\sup(-M)$, wobei $-M:=\Set{-m | m\in M}$.
 \end{enumerate}
@@ -343,7 +343,7 @@ Also ist $\sup_{n\in\mdn} f_n$ messbar. Analog lässt sich die Messbarkeit von $
 Sei $X=I$ ein Intervall in $\mdr$ und $f:I\to\mdr$ sei auf $I$ differenzierbar.\\
 Für $x\in I,n\in\mdn$ sei $f_n:= n(f(x-\frac1n)-f(x))$. Da $f$ stetig ist, ist auch jedes $f_n$ stetig, also insbesondere messbar und es gilt:
 \[f_n(x)=\frac{f(x-\frac1n)-f(x)}{\frac1n}\stackrel{n\to\infty}{\to}f'(x)\]
-Aus \ref{Satz 3.5}(2) folgt, dass $f'$ messbar ist. 
+Aus \ref{Satz 3.5}(2) folgt, dass $f'$ messbar ist.
 \end{beispiel}
 
 \begin{definition}
@@ -435,13 +435,13 @@ Sei $f:X\to\imdr$ eine Funktion, dann ist $f$ genau dann messbar, wenn eine Folg
 Dann ist $\varphi_n$ $(\fb_1)_{[0,\infty]}$-$\fb_1$-messbar, außerdem gilt:
 \begin{align*}
 \forall t\in[0,\infty]\forall n\in\mdn&: 0\le\varphi_1\le\dots\le t\\
-\forall t\in[0,n]\forall n\in\mdn&: t-\frac1{2^n}\le\varphi_n(t)\le t 
+\forall t\in[0,n]\forall n\in\mdn&: t-\frac1{2^n}\le\varphi_n(t)\le t
 \end{align*}
 und es ist $\varphi_n(t)\stackrel{n\to\infty}\to t$ für alle $t\in[0\infty]$. Setze $f_n:=\varphi_n\circ f$. Dann leistet $(f_n)$ das gewünschte.
 \item Es ist $f=f_+-f_-$ und $f_+,f_-\ge0$ auf $X$. Seien $(g_n),(h_n)$ zulässige Folgen für $f_+$ bzw. $f_-$. Definiere $f_n:=g_n-h_n$. Dann ist klar, dass gilt:
 \[\forall x\in X: f_n(x)=g_n(x)-h_n(x)\stackrel{n\to\infty}\to f_+(x)-f_-(x)=f(x)\]
 Weiter gilt:
 \[|f_n|\le g_n+h_n\le f_++f_-=|f|\]
-\item Ohne Beweis. 
+\item Ohne Beweis.
 \end{enumerate}
 \end{beweis}

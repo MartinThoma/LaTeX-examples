@@ -33,10 +33,10 @@
     \begin{block}{Compiler-Fehler}
         {\small
         Exception in thread "main" java.lang.Error: Unresolved compilation problem:\\
-        Bound mismatch: The generic method \myCode{sort(List<T>)} of 
-        type Collections is not applicable for the arguments 
+        Bound mismatch: The generic method \myCode{sort(List<T>)} of
+        type Collections is not applicable for the arguments
         (\myCode{List<List<String$>>$}).\\
-        The inferred type \myCode{List<String>} is not a valid substitute for 
+        The inferred type \myCode{List<String>} is not a valid substitute for
         the bounded parameter \myCode{<T extends Comparable<? super T$>>$}\\
         at Main.main(Main.java:18)}
     \end{block}
@@ -49,10 +49,10 @@
     \begin{block}{Answer}
         I wouldn't implement clone().
 
-        But it makes sense to implement \myCode{equals()}, 
-        \myCode{hashCode()}, and 
-        \myCode{toString()} to provide the default behavior for all subclasses. 
-        Children can choose to use it if they add no new class 
+        But it makes sense to implement \myCode{equals()},
+        \myCode{hashCode()}, and
+        \myCode{toString()} to provide the default behavior for all subclasses.
+        Children can choose to use it if they add no new class
         members or supplement as needed.
     \end{block}
 \end{frame}
@@ -136,7 +136,7 @@
         \item[$\rightarrow$] Bei \myCode{double} und \myCode{float} den Epsilon-Vergleich machen!
         \item Sonst vergleicht man Strings
         \item[$\rightarrow$] \myCode{myString.compareTo(myOtherString)}
-        \item Die JavaDoc von \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html\#compareTo\%28T\%29}{compareTo(other)} 
+        \item Die JavaDoc von \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html\#compareTo\%28T\%29}{compareTo(other)}
               sind weniger mathematisch formuliert
     \end{itemize}
 \end{frame}
@@ -157,7 +157,7 @@
         \item Countingsort
     \end{itemize}
 
-    Implementierungen und Vergleiche dieser und weiterer Algorithmen sind 
+    Implementierungen und Vergleiche dieser und weiterer Algorithmen sind
     \href{http://martin-thoma.com/ubersicht-uber-sortieralgorithmen/}{hier}
     zu finden.
 
@@ -194,7 +194,7 @@
     \begin{itemize}[<+->]
         \item maximal: $3^{7 \cdot 6} = 3^{42} = 109418989131512359209 \approx 109 \cdot 10^{18}$
         \item minimal: schwer zu sagen
-        \item Idee: Brute-Force 
+        \item Idee: Brute-Force
         \begin{itemize}
             \item Alle möglichen Spielentscheidungen durchgehen
             \item Kommt man auf eine bereits bekannte Situation, ist es keine neue
@@ -248,11 +248,11 @@
     \end{block}
 
     \begin{block}{Antwort}
-        Eine Hash-Funktion $h$ bildet von einem sehr großem 
+        Eine Hash-Funktion $h$ bildet von einem sehr großem
         Definitionsbereich auf einen deutlich kleineren Wertebereich
         ab.
     \end{block}
-    
+
     \pause
 
     \begin{itemize}[<+->]
@@ -271,12 +271,12 @@
     \pause
 
     \begin{block}{Bedingung 1}
-        Whenever it is invoked on the same object more than once 
-        during an execution of a Java application, the hashCode 
-        method \textbf{must consistently return the same integer}, 
-        provided no information used in equals comparisons on the 
-        object is modified. This integer need not remain consistent 
-        from one execution of an application to another execution of 
+        Whenever it is invoked on the same object more than once
+        during an execution of a Java application, the hashCode
+        method \textbf{must consistently return the same integer},
+        provided no information used in equals comparisons on the
+        object is modified. This integer need not remain consistent
+        from one execution of an application to another execution of
         the same application.
     \end{block}
     {\tiny source: \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#hashCode()}{JavaDoc}}
@@ -284,8 +284,8 @@
 
 \begin{frame}{hashCode() in Java}
     \begin{block}{Bedingung 2}
-        If two objects are equal according to the equals(Object) 
-        method, then calling the hashCode method on each of the two 
+        If two objects are equal according to the equals(Object)
+        method, then calling the hashCode method on each of the two
         objects \textbf{must} produce the same integer result.
     \end{block}
     {\tiny source: \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#hashCode()}{JavaDoc}}
@@ -304,12 +304,12 @@
 
 \begin{frame}{hashCode() in Java}
     \begin{block}{Klarstellung 2}
-        It is \textbf{not required} that if two objects are unequal according 
-        to the equals(java.lang.Object) method, then calling the 
-        hashCode method on each of the two objects must produce 
+        It is \textbf{not required} that if two objects are unequal according
+        to the equals(java.lang.Object) method, then calling the
+        hashCode method on each of the two objects must produce
         distinct integer results.\\
-        However, the programmer should be 
-        aware that producing distinct integer results for unequal 
+        However, the programmer should be
+        aware that producing distinct integer results for unequal
         objects may improve the performance of hash tables.
     \end{block}
     {\tiny source: \href{http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html\#hashCode()}{JavaDoc}}
@@ -350,7 +350,7 @@
         Unterklassen bilden.
     \end{block}
 
-    Abstrakte Klassen 
+    Abstrakte Klassen
     \begin{itemize}[<+->]
         \item \dots müssen keine abstrakten Methoden beinhalten\\
               {\tiny Quelle: \href{http://stackoverflow.com/q/4811678/562769}{Defining an abstract class without any abstract methods}}

@@ -26,7 +26,7 @@ Das heißt:
 			&\overset{Ana I}= \pi r^2
 		\end{align*}
 	\item 	Sei \(\emptyset\neq X\subseteq\mdr^d\). $X$ sei kompakt, also \(X\in\fb_d\). Weiter sei \(f\colon X\to[0,\infty)\) stetig, woraus mit \ref{Satz 4.11} \(f\in\mathfrak{L}^1(X)\) folgt.
-		Setze \[C:=\{(x,y):x\in X, 0\leq y\leq f(x)\}\] 
+		Setze \[C:=\{(x,y):x\in X, 0\leq y\leq f(x)\}\]
 		$C$ ist kompakt und somit gilt: \(C\in\fb_{d+1}\).\\
 		Ist \(x\notin X\), so ist \(C^x=\emptyset\), also \(\lambda_1(C^x)=0\).\\
 		Ist \(x\in X\), so ist \(C^x=[0,f(x)]\), also \(\lambda_1(C^x)=f(x)\). Damit gilt
@@ -35,7 +35,7 @@ Das heißt:
 		\[C:=\{(x,y)\in\mdr^2:x\in I, 0\leq y\leq f(x)\}\]
 		Aus Beispiel (2) und \ref{Satz 4.13} folgt \[\lambda_2(C)=\text{R-}\int_a^bf(x)\,dx \]
 	\item 	$X$ und $f$ seien wie in Beispiel (2). Setze \[G:=\{(x,f(x)):x\in X\}\]
-		$G$ ist kompakt, also ist \(G\in\fb_2\). 
+		$G$ ist kompakt, also ist \(G\in\fb_2\).
 		Ist \(x\notin X\), so ist \(G^x=\emptyset\), also \(\lambda_1(G^x)=0\).
 		Ist \(x\in X\), so ist \(G^x=\{f(x)\}\), also \(\lambda_1(G^x)=0\).
 		Aus \ref{Satz 9.1} folgt \[\lambda_2(G)=\int_\mdr\lambda_1(G^x)\,dx=0\]
@@ -58,7 +58,7 @@ Sei $(A_j)$ eine disjunkte Folge in $\fb_d$. Dann ist $(A_j^x)$ ebenfalls disjun
 D.h. $\mu$ ist ein Maß auf $\fb_d$. Analog lässt sich zeigen, dass $\nu$ ein Maß auf $\fb_d$ ist.\\
 Sei nun $I\in\ci_d$, dann existieren $I'\in\ci_k, I''\in\ci_l$ mit $I=I'\times I''$. Aus §\ref{Kapitel 8} folgt:
 \begin{align*}
-I^x=\begin{cases} I''&,x\in I'\\ 
+I^x=\begin{cases} I''&,x\in I'\\
 \emptyset &,x\not\in I'\end{cases}
 \end{align*}
 Also ist $\lambda_l(I^x)=\lambda_l(I'')\cdot\mathds{1}_{I'}(x)$ und damit:
@@ -111,7 +111,7 @@ Also folgt aus \ref{Satz 3.4} die Messbarkeit von $\tilde f$.
 \begin{beispiel}
 \index{Rotationskörper}
 \begin{enumerate}
-\item Sei $r>0$ und 
+\item Sei $r>0$ und
 \[K:=\{(x,y)\in\mdr^2\mid x^2+y^2<r^2\}\]
 Dann ist $K$ offen, also $K\in\fb_2$ und es gilt:
 \[\partial K=\overline{K}\setminus K=\{(x,y)\in\mdr^2\mid x^2+y^2=r^2\}\in\fb_2\]
@@ -120,7 +120,7 @@ Damit enthält die Menge $(\partial K)_y$ für alle $x\in\mdr$ höchstens zwei E
 Mit $\overline K=(\partial K) \dot\cup K$ folgt dann
 \[\lambda_2(K)=\lambda_2(\partial K)+\lambda_2(\overline K)=\lambda_2(\overline K)=\pi r^2\]
 Sei nun $A\in\fb_2$ mit $K\subseteq A\subseteq\overline K$, dann ist $\lambda_2(A)=\pi r^2$.
-\item Sei $r>0$ und 
+\item Sei $r>0$ und
 \[K:=\{(x,y,z)\in\mdr^3\mid x^2+y^2+z^2\le r^2\}\]
 Dann ist $K$ abgeschlossen, also $K\in\fb_3$.\\
 \textbf{Fall $|z|>r$:} Es ist $K_z=\emptyset$, also $\lambda_2(K_z)=0$.\\
@@ -146,7 +146,7 @@ und damit $\lambda_2(V_z)=\pi f(z)^2$.\\
 Aus \ref{Satz 9.1} folgt dann:
 \begin{align*}
 \lambda_3(V)&=\int_\mdr \lambda_2(V_z)\text{ d}z\\
-&= \pi\int_a^b f(z)^2\text{ d}z 
+&= \pi\int_a^b f(z)^2\text{ d}z
 \end{align*}
 \item Sei $h>0$, $I=[0,h]$ und $f(z)=\frac rhz$. Definiere den Kegel
 \[V:=\{(x,y,z)\in\mdr^3\mid x^2+y^2\le \frac{r^2}{h^2}z^2\}\]

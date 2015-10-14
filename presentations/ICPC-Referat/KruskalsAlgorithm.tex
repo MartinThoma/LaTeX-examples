@@ -2,11 +2,11 @@
 \subsection{Algorithmus von Kruskal}
 \begin{frame}{Algorithmus von Kruskal}{Kruskal's algorithm}
 	$E$: Menge der ausgewählten Kanten, $S$: Menge der erreichbaren Knoten.\vspace{10pt}\pause
-	
+
 	So lange, bis alle Knoten erreichbar sind:
-	
+
 	Wähle Kante mit geringstem Gewicht
-	
+
 	Wenn durch ausgewählte Kante ein Knoten erreichbar ist, der davor nicht in $S$ war, füge diese Kante zu $E$ und Knoten zu $E$ hinzu.
 \end{frame}
 
@@ -25,12 +25,12 @@
 				                                 f/d/6,f/e/8,
 				                                 g/e/9,g/f/11}
 				\path[edge] (\source) -- node[weight] {$\weight$} (\dest);
-			% Start animating the vertex and edge selection. 
+			% Start animating the vertex and edge selection.
 			\foreach \vertex / \fr in {d/1,a/1,e/2,c/2,f/3,b/4,g/10}
 				\path<\fr-> node[selected vertex] at (\vertex) {$\vertex$};
 			% For convenience we use a background layer to highlight edges
 			% This way we don't have to worry about the highlighting covering
-			% weight labels. 
+			% weight labels.
 			\begin{pgfonlayer}{background}
 				\pause
 				\foreach \source / \dest / \fr in {a/d/1,c/e/2,d/f/3,a/b/4,b/e/6,e/g/10}
@@ -63,9 +63,9 @@ end while
 
 \begin{frame}{Algorithmus von Kruskal}{Kruskal's algorithm}
 	Erfunden von:
-	
+
 	1956: Joseph Kruskal
-	
+
 	\begin{figure}
 		\includegraphics[scale=0.6]{Material/kruskal.jpg}
 		\caption{Kruskal}
