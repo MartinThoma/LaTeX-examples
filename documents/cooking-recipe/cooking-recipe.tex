@@ -1,0 +1,65 @@
+\documentclass[a4paper]{recipe}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{bookman}
+\usepackage{siunitx}
+\usepackage{microtype}
+
+\newcommand{\bsi}[2]{%
+  \fontencoding{T1}\fontfamily{pbs}\fontseries{xl}\fontshape{n}%
+  \fontsize{#1}{#2}\selectfont}
+
+\renewcommand{\inghead}{\textbf{Zutaten (für 4 Personen)}:\ }
+
+\makeatletter
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{3em}{0em}}
+\makeatother
+
+\setlength\parindent{0pt}
+\setlength\parskip{2ex plus 0.5ex}
+
+\begin{document}
+% \chapter{Primi piatti}
+\recipe{Nudelauflauf mit Tomaten und Mozzarrella}
+\ingred{\SI{400}{\gram}~Nudeln (Penne);
+  1~Zwiebel;
+  2~Zehen Knoblauch;
+  1~frische~Chilischote;
+  \SI{200}{\gram}~Sahne;
+  \SI{500}{\gram}~Tomaten;
+  \SI{50}{\gram}~Parmesan;
+  \SI{125}{\gram}~Mozzarella;
+  \SI{400}{\gram}~Tomaten;
+  1~Bund Basikikum;
+  Olivenöl;
+  Salz und schwarzer~Pfeffer;
+  Zucker.}
+
+Den Ofen auf \SI{200}{\celsius} (Umluft \SI{180}{\celsius}) vorheizen.
+
+Die Zwiebel und den Knoblauch sehr fein schneiden. Die Chilischote entkernen
+und ebenso fein hacken. Die Tomaten waschen und halbieren. Den Parmesan
+reiben und den Mozzarrella grob würfeln. Die Basilikumblätter abzupfen, waschen
+und trocken tupfen.
+
+In einem großen Topf Salzwasser zum Kochen bringen und die Nudeln darin laut
+Packungsangabe al dente garen.
+
+Währenddessen in einer großen Pfanne Olivenöl erhitzen und die Zwiebel, den
+Knoblauch und die Chilischote anschwitzen. Die passierten Tomaten hinzufügen
+und ein paar Minuten leicht köcheln lassen. Dann die Sahne und den geriebenen
+Parmesan unterrühren und die Sauce mit Salz, Pfeffer und einer ordentlichen
+Prise Zucker abschmecken.
+
+Wenn die Nudeln soweit sind, diese abgießen und in die Pfanne zur Sauce geben.
+Die Pfanne von der Hitze nehmen und die halbierten Kirschtomaten und die Hälfte
+der Mozzarrellawürfel unterheben. Die Basilikumblätter in Streifen schneiden
+und ebenfalls unterheben.
+
+Alles zusammen in eine Auflaufform geben, mit dem restlichen Mozzarrella
+bestreuen und für ca. 20 Minuten auf mittlerer Schiene im Backofen gratinieren
+lassen.
+
+Dazu passt zum Beispiel ein grüner Salat und Knoblauchbaguette.
+\end{document}
