@@ -2,7 +2,6 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{backgrounds}
 \usepackage{tkz-euclide}
 \usetikzlibrary{angles,quotes}
 
@@ -14,11 +13,10 @@
 
 \begin{document}
 \begin{preview}
-\begin{tikzpicture}[very thick,font=\sansmath\sffamily,x=3cm,y=3cm,  show background rectangle,
-  background rectangle/.style={fill=white},]
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily,x=3cm,y=3cm]
     \tkzInit[xmax=1.0,ymax=1.0,xmin=-1.0,ymin=-1.0]
     \tkzGrid
-    \tkzAxeXY[up space=0.2,right space=0.2,fill=none]
+    \tkzAxeXY[up space=0.2,right space=0.2, label options={fill=none}]
 
     \tkzDefPoint(0,0){A}
     \tkzDefPoint({cos(FPpi/5)*1},0){B}
