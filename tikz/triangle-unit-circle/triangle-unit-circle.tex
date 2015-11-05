@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\usepackage{tkz-euclide}
+\usetikzlibrary{angles,quotes}
+
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations}
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily,x=3cm,y=3cm,  show background rectangle,
+  background rectangle/.style={fill=white},]
+    \tkzInit[xmax=1.0,ymax=1.0,xmin=-1.0,ymin=-1.0]
+    \tkzGrid
+    \tkzAxeXY[up space=0.2,right space=0.2,fill=none]
+
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint({cos(FPpi/5)*1},0){B}
+    \tkzDefPoint({cos(FPpi/5)*1},{sin(FPpi/5)*1}){C}
+    \tkzDefPoint(1,0){CircleEnd}
+
+    \tkzDrawCircle(A,CircleEnd)
+
+    % \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    % \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+
+    % Mark angle
+    \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](B,A,C)
+    \tkzLabelAngle[pos=0.15](B,A,C){$\alpha$}
+
+    % Draw polygon
+    \tkzDrawPolygon(A,B,C)
+    \tkzDrawSegment[black!60!green,very thick](A,B)
+    \tkzDrawSegment[red,very thick](B,C)
+
+    % Label lines
+    \tkzLabelSegment[above](A,C){$1$}
+    \tkzLabelSegment[sloped,above=-0.05,red](B,C){$\sin(\alpha)$}
+    \tkzLabelSegment[below,black!60!green](A,B){$\cos(\alpha)$}
+\end{tikzpicture}
+\end{preview}
+\end{document}
