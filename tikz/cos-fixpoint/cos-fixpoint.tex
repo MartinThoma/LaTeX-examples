@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{0mm}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis x line=middle,
+        axis y line=middle,
+        enlarge y limits=true,
+        enlarge x limits=true,
+        xmin=0, xmax=pi, % x domain
+        width=12cm, height=8cm,     % size of the image
+        grid = major,
+        grid style={dashed, gray!30},
+        ymin=-1,      % start the diagram at this y-coordinate
+        ymax= 1,      % end   the diagram at this y-coordinate
+        % axis background/.style={fill=white},
+        ylabel=$y$,
+        xlabel=$x$,
+        xtick={0,1.5708,3.14159},
+        xticklabels={$0$,$\frac{\pi}{2}$,$\pi$},
+        legend style={at={(0.2,0.37)}, anchor=north, fill=none}
+     ]
+      \addplot[domain=-8:8,very thick,samples=200,blue]   {cos(deg(x))};
+      \addplot[domain=-8:8,very thick,samples=200,red]   {x};
+      \coordinate (a) at (axis cs:0.739085,0.739085);
+      \fill[red] (a) circle (3pt);
+      \node[label={[label distance=0.1cm]0:$x = y \approx 0.739085$}] at (a) {};
+      \legend{$\cos x$, $x$}
+    \end{axis}
+\end{tikzpicture}
+\end{preview}
+\end{document}
