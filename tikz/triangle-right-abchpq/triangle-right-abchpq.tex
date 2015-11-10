@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetikzlibrary{angles,quotes}
+
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations}
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+    \newcommand{\radius}{5}
+    \newcommand{\TriangleAngle}{30}
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(\radius,0){B}
+    \tkzDefPoint(\TriangleAngle:{cos(\TriangleAngle*\FPpi/180)*\radius}){C}
+    \tkzDefPoint({cos(\TriangleAngle*\FPpi/180)*\radius*cos(\TriangleAngle*\FPpi/180)},0){E}
+
+    % \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    % \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    % \tkzLabelPoints[above,font=\sansmath\sffamily](C)
+
+    % Draw polygon
+    \tkzDrawPolygon[fill=gray!10](A,B,C)
+
+    % Label lines
+    \tkzLabelSegment[right](B,C){$a$}
+    \tkzLabelSegment[above left=-0.1](A,C){$b$}
+    \tkzLabelSegment[below](A,B){$c$}
+    \tkzLabelSegment[above=-0.1](A,E){$q$}
+    \tkzLabelSegment[above=-0.1](E,B){$p$}
+
+    % Mark angles
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](B,A,C)
+    % \tkzLabelAngle[pos=0.3](B,A,C){$\alpha$}
+
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](C,B,A)
+    % \tkzLabelAngle[pos=0.45](C,B,A){$\beta$}
+
+    \tkzDrawSegment[dashed](C,E)
+    \tkzLabelSegment[left](C,E){$h$}
+
+    \draw[thin] pic[draw, angle radius=2mm,"$\cdot$",angle eccentricity=.5]{angle=B--E--C};
+    \draw[thin] pic[draw, angle radius=2mm,"$\cdot$",angle eccentricity=.5]{angle=A--C--B};
+
+    % Draw polygon
+    \tkzDrawPolygon(A,B,C)
+\end{tikzpicture}
+\end{preview}
+\end{document}
