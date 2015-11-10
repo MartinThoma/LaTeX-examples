@@ -13,7 +13,7 @@
 
 \begin{document}
 \begin{preview}
-\begin{tikzpicture}[very thick,font=\sansmath\sffamily]
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily,scale=1.3]
     \newcommand{\radius}{5}
     \newcommand{\TriangleAngle}{30}
     \tkzDefPoint(0,0){A}
@@ -42,14 +42,14 @@
     % \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](C,B,A)
     % \tkzLabelAngle[pos=0.45](C,B,A){$\beta$}
 
-    \tkzDrawSegment[dashed](C,E)
+    \tkzDrawSegment(C,E)
     \tkzLabelSegment[left](C,E){$h$}
 
-    \draw[thin] pic[draw, angle radius=2mm,"$\cdot$",angle eccentricity=.5]{angle=B--E--C};
-    \draw[thin] pic[draw, angle radius=2mm,"$\cdot$",angle eccentricity=.5]{angle=A--C--B};
+    \draw[thin] pic[draw, angle radius=4mm,"$\cdot$",angle eccentricity=.5]{angle=B--E--C};
+    \draw[thin] pic[draw, angle radius=4mm,"$\cdot$",angle eccentricity=.5]{angle=A--C--B};
 
     % Draw polygon
-    \tkzDrawPolygon(A,B,C)
+    \tkzDrawPolygon[very thick](A,B,C)
 \end{tikzpicture}
 \end{preview}
 \end{document}
