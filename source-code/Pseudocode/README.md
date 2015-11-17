@@ -1,0 +1,1 @@
+The examples in this folder explain algorithms using pseudo-code.
