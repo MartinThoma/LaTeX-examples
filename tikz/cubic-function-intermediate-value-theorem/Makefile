@@ -1,4 +1,5 @@
 SOURCE = cubic-function-intermediate-value-theorem
+
 DELAY = 80
 DENSITY = 300
 WIDTH = 500
