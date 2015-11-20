@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def string(zahl):
     if zahl <= 9:
         return str(zahl)
     else:
         return chr(55+zahl)
+
 
 def horner(b, Z):
     ergebnis = ''

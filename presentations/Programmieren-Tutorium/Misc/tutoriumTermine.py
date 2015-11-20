@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 import datetime
 
-tmpDay  = datetime.date.today()     # von
-lastday = datetime.date(2014,2,10)  # bis (Vorlesungsende?)
+tmp_day = datetime.date.today()       # von
+lastday = datetime.date(2014, 2, 10)  # bis (Vorlesungsende?)
 
-while tmpDay < lastday:
-    if tmpDay.weekday() == 0:
-        print tmpDay.strftime('%d.%m.%Y')
-    tmpDay += datetime.timedelta(days=1)
+while tmp_day < lastday:
+    if tmp_day.weekday() == 0:
+        print tmp_day.strftime('%d.%m.%Y')
+    tmp_day += datetime.timedelta(days=1)

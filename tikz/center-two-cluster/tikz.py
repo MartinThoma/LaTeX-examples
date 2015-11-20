@@ -8,7 +8,7 @@ print """\documentclass{article}
 \usepackage{tikz}
 \usepackage{tkz-fct}
 \usetikzlibrary{shapes.misc}
-\usetikzlibrary{shapes, calc, decorations} 
+\usetikzlibrary{shapes, calc, decorations}
 \usepackage{amsmath,amssymb}
 
 \\begin{document}
@@ -21,7 +21,8 @@ print """\documentclass{article}
     minimum height=4pt}]
 """
 
-def getPositionFromOffset(px, py, angle, radius):
+
+def get_position_from_offset(px, py, angle, radius):
     x = px + radius * math.cos(math.radians(angle))
     y = py + radius * math.sin(math.radians(angle))
     return (x, y)
@@ -29,18 +30,18 @@ def getPositionFromOffset(px, py, angle, radius):
 n = 5
 xSum = 0
 ySum = 0
-coordinates = [(0,0)]
+coordinates = [(0, 0)]
 
 random.seed(13)
 
 for i in range(n-1):
-	radius = uniform(0,20)
-	angle = uniform(0, 360)
-	px, py = coordinates[-1]
-	x, y = getPositionFromOffset(px, py, angle, radius)
-	xSum += x
-	ySum += y
-	coordinates.append((x,y))
+    radius = uniform(0, 20)
+    angle = uniform(0, 360)
+    px, py = coordinates[-1]
+    x, y = get_position_from_offset(px, py, angle, radius)
+    xSum += x
+    ySum += y
+    coordinates.append((x, y))
 
 center = (float(xSum) / n, float(ySum) / n)
 
@@ -49,17 +50,18 @@ coordinates.append((cx+15, cy))
 
 pointCoords = ""
 for p in coordinates:
-	px, py = p	
-	px -= cx
-	py -= cy
-	newP = "(%.2f,%.2f)," % (px, py)
-	pointCoords = newP + pointCoords
-	deltaY = 0-py
-	deltaX = 0-px
-	length = (deltaY**2+deltaX**2)**0.5
-	sinAlpha = deltaY/length
-	cosAlpha = deltaX/length
-	print("\draw[->] (%.2f,%.2f) -- (%.2f,%.2f);" % (px, py, px+cosAlpha*length*0.80, py+sinAlpha*length*0.80))
+    px, py = p
+    px -= cx
+    py -= cy
+    newP = "(%.2f,%.2f)," % (px, py)
+    pointCoords = newP + pointCoords
+    deltaY = 0-py
+    deltaX = 0-px
+    length = (deltaY**2+deltaX**2)**0.5
+    sinAlpha = deltaY/length
+    cosAlpha = deltaX/length
+    print("\draw[->] (%.2f,%.2f) -- (%.2f,%.2f);" %
+          (px, py, px+cosAlpha*length*0.80, py+sinAlpha*length*0.80))
 
 print("\\node[circle,inner sep=1pt,fill]  at (%.2f,%.2f) {};" % (0, 0))
 
@@ -67,44 +69,45 @@ print("\\foreach \point in {" + pointCoords[:-1] + "}{")
 print("\\node[dot] at \point {};")
 print("}")
 
-################################################################################
+###############################################################################
 random.seed(17)
 xSum = 0
 ySum = 0
-coordinates = [(0,0)]
+coordinates = [(0, 0)]
 for i in range(n-1):
-	radius = uniform(0,20)
-	angle = uniform(0, 360)
-	px, py = coordinates[-1]
-	x, y = getPositionFromOffset(px, py, angle, radius)
-	xSum += x
-	ySum += y
-	coordinates.append((x,y))
+    radius = uniform(0, 20)
+    angle = uniform(0, 360)
+    px, py = coordinates[-1]
+    x, y = get_position_from_offset(px, py, angle, radius)
+    xSum += x
+    ySum += y
+    coordinates.append((x, y))
 
 center = (float(xSum) / n, float(ySum) / n)
 
 cx, cy = center
-coordinates.append((cx-15,cy))
+coordinates.append((cx-15, cy))
 xOffset = 40
 cTmp = []
 for p in coordinates:
-	px, py = p
-	cTmp.append((px-cx+xOffset,py-cy))	
+    px, py = p
+    cTmp.append((px-cx+xOffset, py-cy))
 
 coordinates = cTmp
 cx, cy = xOffset, 0
 pointCoords = ""
 
 for p in coordinates:
-	px, py = p	
-	newP = "(%.2f,%.2f)," % (px, py)
-	pointCoords = newP + pointCoords
-	deltaY = -py
-	deltaX = xOffset-px
-	length = (deltaY**2+deltaX**2)**0.5
-	sinAlpha = deltaY/length
-	cosAlpha = deltaX/length
-	print("\draw[->] (%.2f,%.2f) -- (%.2f,%.2f);" % (px, py, px+cosAlpha*length*0.80, py+sinAlpha*length*0.80))
+    px, py = p
+    newP = "(%.2f,%.2f)," % (px, py)
+    pointCoords = newP + pointCoords
+    deltaY = -py
+    deltaX = xOffset-px
+    length = (deltaY**2+deltaX**2)**0.5
+    sinAlpha = deltaY/length
+    cosAlpha = deltaX/length
+    print("\draw[->] (%.2f,%.2f) -- (%.2f,%.2f);" %
+          (px, py, px+cosAlpha*length*0.80, py+sinAlpha*length*0.80))
 
 
 print("\\node[circle,inner sep=1pt,fill]  at (%.2f,%.2f) {};" % (xOffset, 0))

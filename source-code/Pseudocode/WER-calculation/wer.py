@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 
+
 def wer(r, h):
     """
-        Calculation of WER with Levenshtein distance.
-        Works only for iterables up to 254 elements (uint8).
-        O(nm) time ans space complexity.
+    Calculation of WER with Levenshtein distance.
+    Works only for iterables up to 254 elements (uint8).
+    O(nm) time ans space complexity.
 
-        >>> wer("who is there".split(), "is there".split()) 
-        1
-        >>> wer("who is there".split(), "".split()) 
-        3
-        >>> wer("".split(), "who is there".split()) 
-        3
+    >>> wer("who is there".split(), "is there".split())
+    1
+    >>> wer("who is there".split(), "".split())
+    3
+    >>> wer("".split(), "who is there".split())
+    3
     """
     # initialisation
     import numpy
@@ -31,8 +32,8 @@ def wer(r, h):
                 d[i][j] = d[i-1][j-1]
             else:
                 substitution = d[i-1][j-1] + 1
-                insertion    = d[i][j-1] + 1
-                deletion     = d[i-1][j] + 1
+                insertion = d[i][j-1] + 1
+                deletion = d[i-1][j] + 1
                 d[i][j] = min(substitution, insertion, deletion)
 
     return d[len(r)][len(h)]

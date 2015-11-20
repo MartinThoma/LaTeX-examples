@@ -1,18 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def get_next(n, i, damen_pos):
     for i in range(n):
-        candidates  = set(list(range(n)))
+        candidates = set(list(range(n)))
         candidates -= set(damen_pos)
         candidates -= set(list(range(damen_pos[i]+1)))
-        candidates  = list(candidates)
+        candidates = list(candidates)
         if len(candidates) > 0:
             damen_pos[i] = candidates[0]
             return i, damen_pos
         else:
             damen_pos = damen_pos[0:i] + [0]*(n-i)
             i -= 1
+
 
 def is_attacked(damen, x, y):
     """ Wird das Feld (x,y) von einer der Damen angegriffen? """
@@ -21,9 +23,10 @@ def is_attacked(damen, x, y):
             return True
     return False
 
+
 def finde_loesung(n):
     """ Platziere n Damen so auf einem n×n Feld,
-        sodass sich keine Damen schlagen. 
+        sodass sich keine Damen schlagen.
     """
     # damen[i] ist die x-position von Dame i in Zeile i
     damen = [0]*n
@@ -36,6 +39,7 @@ def finde_loesung(n):
                 break
             i += 1
         i, damen = get_next(n, i, damen)
+
 
 def alle_loesungen(n):
     generator = finde_loesung(n)
