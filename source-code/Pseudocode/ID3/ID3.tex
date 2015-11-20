@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+        \Require Trainingsdaten $X$ jeweils mit Klasse $K(X)$, Attribute~$A$,
+                 Qualitätsfunktion $\varphi$
+        \Procedure{ID3}{$X$, $A$}
+            \If{$K(x_i) = K(x_j) \;\;\;\forall x_i, x_j \in X$}
+                \State \Return Klasse $K(x_0)$
+            \Else
+                \State $a_\text{min} \gets \argmin_{a \in A} \varphi(a)$
+                \State $n \gets \Call{CreateNode}{}$
+                \For{Attributwert $w$ in $a_\text{min}(X)$}
+                    \State $X_{a_\text{min} = w} \gets \{x \in X | a_\text{min}(X) = w\}$
+                    \State $child \gets \Call{ID3}{X_{a_\text{min}}, A}$
+                    \State $n.\Call{AddChild}{child}$
+                \EndFor
+                \State \Return $n$
+            \EndIf
+        \EndProcedure
+        \end{algorithmic}
+    \caption{ID3 Algorithmus}
+    \label{alg:ID3}
+    \end{algorithm}
+\end{preview}
+\end{document}
