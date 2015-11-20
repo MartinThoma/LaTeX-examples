@@ -5,22 +5,22 @@ from random import uniform
 import random
 
 n = 5
-xMin, yMin = 0, 0
-xMax, yMax = 5, 5
-xSum = 0
-ySum = 0
+x_min, y_min = 0, 0
+x_max, y_max = 5, 5
+x_sum = 0
+y_sum = 0
 coordinates = []
 
 random.seed(42)
 
 for i in range(n):
-    x = uniform(xMin, xMax)
-    y = uniform(yMin, yMax)
-    xSum += x
-    ySum += y
+    x = uniform(x_min, x_max)
+    y = uniform(y_min, y_max)
+    x_sum += x
+    y_sum += y
     coordinates.append((x, y))
 
-center = (float(xSum) / n, float(ySum) / n)
+center = (float(x_sum) / n, float(y_sum) / n)
 
 cx, cy = center
 point_coords = ""
