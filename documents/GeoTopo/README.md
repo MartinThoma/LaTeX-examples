@@ -10,7 +10,7 @@ Rechtschreibfehler sind) bitte immer direkt melden oder verbessern!
 
 Den Verbesserungsvorschlag kann man
 * entweder direkt selbst umsetzen und einen pull request machen oder
-* mir per Email (info@martin-thoma.de) schicken.
+* mir per E-Mail (info@martin-thoma.de) schicken.
 
 Ich werde dann versuchen die Verbesserungsvorschläge zeitnah einzuarbeiten.
 
@@ -37,8 +37,8 @@ Rechtliches
 ===========
 Die Autoren kann man über Git ermitteln. Ich schreibe meist nur den
 Tafelanschrieb der Vorlesung ab; eventuell noch mit ein paar
-Notizen meinerseits. Wenn mir Verbesserungsvorschläge per Email
-geschickt werden, ist der Autor sowie das Datum der Email in der
+Notizen meinerseits. Wenn mir Verbesserungsvorschläge per E-Mail
+geschickt werden, ist der Autor sowie das Datum der E-Mail in der
 Commit-Nachricht von Git zu sehen.
 
 Bilder habe ich entweder selbst erstellt oder von tex.stackexchange.com.

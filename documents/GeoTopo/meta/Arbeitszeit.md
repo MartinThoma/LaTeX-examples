@@ -67,31 +67,31 @@ in dem Erstellen dieses Skripts steckt:
 |06.02.2014 | 19:00 - 19:30 |  30 | TikZ'en eines Bildes
 |07.02.2014 | 11:15 - 11:20 |   5 | Definitionen vereinfacht
 |07.02.2014 | 11:35 - 11:45 |  10 | Definition "operiert durch Homöomorphismen" korrigiert
-|07.02.2014 | 15:00 - 15:30 |  30 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 08.02.2014, umgesetzt.
+|07.02.2014 | 15:00 - 15:30 |  30 | Verbesserungsvorschläge von Jérôme Urhausen, E-Mail vom 08.02.2014, umgesetzt.
 |07.02.2014 | 15:30 - 15:45 |  15 | Verbesserungen
 |07.02.2014 | 19:30 - 21:20 | 110 | Textsetzung, kleine Fehler und Verbesserung eines Bildes
 |10.02.2014 | 10:30 - 11:05 |  35 | Formulierung in Definitionen vereinfacht; Textsetzung
-|10.02.2014 | 11:05 - 11:20 |  15 | Verbesserungsvorschläge von Marco, Email 1 vom 10.02.2014, umgesetzt.
-|10.02.2014 | 11:40 - 13:20 | 100 | Verbesserungsvorschläge von Jérôme Urhausen, Email 1 vom 10.02.2014, umgesetzt.
-|11.02.2014 | 05:30 - 06:00 |  30 | TikZ'en eines Bildes mit Hilfe von Jérôme Urhausen (Email 1 vom 10.02.2014)
-|11.02.2014 | 06:30 - 07:00 |  30 | Verbesserungsvorschläge von Jérôme Urhausen, Email 2 vom 10.02.2014, umgesetzt.
+|10.02.2014 | 11:05 - 11:20 |  15 | Verbesserungsvorschläge von Marco, E-Mail 1 vom 10.02.2014, umgesetzt.
+|10.02.2014 | 11:40 - 13:20 | 100 | Verbesserungsvorschläge von Jérôme Urhausen, E-Mail 1 vom 10.02.2014, umgesetzt.
+|11.02.2014 | 05:30 - 06:00 |  30 | TikZ'en eines Bildes mit Hilfe von Jérôme Urhausen (E-Mail 1 vom 10.02.2014)
+|11.02.2014 | 06:30 - 07:00 |  30 | Verbesserungsvorschläge von Jérôme Urhausen, E-Mail 2 vom 10.02.2014, umgesetzt.
 |11.02.2014 | 09:45 - 12:20 | 155 | Digitalisieren der Vorlesung von 11.02.2014
-|13.02.2014 | 10:00 - 11:00 |  60 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 13.02.2014, umgesetzt.
+|13.02.2014 | 10:00 - 11:00 |  60 | Verbesserungsvorschläge von Jérôme Urhausen, E-Mail vom 13.02.2014, umgesetzt.
 |13.02.2014 | 15:45 - 17:00 |  75 | Digitalisieren der Vorlesung von 13.02.2014
-|14.02.2014 | 06:15 - 07:10 |  55 | Verbesserungsvorschläge von Arthur (Email) umgesetzt.
+|14.02.2014 | 06:15 - 07:10 |  55 | Verbesserungsvorschläge von Arthur (E-Mail) umgesetzt.
 |14.02.2014 | 18:30 - 18:50 |  20 | Verbesserungsvorschläge von Henrieke (RL) umgesetzt.
 |14.02.2014 | 18:50 - 19:00 |  10 | Verbesserungsvorschläge von Jan (Facebook) umgesetzt.
 |14.02.2014 | 20:30 - 24:00 | 210 | Überarbeitung des Beweises der Eindeutigkeit einer Parallelen
 |15.02.2014 | 13:00 - 21:00 | 420 | Textsetzung; Kleine Korrekturen
 |16.02.2014 | 10:30 - 11:30 |  60 | Textsetzung; TODO entfernt; Kleine Korrekturen
 |18.02.2014 | 10:00 - 11:00 |  60 | Textsetzungsfehler und mathematische Fehler behoben; Beweis hinzugefügt
-|18.02.2014 | 11:00 - 11:30 |  30 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 17.02.2014, umgesetzt.
-|19.02.2014 | 20:00 - 20:50 |  50 | Verbesserungsvorschläge von Jérôme Urhausen, Email vom 19.02.2014, umgesetzt.
+|18.02.2014 | 11:00 - 11:30 |  30 | Verbesserungsvorschläge von Jérôme Urhausen, E-Mail vom 17.02.2014, umgesetzt.
+|19.02.2014 | 20:00 - 20:50 |  50 | Verbesserungsvorschläge von Jérôme Urhausen, E-Mail vom 19.02.2014, umgesetzt.
 |19.02.2014 | 20:50 - 22:00 |  70 | Kongruenzsätze
 |20.02.2014 | 12:00 - 13:00 |  60 | Beweis zu Erzeuger von SL_2(R) hinzugefügt.
 |20.02.2014 | 12:00 - 13:00 |  60 | Verbesserungsvorschläge von Jonathan (Facebook, 20.02.2014) eingearbeitet.
-|20.02.2014 | 13:00 - 13:45 |  45 | Verbesserungsvorschläge von Jérôme Urhausen, Email 1 vom 20.02.2014, umgesetzt.
-|20.02.2014 | 19:30 - 20:15 |  45 | Verbesserungsvorschläge von Jérôme Urhausen, Email 2 vom 20.02.2014, umgesetzt.
+|20.02.2014 | 13:00 - 13:45 |  45 | Verbesserungsvorschläge von Jérôme Urhausen, E-Mail 1 vom 20.02.2014, umgesetzt.
+|20.02.2014 | 19:30 - 20:15 |  45 | Verbesserungsvorschläge von Jérôme Urhausen, E-Mail 2 vom 20.02.2014, umgesetzt.
 | Zwischenstand | ---       | --- | 6081 Minuten => Über 100 Stunden!
 |17.03.2014 | 16:00 - 18:00 | 120 | Textsetzung
 |19.03.2014 | 08:00 - 10:00 | 120 | Verbesserung des Symbolverzeichnisses
