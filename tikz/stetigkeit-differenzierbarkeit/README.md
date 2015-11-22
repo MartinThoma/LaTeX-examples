@@ -14,7 +14,7 @@ f:(0,1)->R
 
 Sätze
 -----
-Jede auf einem kompakten Intervall stetige Funktion 
+Jede auf einem kompakten Intervall stetige Funktion
 $f: [a, b] \rightarrow \mathbb{R}$ ist dort gleichmäßig stetig.
   -- Analysis I, Otto Forster, S. 112 (10. Auflage)
 
