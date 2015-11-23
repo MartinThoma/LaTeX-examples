@@ -1,5 +1,5 @@
 \documentclass[technote,a4paper,leqno]{IEEEtran}
-
+\pdfoutput=1
 %---- Sonderzeichen-------%
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
@@ -24,8 +24,9 @@
 \usepackage{subfig}         % multiple figures in one
 \usepackage{caption}
 \usepackage{tikz}
+\let\labelindent\relax
 \usepackage{enumitem}
-\usepackage[german,nameinlink]{cleveref}
+\usepackage[german]{cleveref} % nameinlink - arxiv has too old LaTeX :-(
 \usepackage{braket}
 \allowdisplaybreaks
 \usetikzlibrary{backgrounds}
@@ -39,7 +40,7 @@
 
 \hypersetup{
   pdftitle    = {Über die Klassifizierung von Knoten in dynamischen Netzwerken mit textuellen Inhalten},
-  pdfauthor   = {Martin Thoma},
+  pdfauthor   = {Martin Thoma}, % ORCID: http://orcid.org/0000-0002-6517-1690
   pdfkeywords = {DYCOS}
 }
 

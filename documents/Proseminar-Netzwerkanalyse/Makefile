@@ -13,4 +13,4 @@ ebook:
 	ebook-convert $(SOURCE).html $(SOURCE).epub --language de --no-default-epub-cover
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg *.glg *.glo *.gls *.ist *.xdy *.bbl *.blg *.bak
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out *.thm *.idx *.toc *.ind *.ilg *.glg *.glo *.gls *.ist *.xdy *.blg *.bak
