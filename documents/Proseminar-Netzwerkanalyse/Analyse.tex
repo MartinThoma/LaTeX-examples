@@ -1,10 +1,9 @@
-Für den DYCOS-Algorithmus wurde in \cite{aggarwal2011} bewiesen,
-dass sich nach Ausführung von DYCOS für einen unbeschrifteten
-Knoten mit einer Wahrscheinlichkeit von höchstens
-$(|\L_t|-1)\cdot e^{-l \cdot b^2 / 2}$ eine Knotenbeschriftung ergibt, deren
-relative Häufigkeit weniger als $b$ der häufigsten Beschriftung ist.
-Dabei ist $|\L_t|$ die Anzahl der Beschriftungen und $l$ die Länge der
-Random-Walks.
+Für den DYCOS-Algorithmus wurde in \cite{aggarwal2011} bewiesen, dass sich nach
+Ausführung von DYCOS für einen unbeschrifteten Knoten mit einer
+Wahrscheinlichkeit von höchstens $(|\L_t|-1)\cdot e^{-l \cdot b^2 / 2}$ eine
+Knotenbeschriftung ergibt, deren relative Häufigkeit weniger als $b$ der
+häufigsten Beschriftung ist. Dabei ist $|\L_t|$ die Anzahl der Beschriftungen
+und $l$ die Länge der Random-Walks.
 
 Außerdem wurde experimentell anhand des DBLP-Datensatzes\footnote{http://dblp.uni-trier.de/}
 und des CORA-Datensatzes\footnote{http://people.cs.umass.edu/~mccallum/data/cora-classify.tar.gz}
@@ -27,10 +26,10 @@ von 61\% - 66\% erreicht.
     \label{tab:datasets}
 \end{table}
 
-Obwohl es sich nicht sagen lässt,
-wie genau die Ergebnisse aus \cite{aggarwal2011} zustande gekommen sind,
-eignet sich das Kreuzvalidierungsverfahren zur Bestimmung der Klassifikationsgüte
-wie es in \cite{Lavesson,Stone1974} vorgestellt wird:
+Obwohl es sich nicht sagen lässt, wie genau die Ergebnisse aus
+\cite{aggarwal2011} zustande gekommen sind, eignet sich das
+Kreuzvalidierungsverfahren zur Bestimmung der Klassifikationsgüte wie es in
+\cite{Lavesson,Stone1974} vorgestellt wird:
 \begin{enumerate}
     \item Betrachte nur $V_{L,T}$.
     \item Unterteile $V_{L,T}$ zufällig in $k$ disjunkte Mengen $M_1, \dots, M_k$.
@@ -40,5 +39,3 @@ wie es in \cite{Lavesson,Stone1974} vorgestellt wird:
 \end{enumerate}
 
 Es wird $k=10$ vorgeschlagen.
-
-

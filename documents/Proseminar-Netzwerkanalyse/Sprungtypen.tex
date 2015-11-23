@@ -1,10 +1,9 @@
 \subsection{Sprungtypen}\label{sec:sprungtypen}
-Die beiden bereits definierten Sprungtypen, der strukturelle Sprung
-sowie der inhaltliche Zweifachsprung werden im folgenden erklärt.
+Die beiden bereits definierten Sprungtypen, der strukturelle Sprung sowie der
+inhaltliche Zweifachsprung werden im folgenden erklärt.
 \goodbreak
-Der strukturelle Sprung entspricht einer zufälligen Wahl eines
-Nachbarknotens, wie es in \cref{alg:DYCOS-structural-hop}
-gezeigt wird.
+Der strukturelle Sprung entspricht einer zufälligen Wahl eines Nachbarknotens,
+wie es in \cref{alg:DYCOS-structural-hop} gezeigt wird.
 \begin{algorithm}[H]
     \begin{algorithmic}[1]
         \Procedure{SturkturellerSprung}{Knoten $v$, Anzahl $q$}
@@ -18,15 +17,13 @@ gezeigt wird.
 \label{alg:DYCOS-structural-hop}
 \end{algorithm}
 
-Bei inhaltlichen Zweifachsprüngen ist jedoch nicht sinnvoll so strikt
-nach der Definition vorzugehen,  also
-direkt von einem strukturellem Knoten
-$v \in V_t$ zu einem mit $v$ verbundenen Wortknoten $w \in W_t$ zu springen
-und von diesem wieder zu einem verbundenem strukturellem Knoten
-$v' \in V_t$. Würde man dies machen, wäre zu befürchten, dass
-aufgrund von Homonymen die Qualität der Klassifizierung verringert
-wird. So hat \enquote{Brücke} im Deutschen viele Bedeutungen.
-Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
+Bei inhaltlichen Zweifachsprüngen ist jedoch nicht sinnvoll so strikt nach der
+Definition vorzugehen,  also direkt von einem strukturellem Knoten $v \in V_t$
+zu einem mit $v$ verbundenen Wortknoten $w \in W_t$ zu springen und von diesem
+wieder zu einem verbundenem strukturellem Knoten $v' \in V_t$. Würde man dies
+machen, wäre zu befürchten, dass aufgrund von Homonymen die Qualität der
+Klassifizierung verringert wird. So hat \enquote{Brücke} im Deutschen viele
+Bedeutungen. Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
 objektorientierten Programmierung oder ein Teil des Gehirns.
 
 Deshalb wird für jeden Knoten $v$, von dem aus man einen inhaltlichen
@@ -34,13 +31,14 @@ Zweifachsprung machen will folgende Textanalyse durchgeführt:
 \begin{enumerate}[label=C\arabic*,ref=C\arabic*]
     \item \label{step:c1} Gehe alle in $v$ startenden Random Walks der Länge $2$ durch
           und erstelle eine Liste $L$ der erreichbaren Knoten $v'$. Speichere
-          außerdem, durch wie viele Pfade diese Knoten $v'$ jeweils erreichbar sind.
+          außerdem, durch wie viele Pfade diese Knoten $v'$ jeweils erreichbar
+          sind.
     \item \label{step:c2} Betrachte im folgenden nur die Top-$q$ Knoten bzgl. der
           Anzahl der Pfade von $v$ nach $v'$, wobei $q \in \mathbb{N}$
           eine zu wählende Konstante des DYCOS-Algorithmus ist.\footnote{Sowohl für den DBLP, als auch für den
 CORA-Datensatz wurde in \cite[S. 364]{aggarwal2011} $q=10$ gewählt.}
-          Diese Knotenmenge heiße im Folgenden $T(v)$ und $p(v, v')$
-          sei die Anzahl der Pfade von $v$ über einen Wortknoten nach $v'$.
+          Diese Knotenmenge heiße im Folgenden $T(v)$ und $p(v, v')$ sei die
+          Anzahl der Pfade von $v$ über einen Wortknoten nach $v'$.
     \item \label{step:c3} Wähle mit Wahrscheinlichkeit $\frac{p(v, v')}{\sum_{w \in T(v)} p(v, w)}$
           den Knoten $v' \in T(v)$ als Ziel des Zweifachsprungs.
 \end{enumerate}
@@ -53,27 +51,26 @@ für den DYCOS-Algorithmus zu wählen ist. Dieser Parameter beschränkt
 die Anzahl der möglichen Zielknoten $v' \in V_T$ auf diejenigen
 $q$ Knoten, die $v$ bzgl. der Textanalyse am ähnlichsten sind.
 
-In \cref{alg:l2} bis \cref{alg:l5} wird \cref{step:c1} durchgeführt
-und alle erreichbaren Knoten in $reachableNodes$ mit der Anzahl
-der Pfade, durch die sie erreicht werden können, gespeichert.
+In \cref{alg:l2} bis \cref{alg:l5} wird \cref{step:c1} durchgeführt und alle
+erreichbaren Knoten in $reachableNodes$ mit der Anzahl der Pfade, durch die sie
+erreicht werden können, gespeichert.
 
-In \cref{alg:l6} wird \cref{step:c2} durchgeführt.
-Ab hier gilt
+In \cref{alg:l6} wird \cref{step:c2} durchgeführt. Ab hier gilt
 \[ |T| = \begin{cases}q               &\text{falls } |reachableNodes|\geq q\\
                      |reachableNodes| &\text{sonst }\end{cases}\]
 
 Bei der Wahl der Datenstruktur von $T$ ist zu beachten, dass man in
 \cref{alg:21} über Indizes auf Elemente aus $T$ zugreifen können muss.
 
-In \cref{alg:l8} bis \ref{alg:l13} wird ein assoziatives Array erstellt,
-das von $v' \in T(v)$ auf die relative
-Häufigkeit bzgl. aller Pfade von $v$ zu Knoten aus den Top-$q$ abbildet.
+In \cref{alg:l8} bis \ref{alg:l13} wird ein assoziatives Array erstellt, das
+von $v' \in T(v)$ auf die relative Häufigkeit bzgl. aller Pfade von $v$ zu
+Knoten aus den Top-$q$ abbildet.
 
-In allen folgenden Zeilen wird \cref{step:c3} durchgeführt.
-In \cref{alg:15} bis \cref{alg:22} wird ein Knoten $v' \in T(v)$ mit
-einer Wahrscheinlichkeit, die seiner relativen Häufigkeit am Anteil
-der Pfaden der Länge 2 von $v$ nach $v'$ über einen beliebigen
-Wortknoten entspricht ausgewählt und schließlich zurückgegeben.
+In allen folgenden Zeilen wird \cref{step:c3} durchgeführt. In \cref{alg:15}
+bis \cref{alg:22} wird ein Knoten $v' \in T(v)$ mit einer Wahrscheinlichkeit,
+die seiner relativen Häufigkeit am Anteil der Pfaden der Länge 2 von $v$ nach
+$v'$ über einen beliebigen Wortknoten entspricht ausgewählt und schließlich
+zurückgegeben.
 
 \begin{algorithm}
   \caption{Inhaltlicher Zweifachsprung}

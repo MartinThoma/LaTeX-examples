@@ -1,26 +1,22 @@
-Den DYCOS-Algorithmus kann in einigen Aspekten erweitert werden.
-So könnte man vor der Auswahl des Vokabulars jedes Wort auf den
-Wortstamm zurückführen.
-Dafür könnte zum Beispiel der in \cite{porter} vorgestellte
-Porter-Stemming-Algorithmus verwendet werden. Durch diese Maßnahme wird das
-Vokabular kleiner gehalten wodurch mehr Artikel mit einander
-durch Vokabular verbunden werden können. Außerdem könnte so der
-Gini-Koeffizient ein besseres Maß für die Gleichheit von Texten werden.
+Den DYCOS-Algorithmus kann in einigen Aspekten erweitert werden. So könnte man
+vor der Auswahl des Vokabulars jedes Wort auf den Wortstamm zurückführen. Dafür
+könnte zum Beispiel der in \cite{porter} vorgestellte Porter-Stemming-Algorithmus verwendet werden. Durch diese Maßnahme wird das Vokabular kleiner
+gehalten wodurch mehr Artikel mit einander durch Vokabular verbunden werden
+können. Außerdem könnte so der Gini-Koeffizient ein besseres Maß für die
+Gleichheit von Texten werden.
 
-Eine weitere Verbesserungsmöglichkeit besteht in der Textanalyse.
-Momentan ist diese noch sehr einfach gestrickt und ignoriert die
-Reihenfolge von Wortern beziehungsweise Wertungen davon. So könnte
-man den DYCOS-Algorithmus in einem sozialem Netzwerk verwenden wollen,
-in dem politische Parteiaffinität von einigen Mitgliedern angegeben
-wird um die Parteiaffinität der restlichen Mitglieder zu bestimmen.
-In diesem Fall macht es jedoch einen wichtigen Unterschied, ob jemand
-über eine Partei gutes oder schlechtes schreibt.
+Eine weitere Verbesserungsmöglichkeit besteht in der Textanalyse. Momentan ist
+diese noch sehr einfach gestrickt und ignoriert die Reihenfolge von Wortern
+beziehungsweise Wertungen davon. So könnte man den DYCOS-Algorithmus in einem
+sozialem Netzwerk verwenden wollen, in dem politische Parteiaffinität von
+einigen Mitgliedern angegeben wird um die Parteiaffinität der restlichen
+Mitglieder zu bestimmen. In diesem Fall macht es jedoch einen wichtigen
+Unterschied, ob jemand über eine Partei gutes oder schlechtes schreibt.
 
-Eine einfache Erweiterung des DYCOS-Algorithmus wäre der Umgang mit
-mehreren Beschriftungen.
+Eine einfache Erweiterung des DYCOS-Algorithmus wäre der Umgang mit mehreren
+Beschriftungen.
 
-DYCOS beschränkt sich bei inhaltlichen Zweifachsprüngen
-auf die Top-$q$-Wortknoten, also die $q$ ähnlichsten Knoten
-gemessen mit der Aggregatanalyse, allerdings wurde bisher noch nicht
-untersucht, wie der Einfluss von $q \in \mathbb{N}$ auf die
-Klassifikationsgüte ist.
+DYCOS beschränkt sich bei inhaltlichen Zweifachsprüngen auf die
+Top-$q$-Wortknoten, also die $q$ ähnlichsten Knoten gemessen mit der
+Aggregatanalyse, allerdings wurde bisher noch nicht untersucht, wie der
+Einfluss von $q \in \mathbb{N}$ auf die Klassifikationsgüte ist.

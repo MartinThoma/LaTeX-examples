@@ -1,45 +1,37 @@
 \subsection{Überblick}
-DYCOS (\underline{DY}namic \underline{C}lassification
-algorithm with c\underline{O}ntent and \underline{S}tructure) ist ein
-Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011} vorgestellt
-wurde.
+DYCOS (\underline{DY}namic \underline{C}lassification algorithm with
+c\underline{O}ntent and \underline{S}tructure) ist ein
+Knotenklassifizierungsalgorithmus, der Ursprünglich in \cite{aggarwal2011}
+vorgestellt wurde.
 
-Ein zentrales Element des DYCOS-Algorithmus ist der sog.
-{\it Random Walk}:
+Ein zentrales Element des DYCOS-Algorithmus ist der sog. {\it Random Walk}:
 
 \begin{definition}[Random Walk, Sprung]
     Sei $G = (V, E)$ mit $E \subseteq V \times V$ ein Graph und
     $v_0 \in V$ ein Knoten des Graphen.
 
-    %Sei außerdem $f: V \rightarrow \mathcal{P}(V)$ eine Abbildung
-    %mit der Eigenschaft:
-    %\[ \forall v \in V \forall v' \in f(v): \exists \text{Weg von } v \text{ nach } v'\]
-
-    Ein Random Walk der Länge $l$ auf $G$, startend bei $v_0$ ist
-    nun der zeitdiskrete stochastische Prozess, der $v_i$
-    auf einen zufällig gewählten Nachbarn $v_{i+1}$ abbildet
-    (für $i \in 0, \dots, l-1$).
-    Die Abbildung $v_i \mapsto v_{i+1}$ heißt ein Sprung.
+    Ein Random Walk der Länge $l$ auf $G$, startend bei $v_0$ ist nun der
+    zeitdiskrete stochastische Prozess, der $v_i$ auf einen zufällig gewählten
+    Nachbarn $v_{i+1}$ abbildet (für $i \in 0, \dots, l-1$). Die Abbildung $v_i
+    \mapsto v_{i+1}$ heißt ein Sprung.
 \end{definition}
 
-Der DYCOS-Algorithmus klassifiziert einzelne Knoten, indem $r$ Random Walks der Länge $l$,
-startend bei dem zu klassifizierenden Knoten $v$ gemacht werden. Dabei
-werden die Beschriftungen der besuchten Knoten gezählt. Die Beschriftung, die am häufigsten
-vorgekommen ist, wird als Beschriftung für $v$ gewählt.
-DYCOS nutzt also die sog. Homophilie, d.~h. die Eigenschaft, dass
-Knoten, die nur wenige Hops von einander entfernt sind, häufig auch
-ähnlich sind \cite{bhagat}. Der DYCOS-Algorithmus arbeitet jedoch nicht
-direkt auf dem Graphen, sondern erweitert ihn mit
-Hilfe der zur Verfügung stehenden Texte. Wie diese Erweiterung
-erstellt wird, wird im Folgenden erklärt.\\
+Der DYCOS-Algorithmus klassifiziert einzelne Knoten, indem $r$ Random Walks der
+Länge $l$, startend bei dem zu klassifizierenden Knoten $v$ gemacht werden.
+Dabei werden die Beschriftungen der besuchten Knoten gezählt. Die Beschriftung,
+die am häufigsten vorgekommen ist, wird als Beschriftung für $v$ gewählt. DYCOS
+nutzt also die sog. Homophilie, d.~h. die Eigenschaft, dass Knoten, die nur
+wenige Hops von einander entfernt sind, häufig auch ähnlich sind \cite{bhagat}.
+Der DYCOS-Algorithmus arbeitet jedoch nicht direkt auf dem Graphen, sondern
+erweitert ihn mit Hilfe der zur Verfügung stehenden Texte. Wie diese
+Erweiterung erstellt wird, wird im Folgenden erklärt.\\
 Für diese Erweiterung wird zuerst wird Vokabular $W_t$ bestimmt, das
-charakteristisch für eine Knotengruppe ist. Wie das gemacht werden kann
-und warum nicht einfach jedes Wort in das Vokabular aufgenommen wird,
-wird in \cref{sec:vokabularbestimmung} erläutert.\\
-Nach der Bestimmung des Vokabulars wird für
-jedes Wort im Vokabular ein Wortknoten zum Graphen hinzugefügt. Alle
-Knoten, die der Graph zuvor hatte, werden nun \enquote{Strukturknoten}
-genannt.
+charakteristisch für eine Knotengruppe ist. Wie das gemacht werden kann und
+warum nicht einfach jedes Wort in das Vokabular aufgenommen wird, wird in
+\cref{sec:vokabularbestimmung} erläutert.\\
+Nach der Bestimmung des Vokabulars wird für jedes Wort im Vokabular ein
+Wortknoten zum Graphen hinzugefügt. Alle Knoten, die der Graph zuvor hatte,
+werden nun \enquote{Strukturknoten} genannt.
 Ein Strukturknoten $v$ wird genau dann mit einem Wortknoten $w \in W_t$
 verbunden, wenn $w$ in einem Text von $v$ vorkommt. \Cref{fig:erweiterter-graph}
 zeigt beispielhaft den so entstehenden, semi-bipartiten Graphen.
@@ -57,8 +49,8 @@ jedes Wortes berücksichtigt.
     \label{fig:erweiterter-graph}
 \end{figure}
 
-Entsprechend werden zwei unterschiedliche Sprungtypen unterschieden,
-die strukturellen Sprünge und inhaltliche Zweifachsprünge:
+Entsprechend werden zwei unterschiedliche Sprungtypen unterschieden, die
+strukturellen Sprünge und inhaltliche Zweifachsprünge:
 
 \begin{definition}[struktureller Sprung]
     Sei $G_{E,t} = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
@@ -69,48 +61,43 @@ die strukturellen Sprünge und inhaltliche Zweifachsprünge:
     ein \textit{struktureller Sprung}.
 \end{definition}
 \goodbreak
-Im Gegensatz dazu benutzten inhaltliche Zweifachsprünge
-tatsächlich die Grapherweiterung:
+Im Gegensatz dazu benutzten inhaltliche Zweifachsprünge tatsächlich die
+Grapherweiterung:
 \begin{definition}[inhaltlicher Zweifachsprung]
-    Sei $G_t = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der
-    um die Wortknoten $W_{t}$ erweiterte Graph.
+    Sei $G_t = (V_t, E_{S,t} \cup E_{W,t}, V_{L,t}, W_{t})$ der um die
+    Wortknoten $W_{t}$ erweiterte Graph.
 
-    Dann heißt das zufällige wechseln des aktuell betrachteten
-    Knoten $v \in V_t$ zu einem benachbartem Knoten $w \in W_t$
-    und weiter zu einem zufälligem Nachbar $v' \in V_t$ von $w$
-    ein inhaltlicher Zweifachsprung.
+    Dann heißt das zufällige wechseln des aktuell betrachteten Knoten $v \in
+    V_t$ zu einem benachbartem Knoten $w \in W_t$ und weiter zu einem
+    zufälligem Nachbar $v' \in V_t$ von $w$ ein inhaltlicher Zweifachsprung.
 \end{definition}
 
-Jeder inhaltliche Zweifachsprung beginnt und endet also in einem Strukturknoten,
-springt über einen Wortknoten und ist ein Pfad der Länge~2.
+Jeder inhaltliche Zweifachsprung beginnt und endet also in einem
+Strukturknoten, springt über einen Wortknoten und ist ein Pfad der Länge~2.
 
-Ob in einem Sprung der Random Walks ein struktureller Sprung oder
-ein inhaltlicher Zweifachsprung gemacht wird, wird jedes mal zufällig
-neu entschieden. Dafür wird der Parameter $0 \leq p_S \leq 1$ für den Algorithmus
-gewählt. Mit einer Wahrscheinlichkeit von $p_S$ wird ein struktureller
-Sprung durchgeführt und mit einer Wahrscheinlichkeit
-von $(1-p_S)$ ein modifizierter inhaltlicher Zweifachsprung, wie er in
-\cref{sec:sprungtypen} erklärt wird, gemacht. Der
-Parameter $p_S$ gibt an, wie wichtig die Struktur des Graphen im Verhältnis
-zu den textuellen Inhalten ist. Bei $p_S = 0$ werden ausschließlich
-die Texte betrachtet, bei $p_S = 1$ ausschließlich die Struktur des
-Graphen.
+Ob in einem Sprung der Random Walks ein struktureller Sprung oder ein
+inhaltlicher Zweifachsprung gemacht wird, wird jedes mal zufällig neu
+entschieden. Dafür wird der Parameter $0 \leq p_S \leq 1$ für den Algorithmus
+gewählt. Mit einer Wahrscheinlichkeit von $p_S$ wird ein struktureller Sprung
+durchgeführt und mit einer Wahrscheinlichkeit von $(1-p_S)$ ein modifizierter
+inhaltlicher Zweifachsprung, wie er in \cref{sec:sprungtypen} erklärt wird,
+gemacht. Der Parameter $p_S$ gibt an, wie wichtig die Struktur des Graphen im
+Verhältnis zu den textuellen Inhalten ist. Bei $p_S = 0$ werden ausschließlich
+die Texte betrachtet, bei $p_S = 1$ ausschließlich die Struktur des Graphen.
 
-Die Vokabularbestimmung kann zu jedem Zeitpunkt $t$ durchgeführt
-werden, muss es aber nicht.
+Die Vokabularbestimmung kann zu jedem Zeitpunkt $t$ durchgeführt werden, muss
+es aber nicht.
 
 In \cref{alg:DYCOS} steht der DYCOS-Algorithmus in Form von Pseudocode:
 In \cref{alg1:l8} wird für jeden unbeschrifteten Knoten
 durch die folgenden Zeilen eine Beschriftung gewählt.
 
-\Cref{alg1:l10} führt $r$ Random Walks durch.
-In \cref{alg1:l11} wird eine temporäre Variable für den aktuell
-betrachteten Knoten angelegt.
+\Cref{alg1:l10} führt $r$ Random Walks durch. In \cref{alg1:l11} wird eine
+temporäre Variable für den aktuell betrachteten Knoten angelegt.
 
-In \cref{alg1:l12} bis \cref{alg1:l21} werden einzelne Random Walks
-der Länge $l$ durchgeführt, wobei die beobachteten Beschriftungen
-gezählt werden und mit einer Wahrscheinlichkeit von $p_S$ ein
-struktureller Sprung durchgeführt wird.
+In \cref{alg1:l12} bis \cref{alg1:l21} werden einzelne Random Walks der Länge
+$l$ durchgeführt, wobei die beobachteten Beschriftungen gezählt werden und mit
+einer Wahrscheinlichkeit von $p_S$ ein struktureller Sprung durchgeführt wird.
 
 \begin{algorithm}[ht]
     \begin{algorithmic}[1]
@@ -158,8 +145,8 @@ struktureller Sprung durchgeführt wird.
 \end{algorithm}
 
 \subsection{Datenstrukturen}
-Zusätzlich zu dem gerichteten Graphen $G_t = (V_t, E_t, V_{L,t})$
-verwaltet der DYCOS-Algorithmus zwei weitere Datenstrukturen:
+Zusätzlich zu dem gerichteten Graphen $G_t = (V_t, E_t, V_{L,t})$ verwaltet der
+DYCOS-Algorithmus zwei weitere Datenstrukturen:
 \begin{itemize}
     \item Für jeden Knoten $v \in V_t$ werden die vorkommenden Wörter,
           die auch im Vokabular $W_t$ sind,
