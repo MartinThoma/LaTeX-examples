@@ -4,4 +4,4 @@ make:
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out _minted-entropie-distanz

@@ -1,17 +1,17 @@
-DOKUMENT = GeoTopo
+SOURCE = GeoTopo
 
 make:
 	sketch figures/torus.sketch > figures/torus.tex
-	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf # aux-files for makeindex / makeglossaries
-	makeindex $(DOKUMENT)
-	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf # include index
-	pdflatex $(DOKUMENT).tex -interaction=batchmode -output-format=pdf # include symbol table
+	pdflatex $(SOURCE).tex -interaction=batchmode -output-format=pdf # aux-files for makeindex / makeglossaries
+	makeindex $(SOURCE)
+	pdflatex $(SOURCE).tex -interaction=batchmode -output-format=pdf # include index
+	pdflatex $(SOURCE).tex -interaction=batchmode -output-format=pdf # include symbol table
 	make clean # remove intermediate files like *.log and *.aux
 
 ebook:
-	latexml --dest=$(DOKUMENT).xml $(DOKUMENT).tex
-	latexmlpost -dest=$(DOKUMENT).html $(DOKUMENT).xml
-	ebook-convert $(DOKUMENT).html $(DOKUMENT).epub --language de --no-default-epub-cover
+	latexml --dest=$(SOURCE).xml $(SOURCE).tex
+	latexmlpost -dest=$(SOURCE).html $(SOURCE).xml
+	ebook-convert $(SOURCE).html $(SOURCE).epub --language de --no-default-epub-cover
 
 all:
 	cd definitions;make
