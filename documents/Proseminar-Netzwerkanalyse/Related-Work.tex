@@ -1,6 +1,6 @@
 %!TEX root = Ausarbeitung-Thoma.tex
 Sowohl das Problem der Knotenklassifikation, als auch das der
-Textklassifikation, wurde bereits in verschiedenen Kontexten. Jedoch scheien
+Textklassifikation, wurde bereits in verschiedenen Kontexten. Jedoch scheinen
 bisher entweder nur die Struktur des zugrundeliegenden Graphen oder nur
 Eigenschaften der Texte verwendet worden zu sein.
 
@@ -16,14 +16,15 @@ Spezialfall der Textklassifikation mit einem zugrundeliegenden Graphen ein.
 Die vorgestellten Methoden zur Textklassifikation variieren außerdem sehr
 stark. Es gibt Verfahren, die auf dem bag-of-words-Modell basieren
 \cite{Ko:2012:STW:2348283.2348453} wie es auch im DYCOS-Algorithmus verwendet
-wird. Aber es gibt auch Verfahren, die auf dem Expectation-Maximization-
-Algorithmus basieren \cite{Nigam99textclassification} oder Support Vector
+wird. Aber es gibt auch Verfahren, die auf dem
+Expectation-Maximization-Algorithmus basieren \cite{Nigam99textclassification}
+oder Support Vector
 Machines nutzen \cite{Joachims98textcategorization}.
 
 Es wäre also gut Vorstellbar, die Art und Weise wie die Texte in die
 Klassifikation des DYCOS-Algorithmus einfließen zu variieren. Allerdings ist
-dabei darauf hinzuweisen, dass die im Folgeden vorgestellte Verwendung der
+dabei darauf hinzuweisen, dass die im Folgenden vorgestellte Verwendung der
 Texte sowohl einfach zu implementieren ist und nur lineare Vorverarbeitungszeit
 in Anzahl der Wörter des Textes hat, als auch es erlaubt einzelne Knoten zu
-klassifizieren, wobei der Graph nur lokal um den zu klassifizerenden Knoten
+klassifizieren, wobei der Graph nur lokal um den zu klassifizierenden Knoten
 betrachten werden muss.

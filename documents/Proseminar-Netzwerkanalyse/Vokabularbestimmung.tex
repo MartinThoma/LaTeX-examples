@@ -4,9 +4,9 @@ liegt es in unserem Interesse so wenig Wörter wie möglich ins
 Vokabular aufzunehmen. Insbesondere sind Wörter nicht von Interesse,
 die in fast allen Texten vorkommen, wie im Deutschen z.~B.
 \enquote{und}, \enquote{mit} und die Pronomen. Es ist wünschenswert Wörter zu
-wählen, die die Texte möglichst stark voneinander Unterscheiden. Der DYCOS-
-Algorithmus wählt die Top-$m$ dieser Wörter als Vokabular, wobei $m \in
-\mathbb{N}$ eine Festzulegende Konstante ist. In \cite[S. 365]{aggarwal2011}
+wählen, die die Texte möglichst stark voneinander Unterscheiden. Der
+DYCOS-Algorithmus wählt die Top-$m$ dieser Wörter als Vokabular, wobei
+$m \in \mathbb{N}$ eine Festzulegende Konstante ist. In \cite[S. 365]{aggarwal2011}
 wird der Einfluss von $m \in \Set{5,10, 15,20}$ auf die Klassifikationsgüte
 untersucht und festgestellt, dass die Klassifikationsgüte mit größerem $m$
 sinkt, sie also für $m=5$ für den DBLP-Datensatz am höchsten ist. Für den CORA-
@@ -34,7 +34,7 @@ eine Teilmenge $S_t \subseteq V_{L,t}$ zum Generieren des Vokabulars gewählt.
 In \cref{alg4:l8} wird ein Array $cLabelWords$ erstellt, das $(|\L_t|+1)$
 Felder hat. Die Elemente dieser Felder sind jeweils assoziative Arrays, deren
 Schlüssel Wörter und deren Werte natürliche Zahlen sind. Die ersten $|\L_t|$
-Elemente von $cLabelWords$ dienem dem Zählen der Häufigkeit der Wörter von
+Elemente von $cLabelWords$ dienen dem Zählen der Häufigkeit der Wörter von
 Texten aus $S_t$, wobei für jede Beschriftung die Häufigkeit einzeln gezählt
 wird. Das letzte Element aus $cLabelWords$ zählt die Summe der Wörter. Diese
 Datenstruktur wird in \cref{alg4:l10} bis \ref{alg4:l12} gefüllt.
@@ -53,15 +53,16 @@ Koeffizienten zurückgegeben.
                  $f:V_{L,t} \rightarrow \L_t$ (Beschriftungsfunktion),\\
                  $m$ (Gewünschte Vokabulargröße)
         \Ensure  $\M_t$ (Vokabular)\\
-        \State $S_t \gets \Call{Sample}{V_{L,t}}$\label{alg4:l6} \Comment{Wähle eine Teilmenge $S_t \subseteq V_{L,t}$ aus}
+        \State $S_t \gets \Call{Sample}{V_{L,t}}$\label{alg4:l6} \Comment{Wähle $S_t \subseteq V_{L,t}$ aus}
         \State $\M_t \gets \emptyset$ \Comment{Menge aller Wörter}
         \State $cLabelWords \gets$ Array aus $(|\L_t|+1)$ assoziativen Arrays\label{alg4:l8}
-        \ForAll{$v \in S_t$} \label{alg4:l10}\Comment{Gehe jeden Text Wort für Wort durch}
+        \ForAll{$v \in S_t$} \label{alg4:l10}
             \State $i \gets \Call{getLabel}{v}$
-            \ForAll{$(word, haeufigkeit) \in \Call{getTextAsMultiset}{v}$}
-                \State $cLabelWords[i][word] \gets cLabelWords[i][word] + haeufigkeit$
-                \State $cLabelWords[|\L_t|][word] \gets cLabelWords[i][|\L_t|] + haeufigkeit$
-                \State $\M_t = \M_t \cup \Set{word}$
+            \State \Comment{$w$ ist das Wort, $c$ ist die Häufigkeit}
+            \ForAll{$(w, c) \in \Call{getTextAsMultiset}{v}$}
+                \State $cLabelWords[i][w] \gets cLabelWords[i][w] + c$
+                \State $cLabelWords[|\L_t|][w] \gets cLabelWords[i][|\L_t|] + c$
+                \State $\M_t = \M_t \cup \Set{w}$
             \EndFor
         \EndFor\label{alg4:l12}
 		\\

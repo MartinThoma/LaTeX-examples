@@ -35,7 +35,7 @@ sowie die Kante $(v_2, v_1)$ hinzu.\\
 Nun wird der DYCOS-Algorithmus auf diesen Knoten angewendet und $v_2$ mit $A$
 beschriftet.\\
 Zum Zeitpunkt $t=3$ komme ein Knoten $v_3$, der mit $B$ beschriftet ist, und
-die Kante $(v_2, v_3)$ hinzu.
+die Kante $(v_2, v_3)$ hinzu. \Cref{fig:Formen} visualisiert diesen Vorgang.
 
 \begin{figure}[ht]
     \centering
@@ -56,16 +56,16 @@ die Kante $(v_2, v_3)$ hinzu.
         \input{figures/graph-t4.tex}
         \label{fig:graph-t4}
     }%
-    \label{Formen}
     \caption{Minimalbeispiel für den Einfluss früherer DYCOS-Anwendungen}
+    \label{fig:Formen}
 \end{figure}
 
 Würde man nun den DYCOS-Algorithmus erst jetzt, also anstelle von Zeitpunkt
 $t=2$ zum Zeitpunkt $t=3$ auf den Knoten $v_2$ anwenden, so würde eine
-$50\%$-Wahrscheinlichkeit bestehen, dass dieser mit $B$ beschriftet wird. Aber
-in diesem Beispiel wurde der Knoten schon zum Zeitpunkt $t=2$ beschriftet.
-Obwohl es in diesem kleinem Beispiel noch keine Rolle spielt, wird das Problem
-klar, wenn man weitere Knoten einfügt:
+\SI{50}{\percent}-Wahrscheinlichkeit bestehen, dass dieser mit $B$ beschriftet
+wird. Aber in diesem Beispiel wurde der Knoten schon zum Zeitpunkt $t=2$
+beschriftet. Obwohl es in diesem kleinem Beispiel noch keine Rolle spielt, wird
+das Problem klar, wenn man weitere Knoten einfügt:
 
 Wird zum Zeitpunkt $t=4$ ein unbeschrifteter Knoten $v_4$ und die Kanten
 $(v_1, v_4)$, $(v_2, v_4)$, $(v_3, v_4)$ hinzugefügt, so ist die

@@ -1,6 +1,6 @@
 \subsection{Sprungtypen}\label{sec:sprungtypen}
 Die beiden bereits definierten Sprungtypen, der strukturelle Sprung sowie der
-inhaltliche Zweifachsprung werden im folgenden erklärt.
+inhaltliche Zweifachsprung werden im Folgenden erklärt.
 \goodbreak
 Der strukturelle Sprung entspricht einer zufälligen Wahl eines Nachbarknotens,
 wie es in \cref{alg:DYCOS-structural-hop} gezeigt wird.
@@ -20,27 +20,28 @@ wie es in \cref{alg:DYCOS-structural-hop} gezeigt wird.
 Bei inhaltlichen Zweifachsprüngen ist jedoch nicht sinnvoll so strikt nach der
 Definition vorzugehen,  also direkt von einem strukturellem Knoten $v \in V_t$
 zu einem mit $v$ verbundenen Wortknoten $w \in W_t$ zu springen und von diesem
-wieder zu einem verbundenem strukturellem Knoten $v' \in V_t$. Würde man dies
-machen, wäre zu befürchten, dass aufgrund von Homonymen die Qualität der
+wieder zu einem verbundenem strukturellem Knoten $v' \in V_t$. Würde dies
+gemacht werden, wäre zu befürchten, dass aufgrund von Homonymen die Qualität der
 Klassifizierung verringert wird. So hat \enquote{Brücke} im Deutschen viele
 Bedeutungen. Gemeint sein können z.~B. das Bauwerk, das Entwurfsmuster der
 objektorientierten Programmierung oder ein Teil des Gehirns.
 
-Deshalb wird für jeden Knoten $v$, von dem aus man einen inhaltlichen
-Zweifachsprung machen will folgende Textanalyse durchgeführt:
+Deshalb wird für jeden Knoten $v$, von dem aus ein inhaltlicher
+Zweifachsprung gemacht werden soll folgende Textanalyse durchgeführt:
 \begin{enumerate}[label=C\arabic*,ref=C\arabic*]
     \item \label{step:c1} Gehe alle in $v$ startenden Random Walks der Länge $2$ durch
           und erstelle eine Liste $L$ der erreichbaren Knoten $v'$. Speichere
           außerdem, durch wie viele Pfade diese Knoten $v'$ jeweils erreichbar
           sind.
-    \item \label{step:c2} Betrachte im folgenden nur die Top-$q$ Knoten bzgl. der
-          Anzahl der Pfade von $v$ nach $v'$, wobei $q \in \mathbb{N}$
+    \item \label{step:c2} Betrachte im Folgenden nur die Top-$q$ Knoten bzgl.
+          der Anzahl der Pfade von $v$ nach $v'$, wobei $q \in \mathbb{N}$
           eine zu wählende Konstante des DYCOS-Algorithmus ist.\footnote{Sowohl für den DBLP, als auch für den
 CORA-Datensatz wurde in \cite[S. 364]{aggarwal2011} $q=10$ gewählt.}
           Diese Knotenmenge heiße im Folgenden $T(v)$ und $p(v, v')$ sei die
           Anzahl der Pfade von $v$ über einen Wortknoten nach $v'$.
-    \item \label{step:c3} Wähle mit Wahrscheinlichkeit $\frac{p(v, v')}{\sum_{w \in T(v)} p(v, w)}$
-          den Knoten $v' \in T(v)$ als Ziel des Zweifachsprungs.
+    \item \label{step:c3} Wähle mit Wahrscheinlichkeit
+          $\frac{p(v, v')}{\sum_{w \in T(v)} p(v, w)}$ den Knoten $v' \in T(v)$
+          als Ziel des Zweifachsprungs.
 \end{enumerate}
 
 Konkret könnte also ein inhaltlicher Zweifachsprung sowie wie in

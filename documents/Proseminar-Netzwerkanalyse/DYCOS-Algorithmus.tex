@@ -134,7 +134,7 @@ einer Wahrscheinlichkeit von $p_S$ ein struktureller Sprung durchgeführt wird.
                 \State $M_H \gets \Call{max}{d}$
             \EndIf
             \\
-            \State \textit{//Wähle aus der Menge der häufigsten Beschriftungen $M_H$ zufällig eine aus}
+            \State \Comment{Wähle aus der Menge der häufigsten Beschriftungen $M_H$ zufällig eine aus}
             \State $label \gets \Call{Random}{M_H}$
             \State $v.\Call{AddLabel}{label}$ \Comment{und weise dieses $v$ zu}
         \EndFor
