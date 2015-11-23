@@ -1,4 +1,4 @@
-\documentclass[runningheads]{llncs}
+\documentclass[technote,a4paper,leqno]{IEEEtran}
 
 %---- Sonderzeichen-------%
 \usepackage[utf8]{inputenc} % this is needed for umlauts
@@ -7,7 +7,6 @@
 %---- Codierung----%
 \usepackage{graphicx}
 \usepackage{url}
-\usepackage{llncsdoc}
 %----- Mathematischer Zeichenvorrat---%
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -22,7 +21,6 @@
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
 \usepackage{csquotes}
-\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{subfig}         % multiple figures in one
 \usepackage{caption}
 \usepackage{tikz}
@@ -33,6 +31,7 @@
 \usetikzlibrary{backgrounds}
 \usepackage[binary-units=true]{siunitx}
 \usepackage{mystyle}
+\usepackage{microtype}
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
@@ -45,12 +44,8 @@
 
 \begin{document}
 
-\mainmatter
 \title{Über die Klassifizierung von Knoten in dynamischen Netzwerken mit Inhalt}
-\titlerunning{Über die Klassifizierung von Knoten in dynamischen Netzwerken mit Inhalt}
 \author{Martin Thoma}
-\authorrunning{Proseminar Netzwerkanalyse}
-\institute{Betreuer: Christopher Oßner}
 \date{17.01.2014}
 \maketitle
 
@@ -76,10 +71,7 @@
 \section{Ausblick}
 \input{Ausblick}
 
-% Normaler LNCS Zitierstil
-%\bibliographystyle{splncs}
-\bibliographystyle{itmalpha}
-% TODO: Ändern der folgenden Zeile, damit die .bib-Datei gefunden wird
+\bibliographystyle{IEEEtranSA}
 \bibliography{literatur}
 
 \end{document}
