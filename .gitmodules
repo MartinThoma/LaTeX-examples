@@ -4,6 +4,3 @@
 [submodule "documents/NeuralNets"]
 	path = documents/NeuralNets
 	url = https://github.com/Marvin182/NeuralNets.git
-[submodule "publications/seminar-pixel-exact-classification"]
-	path = publications/seminar-pixel-exact-classification
-	url = git@github.com:MartinThoma/seminar-pixel-exact-classification.git
