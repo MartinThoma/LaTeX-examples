@@ -1,0 +1,93 @@
+\documentclass{UVKABoA4}
+
+\usepackage{graphicx} % Standardpaket zur Grafikeinbindung
+\usepackage{amsmath,amssymb} % Erweiterung des Mathematik-Modus
+\usepackage[colorinlistoftodos, german]{todonotes} % Option 'disable' entfernt alle ToDos
+\usepackage[absolute,overlay]{textpos}
+\usepackage{vmargin}          % Adjust margins in a simple way
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage[binary-units=true]{siunitx}
+\usepackage{minted} % needed for the inclusion of source code
+
+% Toggle the following two lines to switch between english and german layout
+% \usepackage[english]{babel} % Neue deutsche Rechtschreibung und Silbentrennung.
+\usepackage[ngerman]{babel} % Neue deutsche Rechtschreibung und Silbentrennung.
+
+\usepackage[raiselinks=true,
+            bookmarks=true,
+            bookmarksopenlevel=1,
+            bookmarksopen=true,
+            bookmarksnumbered=true,
+            hyperindex=true,
+            plainpages=false,
+            pdfpagelabels=true,
+            pdfborder={0 0 0.5}]{hyperref}
+
+
+\makeatletter
+\def\tagform@#1{\maketag@@@{\ignorespaces [#1]\unskip\@@italiccorr}}	% Anpassung der Formelnummerierung
+\makeatother
+
+\makeindex
+
+\newcommand{\myname}{Martin~Thoma}
+\newcommand{\headtitle}{Sicherheit in Kognitiven Automobilien}
+\newcommand{\floatingtitle}{Sicherheit in Kognitiven Automobilien}
+\newcommand{\thesistype}{Seminararbeit}
+\newcommand{\advisor}{Dipl.--Inform.~Ralf~Kohlhaas}
+
+\newcommand{\timestart}{23. Juli 2015}
+\newcommand{\releaseyear}{2015}
+\newcommand{\timeend}{17. April \releaseyear}
+\newcommand{\releasemonth}{im Juli \releaseyear}
+
+
+% Names of the organizations
+\newcommand{\term}{\iflanguage{english}{Seminar Cognitive Vehicles}
+                                             {Seminar Kognitive Automobile}}
+\newcommand{\department}{\iflanguage{english}{Department of Computer Science}
+                                             {Fakultät für Informatik}}
+\newcommand{\institute}{\iflanguage{english}{Institute for Anthropomatics}
+                                            {Institut für Anthropomatik}}
+\newcommand{\fzidepartment}{Abteilung Technisch Kognitive Assistenzsysteme}
+\newcommand{\fziname}{\iflanguage{english}{FZI Research Center for Information Technology}
+                                          {FZI Forschungszentrum Informatik}}
+\usepackage{xspace}
+\newcommand*\elide{\textup{[\,\dots]}\xspace}
+
+% A graphic best describing your thesis
+\newcommand{\titlefig}{\includegraphics[width=0.4\textwidth]{graphics/FZI-Logo}}
+
+\usepackage[german,nameinlink]{cleveref}
+
+\begin{document}
+
+\pagenumbering{roman}
+\include{preface/kit_titlepage}
+
+\parindent 1em
+\include{preface/abstract}
+\begingroup
+\changefont{phv}{m}{n}
+\tableofcontents
+\endgroup
+
+\mainmatter
+\renewcommand{\chapterpagestyle}{plain}
+\pagestyle{scrheadings}
+\pagenumbering{arabic}
+
+\input{content/Einleitung}
+\input{content/Standards}
+\input{content/Angriffe}
+\input{content/Verteidigung}
+
+\pagestyle{scrplain}
+\appendix
+\bibliography{content/literatur}
+
+\printindex
+
+
+\end{document}

@@ -1,0 +1,82 @@
+%% titlepage.tex
+%%
+
+% coordinates for the bg shape on the titlepage
+\newcommand{\diameter}{20}
+\newcommand{\xone}{-25}
+\newcommand{\xtwo}{150}
+\newcommand{\yone}{25}
+\newcommand{\ytwo}{-243}
+
+\begin{titlepage}
+% bg shape
+\begin{tikzpicture}[overlay]
+\draw[color=gray]  
+ 		 (\xone mm, \yone mm)
+  -- (\xtwo mm, \yone mm)
+ arc (90:0:\diameter pt) 
+  -- (\xtwo mm + \diameter pt , \ytwo mm) 
+	-- (\xone mm + \diameter pt , \ytwo mm)
+ arc (270:180:\diameter pt)
+	-- (\xone mm, \yone mm);
+\end{tikzpicture}
+  \begin{textblock}{10}[0,0](3.35,2.55)
+	  \iflanguage{english}  {\includegraphics[width=.3\textwidth]{graphics/kitlogo_en_rgb}}
+                          {\includegraphics[width=.3\textwidth]{graphics/kitlogo_de_rgb}}
+  \end{textblock}
+	\changefont{phv}{m}{n}	% helvetica	
+	\vspace*{2.0cm}
+	
+	\begin{center}
+	\Large{
+	\iflanguage{english}{Seminar Cognitive Vehicles}			
+		{Seminar Kognitive Automobile}
+	}\\
+	  \vspace*{1cm}
+		\Huge{\headtitle}
+		\vspace*{2cm}\\
+		\Large{
+			\iflanguage{english}{Term Paper of}			
+												  {Seminararbeit\\von}
+		}\\
+		\vspace*{1cm}
+		\huge{\myname}\\
+		\vspace*{1cm}
+		\Large{
+			\department\\ \institute\\ \iflanguage{english}{and}{und}\\ \fziname
+		}
+	\end{center}
+	\vspace*{1.5cm}
+\Large{
+\begin{center}
+\begin{tabular}[ht]{l c l}
+  %\iflanguage{english}{Reviewer}{Erstgutachter}: & \hfill  & \reviewerone\\
+  %\iflanguage{english}{Second reviewer}{Zweitgutachter}: & \hfill  & \reviewertwo\\
+  \iflanguage{english}{Advisor}{Betreuender Mitarbeiter}: & \hfill  & \advisor\\
+  % \iflanguage{english}{Second advisor}{Zweiter betreuender Mitarbeiter}: & \hfill  & \advisortwo\\
+\end{tabular}
+\end{center}
+}
+
+
+\vspace{2cm}
+\begin{center}
+\large{\iflanguage{english}{Research Period}{Sommersemester 2015} }
+\end{center}
+
+
+\begin{textblock}{10}[0,0](4,16.8)
+\tiny{ 
+	\iflanguage{english}
+		{KIT -- University of the State of Baden-Wuerttemberg and National Research Center of the Helmholtz Association}
+		{KIT -- Universität des Landes Baden-Württemberg und nationales Forschungszentrum in der Helmholtz-Gemeinschaft}
+}
+\end{textblock}
+
+\begin{textblock}{10}[0,0](14,16.75)
+\large{
+	\textbf{www.kit.edu} 
+}
+\end{textblock}
+
+\end{titlepage}

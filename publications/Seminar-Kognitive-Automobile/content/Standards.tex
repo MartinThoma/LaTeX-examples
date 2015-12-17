@@ -1,0 +1,44 @@
+%!TEX root = ../booka4.tex
+\chapter{Standards und Verordnungen}\label{ch:standards}
+Für den Automobilbereich existieren viele Standards und Verordnungen. In diesem
+Kapitel wird eine Auswahl vorgestellt, die Fahrzeuge der Klassen M$_1$ und
+N$_1$ betrifft. Das sind Fahrzeuge zur Personenbeförderung
+\enquote{mit mindestens vier Rädern und höchstens acht Sitzplätzen außer dem Fahrersitz}
+sowie \enquote{für die Güterbeförderung ausgelegte und gebaute Kraftfahrzeuge
+mit einer zulässigen Gesamtmasse von 3,5 Tonnen}\cite{Richtlinie70/156/EWG:Fahrzeugklassen}.
+
+In der EU wurde mit \cite{EUDirective98/69/EC} die OBD-Schnittstelle
+verpflichtend für Fahrzeuge der Klasse M$_1$ und N$_1$ mit Fremdzündungsmotor
+ab 1.~Januar 2004. Die EU-Direktive führt weiter die in der ISO~DIS~15031-6
+Norm aufgeführten Fehlercodes als Minimalstandard ein. Diese müssen
+\enquote{für genormte Diagnosegeräte \elide uneingeschränkt zugänglich sein}.
+Außerdem muss die Schnittstelle im Auto so verbaut werden, dass sie
+\enquote{für das Servicepersonal leicht zugänglich \elide ist}.
+
+Der Software-Zugang ist mit J2534 der Society of Automotive Engineers
+standardisiert~\cite{SAE2004}. Dieser Standard stellt sicher, dass unabhängig
+vom OBD-Reader Diagnosen über das Auto erstellt und die ECUs umprogrammiert
+bzw. mit Aktualisierungen versorgt werden können.
+
+Um die Daten bereitzustellen, werden verschiedene elektronische Komponenten
+über den CAN-Bus vernetzt. Dieser ist in ISO~11898 genormt.
+
+Weiterhin wurde in der EU mit \cite{EURegulation661/2009} beschlossen, dass ab
+1.~November 2012 alle PKWs für Neuzulassungen ein System zur
+Reifendrucküberwachung (engl. \textit{tire pressure monitoring system}, kurz
+\textit{TPMS}) besitzen müssen. Ab 1.~November 2014 müssen alle Neuwagen ein
+solches System besitzen. Da sich die Räder schnell drehen ist eine
+kabelgebundene Übertragung der Druckmesswerte nicht durchführbar. Daher sendet
+jeder Reifen kabellos ein Signal, welches von einem oder mehreren Sensoren im
+Auto aufgenommen wird.
+
+Mit \cite{EURegulation2015/ecall} wird für Fahrzeuge, die ab dem 31.~März 2018
+gebaut werden das eCall-System, ein elektronisches Notrufsystem, verpflichtend.
+Dabei müssen dem eCall-System \enquote{präzise\mbox{[-]} und verlässliche\mbox{[-]}
+Positionsdaten} zur Verfügung stehen, welche über das globales
+Satellitennavigationssystem Galileo und dem Erweiterungssystem EGNOS geschehen
+soll. eCall soll über öffentliche Mobilfunknetze eine \enquote{Tonverbindung
+zwischen den Fahrzeuginsassen und einer eCall-Notrufabfragestelle} herstellen
+können. Außerdem muss ein Mindestdatensatz übermittelt werden, welcher in
+DIN EN 15722:2011 geregelt ist. Diese Funktionen müssen im Fall eines schweren
+Unfalls automatisch durchgeführt werden können.

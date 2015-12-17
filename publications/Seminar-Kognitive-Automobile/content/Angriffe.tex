@@ -1,0 +1,192 @@
+%!TEX root = ../booka4.tex
+\chapter{Angriffe}\label{ch:attack}
+
+Eine Reihe von elektronischen Systemen wurde zum Diebstahlschutz entwickelt
+\cite{Song2008,Turner1999,Hwang1997}. Allerdings passen sich auch Diebe an die
+modernen Gegebenheiten, insbesondere Funkschlüssel \cite{Lee2014}, an. Außerdem
+gehen diese Systeme von einem klassischen Angreifer aus, der sich
+ausschließlich auf der Hardware-Ebene bewegt.
+
+Im Folgenden werden zunächst Möglichkeiten von netzwerk-internen Angreifer,
+d.h. Angreifern welche physischen Zugang zum CAN-Bus haben, aufgelistet. Es
+folgt eine Beschreibung wie Angreifer ohne direkten physischen Zugriff auf das
+Auto sich mit dem CAN-Bus verbinden können. Viele Angriffe nutzen sogenannte
+Buffer Overflows aus. Diese werden in~\cref{sec:Buffer-Overflow} erklärt.
+Abschließend folgt ein Abschnitt über konkrete, der Öffentlichkeit bekannt
+gewordene Sicherheitslücken.
+
+Es ist nicht notwendigerweise der Fall, dass alle ECUs am selben CAN-Bus
+angeschlossen sind. Allerdings müssen einige der Geräte Daten an die OBD-II
+Schnittstelle senden. Außerdem liegt es aus wirtschaftlichen Gründen nahe
+möglichst wenige Leitungen zur Datenübertragung zu verlegen.
+
+
+\section{CAN-interne Angriffe}
+Koscher~et~al.~haben in \cite{Koscher2010} zwei nicht näher spezifizierte Autos
+der selben Marke und des selben Modells untersucht. Sie waren in der Lage über
+den CAN-Bus etliche Funktionen des Autos, unabhängig vom Fahrer, zu
+manipulieren. Das beinhaltet das deaktivieren und aktivieren der Bremsen,
+stoppen des Motors, steuern der Klimaanlage, Heizung, Lichter, Manipulation der
+Anzeigen im Kombiinstrument sowie das Öffnen und Schließen der Schlösser. Durch
+moderne Systeme wie eCall kann der Angreifer sich sogar einen
+Kommunikationskanal zu dem Auto aufbauen. Dies setzt allerdings voraus, dass
+der Angreifer sich bereits im auto-internen Netzwerk befindet.
+
+\section{CAN-externe Angriffe}
+In~\cite{Checkoway2011} wurde an einer Mittelklasselimosine mit
+Standardkomponenten gezeigt, dass der Zugang zum auto-internen Netzwerk über
+eine Vielzahl an Komponenten erfolgen kann. So haben Checkoway~et~al.
+CD-Spieler, Bluetooth und den OBD-Zugang als mögliche Angriffsvektoren
+identifiziert.
+
+Bei dem Angriff über den Media Player haben Checkoway~et~al. die Tatsache
+genutzt, dass dieser am CAN-Bus angeschlossen ist und die Software des
+Mediaplayers über eine CD mit einem bestimmten Namen und Dateiformat
+aktualisiert werden kann. Außerdem wurde ein Fehler beim Abspielen der
+Audio-Dateien genutzt um einen Buffer Overflow zu erzeugen. Es wurde gezeigt,
+dass dieser genutzt werden kann um die Software des Media-Players zu
+aktualisieren. Dafür muss nur eine modifizierte Audio-Datei, welche immer noch
+abspielbar ist, auf der CD sein.
+
+Der von Checkoway~et~al. durchgeführte Angriff via Bluetooth benötigt ein
+mit dem Media Player verbundenes Gerät. Dieses nutzt dann
+\verb+strcpy+-Befehle, bei denen die Puffergrößen nicht überprüft wurden um bei
+der Bluetooth-Konfiguration aus um beliebigen Code auf der Telematik-Einheit
+des Autos ausführen zu können. Daher ist das Smartphone des Autobesitzers ein
+Angriffsvektor.
+
+Die Bluetooth-Verbindung kann jedoch auch ohne ein verbundenes Gerät für
+Angriffe genutzt werden. Dazu muss der Angreifer genügend Zeit in der Nähe des
+Autos verbringen um die Bluetooth-MAC-Adresse zu erfahren. Damit kann er ein
+Anfrage zum Verbindungsaufbau starten. Diese müsste der Benutzer normalerweise
+mit der Eingabe einer PIN bestätigen. Checkoway~et~al. haben für ein Auto
+gezeigt, dass die Benutzerinteraktion nicht nötig ist und die PIN via
+Brute-Force, also das Ausprobieren aller Möglichkeiten, innerhalb von
+10~Stunden gefunden werden kann. Allerdings kann dieser Angriff parallel
+ausgeführt werden. Es ist also beispielsweise möglich diesen Angriff für alle
+Autos in einem Parkhaus durchzuführen. Bei einem parallel durchgeführten
+Brute-Force-Angriff ist der erste Erfolg deutlich schneller zu erwarten.
+
+Die standardisierte und von Automechanikern zu Diagnosezwecken genutzte
+OBD-Schnittstelle stellt einen weiteren Angriffspunkt dar. Für die
+verschiedenen Marken gibt es Diagnosewerkzeuge, wie z.B. NGS für Ford,
+Consult~II für Nissan und der Diagnostic~Tester von Toyota. Diese dedizierten
+Diagnosegeräte werden allerdings über PCs mit Aktualisierungen versorgt.
+Modernere Diagnosewerkzeuge sind nicht mehr bei der Diagnose vom PC getrennt,
+sondern werden direkt, über ein Kabel, W-LAN oder Bluetooth, mit einem PC
+verbunden. Daher stellt die Diagnose- und Aktualisierungstätigkeit von
+Automechanikern einen weiteren Angriffsvektor dar. Wenn der Mechaniker ein
+Diagnosegerät benutzt, welches ein W-LAN aufbaut, so können Angreifer sich
+mit diesem verbinden und selbst Aktualisierungen durchführen. Außerdem wurde
+von Checkoway~et~al. gezeigt, dass auch das Diagnosegerät selbst so manipuliert
+werden kann, dass es automatisch die gewünschten Angriffe ausführt.
+
+Wie in \cref{ch:standards} beschrieben wird eCall-System ab 2018 in Europa
+verpflichtend eingeführt. Dieses nutzt das Mobilfunknetz zur Kommunikation.
+Checkoway~et~al. haben gezeigt, dass Telematik-Einheiten von außerhalb des
+Autos angewählt werden und die Software auf diese Weise aus beliebigen
+Entfernungen aktualisiert werden kann. Dazu wurden zahlreiche Schwachstellen
+der Telematik-Einheit von Airbiquitys Modem aqLink genutzt. Dieses Modem wird
+unter anderem von BMW und Ford eingesetzt \cite{AirbiquityBMW,AirbiquityFord}.
+
+Ein Angriff auf die Privatsphäre ist mit TPMS möglich. In~\cite{Rouf2010} wurde
+gezeigt, dass TPMS-Signale zur Identifikation von Autos genutzt werden können.
+Die Identifikation eines vorbeifahrenden Autos ist aus bis zu \SI{40}{\meter}
+Entfernung möglich.
+
+Genauso stellt das Mikrofon, welches wegen eCall ab 2018 in jedem Auto sein
+muss, eine Möglichkeit zum Angriff auf die Privatsphäre dar.
+
+
+\section{Buffer Overflow Angriffe}\label{sec:Buffer-Overflow}
+Dieser Abschnitt erklärt anhand eines einfachen Beispiels wie Buffer Overflow
+Angriffe durchgeführt werden.
+
+Um Buffer Overflow Angriffe zu verstehen, müssen Grundlagen der Struktur eines
+Prozesses im Speicher bekannt sein. Diese werden im Detail
+in~\cite{Silberschatz2005} erklärt.
+
+Buffer Overflow Angriffe nutzen die Tatsache aus, dass bestimmte Befehle wie
+beispielsweise \verb+gets+ Zeichenketten in einen Puffer schreiben, ohne die Größe
+des Puffers zu beachten. \verb+gets+ erhält als Parameter einen Zeiger auf die
+Startadresse des Puffers. Wenn der Benutzer eine längere Eingabe macht als der
+Puffer erlaubt, so wird in nachfolgende Speicherbereiche geschrieben. Dies kann
+an folgendem, aus~\cite{Arora2013} entnommenem und leicht modifiziertem
+Beispiel beobachtet werden:
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=simple.c]{c}{content/exploit-buffer-overflow/simple.c}
+
+Kompiliert man dieses Programm mit
+\verb+gcc -O0 -fno-stack-protector -g simple.c -o simple+, so kann mit der
+Eingabe von 16~Zeichen die Variable \verb+pass+ überschrieben werden. In diesem
+Fall wird deshalb der passwortgeschützte Code-Abschnitt ausgeführt, selbst
+wenn das eingegebene Passwort fehlerhaft ist.
+
+Allerdings ist es nicht nur möglich interne Variablen zu überschreiben, sondern
+sogar beliebigen Code auszuführen. Dies wird in \cite{Mixter} mit einem sehr
+ähnlichem Beispiel gezeigt und im Detail erklärt. Dabei wird nicht beliebiger
+Text in den Puffer geschrieben, sondern sogenannter \textit{Shellcode}. Unter
+Shellcode versteht man Assemblerbefehle, welche in Opcodes umgewandelt wurden.
+
+
+\section{Sicherheitslage in Automobilen bis August 2015}\label{sec:sicherheitslage}
+Heutzutage ist nicht nur die Hardware von Automobilen durch Diebe und andere
+Angreifer gefährdet, sondern auch die Software. Die folgenden Beispiele zeigen,
+dass Angriffe auf die IT in Automobilen nicht nur im akademischen Rahmen
+auf einige wenige spezielle Modelle durchgeführt werden, sondern dass auch
+modellübergreifende Angriffe möglich sind.
+
+Es gibt etliche Automobilhersteller, -marken und -modelle. Für viele Modelle
+gibt es unterschiedliche Konfigurationen und wiederum zahlreiche Optionen für
+Zubehör wie beispielsweise das Autoradio oder Navigationssysteme. Dies macht
+allgemeine Aussagen über konkrete Angriffe auf Automobile schwierig. Allerdings
+stellen Standards und Verordnungen (vgl. \cref{ch:standards}) sicher, dass
+Teile der relevanten Infrastruktur in Automobilen gleich sind, sodass Angreifer
+diese fahrzeugübergreifend nutzen können.
+
+Die Art der Angriffe ist nicht neu. So sind wurde mit dem Morris-Wurm bereits
+1988 ein Stack Overflow Angriff durchgeführt~\cite{Seltzer2013},
+Replay-Angriffe wurden 1994 beschrieben~\cite{Syverson1994} und seit Beginn
+der Entwicklung von Viren werden bekannte Lücken in veralteter Software
+ausgenutzt. Allerdings ist die Software in kognitiven Automobilen komplexer
+als in herkömmlichen Automobilen, die Menge der eingesetzten Software ist
+größer und die Möglichkeiten zur Einflussnahme durch Aktoren sind gewachsen.
+Daher bieten kognitive Automobile eine größere Angriffsfläche als
+herkömmliche Automobile.
+
+\begin{itemize}
+    \item 2010 hat ein ehemaliger Angestellter mehr als 100 Autos über ein
+Fernsteuersystem, welches Kunden an fällige Zahlungen erinnern soll, die Hupen
+aktiviert~\cite{Poulsen2010}.
+    \item 2010 wurde mit~\cite{Koscher2010} auf mögliche Probleme in kognitiven
+Automobilen hingewiesen. Mit~\cite{Checkoway2011} wurde 2011 gezeigt, dass
+mindestens ein Modell in einer bestimmten Konfiguration unsicher ist.
+    \item  2015
+wurde von Charlie Miller und Chris Valasek gezeigt, dass das
+Unterhaltungssystem Uconnect von Fiat Crysler benutzt werden kann um Autos aus
+der Ferne zu übernehmen. Wegen dieses Softwarefehlers hat Fiat Chrysler
+1,4~Millionen Autos zurückgerufen~\cite{Gallagher2015}.
+    \item 2015 wurde eine Sicherheitslücke in BMW's ConnectedDrive bekannt. Diese hat
+es dem Angreifer erlaubt, das Auto zu öffnen~\cite{Spaar2015}. Dieter Spaar
+hat dabei mehrere Sicherheitslücken aufgedeckt: BMW hat in allen Fahrzeugen
+die selben symmetrischen Schlüssel eingesetzt, Teildienste haben keine
+Transportverschlüsselung verwendet und ConnectedDrive war nicht gegen
+Replay-Angriffe geschützt. Bei Replay-Angriffen nimmt der Angreifer Teile der
+Kommunikation zwischen dem BMW-Server und dem Auto auf und spielt diese
+später wieder ab. Dies könnte beispielsweise eine Nachricht sein, die das
+Auto entriegelt.
+    \item In \cite{Verdult2015} wurde 2015 gezeigt, dass einige Dutzend Automodelle von
+Audi, Ferrari, Fiat, Opel, VW und weiterer Marken eine Sicherheitslücke in den
+Schlüsseln haben, welche es Autodieben erlaubt nach nur zweimaligem Abhören der
+Kommunikation des Originalschlüssels mit dem Auto eine Kopie des Schlüssels
+anzufertigen.
+    \item Die Sicherheitsfirma Lookout hat 2015 Fehler in der Software des Tesla Model~S
+gefunden, welche Root-Zugang zu internen Systemen erlaubt hat~\cite{Mahaffey2015}.
+Drei der gefundenen sechs Sicherheitslücken sind veraltete Softwarekomponenten.
+    \item 2015 wurde auch ein Angriff auf das OnStar-System von GM bekannt, durch welchen
+der Angreifer beliebige Autos mit dem OnStar-System öffnen und den Motor
+starten konnte~\cite{Stevens2015}. Die Art des Angriffs, die bisher noch nicht
+detailliert beschrieben wurde, betrifft laut \cite{Greenberg2015} auch die
+iOS-Apps für Remote von BMW, mbrace von Mercedes-Benz, Uconnect von Chrysler
+und Smartstart von Viper.
+\end{itemize}
