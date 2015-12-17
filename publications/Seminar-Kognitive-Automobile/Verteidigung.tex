@@ -1,5 +1,5 @@
 %!TEX root = ../booka4.tex
-\chapter{Verteidigungsmaßnahmen}\label{ch:defense}
+\section{Verteidigungsmaßnahmen}\label{ch:defense}
 Wie bereits in \cref{sec:sicherheitslage} beschrieben, sind die Arten der
 Angriffe nicht neu. Daher sind auch die Verteidigungsmaßnahmen nicht
 spezifisch für den Automobilbereich, sondern allgemeiner softwaretechnischer
@@ -13,23 +13,23 @@ Debugging-Symbole in der Software waren. Diese können und sollten
 entfernt werden.
 
 
-\section{Datenvalidierung}\label{sec:validation}
+\subsection{Datenvalidierung}\label{sec:validation}
 Der CAN-Bus ist eine große Schwachstelle der IT-Sicherheit in Autos. Über ihn
 müssen viele ECUs kommunizieren und einige, wie das Autoradio, werden nicht als
-sicherheitskritisch wahrgenommen. Gleichzeitig sind sicherheitskritische ECUs
+sicherheits\-kritisch wahrgenommen. Gleichzeitig sind sicherheitskritische ECUs
 an dem selben CAN-Bus angeschlossen. Daher ist es wichtig die Nachrichten,
 welche über den CAN-Bus empfangen werden, zu filtern. Die Informationen müssen
 auf Plausibilität geprüft werden. Insbesondere bei Software-Updates sollte
 anhand einer kryptographischen Signatur überprüft werden, ob das Update vom
 Hersteller stammt.
 
-Außerdem sollten laut Checkoway~et~al. die Diagnosegeräte Authentifizierung und
-Verschlüsselung wie beispielsweise OpenSSL nutzen.
+Außerdem sollten laut Checkoway~et~al. die Diagnose\-geräte Authentifizierung
+und Verschlüsselung wie beispielsweise OpenSSL nutzen.
 
 
-\section{Buffer Overflows}
+\subsection{Buffer Overflows}
 Gegen Buffer-Overflow-Angriffe können zum einen Sprachen wie Java oder Rust
-verwendet werden, welche die Einhaltung der Bereichsgrenzen automatisch
+verwendet werden, welche die Einhaltung der Bereichs\-grenzen automatisch
 überprüfen. Des Weiteren kann anstelle der C-Funktion \verb+strcpy()+ die
 Funktion \verb+strncpy()+ verwendet werden, welche die Anzahl der zu
 schreibenden Zeichen begrenzt~\cite{Eckert2012}.
@@ -38,18 +38,18 @@ Ein weiteres Konzept zum Schutz vor Buffer-Overflow-Angriffen sind Stack
 Cookies~\cite{Bray2002}. Stack Cookies sind Werte die auf den Stack, direkt
 nach den Puffer geschrieben werden. Bevor der Sprung zurück in
 die aufrufende Funktion durchgeführt wird, wird die \verb+XOR+ Operation auf
-den Stack Cookie und die Rücksprungadresse ausgeführt. Der so errechnete Wert
+den Stack Cookie und die Rücksprung\-adresse ausgeführt. Der so errechnete Wert
 wird mit dem erwarteten Wert verglichen. Falls es eine Abweichung gibt wird
-nicht die \verb+RET+ Operation ausgeführt, sondern in eine Sicherheitsroutine
+nicht die \verb+RET+ Operation ausgeführt, sondern in eine Sicherheits\-routine
 gesprungen, die diesen Fall behandelt.
 
 
-\section{Code-Qualität}
-Code Reviews können solche Sicherheitslücken aufdecken~\cite{Howard2006}.
+\subsection{Code-Qualität}
+Code Reviews können solche Sicherheits\-lücken aufdecken~\cite{Howard2006}.
 Code Reviews können teilweise automatisch mit Werkzeugen zur statischen Code
 Analyse durchgeführt werden~\cite{McGraw2008}.
 
 Eine weiterer wichtiger Stützpfeiler für sichere Software sind schnell
-ausgelieferte Sicherheitsaktualisierungen. Dazu gehört laut~\cite{Mahaffey2015}
-unter anderem ein System zum mobilen versenden von Aktualisierungen an Autos
-mit Mobilfunkverbindung.
+ausgelieferte Sicherheits\-aktualisierungen. Dazu gehört
+laut~\cite{Mahaffey2015} unter anderem ein System zum mobilen versenden von
+Aktualisierungen an Autos mit Mobilfunk\-verbindung.

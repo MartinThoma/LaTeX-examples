@@ -1,5 +1,5 @@
 %!TEX root = ../booka4.tex
-\chapter{Angriffe}\label{ch:attack}
+\section{Angriffe}\label{ch:attack}
 
 Eine Reihe von elektronischen Systemen wurde zum Diebstahlschutz entwickelt
 \cite{Song2008,Turner1999,Hwang1997}. Allerdings passen sich auch Diebe an die
@@ -21,7 +21,7 @@ Schnittstelle senden. Außerdem liegt es aus wirtschaftlichen Gründen nahe
 möglichst wenige Leitungen zur Datenübertragung zu verlegen.
 
 
-\section{CAN-interne Angriffe}
+\subsection{CAN-interne Angriffe}
 Koscher~et~al.~haben in \cite{Koscher2010} zwei nicht näher spezifizierte Autos
 der selben Marke und des selben Modells untersucht. Sie waren in der Lage über
 den CAN-Bus etliche Funktionen des Autos, unabhängig vom Fahrer, zu
@@ -32,7 +32,7 @@ moderne Systeme wie eCall kann der Angreifer sich sogar einen
 Kommunikationskanal zu dem Auto aufbauen. Dies setzt allerdings voraus, dass
 der Angreifer sich bereits im auto-internen Netzwerk befindet.
 
-\section{CAN-externe Angriffe}
+\subsection{CAN-externe Angriffe}
 In~\cite{Checkoway2011} wurde an einer Mittelklasselimosine mit
 Standardkomponenten gezeigt, dass der Zugang zum auto-internen Netzwerk über
 eine Vielzahl an Komponenten erfolgen kann. So haben Checkoway~et~al.
@@ -98,7 +98,7 @@ Genauso stellt das Mikrofon, welches wegen eCall ab 2018 in jedem Auto sein
 muss, eine Möglichkeit zum Angriff auf die Privatsphäre dar.
 
 
-\section{Buffer Overflow Angriffe}\label{sec:Buffer-Overflow}
+\subsection{Buffer Overflow Angriffe}\label{sec:Buffer-Overflow}
 Dieser Abschnitt erklärt anhand eines einfachen Beispiels wie Buffer Overflow
 Angriffe durchgeführt werden.
 
@@ -114,11 +114,11 @@ Puffer erlaubt, so wird in nachfolgende Speicherbereiche geschrieben. Dies kann
 an folgendem, aus~\cite{Arora2013} entnommenem und leicht modifiziertem
 Beispiel beobachtet werden:
 
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=simple.c]{c}{content/exploit-buffer-overflow/simple.c}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=simple.c]{c}{simple.c}
 
 Kompiliert man dieses Programm mit
-\verb+gcc -O0 -fno-stack-protector -g simple.c -o simple+, so kann mit der
-Eingabe von 16~Zeichen die Variable \verb+pass+ überschrieben werden. In diesem
+\texttt{gcc -O0 -fno-stack-protector -g simple.c -o simple}, so kann mit der
+Eingabe von 16~Zeichen die Variable \texttt{pass} überschrieben werden. In diesem
 Fall wird deshalb der passwortgeschützte Code-Abschnitt ausgeführt, selbst
 wenn das eingegebene Passwort fehlerhaft ist.
 
@@ -129,7 +129,7 @@ Text in den Puffer geschrieben, sondern sogenannter \textit{Shellcode}. Unter
 Shellcode versteht man Assemblerbefehle, welche in Opcodes umgewandelt wurden.
 
 
-\section{Sicherheitslage in Automobilen bis August 2015}\label{sec:sicherheitslage}
+\subsection{Sicherheitslage in Automobilen bis August 2015}\label{sec:sicherheitslage}
 Heutzutage ist nicht nur die Hardware von Automobilen durch Diebe und andere
 Angreifer gefährdet, sondern auch die Software. Die folgenden Beispiele zeigen,
 dass Angriffe auf die IT in Automobilen nicht nur im akademischen Rahmen
@@ -155,38 +155,42 @@ Daher bieten kognitive Automobile eine größere Angriffsfläche als
 herkömmliche Automobile.
 
 \begin{itemize}
-    \item 2010 hat ein ehemaliger Angestellter mehr als 100 Autos über ein
-Fernsteuersystem, welches Kunden an fällige Zahlungen erinnern soll, die Hupen
-aktiviert~\cite{Poulsen2010}.
+    \item 2010 hat ein ehemaliger Angestellter mehr als 100~Autos über ein
+          Fernsteuersystem, welches Kunden an fällige Zahlungen erinnern soll,
+          die Hupen aktiviert~\cite{Poulsen2010}.
     \item 2010 wurde mit~\cite{Koscher2010} auf mögliche Probleme in kognitiven
-Automobilen hingewiesen. Mit~\cite{Checkoway2011} wurde 2011 gezeigt, dass
-mindestens ein Modell in einer bestimmten Konfiguration unsicher ist.
-    \item  2015
-wurde von Charlie Miller und Chris Valasek gezeigt, dass das
-Unterhaltungssystem Uconnect von Fiat Crysler benutzt werden kann um Autos aus
-der Ferne zu übernehmen. Wegen dieses Softwarefehlers hat Fiat Chrysler
-1,4~Millionen Autos zurückgerufen~\cite{Gallagher2015}.
-    \item 2015 wurde eine Sicherheitslücke in BMW's ConnectedDrive bekannt. Diese hat
-es dem Angreifer erlaubt, das Auto zu öffnen~\cite{Spaar2015}. Dieter Spaar
-hat dabei mehrere Sicherheitslücken aufgedeckt: BMW hat in allen Fahrzeugen
-die selben symmetrischen Schlüssel eingesetzt, Teildienste haben keine
-Transportverschlüsselung verwendet und ConnectedDrive war nicht gegen
-Replay-Angriffe geschützt. Bei Replay-Angriffen nimmt der Angreifer Teile der
-Kommunikation zwischen dem BMW-Server und dem Auto auf und spielt diese
-später wieder ab. Dies könnte beispielsweise eine Nachricht sein, die das
-Auto entriegelt.
-    \item In \cite{Verdult2015} wurde 2015 gezeigt, dass einige Dutzend Automodelle von
-Audi, Ferrari, Fiat, Opel, VW und weiterer Marken eine Sicherheitslücke in den
-Schlüsseln haben, welche es Autodieben erlaubt nach nur zweimaligem Abhören der
-Kommunikation des Originalschlüssels mit dem Auto eine Kopie des Schlüssels
-anzufertigen.
-    \item Die Sicherheitsfirma Lookout hat 2015 Fehler in der Software des Tesla Model~S
-gefunden, welche Root-Zugang zu internen Systemen erlaubt hat~\cite{Mahaffey2015}.
-Drei der gefundenen sechs Sicherheitslücken sind veraltete Softwarekomponenten.
-    \item 2015 wurde auch ein Angriff auf das OnStar-System von GM bekannt, durch welchen
-der Angreifer beliebige Autos mit dem OnStar-System öffnen und den Motor
-starten konnte~\cite{Stevens2015}. Die Art des Angriffs, die bisher noch nicht
-detailliert beschrieben wurde, betrifft laut \cite{Greenberg2015} auch die
-iOS-Apps für Remote von BMW, mbrace von Mercedes-Benz, Uconnect von Chrysler
-und Smartstart von Viper.
+          Automobilen hingewiesen. Mit~\cite{Checkoway2011} wurde 2011 gezeigt,
+          dass mindestens ein Modell in einer bestimmten Konfiguration unsicher
+          ist.
+    \item 2015 wurde von Charlie Miller und Chris Valasek gezeigt, dass das
+          Unterhaltungssystem Uconnect von Fiat Crysler benutzt werden kann um
+          Autos aus der Ferne zu übernehmen. Wegen dieses Softwarefehlers hat
+          Fiat Chrysler 1,4~Millionen Autos zurückgerufen~\cite{Gallagher2015}.
+    \item 2015 wurde eine Sicherheitslücke in BMW's ConnectedDrive bekannt.
+          Diese hat es dem Angreifer erlaubt, das Auto zu
+          öffnen~\cite{Spaar2015}. Dieter Spaar hat dabei mehrere
+          Sicherheitslücken aufgedeckt: BMW hat in allen Fahrzeugen die selben
+          symmetrischen Schlüssel eingesetzt, Teildienste haben keine
+          Transportverschlüsselung verwendet und ConnectedDrive war nicht gegen
+          Replay-Angriffe geschützt. Bei Replay-Angriffen nimmt der Angreifer
+          Teile der Kommunikation zwischen dem BMW-Server und dem Auto auf und
+          spielt diese später wieder ab. Dies könnte beispielsweise eine
+          Nachricht sein, die das Auto entriegelt.
+    \item In \cite{Verdult2015} wurde 2015 gezeigt, dass einige Dutzend
+          Automodelle von Audi, Ferrari, Fiat, Opel, VW und weiterer Marken
+          eine Sicherheitslücke in den Schlüsseln haben, welche es Autodieben
+          erlaubt nach nur zweimaligem Abhören der Kommunikation des
+          Originalschlüssels mit dem Auto eine Kopie des Schlüssels
+          anzufertigen.
+    \item Die Sicherheitsfirma Lookout hat 2015 Fehler in der Software des
+          Tesla Model~S gefunden, welche Root-Zugang zu internen Systemen
+          erlaubt hat~\cite{Mahaffey2015}. Drei der gefundenen sechs
+          Sicherheitslücken sind veraltete Softwarekomponenten.
+    \item 2015 wurde auch ein Angriff auf das OnStar-System von GM bekannt,
+          durch welchen der Angreifer beliebige Autos mit dem OnStar-System
+          öffnen und den Motor starten konnte~\cite{Stevens2015}. Die Art des
+          Angriffs, die bisher noch nicht detailliert beschrieben wurde,
+          betrifft laut \cite{Greenberg2015} auch die iOS-Apps für Remote von
+          BMW, mbrace von Mercedes-Benz, Uconnect von Chrysler und Smartstart
+          von Viper.
 \end{itemize}

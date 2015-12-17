@@ -1,5 +1,9 @@
-\documentclass{UVKABoA4}
+\documentclass[technote,a4paper,leqno]{IEEEtran}
+\pdfoutput=1
 
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage{graphicx} % Standardpaket zur Grafikeinbindung
 \usepackage{amsmath,amssymb} % Erweiterung des Mathematik-Modus
 \usepackage[colorinlistoftodos, german]{todonotes} % Option 'disable' entfernt alle ToDos
@@ -10,84 +14,48 @@
 \usepackage[binary-units=true]{siunitx}
 \usepackage{minted} % needed for the inclusion of source code
 
-% Toggle the following two lines to switch between english and german layout
-% \usepackage[english]{babel} % Neue deutsche Rechtschreibung und Silbentrennung.
-\usepackage[ngerman]{babel} % Neue deutsche Rechtschreibung und Silbentrennung.
-
+\usepackage{url}
+\usepackage{breakurl}
 \usepackage[raiselinks=true,
             bookmarks=true,
             bookmarksopenlevel=1,
             bookmarksopen=true,
             bookmarksnumbered=true,
+            breaklinks,
             hyperindex=true,
             plainpages=false,
             pdfpagelabels=true,
             pdfborder={0 0 0.5}]{hyperref}
+\def\UrlBreaks{\do\/\do-}
 
-
-\makeatletter
-\def\tagform@#1{\maketag@@@{\ignorespaces [#1]\unskip\@@italiccorr}}	% Anpassung der Formelnummerierung
-\makeatother
-
-\makeindex
-
-\newcommand{\myname}{Martin~Thoma}
-\newcommand{\headtitle}{Sicherheit in Kognitiven Automobilien}
-\newcommand{\floatingtitle}{Sicherheit in Kognitiven Automobilien}
-\newcommand{\thesistype}{Seminararbeit}
-\newcommand{\advisor}{Dipl.--Inform.~Ralf~Kohlhaas}
-
-\newcommand{\timestart}{23. Juli 2015}
-\newcommand{\releaseyear}{2015}
-\newcommand{\timeend}{17. April \releaseyear}
-\newcommand{\releasemonth}{im Juli \releaseyear}
-
-
-% Names of the organizations
-\newcommand{\term}{\iflanguage{english}{Seminar Cognitive Vehicles}
-                                             {Seminar Kognitive Automobile}}
-\newcommand{\department}{\iflanguage{english}{Department of Computer Science}
-                                             {Fakultät für Informatik}}
-\newcommand{\institute}{\iflanguage{english}{Institute for Anthropomatics}
-                                            {Institut für Anthropomatik}}
-\newcommand{\fzidepartment}{Abteilung Technisch Kognitive Assistenzsysteme}
-\newcommand{\fziname}{\iflanguage{english}{FZI Research Center for Information Technology}
-                                          {FZI Forschungszentrum Informatik}}
 \usepackage{xspace}
 \newcommand*\elide{\textup{[\,\dots]}\xspace}
 
-% A graphic best describing your thesis
-\newcommand{\titlefig}{\includegraphics[width=0.4\textwidth]{graphics/FZI-Logo}}
+\usepackage[german,nameinlink, noabbrev,capitalise]{cleveref}
 
-\usepackage[german,nameinlink]{cleveref}
+\title{Sicherheit in Kognitiven Automobilien}
+\author{%
+    \IEEEauthorblockN{Martin Thoma}\\
+    \IEEEauthorblockA{E-Mail: info@martin-thoma.de} % ORCID: http://orcid.org/0000-0002-6517-1690
+}
+
+\hypersetup{
+    pdfauthor   = {Martin Thoma},
+    pdfkeywords = {security, Sicherheit, Automobile, Hacking},
+    pdfsubject  = {security},
+    pdftitle    = {Sicherheit in Kognitiven Automobilien},
+}
+
+\usepackage{microtype}
 
 \begin{document}
+\maketitle
+\input{abstract}
+\input{Einleitung}
+\input{Standards}
+\input{Angriffe}
+\input{Verteidigung}
 
-\pagenumbering{roman}
-\include{preface/kit_titlepage}
-
-\parindent 1em
-\include{preface/abstract}
-\begingroup
-\changefont{phv}{m}{n}
-\tableofcontents
-\endgroup
-
-\mainmatter
-\renewcommand{\chapterpagestyle}{plain}
-\pagestyle{scrheadings}
-\pagenumbering{arabic}
-
-\input{content/Einleitung}
-\input{content/Standards}
-\input{content/Angriffe}
-\input{content/Verteidigung}
-
-\pagestyle{scrplain}
-\appendix
-\bibliography{content/literatur}
-
-\printindex
-
-
+\bibliographystyle{IEEEtranSA}
+\bibliography{literatur}
 \end{document}

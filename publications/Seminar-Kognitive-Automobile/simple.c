@@ -15,7 +15,9 @@ int main(void) {
     }
 
     if (pass) {
-        printf("Password protected code. pass=%i\n", pass);
+        printf("Password protected");
+        printf(" code. pass=%i\n",
+               pass);
     }
 
     return 0;
