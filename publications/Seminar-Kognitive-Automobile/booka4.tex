@@ -4,15 +4,40 @@
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-\usepackage{graphicx} % Standardpaket zur Grafikeinbindung
-\usepackage{amsmath,amssymb} % Erweiterung des Mathematik-Modus
-\usepackage[colorinlistoftodos, german]{todonotes} % Option 'disable' entfernt alle ToDos
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
 \usepackage[absolute,overlay]{textpos}
-\usepackage{vmargin}          % Adjust margins in a simple way
+\usepackage{vmargin}        % Adjust margins in a simple way
 \usepackage{tikz}
 \usepackage{csquotes}
 \usepackage[binary-units=true]{siunitx}
-\usepackage{minted} % needed for the inclusion of source code
+\usepackage{listings} % needed for the inclusion of source code
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\linewidth}{#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\lstset{
+    aboveskip={1.3\baselineskip},
+    basicstyle=\small\ttfamily\linespread{4},
+    breaklines=false,
+    columns=flexible,
+    commentstyle=\color[rgb]{0.127,0.427,0.514}\ttfamily\itshape,
+    escapechar=@,
+    extendedchars=true,
+    frame=none,
+    identifierstyle=\color{black},
+    inputencoding=latin1,
+    keywordstyle=\color[HTML]{228B22}\bfseries,
+    language=C,
+    ndkeywordstyle=\color[HTML]{228B22}\bfseries,
+    numbers=left,
+    numberstyle=\scriptsize,
+    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    stringstyle=\color[rgb]{0.639,0.082,0.082}\ttfamily,
+    showstringspaces=false,
+    xleftmargin=5.0ex
+}
 
 \usepackage{url}
 \usepackage{breakurl}

@@ -1,10 +1,10 @@
 DOKUMENT = booka4
 
 make:
-	pdflatex -shell-escape $(DOKUMENT).tex -output-format=pdf # Referenzen erstellen
+	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen erstellen
 	bibtex $(DOKUMENT)
-	pdflatex -shell-escape $(DOKUMENT).tex -output-format=pdf # Referenzen einbinden
-	pdflatex -shell-escape $(DOKUMENT).tex -output-format=pdf # Referenzen einbinden
+	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen einbinden
+	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen einbinden
 	make clean
 
 ebook:
