@@ -3,17 +3,19 @@
 
 Eine Reihe von elektronischen Systemen wurde zum Diebstahlschutz entwickelt
 \cite{Song2008,Turner1999,Hwang1997}. Allerdings passen sich auch Diebe an die
-modernen Gegebenheiten, insbesondere Funkschlüssel \cite{Lee2014}, an. Außerdem
+modernen Gegebenheiten, insbesondere Funk\-schlüssel \cite{Lee2014}, an. Außerdem
 gehen diese Systeme von einem klassischen Angreifer aus, der sich
 ausschließlich auf der Hardware-Ebene bewegt.
 
-Im Folgenden werden zunächst Möglichkeiten von netzwerk-internen Angreifer,
-d.h. Angreifern welche physischen Zugang zum CAN-Bus haben, aufgelistet. Es
-folgt eine Beschreibung wie Angreifer ohne direkten physischen Zugriff auf das
-Auto sich mit dem CAN-Bus verbinden können. Viele Angriffe nutzen sogenannte
-Buffer Overflows aus. Diese werden in~\cref{sec:Buffer-Overflow} erklärt.
-Abschließend folgt ein Abschnitt über konkrete, der Öffentlichkeit bekannt
-gewordene Sicherheitslücken.
+Im Folgenden werden in \cref{subsec:can-intern-attackers} zunächst
+Möglichkeiten von netzwerk-internen Angreifer, d.h.~Angreifern welche
+physischen Zugang zum CAN-Bus haben, aufgelistet. Es folgt in
+\cref{subsec:can-extern-attackers} eine Beschreibung wie Angreifer ohne
+direkten physischen Zugriff auf das Auto sich mit dem CAN-Bus verbinden können.
+Viele Angriffe nutzen sogenannte Buffer Overflows aus. Diese werden
+in~\cref{sec:Buffer-Overflow} erklärt. Abschließend folgt in
+\cref{sec:sicherheitslage} eine Liste konkreter, öffentlich bekannt gewordener
+Sicherheitslücken.
 
 Es ist nicht notwendigerweise der Fall, dass alle ECUs am selben CAN-Bus
 angeschlossen sind. Allerdings müssen einige der Geräte Daten an die OBD-II
@@ -21,22 +23,22 @@ Schnittstelle senden. Außerdem liegt es aus wirtschaftlichen Gründen nahe
 möglichst wenige Leitungen zur Datenübertragung zu verlegen.
 
 
-\subsection{CAN-interne Angriffe}
+\subsection{CAN-interne Angriffe}\label{subsec:can-intern-attackers}
 Koscher~et~al.~haben in \cite{Koscher2010} zwei nicht näher spezifizierte Autos
 der selben Marke und des selben Modells untersucht. Sie waren in der Lage über
 den CAN-Bus etliche Funktionen des Autos, unabhängig vom Fahrer, zu
-manipulieren. Das beinhaltet das deaktivieren und aktivieren der Bremsen,
-stoppen des Motors, steuern der Klimaanlage, Heizung, Lichter, Manipulation der
-Anzeigen im Kombiinstrument sowie das Öffnen und Schließen der Schlösser. Durch
-moderne Systeme wie eCall kann der Angreifer sich sogar einen
+manipulieren. Das beinhaltet das Deaktivieren und Aktivieren der Bremsen, das
+Stoppen des Motors, das Steuern der Klimaanlage, Heizung, Lichter, Manipulation
+der Anzeigen im Kombiinstrument sowie das Öffnen und Schließen der Schlösser.
+Durch moderne Systeme wie eCall kann der Angreifer sich sogar einen
 Kommunikationskanal zu dem Auto aufbauen. Dies setzt allerdings voraus, dass
 der Angreifer sich bereits im auto-internen Netzwerk befindet.
 
-\subsection{CAN-externe Angriffe}
-In~\cite{Checkoway2011} wurde an einer Mittelklasselimosine mit
-Standardkomponenten gezeigt, dass der Zugang zum auto-internen Netzwerk über
+\subsection{CAN-externe Angriffe}\label{subsec:can-extern-attackers}
+In~\cite{Checkoway2011} wurde an einer Mittel\-klasse\-limosine mit
+Standard\-komponenten gezeigt, dass der Zugang zum auto-internen Netzwerk über
 eine Vielzahl an Komponenten erfolgen kann. So haben Checkoway~et~al.
-CD-Spieler, Bluetooth und den OBD-Zugang als mögliche Angriffsvektoren
+CD-Spieler, Bluetooth und den OBD-Zugang als mögliche Angriffs\-vektoren
 identifiziert.
 
 Bei dem Angriff über den Media Player haben Checkoway~et~al. die Tatsache
@@ -68,18 +70,18 @@ Autos in einem Parkhaus durchzuführen. Bei einem parallel durchgeführten
 Brute-Force-Angriff ist der erste Erfolg deutlich schneller zu erwarten.
 
 Die standardisierte und von Automechanikern zu Diagnosezwecken genutzte
-OBD-Schnittstelle stellt einen weiteren Angriffspunkt dar. Für die
-verschiedenen Marken gibt es Diagnosewerkzeuge, wie z.B. NGS für Ford,
+OBD-Schnittstelle stellt einen weiteren Angriffs\-vektor dar. Für die
+verschiedenen Marken gibt es Diagnose\-werkzeuge, wie z.B. NGS für Ford,
 Consult~II für Nissan und der Diagnostic~Tester von Toyota. Diese dedizierten
-Diagnosegeräte werden allerdings über PCs mit Aktualisierungen versorgt.
-Modernere Diagnosewerkzeuge sind nicht mehr bei der Diagnose vom PC getrennt,
-sondern werden direkt, über ein Kabel, W-LAN oder Bluetooth, mit einem PC
-verbunden. Daher stellt die Diagnose- und Aktualisierungstätigkeit von
-Automechanikern einen weiteren Angriffsvektor dar. Wenn der Mechaniker ein
-Diagnosegerät benutzt, welches ein W-LAN aufbaut, so können Angreifer sich
-mit diesem verbinden und selbst Aktualisierungen durchführen. Außerdem wurde
-von Checkoway~et~al. gezeigt, dass auch das Diagnosegerät selbst so manipuliert
-werden kann, dass es automatisch die gewünschten Angriffe ausführt.
+Diagnose\-geräte werden allerdings über PCs mit Aktualisierungen versorgt.
+Modernere Diagnose\-werkzeuge sind nicht mehr bei der Diagnose vom PC getrennt,
+sondern werden direkt, über ein Kabel, \mbox{W-LAN} oder Bluetooth, mit einem PC
+verbunden. Daher stellt die Diagnose- und Aktualisierungs\-tätigkeit von
+Automechanikern einen weiteren Angriffs\-vektor dar. Wenn der Mechaniker ein
+Diagnose\-gerät benutzt, welches ein \mbox{W-LAN} aufbaut, so können Angreifer
+sich mit diesem verbinden und selbst Aktualisierungen durchführen. Außerdem
+wurde von Checkoway~et~al. gezeigt, dass auch das Diagnose\-gerät selbst so
+manipuliert werden kann, dass es automatisch die gewünschten Angriffe ausführt.
 
 Wie in \cref{ch:standards} beschrieben wird eCall-System ab 2018 in Europa
 verpflichtend eingeführt. Dieses nutzt das Mobilfunknetz zur Kommunikation.
@@ -107,12 +109,12 @@ Prozesses im Speicher bekannt sein. Diese werden im Detail
 in~\cite{Silberschatz2005} erklärt.
 
 Buffer Overflow Angriffe nutzen die Tatsache aus, dass bestimmte Befehle wie
-beispielsweise \verb+gets+ Zeichenketten in einen Puffer schreiben, ohne die Größe
-des Puffers zu beachten. \verb+gets+ erhält als Parameter einen Zeiger auf die
-Startadresse des Puffers. Wenn der Benutzer eine längere Eingabe macht als der
-Puffer erlaubt, so wird in nachfolgende Speicherbereiche geschrieben. Dies kann
-an folgendem, aus~\cite{Arora2013} entnommenem und leicht modifiziertem
-Beispiel beobachtet werden:
+beispielsweise \verb+gets+ Zeichenketten in einen Puffer schreiben, ohne die
+Größe des Puffers zu beachten. \verb+gets+ erhält als Parameter einen Zeiger
+auf die Startadresse des Puffers. Wenn der Benutzer eine längere Eingabe macht
+als der Puffer erlaubt, so wird in nach\-folgende Speicher\-bereiche
+geschrieben. Dies kann an folgendem, aus~\cite{Arora2013} entnommenem und
+leicht modifiziertem Beispiel beobachtet werden:
 
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=simple.c]{c}{simple.c}
 
