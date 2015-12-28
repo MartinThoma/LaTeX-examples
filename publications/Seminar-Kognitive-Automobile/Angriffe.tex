@@ -1,4 +1,4 @@
-%!TEX root = ../booka4.tex
+%!TEX root = booka4.tex
 \section{Angriffe}\label{ch:attack}
 
 Eine Reihe von elektronischen Systemen wurde zum Diebstahlschutz entwickelt
@@ -47,8 +47,11 @@ Mediaplayers über eine CD mit einem bestimmten Namen und Dateiformat
 aktualisiert werden kann. Außerdem wurde ein Fehler beim Abspielen der
 Audio-Dateien genutzt um einen Buffer Overflow zu erzeugen. Es wurde gezeigt,
 dass dieser genutzt werden kann um die Software des Media-Players zu
-aktualisieren. Dafür muss nur eine modifizierte Audio-Datei, welche immer noch
-abspielbar ist, auf der CD sein.
+überschreiben. Über diesen Fehler können alle sicherheitskritischen Funktionen
+wie beispielsweise das Deaktivieren der Bremsen nach dem Erreichen einer
+Geschwindigkeit über $\SI[per-mode=fraction]{100}{\km\per\hour}$ vom Angreifer
+kontrolliert werden. Dafür muss lediglich eine modifizierte Audio-Datei, welche
+immer noch abspielbar ist, auf der CD sein.
 
 Der von Checkoway~et~al. durchgeführte Angriff via Bluetooth benötigt ein
 mit dem Media Player verbundenes Gerät. Dieses nutzt dann
