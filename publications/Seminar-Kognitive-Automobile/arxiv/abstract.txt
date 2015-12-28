@@ -1,0 +1,5 @@
+Modern cars have many systems for assistance and savety. Those system have interfaces whcih can be the target of attacks. This term paper summarizes the current state of IT security in cognitive automobiles in respect to possible attacks as well as possibilites to protect against attacks.
+
+-----
+
+Moderne Automobile verf\"ugen \"uber eine Vielzahl von Assistenz- und Fahrsicherheitssystemen. Diese Systeme haben Schnittstellen, welche das Ziel von Angriffen sein k\"onnen. In dieser Seminararbeit wird der aktuelle Stand der IT-Sicherheit kognitiver Automobilie untersucht. Dabei wird auf m\"ogliche Angriffe sowie M\"oglichkeiten zum Schutz eingegangen.

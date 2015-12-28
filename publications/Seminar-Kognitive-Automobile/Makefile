@@ -12,6 +12,9 @@ ebook:
 	latexmlpost -dest=$(DOKUMENT).html $(DOKUMENT).xml
 	ebook-convert $(DOKUMENT).html $(DOKUMENT).epub --language de --no-default-epub-cover
 
+arxiv:
+	zip -r upload.zip . -x \*.git\* -x MAKEFILE -x *.zip -x *.pdf
+
 clean:
 	rm -rf $(TARGET) *.class *.html *.aux *.out *.thm *.idx *.toc *.ilg *.glg *.glo *.gls *.ist *.xdy *.fdb_latexmk *.bak *.blg *.glsdefs *.acn *.acr *.alg *.nls *.nlo *.bak *.pyg *.lot *.lof *.xmpdata *.xmpi
 	rm -rf _minted-booka4
