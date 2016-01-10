@@ -1,0 +1,88 @@
+\documentclass[hyperref={pdfpagelabels=false},usepdftitle=false]{beamer}
+\usetheme{Frankfurt} % see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html as fallback
+\usecolortheme{beaver}
+\usefonttheme{professionalfonts}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[english]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{tikz}
+
+\newcommand {\framedgraphic}[2] {
+    \begin{frame}{#1}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}
+        \end{center}
+    \end{frame}
+}
+
+\newcommand {\framedgraphiconly}[1] {
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{center}
+            \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#1}
+        \end{center}
+        %\begin{tikzpicture}[remember picture,overlay]
+            %\node[at=(current page.center)] {
+                %\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#1}
+            %};
+        %\end{tikzpicture}
+    \end{frame}
+}
+
+\beamertemplatenavigationsymbolsempty
+
+% Begin:Move navigation from top to bottom
+\setbeamertemplate{navigation symbols}{}
+\makeatletter
+\setbeamertemplate{footline}
+{%
+  \pgfuseshading{beamer@barshade}%
+  \ifbeamer@sb@subsection%
+    \vskip-9.75ex%
+  \else%
+    \vskip-7ex%
+  \fi%
+  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{\paperwidth}
+  \end{beamercolorbox}%
+  \ifbeamer@sb@subsection%
+    \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+}%
+\setbeamertemplate{headline}{%
+}
+\makeatother
+% End:Move navigation from top to bottom
+
+
+\begin{document}
+
+\title{Art in Machine Learning}
+\subtitle{\href{https://github.com/MartinThoma/}{github.com/MartinThoma/}}
+\author{Martin Thoma}
+\date{15. Januar 2016}
+\subject{Machine Learning}
+
+\frame{\titlepage}
+
+\section{Examples}
+\subsection{Examples}
+\framedgraphiconly{0099.jpg}
+
+\section{ML-Basics}
+\subsection{ML-Basics}
+
+\begin{frame}{Was ist Machine Learning?}
+    \begin{block}{Definition by Tom Mitchell: ML}
+        A computer program is said to learn from \textbf{experience} $E$ with
+        respect to some class of \textbf{tasks} $T$ and \textbf{performance
+        measure} $P$, if its performance at tasks in $T$, as measured by $P$,
+        improves with experience $E$.
+    \end{block}
+\end{frame}
+
+\end{document}
