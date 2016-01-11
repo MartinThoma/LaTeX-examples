@@ -9,20 +9,6 @@
 \usepackage{tikz}
 \usepackage{incgraph}
 
-\newcommand {\framedgraphiconly}[1] {
-    \setbeamertemplate{navigation symbols}{}
-    \begin{frame}[plain]
-        \begin{center}
-            \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#1}
-        \end{center}
-        %\begin{tikzpicture}[remember picture,overlay]
-            %\node[at=(current page.center)] {
-                %\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#1}
-            %};
-        %\end{tikzpicture}
-    \end{frame}
-}
-
 \beamertemplatenavigationsymbolsempty
 
 % Begin:Move navigation from top to bottom
@@ -64,7 +50,6 @@
 
 \section{Examples}
 \subsection{Examples}
-%\framedgraphiconly{0099.jpg}
 
 \incgraph{0099.jpg}
 
