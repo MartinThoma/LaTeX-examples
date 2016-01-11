@@ -1,0 +1,214 @@
+\documentclass[a4paper,9pt]{scrartcl}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc}   % this is needed for umlauts
+\usepackage[USenglish]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}      % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage{hyperref}         % hyperlinks
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumerate}  % for advanced numbering of lists
+\usepackage{csquotes}   % for enquote
+
+\newcommand\titletext{Peer-Review of\\"Deep Neuronal Networks for Semantiv Segmentation in Medical
+Informatics"}
+
+\title{\titletext}
+\author{Martin Thoma}
+
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {peer review},
+  pdftitle    = {Lineare Algebra}
+}
+
+\usepackage{microtype}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+This is a peer-review of \enquote{Deep Neuronal Networks for Semantiv
+Segmentation in Medical Informatics} by Marvin Teichmann. The reviewed document
+is available under \href{https://github.com/MarvinTeichmann/seminar-pixel-exact-classification.git}{https://github.com/MarvinTeichmann/seminar-pixel-exact-classification.git}, version
+\texttt{b1bdb4802c8e268ebf7ca66adb7f806e29afb413}.
+
+\section{Summary of the Content}
+The author wants to describe how convolutional networks can be used for
+semantic segmentation tasks in medicine. To do so, he introduces Convolutional
+Neural Networks.
+
+As the introduction, section~2 (Computer Vision Tasks) and section~5
+(Application in Medical Informatics) are not written yet, it can only be said
+that the plan of writing them is good.
+
+The author expects the reader to know how neural networks work in general, but
+gives a detailed introduction into CNNs. He continues with explaining fully
+convolutional networks (FCNs). This leads in a natural fashion to the
+application of neural networks for segmentation.
+
+
+\section{Overall Feedback}
+Gramatical errors make it sometimes difficult to understand relatively easy
+sentences. Also, the missing parts make it difficult to see if there is a
+consistent overall structure.
+
+I recommend adding more source to claims made in the paper.
+
+The overall structure seems to be logical, definitions are given most of the
+time (see the feedback below for some exceptions where it should be added).
+
+
+\section{Major Remarks}
+\subsection{Section 3 / 3.1: CNNs}
+\begin{itemize}
+    \item What is \enquote{stationarity of statistics}?
+    \item What are \enquote{translation invariance functions}?
+    \item The term \enquote{Kernel} and \enquote{reception field} were neither
+          introduced nor a source was given where the reader could find
+          definitions.
+    \item What is a \enquote{channel size}? Do you mean the number of channels
+          or the channel dimension?
+    \item What is $F_{nm}$? A function, but on which domain does it operate and
+          to which domain does it map? What does this function mean? Is it
+          an activation function?
+    \item What does $n << h,w$ mean? $n \ll \min(h, w)$?
+    \item It was not explained what \enquote{a sliding window fashion} means.
+    \item I miss an~image in section 3.1 (definitions and notation).
+\end{itemize}
+
+\subsection{Section 3.2: Layer types}
+
+\begin{itemize}
+    \item I've never heard of activation layers. Do you mean fully connected
+          layers? If not, then you should probably cite a publication which
+          calls it like that.
+    \item \enquote{curtained weights} - what is that? (The problem might be
+          my lack of knowledge of the English language). However, I think
+          you should cite a source here for the claim that this is possible.
+    \item \enquote{a variety of tasks including edge and area detection,
+    contrast sharpening and image blurring}: I miss a source.
+    \item \enquote{big ($k \geq 7$). [KSH12, SZ14, SLJ + 14].} - What exactly
+          do you cite here?
+    \item An image with a tiny example would make the pooling layer much
+          easier to understand. However, you can also cite a source which
+          explains this well.
+    \item The sentence \enquote{Firstly it naturally reduces the spatial dimension
+enabling the network to learn more compact representation if the data and decreasing the
+amount of parameters in the succeeding layers.} sounds wrong. You forgot something
+          At \enquote{if the data}.
+    \item The sentence is gramatically wrong and makes it hard to understand
+          \enquote{Secondly it introduces robust translation invariant.}.
+    \item \enquote{Minor shifts in the input data will not result in the same activation after pooling.}
+          Not? I thought that was the advantage of pooling, that you get
+          invariant?
+    \item \enquote{Recently ReLU Nonlinearities [KSH12](AlexNet, Bolzmann)}:
+          It is possible to make that easier to read:
+          \enquote{Recently ReLU nonlinearities, as introduced by~[KSH12](AlexNet, Bolzmann)}
+          - However, I'm not too sure what you mean with \enquote{Bolzmann}.
+    \item It was not explained / defined what ReLU means / is.
+\end{itemize}
+
+
+\subsection{Section 4: Neural Networks for Segmentation}
+\begin{itemize}
+    \item \enquote{After the overwhelming successes of DCNNs in image classification}: Add source
+    \item \enquote{in combination with traditional classifiers} - What are \enquote{traditional} classifiers?
+    \item \enquote{Other authors used the idea described in Section 2} - Don't make me jump back. Can you give that idea a short name? Then you can write something like \enquote{the idea of sliding windows}. As you wrote about sliding windows in the rest of the sentence, I guess restrucuting the sentence might help.
+    \item \enquote{are currently the state-of-the art in several semantic segmentation benchmarks.} - name at least one.
+\end{itemize}
+
+\subsection{Section 4.1: Sliding Window efficiency in CNNs}
+\begin{itemize}
+    \item \enquote{The input image will be down sampled by a factor of s corresponding to the product of all strides being applied in $C'$.} - I don't think that is obvious. Please explain it or give a source for that claim.
+    \item \enquote{shift-and-stitch} - What is that?
+\end{itemize}
+
+\subsection{Section 4.2: FCNs}
+
+\begin{itemize}
+    \item \enquote{builds up on the ideas presented of Section 4.1} - which ones?
+          The \textit{sliding-window-as-a-convoluton} idea and which other idea?
+    \item \enquote{they are not trying to avoid downsampling as part of the progress}
+          - do you mean process?
+    \item Explain what an \enquote{upsampling layer} is.
+\end{itemize}
+
+\subsection{Section 4.2.1: Deconvolution}
+This section is still to be done.
+
+
+\subsection{Section 4.2.2: Skip-Architecture}
+An image would help, although I guess it is already easy to understand.
+
+
+\subsection{4.2.3 Transfer Learning}
+\begin{itemize}
+    \item What is transfer lerning?
+    \item What is VGG16 (cite paper) - same for AlexNet and GoogLeNet, if it
+          wasn't done already. People who don't know what a CNN is will also
+          not know what AlexNet / GoogLeNet is.
+\end{itemize}
+
+
+\subsection{4.3 Extensions of FCN}
+\begin{itemize}
+    \item \enquote{Several extensions of FCN have been proposed} - give sources
+    \item \enquote{of strong labeled data} what is \textbf{strong} labeled data?
+\end{itemize}
+
+
+\section{Minor Remarks}
+I stopped looking for typos in section 4.1.
+
+\begin{itemize}
+    \item \enquote{we}: It is a single author. Why does he write \enquote{we}?
+    \item should be lower case:
+    \begin{itemize}
+        \item \enquote{Architecture} should be lower case
+        \item \enquote{Classification Challenge} should be lower case
+        \item \enquote{Classification}, \enquote{Localization}, \enquote{Detection}, \enquote{Segmentation}
+        \item \enquote{Tasks}
+        \item \enquote{Layer}
+        \item \enquote{Nonlinearities}
+        \item \enquote{Semantic Segmentation}
+    \end{itemize}
+    \item typos (missing characters like commas, switched characters, \dots)
+    \begin{itemize}
+        \item \enquote{as fellows}
+        \item \enquote{descripe}
+        \item \enquote{architeture}
+        \item \enquote{a translation invariance functions}
+        \item \enquote{$f$ is than applied}
+        \item \enquote{To archive that $f_{ks}$ is chosen}
+        \item \enquote{an MLP}
+        \item \enquote{In convolutional layers stride is usually choose to be $s = 1$ ,}
+        \item \enquote{applies non-learnable function}
+        \item \enquote{to learn nonlinear function} - \enquote{a} is missing
+        \item \enquote{this models}
+        \item \enquote{Fully Convolutional Networks (FCN)} - missing plural s in (FCNs)
+        \item \enquote{FCN are an architecture} - mixed singular and plural. \enquote{A FCN is an architecture\dots}
+        \item \enquote{approaches ConvNets} - comma missing
+        \item \enquote{relevant} $\neq$ \enquote{relevance}
+        \item \enquote{itself will be a ConvNet, that means} - replace the comma by a point. This sentence is too long.
+        \item \enquote{only downside is, that} - remove comma
+    \end{itemize}
+    \item Typography
+    \begin{itemize}
+        \item Why don't you include \texttt{hyperref}? I really like being able
+              to directly jump to the sections, without having to manually
+              search them.
+        \item I prefer $\mathbb{R}$ instead of $R$. This makes it more obvious
+              that it is not a variable, but the set of real numbers.
+        \item \verb+\ll+ is nicer than \verb+<<+: $\ll$ vs $<<$.
+        \item \verb+exp+ ($exp$) are three variables. The function is \verb+\exp+ ($\exp$). Same for $\tanh$.
+        \item \enquote{A recent break-trough has been achieved with} - That seems to be a good point to start a new paragraph.
+    \end{itemize}
+    \item \enquote{[...], the ImageNet Classification Challenge} should be
+          followed by a comma
+    \item \enquote{have broken new records}: either \enquote{have broken records}
+          or something like \enquote{have set new records}
+    \item \enquote{For the pooling layer typically s is choose to be k} - I would write \enquote{For the pooling layer $s$ is typically choosen to be equal to $k$}
+    \item \enquote{to further computer vision tasks} - I'm not too sure if you can say \enquote{further} in this context
+\end{itemize}
+
+\end{document}
