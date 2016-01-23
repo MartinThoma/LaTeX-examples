@@ -4,3 +4,6 @@
 [submodule "documents/NeuralNets"]
 	path = documents/NeuralNets
 	url = https://github.com/Marvin182/NeuralNets.git
+[submodule "documents/GeoTopo"]
+	path = documents/GeoTopo
+	url = https://github.com/MartinThoma/GeoTopo.git
