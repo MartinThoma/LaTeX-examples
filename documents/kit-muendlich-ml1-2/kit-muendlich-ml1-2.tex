@@ -1,0 +1,235 @@
+\documentclass[a4paper]{article}
+\usepackage{csquotes}
+\usepackage{myStyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier eigene Daten einfügen                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Studiengang}{Informatik (MA)}
+\newcommand{\Fach}{Maschinelles Lernen 1}
+\newcommand{\Pruefungsdatum}{28.01.2016}    % DD.MM.YYYY
+\newcommand{\Pruefer}{Prof. Dr. Zöllner}
+\newcommand{\Beisitzer}{Kenne ich nicht}
+% Nicht zwingend, aber es waere nett, wenn du zumindest die Zahl vor
+% dem Komma angeben koenntest:
+\newcommand{\Note}{1.0 und 1.0}
+\newcommand{\Dauer}{30 + 15} % in Minuten
+
+%%% WEITER SCROLLEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{tabular}{p{2cm}p{15cm}}
+\ifpdf\vspace{-0.8cm}\fi
+\multirow{2}{2cm}{ \includegraphics[width=20mm]{FS-Eule}} &
+
+\Large Fragebogen der Fachschaft zu \\
+& \Large {\bfseries mündlichen Prüfungen} \\
+& \Large{im Informatikstudium}
+\\
+\end{tabular}
+
+ \begin{tabular}{p{8cm}p{8cm}}
+  \begin{flushleft}Dieser Fragebogen gibt den Studierenden,
+   die nach Dir die Prüfung ablegen wollen, einen Einblick in Ablauf
+   und Inhalt der Prüfung. Das erleichtert die Vorbereitung.
+
+   Bitte verwende zum Ausfüllen einen schwarzen Stift.
+   Das erleichtert das Einscannen. \\[0.5cm]
+%%% HIER GEHTS LOS! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Das Dokument                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   Dein Studiengang: \Studiengang \\[0.5cm]
+
+   \textbf{Prüfungsart:}\\
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+   $\boxempty$ Wahlpflichtfach  \\
+   $\boxtimes$ Vertiefungsfach  \\
+   $\boxempty$ Ergänzungsfach  \\[0.5cm]
+%% Namen des Wahl/Vertiefungs/Ergaenzungsfachs hier bitte eintragen.
+   Welches? \Fach
+%% Jetzt kommt ein Barcode von uns.  Einfach weitergehen.  ;-)
+  \end{flushleft}
+  &
+  \begin{center}
+   Barcode:
+   \begin{tabular}{p{0.2cm}p{6.8cm}p{0.2cm}}
+   $\ulcorner$
+   \vskip 2cm
+   $\llcorner$ & & $\urcorner$
+   \vskip 2cm
+   $\lrcorner$ \\
+   \end{tabular}
+  \end{center}
+  \vskip 0.5cm
+%% Hier gehts weiter:
+  \begin{flushright}
+%% Pruefungsdatum, PrueferIn und BeisitzerIn bitte hier eintragen. Wichtig: Im Allgemeinen kann nur ein Professor der Pruefer gewesen sein.
+  \begin{tabular}{ll}
+   Prüfungsdatum:   & \Pruefungsdatum \\[0.5cm]
+   Prüfer/-in:      & \Pruefer \\[0.5cm]
+   Beisitzer/-in:   & \Beisitzer \\
+  \end{tabular}
+  \end{flushright} \\
+ \end{tabular}
+
+ \begin{tabular}{|p{8.2cm}|p{3cm}|p{1cm}|p{3.5cm}|}
+  \multicolumn{4}{l}{\bfseries Prüfungsfächer und Vorbereitung: } \\[0.2cm]
+  \hline
+  Veranstaltung & Dozent/-in  & Jahr & regelmäßig besucht? \\
+  \hline
+  \hline
+%% Beispiel:
+%% Interessante Vorlesung & Toller Prof & 2007 & Ich war immer 5 Minuten vorher da \\
+  \Fach & \Pruefer & 14/15 &  Ja \\[0.2cm]
+  \hline
+  Maschinelles Lernen 2 & \Pruefer & 2015 &  Ja \\[0.2cm]
+  \hline
+ \end{tabular} \\[0.5cm]
+
+\begin{multicols}{2}
+Note: \Note\\[0.5cm]
+War diese Note angemessen?
+%% Hier ist Platz fuer deinen Kommentar
+Ja
+
+\columnbreak
+%% Bitte Pruefungsdauer eintragen
+Prüfungsdauer: \Dauer{} Minuten \\[0.5cm]
+\end{multicols}
+
+
+ \textbf{\ding{46}} Wie war der \textbf{Prüfungsstil des Prüfers / der Prüferin?} \\
+ \begin{minipage}[t][10cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+Prof. Zöllner hat meistens sehr klare Fragen formuliert.
+ Die Atmosphäre war sehr entspannt. Es war kein Problem bei den zwei Fragen
+ nochmal nachzuhaken, was denn eigentlich die Frage ist.
+
+
+ \end{minipage}
+
+ \begin{flushright}$\hookrightarrow$\textbf{Rückseite bitte nicht vergessen!}\end{flushright}
+
+ \newpage
+ \columnseprule=.4pt
+
+ \begin{multicols}{2}
+
+  \ding{46} Hat sich der \textbf{Besuch / Nichtbesuch} der Veranstaltung für dich gelohnt? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Meistens. Mit der Vorlesung werden die Folien klar.
+
+  \end{minipage}
+
+  \ding{46} Wie lange und wie hast du dich \textbf{alleine bzw. mit anderen vorbereitet}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+
+    \begin{itemize}
+        \item Ich habe einiges an Vorwissen aus meiner Bachelor-Arbeit /
+              eigenem Interesse mitgebracht. Trotzdem habe ich mit der Prüfung
+              lange gewartet und mich mit den Themen in der Zeit immer wieder
+              beschäftigt.
+        \item 3 Wochen immer wieder (im Schnitt 1h pro Tag) + in der letzten Woche ca. 6h pro Tag
+        \item 1 Treffen mit Lernpartnern à 2 Stunden.
+    \end{itemize}
+
+  \end{minipage}
+
+  \ding{46} Welche \textbf{Tips zur Vorbereitung} kannst du geben?
+  \begin{footnotesize}(Wichtige / Unwichtige Teile des Stoffes, gute Bücher / Skripten, Lernstil)\end{footnotesize} \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    In meinem Blog habe ich die wichtigen Informationen zusammengefasst und
+    weitere Ressourcen verlinkt:\\
+    \href{https://martin-thoma.com/machine-learning-1-course/}{martin-thoma.com/machine-learning-1-course/} sowie
+    \href{https://martin-thoma.com/machine-learning-2-course/}{martin-thoma.com/machine-learning-2-course/}
+
+    In meiner Prüfung sind folgende Themen nicht angeprochen worden: MLNs,
+    RBMs, Evolutionäre Algorithmen, Deduktive Verfahren, OPRMs, Bayes-Netze.
+  \end{minipage}
+
+\columnbreak
+
+  \ding{46} Kannst du ihn/sie \textbf{weiterempfehlen}?
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+  $\boxtimes$ Ja / $\boxempty$ Nein\newline Warum? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Die Vorlesungsinhalte sind extrem relevant. Es gibt ein paar exotische
+    Themen, aber größtenteils wurden Verfahren erklärt, die tatsächlich auch
+    (noch) eingesetzt werden.
+
+  \end{minipage}
+
+  \ding{46} Fanden vor der Prüfung \textbf{Absprachen} zu Form oder Inhalt statt? Wurden sie \textbf{eingehalten}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Nein, es gab keine Absprachen.
+
+  \end{minipage}
+
+  \ding{46} Kannst du Ratschläge für das \textbf{Verhalten in der Prüfung} geben? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Mit den Antworten kann man etwas lenken, was als nächstes
+    gefragt wird.
+
+  \end{minipage}
+%
+\end{multicols}
+\clearpage
+
+\section*{Inhalte der Prüfung:}
+
+Es wurde ML1 und ML2 stark vermischt. Das war vor allem mein \enquote{Fehler}.
+
+\begin{itemize}
+    \item VC-Dimension
+    \item Welche Lernverfahren sind nach Vapnik korrekt?
+    \item[$\rightarrow$] SVM, Neuronale Netze mit Cascade Correlation, Adaboost
+    \item Warum ist Adaboost korrektes lernen?
+    \item[$\rightarrow$] Adaboost fügt sukzessive immer weitere Basis-Klassifikatoren (z.B. Decision Strumps; hier habe ich das Bild in den Folien
+    gezeichnet) hinzu. Die Menge der möglichen Hypothesen (=Trenngrenze zur Klassifikation) zweier Decision
+    strumps ist eine echte Obermenge der möglichen Hypothesen eines einzelnen
+    Decision Strumps (hier auch zwei Kreise gezeichnet, wobei der eine den
+    anderen beinhaltet). Dies ist die strukturierung des Hypothesenraumes.
+    Ein weiterer Klassifikator wird nur hinzugefügt, wenn der Empirische Fehler
+    nicht akzeptabel ist.
+    \item Wie minimieren SVMs das strukturelle Risiko?
+    \item[$\rightarrow$] (Bild der Dualität zwischen Feature-Space und Hypothesenraum gezeichnet, vgl. mein Blog für eine Erklärung). Die SVM
+    minimiert das strukturelle Risiko, indem der Radius für die Hyperkugel zu
+    dem nächsten Datenpunkt (=Gerade) maximiert wird. Also durch den maximalen
+    Margin. (Da war ich aber sehr unsicher... er war nicht richtig zufrieden,
+    aber es schien OK gewesen zu sein. Ich habe noch was von den Slack-Variablen
+    erzählt.).
+    \item Wie minimiert man mit neuronalen Netzen das strukturelle Risiko?
+    \item[$\rightarrow$] Entweder Netz konstruktiv aufbauen (cascade correlation)
+                         oder \enquote{prunen} (Verbindungen mit geringem Gewicht entfernen, Optimal Brain Damage (war nicht Teil der Vorlesung))
+    \item Wie kann man aktiv lernen?
+    \item[$\rightarrow$] Query-by-Committee (Selektive Entnahme, Pool-based, Query Synthesis)
+    \item Wie kann man mit SVMs aktiv lernen?
+    \item[$\rightarrow$] Version Space so stark wie möglich durch neue Daten
+    minimieren.
+    \item Was lernen neuronale Netze?
+    \item[$\rightarrow$] Gewichte
+    \item Wie lernen neuronale Netze? (Er hat auf die x-Achse ein Gewicht $w$
+          gezeichet und auf die y-Achse den Fehler.).
+    \item[$\rightarrow$] Gradient descent (Gradient eingezeichnet, Schrittweite / Lernrate erklärt.)
+    \item Was ist Overfitting in neuronalen Netzen formal gesehen?
+    \item[$\rightarrow$] Habe Trainings- und Testfehler über Epochen gezeichnet
+                         und den Punkt markiert, ab dem Overfitting passiert.
+                         Da ist wohl was neues in dem Jahr nach mir dran
+                         gekommen, was er hören wollte. War aber nicht so
+                         schlimm. Die Erklärung war etwas mit Generalisierung.
+    \item Wie funktioniert SSL?
+    \item[$\rightarrow$] Auto-Encoder (habe hier viel erzählt),
+                         Transductive SVM, Self-Training, Co-Training,
+    \item Weitere Themen: Expectation Maximization, Generalisierung, \dots
+          Die Prüfung ging sehr lang, aber ich konnte das Gespräch immer wieder
+          auf neuronale Netze / SVMs lenken :-)
+\end{itemize}
+\end{document}
