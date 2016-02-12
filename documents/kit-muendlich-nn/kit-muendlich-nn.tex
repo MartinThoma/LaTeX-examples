@@ -1,0 +1,286 @@
+\documentclass[a4paper]{article}
+\usepackage{myStyle}
+\usepackage{csquotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier eigene Daten einfügen                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Studiengang}{Informatik (MA)}
+\newcommand{\Fach}{Neuronale Netze}
+\newcommand{\Pruefungsdatum}{12.02.2016}    % DD.MM.YYYY
+\newcommand{\Pruefer}{Dr. Stüker}
+\newcommand{\Beisitzer}{?}
+% Nicht zwingend, aber es waere nett, wenn du zumindest die Zahl vor
+% dem Komma angeben koenntest:
+\newcommand{\Note}{1,0}
+\newcommand{\Dauer}{40} % in Minuten
+
+%%% WEITER SCROLLEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{tabular}{p{2cm}p{15cm}}
+\ifpdf\vspace{-0.8cm}\fi
+\multirow{2}{2cm}{ \includegraphics[width=20mm]{FS-Eule}} &
+
+\Large Fragebogen der Fachschaft zu \\
+& \Large {\bfseries mündlichen Prüfungen} \\
+& \Large{im Informatikstudium}
+\\
+\end{tabular}
+
+ \begin{tabular}{p{8cm}p{8cm}}
+  \begin{flushleft}
+%%% HIER GEHTS LOS! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Das Dokument                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   Dein Studiengang: \Studiengang \\[0.5cm]
+
+   \textbf{Prüfungsart:}\\
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+   $\boxempty$ Wahlpflichtfach  \\
+   $\boxtimes$ Vertiefungsfach  \\
+   $\boxempty$ Ergänzungsfach  \\[0.5cm]
+%% Namen des Wahl/Vertiefungs/Ergaenzungsfachs hier bitte eintragen.
+   Welches? \Fach
+%% Jetzt kommt ein Barcode von uns.  Einfach weitergehen.  ;-)
+  \end{flushleft}
+  &
+  \begin{center}
+   Barcode:
+   \begin{tabular}{p{0.2cm}p{6.8cm}p{0.2cm}}
+   $\ulcorner$
+   \vskip 2cm
+   $\llcorner$ & & $\urcorner$
+   \vskip 2cm
+   $\lrcorner$ \\
+   \end{tabular}
+  \end{center}
+  \vskip 0.5cm
+%% Hier gehts weiter:
+  \begin{flushright}
+%% Pruefungsdatum, PrueferIn und BeisitzerIn bitte hier eintragen. Wichtig: Im Allgemeinen kann nur ein Professor der Pruefer gewesen sein.
+  \begin{tabular}{ll}
+   Prüfungsdatum:   & \Pruefungsdatum \\[0.5cm]
+   Prüfer/-in:      & \Pruefer \\[0.5cm]
+   Beisitzer/-in:   & \Beisitzer \\
+  \end{tabular}
+  \end{flushright} \\
+ \end{tabular}
+
+ \begin{tabular}{|p{8.2cm}|p{3cm}|p{1cm}|p{3.5cm}|}
+  \multicolumn{4}{l}{\bfseries Prüfungsfächer und Vorbereitung: } \\[0.2cm]
+  \hline
+  Veranstaltung & Dozent/-in  & Jahr & regelmäßig besucht? \\
+  \hline
+  \hline
+%% Beispiel:
+%% Interessante Vorlesung & Toller Prof & 2007 & Ich war immer 5 Minuten vorher da \\
+  Neuronale Netze & Prof. Waibel / Dr. Kilgour & SS 2015 &  Ja \\[0.2cm]
+  \hline
+ \end{tabular} \\[0.5cm]
+
+\begin{multicols}{2}
+Note: \Note\\[0.5cm]
+War diese Note angemessen?
+%% Hier ist Platz fuer deinen Kommentar
+Ja
+
+\columnbreak
+%% Bitte Pruefungsdauer eintragen
+Prüfungsdauer: \Dauer{} Minuten \\[0.5cm]
+\end{multicols}
+
+
+ \textbf{\ding{46}} Wie war der \textbf{Prüfungsstil des Prüfers / der Prüferin?} \\
+
+ \begin{minipage}[t][10cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+ Die Fragen waren größtenteils klar. Teilweise war es mir
+ nicht klar und in der Prüfung hatte ich das Gefühl, dass dies schlecht
+ ist. Aber an der Note und der Begründung später sieht man ja, dass es kein
+ Problem war.\\
+ Es wurden einige Standard-Fragen gestellt und wenn nicht die Standardantworten
+ gekommen sind (insbesondere wenn etwas gefehlt hat) wurde nachgebohrt. Aber
+ nie besonders tief. Sehr viele Fragen in die Breite.
+ \end{minipage}
+
+ \begin{flushright}$\hookrightarrow$\textbf{Rückseite bitte nicht vergessen!}\end{flushright}
+
+ \newpage
+ \columnseprule=.4pt
+
+ \begin{multicols}{2}
+
+  \ding{46} Hat sich der \textbf{Besuch / Nichtbesuch} der Veranstaltung für dich gelohnt? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Ja. Wenn man wenig Erfahrung mit Neuronalen Netzen hat werden in der
+    Vorlesung die Zusammenhänge klarer. Allerdings kann ich die Übung
+    (\enquote{Praktikum}) leider nicht empfehlen. Man sollte sich die Aufgaben
+    sowie die Folien der Besprechung; die Besprechung an sich war in meinem
+    Jahr leider nicht so gut. Aber mit Prof.~Waibel kann man gut reden;
+    eventuell wird das in kommenden Jahren besser.
+  \end{minipage}
+
+  \ding{46} Wie lange und wie hast du dich \textbf{alleine bzw. mit anderen vorbereitet}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    \begin{itemize}
+        \item viel Vorwissen
+        \item Vorlesung zu 100\% besucht
+        \item ca. 10 Treffen à 2 Stunden mit einem Lernpartern
+        \item ca. 2~Wochen mit ca. 8~Stunden pro Tag
+    \end{itemize}
+  \end{minipage}
+
+  \ding{46} Welche \textbf{Tips zur Vorbereitung} kannst du geben?
+  \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Folien lesen und verstehen, Protokolle durchgehen und
+    meinen Blog lesen:\\
+    \href{https://martin-thoma.com/neuronale-netze-vorlesung}{martin-thoma.com/neuronale-netze-vorlesung}
+  \end{minipage}
+
+\columnbreak
+
+  \ding{46} Kannst du ihn/sie \textbf{weiterempfehlen}?
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+  $\boxtimes$ Ja / $\boxempty$ Nein\newline Warum? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Die Prüfung war sehr routiniert. Ich glaube wenn man den Stoff gut
+    beherrscht kann man gut eine 1.0 bekommen. Der Prüfer ist fair, weiß aber
+    auch sehr genau was er will und ist fordernd. In anderen Fächern kann man
+    sicherlich deutlich leichter eine (sehr) gute Note bekommen.
+  \end{minipage}
+
+  \ding{46} Fanden vor der Prüfung \textbf{Absprachen} zu Form oder Inhalt statt? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Nein, es gab keine Absprachen.
+
+  \end{minipage}
+
+  \ding{46} Kannst du Ratschläge für das \textbf{Verhalten in der Prüfung} geben? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Nein, ich kann keine Tipps geben die nicht offensichtlich sind:
+    Sagt was ihr wisst, lernt den Stoff vorher gut und schaut euch Protokolle
+    an.
+  \end{minipage}
+%
+\end{multicols}
+\clearpage
+
+\section*{Inhalte der Prüfung:}
+    \begin{itemize}
+        \item \textbf{Welche Anwendungen von Neuronalen Netzen kennen Sie?}
+        \item[$\Rightarrow$] Klassifikation, Funktionsapproximation, Prädiktion,
+                             Collaborative Filtering, Dimensionalitätsreduktion,
+                             Denoising / Rekonstruktion.
+        \item \textbf{Welche Netztypen haben wir in der Vorlesung kennen gelernt?}
+        \item[$\Rightarrow$] McCullogh-Pitts Perzeptron, Rosenblatt Perzeptron,
+                             Multi-Layer Perzeptron (MLP), (Denoising)
+                             Auto-Encoder, Restricted Boltzmann Machines (RBMs),
+                             Hopfield-Netze, CNNs / TDNNs, Rekurrente Netze
+                             (LSTMs). Ich habe noch \enquote{Gated Recurrent Units} (GRU)
+                             erwähnt; das war aber nicht Teil der Vorlesung.
+        \item Sie bekommen von ihrem Boss einen Datensatz, der bereits
+              Vorverarbeitet / gefiltert wurde. Sie müssen ein
+              Klassifikationsproblem mit 3~Klassen lösen. Was machen sie als
+              erstes?
+        \item[$\Rightarrow$] \textbf{Split in Trainings- und Testset}. Gegebenenfalls
+                             noch Validation-Set und Development-Set.
+        \item \textbf{Wie sieht ein Perzeptron aus?}
+        \item[$\Rightarrow$] Aufgezeichnet und erklärt: Inputs $x_1, \dots, x_n$,
+                             Bias $1$, gewichte $w_0, \dots, w_n$. Summe davon
+                             ergibt \texttt{net}, darauf wird
+                             Aktivierungsfunktion $\varphi$ angewendet. Bei
+                             McCullogh-Pitts / Rosenblatt die Heavy-Side
+                             step function
+        \item Was macht der Bias? Wo kann man den sehen?
+        \item[$\Rightarrow$] Trennebene aufgezeichnet. Bias ist der Abstand
+                             zur 0 wenn man das Lot von der Trennebene auf
+                             die 0 fällt. (Hier habe ich mich verhaspelt.)
+        \item \textbf{Wie sieht ein Multi-Layer Perzeptron aus?}
+        \item[$\Rightarrow$] Aufgezeichnet (3 Layer - Input, Hidden, Ouptut. Bias nicht vergessen.)
+        \item \textbf{Welche Aktivierungsfunktionen kennen sie?} Zeichnen sie auf.
+        \item[$\Rightarrow$] Signum (smooth: tanh), Heavy-Side step function (smooth: sigmoid),
+                             ReLU (smooth: softplus), Leaky ReLU, ELU. Softmax
+                             und Maxout kann man nicht so einfach Zeichnen,
+                             weil sie auf der Ausgabe einer ganzen Schicht
+                             arbeiten.\\
+                             Softmax ist für Klassifikationsprobleme gut, da
+                             Softmax eine Wahrscheinlichkeitsverteilung (WKV) ausgibt,
+                             wenn man One-Hot Encoding der Labels hat
+                             (Jede Klasse ein Neuron; label ist ein Vektor der
+                             eine 1 bei der richtigen Klasse hat und sonst 0.)
+                             Cross-entropy Fehlerfunktion erwähnt.
+        \item Softmax gibt nur unter bestimmten Annahmen eine WKV aus. Welche?
+        \item[$\Rightarrow$] (Wusste ich nicht): Normalverteilte Daten,
+                             sigmoid-Aktivierungsfunktion sind nötig, damit
+                             man eine A posteriori Verteilung annehmen kann.
+        \item Was sind Bottleneck-features?
+        \item[$\Rightarrow$] MLP, bei dem man überwacht lernt und einen kleinen
+                             Layer zwischendrin hat.
+                             (Hier habe ich anscheinend etwas falsch verstanden.
+                              Laut Sebastian versteht man unter Bottleneck-Features
+                              immer überwachtes lernen. Unüberwacht kann man
+                              zwar auch Bottlenecks haben und man lernt auch
+                              Features, aber es wird halt nicht so genannt.)
+        \item Was sind Denoising Auto-Encoder?
+        \item[$\Rightarrow$] Man hat Daten $X$. Diese werden als Labels
+                             verwendet. Dem Netz gibt man $\tilde X = X + $
+                             Noise. Das Netz lernt also den Noise
+                             herauszufiltern. Als Beispiel finde ich schlecht
+                             empfangene Fernsehbilder gut (ist mir spontan eingefallen :-) )
+                             Man weiß wie der Noise aussieht und kann den
+                             vorher auf typische Fernsehbilder tun.
+                             Dann könnte man im Fernseher etwas haben, was
+                             diesen Noise entfernt und das unverrauschte Bild
+                             rekonstruiert.
+    \end{itemize}
+\pagebreak
+    \begin{itemize}
+        \item Nun haben sie ein MLP und folgende Fehlerkurve (Aufgezeichnet - x-Achse: Epoche, y-Achse: Fehler; Trainingsfehler und Validierungsfehler). Der Trainingsfehler
+              geht runter, aber der Testfehler bleibt gleich. Was ist der mögliche Grund?
+        \item[$\Rightarrow$] Overfitting. Das Netzwerk ist zu groß / für das
+                             Netzwerk gibt es zu wenig Daten.
+        \item Nun machen sie das Netzwerk kleiner und bekommen folgende Kurven
+              (Zeichnung; An beiden Fehlern tut sich nicht mehr wirklich was)
+        \item[$\Rightarrow$] Nun ist das Netzwerk zu klein; es kann nicht mehr
+                             lernen.
+        \item Wie kann man nun sinnvoll eine Topologie aufbauen?
+        \item[$\Rightarrow$] Es gibt 3 Gruppen von Verfahren, aber nur zwei
+                             haben wir in der Vorlesung besprochen:
+             \begin{itemize}
+                 \item \textbf{Generative Verfahren} (Meiosis, Cascade Correlation),
+                 \item \textbf{Pruning-Verfahren} (Weight Decay, Optimal Brain Damage,
+             Optimal Brain Surgeon, Regularisierung ($L_1$, $L_2$, Dropout)),
+                 \item \textbf{Genetische Algorithmen} (NEAT, HyerNEAT).
+             \end{itemize}
+        \item Beschreiben sie Meiosis.
+        \item[$\Rightarrow$] Aufgezeichnet (schaut euch mein YouTube Video an
+                             sowie die Antwort in der StackExchange Frage.
+                             Ist in meinem Blog-Artikel
+                             \url{https://martin-thoma.com/neuronale-netze-vorlesung}
+                             verlinkt.)
+        \item Wie funktioniert Meiosis?
+        \item[$\Rightarrow$] Wir lernen Mean und Variance der Gewichte. Wenn
+                             ein Kriterium erfüllt ist (vgl. Folien / Meiosis-Paper), dann
+                             splitten wir den Knoten mit Mean $\mu$ in zwei
+                             Knoten. Es gilt $\mu = \frac{\mu_1 + \mu_2}{2}$,
+                             aber $\mu \neq \mu_1 \neq \mu_2$.
+        \item Was heißt Meiosis auf Deutsch?
+        \item[$\Rightarrow$] Zellteilung.
+    \end{itemize}
+
+    \textit{Hinweis:} Das ist ein Gedächtnisprotokoll. Es gab noch ein paar
+    andere Fragen, aber dies waren die Wichtigsten. Meine Antworten waren
+    ausführlicher, aber die wichtigsten Punkte wurden hier genannt.
+    Mit Denoising Auto-Encoder / Bottleneck-Features habe ich mich etwas
+    verrannt.
+\end{document}
