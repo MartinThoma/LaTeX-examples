@@ -27,8 +27,7 @@
         minor tick num=-3,
         enlargelimits=true,
         tension=0.08]
-      % \draw(axis cs:0,0) -- (axis cs:0.5,0) -- (axis cs:0.5,0.5) -- (axis cs:0,0.5) -- (axis cs:0,0);
-      % \node[draw] at (axis cs:0,0) {A};
+
       \draw[fill=black!25] (axis cs:0.0,-.7) rectangle (axis cs:0.5,0.5) node[pos=.5] {C};
       \draw[fill=white]    (axis cs:0.5,-.7) rectangle (axis cs:1.0,0.5) node[pos=.5] {D};
       \draw[fill=white]    (axis cs:0.0,0.5) rectangle (axis cs:0.5,1.7) node[pos=.5] {A};
@@ -42,10 +41,13 @@
       \draw[fill=black!25] (axis cs:-1.5,0.5) rectangle (axis cs:-1.0,1.7) node[pos=.5] {B};
       \draw[fill=white]    (axis cs:-1.5,-.7) rectangle (axis cs:-1.0,0.5) node[pos=.5] {D};
 
+      \draw[red,thick] (axis cs:-0.5,-.5) rectangle (axis cs:1,1.5) node[pos=.5] {D};
+
       \node[label={180:{1}},circle,fill,inner sep=2pt] at (axis cs:-0.5,-0.5) {};
       \node[label={180:{2}},circle,fill,inner sep=2pt] at (axis cs:1,-0.5) {};
       \node[label={180:{3}},circle,fill,inner sep=2pt] at (axis cs:1,1.5) {};
       \node[label={180:{4}},circle,fill,inner sep=2pt] at (axis cs:-0.5,1.5) {};
+
     \end{axis}
 \end{tikzpicture}
 \end{document}
