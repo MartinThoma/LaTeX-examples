@@ -1,0 +1,21 @@
+\tikzstyle{inputNode}=[draw,circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{stateTransition}=[->, thick]
+
+\begin{tikzpicture}
+    \node[draw,circle,minimum size=25pt,inner sep=0pt] (x) at (0,0) {$\Sigma$ $\varphi$};
+
+    \node[inputNode] (x0) at (-2, 0.75) {$\tiny x_0$};
+    \node[inputNode] (x1) at (-2, 0.375) {$\tiny x_1$};
+    \node[inputNode] (x2) at (-2, 0) {$\tiny x_2$};
+    \node[inputNode] (x3) at (-2, -0.375) {$\tiny x_3$};
+    \node[inputNode] (xn) at (-2, -0.9) {$\tiny x_n$};
+
+    \draw[stateTransition] (x0) to[out=0,in=120] node [midway, sloped, above=-2] {$w_0$} (x);
+    \draw[stateTransition] (x1) to[out=0,in=150] node [midway, sloped, above=-2] {$w_1$} (x);
+    \draw[stateTransition] (x2) to[out=0,in=180] node [midway, sloped, above=-2] {$w_2$} (x);
+    \draw[stateTransition] (x3) to[out=0,in=210] node [midway, sloped, above=-2] {$w_3$} (x);
+    \draw[stateTransition] (xn) to[out=0,in=240] node [midway, sloped, above=-2] {$w_n$} (x);
+    \draw[stateTransition] (x) -- (1,0) node [midway,above=-0.1cm] {};
+    \draw[dashed] (0,-0.43) -- (0,0.43);
+    \node (dots) at (-2, -0.57) {$\vdots$};
+\end{tikzpicture}

@@ -1,0 +1,27 @@
+\begin{tikzpicture}[scale=1.0]
+    \begin{axis}[
+        legend pos=north west,
+        axis x line=middle,
+        axis y line=middle,
+        grid = major,
+        width=16cm,
+        height=4cm,
+        grid style={dashed, gray!30},
+        xmin=-5,     % start the diagram at this x-coordinate
+        xmax= 5,    % end   the diagram at this x-coordinate
+        ymin=-1,     % start the diagram at this y-coordinate
+        ymax= 1,   % end   the diagram at this y-coordinate
+        %axis background/.style={fill=white},
+        xlabel=$x$,
+        ylabel=$y$,
+        tick align=outside,
+        enlargelimits=true]
+      \addplot[green!50!black, ultra thick] coordinates {(-5,-1) (0,-1) (0, 1) (5, 1)};
+      % \addplot[domain=-5:5, green!50!black, ultra thick,samples=500] {x < 0 ? -1 : 1};
+      \addplot[domain=-5:5, red, ultra thick,samples=500, dash pattern=on 8pt off 2pt] {1/(1+exp(-x))};
+      \addplot[domain=-5:5, blue, ultra thick,samples=500, dotted] {tanh(x)};
+      \addlegendentry{sign function}
+      \addlegendentry{$\sigmoid$}
+      \addlegendentry{$\tanh$}
+    \end{axis}
+\end{tikzpicture}
