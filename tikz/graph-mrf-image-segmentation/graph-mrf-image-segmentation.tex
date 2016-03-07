@@ -1,0 +1,73 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\tikzstyle{pixel}=[draw,black,circle,minimum size=10pt,inner sep=0pt,fill=red!50]
+\tikzstyle{label}=[draw,black,circle,minimum size=10pt,inner sep=0pt,fill=blue!50]
+\tikzstyle{edge}=[very thick]
+\begin{tikzpicture}[scale=1.7]
+    \node (x1)[pixel] at (0.0,1.15) {$x_1$};
+    \node (x2)[pixel] at (1.0,1.15) {$x_2$};
+    \node (x3)[pixel] at (2.0,1.15) {$x_3$};
+    \node (x4)[pixel] at (0.5,1.65) {$x_4$};
+    \node (x5)[pixel] at (1.5,1.65) {$x_5$};
+    \node (x6)[pixel] at (2.5,1.65) {$x_6$};
+    \node (x7)[pixel] at (1.0,2.15) {$x_7$};
+    \node (x8)[pixel] at (2.0,2.15) {$x_8$};
+    \node (x9)[pixel] at (3.0,2.15) {$x_9$};
+
+    \node (y1)[label] at (0.0,1.5) {$y_1$};
+    \node (y2)[label] at (1.0,1.5) {$y_2$};
+    \node (y3)[label] at (2.0,1.5) {$y_3$};
+    \node (y4)[label] at (0.5,2.0) {$y_4$};
+    \node (y5)[label] at (1.5,2.0) {$y_5$};
+    \node (y6)[label] at (2.5,2.0) {$y_6$};
+    \node (y7)[label] at (1.0,2.5) {$y_7$};
+    \node (y8)[label] at (2.0,2.5) {$y_8$};
+    \node (y9)[label] at (3.0,2.5) {$y_9$};
+
+    \draw[edge] (y1) -- (y2);
+    \draw[edge] (y1) -- (y4);
+    \draw[edge] (y2) -- (y3);
+    \draw[edge] (y2) -- (y5);
+    \draw[edge] (y3) -- (y6);
+    \draw[edge] (y4) -- (y5);
+    \draw[edge] (y4) -- (y7);
+    \draw[edge] (y5) -- (y6);
+    \draw[edge] (y5) -- (y8);
+    \draw[edge] (y6) -- (y9);
+    \draw[edge] (y7) -- (y8);
+    \draw[edge] (y8) -- (y9);
+
+    \draw[edge] (x1) -- (y1);
+    \draw[edge] (x2) -- (y2);
+    \draw[edge] (x3) -- (y3);
+    \draw[edge] (x4) -- (y4);
+    \draw[edge] (x5) -- (y5);
+    \draw[edge] (x6) -- (y6);
+    \draw[edge] (x7) -- (y7);
+    \draw[edge] (x8) -- (y8);
+    \draw[edge] (x9) -- (y9);
+
+    %\draw [dashed] (-0.5,-0.3) -- (2,-0.3) -- (3.5,1.5) -- (0.5,1.5) -- (-0.5,-0.3);
+    \node (x1)[pixel] at (0.0,1.15) {$x_1$};
+    \node (x2)[pixel] at (1.0,1.15) {$x_2$};
+    \node (x3)[pixel] at (2.0,1.15) {$x_3$};
+    \node (x4)[pixel] at (0.5,1.65) {$x_4$};
+    \node (x5)[pixel] at (1.5,1.65) {$x_5$};
+    \node (x6)[pixel] at (2.5,1.65) {$x_6$};
+    \node (x7)[pixel] at (1.0,2.15) {$x_7$};
+    \node (x8)[pixel] at (2.0,2.15) {$x_8$};
+    \node (x9)[pixel] at (3.0,2.15) {$x_9$};
+
+    \node (y1)[label] at (0.0,1.5) {$y_1$};
+    \node (y2)[label] at (1.0,1.5) {$y_2$};
+    \node (y3)[label] at (2.0,1.5) {$y_3$};
+    \node (y4)[label] at (0.5,2.0) {$y_4$};
+    \node (y5)[label] at (1.5,2.0) {$y_5$};
+    \node (y6)[label] at (2.5,2.0) {$y_6$};
+    \node (y7)[label] at (1.0,2.5) {$y_7$};
+    \node (y8)[label] at (2.0,2.5) {$y_8$};
+    \node (y9)[label] at (3.0,2.5) {$y_9$};
+\end{tikzpicture}
+\end{document}
