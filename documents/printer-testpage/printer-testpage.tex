@@ -1,6 +1,5 @@
-\documentclass[a4paper]{scrartcl}
-\usepackage[a4paper,margin=0cm,left=-0.65cm]{geometry}
-\usepackage{amssymb,amsmath}
+\documentclass[a4paper]{article}
+\usepackage[a4paper,margin=0cm,left=-0.8cm,showframe]{geometry}
 
 \usepackage[rgb]{xcolor}
 \usepackage{tikz}
@@ -8,16 +7,17 @@
 
 \begin{document}
 \begin{tikzpicture}
-    \begin{scope}[yshift=3cm]
-        \draw[shading=color wheel] (0,0) rectangle (20.998,10);
+    \begin{scope}[yshift=2cm]
+        \draw[shading=color wheel] (0,0) rectangle (\paperwidth,10);
+        \draw[shading=axis,left color=black, right color=white,minimum width=\paperwidth] (0,10) rectangle (\paperwidth,12);
     \end{scope}
-    \begin{scope}[yshift=3cm]
-        \draw[rectangle,fill=cyan] (0,13) rectangle (20.998,14) node[pos=.5,text=white] {\Huge \textbf{Cyan}};
-        \draw[rectangle,fill=magenta] (0,12) rectangle (20.998,13) node[pos=.5,text=white] {\Huge \textbf{Magenta}};
-        \draw[rectangle,fill=yellow] (0,11) rectangle (20.998,12) node[pos=.5,text=white] {\Huge \textbf{Yellow}};
-        \draw[rectangle,fill=black] (0,10) rectangle (20.998,11) node[pos=.5,text=white] {\Huge \textbf{Black}};
+    \begin{scope}[yshift=14.3cm]
+        \draw[rectangle,fill=cyan] (0,3) rectangle (\paperwidth,4) node[pos=.5,text=white] {\Huge \textbf{Cyan}};
+        \draw[rectangle,fill=magenta] (0,2) rectangle (\paperwidth,3) node[pos=.5,text=white] {\Huge \textbf{Magenta}};
+        \draw[rectangle,fill=yellow] (0,1) rectangle (\paperwidth,2) node[pos=.5,text=white] {\Huge \textbf{Yellow}};
+        \draw[rectangle,fill=black] (0,0) rectangle (\paperwidth,1) node[pos=.5,text=white] {\Huge \textbf{Black}};
     \end{scope}
-    \begin{scope}[yshift=17.5cm]
+    \begin{scope}[yshift=19.0cm]
       \foreach \x in {1,2,...,21}
       \draw [color=red, line width=1mm](\x cm,0cm) -- (\x cm,1.5cm)
       node[color=red, rotate=90, anchor=west] {\pgfmathprint{int(\x)}};
@@ -26,8 +26,8 @@
       \draw [color=red, line width=0.1mm](\x mm,0cm) -- (\x mm,1.0cm)
       node[color=red, rotate=90, anchor=west] {};
 
-      \draw[line width=5mm](0cm, 0cm) -- (100,0cm);
-      \draw[line width=0.1mm](0cm, 0.5cm) -- (100,0.5cm);
+      \draw[line width=5mm](0cm, 0cm) -- (22,0cm);
+      \draw[line width=0.1mm](0cm, 0.5cm) -- (22,0.5cm);
     \end{scope}
 
     \draw [color=red, line width=1mm](2cm,0 cm) -- (3.5cm,0 cm)
