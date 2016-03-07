@@ -9,10 +9,11 @@
 \begin{tikzpicture}
     \begin{scope}[yshift=2cm]
         \draw[shading=color wheel] (0,0) rectangle (\paperwidth,10);
-        \draw[shading=axis,left color=black, right color=white,minimum width=\paperwidth] (0,10) rectangle (\paperwidth,12);
+        \draw[shading=axis,left color=black, right color=white] (0,10) rectangle (\paperwidth,12);
     \end{scope}
     \begin{scope}[yshift=14.3cm]
         \draw[rectangle,fill=cyan] (0,3) rectangle (\paperwidth,4) node[pos=.5,text=white] {\Huge \textbf{Cyan}};
+        % \draw[shading=axis,left color=cyan, right color=white] (0,3.5) rectangle (\paperwidth,4) node[pos=.5,text=white] {\Huge \textbf{Cyan}};
         \draw[rectangle,fill=magenta] (0,2) rectangle (\paperwidth,3) node[pos=.5,text=white] {\Huge \textbf{Magenta}};
         \draw[rectangle,fill=yellow] (0,1) rectangle (\paperwidth,2) node[pos=.5,text=white] {\Huge \textbf{Yellow}};
         \draw[rectangle,fill=black] (0,0) rectangle (\paperwidth,1) node[pos=.5,text=white] {\Huge \textbf{Black}};
