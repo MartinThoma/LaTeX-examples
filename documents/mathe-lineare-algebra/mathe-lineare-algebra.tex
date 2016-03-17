@@ -19,6 +19,12 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define command \transpose for transposing matrices (commonly $^T$)%
+% http://tex.stackexchange.com/a/217624/5645                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\transpose}{\top}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom definition style, by                                       %
 % http://mathoverflow.net/questions/46583/what-is-a-satisfactory-way-to-format-definitions-in-latex/58164#58164
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,13 +269,13 @@ heißt (V, F) ein \textbf{unitärer Vektorraum}.
 
 \begin{definition}{hermitesche Matrix}
 Sei $A \in \mathbb{C}^{n \times n}$ eine Matrix.\\
-$A$ heiß hermitesch $: \Leftrightarrow \overline{A}^T = A$
+$A$ heiß hermitesch $: \Leftrightarrow \overline{A}^\transpose = A$
 \end{definition}
 
 \begin{definition}{positiv definite Matrix}
 Sei A eine symmetrische (bzw. hermitesche) Matrix. \\
-A heißt \textbf{positiv definit} $: \Leftrightarrow x^T G x > 0 $
-für alle $x \in \mathbb{R}^n, x \neq 0$ bzw. $z^T G \overline z > 0$ für
+A heißt \textbf{positiv definit} $: \Leftrightarrow x^\transpose G x > 0 $
+für alle $x \in \mathbb{R}^n, x \neq 0$ bzw. $z^\transpose G \overline z > 0$ für
 alle $x \in \mathbb{C}^n, z \neq 0 $.
 \end{definition}
 
@@ -385,14 +391,14 @@ Der \textbf{Abstand} von A und B ist definiert durch
 \begin{definition}{orthogonale und unitäre Matrizen}
 Eine reele bzw. komplexe $n \times n$-Matrix A heißt
 \textbf{orthogonal} bzw. \textbf{unitär}, falls gilt
-\[A^T A = E_n ~~~ \text{ bzw. }  ~~~ A^T \overline A = E_n\]
+\[A^\transpose A = E_n ~~~ \text{ bzw. }  ~~~ A^\transpose \overline A = E_n\]
 \end{definition}
 
 \begin{satz}{Charakterisierung von orthogonalen Matrizen}
 Sei $A \in \mathbb{R}^{n \times n}$. Folgende Aussagen sind äquivalent:
 \begin{enumerate}[(a)]
   \item A ist eine orthogonale Matrix.
-  \item A ist regulär und $A^{-1} = A^T$.
+  \item A ist regulär und $A^{-1} = A^\transpose$.
   \item Die Spaltenvektoren (bzw. die Zeilenvektoren) von A bilden eine
        Orthonormalbasis von $\mathbb{R}^n$ bzgl. des Standardskalarproduktes
 \end{enumerate}
