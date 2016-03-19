@@ -1,0 +1,60 @@
+\ifglsentryexists{uptodate}{}%
+{%
+\gls@defglossaryentry{uptodate}%
+{%
+name={UpToDaTe},%
+sort={UpToDaTe},%
+type={main},%
+first={UpToDaTe},%
+firstplural={UpToDaTes},%
+text={UpToDaTe},%
+plural={UpToDaTes},%
+description={Upload Automation and Data Entry},%
+descriptionplural={Upload Automation and Data Entry},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{nir}{}%
+{%
+\gls@defglossaryentry{nir}%
+{%
+name={NIR},%
+sort={NIR},%
+type={main},%
+first={NIR},%
+firstplural={NIRs},%
+text={NIR},%
+plural={NIRs},%
+description={Nahes Infrarot},%
+descriptionplural={Nahes Infrarot},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
