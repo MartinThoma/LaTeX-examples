@@ -11,7 +11,8 @@
 \setlength{\intextsep}{1pt}
 
 \begin{document}
-    \section*{Normal distribution}
+    \pagenumbering{gobble}
+    \section*{Normal distribution cumulative distribution function (CDF)}
 
 \pgfmathdeclarefunction{gauss}{3}{%
   \pgfmathparse{1/(#3*sqrt(2*pi))*exp(-((#1-#2)^2)/(2*#3^2))}%
