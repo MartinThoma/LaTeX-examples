@@ -1,3 +1,5 @@
+[Download PDF](https://github.com/MartinThoma/LaTeX-examples/raw/master/documents/normal-distribution/normal-distribution.pdf)
+
 Compiled example
 ----------------
 ![Example](normal-distribution.png)
