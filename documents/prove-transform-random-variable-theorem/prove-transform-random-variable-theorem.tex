@@ -1,0 +1,41 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+
+\newtheorem{theorem}{Theorem}
+\newenvironment{proof}{\paragraph{Proof:}}{\hfill$\square$}
+\newcommand{\Prob}{\mathbb{P}}
+
+\begin{document}
+    \begin{theorem}
+    Let $Y \sim \mathcal{N}(\mu, \sigma^2)$ and $X \sim e^Y$.
+    Then X has the density
+    \[f_X(x) = \begin{cases} \frac{1}{x \sigma \sqrt{2 \pi}}\exp{- \frac{(\log x - \mu)^2}{2 \sigma^2}} &\text{if } x > 0\\
+                             0 & \text{otherwise}\end{cases}\]
+    \end{theorem}
+
+
+    \begin{proof}
+    \begin{align}
+        \Prob(X \leq t) &= \Prob(e^Y \leq t)\\
+                        &= \begin{cases}\Prob(Y \leq \log(t)) &\text{if } x > 0\\
+                                        0 &\text{otherwise}
+                           \end{cases}
+    \end{align}
+
+    Obviously, the density $f_X(x) = 0$ for $x \leq 0$. Now continue with
+    $t > 0$:
+
+    \begin{align}
+        \Prob(X \leq t) &= \Prob(Y \leq \log(t))\\
+                        &= \Phi_{\mu, \sigma^2}(\log(t))\\
+                        &= \Phi_{0, 1} \left (\frac{\log(t) - \mu}{\sigma} \right)\\
+        f_X(x) &= \frac{\partial}{\partial x} \Phi_{0, 1} \left (\frac{\log(x) - \mu}{\sigma} \right)\\
+               &= \left (\frac{\partial}{\partial x} \left (\frac{\log(x) - \mu}{\sigma} \right) \right) \cdot \varphi_{0, 1} \left (\frac{\log(x) - \mu}{\sigma} \right)\\
+               &= \left (\frac{\sigma \cdot \frac{1}{x}}{\sigma^2} \right) \cdot \varphi_{0, 1} \left (\frac{\log(x) - \mu}{\sigma} \right)\\
+               &= \frac{1}{x \sigma} \cdot \varphi_{0, 1} \left (\frac{\log(x) - \mu}{\sigma} \right)\\
+               &= \frac{1}{x \sigma} \cdot \frac{1}{\sqrt{2\pi}} \exp \left (-\frac{1}{2} \cdot {\left(\frac{\log(x) - \mu}{\sigma} \right )}^2 \right )
+    \end{align}
+    \end{proof}
+\end{document}
