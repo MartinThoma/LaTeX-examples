@@ -1,0 +1,38 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+            axis x line=middle,
+            axis y line=middle,
+            enlarge y limits=true,
+            xmin=1986, xmax=2014,
+            ymin=0, ymax=26000,
+            width=15cm, height=8cm,     % size of the image
+            grid = major,
+            grid style={dashed, gray!30},
+            ylabel=Anzahl,
+            ylabel style={at={(-0.1,1.0)}},
+            xlabel=Jahr,
+            legend style={at={(0.5,1.0)}, anchor=north},
+            xticklabel style=
+            {/pgf/number format/1000 sep=,rotate=60,anchor=east,font=\scriptsize},
+            yticklabel style=
+            {scaled ticks=false,/pgf/number format/1000 sep=\,,rotate=0,anchor=east,font=\scriptsize},
+            legend style={draw=none, legend columns=-1}
+         ]
+          \addplot[thick, blue, mark=x] table [x=year, y=totalStudents, col sep=comma] {students.csv};
+          \addplot[thick, red, mark=x] table [x=year, y=female, col sep=comma] {students.csv};
+          \addplot[thick, orange, mark=x] table [x=year, y=foreigners, col sep=comma] {students.csv};
+          \legend{Eingeschriebene Studenten, davon Frauen, davon Ausländer}
+    \end{axis}
+\end{tikzpicture}
+\end{document}
