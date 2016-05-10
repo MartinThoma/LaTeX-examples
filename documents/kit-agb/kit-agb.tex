@@ -1,0 +1,218 @@
+\documentclass[a4paper]{article}
+\usepackage{myStyle}
+\usepackage{csquotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier eigene Daten einfügen                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Studiengang}{Informatik (MA)}
+\newcommand{\Fach}{Analysetechniken großer Datenbestände}
+\newcommand{\Pruefungsdatum}{10.05.2016}    % DD.MM.YYYY
+\newcommand{\Pruefer}{Prof. Dr. Böhm}
+\newcommand{\Beisitzer}{unbekannt}
+% Nicht zwingend, aber es waere nett, wenn du zumindest die Zahl vor
+% dem Komma angeben koenntest:
+\newcommand{\Note}{1,7}
+\newcommand{\Dauer}{15} % in Minuten
+
+%%% WEITER SCROLLEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{tabular}{p{2cm}p{15cm}}
+\ifpdf\vspace{-0.8cm}\fi
+\multirow{2}{2cm}{ \includegraphics[width=20mm]{FS-Eule}} &
+
+\Large Fragebogen der Fachschaft zu \\
+& \Large {\bfseries mündlichen Prüfungen} \\
+& \Large{im Informatikstudium}
+\\
+\end{tabular}
+
+ \begin{tabular}{p{8cm}p{8cm}}
+  \begin{flushleft}
+%%% HIER GEHTS LOS! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Das Dokument                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   Dein Studiengang: \Studiengang \\[0.5cm]
+
+   \textbf{Prüfungsart:}\\
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+   $\boxempty$ Wahlpflichtfach  \\
+   $\boxtimes$ Vertiefungsfach  \\
+   $\boxempty$ Ergänzungsfach  \\[0.5cm]
+%% Namen des Wahl/Vertiefungs/Ergaenzungsfachs hier bitte eintragen.
+   Welches? \Fach
+%% Jetzt kommt ein Barcode von uns.  Einfach weitergehen.  ;-)
+  \end{flushleft}
+  &
+  \begin{center}
+   Barcode:
+   \begin{tabular}{p{0.2cm}p{6.8cm}p{0.2cm}}
+   $\ulcorner$
+   \vskip 2cm
+   $\llcorner$ & & $\urcorner$
+   \vskip 2cm
+   $\lrcorner$ \\
+   \end{tabular}
+  \end{center}
+  \vskip 0.5cm
+%% Hier gehts weiter:
+  \begin{flushright}
+%% Pruefungsdatum, PrueferIn und BeisitzerIn bitte hier eintragen. Wichtig: Im Allgemeinen kann nur ein Professor der Pruefer gewesen sein.
+  \begin{tabular}{ll}
+   Prüfungsdatum:   & \Pruefungsdatum \\[0.5cm]
+   Prüfer/-in:      & \Pruefer \\[0.5cm]
+   Beisitzer/-in:   & \Beisitzer \\
+  \end{tabular}
+  \end{flushright} \\
+ \end{tabular}
+
+ \begin{tabular}{|p{8.2cm}|p{3cm}|p{1cm}|p{3.5cm}|}
+  \multicolumn{4}{l}{\bfseries Prüfungsfächer und Vorbereitung: } \\[0.2cm]
+  \hline
+  Veranstaltung & Dozent/-in  & Jahr & regelmäßig besucht? \\
+  \hline
+  \hline
+%% Beispiel:
+%% Interessante Vorlesung & Toller Prof & 2007 & Ich war immer 5 Minuten vorher da \\
+  Analysetechniken für große Datenbestände & Prof. Dr. Böhm & 15/16 &  Ja \\[0.2cm]
+  \hline
+ \end{tabular} \\[0.5cm]
+
+\begin{multicols}{2}
+Note: \Note\\[0.5cm]
+War diese Note angemessen?
+%% Hier ist Platz fuer deinen Kommentar
+Nein - hätte mir was schlechteres gegeben
+
+\columnbreak
+%% Bitte Pruefungsdauer eintragen
+Prüfungsdauer: \Dauer{} Minuten \\[0.5cm]
+\end{multicols}
+
+
+ \textbf{\ding{46}} Wie war der \textbf{Prüfungsstil des Prüfers / der Prüferin?} \\
+ \begin{footnotesize} (Prüfungsatmosphäre, (un)klare Fragestellungen, Frage nach Einzelheiten oder eher größeren Zusammenhängen, kamen häufiger Zwischenfragen oder ließ er/sie dich erzählen, wurde Dir weitergeholfen, wurde in Wissenslücken gebohrt?)\end{footnotesize}  \\
+ \begin{minipage}[t][10cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Die Fragen waren klar gestellt. Er hat zugelassen, dass man nachdenkt.
+    Das war extrem unangenehm, weil ich bei der Frage gehangen bin. Er hat dort
+    immer wieder nachgehackt.
+
+
+ \end{minipage}
+
+ \begin{flushright}$\hookrightarrow$\textbf{Rückseite bitte nicht vergessen!}\end{flushright}
+
+ \newpage
+ \columnseprule=.4pt
+
+ \begin{multicols}{2}
+
+  \ding{46} Hat sich der \textbf{Besuch / Nichtbesuch} der Veranstaltung für dich gelohnt? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Nein. Man kann sich die Vorlesung online anschauen.
+
+  \end{minipage}
+
+  \ding{46} Wie lange und wie hast du dich \textbf{alleine bzw. mit anderen vorbereitet}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    ca. 3 Wochen jeweils 6h am Tag; 2 Treffen à 5h mit Komilitonen.
+
+  \end{minipage}
+
+  \ding{46} Welche \textbf{Tips zur Vorbereitung} kannst du geben?
+  \begin{footnotesize}(Wichtige / Unwichtige Teile des Stoffes, gute Bücher / Skripten, Lernstil)\end{footnotesize} \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Folien lesen und verstehen, Protokolle durchgehen und
+    meinen Blog lesen:\\
+    \href{https://martin-thoma.com/analysetechniken-grosser-datenbestaende}{martin-thoma.com/analysetechniken-grosser-datenbestaende}
+  \end{minipage}
+
+\columnbreak
+
+  \ding{46} Kannst du ihn/sie \textbf{weiterempfehlen}?
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+  $\boxtimes$ Ja / $\boxempty$ Nein\newline Warum? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Die Bewertung und die Prüfung waren fair.
+  \end{minipage}
+
+  \ding{46} Fanden vor der Prüfung \textbf{Absprachen} zu Form oder Inhalt statt? Wurden sie \textbf{eingehalten}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Nein, es gab keine Absprachen. Ich hatte zwei Wochen vor der Prüfung ein
+    paar Fragen per E-Mail gestellt, diese wurden aber nicht beantwortet.
+    (Unter anderem zum Kappa-Koeffizienten, was später in der Prüfung gefragt
+    wurde - allerdings ziemlich sicher nur, weil ich ihn von mir aus erwähnt habe.)
+
+  \end{minipage}
+
+  \ding{46} Kannst du Ratschläge für das \textbf{Verhalten in der Prüfung} geben? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Findet heraus wer am selben Tag die Prüfung hat. Lernt zusammen und lasst
+    euch sagen was er gefragt hat. An einem Prüfungstag fragt er anscheinend
+    immer das gleiche.
+  \end{minipage}
+%
+\end{multicols}
+\clearpage
+
+\section*{Inhalte der Prüfung:}
+
+    \begin{itemize}
+        \item Was ist eine loss Function?
+        \item[$\rightarrow$] Eine Funktion, welche für eine Klassifizierung
+                             kosten zuweist.
+        \item Welche Loss-Functions haben wir in der Vorlesung kennen gelernt?
+        \item[$\rightarrow$] Logarithmischer und quadratischer Loss
+        \item Was ist Relabeling?
+        \item[$\rightarrow$] Das neulabeln der Daten. Es wird z.b. von Metacost
+                             verwendet.
+        \item Was ist conditional Cost?
+        \item[$\rightarrow$] Kosten einer Klassifizierung in Abhängigkeit von
+                             der tatsächlichen Klasse. So sind die Kosten der
+                             Klassifizierung von \enquote{Gesund} bei einem
+                             Test auf Krebs sehr hoch wenn tatsächlich Krebs
+                             vorliegt. Hingegen die Kosten der Klassifizierung
+                             von \enquote{Krank} wenn gesund vorliegt sind
+                             niedrigt. Wenn richtig klassifiziert wird
+                             entstehen auch Kosten, aber diese sind
+                             typischerweise deutlich niedriger.
+        \item Wie relabelt man wenn man die Conditional Cost berücksichtigen
+              will?
+        \item[$\rightarrow$] Man weißt den Klassen die Labels zu, welche die
+                             Kosten minimieren.
+    \end{itemize}
+
+    Weil ich es erwähnt hatte (obwohl er es nicht hören wollte):
+
+    \begin{itemize}
+        \item Was ist der Kappa-Koeffizient?
+        \item[$\rightarrow$] Der Kappa-Koeffizient vergleicht wie stark zwei
+                             Klassifier das gleiche Ergebnis zeigen und
+                             berücksichtigt, dass es Zufall sein könnte.
+                             Er lautet:
+
+                             $$\kappa = \frac{A - B}{1 - B}$$
+
+                             wobei $A$ die Anzahl der tatsächlichen
+                             Übereinstimmungen und $B$ die erwartete
+                             Übereinstimmung unter Annahme, dass die Klassifier
+                             unabhängig von einander Klassifizieren, ist. $B$
+                             wird also über die Marginalwahrscheinlichkeiten
+                             berechnet.
+    \end{itemize}
+
+
+    Es wurden tatsächlich nicht mehr Fragen gestellt. Ich habe bei der ersten
+    Frage sehr rumgestammelt; da solltet ihr nicht auf mein Protokoll
+    vertrauen.
+\end{document}
