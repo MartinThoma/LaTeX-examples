@@ -2,6 +2,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
 
 \begin{document}
 \begin{preview}
@@ -19,7 +20,7 @@
     enlargelimits=false,
     grid=major,
     domain=-5:5,
-    y domain=-5:5,
+    y domain=-4.99:5,
     samples=56, %57 : TeX capacity exceeded, sorry [main memory size=3000000].
                 % see also http://tex.stackexchange.com/a/7954/5645
     xlabel=$x$,
