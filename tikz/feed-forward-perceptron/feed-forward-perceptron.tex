@@ -4,38 +4,39 @@
 
 \usepackage{tikz}
 \usetikzlibrary{arrows, arrows.meta}
+\newcommand{\dist}{1.5}
 
 \tikzstyle{input}=[draw,fill=red!50,circle,minimum size=10pt,inner sep=0pt]
 \tikzstyle{hidden}=[draw,fill=green!50,circle,minimum size=10pt,inner sep=0pt]
 \tikzstyle{output}=[draw,fill=blue!50,circle,minimum size=10pt,inner sep=0pt]
 \tikzstyle{bias}=[draw,fill=gray!50,circle,minimum size=10pt,inner sep=0pt]
-\tikzstyle{arrow}=[arrows={{latex'[scale=0.1]}-}, thick]
+\tikzstyle{arrow}=[arrows={{Latex[scale=0.5]}-}, thick]  % , in=90, out=-90
 
 \begin{document}
 \begin{preview}
 \begin{tikzpicture}
   \node (b1)[bias] at (-1,0) {};
-  \node (b2)[bias] at (-0.5,1) {};
+  \node (b2)[bias] at (-0.5,1*\dist) {};
   \node (i1)[input] at (0,0) {};
   \node (i2)[input] at (1,0) {};
   \node (i3)[input] at (2,0) {};
   \node (i4)[input] at (3,0) {};
   \node (i5)[input] at (4,0) {};
-  \node (h1)[hidden] at (0.5,1) {};
-  \node (h2)[hidden] at (1.5,1) {};
-  \node (h3)[hidden] at (2.5,1) {};
-  \node (o1)[output] at (1.5,2) {};
+  \node (h1)[hidden] at (0.5,1*\dist) {};
+  \node (h2)[hidden] at (1.5,1*\dist) {};
+  \node (h3)[hidden] at (2.5,1*\dist) {};
+  \node (o1)[output] at (1.5,2*\dist) {};
 
-	\draw[arrow] (o1) -- (b2);
-	\draw[arrow] (o1) -- (h1);
-	\draw[arrow] (o1) -- (h2);
-	\draw[arrow] (o1) -- (h3);
+	\draw (o1) edge[arrow] (b2);
+	\draw (o1) edge[arrow] (h1);
+	\draw (o1) edge[arrow] (h2);
+	\draw (o1) edge[arrow] (h3);
 
     \foreach \j in {1, ..., 3}{
     	\foreach \i in {1, ..., 5}{
-			\draw[arrow] (h\j) -- (i\i);
+			\draw (h\j) edge[arrow] (i\i);
 		}
-		\draw[arrow] (h\j) -- (b1);
+		\draw (h\j) edge[arrow] (b1);
 	}
 \end{tikzpicture}
 \end{preview}
