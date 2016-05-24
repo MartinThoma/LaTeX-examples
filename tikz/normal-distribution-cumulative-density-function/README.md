@@ -2,6 +2,12 @@ Compiled example
 ----------------
 ![Example](normal-distribution-cumulative-density-function.png)
 
+Requirements
+------------
+
+LaTeX and `gnuplot`
+
+
 Credits
 -------
 
