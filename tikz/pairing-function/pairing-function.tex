@@ -30,9 +30,12 @@
     compat=newest, % for better label placement
     font=\sansmath\sffamily, % math and normal text in sans serif
     xlabel=$y$, ylabel=$x$, % the label texts
+    ylabel style={rotate=-90},
     xmin=0, ymin=0, % axis origin
     enlarge y limits=false, % don't enlarge the y axis beyond the data range
-    enlarge x limits={upper,abs=0.02}, % enlarge x axis slightly to make sure the last tick mark is drawn completely
+    enlarge x limits={upper,abs=0}, % enlarge x axis slightly to make sure the last tick mark is drawn completely
+    xticklabel style={yshift=-1ex},
+    yticklabel style={xshift=-1ex},
     axis lines*=left, % only draw the left axis lines, not a box
     unit vector ratio*={1 1 1}, % equal axis scaling. "*" to make sure the axes can only be reduced in size, not enlarged
     width=6cm, % set the overall width of the plot
