@@ -2,7 +2,8 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning, calc}
+\usetikzlibrary{arrows, positioning, calc, arrows.meta}
+\tikzstyle{arrow}=[arrows={-{Latex[scale=0.5]}}, very thick, line cap=round]
 \tikzset{
     %Define standard arrow tip
     >=stealth',
@@ -28,11 +29,11 @@
     \coordinate[label=right:$B$] (B) at (5,0);
     \coordinate[label=above:$C$] (C) at (3,3);
     \
-    \draw[->, very thick] (A) to[] node[above] {$\vec c$} (B);
-    \draw[->, very thick] (C) to[] node[above] {$\vec b$} (A);
-    \draw[->, very thick] (C) to[] node[above=0.1cm] {$\vec a$} (B);
+    \draw[arrow] (A) to[] node[below] {$\vec c$} (B);
+    \draw[arrow] (C) to[] node[above] {$\vec b$} (A);
+    \draw[arrow] (C) to[] node[above=0.1cm] {$\vec a$} (B);
 
-    \coordinate[label=-90:$c$] (c) at ($(A)!0.5!(B)$);
+    \coordinate[label=+90:$c$] (c) at ($(A)!0.5!(B)$);
     \coordinate[label=-120:$a$] (a) at ($(B)!0.5!(C)$);
     \coordinate[label=-45:$b$] (b) at ($(C)!0.5!(A)$);
   \end{tikzpicture}
