@@ -23,13 +23,11 @@
 
     % angle alpha
     \draw[fill=green!30] (0,0) -- (0:0.75cm) arc (0:60:.75cm);
-    \draw (0.35cm,0.25cm) node {$\alpha$};
 
     % angle beta
     \begin{scope}[shift={(4cm,0cm)}]
         \draw[fill=green!30] (0,0) -- (-180:0.75cm) arc (180:120:0.75cm);
         \draw[color=gray, dashed] (0,0) -- node[sloped, above=-0.1cm] {$\scriptstyle h_b$} (150:3.464cm);
-        \draw (150:0.5cm) node {$\beta$};
     \end{scope}
 
     % angle gamma
@@ -59,6 +57,14 @@
 
     % Height with label
     \draw[color=gray, dashed] (0,0) -- node[sloped, above=-0.1cm] {$\scriptstyle h_a$} (30:3.464cm);
+
+    \draw (0.35cm,0.25cm) node {$\alpha$};
+    \begin{scope}[shift={(4cm,0cm)}]
+        \draw (150:0.5cm) node {$\beta$};
+    \end{scope}
+    \begin{scope}[shift={(60:4)}]
+        \draw (-90:0.5cm) node {$\gamma$};
+    \end{scope}
 
     % The triangle
     \draw [line width=1.5pt] (0,0) -- (60:4) -- (4,0) -- cycle;
