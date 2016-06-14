@@ -3,7 +3,7 @@
 \setlength\PreviewBorder{2mm}
 
 \usepackage{tikz}
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows,shapes}
 
 \tikzstyle{inputNode}=[draw,circle,minimum size=10pt,inner sep=0pt,fill=red!50]
 \tikzstyle{stateTransition}=[->, thick]
@@ -20,6 +20,7 @@
     \node[inputNode] (x2) at (-2, 0) {$\tiny x_2$};
     \node[inputNode] (x3) at (-2, -0.75) {$\tiny x_3$};
     \node[inputNode] (xn) at (-2, -1.75) {$\tiny x_n$};
+    \node          (dots) at (-2, -1.15) {$\vdots$};
 
     \draw[stateTransition] (x0) to[out=0,in=120] node [midway, sloped, above=-2] {$w_0$} (x);
     \draw[stateTransition] (x1) to[out=0,in=150] node [midway, sloped, above=-2] {$w_1$} (x);
@@ -28,7 +29,6 @@
     \draw[stateTransition] (xn) to[out=0,in=240] node [midway, sloped, above=-2] {$w_n$} (x);
     \draw[stateTransition] (x) -- (1.5,0) node[right] {$o$};
     \draw[dashed] (0,-0.43) -- (0,0.43);
-    \node (dots) at (-2, -1.15) {$\vdots$};
 \end{tikzpicture}
 \end{preview}
 \end{document}
