@@ -25,22 +25,24 @@
 
     % Draw polygon
     \tkzDrawPolygon[thick](A,B,C)
-    \tkzDefCircle[in,/tikz/overlay](A,B,C) \tkzGetPoint{Ocircle}\tkzGetLength{dOcircle}
-    \tkzDrawCircle[R](Ocircle,\dOcircle pt)
+    \tkzDefCircle[in,/tikz/overlay](A,B,C) \tkzGetPoint{M}\tkzGetLength{dOcircle}
+    \tkzDrawCircle[R,color=blue](M,\dOcircle pt)
 
-    \tkzInterLC[R,/tikz/overlay](B,C)(Ocircle,\dOcircle pt)\tkzGetPoints{X}{X2}
-    \tkzInterLC[R,/tikz/overlay](A,C)(Ocircle,\dOcircle pt)\tkzGetPoints{Y}{Y2}
-    \tkzInterLC[R,/tikz/overlay](A,B)(Ocircle,\dOcircle pt)\tkzGetPoints{Z}{Z2}
+    \tkzInterLC[R,/tikz/overlay](B,C)(M,\dOcircle pt)\tkzGetPoints{X}{X2}
+    \tkzInterLC[R,/tikz/overlay](A,C)(M,\dOcircle pt)\tkzGetPoints{Y}{Y2}
+    \tkzInterLC[R,/tikz/overlay](A,B)(M,\dOcircle pt)\tkzGetPoints{Z}{Z2}
     \tkzInterLL(A,X)(B,Y)\tkzGetPoint{G}
 
     \tkzDrawSegments[dashed](A,X B,Y C,Z)
 
-    \tkzDrawPoints[size=2,fill=black](Ocircle,X,Y,Z)
+    \tkzDrawPoints[size=2,fill=black](X,Y,Z)
     \tkzDrawPoints[size=2,fill=red,color=red](G)
+    \tkzDrawPoints[size=2,fill=blue,color=blue](M)
 
     \tkzLabelPoints[above right,font=\sansmath\sffamily](X)
     \tkzLabelPoints[left,font=\sansmath\sffamily](Y)
     \tkzLabelPoints[below,font=\sansmath\sffamily](Z)
+    \tkzLabelPoints[blue,right,font=\sansmath\sffamily](M)
     \tkzLabelPoints[red,above left,font=\sansmath\sffamily](G)
 \end{tikzpicture}
 \end{preview}
