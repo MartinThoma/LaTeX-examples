@@ -2,6 +2,7 @@
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \usepackage{tkz-euclide}
 \usetikzlibrary{shapes, calc, shapes, decorations}
 \usepackage{amsmath,amssymb}
@@ -76,7 +77,12 @@
         -- (\XC,  0) coordinate (Z)
         -- (0,    0);
 
-    \tkzDrawLine[thick,dashed](A,C)
+    \node at ( $ (A)!-0.2!(C) $ ) (helper11) {};
+    \node at ( $ (A)!0.1!(C) $ ) (helper12) {};
+    \node at ( $ (A)!0.6!(C) $ ) (helper2) {};
+    \node at ( $ (C)!-0.2!(A) $ ) (helper3) {};
+    \tkzDrawLine[thick,dashed](helper12,helper11)
+    \tkzDrawLine[thick,dashed](helper2, helper3)
 \end{tikzpicture}
 \end{preview}
 \end{document}
