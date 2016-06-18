@@ -36,7 +36,8 @@
     \end{scope}
 
     \begin{scope}[shift={($(A)!0.5!(B)$)}]
-        \draw[fill=gray!30] (0,0) -- (-180:0.25cm) arc (180:90:0.25cm);
+        \draw[fill=gray!30,draw opacity=0] (0,0) -- (-180:0.25cm) arc (180:90:0.25cm);
+        \draw (-180:0.25cm) arc (180:90:0.25cm);
         \draw (140:0.15cm) node {$\cdot$};
     \end{scope}
 
