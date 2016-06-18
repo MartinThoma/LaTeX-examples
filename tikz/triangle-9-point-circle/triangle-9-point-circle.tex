@@ -31,8 +31,8 @@
     \tkzLabelPoints[left,font=\sansmath\sffamily](E)
     \tkzLabelPoints[below,font=\sansmath\sffamily](F)
 
-    \tkzDefCircle[circum,/tikz/overlay](D,E,F)\tkzGetPoint{Icircle}\tkzGetLength{rIN}
-    \tkzDrawCircle[R,color=red, very thick](Icircle,\rIN pt)
+    \tkzDefCircle[circum,/tikz/overlay](D,E,F)\tkzGetPoint{M}\tkzGetLength{rIN}
+    \tkzDrawCircle[R,color=red, very thick](M,\rIN pt)
 
     % Get 'Hoehe'
     \tkzInterLC[/tikz/overlay](B,C)(A,B)\tkzGetPoints{hah1}{hah2}
@@ -52,13 +52,13 @@
     \tkzLabelPoints[above right,font=\sansmath\sffamily](S)
 
     % More points
-    \tkzInterLC[/tikz/overlay,R](A,G)(Icircle,\rIN pt)\tkzGetPoints{G}{J}
+    \tkzInterLC[/tikz/overlay,R](A,G)(M,\rIN pt)\tkzGetPoints{G}{J}
     \tkzLabelPoints[above,font=\sansmath\sffamily](J)
 
-    \tkzInterLC[/tikz/overlay,R](B,H)(Icircle,\rIN pt)\tkzGetPoints{L}{H}
+    \tkzInterLC[/tikz/overlay,R](B,H)(M,\rIN pt)\tkzGetPoints{L}{H}
     \tkzLabelPoints[above,font=\sansmath\sffamily](L)
 
-    \tkzInterLC[/tikz/overlay,R](C,I)(Icircle,\rIN pt)\tkzGetPoints{I}{K}
+    \tkzInterLC[/tikz/overlay,R](C,I)(M,\rIN pt)\tkzGetPoints{I}{K}
     \tkzLabelPoints[above left,font=\sansmath\sffamily](K)
 
     % Draw rest
@@ -68,7 +68,8 @@
     \tkzDrawSegments[thick](B,L L,S)  % blue,very
 
     \tkzDrawPoints[size=2,fill=black](D,E,F,I,G,H,S,J,L,K)
-    \tkzDrawPoints[size=2,fill=red,color=red](Icircle)
+    \tkzDrawPoints[size=2,fill=red,color=red](M)
+    \tkzLabelPoints[right,font=\sansmath\sffamily,red](M)
 
     % Draw polygon
     \tkzDrawPolygon[thick](A,B,C)
