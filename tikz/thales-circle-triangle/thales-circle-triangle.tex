@@ -21,23 +21,26 @@
 
     \tkzLabelPoints[above right](C)
 
-    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](C,B,A)
+    % Draw polygon
+    \tkzDrawPolygon[rounded corners=0.1mm, fill=gray!2](A,B,C)
+
+    \tkzMarkAngle[arc=l,fill=green!30,size=0.6cm](C,B,A)
     \tkzLabelAngle[pos=0.4](A,B,C){$\beta$}
 
-    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](M,C,B)
+    \tkzMarkAngle[fill=green!30,size=0.6cm](M,C,B)
     \tkzLabelAngle[pos=0.4](B,C,M){$\beta$}
 
-    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](B,M,C)
+    \tkzMarkAngle[fill=green!30,size=0.6cm](B,M,C)
     \tkzLabelAngle[pos=0.4](B,M,C){$\delta$}
 
-    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](M,A,C)
+    \tkzMarkAngle[fill=green!30,size=0.6cm](M,A,C)
     \tkzLabelAngle[pos=0.4](M,A,C){$\alpha$}
 
-    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](A,C,M)
+    \tkzMarkAngle[fill=green!30,size=0.6cm](A,C,M)
     \tkzLabelAngle[pos=0.4](A,C,M){$\alpha$}
 
-    \tkzMarkAngle[fill=blue!30,size=0.6cm,opacity=.5](C,M,A)
-    \tkzLabelAngle[pos=0.4](C,M,A){$\gamma$}
+    \tkzMarkAngle[fill=green!30,size=0.6cm](C,M,A)
+    \tkzLabelAngle[pos=0.3](C,M,A){$\gamma$}
 
     \tkzDrawSector[thick](M,B)(A)
 
