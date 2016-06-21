@@ -1,0 +1,49 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,arrows.meta}
+\pgfplotsset{compat=1.13}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+\begin{document}
+\tikzstyle{block} = [draw, rectangle, minimum width=6em, align=center,fill=gray!5]
+\tikzstyle{arrow} = [-latex, very thick]
+\newcommand*{\tran}{\top}
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    \setlength{\abovedisplayskip}{0pt}
+
+    % Place the blocks
+    \node[text width=1cm,
+          rounded corners=3pt,
+          block,
+          label={[above,align=center]{Initial\\State}}] at (-1, 0) (initial)
+          {$$\mathbf{x}_0$$  $$P_0$$};
+    \node at (0.25, 0.1) (sum) {};
+    \node[block, text width=6cm,
+          label={[above,align=center]{Prediction}}] at (4, 0) (prediction)
+          {\begin{align*}
+            \mathbf{x}_{k+1}^{(P)} &= A x_k + B {\color{orange} a_k}\\
+            P_{k+1}^{(P)} &= A P_k A^\tran + C_k^{(r_s)}
+           \end{align*}};
+    \node [block, right of=prediction,
+            node distance=3cm, text width=1.4cm] at (6, -2) (iterUpdate)
+            {$$k \leftarrow k + 1$$};
+    \node [block, text width=6cm,
+           label={[above,align=center]{Innovation}}] at (4, -4) (innovation)
+           {\begin{align*}
+              K_k &= P_k^{(P)} H^\tran {\left (H P_k^{(P)} H^\tran + C_k^{(r_m)} \right)}^{-1}\\
+              {\color{blue} \mathbf{x}_k} &= \mathbf{x}_k^{(P)} + K_k \left ({\color{orange} z_k} - H \mathbf{x}_k^{(P)} \right )\\
+              {\color{blue} P_k} &= (I - K_k H) P_k^{(P)}
+            \end{align*}};
+
+    % Connect the nodes
+    \draw [arrow] (initial) -- (prediction);
+    \draw [arrow] (prediction.east) -| (iterUpdate.north);
+    \draw [arrow] (iterUpdate) |- (innovation);
+    \draw [arrow] (innovation.west) -|  (sum);
+\end{tikzpicture}
+
+\end{document}
