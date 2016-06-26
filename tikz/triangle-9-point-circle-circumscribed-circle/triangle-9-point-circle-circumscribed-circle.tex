@@ -21,7 +21,7 @@
     \tkzLabelPoints[above,font=\sansmath\sffamily](C)
 
     % Draw polygon
-    \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
+    \tkzDrawPolygon[rounded corners=0.1mm,thick,fill=gray!10](A,B,C)
 
     % Get mid points
     \tkzDefMidPoint(A,B) \tkzGetPoint{F}
@@ -50,9 +50,9 @@
     \tkzInterLC[/tikz/overlay,R](C,H)(Icircle,\rIN pt)\tkzGetPoints{H}{K}
 
     % Draw polygon
-    \tkzDrawPolygon[thick](A,B,C)
     \tkzDefCircle[circum,/tikz/overlay](A,B,C) \tkzGetPoint{Ocircle}
     \tkzDrawCircle[color=blue](Ocircle,A)
+    \tkzDrawPolygon[rounded corners=0.1mm,thick](A,B,C)
     \tkzCalcLength(Ocircle,A) \tkzGetLength{dOcircle}
 
     % TODO: define shiftedOcircOrigin which is
