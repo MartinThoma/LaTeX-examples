@@ -16,12 +16,8 @@
     \tkzDefPoint(3.2,0){B}
     \tkzDefPoint(2.3,2.4){C}
 
-    \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
-    \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
-    \tkzLabelPoints[above,font=\sansmath\sffamily](C)
-
     % Draw polygon
-    \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
+    \tkzDrawPolygon[thick,fill=gray!10,rounded corners=0.1mm](A,B,C)
 
     % Mark angles
     \tkzMarkAngle[arc=l,size=0.6cm,fill=green!30](B,A,C)
@@ -41,7 +37,7 @@
     \tkzInterLC(C,G)(A,C) \tkzGetPoints{C}{C}
 
     \tkzLabelPoints[above,font=\sansmath\sffamily](G)
-    \tkzLabelPoints[left,font=\sansmath\sffamily](F)
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](F)
     \tkzDrawPolygon[thick,fill=red!15!white](A,C,G,F)
 
     % right blue square
@@ -62,14 +58,14 @@
     \tkzDefLine[perpendicular=through B,K=-1](A,B)\tkzGetPoint{X}
     \tkzInterLC(B,X)(B,A) \tkzGetPoints{notNeeded}{E}
 
-    \tkzLabelPoints[below,font=\sansmath\sffamily](D,E)
+    \tkzLabelPoints[below,font=\sansmath\sffamily](E)
+    \tkzLabelPoints[left,font=\sansmath\sffamily](D)
     \tkzDrawPolygon[thick,fill=blue!15!white](B,A,D,E)
 
     % squares below
     \tkzDefLine[perpendicular=through C,K=-1](A,B)\tkzGetPoint{Xtemp}
     \tkzInterLL(C,Xtemp)(D,E)\tkzGetPoint{L}
     \tkzInterLL(C,Xtemp)(A,B)\tkzGetPoint{K}
-    \tkzDrawPoints[size=2,fill=black](L,K)
     \tkzLabelPoints[below right,font=\sansmath\sffamily](L,K)
 
     \tkzDrawLines[dashed](C,L)
@@ -84,7 +80,12 @@
     \tkzDrawLines(C,D B,F)
 
     % Draw polygons
-    \tkzDrawPolygon[thick](A,B,C)
+    \tkzDrawPolygon[thick, rounded corners=0.1mm](A,B,C)
+
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](A)
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    \tkzLabelPoints[left,font=\sansmath\sffamily](C)
+    \tkzDrawPoints[size=2,fill=black](L,K)
 \end{tikzpicture}
 \end{preview}
 \end{document}
