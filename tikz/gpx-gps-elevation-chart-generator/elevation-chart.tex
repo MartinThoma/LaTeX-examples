@@ -1,0 +1,23 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        ybar,
+        ylabel={Elevation in m},
+        ylabel style={at={(0.02,0.5)}},
+        xlabel={Traveled distance in km},
+        width=0.8*\textwidth,
+        height=5cm,
+        x tick label style={/pgf/number format/.cd,%
+          scaled x ticks = false,
+          set decimal separator={,},
+          fixed}%
+    ]
+        \addplot[mark=none, mark size=0.2, smooth]
+                table [x=dist, y=ele, col sep=comma] {data.csv};
+    \end{axis}
+\end{tikzpicture}
+\end{document}
