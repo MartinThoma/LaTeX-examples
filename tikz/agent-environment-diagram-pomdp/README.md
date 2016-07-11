@@ -1,3 +1,3 @@
 Compiled example
 ----------------
-![Example](pomdp.png)
+![Example](agent-environment-diagram-pomdp.png)

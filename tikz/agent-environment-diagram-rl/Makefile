@@ -1,4 +1,4 @@
-SOURCE = agent-environment-diagram-pomdp
+SOURCE = agent-environment-diagram-rl
 DELAY = 80
 DENSITY = 300
 WIDTH = 512
