@@ -1,4 +1,4 @@
-SOURCE = mdp
+SOURCE = agent-environment-diagram-mdp
 DELAY = 80
 DENSITY = 300
 WIDTH = 512
