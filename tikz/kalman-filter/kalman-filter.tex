@@ -25,7 +25,7 @@
     \node[block, text width=6cm,
           label={[above,align=center]{Prediction}}] at (4, 0) (prediction)
           {\begin{align*}
-            \mathbf{x}_{k+1}^{(P)} &= A x_k + B {\color{orange} a_k}\\
+            \mathbf{x}_{k+1}^{(P)} &= A \mathbf{x}_k + B {\color{orange} a_k}\\
             P_{k+1}^{(P)} &= A P_k A^\tran + C_k^{(r_s)}
            \end{align*}};
     \node [block, right of=prediction,
@@ -35,7 +35,7 @@
            label={[above,align=center]{Innovation}}] at (4, -4) (innovation)
            {\begin{align*}
               K_k &= P_k^{(P)} H^\tran {\left (H P_k^{(P)} H^\tran + C_k^{(r_m)} \right)}^{-1}\\
-              {\color{blue} \mathbf{x}_k} &= \mathbf{x}_k^{(P)} + K_k \left ({\color{orange} z_k} - H \mathbf{x}_k^{(P)} \right )\\
+              {\color{blue} \mathbf{x}_k} &= (I - K_k H) \mathbf{x}_k^{(P)} + K_k {\color{orange} z_k}\\
               {\color{blue} P_k} &= (I - K_k H) P_k^{(P)}
             \end{align*}};
 
