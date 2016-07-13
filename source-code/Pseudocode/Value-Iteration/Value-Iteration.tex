@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage[noend]{algorithm,algpseudocode}
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+        \Require
+        \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
+        \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
+        % TODO: g? \alpha?
+        % Q?
+        % f_ij(a)
+        \Procedure{ValueIteration}{$\mathcal{X}$, $A$}
+            \State Initialize $J, J': \mathcal{X} \rightarrow \mathbb{R}_0^+$ arbitrarily
+            \While{$J$ is not converged}
+                \State $J' \gets J$
+                \For{$x \in \mathcal{X}$}
+                    \For{$a \in A(x)$}
+                        \State $Q(x, a) \gets g(x, a) + \alpha \sum_{j=1}^{n_x} f_{xj}(a) \cdot J'(j)$
+                    \EndFor
+                \EndFor
+                \For{$x \in \mathcal{X}$}
+                    \State $J(x) \gets \min_a \{Q(x, a)\}$
+                \EndFor
+            \EndWhile
+        \EndProcedure
+        \end{algorithmic}
+    \caption{Calculate value function}
+    \label{alg:calculateLegendreSymbol}
+    \end{algorithm}
+\end{preview}
+\end{document}
