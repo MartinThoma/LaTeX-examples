@@ -22,9 +22,9 @@
         \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
         \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
         \Statex Cost function $g: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
-        % TODO: g? \alpha?
-        % f_ij(a)
-        \Procedure{ValueIteration}{$\mathcal{X}$, $A$, $g$}
+        \Statex Transition probabilities $f$
+        % TODO: \alpha?
+        \Procedure{ValueIteration}{$\mathcal{X}$, $A$, $g$, $f$}
             \State Initialize $J, J': \mathcal{X} \rightarrow \mathbb{R}_0^+$ arbitrarily
             \While{$J$ is not converged}
                 \State $J' \gets J$
@@ -39,7 +39,7 @@
             \EndWhile
         \EndProcedure
         \end{algorithmic}
-    \caption{Calculate value function}
+    \caption{Value Iteration}
     \label{alg:value-iteration}
     \end{algorithm}
 \end{preview}

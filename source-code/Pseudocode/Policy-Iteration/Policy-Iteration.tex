@@ -22,7 +22,8 @@
         \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
         \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
         \Statex Cost function $g: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
-        \Procedure{PolicyIteration}{$\mathcal{X}$, $A$, $g$}
+        \Statex Transition probabilities $f$
+        \Procedure{PolicyIteration}{$\mathcal{X}$, $A$, $g$, $f$}
             \State Initialize $\pi$ arbitrarily
             \While{$\pi$ is not converged}
                 \State $J \gets$ solve system of linear equations $I - \alpha \cdot F(\pi) \cdot J = g(\pi)$
