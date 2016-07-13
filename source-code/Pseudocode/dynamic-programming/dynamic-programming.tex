@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\DeclareCaptionFormat{myformat}{#3}
+\captionsetup[algorithm]{format=myformat}
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+        \Require
+        \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
+        \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
+        \Statex Cost function $g: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
+        \Statex Horizon $N$
+        \Procedure{DynamicProgramming}{$\mathcal{X}$, $A$, $g$, $N$}
+            \State $J_N(x) \gets g_N(x) \quad \forall x \in \mathcal{X}$
+            \For{$k = N - 1$ to $0$}
+                \For{$x \in \mathcal{X}$}
+                    \For{$a \in A(x)$}
+                        \State $Q(x, a) \gets g_k(x, a) + \alpha \sum_{j=1}^{n_x} f_{xj}(a) \cdot J_{k+1}(j)$
+                    \EndFor
+
+                    \State $J_k (x) \gets \min_a (Q_k(x,a))$
+                    \State $\pi_k(x) \gets \arg \min_a (Q_k(x, a))$
+                \EndFor
+            \EndFor
+        \EndProcedure
+        \end{algorithmic}
+    \caption{Dynamic Programming}
+    \label{alg:dynamic-programming}
+    \end{algorithm}
+\end{preview}
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\DeclareCaptionFormat{myformat}{#3}
+\captionsetup[algorithm]{format=myformat}
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+        \Require
+        \Statex Graph $G = (V, E)$
+        \Statex Starting node $s \in V$
+        \Statex End node $t \in V$
+        \Procedure{LabelCorrection}{$G$, $s$, $t$}
+            \State $d_s \gets 0$
+            \State $d_i \gets \infty \quad \forall i \neq s$
+            \State $u \gets \infty$
+            \State $K \gets \{s\}$ \Comment{Choose some datastructure here}
+            \While{$K$ is not empty}
+                \State $v \gets K.pop()$
+                \For{child $c$ of $v$}
+                    \If{$d_v + g_{vc} < \min(d_c, u)$}
+                        \State $d_v \gets d_v + g_{vc}$
+                        \State $c.parent \gets v$
+                        \If{$c \neq t$ and $c \notin K$}
+                            \State $K.insert(c)$
+                        \EndIf
+                        \If{$c = t$}
+                            \State $u \gets d_v + g_{vt}$
+                        \EndIf
+                    \EndIf
+                \EndFor
+            \EndWhile
+        \EndProcedure
+        \end{algorithmic}
+    \caption{Label correction algorithm}
+    \label{alg:label-correction-algorithm}
+    \end{algorithm}
+\end{preview}
+\end{document}
