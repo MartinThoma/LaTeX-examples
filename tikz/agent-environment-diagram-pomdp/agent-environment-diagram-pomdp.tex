@@ -1,15 +1,16 @@
-\documentclass[varwidth=true, border=2pt]{standalone}
+\documentclass[varwidth=true, border=14pt]{standalone}
 
 \usepackage{tikz}
-\usetikzlibrary{shapes,snakes,shapes.geometric,positioning}
+\usetikzlibrary{shapes,snakes,shapes.geometric,positioning,decorations.text}
 
 \begin{document}
+\tikzstyle{arrow}=[bend left,->,very thick, line cap=round]
 \begin{tikzpicture}[node distance=2cm]
     \node[ellipse,draw,minimum width=80pt,minimum height=20pt,fill=gray!5] (a) {Agent};
     \node[ellipse,draw,minimum width=80pt,minimum height=20pt,fill=gray!5,below of=a] (u) {Umwelt};
 
     % Arrows
-    \draw[bend left,->,very thick] (a.east) to node [auto] {Aktion $a_k$} (u.east);
-    \draw[bend left,->,very thick] (u.west) to node [auto] {Beobachtung $z_k$} (a.west);
+    \draw[arrow,postaction={decorate,decoration={text along path,raise=0.08cm,text align=center,text={Aktion {$a_k$}}}}] (a.east) to node {} (u.east);
+    \draw[arrow,postaction={decorate,decoration={text along path,raise=0.08cm,text align=center,text={Beob. {$z_k$}}}}] (u.west) to node {} (a.west);
 \end{tikzpicture}
 \end{document}

@@ -1,7 +1,7 @@
 SOURCE = agent-environment-diagram-rl
 DELAY = 80
 DENSITY = 300
-WIDTH = 512
+WIDTH = 256
 
 make:
 	pdflatex $(SOURCE).tex -output-format=pdf
