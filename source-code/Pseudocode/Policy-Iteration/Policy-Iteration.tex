@@ -7,7 +7,12 @@
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage{amssymb,amsmath,amsfonts} % nice math rendering
 \usepackage{braket} % needed for \Set
-\usepackage[noend]{algorithm,algpseudocode}
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\DeclareCaptionFormat{myformat}{#3}
+\captionsetup[algorithm]{format=myformat}
 
 \begin{document}
 \begin{preview}
@@ -16,7 +21,8 @@
         \Require
         \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
         \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
-        \Procedure{PolicyIteration}{$\mathcal{X}$, $A$}
+        \Statex Cost function $g: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
+        \Procedure{PolicyIteration}{$\mathcal{X}$, $A$, $g$}
             \State Initialize $\pi$ arbitrarily
             \While{$\pi$ is not converged}
                 \State $J \gets$ solve system of linear equations $I - \alpha \cdot F(\pi) \cdot J = g(\pi)$

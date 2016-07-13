@@ -7,7 +7,12 @@
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage{amssymb,amsmath,amsfonts} % nice math rendering
 \usepackage{braket} % needed for \Set
-\usepackage[noend]{algorithm,algpseudocode}
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\DeclareCaptionFormat{myformat}{#3}
+\captionsetup[algorithm]{format=myformat}
 
 \begin{document}
 \begin{preview}
@@ -16,10 +21,10 @@
         \Require
         \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
         \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
+        \Statex Cost function $g: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
         % TODO: g? \alpha?
-        % Q?
         % f_ij(a)
-        \Procedure{ValueIteration}{$\mathcal{X}$, $A$}
+        \Procedure{ValueIteration}{$\mathcal{X}$, $A$, $g$}
             \State Initialize $J, J': \mathcal{X} \rightarrow \mathbb{R}_0^+$ arbitrarily
             \While{$J$ is not converged}
                 \State $J' \gets J$
@@ -35,7 +40,7 @@
         \EndProcedure
         \end{algorithmic}
     \caption{Calculate value function}
-    \label{alg:calculateLegendreSymbol}
+    \label{alg:value-iteration}
     \end{algorithm}
 \end{preview}
 \end{document}
