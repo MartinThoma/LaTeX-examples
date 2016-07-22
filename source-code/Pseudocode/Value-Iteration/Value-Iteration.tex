@@ -23,7 +23,7 @@
         \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
         \Statex Cost function $g: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
         \Statex Transition probabilities $f$
-        \Statex Learning rate $\alpha \in [0, 1]$, typically $\alpha = 0.1$
+        \Statex Discounting factor $\alpha \in (0, 1)$, typically $\alpha = 0.9$
         \Procedure{ValueIteration}{$\mathcal{X}$, $A$, $g$, $f$, $\alpha$}
             \State Initialize $J, J': \mathcal{X} \rightarrow \mathbb{R}_0^+$ arbitrarily
             \While{$J$ is not converged}
