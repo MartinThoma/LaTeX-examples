@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage{xcolor}
+\usepackage[noend]{algpseudocode}
+\usepackage{mathtools,bm}
+\DeclareMathOperator*{\argmax}{arg\,max} 
+
+\DeclareCaptionFormat{myformat}{#3}
+\captionsetup[algorithm]{format=myformat}
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+        \Require
+        \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
+        \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
+        \Statex Reward function $R: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
+        \Statex Black-box (probabilistic) transition function $T: \mathcal{X} \times \mathcal{A} \rightarrow \mathcal{X}$
+        \Statex Learning rate $\alpha \in [0, 1]$, typically $\alpha = 0.1$
+        \Statex Discounting factor $\gamma \in [0, 1]$
+        \Statex $\lambda \in [0, 1]$: Trade-off between TD and MC
+        \Procedure{QLearning}{$\mathcal{X}$, $A$, $R$, $T$, $\alpha$, $\gamma$, $\lambda$}
+            \State Initialize $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$ arbitrarily
+            \State Initialize $e: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$ with 0. \Comment{eligibility trace}
+            % \State Start in state $s \in \mathcal{X}$
+            \While{$Q$ is not converged}
+                \State Select $(s, a) \in \mathcal{X} \times \mathcal{A}$ arbitrarily
+                \While{$s$ is not terminal}
+                    \State $r \gets R(s, a)$
+                    \State $s' \gets T(s, a)$ \Comment{Receive the new state}
+                    \State Calculate $\pi$ based on $Q$ (e.g. epsilon-greedy)
+                    \State {$\color{red} a^* \gets \argmax_{\tilde{a}} Q(s', \tilde{a})$}
+                    \State $a' \gets \pi(s')$
+                    \State $e(s, a) \gets e(s, a) + 1$
+                    \State $\delta \gets r + \gamma \cdot Q(s', {\color{red} a^*}) - Q(s, a)$
+                    \For{$(\tilde{s}, \tilde{a}) \in \mathcal{X} \times \mathcal{A}$}
+                        \State $Q(\tilde{s}, \tilde{a}) \gets Q(\tilde{s}, \tilde{a}) + \alpha \cdot \delta \cdot e(\tilde{s}, \tilde{a})$
+                        \State ${\color{red} e(\tilde{s}, \tilde{a}) \gets \begin{cases}\gamma \cdot \lambda \cdot e(\tilde{s}, \tilde{a})&\text{if } a' = a^*\\
+                                     0 &\text{otherwise}\end{cases}}$
+                    \EndFor
+                    \State $s \gets s'$
+                    \State $a \gets a'$
+                \EndWhile
+            \EndWhile
+            \Return $Q$
+        \EndProcedure
+        \end{algorithmic}
+    \caption{SARSA($\lambda$): Learn function $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$}
+    \label{alg:sarsa-lambda}
+    \end{algorithm}
+\end{preview}
+\end{document}
