@@ -28,14 +28,13 @@
         \Statex Black-box (probabilistic) transition function $T: \mathcal{X} \times \mathcal{A} \rightarrow \mathcal{X}$
         \Statex Learning rate $\alpha \in [0, 1]$, typically $\alpha = 0.1$
         \Statex Discounting factor $\gamma \in [0, 1]$
-        \Statex $\lambda \in [0, 1]$: Trade-off between TD and MC
-        \Procedure{QLearning}{$\mathcal{X}$, $A$, $R$, $T$, $\alpha$, $\gamma$, $\lambda$}
+        \Procedure{QLearning}{$\mathcal{X}$, $A$, $R$, $T$, $\alpha$, $\gamma$}
             \State Initialize $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$ arbitrarily
             \State Initialize $M: \mathcal{X} \times \mathcal{A} \rightarrow \mathcal{X} \times \mathbb{R}$ arbitrarily \Comment{Model}
             \While{$Q$ is not converged}
                 \State Select $s \in \mathcal{X}$ arbitrarily
-                \State $a \gets \pi(s)$
-                \State $r \gets R(s, a)$
+                \State $a \gets \pi(s)$ \Comment{Get action based on policy}
+                \State $r \gets R(s, a)$ \Comment{Receive the reward}
                 \State $s' \gets T(s, a)$ \Comment{Receive the new state}
                 \State $Q(s, a) \gets (1 - \alpha) \cdot Q(s, a) + \alpha \cdot (r + \gamma \cdot \max_{a'} Q(s, a'))$
                 \State $M(s, a) \gets (s', r)$
