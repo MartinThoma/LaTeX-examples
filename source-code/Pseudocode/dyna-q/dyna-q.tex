@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+\usepackage{braket} % needed for \Set
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage{xcolor}
+\usepackage[noend]{algpseudocode}
+\usepackage{mathtools,bm}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\DeclareCaptionFormat{myformat}{#3}
+\captionsetup[algorithm]{format=myformat}
+
+\begin{document}
+\begin{preview}
+    \begin{algorithm}[H]
+        \begin{algorithmic}
+        \Require
+        \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
+        \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
+        \Statex Reward function $R: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
+        \Statex Black-box (probabilistic) transition function $T: \mathcal{X} \times \mathcal{A} \rightarrow \mathcal{X}$
+        \Statex Learning rate $\alpha \in [0, 1]$, typically $\alpha = 0.1$
+        \Statex Discounting factor $\gamma \in [0, 1]$
+        \Statex $\lambda \in [0, 1]$: Trade-off between TD and MC
+        \Procedure{QLearning}{$\mathcal{X}$, $A$, $R$, $T$, $\alpha$, $\gamma$, $\lambda$}
+            \State Initialize $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$ arbitrarily
+            \State Initialize $M: \mathcal{X} \times \mathcal{A} \rightarrow \mathcal{X} \times \mathbb{R}$ arbitrarily \Comment{Model}
+            \While{$Q$ is not converged}
+                \State Select $s \in \mathcal{X}$ arbitrarily
+                \State $a \gets \pi(s)$
+                \State $r \gets R(s, a)$
+                \State $s' \gets T(s, a)$ \Comment{Receive the new state}
+                \State $Q(s, a) \gets (1 - \alpha) \cdot Q(s, a) + \alpha \cdot (r + \gamma \cdot \max_{a'} Q(s, a'))$
+                \State $M(s, a) \gets (s', r)$
+                \For{$i$ in range $1, \dots, N$}
+                    \State Select $(\tilde{s}, \tilde{a}) \in \mathcal{X} \times \mathcal{A}$ arbitrarily
+                    \State $(s', r) \gets M(\tilde{x}, \tilde{a})$
+                    \State $Q(\tilde{s}, \tilde{a}) \gets (1 - \alpha) \cdot Q(\tilde{s}, \tilde{a}) + \alpha \cdot (r + \gamma \cdot \max_{a'} Q(s', a'))$
+                \EndFor
+                \State Calculate $\pi$ based on $Q$ (e.g. $\varepsilon$-greedy)
+            \EndWhile
+            \Return $Q$
+        \EndProcedure
+        \end{algorithmic}
+    \caption{Dyna-Q: Learn function $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$}
+    \label{alg:dyna-q}
+    \end{algorithm}
+\end{preview}
+\end{document}
