@@ -27,13 +27,15 @@
         \Statex Discounting factor $\gamma \in [0, 1]$
         \Procedure{QLearning}{$\mathcal{X}$, $A$, $R$, $T$, $\alpha$, $\gamma$}
             \State Initialize $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$ arbitrarily
-            \State Start in state $s \in \mathcal{X}$
             \While{$Q$ is not converged}
-                \State Select $a \in \mathcal{A}$ by $Q$ and an exploration policy (e.g. $\varepsilon$ greedy)
-                \State $r \gets R(s, a)$
-                \State $s' \gets T(s, a)$ \Comment{Receive the new state}
-                \State $Q(s', a) \gets (1 - \alpha) \cdot Q(s, a) + \alpha \cdot (r + \gamma \cdot \max_{a'} Q(s', a'))$
-                \State $s \gets s'$
+                \State Start in state $s \in \mathcal{X}$
+                \While{$s$ is not terminal}
+                    \State Select $a \in \mathcal{A}$ by $Q$ and an exploration policy (e.g. $\varepsilon$ greedy)
+                    \State $r \gets R(s, a)$
+                    \State $s' \gets T(s, a)$ \Comment{Receive the new state}
+                    \State $Q(s', a) \gets (1 - \alpha) \cdot Q(s, a) + \alpha \cdot (r + \gamma \cdot \max_{a'} Q(s', a'))$
+                    \State $s \gets s'$
+                \EndWhile
             \EndWhile
             \Return $Q$
         \EndProcedure
