@@ -20,12 +20,12 @@
         \begin{algorithmic}
         \Require
         \Statex Graph $G = (V, E)$
-        \Statex Weight from node $i$ to node $j$: $g_{ij}$
+        \Statex Weight from node $i$ to node $j$: $g_{ij} \in \mathbb{R}_0^+$
         \Statex Starting node $s \in V$
         \Statex End node $t \in V$
         \Statex Lower bound to get from node $j$ to $t$: $h_j$ (default: $h_j = 0$)
         \Statex Upper bound to get from node $j$ to $t$: $m_j$ (default: $m_j = \infty$)
-        \Procedure{LabelCorrection}{$G$, $s$, $t$, $h_j$}
+        \Procedure{LabelCorrection}{$G$, $s$, $t$, $h$, $m$}
             \State $d_s \gets 0$
             \State $d_i \gets \infty \quad \forall i \neq s$ \Comment{Distance of node $i$ from $s$}
             \State $u \gets \infty$ \Comment{Distance from $s$ to $t$}
@@ -33,10 +33,7 @@
             \While{$K$ is not empty}
                 \State $v \gets K.pop()$
                 \For{child $c$ of $v$}
-                    \If{$d_c + m_j < u$}
-                        \State $u \gets d_j + m_j$
-                    \EndIf
-                    \If{$d_v + g_{vc} + h_j < \min(d_c, u)$}
+                    \If{$d_v + g_{vc} + h_c < \min(d_c, u)$}
                         \State $d_c \gets d_v + g_{vc}$
                         \State $c.parent \gets v$
                         \If{$c \neq t$ and $c \notin K$}
@@ -45,6 +42,9 @@
                         \If{$c = t$}
                             \State $u \gets d_v + g_{vt}$
                         \EndIf
+                    \EndIf
+                    \If{$d_c + m_c < u$}
+                        \State $u \gets d_c + m_c$
                     \EndIf
                 \EndFor
             \EndWhile
