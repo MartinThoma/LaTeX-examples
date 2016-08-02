@@ -1,0 +1,88 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=20mm]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{slashbox}
+\usepackage{booktabs}
+\usepackage[table,x11names]{xcolor}
+\usepackage{pgfplots}
+
+\setlength{\intextsep}{1pt}
+
+\begin{document}
+    \pagenumbering{gobble}
+    \section*{Percent point function (PPF) of the normal distribution}
+
+\pgfmathdeclarefunction{gauss}{3}{%
+  \pgfmathparse{1/(#3*sqrt(2*pi))*exp(-((#1-#2)^2)/(2*#3^2))}%
+}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  no markers,
+  domain=0:6,
+  samples=100,
+  ymin=0,
+  axis lines*=left,
+  xlabel=$x$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=4cm,
+  width=12cm,
+  xtick=\empty,
+  ytick=\empty,
+  enlargelimits=false,
+  clip=false,
+  axis on top,
+  grid = major,
+  hide y axis
+  ]
+
+ \addplot [very thick,cyan!50!black] {gauss(x, 3, 1)};
+
+\pgfmathsetmacro\valueA{gauss(1,3,1)}
+\pgfmathsetmacro\valueB{gauss(2,3,1)}
+\draw [gray] (axis cs:1,0) -- (axis cs:1,\valueA)
+    (axis cs:5,0) -- (axis cs:5,\valueA);
+\draw [gray] (axis cs:2,0) -- (axis cs:2,\valueB)
+    (axis cs:4,0) -- (axis cs:4,\valueB);
+\draw [yshift=1.4cm, latex-latex](axis cs:2, 0) -- node [fill=white] {$0.683$} (axis cs:4, 0);
+\draw [yshift=0.3cm, latex-latex](axis cs:1, 0) -- node [fill=white] {$0.954$} (axis cs:5, 0);
+
+\node[below] at (axis cs:1, 0)  {$\mu - 2\sigma$};
+\node[below] at (axis cs:2, 0)  {$\mu - \sigma$};
+\node[below] at (axis cs:3, 0)  {$\mu$};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{c|ccccc|ccccc}
+    \toprule
+    \backslashbox{$x$}{$\Delta x$}  & \textbf{0.00} & \textbf{0.01} & \textbf{0.02} & \textbf{0.03} & \textbf{0.04} & \textbf{0.05} & \textbf{0.06} & \textbf{0.07} & \textbf{0.08} & \textbf{0.09} \\\midrule
+\textbf{0.0} & -inf & -2.3263 & -2.0537 & -1.8808 & -1.7507 & -1.6449 & -1.5548 & -1.4758 & -1.4051 & -1.3408\\
+\textbf{0.1} & -1.2816 & -1.2265 & -1.1750 & -1.1264 & -1.0803 & -1.0364 & -0.9945 & -0.9542 & -0.9154 & -0.8779\\
+\textbf{0.2} & -0.8416 & -0.8064 & -0.7722 & -0.7388 & -0.7063 & -0.6745 & -0.6433 & -0.6128 & -0.5828 & -0.5534\\
+\textbf{0.3} & -0.5244 & -0.4959 & -0.4677 & -0.4399 & -0.4125 & -0.3853 & -0.3585 & -0.3319 & -0.3055 & -0.2793\\
+\textbf{0.4} & -0.2533 & -0.2275 & -0.2019 & -0.1764 & -0.1510 & -0.1257 & -0.1004 & -0.0753 & -0.0502 & -0.0251\\
+\textbf{0.5} & 0.0000 & 0.0251 & 0.0502 & 0.0753 & 0.1004 & 0.1257 & 0.1510 & 0.1764 & 0.2019 & 0.2275\\
+\textbf{0.6} & 0.2533 & 0.2793 & 0.3055 & 0.3319 & 0.3585 & 0.3853 & 0.4125 & 0.4399 & 0.4677 & 0.4959\\
+\textbf{0.7} & 0.5244 & 0.5534 & 0.5828 & 0.6128 & 0.6433 & 0.6745 & 0.7063 & 0.7388 & 0.7722 & 0.8064\\
+\textbf{0.8} & 0.8416 & 0.8779 & 0.9154 & 0.9542 & 0.9945 & 1.0364 & 1.0803 & 1.1264 & 1.1750 & 1.2265\\
+\textbf{0.9} & 1.2816 & 1.3408 & 1.4051 & 1.4758 & 1.5548 & 1.6449 & 1.7507 & 1.8808 & 2.0537 & 2.3263\\
+        \bottomrule
+        \end{tabular}
+        \caption{Approximations of $\Phi_{0;1}^{-1}(x + \Delta x)$}
+    \end{table}
+    \begin{align*}
+        \Phi_{0;1}(x) &= \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{x} e^{- t^2 / 2} \mathrm{d} t &
+        \Phi_{0;1}(1.65) &\approx 0.9505\\
+        \Phi_{\mu; \sigma^2}(x) &= \Phi_{0;1} \left (\frac{x-\mu}{\sigma} \right ) &
+        \Phi_{0;1}(-x) &= 1 - \Phi_{0;1}(x)\\
+        z_\alpha &= \Phi_{0;1}^{-1}(1-\alpha)
+    \end{align*}
+\end{document}
