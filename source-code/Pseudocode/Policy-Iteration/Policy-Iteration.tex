@@ -26,7 +26,7 @@
         \Procedure{PolicyIteration}{$\mathcal{X}$, $A$, $g$, $f$}
             \State Initialize $\pi$ arbitrarily
             \While{$\pi$ is not converged}
-                \State $J \gets$ solve system of linear equations $I - \alpha \cdot F(\pi) \cdot J = g(\pi)$
+                \State $J \gets$ solve system of linear equations $(I - \alpha \cdot F(\pi)) \cdot J = g(\pi)$
 
                 \For{$x \in \mathcal{X}$}
                     \For{$a \in A(x)$}

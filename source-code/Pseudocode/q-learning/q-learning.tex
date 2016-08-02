@@ -13,6 +13,7 @@
 
 \DeclareCaptionFormat{myformat}{#3}
 \captionsetup[algorithm]{format=myformat}
+\DeclareMathOperator*{\argmax}{arg\,max}
 
 \begin{document}
 \begin{preview}
@@ -30,7 +31,8 @@
             \While{$Q$ is not converged}
                 \State Start in state $s \in \mathcal{X}$
                 \While{$s$ is not terminal}
-                    \State Select $a \in \mathcal{A}$ by $Q$ and an exploration policy (e.g. $\varepsilon$ greedy)
+                    \State Calculate $\pi$ according to Q and exploration strategy (e.g. $\pi(x) \gets \argmax_{a} Q(x, a)$)
+                    \State $a \gets \pi(s)$
                     \State $r \gets R(s, a)$
                     \State $s' \gets T(s, a)$ \Comment{Receive the new state}
                     \State $Q(s', a) \gets (1 - \alpha) \cdot Q(s, a) + \alpha \cdot (r + \gamma \cdot \max_{a'} Q(s', a'))$
