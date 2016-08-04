@@ -1,0 +1,347 @@
+\documentclass[a4paper]{article}
+\usepackage{myStyle}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage[inline]{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier eigene Daten einfügen                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Studiengang}{Informatik (MA)}
+\newcommand{\Fach}{Probabilistische Planung}
+\newcommand{\Pruefungsdatum}{04.08.2016}    % DD.MM.YYYY
+\newcommand{\Pruefer}{Dr. Marco Huber}
+\newcommand{\Beisitzer}{mir unbekannt}
+% Nicht zwingend, aber es waere nett, wenn du zumindest die Zahl vor
+% dem Komma angeben koenntest:
+\newcommand{\Note}{1,0}
+\newcommand{\Dauer}{45} % in Minuten
+
+%%% WEITER SCROLLEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\begin{document}
+\begin{tabular}{p{2cm}p{15cm}}
+\ifpdf\vspace{-0.8cm}\fi
+\multirow{2}{2cm}{ \includegraphics[width=20mm]{FS-Eule}} &
+
+\Large Fragebogen der Fachschaft zu \\
+& \Large {\bfseries mündlichen Prüfungen} \\
+& \Large{im Informatikstudium}
+\\
+\end{tabular}
+
+ \begin{tabular}{p{8cm}p{8cm}}
+  \begin{flushleft}Dieser Fragebogen gibt den Studierenden,
+   die nach Dir die Prüfung ablegen wollen, einen Einblick in Ablauf
+   und Inhalt der Prüfung. Das erleichtert die Vorbereitung.
+
+   Bitte verwende zum Ausfüllen einen schwarzen Stift.
+   Das erleichtert das Einscannen. \\[0.5cm]
+%%% HIER GEHTS LOS! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Das Dokument                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   Dein Studiengang: \Studiengang \\[0.5cm]
+
+   \textbf{Prüfungsart:}\\
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+   $\boxempty$ Wahlpflichtfach  \\
+   $\boxtimes$ Vertiefungsfach  \\
+   $\boxempty$ Ergänzungsfach  \\[0.5cm]
+%% Namen des Wahl/Vertiefungs/Ergaenzungsfachs hier bitte eintragen.
+   Welches? \Fach
+%% Jetzt kommt ein Barcode von uns.  Einfach weitergehen.  ;-)
+  \end{flushleft}
+  &
+  \begin{center}
+   Barcode:
+   \begin{tabular}{p{0.2cm}p{6.8cm}p{0.2cm}}
+   $\ulcorner$
+   \vskip 2cm
+   $\llcorner$ & & $\urcorner$
+   \vskip 2cm
+   $\lrcorner$ \\
+   \end{tabular}
+  \end{center}
+  \vskip 0.5cm
+%% Hier gehts weiter:
+  \begin{flushright}
+%% Pruefungsdatum, PrueferIn und BeisitzerIn bitte hier eintragen. Wichtig: Im Allgemeinen kann nur ein Professor der Pruefer gewesen sein.
+  \begin{tabular}{ll}
+   Prüfungsdatum:   & \Pruefungsdatum \\[0.5cm]
+   Prüfer/-in:      & \Pruefer \\[0.5cm]
+   Beisitzer/-in:   & \Beisitzer \\
+  \end{tabular}
+  \end{flushright} \\
+ \end{tabular}
+
+ \begin{tabular}{|p{8.2cm}|p{3cm}|p{1cm}|p{3.5cm}|}
+  \multicolumn{4}{l}{\bfseries Prüfungsfächer und Vorbereitung: } \\[0.2cm]
+  \hline
+  Veranstaltung & Dozent/-in  & Jahr & regelmäßig besucht? \\
+  \hline
+  \hline
+%% Beispiel:
+%% Interessante Vorlesung & Toller Prof & 2007 & Ich war immer 5 Minuten vorher da \\
+  Probabilistische Planung & Dr. Huber & SS 2016 &  Ja \\[0.2cm]
+  \hline
+ \end{tabular} \\[0.5cm]
+
+\begin{multicols}{2}
+Note: \Note\\[0.5cm]
+War diese Note angemessen?
+%% Hier ist Platz fuer deinen Kommentar
+Ja
+
+\columnbreak
+%% Bitte Pruefungsdauer eintragen
+Prüfungsdauer: \Dauer{} Minuten \\[0.5cm]
+\end{multicols}
+
+
+ \textbf{\ding{46}} Wie war der \textbf{Prüfungsstil des Prüfers / der Prüferin?} \\
+ \begin{footnotesize} (Prüfungsatmosphäre, (un)klare Fragestellungen, Frage nach Einzelheiten oder eher größeren Zusammenhängen, kamen häufiger Zwischenfragen oder ließ er/sie dich erzählen, wurde Dir weitergeholfen, wurde in Wissenslücken gebohrt?)\end{footnotesize}  \\
+ \begin{minipage}[t][10cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Die Fragen waren klar gestellt. Die Atmosphäre war
+    angenehm; er hat einen viel erzählen lassen. Ich konnte das meiste in Ruhe
+    aufschreiben (einmal hat er gesagt, dass ich die Formel nicht aufschreiben
+    muss) und er hat auch immer Feedback gegeben, dass ich das erzähle was er
+    hören will. Die Fragen waren eigentlich immer klar; bei einer unklaren
+    Frage habe ich direkt nachgehakt ob er XY meint und er hat es auch direkt
+    bejaht. Super angenehm!
+
+
+ \end{minipage}
+
+ \begin{flushright}$\hookrightarrow$\textbf{Rückseite bitte nicht vergessen!}\end{flushright}
+
+ \newpage
+ \columnseprule=.4pt
+
+ \begin{multicols}{2}
+
+  \ding{46} Hat sich der \textbf{Besuch / Nichtbesuch} der Veranstaltung für dich gelohnt? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Ja. Teilweise ist die Schrift schwer zu lesen, aber die Zusammenhänge werden
+    klarer und Dr. Huber geht auch wunderbar auf Fragen ein.
+
+  \end{minipage}
+
+  \ding{46} Wie lange und wie hast du dich \textbf{alleine bzw. mit anderen vorbereitet}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Ich habe die Vorlesung 2 mal gehört, mich ca. 2 Monate immer wieder ein
+    bisschen (ca. 2h/Tag) und ca. 2 Wochen intensiv (5h/Tag) vorbereitet.
+    3 Treffen à ca. 4h mit einem Lernpartner.
+
+  \end{minipage}
+
+  \ding{46} Welche \textbf{Tips zur Vorbereitung} kannst du geben?
+  \begin{footnotesize}(Wichtige / Unwichtige Teile des Stoffes, gute Bücher / Skripten, Lernstil)\end{footnotesize} \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Folien lesen und verstehen, Protokolle durchgehen und
+    meinen Blog lesen:\\
+    \href{https://martin-thoma.com/probabilistische-planung/}{martin-thoma.com/probabilistische-planung/}
+
+    Insbesondere die Tabelle am Ende, wo MDP / POMDP / RL verglichen werden
+    sollte man auswendig können und aus dem FF beherrschen.
+  \end{minipage}
+
+\columnbreak
+
+  \ding{46} Kannst du ihn/sie \textbf{weiterempfehlen}?
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+  $\boxtimes$ Ja / $\boxempty$ Nein\newline Warum? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Sehr nett, angenehme Athmosphäre.
+
+  \end{minipage}
+
+  \ding{46} Fanden vor der Prüfung \textbf{Absprachen} zu Form oder Inhalt statt? Wurden sie \textbf{eingehalten}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Ja. Es wurde gesagt, dass keine Beweise dran kommen. War auch so.
+
+  \end{minipage}
+
+  \ding{46} Kannst du Ratschläge für das \textbf{Verhalten in der Prüfung} geben? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Mit den Antworten kann man etwas lenken, was als nächstes gefragt wird.
+    Wenn man kurz Nachdenken muss, kann man das auch einfach sagen.
+
+  \end{minipage}
+%
+\end{multicols}
+\clearpage
+
+\section*{Inhalte der Prüfung:}
+Gedächtnisprotokoll; ich habe sicherlich ein paar Fragen / Details vergessen.
+
+    \begin{itemize}
+        \item Welche 3 Themen hatten wir in der Vorlesung
+        \item[$\Rightarrow$] MDP (Markov Decision Processes), POMDP (Partially observable MDPs),
+                             RL (Reinforcement Learning). Ich habe
+                             auch gleich die Agent-Umwelt-Diagramme gezeichnet
+                             und daran die Unterschiede erklärt und habe das
+                             Explorationsproblem erwähnt.
+        \item Gut. Zuvor hatten wir die Grundlagen mit Wahrscheinlichkeitstheorie,
+              Optimierungs- und Nutzentheorie. Schreiben sie mir doch mal ein
+              allgemeines Optimierungsproblem auf.
+        \item[$\Rightarrow$] 
+        \begin{align}
+        \argmin_{x \in \mathbb{R}^n}& f(x)\\
+        \text{s.t. } & g_i(x) \leq 0 \quad \text{mit } i = 1, \dots, m\\
+             & h_j(x) = 0 \quad \text{mit } j = 1, \dots, p
+        \end{align}
+        Siehe auch: \href{https://martin-thoma.com/optimization-basics/}{https://martin-thoma.com/optimization-basics/}.\\
+        Ich habe auch gleich erklärt warum $=0$ genügt und warum man o.B.d.A.
+        von einem Minimierungsproblem ausgehen kann.
+        \item Ok, und was macht man wenn man Gleichungs-Nebenbedingungen hat?
+        \item[$\Rightarrow$] Lagrange-Ansatz:
+        $$\mathcal{L}(x, \lambda_1, \dots, \lambda_p) = f(x) + \sum_{j=1}^p \lambda_j \cdot h_j(x)$$
+        wobei das nun die notwendigen Nebenbedingungen für ein Optimum liefert,
+        wenn man den Gradienten nach $x$ und den Gradienten nach $\lambda$
+        bildet und gleich 0 setzt.
+        \item Was passiert bei den Gradienten nach $\lambda$?
+        \item[$\Rightarrow$] Die Gleichungsnebenbedingungen kommen raus.
+        \item Nun kam noch die Sache mit den Höhenlinien / den Gradienten und
+              dem Winkel.
+        \item Ok, verlassen wir die Optimierungstheorie. Was können sie zum
+              Optimalitätsprinzip sagen?
+        \item[$\Rightarrow$] Wenn man ein Problem mit optimaler Substruktur hat,
+              dann gilt für jede optimale Lösung, dass die Lösungen der
+              enthaltenen Teilprobleme optimal sein müssen. Sehr schön kann
+              man das bei der kürzesten Wegesuche sehen.
+        \item Zeigen sie das mal an einem Beispiel.
+        \item[$\Rightarrow$] Wenn der kürzeste Weg von $A$ nach $E$ über
+             $B, C, D$ führt, dann muss der kürzeste Weg von $B$ nach $D$ auch
+             über $C$ führen. Falls das nicht so wäre --- es also einen
+             kürzesten Weg z.B. direkt von $B$ nach $D$ geben würde, dann wäre
+             auch der Weg von $A$ nach $E$ kürzer wernn man direkt von $B$ nach
+             $D$ gehen würde.
+        \item Was hat das mit MDPs zu tun?
+        \item[$\Rightarrow$] Anwendung findet es im Dynamic Programming
+             (Endliche MDPs mit endlichem Horizont). Dabei geht man Rückwärtsrekursiv
+             vor um die Wertefunktion $J$ aus der Kostenfunktion $g$ zu berechnen:
+             \begin{align}
+             J(x_N) &= g_N(x_N)\\
+             J(x_k) &= \min_{a_k} \left [ g_k(a_k, x_k) + \mathbb{E}\{J_{k+1}(x_k+1) | x_k, a_k\} \right]
+             \end{align}
+        \item Sehr schön, da haben wir auch gleich die Bellman-Gleichungen.
+              Nun hatten wir noch geschlossen lösbare Spezialfälle. Welche
+              sind das?
+        \item[$\Rightarrow$] \begin{enumerate*}[label=(\roman*)]
+            \item Lineare Probleme (LQR)
+            \item Endliche, deterministische Probleme (Label-Korrektur)
+            \item Endliche Probleme mit unendlichem Horizont (Fixpunktsatz, Werteiteration, Bellman-Operator)
+        \end{enumerate*}
+        \item Dann erklären Sie doch mal den LQR.
+        \item[$\Rightarrow$]
+        Zustandsraummodell ist linear und rauschen ist $r \sim \mathcal{N}(0, \Sigma)$:
+        $$x_{k+1} = A_k x_k + B_k a_k + r$$
+        Objective function ist:
+        $$\mathbb{E} \left ( \underbrace{x_N^T \cdot Q_N \cdot x_N + \sum_{k=0}^{N-1} x_k^T \cdot Q_k \cdot x_k}_{\text{Zustandsabhängige Kosten}} + \underbrace{\sum_{k=0}^{N-1} a_k^T \cdot R_k \cdot a_k}_{\text{aktionsabhängige Kosten}} \right )$$
+        Der LQR ist dann einfach
+        $$a_k^* = \underbrace{-{(R_k + B_k^T P_{k+1} B_k)}^{-1} \cdot B_k^T \cdot P_{k+1} \cdot A_k}_{\text{Verstärkungsmatrix } L_k} x_k$$
+        wobei $P_k$ Rückwärtsrekursiv durch die iterativen Riccati-Gleichungen
+        bestimmt werden kann. (Hier wollte ich die aufschreiben, aber bei $P_N = Q_N$
+        hat er mich gestoppt.)
+        \item Ok, das ist schon gut so. Nur Qualitativ, was machen die
+              Riccati-Gleichungen?
+        \item[$\Rightarrow$] Strukturell sind sie identisch zum Update der
+                             Fehlermatrix im Kalman-Filter duch den Update und
+                             Prädiktionsschritt.
+        \item Ok, gut. Kommen wir zu POMDPs. Wie löst man die?
+        \item[$\Rightarrow$] Belief-State MDP und Informationsvektor-MDP erklärt,
+        Approximative Lösungen (Abbildung auf geschlossen lösbare Spezialfälle, Funktionsapproximatoren, Änderung der Optimierung)
+        \item Ok. Warum verwendet man in der Praxis eher nicht das Informationsvektor-MDP?
+        \item[$\Rightarrow$] Weil der Zustand in jedem Zeitschritt wächst.
+                             In jedem Zeitschritt $k$ kommt eine weitere
+                             Aktion $a_k$ hinzu; ggf. auch noch Beobachtungen
+                             $z_k$. Will man alles nutzen wird das Programm
+                             immer langsamer.
+        \item Sie haben hinreichende Statistiken erwähnt. Was ist das?
+        \item[$\Rightarrow$] (Definition; vgl. mein Blog-Artikel)
+        \item Welche geschlossenen Spezialfälle gibt es bei POMDPs?
+        \item[$\Rightarrow$] Linear (Kalman-Filter + LQR) und endlich ($\alpha$-Vektoren)
+        \item Was ändert sich beim LQR im POMDP-Fall?
+        \item[$\Rightarrow$] $a_k = L_k \cdot \mathbb{E}(x)$
+        \item Warum ist der Kalman-Filter toll?
+        \item[$\Rightarrow$] Er erfüllt die BLUE-Eigenschaft (Best linear unbiased estimator).
+          Das bedeutet, unter den erwartungstreuen linearen Schätzern ist
+          er derjenige, welcher die geringste Varianz aufweist.
+        \item Welche Annahmen machen wir beim Kalman-Filter?
+        \item[$\Rightarrow$] Additives, mittelwertfreies normalverteiltes Rauschen und
+                             ein linearer Zustandsübergang.
+        \item Was passiert, wenn das Rauschen nicht mehr normalverteilt ist?
+        \item[$\Rightarrow$] Man muss die Kovarianz-Matrix berechnen können.
+                             Wenn das geht, dann ist der Kalman-filter immer noch
+                             der beste lineare Filter (aber es gibt nicht-lineare
+                             Filter die besser sind).
+        \item Welche Bedingung muss der Zustandsschätzer für den LQR erfüllen?
+        \item[$\Rightarrow$] Er muss erwartungstreu sein, was der Kalman-filter ja ist.
+        \item Was bedeutet PWLC?
+        \item[$\Rightarrow$] Piece-wise linear and concave. Da wir in der Vorlesung
+                             Minimierungsprobleme hatten, war es concave und
+                             nicht konvex. PWLC sind bei endlichen POMDPs
+                             die Wertefunktionen $J_k$ (Zeichnung des Belief-State / der Aktionen; vgl. Links in meinem Blog). Ich habe noch Pruning erwähnt.
+        \item Wie kann man einfach Pruning durchführen?
+        \item[$\Rightarrow$] Es handelt sich um einen Simplex. (Beispiel mit nur
+                              2 Zuständen aufgezeichnet.) Ein paarweiser
+                              Vergleich ist möglich, indem man nur die Endpunkte
+                              betrachtet. Wird eine Aktion echt von einer anderen
+                              dominiert, so kann diese Entfernt werden.
+                              Wird eine Aktion durch Kombinationen von
+                              Aktionen dominiert, so könnte man z.B. Algorithmen
+                              zur berechnun der Konvexen Hülle nutzen.
+        \item Wie steigt die komplexität des $\alpha$-Algorithmus in jedem
+              Zeitschritt?
+        \item[$\Rightarrow$] Exponentiell (in jedem Zeitschritt sind alle
+              Aktionen prinzipiell wieder möglich)
+        \item Ok, nun zu RL. Welche 3 Gruppen von Lösungsalgorithmen hatten wir?
+        \item[$\Rightarrow$] Modellbasiert, Wertefunktionsbasiert, Strategiesuche.
+                             Modellbasiert kann mittels DP zu Wertefunktionsbasiert
+                             reduziert werden. Mit argmax kann man dann eine Strategie
+                             berechnen. Modellbasiert gibt es Dyna-Q,
+                             Adaptive DP und PILCO. Wertefunktionsbasiert
+                             hatten wir die Monte Carlo-Verfahren,
+                             Temporal Difference und die Kombination mit
+                             Eligibility traces.
+        \item Was ist das Exploitation vs. Exploration-Problem?
+        \item[$\Rightarrow$] Im RL kennen wir das Modell nicht. Wir befinden
+        uns sozusagen im Dunkeln und müssen erst finden wo es Rewards gibt.
+        Am Anfang muss man also Explorieren. (Habe eine Grid-World gezeichet
+        und eine Pfad, wo ein Roboter einen Reward von 100 gefunden hat). Nun
+        könnte man die Strategie so aufbauen, dass immer dieser Pfad
+        (versucht wird) zu nehmen. Allerdings kann man auch darauf hoffen, dass
+        an anderer Stelle (eingezeichnet) ein Reward von z.B. 150 ist. Um
+        das herauszufinden muss man von der aktuell \enquote{optimalen} Strategie
+        abweichen und explorieren.
+        \item Wie macht man das?
+        \item[$\Rightarrow$] Durch probabilistische Strategien. Das einfachste
+        ist, dass man am Anfang $\varepsilon \in \mathbb{N}$ Schritte exploriert
+        und dann deterministisch die Strategie benutzt. Besser sind GLIE-Strategien,
+        die theoretisch unendlich oft alle Zustände besuchen. Nennenswert sind
+        $\varepsilon$-Greedy und Softmax.
+        \item Zeichnen sie die Verteilung mal auf, wenn sie 3 Aktionen haben
+              und Aktion 1 optimal ist, Aktion 2 die zweitbeste und Aktion 3
+              die schlechteste.
+        \item[$\Rightarrow$] Es ergibt sich, dass bei $\varepsilon$-Greedy
+        die nicht-optimalen Aktionen gleichverteilt sind und bei 
+        softmax ist die Verteilung vom aktuell geschätzten Wert der Aktion
+        abhängig. Da gibt es noch eine Temperatur $\tau$, welche mit der
+        Zeit sinkt. Am Anfang ist der $Q$-Wert der Aktionen also nicht so
+        wichtig, aber später mehr. Es gibt noch ausgefeiltere Explorations-Strategien
+        welche berücksichtigen wie viel sich in der Q-Funktion noch ändert.
+        \item Ok, dass hatten wir nicht in der Vorlesung. Damit ist die
+        Zeit auch schon rum.
+    \end{itemize}
+\end{document}
