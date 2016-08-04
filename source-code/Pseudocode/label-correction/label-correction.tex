@@ -43,14 +43,13 @@
                             \State $u \gets d_v + g_{vt}$
                         \EndIf
                     \EndIf
-                    \If{$d_c + m_c < u$}
-                        \State $u \gets d_c + m_c$
-                    \EndIf
+                    \State $u \gets \min (u, d_c + m_c)$
                 \EndFor
             \EndWhile
+            \Return $u, t$
         \EndProcedure
         \end{algorithmic}
-    \caption{Label correction algorithm}
+    \caption{Label correction algorithm: Find shortest path}
     \label{alg:label-correction-algorithm}
     \end{algorithm}
 \end{preview}

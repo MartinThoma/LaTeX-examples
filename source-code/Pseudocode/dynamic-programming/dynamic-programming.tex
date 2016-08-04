@@ -22,7 +22,7 @@
         \Statex Sates $\mathcal{X} = \{1, \dots, n_x\}$
         \Statex Actions $\mathcal{A} = \{1, \dots, n_a\},\qquad A: \mathcal{X} \Rightarrow \mathcal{A}$
         \Statex Cost function $g: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$
-        \Statex Horizon $N$
+        \Statex Horizon $N \in \mathbb{N}_{\geq 1}$
         \Statex Discounting factor $\alpha \in [0, 1]$
         \Procedure{DynamicProgramming}{$\mathcal{X}$, $A$, $g$, $N$, $\alpha$}
             \State $J_N(x) \gets g_N(x) \quad \forall x \in \mathcal{X}$
@@ -36,10 +36,11 @@
                     \State $\pi_k(x) \gets \arg \min_a (Q_k(x, a))$
                 \EndFor
             \EndFor
+            \Return $\pi_{0:N-1}$
         \EndProcedure
         \end{algorithmic}
     \caption{Dynamic Programming}
-    \label{alg:dynamic-programming}
+    \label{alg:dynamic-programming: Learn a strategy}
     \end{algorithm}
 \end{preview}
 \end{document}

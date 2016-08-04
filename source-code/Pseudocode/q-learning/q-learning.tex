@@ -33,7 +33,7 @@
                 \While{$s$ is not terminal}
                     \State Calculate $\pi$ according to Q and exploration strategy (e.g. $\pi(x) \gets \argmax_{a} Q(x, a)$)
                     \State $a \gets \pi(s)$
-                    \State $r \gets R(s, a)$
+                    \State $r \gets R(s, a)$ \Comment{Receive the reward}
                     \State $s' \gets T(s, a)$ \Comment{Receive the new state}
                     \State $Q(s', a) \gets (1 - \alpha) \cdot Q(s, a) + \alpha \cdot (r + \gamma \cdot \max_{a'} Q(s', a'))$
                     \State $s \gets s'$
