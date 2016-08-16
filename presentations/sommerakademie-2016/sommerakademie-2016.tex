@@ -29,12 +29,18 @@
 
     \uncover<4>{Klassifikation? Semantische Segmentierung? Detektion? Lokalisierung?}
 
-    \only<5-6>{\textbf{Neuronale Netze sind der Goldstandard für Bildklassifikation}}
+    \only<5>{
+    (1) Egyptian cat (2) Madagascar cat (3) soap dispenser
+    \includegraphics*[width=0.6\linewidth, keepaspectratio]{2875184020_9944005d0d.jpg}
 
-    \uncover<6>{Fotos, medizinische Bilder, Luftbilder, Dokumente, \dots?}
+    Source: \href{http://farm4.static.flickr.com/3276/2875184020_9944005d0d.jpg}{http://farm4.static.flickr.com/3276/2875184020\_9944005d0d.jpg}}
 
-    \only<7-8>{\textbf{Neuronale Netze sind der Goldstandard für die Klassifikation von Fotos}\\}
-    \only<8>{Goldstandard ist ein Schlagwort. Es wird einerseits zur Bezeichnung von Verfahren verwendet, die bislang unübertroffen sind.\\
+    \only<6-7>{\textbf{Neuronale Netze sind der Goldstandard für Bildklassifikation}}
+
+    \uncover<7>{Fotos, medizinische Bilder, Luftbilder, Dokumente, \dots?}
+
+    \only<8-9>{\textbf{Neuronale Netze sind der Goldstandard für die Klassifikation von Fotos}\\}
+    \only<9>{Goldstandard ist ein Schlagwort. Es wird [...] zur Bezeichnung von Verfahren verwendet, die bislang unübertroffen sind.\\
     {\tiny Quelle: \href{https://de.wikipedia.org/w/index.php?title=Goldstandard_(Verfahren)&oldid=151270928}{de.wikipedia.org/w/index.php?title=Goldstandard\_(Verfahren)\&oldid=151270928}}}
 \end{center}
 \end{frame}
@@ -55,11 +61,42 @@ ILSVRC (Large Scale Visual Recognition Challenge) hatte 2014
     \item \textbf{1000 Klassen}: abacus, abaya, academic gown, accordion,
     acorn, acorn squash, acoustic guitar, admiral, affenpinscher, Afghan hound,
     \dots
-    \item 
 \end{itemize}
 
 Quellen: \href{http://image-net.org/about-stats}{image-net.org/about-stats},
 O. Russakovsky, J. Deng et al.ImageNet Large Scale Visual Recognition Challenge. IJCV, 2015
+\end{frame}
+
+
+\begin{frame}[plain]{ILSVRC 2010 - 2014}
+    \begin{itemize}
+        \item ILSVRC2010: stochastic SVM (\SI{28.2}{\percent})
+        \item ILSVRC2011: one-vs-all linear SVMs (\SI{25.8}{\percent})
+        \item ILSVRC2012: \textbf{AlexNet} (\SI{16.4}{\percent})
+        \item ILSVRC2013: NN (\SI{11.7}{\percent}, Clarifai, dropout)
+        \item ILSVRC2014: \textbf{GoogLeNet} (\SI{6.7}{\percent})\\
+              \enquote{As in 2013 almost all teams used convolutional neural networks as the basis for their submission}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{Erklärungsversuche}
+    \begin{itemize}
+        \item NNe lernen automatisch Feature-Hierarchien (insbesondere CNNs)
+        \item NNe kann man beliebig genaue Trennebenen machen lassen
+        \item NNe können gut mit vielen Klassen umgehen (Softmax-Layer)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{Mögliche Fehler}
+    \begin{itemize}
+        \item Bessere Verfahren werden nicht eingereicht
+        \begin{itemize}
+            \item Firmengeheimnisse (oder NSA)
+            \item Wettbewerb zu unbekannt (unwahrscheinlich)
+        \end{itemize}
+        \item Bessere Verfahren existieren, wurden aber nicht untersucht
+        \item Metrik nicht sinnvoll gewählt
+    \end{itemize}
 \end{frame}
 
 \end{document}
