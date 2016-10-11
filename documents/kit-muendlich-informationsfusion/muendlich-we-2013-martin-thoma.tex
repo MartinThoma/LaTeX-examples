@@ -1,0 +1,267 @@
+\documentclass[a4paper]{article}
+\usepackage{csquotes}
+\usepackage{myStyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier eigene Daten einfügen                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Studiengang}{Informatik (MA)}
+\newcommand{\Fach}{Informationsfusion}
+\newcommand{\Pruefungsdatum}{11.10.2016}    % DD.MM.YYYY
+\newcommand{\Pruefer}{Dr. Heizmann}
+\newcommand{\Beisitzer}{Ruben}
+% Nicht zwingend, aber es waere nett, wenn du zumindest die Zahl vor
+% dem Komma angeben koenntest:
+\newcommand{\Note}{1,0}
+\newcommand{\Dauer}{20} % in Minuten
+
+%%% WEITER SCROLLEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{tabular}{p{2cm}p{15cm}}
+\ifpdf\vspace{-0.8cm}\fi
+\multirow{2}{2cm}{ \includegraphics[width=20mm]{FS-Eule}} &
+
+\Large Fragebogen der Fachschaft zu \\
+& \Large {\bfseries mündlichen Prüfungen} \\
+& \Large{im Informatikstudium}
+\\
+\end{tabular}
+
+ \begin{tabular}{p{8cm}p{8cm}}
+  \begin{flushleft}
+%%% HIER GEHTS LOS! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Das Dokument                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   Dein Studiengang: \Studiengang \\[0.5cm]
+
+   \textbf{Prüfungsart:}\\
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+   $\boxtimes$ Wahlpflichtfach  \\
+   $\boxempty$ Vertiefungsfach  \\
+   $\boxempty$ Ergänzungsfach  \\[0.5cm]
+%% Namen des Wahl/Vertiefungs/Ergaenzungsfachs hier bitte eintragen.
+   Welches? \Fach
+%% Jetzt kommt ein Barcode von uns.  Einfach weitergehen.  ;-)
+  \end{flushleft}
+  &
+  \begin{center}
+   Barcode:
+   \begin{tabular}{p{0.2cm}p{6.8cm}p{0.2cm}}
+   $\ulcorner$
+   \vskip 2cm
+   $\llcorner$ & & $\urcorner$
+   \vskip 2cm
+   $\lrcorner$ \\
+   \end{tabular}
+  \end{center}
+  \vskip 0.5cm
+%% Hier gehts weiter:
+  \begin{flushright}
+%% Pruefungsdatum, PrueferIn und BeisitzerIn bitte hier eintragen. Wichtig: Im Allgemeinen kann nur ein Professor der Pruefer gewesen sein.
+  \begin{tabular}{ll}
+   Prüfungsdatum:   & \Pruefungsdatum \\[0.5cm]
+   Prüfer/-in:      & \Pruefer \\[0.5cm]
+   Beisitzer/-in:   & \Beisitzer \\
+  \end{tabular}
+  \end{flushright} \\
+ \end{tabular}
+
+ \begin{tabular}{|p{8.2cm}|p{3cm}|p{1cm}|p{3.5cm}|}
+  \multicolumn{4}{l}{\bfseries Prüfungsfächer und Vorbereitung: } \\[0.2cm]
+  \hline
+  Veranstaltung & Dozent/-in  & Jahr & regelmäßig besucht? \\
+  \hline
+  \hline
+%% Beispiel:
+%% Interessante Vorlesung & Toller Prof & 2007 & Ich war immer 5 Minuten vorher da \\
+  Informationsfusion & Dr. Heizmann & 15/16 &  Nie \\[0.2cm]
+  \hline
+ \end{tabular} \\[0.5cm]
+
+\begin{multicols}{2}
+Note: \Note\\[0.5cm]
+War diese Note angemessen?
+%% Hier ist Platz fuer deinen Kommentar
+Ja
+
+\columnbreak
+%% Bitte Pruefungsdauer eintragen
+Prüfungsdauer: \Dauer{} Minuten \\[0.5cm]
+\end{multicols}
+
+
+ \textbf{\ding{46}} Wie war der \textbf{Prüfungsstil des Prüfers / der Prüferin?} \\
+ \begin{footnotesize}Entspannte Atmosphäre; hat direkt angefangen. Manchmal habe ich nicht das gesagt was er hören wollte. Dann hat er es direkt gesagt und mich mehr in der Richtung gefragt. Zwei mal wusste ich gar nicht weiter, da hat er weiter geholfen. Man bekommt direkt Feedback, ob man das richtige sagt.\end{footnotesize}  \\
+ \begin{minipage}[t][10cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+
+ \end{minipage}
+
+ \begin{flushright}$\hookrightarrow$\textbf{Rückseite bitte nicht vergessen!}\end{flushright}
+
+ \newpage
+ \columnseprule=.4pt
+
+ \begin{multicols}{2}
+
+  \ding{46} Hat sich der \textbf{Besuch / Nichtbesuch} der Veranstaltung für dich gelohnt? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Ich war kein einziges mal in der Vorlesung
+
+  \end{minipage}
+
+  \ding{46} Wie lange und wie hast du dich \textbf{alleine bzw. mit anderen vorbereitet}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Ca. 2 Wochen jeden Tag 1-2 Stunden. Direkt vor der Prüfung zwei Tage mit
+    je 4 Stunden. Habe aber viel Vorwissen, insbesondere alles über den
+    Kalman-Filter und Bayes-Fusion sowie Neuronale Netze, mitgebracht.
+
+  \end{minipage}
+
+  \ding{46} Welche \textbf{Tips zur Vorbereitung} kannst du geben?\\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Folien lesen und verstehen, Protokolle durchgehen und
+    meinen Blog lesen:\\
+    \href{https://martin-thoma.com/informationsfusion/}{martin-thoma.com/informationsfusion}
+  \end{minipage}
+
+\columnbreak
+
+  \ding{46} Kannst du ihn/sie \textbf{weiterempfehlen}?
+%% entsprechende \boxempty bitte durch \boxtimes ersetzen.
+  $\boxtimes$ Ja / $\boxempty$ Nein\newline Warum? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Sehr nett, angenehme Athmosphäre. Stoff ist vergleichsweise einfach.
+
+  \end{minipage}
+
+  \ding{46} Fanden vor der Prüfung \textbf{Absprachen} zu Form oder Inhalt statt? Wurden sie \textbf{eingehalten}? \\
+  \begin{minipage}[t][7cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Ja. Registrierung und Neuronale Netze waren in diesem Semester nicht in der
+    Vorlesung. Ich wurde explizit darauf hingewiesen, dass die Übungsaufgaben
+    auch relevant sind.
+
+  \end{minipage}
+
+  \ding{46} Kannst du Ratschläge für das \textbf{Verhalten in der Prüfung} geben? \\
+  \begin{minipage}[t][6.8cm]{\linewidth}
+%% Hier ist Platz fuer deinen Kommentar
+    Locker bleiben. Der Dozent ist sehr nett und hilfsbereit.
+
+  \end{minipage}
+%
+\end{multicols}
+\clearpage
+
+\section*{Inhalte der Prüfung:}
+
+
+    \section{Allgemeines}
+    \begin{itemize}
+        \item Worum geht es in der Informationsfusion?
+        \item[$\Rightarrow$] Die Informationsfusion umfasst Methoden um verfügbares Wissen aus unterschiedlichen Quellen so zu verknüpfen, dass man besseres oder hochwertigeres Wissen erhält.
+        \item Was ist \enquote{besseres} Wissen?
+        \item[$\Rightarrow$] Das ist abhängig von der Aufgabe. Im Fall von
+                             Bildsensoren könnte man mehrere billige Sensoren haben, welche den selben Definitionsbereich haben. Dann könnte man die verrauschten Bilder mitteln und so ein Bild erhalten, welches weniger Rauschen hat. Oder man hat unterschiedliche Definitionsbereiche und macht ein Panoramabild.
+        \item In welcher Beziehung können Informationsquellen noch stehen?
+        \item[$\Rightarrow$]
+        \begin{itemize}
+             \item Redundant (Mitteln mehrer Bilder)
+             \item Komplementär
+             \begin{itemize}
+                 \item Definitionsbereich: Panoramabild
+                 \item Wertebereich: Multispektralbild
+             \end{itemize}
+             \item Verteilt: Tiefenkarte
+             \item Orthogonal: Texturierung eines 3D-Objekts
+         \end{itemize}
+         \item Welche Vorteile bietet Informationsfusion?
+         \item[$\Rightarrow$]
+         \begin{itemize}
+             \item Höhere Robustheit
+             \item Erweterung der Sensorabdeckung
+             \item Erhöhte Auflösung (z.B. Accelerometer + Kompas in Kamera)
+             \item Kostenreduktion (z.B. mehrere billige Bildsensoren, dann Daten mitteln zur Rauschreduktion)
+             \item Unsicherheit Verringern (z.B. FLIR + Radar)
+             \item Indirektes schließen auf Größen (z.B. Oberflächennormalen)
+         \end{itemize}
+    \end{itemize}
+
+    \section{Bayes-Fusion}
+    \begin{itemize}
+        \item Worauf fußt die Wahrscheinlichkeitstheorie?
+        \item[$\Rightarrow$] Auf den Axiomen von Kolmogorov: Nicht-Negativität, Normiertheit auf 1 und Additivität
+        \item Was bedeutet Additivität?
+        \item[$\Rightarrow$] Für eine abzählbare Menge von disjunkten Ereignissen $A_i$ muss gelten: $P(\cup A_i) = \sum P(A_i)$
+        \item Wie heißt der wichtige Satz?
+        \item[$\Rightarrow$] Satz von Bayes
+        \item Bitte schreiben Sie die Formel der Bayes-Fusion für zwei Beobachtungen hin.
+        \item[$\Rightarrow$] $$p(x | d_1, d_2) = \frac{p(d_1, d_2 | x) \cdot p(x)}{p(d_1, d_2)}$$
+        \item Erklären Sie die Terme
+        \item[$\Rightarrow$] $p(d_1, d_2 | x)$ ist die Likelihood von $d_1, d_2$ unter der Annahme, dass $x$ gilt. $p(x)$ ist die a priori Wahrscheinlichkeit von $x$, $p(x | d_1, d_2)$ ist die a posteriori Wahrscheinlichkeit von $x$ gegeben die Beobachtungen $d_1$ und $d_2$. $p(d_1, d_2)$ ist ein Normierungsfaktor.
+        \item Angenommen, man ist nur daran interessiert für welchen Wert von $x$ die a posteriori Wahrscheinlichkeit ihr Maximum annimmt. Was ändert sich dann?
+        \item[$\Rightarrow$] Der Term $p(d_1, d_2)$ kann als $1$ angenommen werden (also ignoriert werden), da er für konstante $d_1, d_2$ auch konstant ist.
+        \item Wie bekommt man $p(x)$?
+        \item[$\Rightarrow$] Domänenwissen (z.B. Handbücher) oder man verwendet die Maximum Entropie Methode. Dabei wird die Verteilung so gewählt, dass die Entropie maximiert wird.
+        \item Was für eine Verteilung haben Sie, wenn sie Wissen, dass $x$ kontinuierlich und im Wertebereich 4 bis 10 ist?
+        \item[$\Rightarrow$] Gleichverteilung auf 4 bis 10 mit Wert $\frac{1}{6}$ (aufgezeichnet)
+        \item Und wenn sie den Erwartungswert und die Varianz haben, aber keinen Wertebereich?
+        \item[$\Rightarrow$] Normalverteilung
+        \item Und wenn sie nichts kennen?
+        \item[$\Rightarrow$] Dann kann man eine Grenzübergangsbetrachtung machen. Der Faktor $p(x)$ geht dann gegen 0. Man könnte ihn eventuell in der Fusion ignorieren.
+        \item Richtig.
+        \item Wenn sie nun ein dynamsiches Objekt haben, was machen sie dann?
+        \item[$\Rightarrow$] Bei einem linearen Modell wende ich den Kalmann-Filter an. Dieser wendet immer wieder (nicht notwendigerweise direkt hintereinander) Prädiktions- und Innovationsschritte an.
+        \item Schreiben sie mal die Zustandsupdate-Gleichung im Prädiktionsschritt hin
+        \item[$\Rightarrow$] $x_{k+1}^{(P)} = A x_k + B u_k$, wobei $u_k$ ein Steuervektor ist.
+        \item Was passiert im Prädiktions- und im Innovationsschritt jeweils mit den Unsicherheiten?
+        \item[$\Rightarrow$] Im Prädiktionsschritt wächst die Unsicherheit. Im Innovationsschritt wird die Beobachtung berücksichtigt und die Unsicherheit sinkt.
+        \item Wie werden Unsicherheiten im Kalman-Filter brücksichtigt?
+        \item[$\Rightarrow$] Durch Kovarianzmatrizen
+        \item Welche Eigenschaften haben diese?
+        \item[$\Rightarrow$] Sie sind positiv-semidefinit und symmetrisch.
+        \item Was steht in den Einträgen
+        \item[$\Rightarrow$] Die Kovarianzen von paaren von Merkmalen
+        \item Und auf der Diagonalen?
+        \item[$\Rightarrow$] Die Varianzen
+    \end{itemize}
+
+    \section{Fuzzy-Fusion}
+    \begin{itemize}
+        \item Wie modelliert man Unsicherheit mit Fuzzy-Systemen?
+        \item[$\Rightarrow$] Über die Zugehörigkeit der Variablen zu den
+        Fuzzy-Mengen.
+        \item Wie unterscheiden sich Fuzzy-Mengen von normalen Mengen?
+        \item[$\Rightarrow$] Die Zugehörigkeit eines Elements ist bei
+        traditionellen Mengen binär: Entweder gehört ein Element zu einer Menge
+        oder nicht. Bei Fuzzy-Mengen ist sie kontinuierlich. Der Grad der
+        Zugehörigkeit eines Elements zu einer Fuzzy-Menge ist zwischen 0 und 1.
+        \item Wo bringt man Domänenwissen bei Fuzzy-Systemen ein?
+        \item[$\Rightarrow$] Über die Zugehörigkeitsfunktionen, vor allem über
+                             die Regelbasis und ein bisschen über die
+                             Defuzzifizierung.
+        \item Wie funktioniert Fuzzy-Fusion Schritt für Schritt?
+        \item[$\Rightarrow$] Definition von Linguistischen Variablen und der
+        Terme, also der Werte der Variablen. Dann werden Zugehörigkeitsfunktionen
+        definiert und eine Regelbasis der Form IF prämissen THEN conclusion
+        aufgestellt. Schließlich wird defuzzifiziert.
+        \item Machen wir mal ein Beispiel. Sagen wir, wir haben die Regel
+              \enquote{Wenn der Himmel blau ist und der Wind von Westen kommt, dann regnet es morgen}.
+        \item Man geht so vor:
+        \begin{itemize}
+            \item Variablen: Himmelsfarbe (blauheit, grauheit), Windrichtung (Norden, Osten, Süden, Westen), RegnetMorgen (ja, nein)
+            \item Zugehörigkeitsfunktion (aufgezeichnet für Himmelsfarbe - x-Achse ist "blauheit". Habe zwei Stückweise lineare Funktionen für blauheit und grauheit eingezeichnet)
+            \item Regeln: 8 Stück, da es 4 und 2 Input-Variablen gibt ($4 \cdot 2 = 8$)
+        \end{itemize}
+        \item Wie funktioniert Defuzzifizierung?
+        \item[$\Rightarrow$] Schwerpunktverfahren, Maximummethode, Maximum-Mittelwert-Methode
+    \end{itemize}
+\end{document}
