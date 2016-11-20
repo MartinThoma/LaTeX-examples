@@ -1,0 +1,88 @@
+\documentclass{standalone}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\newcommand{\filtersize}{3}
+\newcommand{\filterx}{8}
+\newcommand{\filtery}{2.2}
+\newcommand{\filteroffset}{1}
+
+\newcommand{\imagesize}{7}
+\newcommand{\imagex}{0}
+\newcommand{\imagey}{0}
+\newcommand{\imageoffset}{2}
+
+\newcommand{\outx}{13}
+\newcommand{\outy}{0}
+\newcommand{\outoffset}{2}
+
+\newcommand{\percx}{1}
+\newcommand{\percy}{2}
+\begin{tikzpicture}
+% ,circle,thick,draw=black,fill=black,minimum width=4pt,minimum height=4pt
+    \tikzstyle{point}=[draw=none,inner sep=0pt]
+
+
+    % draw perceptive field
+    \node (p1)[point] at (\imagex+\percx,
+                          \imagey+\percy+\percx*\imageoffset/\imagesize) {};
+    \node (p2)[point] at (\imagex+\percx+\filtersize,
+                          \imagey+\percy+\percx*\imageoffset/\imagesize+\filtersize*\imageoffset/\imagesize) {};
+    \node (p3)[point,blue] at (\imagex+\percx+\filtersize,
+                          \imagey+\percy+\filtersize+\percx*\imageoffset/\imagesize+\filtersize*\imageoffset/\imagesize) {};
+    \node (p4)[point] at (\imagex+\percx,
+                          \imagey+\percy+\filtersize+\percx*\imageoffset/\imagesize) {};
+    \draw[fill=gray] (p1.center) -- (p2.center) -- (p3.center) -- (p4.center) -- (p1.center);
+
+    % draw output point
+    \node (o1)[point] at (\outx+\percx+1,
+                          \outy+\percy+\percx*\outoffset/\imagesize+1+1*\outoffset/\imagesize) {};
+    \node (o2)[point] at (\outx+\percx+2,
+                          \outy+\percy+\percx*\outoffset/\imagesize+1*\outoffset/\imagesize+1+1*\outoffset/\imagesize) {};
+    \node (o3)[point,blue] at (\outx+\percx+2,
+                          \outy+\percy+1+\percx*\outoffset/\imagesize+1*\outoffset/\imagesize+1+1*\outoffset/\imagesize) {};
+    \node (o4)[point] at (\outx+\percx+1,
+                          \outy+\percy+2+\percx*\outoffset/\imagesize+1*\outoffset/\imagesize) {};
+    \draw[fill=black] (o1.center) -- (o2.center) -- (o3.center) -- (o4.center) -- (o1.center);
+
+    % draw image
+    \foreach \x in {0,...,\imagesize}
+    {
+    \draw (\imagex+\x, \imagey+\x*\imageoffset/\imagesize) -- (\imagex+\x, \imagey+\imagesize+\x*\imageoffset/\imagesize);
+    \draw (\imagex, \imagey+\x) -- (\imagex+\imagesize, \imagey+\x+\imageoffset);
+    }
+
+    % draw filter
+    \foreach \x in {0,...,\filtersize}
+    {
+    \draw (\filterx+\x, \filtery+\x*\filteroffset/\filtersize) -- (\filterx+\x, \filtery+\filtersize+\x*\filteroffset/\filtersize);
+    \draw (\filterx, \filtery+\x) -- (\filterx+\filtersize, \filtery+\x+\filteroffset);
+    }
+
+    % draw out
+    \foreach \x in {0,...,\imagesize}
+    {
+    \draw (\outx+\x, \outy+\x*\outoffset/\imagesize) -- (\outx+\x, \outy+\imagesize+\x*\outoffset/\imagesize);
+    \draw (\outx, \outy+\x) -- (\outx+\imagesize, \outy+\x+\outoffset);
+    }
+
+    \node at (\imagex + \imagesize/2,\imagey + \imagesize + 2) {$I \in \mathbb{R}^{\imagesize \times \imagesize}$};
+    \node at (\filterx + \filtersize/2,\filtery + \filtersize + 2) {$F \in \mathbb{R}^{\filtersize \times \filtersize}$};
+    \node at (\outx + \imagesize/2,\outy + \imagesize + 2) {$I' \in \mathbb{R}^{\imagesize \times \imagesize}$};
+    \node[draw,circle] (sumsymb) at (\filterx + \filtersize+1,\filtery + \filtersize/2 + \filteroffset-0.5) {$\sum$};
+
+    \draw[dashed] (1.5, 2.9) -- (10.5, 2.9) -- (sumsymb.center);
+    \draw[dashed] (1.5, 2.9+\filtersize-1) -- (10.5, 2.9+\filtersize-1) -- (sumsymb.center);
+    \draw[dashed] (1.5+\filtersize-1, 2.9+\filtersize-1+2*\filteroffset/3) -- (10.5+\filtersize-1, 2.9+\filtersize-1+2*\filteroffset/3) -- (sumsymb.center);
+    \draw[dashed] (1.5+\filtersize-1, 2.9+2*\filteroffset/3) -- (10.5+\filtersize-1, 2.9+2*\filteroffset/3) -- (sumsymb.center);
+    \draw[dashed] (sumsymb.center) -- (15, 4);
+
+    \node[draw,circle,fill=white] at (5.5, 2.9) {$+$};
+    \node[draw,circle,fill=white] at (5.5+\filtersize-1, 2.9+2*\filteroffset/3) {$+$};
+    \node[draw,circle,fill=white] at (5.5+\filtersize-1, 2.9+2*\filteroffset/3+\filtersize-1) {$+$};
+    \node[draw,circle,fill=white] at (5.5, 2.9+\filtersize-1) {$+$};
+    \node[draw,circle,fill=white] at (sumsymb.center) {$\sum$};
+\end{tikzpicture}
+\end{document}
