@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart, calc}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \tikzstyle{bplus}=[rectangle split, rectangle split horizontal,rectangle split ignore empty parts,draw, fill=white]
+    \tikzstyle{every node}=[bplus]
+    \tikzstyle{level 1}=[sibling distance=60mm]
+    \tikzstyle{level 2}=[sibling distance=15mm]
+
+    \node[draw=white] {\hphantom{i}}
+      child[sibling distance=80mm] {node {single domain}
+        child[sibling distance=80mm] {node {analyze classifiers}
+            child[sibling distance=40mm] {node {\parbox{2cm}{\centering predict\\classifier accuracy}}
+                child[sibling distance=20mm] {node {\parbox{1.5cm}{\centering large sample\\1}}}
+                child[sibling distance=20mm] {node {\parbox{1.5cm}{\centering small sample\\2}}}}
+            child[sibling distance=40mm] {node {\parbox{2cm}{\centering choose between classifiers}}
+                child[sibling distance=20mm] {node {\parbox{1.5cm}{\centering large sample\\3}}}
+                child[sibling distance=20mm] {node {\parbox{1.5cm}{\centering small sample\\4}}}}
+        }
+        child[sibling distance=80mm] {node {analyze algorithms}
+            child[sibling distance=40mm] {node {\parbox{2cm}{\centering predict\\algorithm accuracy}}
+                child[sibling distance=20mm] {node {\parbox{1.5cm}{\centering large sample\\5}}}
+                child[sibling distance=20mm] {node {\parbox{1.5cm}{\centering small sample\\6}}}}
+            child[sibling distance=40mm] {node {\parbox{2cm}{\centering choose between algorithms}}
+                child[sibling distance=20mm] {node {\parbox{1.5cm}{\centering large sample\\7}}}
+                child[sibling distance=20mm] {node {\parbox{1.5cm}{\centering small sample\\8}}}}
+        }
+      }
+      child[sibling distance=80mm] {node {\parbox{2cm}{\centering multiple domains\\9}}
+      };
+\end{tikzpicture}
+\end{preview}
+\end{document}
