@@ -16,9 +16,9 @@
     \path[arrow] (0, 2) edge node[right, midway] {$256$-d in} (input.north);
 
     % first path
-    \node (conv1) at (0,-1.0) [conv-layer] {$k$ @ $3 \times 3 \times 256$};
+    \node (conv1) at (0,-1.0) [conv-layer] {$k$ @ $3 \times 3$};
     \node (conc1) at (0,-2.7) [conv-layer, dashed] {concatenate};
-    \node (conv2) at (0,-4.4) [conv-layer] {$k$ @ $3 \times 3 \times 256$};
+    \node (conv2) at (0,-4.4) [conv-layer] {$k$ @ $3 \times 3$};
     \node (conc2) at (0,-6.1) [conv-layer, dashed] {concatenate};
 
     \path[arrow] (input.south) edge node[right, midway] {$256$-d in} (conv1.north);
