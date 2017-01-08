@@ -1,0 +1,46 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\begin{document}
+\pagestyle{empty}
+
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (init) {initialize model};
+    % \node [cloud, left of=init] (expert) {expert};
+    % \node [cloud, right of=init] (system) {system};
+    \node [block, below of=init] (qualitycheck) {calculate $q$};
+    \node [decision, below of=qualitycheck] (decide) {is $q$ reasonable};
+    \node [block, left of=decide, node distance=3cm] (investigate) {investigate};
+    \node [block, below of=decide, node distance=3cm] (train) {train};
+    \node [decision, below of=train] (decide2) {is $q$ good enough};
+    \node [block, left of=investigate, node distance=3cm] (update) {update model};
+    \node [block, below of=decide2, node distance=3cm] (stop) {stop};
+    % Draw edges
+    \path [line] (init) -- (qualitycheck);
+    \path [line] (qualitycheck) -- (decide);
+    \path [line] (decide) -- node {yes} (train);
+    \path [line] (decide) -- node {no} (investigate);
+    \path [line] (investigate) -- (update);
+    \path [line] (train) -- (decide2);
+    % \path [line] (decide) -| node [near start] {yes} (update);
+    % \path [line] (update) |- (init);
+    \path [line] (decide2) -- node {yes}(stop);
+    \path [line] (decide2) -| node {no}(update);
+    \path [line] (update) |- (init);
+    % \path [line,dashed] (expert) -- (init);
+    % \path [line,dashed] (system) -- (init);
+    % \path [line,dashed] (system) |- (evaluate);
+\end{tikzpicture}
+\end{document}
