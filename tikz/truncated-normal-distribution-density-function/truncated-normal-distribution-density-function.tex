@@ -1,0 +1,74 @@
+% used PGFPlots v1.14
+% (inspired by Jake's answer given here
+% <http://tex.stackexchange.com/a/340939/95441>)
+\documentclass[border=5pt]{standalone}
+\usepackage{pgfplots}
+    \pgfplotsset{
+        compat=1.3,
+    }
+    % create cycle lists that uses the style from OPs figure
+    % <https://upload.wikimedia.org/wikipedia/en/d/df/TnormPDF.png>
+    \pgfplotscreateplotcyclelist{line styles}{
+        black,solid\\
+        blue,dashed\\
+        red,dotted\\
+        orange,dashdotted\\
+    }
+    % define a command which stores all commands that are needed for every
+    % `raw gnuplot' call
+    \newcommand*\GnuplotDefs{
+        % set number of samples
+        set samples 50;
+        %
+        %%% from <https://en.wikipedia.org/wiki/Normal_distribution>
+        % cumulative distribution function (CDF) of normal distribution
+        cdfn(x,mu,sd) = 0.5 * ( 1 + erf( (x-mu)/sd/sqrt(2)) );
+        % probability density function (PDF) of normal distribution
+        pdfn(x,mu,sd) = 1/(sd*sqrt(2*pi)) * exp( -(x-mu)^2 / (2*sd^2) );
+        % PDF of a truncated normal distribution
+        tpdfn(x,mu,sd,a,b) = pdfn(x,mu,sd) / ( cdfn(b,mu,sd) - cdfn(a,mu,sd) );
+    }
+\begin{document}
+    \begin{tikzpicture}
+            % define macros which are needed for the axis limits as well as for
+            % setting the domain of calculation
+            \pgfmathsetmacro{\xmin}{0}
+            \pgfmathsetmacro{\xmax}{1}
+        \begin{axis}[
+            xmin=\xmin,
+            xmax=\xmax,
+            ymin=0,
+            %ymax=0.23,
+            %ytick distance=0.05,
+            %enlargelimits=0.05,
+            no markers,
+            smooth,
+            % use the above created cycle list ...
+            cycle list name=line styles,
+            % ... and append the following style to all `\addplot' calls
+            every axis plot post/.append style={
+                very thick,
+            },
+            yticklabel style={
+                /pgf/number format/.cd,
+                    fixed,
+                    fixed zerofill,
+                    precision=2,
+            },
+            xlabel={x},
+            ylabel={probability density},
+        ]
+            \addplot gnuplot [raw gnuplot] {
+                % first call all the "common" definitions
+                \GnuplotDefs
+                % and then create the data tables
+                % in GnuPlot `x` key is identical to PGFPlots `domain` key
+                plot [x=\xmin:\xmax] tpdfn(x,0.8,0.3, 0, 1);
+            };
+            \addplot gnuplot [raw gnuplot] {
+                \GnuplotDefs
+                plot [x=\xmin:\xmax] tpdfn(x,0.7,0.1, 0, 1);
+            };
+        \end{axis}
+    \end{tikzpicture}
+\end{document}
