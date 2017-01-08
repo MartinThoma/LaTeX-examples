@@ -1,0 +1,107 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[binary-units=true]{siunitx}
+\usepackage{parskip}
+\usepackage{marvosym}
+\usepackage{hyperref}
+\usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
+
+\geometry{a4paper,left=10mm,right=10mm, top=1cm, bottom=2cm}
+
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+\begin{document}
+\clearpage
+\section*{Reiseplan Barcelona}
+\vspace*{\fill}
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{cp{3cm} p{1cm} p{3cm} p{1cm} l p{5cm}}
+        \toprule
+    \textbf{Date}  & \textbf{From}        & \textbf{start\newline (local)} & \textbf{To} & \textbf{end\newline (local)}  & \textbf{time} & \textbf{service} \\ \midrule
+    04.12.2016 & Karlsruhe Hbf            & 11:10          & Frankfurt (T2)           & 12:45    & 1h 35m & Linie 017; \#0987654321\\
+    04.12.2016 & Frankfurt/Main (T1)      & 16:00          & Barcelona (T1)           & 18:00    & 2h     & LH1132; etix 123­-4567890123\\
+    04.12.2016 & Aeroport - Terminal C    & 18:35          & Pl. Universitat          & 19:10    &    35m & A2 - Pl. Catalunya - Fontanella (3 Halte) \\
+    04.12.2016 & Universitat              & 19:17          & Pep Ventura              & 19:44    &    27m & L2 - Badalona Pompeu Fabra (14 Halte) \\
+    04.12.2016 & Pep Ventura              & 19:44          & Be Dream Hostel          & 19:46    &     2m & Ave. Alfonso Xiii, 28B, (+34) 93 399 14 20 \\\midrule
+    14.12.2016 &   Be Dream Hostel        &                &                          &          &        &  \\
+    14.12.2016 & Barcelona (T1)           & 16:45          & Frankfurt/Main (T1)      & 19:00    & 2h 15m & LH1129\\
+    14.12.2016 & Frankfurt (T2)           & 20:20          & Karlsruhe Hbf            & 22:05    & 1h 45m & Linie 017;\#0987654321\\
+        \bottomrule
+        \end{tabular}
+        \caption{Reiseplan}
+        \label{table:reiseplan}
+    \end{table}
+\vfill % equivalent to \vspace{\fill}
+
+\section*{Checkliste}
+\begin{multicols}{3}
+\begin{todolist}
+    \item Ausweis
+    \item Studentenausweis
+    \item Flugtickets
+    \item Bustickets
+    \item Übernachtungstickets
+    \item Bargeld (30 Euro pro Tag $\rightarrow$ 330 Euro)
+    \item Visa-Karte
+    \item Kleidung\dots
+    \begin{todolist}
+        \item 11 Boxershorts
+        \item 11 Paar Socken
+        \item 4 T-Shirts
+        \item Schlafsachen
+        \item Warme Unterwäsche
+        \item Regenjacke + Hose
+        \item Hose
+        \item Badehose
+        \item Mütze + Schal
+    \end{todolist}
+    \item Hygiene\dots
+    \begin{todolist}
+        \item Zahnbürste + Ladegerät
+        \item Zahnseide
+        \item Zahnpasta
+        \item 5 Pkg Taschentücher
+        \item Reisehandtuch
+    \end{todolist}
+    \item Elektronik\dots
+    \begin{todolist}
+        \item Laptop + Ladegerät
+        \item Digicam + Ladegerät
+        \item Powerbank
+        \item Smartphone + Ladegerät
+        \item Mehrfachstecker
+        \item Kopfhörer
+    \end{todolist}
+\end{todolist}
+\end{multicols}
+
+\section*{Sonstiges}
+\begin{itemize}
+    \item https://www.tmb.cat/en/home
+    \item Simyo (Blau) - Euro-Tarif
+    \item Lufthansa-Streik ( \href{http://www.lufthansa.com/de/de/Fluginformationen}{lufthansa.com/de/de/Fluginformationen} )
+\end{itemize}
+
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{cp{3cm} p{1cm} p{3cm} p{1cm} l p{5cm}}
+        \toprule
+    \textbf{Date}  & \textbf{From}        & \textbf{start\newline (local)} & \textbf{To} & \textbf{end\newline (local)}  & \textbf{time} & \textbf{service} \\ \midrule
+    04.12.2016 & Aeroport Terminal C      & 18:35          & Pl Espanya-FGC           & 18:55    &    20m & A2 - Pl. Catalunya - Fontanella (0 Halte) \\
+    04.12.2016 & Pl. Espanya              & 19:02          & Glòries                  & 19:15    &    27m & L1 - Fondo (8 Halte) \\
+    04.12.2016 & Glóries                  & 19:24          & Fòrum                    & 19:35    &    11m & T4 - Estació de Sant Adrià (6 Halte)\\
+    04.12.2016 & Fòrum                    & 19:35          & CCIB                     & 19:37    &     2m & Centre de Convencions Internacional de Barcelona \\\midrule
+        \bottomrule
+        \end{tabular}
+        \caption{Reiseplan}
+        \label{table:reiseplan}
+    \end{table}
+\end{document}
