@@ -10,7 +10,7 @@
 \usepackage{vmargin}        % Adjust margins in a simple way
 \usepackage{tikz}
 \usepackage{csquotes}
-\usepackage[binary-units=true]{siunitx}
+\usepackage[binary-units=true,detect-weight=true, detect-family=true]{siunitx}
 \DeclareSIUnit\pixel{px}
 \usepackage{listings} % needed for the inclusion of source code
 \usepackage{caption}
@@ -59,7 +59,7 @@
 
 \usepackage[german,nameinlink, noabbrev,capitalise]{cleveref}
 
-\title{HASY dataset}
+\title{The HASY dataset}
 \author{%
     \IEEEauthorblockN{Martin Thoma}\\
     \IEEEauthorblockA{E-Mail: info@martin-thoma.de} % ORCID: http://orcid.org/0000-0002-6517-1690
@@ -69,7 +69,7 @@
     pdfauthor   = {Martin Thoma},
     pdfkeywords = {dataset},
     pdfsubject  = {HASY, dataset},
-    pdftitle    = {HASY dataset},
+    pdftitle    = {The HASY dataset},
 }
 \usepackage[inline]{enumitem}
 \usepackage{longtable}
@@ -108,9 +108,7 @@
 \input{content}
 \bibliographystyle{IEEEtranSA}
 \bibliography{literatur}
-\clearpage%
-\onecolumn
 \input{appendix}
-\twocolumn
+
 
 \end{document}
