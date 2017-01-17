@@ -1,0 +1,116 @@
+\documentclass[technote,a4paper,leqno]{IEEEtran}
+\pdfoutput=1
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[USenglish]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{vmargin}        % Adjust margins in a simple way
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage[binary-units=true]{siunitx}
+\DeclareSIUnit\pixel{px}
+\usepackage{listings} % needed for the inclusion of source code
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\linewidth}{#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\lstset{
+    aboveskip={1.3\baselineskip},
+    basicstyle=\small\ttfamily\linespread{4},
+    breaklines=false,
+    columns=flexible,
+    commentstyle=\color[rgb]{0.127,0.427,0.514}\ttfamily\itshape,
+    escapechar=@,
+    extendedchars=true,
+    frame=none,
+    identifierstyle=\color{black},
+    inputencoding=latin1,
+    keywordstyle=\color[HTML]{228B22}\bfseries,
+    language=C,
+    ndkeywordstyle=\color[HTML]{228B22}\bfseries,
+    numbers=left,
+    numberstyle=\scriptsize,
+    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    stringstyle=\color[rgb]{0.639,0.082,0.082}\ttfamily,
+    showstringspaces=false,
+    xleftmargin=5.0ex
+}
+
+\usepackage{url}
+\usepackage{breakurl}
+\usepackage[raiselinks=true,
+            bookmarks=true,
+            bookmarksopenlevel=1,
+            bookmarksopen=true,
+            bookmarksnumbered=true,
+            breaklinks,
+            hyperindex=true,
+            plainpages=false,
+            pdfpagelabels=true,
+            pdfborder={0 0 0.5}]{hyperref}
+\def\UrlBreaks{\do\/\do-}
+
+\usepackage{xspace}
+\newcommand*\elide{\textup{[\,\dots]}\xspace}
+
+\usepackage[german,nameinlink, noabbrev,capitalise]{cleveref}
+
+\title{HASY dataset}
+\author{%
+    \IEEEauthorblockN{Martin Thoma}\\
+    \IEEEauthorblockA{E-Mail: info@martin-thoma.de} % ORCID: http://orcid.org/0000-0002-6517-1690
+}
+
+\hypersetup{
+    pdfauthor   = {Martin Thoma},
+    pdfkeywords = {dataset},
+    pdfsubject  = {HASY, dataset},
+    pdftitle    = {HASY dataset},
+}
+\usepackage[inline]{enumitem}
+\usepackage{longtable}
+\usepackage{booktabs}       % \toprule
+% Packages for symbols
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\def\wasyfamily{\fontencoding{U}\fontfamily{wasy}\selectfont}
+\usepackage{upgreek}
+\usepackage{marvosym}
+\usepackage{textcomp}
+\usepackage{dsfont}
+\usepackage{esint}
+\usepackage{cmll}
+\usepackage{stmaryrd}
+\usepackage{skull}
+
+% Make document nicer
+\usepackage{parskip}
+\usepackage{microtype}
+
+% Variables
+\newcommand{\dbTotalClasses}{369}
+\newcommand{\dbTrainInstances}{\num{151159}}
+\newcommand{\dbTestInstances}{\num{17074}}
+\newcommand{\dbTotalInstances}{\num{168233}}
+\newcommand{\dbName}{HASY}
+\newcommand{\dbSizeMB}{33.3}
+\newcommand{\dbDownloadURL}{\url{http://TODO.com/_me}}
+\newcommand{\dbMDfivesum}{1b452c44895e44e4357141822a38de8f}
+
+% Start
+\begin{document}
+\maketitle
+\input{abstract}
+\input{content}
+\bibliographystyle{IEEEtranSA}
+\bibliography{literatur}
+\clearpage%
+\onecolumn
+\input{appendix}
+\twocolumn
+
+\end{document}
