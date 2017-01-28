@@ -4,41 +4,13 @@
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[USenglish]{babel} % this is needed for umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-\usepackage{graphicx}
 \usepackage{amsmath,amssymb}
 \usepackage[absolute,overlay]{textpos}
-\usepackage{vmargin}        % Adjust margins in a simple way
 \usepackage{tikz}
 \usepackage{csquotes}
-\usepackage[binary-units=true,detect-weight=true, detect-family=true, tophrase={--}]{siunitx}
+\usepackage[binary-units=true,detect-weight=true, detect-family=true]{siunitx}
 \DeclareSIUnit\pixel{px}
-\usepackage{listings} % needed for the inclusion of source code
-\usepackage{caption}
-\DeclareCaptionFont{white}{\color{white}}
-\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\linewidth}{#3}}}
-\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
-
-\lstset{
-    aboveskip={1.3\baselineskip},
-    basicstyle=\small\ttfamily\linespread{4},
-    breaklines=false,
-    columns=flexible,
-    commentstyle=\color[rgb]{0.127,0.427,0.514}\ttfamily\itshape,
-    escapechar=@,
-    extendedchars=true,
-    frame=none,
-    identifierstyle=\color{black},
-    inputencoding=latin1,
-    keywordstyle=\color[HTML]{228B22}\bfseries,
-    language=C,
-    ndkeywordstyle=\color[HTML]{228B22}\bfseries,
-    numbers=left,
-    numberstyle=\scriptsize,
-    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
-    stringstyle=\color[rgb]{0.639,0.082,0.082}\ttfamily,
-    showstringspaces=false,
-    xleftmargin=5.0ex
-}
+\usepackage{caption}  % nicer captions
 
 \usepackage{url}
 \usepackage{breakurl}
@@ -97,14 +69,12 @@
 
 % Variables
 \newcommand{\dbTotalClasses}{369}
-\newcommand{\dbTrainInstances}{\num{151159}}
-\newcommand{\dbTestInstances}{\num{17074}}
 \newcommand{\dbTotalInstances}{\num{168233}}
 \newcommand{\dbName}{HASY}
 \newcommand{\dbNameVersion}{HASYv2}
-\newcommand{\dbSizeMB}{29.1}
-\newcommand{\dbDownloadURL}{\url{https://doi.org/10.5281/zenodo.250239}}
-\newcommand{\dbMDfivesum}{6118404f29810a2e09f47171b952148b}
+\newcommand{\dbSizeMB}{34.6}
+\newcommand{\dbDownloadURL}{\url{https://doi.org/10.5281/zenodo.259444}}
+\newcommand{\dbMDfivesum}{98255008deedaf4494ee0a6cc9aa35d5}
 
 % Start
 \begin{document}

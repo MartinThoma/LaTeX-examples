@@ -5,7 +5,7 @@ make:
 	bibtex $(DOKUMENT)
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen einbinden
 	pdflatex $(DOKUMENT).tex -output-format=pdf # Referenzen einbinden
-	make clean
+	# make clean
 
 ebook:
 	latexml --dest=$(DOKUMENT).xml $(DOKUMENT).tex
