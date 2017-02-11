@@ -201,8 +201,8 @@ of any classifier being evaluated on \dbName{} as follows:
 \subsection{Model Baselines}
 Eight standard algorithms were evaluated by their accuracy on the raw image
 data. The neural networks were implemented with
-Tensorflow~\cite{tensorflow2015-whitepaper}. All other algorithms are
-implemented in sklearn~\cite{scikit-learn}. \Cref{table:classifier-results}
+Tensorflow~0.12.1~\cite{tensorflow2015-whitepaper}. All other algorithms are
+implemented in sklearn~0.18.1~\cite{scikit-learn}. \Cref{table:classifier-results}
 shows the results of the models being trained and tested on MNIST and also for
 \dbNameVersion{}:
 \begin{table}[h]
@@ -215,6 +215,8 @@ shows the results of the models being trained and tested on MNIST and also for
     Random Forest & \SI{96.41}{\percent} & \SI{62.4}{\percent} & \SI{62.1}{\percent} -- \SI{62.8}{\percent}\\% & \SI{19.0}{\second}\\
     MLP (1 Layer) & \SI{89.09}{\percent} & \SI{62.2}{\percent} & \SI{61.7}{\percent} -- \SI{62.9}{\percent}\\% &  \SI{7.8}{\second}\\
     LDA           & \SI{86.42}{\percent} & \SI{46.8}{\percent} & \SI{46.3}{\percent} -- \SI{47.7}{\percent}\\% &   \SI{0.2}{\second}\\
+    $k$-NN ($k=3$)& \SI{92.84}{\percent} & \SI{28.4}{\percent} & \SI{27.4}{\percent} -- \SI{29.1}{\percent}\\% & \SI{196.2}{\second}\\
+    $k$-NN ($k=5$)& \SI{92.88}{\percent} & \SI{27.4}{\percent} & \SI{26.9}{\percent} -- \SI{28.3}{\percent}\\% & \SI{196.2}{\second}\\
     QDA           & \SI{55.61}{\percent} & \SI{25.4}{\percent} & \SI{24.9}{\percent} -- \SI{26.2}{\percent}\\% & \SI{94.7}{\second}\\
     Decision Tree & \SI{65.40}{\percent} & \SI{11.0}{\percent} & \SI{10.4}{\percent} -- \SI{11.6}{\percent}\\% &   \SI{0.0}{\second}\\
     Naive Bayes   & \SI{56.15}{\percent} &  \SI{8.3}{\percent} & \SI{7.9}{\percent} -- \hphantom{0}\SI{8.7}{\percent}\\% & \SI{24.7}{\second}\\
@@ -225,9 +227,12 @@ shows the results of the models being trained and tested on MNIST and also for
              % The test time is the time needed for all test samples in average.
              The number of
              test samples differs between the folds, but is $\num{16827} \pm
-             166$. The decision tree
-             was trained with a maximum depth of 5. The exact structure
-             of the CNNs is explained in~\cref{subsec:CNNs-Classification}.}
+             166$. The decision tree was trained with a maximum depth of~5. The
+             exact structure of the CNNs is explained
+             in~\cref{subsec:CNNs-Classification}. For $k$ nearest neighbor,
+             the amount of samples per class had to be reduced to 50 for HASY
+             due to the extraordinary amount of testing time this algorithm
+             needs.}
     \label{table:classifier-results}
 \end{table}
 
