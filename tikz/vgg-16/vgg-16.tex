@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc, shapes, arrows, snakes}
+\newcommand{\width}{0.2}
+\begin{document}
+\begin{preview}
+\tikzstyle{input}=[draw,fill=red!50]
+\tikzstyle{conv}=[draw,fill=black!20]
+\tikzstyle{max}=[draw,dashed,fill=black!10]
+\tikzstyle{dropout}=[draw,dashed,fill=blue!10]
+\tikzstyle{fc}=[draw,fill=green!10]
+\tikzstyle{output}=[draw,fill=red!50]
+\def \coldist {2.5}
+\def \widthb {2}
+
+\tikzstyle{stateTransition}=[->, very thick]
+
+\begin{tikzpicture}[scale=2]
+    \draw[->, line width=5pt]
+        (1.0+0*\coldist, 0.5) --(1.0+0*\coldist, -2.2) --(2.1+0*\coldist, -2.2) --(2.5+0*\coldist, 0.5)
+     -- (1.0+1*\coldist, 0.5) --(1.0+1*\coldist, -2.2) --(2.1+1*\coldist, -2.2) --(2.5+1*\coldist, 0.5)
+     -- (1.0+2*\coldist, 0.5) --(1.0+2*\coldist, -2.9) --(2.1+2*\coldist, -2.9) --(2.5+2*\coldist, 0.5)
+     -- (1.0+3*\coldist, 0.5) --(1.0+3*\coldist, -2.9) --(2.1+3*\coldist, -2.9) --(2.5+3*\coldist, 0.5)
+     -- (1.0+4*\coldist, 0.5) --(1.0+4*\coldist, -2.9) --(2.1+4*\coldist, -2.9) --(2.5+4*\coldist, 0.5)
+     -- (1.0+5*\coldist, 0.5) --(1.0+5*\coldist, -4.5);
+    % \draw[->, line width=5pt] (6.5, -2.8)
+    %                        -- (1.0, -2.8) -- (1.0, -6.5) -- (2.0, -6.5) -- (3.0, -3.0)
+    %                        -- (4.0, -3.0) -- (4.0, -6.5) -- (5.0, -6.5) -- (6.0, -3.0)
+    %                        -- (7.0, -3.0) -- (7.0, -7.0);
+
+    \draw[draw=none] (0*\coldist,-0.5) rectangle (1.0,-0.7) node[pos=.5] {$224 \times 224$};
+    \draw[input]     (0*\coldist, 0.0) rectangle (2.0,-0.5) node[pos=.5] {Input};
+    \draw[conv]      (0*\coldist,-0.7) rectangle (2.0,-1.2) node[pos=.5] {C $64@3 \times 3 / 1$};
+    \draw[conv]      (0*\coldist,-1.4) rectangle (2.0,-1.9) node[pos=.5] {C $64@3 \times 3 / 1$};
+
+    \draw[draw=none] (1*\coldist,-0.5) rectangle (1*\coldist+\widthb/2,-0.7) node[pos=.5] {$112 \times 112$};
+    \draw[max]       (1*\coldist, 0.0) rectangle (1*\coldist+\widthb,-0.5) node[pos=.5] {max pooling $2\times 2 / 1$};
+    \draw[conv]      (1*\coldist,-0.7) rectangle (1*\coldist+\widthb,-1.2) node[pos=.5] {C $128@3 \times 3 / 1$};
+    \draw[conv]      (1*\coldist,-1.4) rectangle (1*\coldist+\widthb,-1.9) node[pos=.5] {C $128@3 \times 3 / 1$};
+
+    \draw[draw=none] (2*\coldist,-0.5) rectangle (2*\coldist+\widthb/2,-0.7) node[pos=.5] {$56 \times 56$};
+    \draw[max]       (2*\coldist, 0.0) rectangle (2*\coldist+\widthb,-0.5) node[pos=.5] {max pooling $2\times 2 / 1$};
+    \draw[conv]      (2*\coldist,-0.7) rectangle (2*\coldist+\widthb,-1.2) node[pos=.5] {C $256@3 \times 3 / 1$};
+    \draw[conv]      (2*\coldist,-1.4) rectangle (2*\coldist+\widthb,-1.9) node[pos=.5] {C $256@3 \times 3 / 1$};
+    \draw[conv]      (2*\coldist,-2.1) rectangle (2*\coldist+\widthb,-2.6) node[pos=.5] {C $256@3 \times 3 / 1$};
+
+    % second line
+    \draw[draw=none] (3*\coldist,-0.5) rectangle (3*\coldist+\widthb/2,-0.7) node[pos=.5] {$28 \times 28$};
+    \draw[max]       (3*\coldist,-0.0) rectangle (3*\coldist+\widthb,-0.5) node[pos=.5] {max pooling $2\times 2 / 1$};
+    \draw[conv]      (3*\coldist,-0.7) rectangle (3*\coldist+\widthb,-1.2) node[pos=.5] {C $512@3 \times 3 / 1$};
+    \draw[conv]      (3*\coldist,-1.4) rectangle (3*\coldist+\widthb,-1.9) node[pos=.5] {C $512@3 \times 3 / 1$};
+    \draw[conv]      (3*\coldist,-2.1) rectangle (3*\coldist+\widthb,-2.6) node[pos=.5] {C $512@3 \times 3 / 1$};
+
+    \draw[draw=none] (4*\coldist,-0.5) rectangle (4*\coldist+\widthb/2,-0.7) node[pos=.5] {$14 \times 14$};
+    \draw[max]       (4*\coldist,-0.0) rectangle (4*\coldist+\widthb,-0.5) node[pos=.5] {max pooling $2\times 2 / 1$};
+    \draw[conv]      (4*\coldist,-0.7) rectangle (4*\coldist+\widthb,-1.2) node[pos=.5] {C $512@3 \times 3 / 1$};
+    \draw[conv]      (4*\coldist,-1.4) rectangle (4*\coldist+\widthb,-1.9) node[pos=.5] {C $512@3 \times 3 / 1$};
+    \draw[conv]      (4*\coldist,-2.1) rectangle (4*\coldist+\widthb,-2.6) node[pos=.5] {C $512@3 \times 3 / 1$};
+
+    \draw[draw=none] (5*\coldist,-0.5) rectangle (5*\coldist+\widthb/2,-0.7) node[pos=.5] {$7 \times 7$};
+    \draw[max]       (5*\coldist,-0.0) rectangle (5*\coldist+\widthb,-0.5) node[pos=.5] {max pooling $2\times 2 / 1$};
+    \draw[fc]        (5*\coldist,-0.7) rectangle (5*\coldist+\widthb,-1.2) node[pos=.5] {Fully Connected 4096};
+    \draw[dropout]   (5*\coldist,-1.4) rectangle (5*\coldist+\widthb,-1.9) node[pos=.5] {Dropout $0.5$};
+    \draw[fc]        (5*\coldist,-2.1) rectangle (5*\coldist+\widthb,-2.6) node[pos=.5] {Fully Connected 4096};
+    \draw[dropout]   (5*\coldist,-2.8) rectangle (5*\coldist+\widthb,-3.3) node[pos=.5] {Dropout $0.5$};
+    \draw[output]    (5*\coldist,-3.5) rectangle (5*\coldist+\widthb,-4.0) node[pos=.5] {Fully Connected 1000};
+\end{tikzpicture}
+\end{preview}
+\end{document}
