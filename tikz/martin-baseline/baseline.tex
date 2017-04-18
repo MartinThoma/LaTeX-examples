@@ -1,0 +1,64 @@
+\newcommand{\width}{0.2}
+\newcommand{\height}{0.4}
+\newcommand{\disty}{0.2}
+\definecolor{colorbblue}{HTML}{0072B2}
+\definecolor{colorbgreen}{HTML}{009E73}
+\definecolor{colorborange}{HTML}{D55E00}
+
+
+\tikzstyle{input}=[draw,fill=red!50]
+\tikzstyle{conv}=[draw,fill=black!20]
+\tikzstyle{max}=[draw,dashed,fill=black!10]
+\tikzstyle{dropout}=[draw,dashed,fill=colorbgreen!30]
+\tikzstyle{fc}=[draw,fill=green!10]
+\tikzstyle{output}=[draw,fill=red!50]
+\tikzstyle{act}=[draw,dashed,fill=colorbblue!30]
+\def \coldist {2.3}
+\def \widthb {1.9}
+
+\begin{tikzpicture}[scale=2]
+    \draw[->, -Latex, line width=5pt]
+        (1.0+0*\coldist, 0.5) --(1.0+0*\coldist, -4*\disty-5*\height-0.3) --(2.1+0*\coldist, -4*\disty-5*\height-0.3) --(2.2+0*\coldist, 0.5)
+     -- (1.0+1*\coldist, 0.5) --(1.0+1*\coldist, -4*\disty-5*\height-0.3) --(2.1+1*\coldist, -4*\disty-5*\height-0.3) --(2.2+1*\coldist, 0.5)
+     -- (1.0+2*\coldist, 0.5) --(1.0+2*\coldist, -2*\disty-3*\height-0.3) --(2.1+2*\coldist, -2*\disty-3*\height-0.3) --(2.2+2*\coldist, 0.5)
+     -- (1.0+3*\coldist, 0.5) --(1.0+3*\coldist, -3*\disty-4*\height-0.3) --(2.1+3*\coldist, -3*\disty-4*\height-0.3) --(2.2+3*\coldist, 0.5)
+     -- (1.0+4*\coldist, 0.5) --(1.0+4*\coldist, -5*\disty-6*\height-0.6);% --(2.1+4*\coldist, -4.3) --(2.2+4*\coldist, 0.5)
+     % -- (1.0+5*\coldist, 0.5) --(1.0+5*\coldist, -4.5);
+
+    \draw[draw=none] (0*\coldist,-1*\height)          rectangle (1.0,-1*\disty-1*\height) node[pos=.5] {$32 \times 32$};
+    \draw[input]     (0*\coldist,-0*\height-0*\disty) rectangle (2.0,-0*\disty-1*\height) node[pos=.5] {Input};
+    \draw[conv]      (0*\coldist,-1*\height-1*\disty) rectangle (2.0,-1*\disty-2*\height) node[pos=.5] {C $32@3 \times 3 / 1$};
+    \draw[act]       (0*\coldist,-2*\height-2*\disty) rectangle (2.0,-2*\disty-3*\height) node[pos=.5] {BN + ELU};
+    \draw[conv]      (0*\coldist,-3*\height-3*\disty) rectangle (2.0,-3*\disty-4*\height) node[pos=.5] {C $32@3 \times 3 / 1$};
+    \draw[act]       (0*\coldist,-4*\height-4*\disty) rectangle (2.0,-4*\disty-5*\height) node[pos=.5] {BN + ELU};
+
+    % 16x16
+    \draw[draw=none] (1*\coldist,-1*\height)          rectangle (1*\coldist+\widthb/2,-1*\disty-1*\height) node[pos=.5] {$16 \times 16$};
+    \draw[max]       (1*\coldist,-0*\height-0*\disty) rectangle (1*\coldist+\widthb,-0*\disty-1*\height) node[pos=.5] {max pooling $2\times 2 / 1$};
+    \draw[conv]      (1*\coldist,-1*\height-1*\disty) rectangle (1*\coldist+\widthb,-1*\disty-2*\height) node[pos=.5] {C $64@3 \times 3 / 1$};
+    \draw[act]       (1*\coldist,-2*\height-2*\disty) rectangle (1*\coldist+\widthb,-2*\disty-3*\height) node[pos=.5] {BN + ELU};
+    \draw[conv]      (1*\coldist,-3*\height-3*\disty) rectangle (1*\coldist+\widthb,-3*\disty-4*\height) node[pos=.5] {C $64@3 \times 3 / 1$};
+    \draw[act]       (1*\coldist,-4*\height-4*\disty) rectangle (1*\coldist+\widthb,-4*\disty-5*\height) node[pos=.5] {BN + ELU};
+
+    % 8x8
+    \draw[draw=none] (2*\coldist,-1*\height) rectangle (2*\coldist+\widthb/2,-1*\disty-1*\height) node[pos=.5] {$8 \times 8$};
+    \draw[max]       (2*\coldist,-0*\height-0*\disty) rectangle (2*\coldist+\widthb,-0*\disty-1*\height) node[pos=.5] {max pooling $2\times 2 / 1$};
+    \draw[conv]      (2*\coldist,-1*\height-1*\disty) rectangle (2*\coldist+\widthb,-1*\disty-2*\height) node[pos=.5] {C $64@3 \times 3 / 1$};
+    \draw[act]       (2*\coldist,-2*\height-2*\disty) rectangle (2*\coldist+\widthb,-2*\disty-3*\height) node[pos=.5] {BN + ELU};
+
+    % 4x4
+    \draw[draw=none] (3*\coldist,-1*\height) rectangle (3*\coldist+\widthb/2,-1*\disty-1*\height) node[pos=.5] {$4 \times 4$};
+    \draw[max]       (3*\coldist,-0*\height-0*\disty) rectangle (3*\coldist+\widthb,-0*\disty-1*\height) node[pos=.5] {max pooling $2\times 2 / 1$};
+    \draw[conv]      (3*\coldist,-1*\height-1*\disty) rectangle (3*\coldist+\widthb,-1*\disty-2*\height) node[pos=.5] {C $512@4 \times 4 / 1$ (V)};
+    \draw[act]       (3*\coldist,-2*\height-2*\disty) rectangle (3*\coldist+\widthb,-2*\disty-3*\height) node[pos=.5] {BN + ELU};
+    \draw[dropout]   (3*\coldist,-3*\height-3*\disty) rectangle (3*\coldist+\widthb,-3*\disty-4*\height) node[pos=.5] {Dropout, $p=0.5$};
+
+    % 1x1
+    \draw[draw=none] (4*\coldist,-1*\height) rectangle (4*\coldist+\widthb/2,-1*\disty-1*\height) node[pos=.5] {$1 \times 1$};
+    \draw[conv]      (4*\coldist,-0*\height-0*\disty) rectangle (4*\coldist+\widthb,-0*\disty-1*\height) node[pos=.5] {C $512@1 \times 1 / 1$};
+    \draw[act]       (4*\coldist,-1*\height-1*\disty) rectangle (4*\coldist+\widthb,-1*\disty-2*\height) node[pos=.5] {BN + ELU};
+    \draw[dropout]   (4*\coldist,-2*\height-2*\disty) rectangle (4*\coldist+\widthb,-2*\disty-3*\height) node[pos=.5] {Dropout, $p=0.5$};
+    \draw[conv]      (4*\coldist,-3*\height-3*\disty) rectangle (4*\coldist+\widthb,-3*\disty-4*\height) node[pos=.5] {C $k@3 \times 3 / 1$};
+    \draw[dropout]   (4*\coldist,-4*\height-4*\disty) rectangle (4*\coldist+\widthb,-4*\disty-5*\height) node[pos=.5] {Global AVG pooling};
+    \draw[max]       (4*\coldist,-5*\height-5*\disty) rectangle (4*\coldist+\widthb,-5*\disty-6*\height) node[pos=.5] {BN + Softmax};
+\end{tikzpicture}
