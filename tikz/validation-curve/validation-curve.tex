@@ -1,4 +1,4 @@
-\documentclass[varwidth=true, border=2pt]{standalone}
+\documentclass[border=2pt]{standalone}
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
@@ -9,33 +9,48 @@
 \pgfplotsset{compat=1.13}
 
 \begin{document}
+\definecolor{c1}{HTML}{0072B2}
+\definecolor{c2}{HTML}{009E73}
+\definecolor{c3}{HTML}{CB0000}
 \begin{tikzpicture}
+\pgfplotsset{
+    scale only axis,
+    % scaled x ticks=base 10:3,
+    xmin=0, xmax=171,
+    width=15cm, height=8cm,     % size of the image
+}
     \begin{axis}[
-            axis x line=middle,
-            axis y line=middle,
-            enlarge y limits=true,
-            xmin=0,
-            %xmax=2014,
+            axis y line*=left,
             ymin=0.15,
             % ymax=26000,
-            width=15cm, height=8cm,     % size of the image
             grid = major,
             grid style={dashed, gray!30},
-            ylabel=validation error,
-            ylabel style={at={(0,1.0)}},
+            ylabel=validation accuracy,
+            legend style={at={(0.5,0.1)},anchor=south},
+            % ylabel style={at={(0,1.0)}    },
             xlabel=epoch,
-            legend style={at={(0.8,0.71)}, anchor=north},
-            legend cell align=right,
+            % legend style={at={(0.3,0.2)}, anchor=north},
+            % legend cell align=right,
             xticklabel style=
             {/pgf/number format/1000 sep=,rotate=60,anchor=east,font=\scriptsize},
-            % yticklabel style=
-            % {scaled ticks=false,/pgf/number format/1000 sep=\,,rotate=0,anchor=east,font=\scriptsize},
-            % legend style={draw=none, legend columns=-1}
          ]
-          \addplot[thick, red, mark=., densely dashed] table [x=epoch, y=max_acc, col sep=comma] {baseline_cifar_test_acc.csv};
-          \addplot[thick, blue, mark=.] table [x=epoch,y=min_acc, col sep=comma] {baseline_cifar_test_acc.csv};
-          \legend{maximum validation accuracy, minimum validation accuracy}
+          \addplot[thick, c1, mark=., densely dashed] table [x=epoch, y=max_acc, col sep=comma] {baseline_cifar_test_acc.csv};\label{plot_one}\addlegendentry{maximum validation accuracy}
+          \addplot[thick, c2, mark=.] table [x=epoch,y=min_acc, col sep=comma] {baseline_cifar_test_acc.csv};\label{plot_two}\addlegendentry{minimum validation accuracy}
     \end{axis}
-\end{tikzpicture}d
-
+    \begin{axis}[
+      axis y line*=right,
+      axis x line=none,
+      % xmin=0,
+      % xmax=171,
+      % ymin=0, ymax=100,
+      ylabel=loss,
+      legend style={at={(0.5,0.1)},anchor=south},
+      y dir=reverse
+    ]
+          \addlegendimage{thick, c1, mark=., densely dashed}\addlegendentry{maximum validation accuracy}
+          \addlegendimage{thick, c2, mark=.}\addlegendentry{minimum validation accuracy}
+          \addplot[thick, c3, mark=., dotted] table [x=epoch,y=mean_loss, col sep=comma] {baseline_cifar_test_acc.csv};
+          \addlegendentry{mean loss}
+    \end{axis}
+\end{tikzpicture}
 \end{document}
