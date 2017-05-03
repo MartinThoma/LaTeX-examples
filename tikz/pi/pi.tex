@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage{csvsimple}
+\usepackage{xcolor}
+
+\definecolor{c0}{HTML}{5A311D}
+\definecolor{c1}{HTML}{E18B4E}
+\definecolor{c2}{HTML}{4A1776}
+\definecolor{c3}{HTML}{C966DA}
+\definecolor{c4}{HTML}{04676C}
+\definecolor{c5}{HTML}{0CE7E1}
+\definecolor{c6}{HTML}{004692}
+\definecolor{c7}{HTML}{0082FF}
+\definecolor{c8}{HTML}{355128}
+\definecolor{c9}{HTML}{DF1C24}
+
+\begin{document}
+\newcommand{\distance}{6}
+
+\begin{tikzpicture}
+    \foreach \a in {0,1,...,100}{
+        \node[draw=none](\a) at (\a/100*360: \distance) {} ;
+    }
+    \csvreader[ head to column names]%
+                {data.csv}{}{%
+    \path (\x) edge [bend right, \color] (\y);
+    }
+\end{tikzpicture}
+\end{document}
