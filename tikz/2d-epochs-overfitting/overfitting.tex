@@ -1,0 +1,39 @@
+\definecolor{c1}{HTML}{0072B2}
+\definecolor{c2}{HTML}{009E73}
+\begin{tikzpicture}
+    \tikzstyle{training}=[c1, thick,samples=200,dashed]
+    \tikzstyle{testing}=[c2, thick,samples=200]
+    \begin{axis}[
+        legend pos=north east,
+        legend cell align=left,
+        axis x line=middle,
+        axis y line=middle,
+        grid = major,
+        width=14cm,
+        height=8cm,
+        grid style={dashed, gray!30},
+        xmin=0,       % start the diagram at this x-coordinate
+        xmax= 104,    % end   the diagram at this x-coordinate
+        ymin=0,       % start the diagram at this y-coordinate
+        ymax= 0.98,   % end   the diagram at this y-coordinate
+        axis background/.style={fill=white},
+        xlabel=Epochs,
+        ylabel=Error,
+        y label style={at={(-0.1,1.0)}},
+        tick align=outside,
+        minor tick num=-3,
+        tension=0.08]
+      \addplot[domain=2:50, training] {(x-50)^2/2700 + 0.1};
+      \addplot[domain=4:50, testing] {(x-50)^2/2700 + 0.2};
+
+      \addplot[domain=50:100, training] {0.1};
+      \addplot[domain=50:100, testing] {(x-50)^2/10000 + 0.2};
+
+      \draw[dashed, very thick] (axis cs:50,0.0) -- (axis cs:50,0.3);
+      \draw[decoration={text along path, text={overfitting}, text align={center}}, decorate] (axis cs:51,0.16) -- (axis cs:90,0.16);
+      \draw[-{latex[scale=3.0]}, very thick] (axis cs:51,0.15) -- (axis cs:90,0.15);
+
+      \addlegendentry{Training set}
+      \addlegendentry{Validation set}
+    \end{axis}
+\end{tikzpicture}
