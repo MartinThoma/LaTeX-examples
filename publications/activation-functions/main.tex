@@ -1,0 +1,99 @@
+\documentclass[technote,a4paper,leqno]{IEEEtran}
+\pdfoutput=1
+
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[USenglish]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage[binary-units,group-separator={,}]{siunitx}
+\sisetup{per-mode=fraction,
+         binary-units=true,
+         group-separator = {\,},
+         range-phrase=-,
+         detect-weight=true,
+         detect-family=true}
+\DeclareSIUnit\pixel{px}
+\DeclareSIUnit\epoch{epoch}
+\DeclareSIUnit\float{float}
+\DeclareSIUnit\floats{floats}
+\usepackage{caption}  % nicer captions
+
+\usepackage{url}
+\usepackage{breakurl}
+\usepackage[raiselinks=true,
+            bookmarks=true,
+            bookmarksopenlevel=1,
+            bookmarksopen=true,
+            bookmarksnumbered=true,
+            breaklinks,
+            hyperindex=true,
+            plainpages=false,
+            pdfpagelabels=true,
+            pdfborder={0 0 0.5}]{hyperref}
+\def\UrlBreaks{\do\/\do-}
+
+\usepackage{xspace}
+\newcommand*\elide{\textup{[\,\dots]}\xspace}
+
+\usepackage[nameinlink, noabbrev,capitalise]{cleveref}
+
+\title{A review of activation functions for convolutional neural networks}
+\author{%
+    \IEEEauthorblockN{Martin Thoma}\\
+    \IEEEauthorblockA{E-Mail: info@martin-thoma.de} % ORCID: http://orcid.org/0000-0002-6517-1690
+}
+
+\hypersetup{
+    pdfauthor   = {Martin Thoma},
+    pdfkeywords = {activation functions, review},
+    pdfsubject  = {activation functions},
+    pdftitle    = {A review of activation functions for convolutional neural networks},
+}
+\usepackage[inline]{enumitem}
+\usepackage{longtable}
+\usepackage{booktabs}       % \toprule
+\usepackage{braket}         % needed for \Set
+\usepackage{algorithm,algpseudocode}
+
+\usepackage[xindy,toc,section=chapter,numberedsection=autolabel]{glossaries}
+
+% Make document nicer
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\sech}{sech}
+\DeclareMathOperator*{\conv}{conv}
+\DeclareMathOperator*{\ReLU}{ReLU}
+\DeclareMathOperator*{\StwoReLU}{S2ReLU}
+\DeclareMathOperator*{\logistic}{logistic}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\usepackage{tensor}
+
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{microtype}
+\loadglsentries[main]{glossary}
+\makeglossaries
+
+% % Variables
+% \newcommand{\dbTotalClasses}{369}
+% \newcommand{\dbTotalInstances}{\num{168233}}
+% \newcommand{\dbName}{HASY}
+% \newcommand{\dbNameVersion}{HASYv2}
+% \newcommand{\dbSizeMB}{34.6}
+% \newcommand{\dbDownloadURL}{\url{https://doi.org/10.5281/zenodo.259444}}
+% \newcommand{\dbMDfivesum}{fddf23f36e24b5236f6b3a0880c778e3}
+
+% Start
+\begin{document}
+\maketitle
+\input{abstract}
+\input{content}
+\bibliographystyle{IEEEtranSA}
+\bibliography{bibliography}
+\input{appendix}
+
+
+\end{document}

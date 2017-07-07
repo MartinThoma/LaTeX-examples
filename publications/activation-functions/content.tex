@@ -1,0 +1,176 @@
+%!TEX root = main.tex
+\section{Introduction}
+TODO\cite{Thoma:2014}
+
+\section{Terminology}
+TODO
+
+
+\section{Activation Functions}
+Nonlinear, differentiable activation functions are important for neural
+networks to allow them to learn nonlinear decision boundaries. One of the
+simplest and most widely used activation functions for \glspl{CNN} is
+\gls{ReLU}~\cite{AlexNet-2012}, but others such as
+\gls{ELU}~\cite{clevert2015fast}, \gls{PReLU}~\cite{he2015delving}, softplus~\cite{7280459}
+and softsign~\cite{bergstra2009quadratic} have been proposed. The baseline uses
+\gls{ELU}.
+
+Activation functions differ in the range of values and the derivative. The
+definitions and other comparisons of eleven activation functions are given
+in~\cref{table:activation-functions-overview}.
+
+Theoretical explanations why one activation function is preferable to another
+in some scenarios are the following:
+\begin{itemize}
+    \item \textbf{Vanishing Gradient}: Activation functions like tanh and the
+          logistic function saturate outside of the interval $[-5, 5]$. This
+          means weight updates are very small for preceding neurons, which is
+          especially a problem for very deep or recurrent networks as described
+          in~\cite{bengio1994learning}. Even if the neurons learn eventually,
+          learning is slower~\cite{AlexNet-2012}.
+    \item \textbf{Dying ReLU}: The dying \gls{ReLU} problem is similar to the
+          vanishing gradient problem. The gradient of the \gls{ReLU} function
+          is~0 for all non-positive values. This means if all elements of the
+          training set lead to a negative input for one neuron at any point in
+          the training process, this neuron does not get any update and hence
+          does not participate in the training process. This problem is
+          addressed in~\cite{maas2013rectifier}.
+    \item \textbf{Mean unit activation}: Some publications
+          like~\cite{clevert2015fast,BatchNormalization-2015} claim that mean
+          unit activations close to 0 are desirable. They claim that this
+          speeds up learning by reducing the bias shift effect. The speedup
+          of learning is supported by many experiments. Hence the possibility
+          of negative activations is desirable.
+\end{itemize}
+
+Those considerations are listed
+in~\cref{table:properties-of-activation-functions} for 11~activation functions.
+Besides the theoretical properties, empiric results are provided
+in~\cref{table:CIFAR-100-accuracies-activation-functions,table:CIFAR-100-timing-activation-functions}.
+The baseline network was adjusted so that every activation function except the
+one of the output layer was replaced by one of the 11~activation functions.
+
+As expected, \gls{PReLU} and \gls{ELU} performed best. Unexpected was that the
+logistic function, tanh and softplus performed worse than the identity and it
+is unclear why the pure-softmax network performed so much better than the
+logistic function.
+One hypothesis why the logistic function performs so bad is that it cannot
+produce negative outputs. Hence the logistic$^-$ function was developed:
+\[\text{logistic}^{-}(x) = \frac{1}{1+ e^{-x}} - 0.5\]
+The logistic$^-$ function has the same derivative as the logistic function and
+hence still suffers from the vanishing gradient problem.
+The network with the logistic$^-$ function achieves an accuracy which is
+\SI{11.30}{\percent} better than the network with the logistic function, but is
+still \SI{5.54}{\percent} worse than the \gls{ELU}.
+
+Similarly, \gls{ReLU} was adjusted to have a negative output:
+\[\text{ReLU}^{-}(x) = \max(-1, x) = \text{ReLU}(x+1) - 1\]
+The results of \gls{ReLU}$^-$ are much worse on the training set, but perform
+similar on the test set. The result indicates that the possibility of hard zero
+and thus a sparse representation is either not important or similar important as
+the possibility to produce negative outputs. This
+contradicts~\cite{glorot2011deep,srivastava2014understanding}.
+
+A key difference between the logistic$^-$ function and \gls{ELU} is that
+\gls{ELU} does neither suffers from the vanishing gradient problem nor is its
+range of values bound. For this reason, the S2ReLU activation function, defined
+as
+\begin{align*}
+  \StwoReLU(x) &= \ReLU \left (\frac{x}{2} + 1 \right ) - \ReLU \left (-\frac{x}{2} + 1 \right)\\
+  &=
+  \begin{cases}-\frac{x}{2} + 1 &\text{if } x \le -2\\
+               x &\text{if } -2\le x \le 2\\
+               \frac{x}{2} + 1&\text{if } x > -2\end{cases}
+\end{align*}
+This function is similar to SReLUs as introduced in~\cite{jin2016deep}. The
+difference is that S2ReLU does not introduce learnable parameters. The S2ReLU
+was designed to be symmetric, be the identity close to zero and have a smaller
+absolute value than the identity farther away. It is easy to compute and easy to
+implement.
+
+Those results --- not only the absolute values, but also the relative
+comparison --- might depend on the network architecture, the training
+algorithm, the initialization and the dataset. Results for MNIST can be found
+in~\cref{table:MNIST-accuracies-activation-functions} and for HASYv2
+in~\cref{table:HASYv2-accuracies-activation-functions}. For both datasets, the
+logistic function has a much shorter training time and a noticeably lower test
+accuracy.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lccc}
+    \toprule
+    \multirow{2}{*}{Function} & Vanishing  & Negative Activation & Bound \\
+                  & Gradient       & possible & activation \\\midrule
+    Identity      & \cellcolor{green!25}No    & \cellcolor{green!25}  Yes    & \cellcolor{green!25}No  \\
+    Logistic      & \cellcolor{red!25} Yes    & \cellcolor{red!25}   No      & \cellcolor{red!25}  Yes \\
+    Logistic$^-$  & \cellcolor{red!25} Yes    & \cellcolor{green!25}  Yes    & \cellcolor{red!25}  Yes \\
+    Softmax        & \cellcolor{red!25} Yes    & \cellcolor{green!25}  Yes    & \cellcolor{red!25}  Yes \\
+    tanh          & \cellcolor{red!25} Yes    & \cellcolor{green!25}  Yes    & \cellcolor{red!25}  Yes \\
+    Softsign      & \cellcolor{red!25} Yes    & \cellcolor{green!25}Yes      & \cellcolor{red!25}   Yes \\
+    ReLU          & \cellcolor{yellow!25}Yes\footnotemark & \cellcolor{red!25} No & \cellcolor{yellow!25}Half-sided \\
+    Softplus      & \cellcolor{green!25}No    & \cellcolor{red!25}   No      & \cellcolor{yellow!25}Half-sided \\
+    S2ReLU        & \cellcolor{green!25}No    & \cellcolor{green!25}Yes      & \cellcolor{green!25} No \\
+    LReLU/PReLU   & \cellcolor{green!25}No    & \cellcolor{green!25}Yes      & \cellcolor{green!25} No \\
+    ELU           & \cellcolor{green!25}No    & \cellcolor{green!25}Yes      & \cellcolor{green!25} No \\
+    \bottomrule
+    \end{tabular}
+    \caption[Activation function properties]{Properties of activation functions.}
+    \label{table:properties-of-activation-functions}
+\end{table}
+\footnotetext{The dying ReLU problem is similar to the vanishing gradient problem.}
+
+\glsunset{LReLU}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lccclllll}
+    \toprule
+    \multirow{2}{*}{Function} & \multicolumn{2}{c}{Inference per}                                & Training                            & \multirow{2}{*}{Epochs} & Mean total        \\\cline{2-3}
+                              & 1 Image                        & 128                             & time                                &                         & training time     \\\midrule
+    Identity                  & \SI{8}{\milli\second}          & \SI{42}{\milli\second}          & \SI{31}{\second\per\epoch}          & 108 -- \textbf{148}     &\SI{3629}{\second} \\
+    Logistic                  & \SI{6}{\milli\second}          & \textbf{\SI{31}{\milli\second}} & \SI{24}{\second\per\epoch}          & \textbf{101} -- 167     &\textbf{\SI{2234}{\second}} \\
+    Logistic$^-$              & \SI{6}{\milli\second}          & \textbf{\SI{31}{\milli\second}} & \textbf{\SI{22}{\second\per\epoch}} & 133 -- 255              &\SI{3421}{\second} \\
+    Softmax                   & \SI{7}{\milli\second}          & \SI{37}{\milli\second}          & \SI{33}{\second\per\epoch}          & 127 -- 248              &\SI{5250}{\second} \\
+    Tanh                      & \SI{6}{\milli\second}          & \textbf{\SI{31}{\milli\second}} & \SI{23}{\second\per\epoch}          & 125 -- 211              &\SI{3141}{\second} \\
+    Softsign                  & \SI{6}{\milli\second}          & \textbf{\SI{31}{\milli\second}} & \SI{23}{\second\per\epoch}          & 122 -- 205              &\SI{3505}{\second} \\
+    \gls{ReLU}                & \SI{6}{\milli\second}          & \textbf{\SI{31}{\milli\second}} & \SI{23}{\second\per\epoch}          & 118 -- 192              &\SI{3449}{\second} \\
+    Softplus                  & \SI{6}{\milli\second}          & \textbf{\SI{31}{\milli\second}} & \SI{24}{\second\per\epoch}          & \textbf{101} -- 165     &\SI{2718}{\second} \\
+    S2ReLU                    & \textbf{\SI{5}{\milli\second}} & \SI{32}{\milli\second}          & \SI{26}{\second\per\epoch}          & 108 -- 209              &\SI{3231}{\second} \\
+    \gls{LReLU}               & \SI{7}{\milli\second}          & \SI{34}{\milli\second}          & \SI{25}{\second\per\epoch}          & 109 -- 198              &\SI{3388}{\second} \\
+    \gls{PReLU}               & \SI{7}{\milli\second}          & \SI{34}{\milli\second}          & \SI{28}{\second\per\epoch}          & 131 -- 215              &\SI{3970}{\second} \\
+    \gls{ELU}                 & \SI{6}{\milli\second}          & \textbf{\SI{31}{\milli\second}} & \SI{23}{\second\per\epoch}          & 146 -- 232              &\SI{3692}{\second} \\
+    \bottomrule
+    \end{tabular}
+    \caption[Activation function timing results on CIFAR-100]{Training time and
+             inference time of adjusted baseline models trained with different
+             activation functions on GTX~970 \glspl{GPU} on CIFAR-100. It was
+             expected that the identity is the fastest function. This result is
+             likely an implementation specific problem of Keras~2.0.4 or
+             Tensorflow~1.1.0.}
+    \label{table:CIFAR-100-timing-activation-functions}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lccccc}
+    \toprule
+    \multirow{2}{*}{Function} & \multicolumn{2}{c}{Single model}              & Ensemble & \multicolumn{2}{c}{Epochs}\\\cline{2-3}\cline{5-6}
+                              & Accuracy             & std                    & Accuracy & Range & Mean \\\midrule
+    Identity                  & \SI{99.45}{\percent} & $\sigma=0.09$          & \SI{99.63}{\percent} & 55 -- \hphantom{0}77  & 62.2\\%TODO: Really?
+    Logistic                  & \SI{97.27}{\percent} & $\sigma=2.10$          & \SI{99.48}{\percent} & \textbf{37} -- \hphantom{0}76  & \textbf{54.5}\\
+    Softmax                   & \SI{99.60}{\percent} & $\boldsymbol{\sigma=0.03}$& \SI{99.63}{\percent} & 44 -- \hphantom{0}73  & 55.6\\
+    Tanh                      & \SI{99.40}{\percent} & $\sigma=0.09$          & \SI{99.57}{\percent} & 56 -- \hphantom{0}80  & 67.6\\
+    Softsign                  & \SI{99.40}{\percent} & $\sigma=0.08$          & \SI{99.57}{\percent} & 72 -- 101             & 84.0\\
+    \gls{ReLU}                & \textbf{\SI{99.62}{\percent}} & \textbf{$\sigma=0.04$} & \textbf{\SI{99.73}{\percent}} & 51 -- \hphantom{0}94 & 71.7\\
+    Softplus                  & \SI{99.52}{\percent} & $\sigma=0.05$          & \SI{99.62}{\percent} & 62 -- \hphantom{0}\textbf{70}  & 68.9\\
+    \gls{PReLU}               & \SI{99.57}{\percent} & $\sigma=0.07$          & \textbf{\SI{99.73}{\percent}} & 44 -- \hphantom{0}89 & 71.2\\
+    \gls{ELU}                 & \SI{99.53}{\percent} & $\sigma=0.06$          & \SI{99.58}{\percent} & 45 -- 111 & 72.5\\
+    \bottomrule
+    \end{tabular}
+    \caption[Activation function evaluation results on MNIST]{Test accuracy of
+             adjusted baseline models trained with different activation
+             functions on MNIST.}
+    \label{table:MNIST-accuracies-activation-functions}
+\end{table}
+\glsreset{LReLU}

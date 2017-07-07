@@ -1,0 +1,123 @@
+%!TEX root = main.tex
+
+\appendix
+\onecolumn
+\section*{Overview}
+\begin{table}[H]
+    \centering
+    \hspace*{-1cm}\begin{tabular}{lllll}
+    \toprule
+    Name                     & Function $\varphi(x)$ & Range of Values & $\varphi'(x)$ \\\midrule % & Used by 
+    Sign function$^\dagger$  & $\begin{cases}+1 &\text{if } x \geq 0\\-1 &\text{if } x < 0\end{cases}$ & $\Set{-1,1}$                              & $0$                    \\%& \cite{971754} \\
+    \parbox[t]{2.6cm}{Heaviside\\step function$^\dagger$} & $\begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$ & $\Set{0, 1}$  & $0$                       \\%& \cite{mcculloch1943logical}\\
+    Logistic function        & $\frac{1}{1+e^{-x}}$                           & $[0, 1]$                                                        & $\frac{e^x}{(e^x +1)^2}$  \\%& \cite{duch1999survey} \\
+    Tanh                     & $\frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)$ & $[-1, 1]$                                                       & $\sech^2(x)$              \\%& \cite{LeNet-5,Thoma:2014}\\
+    \gls{ReLU}$^\dagger$           & $\max(0, x)$                                   & $[0, +\infty)$                                                  & $\begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$      \\%& \cite{AlexNet-2012}\\
+    \parbox[t]{2.6cm}{\gls{LReLU}$^\dagger$\footnotemark\\(\gls{PReLU})} & $\varphi(x) = \max(\alpha x, x)$                        & $(-\infty, +\infty)$                                             & $\begin{cases}1 &\text{if } x > 0\\\alpha &\text{if } x < 0\end{cases}$ \\%& \cite{maas2013rectifier,he2015delving} \\
+    Softplus                 & $\log(e^x + 1)$                                & $(0, +\infty)$                                       & $\frac{e^x}{e^x + 1}$    \\%& \cite{dugas2001incorporating,glorot2011deep} \\
+    \gls{ELU}                & $\begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{if } x \leq 0\end{cases}$ & $(-\infty, +\infty)$ & $\begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}$ \\%& \cite{clevert2015fast} \\
+    Softmax$^\ddagger$       & $o(\mathbf{x})_j = \frac{e^{x_j}}{\sum_{k=1}^K e^{x_k}}$    & $[0, 1]^K$                                           & $o(\mathbf{x})_j \cdot \frac{\sum_{k=1}^K e^{x_k} - e^{x_j}}{\sum_{k=1}^K e^{x_k}}$          \\%& \cite{AlexNet-2012,Thoma:2014}\\
+    Maxout$^\ddagger$        & $o(\mathbf{x}) = \max_{x \in \mathbf{x}} x$                 & $(-\infty, +\infty)$                                 & $\begin{cases}1 &\text{if } x_i = \max \mathbf{x}\\0 &\text{otherwise}\end{cases}$          \\%& \cite{goodfellow2013maxout}       \\
+    \bottomrule
+    \end{tabular}
+    \caption[Activation functions]{Overview of activation functions. Functions
+             marked with $\dagger$ are not differentiable at 0 and functions
+             marked with $\ddagger$ operate on all elements of a layer
+             simultaneously. The hyperparameters $\alpha \in (0, 1)$ of Leaky
+             ReLU and ELU are typically $\alpha = 0.01$. Other activation
+             function like randomized leaky ReLUs exist~\cite{xu2015empirical},
+             but are far less commonly used.\\
+             Some functions are smoothed versions of others, like the logistic
+             function for the Heaviside step function, tanh for the sign
+             function, softplus for ReLU.\\
+             Softmax is the standard activation function for the last layer of
+             a classification network as it produces a probability
+             distribution. See \Cref{fig:activation-functions-plot} for a plot
+             of some of them.}
+    \label{table:activation-functions-overview}
+\end{table}
+\footnotetext{$\alpha$ is a hyperparameter in leaky ReLU, but a learnable parameter in the parametric ReLU function.}
+
+\section*{Evaluation Results}
+\glsunset{LReLU}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{\extracolsep{4pt}}lcccccc@{}}
+    \toprule
+    \multirow{2}{*}{Function} & \multicolumn{4}{c}{Single model}                                                    & \multicolumn{2}{c}{Ensemble of 10} \\\cline{2-3}\cline{4-5}\cline{6-7}
+                   & \multicolumn{2}{c}{Training set}     &\multicolumn{2}{c}{Test set}                  & Training set         & Test set \\\midrule
+    Identity       & \SI{66.25}{\percent} & $\boldsymbol{\sigma=0.77}$ &\SI{56.74}{\percent} & \textbf{$\sigma=0.51$} & \SI{68.77}{\percent} & \SI{58.78}{\percent}\\
+    Logistic       & \SI{51.87}{\percent} & $\sigma=3.64$ &\SI{46.54}{\percent} & $\sigma=3.22$          & \SI{61.19}{\percent} & \SI{54.58}{\percent}\\
+    Logistic$^-$   & \SI{66.49}{\percent} & $\sigma=1.99$ &\SI{57.84}{\percent} & $\sigma=1.15$          & \SI{69.04}{\percent} & \SI{60.10}{\percent}\\
+    Softmax        & \SI{75.22}{\percent} & $\sigma=2.41$ &\SI{59.49}{\percent} & $\sigma=1.25$          & \SI{78.87}{\percent} & \SI{63.06}{\percent}\\
+    Tanh           & \SI{67.27}{\percent} & $\sigma=2.38$ &\SI{55.70}{\percent} & $\sigma=1.44$          & \SI{70.21}{\percent} & \SI{58.10}{\percent}\\
+    Softsign       & \SI{66.43}{\percent} & $\sigma=1.74$ &\SI{55.75}{\percent} & $\sigma=0.93$          & \SI{69.78}{\percent} & \SI{58.40}{\percent}\\
+    \gls{ReLU}     & \SI{78.62}{\percent} & $\sigma=2.15$ &\SI{62.18}{\percent} & $\sigma=0.99$          & \SI{81.81}{\percent} & \SI{64.57}{\percent}\\
+    \gls{ReLU}$^-$ & \SI{76.01}{\percent} & $\sigma=2.31$ &\SI{62.87}{\percent} & $\sigma=1.08$          & \SI{78.18}{\percent} & \SI{64.81}{\percent}\\
+    Softplus       & \SI{66.75}{\percent} & $\sigma=2.45$ &\SI{56.68}{\percent} & $\sigma=1.32$          & \SI{71.27}{\percent} & \SI{60.26}{\percent}\\
+    S2ReLU         & \SI{63.32}{\percent} & $\sigma=1.69$ &\SI{56.99}{\percent} & $\sigma=1.14$          & \SI{65.80}{\percent} & \SI{59.20}{\percent}\\
+    \gls{LReLU}    & \SI{74.92}{\percent} & $\sigma=2.49$ &\SI{61.86}{\percent} & $\sigma=1.23$          & \SI{77.67}{\percent} & \SI{64.01}{\percent}\\
+    \gls{PReLU}    & \textbf{\SI{80.01}{\percent}} & $\sigma=2.03$ &\SI{62.16}{\percent} & $\sigma=0.73$ & \textbf{\SI{83.50}{\percent}} & \textbf{\SI{64.79}{\percent}}\\
+    \gls{ELU}      & \SI{76.64}{\percent} & $\sigma=1.48$ &\textbf{\SI{63.38}{\percent}} & $\sigma=0.55$ & \SI{78.30}{\percent} & \SI{64.70}{\percent}\\
+    \bottomrule
+    \end{tabular}
+    \caption[Activation function evaluation results on CIFAR-100]{Training and
+             test accuracy of adjusted baseline models trained with different
+             activation functions on CIFAR-100. For LReLU, $\alpha = 0.3$ was
+             chosen.}
+    \label{table:CIFAR-100-accuracies-activation-functions}
+\end{table}
+
+\glsreset{LReLU}
+
+\begin{table}[H]
+    \centering
+    \setlength\tabcolsep{1.5pt}
+    \begin{tabular}{@{\extracolsep{4pt}}lcccccccr@{}}
+    \toprule
+    \multirow{2}{*}{Function} & \multicolumn{4}{c}{Single model}              & \multicolumn{2}{c}{Ensemble of 10} & \multicolumn{2}{c}{Epochs}\\\cline{2-5}\cline{6-7}\cline{8-9}
+                              & \multicolumn{2}{c}{Training set}     &\multicolumn{2}{c}{Test set}                  & Train                & Test                 & Range     & \multicolumn{1}{c}{Mean} \\\midrule
+    Identity                  & \SI{87.92}{\percent} & $\sigma=0.40$ & \SI{84.69}{\percent} & $\sigma=0.08$         & \SI{88.59}{\percent} & \SI{85.43}{\percent} & \hphantom{0}92 -- 140 & 114.5\\%TODO: Really?
+    Logistic                  & \SI{81.46}{\percent} & $\sigma=5.08$ & \SI{79.67}{\percent} & $\sigma=4.85$         & \SI{86.38}{\percent} & \SI{84.60}{\percent} & \hphantom{0}\textbf{58} -- \hphantom{0}\textbf{91}  & \textbf{77.3}\\
+    Softmax                   & \SI{88.19}{\percent} & $\sigma=0.31$ & \SI{84.70}{\percent} & $\sigma=0.15$         & \SI{88.69}{\percent} & \SI{85.43}{\percent} & 124 -- 171& 145.8\\
+    Tanh                      & \SI{88.41}{\percent} & $\sigma=0.36$ & \SI{84.46}{\percent} & $\sigma=0.27$         & \SI{89.24}{\percent} & \SI{85.45}{\percent} & \hphantom{0}89 -- 123 & 108.7\\
+    Softsign                  & \SI{88.00}{\percent} & $\sigma=0.47$ & \SI{84.46}{\percent} & $\sigma=0.23$         & \SI{88.77}{\percent} & \SI{85.33}{\percent} & \hphantom{0}77 -- 119 & 104.1\\
+    \gls{ReLU}                & \SI{88.93}{\percent} & $\sigma=0.46$ & \textbf{\SI{85.35}{\percent}} & $\sigma=0.21$         & \SI{89.35}{\percent} & \SI{85.95}{\percent} & \hphantom{0}96 -- 132 & 102.8\\
+    Softplus                  & \SI{88.42}{\percent} & $\boldsymbol{\sigma=0.29}$ & \SI{85.16}{\percent} & $\sigma=0.15$         & \SI{88.90}{\percent} & \SI{85.73}{\percent} &            108 -- 143 & 121.0\\
+    \gls{LReLU}               & \SI{88.61}{\percent} & $\sigma=0.41$ & \SI{85.21}{\percent} & $\boldsymbol{\sigma=0.05}$         & \SI{89.07}{\percent} & \SI{85.83}{\percent} & \hphantom{0}87 -- 117 & 104.5\\
+    \gls{PReLU}               & \textbf{\SI{89.62}{\percent}} & $\sigma=0.41$ & \textbf{\SI{85.35}{\percent}} & $\sigma=0.17$& \textbf{\SI{90.10}{\percent}} & \SI{86.01}{\percent} & \hphantom{0}85 -- 111 & 100.5\\
+    \gls{ELU}                 & \SI{89.49}{\percent} & $\sigma=0.42$ & \textbf{\SI{85.35}{\percent}} & $\sigma=0.10$         & \SI{89.94}{\percent} & \textbf{\SI{86.03}{\percent}} & \hphantom{0}73 -- 113 &  92.4\\
+    \bottomrule
+    \end{tabular}
+    \caption[Activation function evaluation results on HASYv2]{Test accuracy of
+             adjusted baseline models trained with different activation
+             functions on HASYv2. For LReLU, $\alpha = 0.3$ was chosen.}
+    \label{table:HASYv2-accuracies-activation-functions}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength\tabcolsep{1.5pt}
+    \begin{tabular}{@{\extracolsep{4pt}}lcccccccr@{}}
+    \toprule
+    \multirow{2}{*}{Function} & \multicolumn{4}{c}{Single model}              & \multicolumn{2}{c}{Ensemble of 10} & \multicolumn{2}{c}{Epochs}\\\cline{2-5}\cline{6-7}\cline{8-9}
+                              & \multicolumn{2}{c}{Training set}     &\multicolumn{2}{c}{Test set}                  & Train                & Test                 & Range     & \multicolumn{1}{c}{Mean} \\\midrule
+    Identity                  & \SI{87.49}{\percent} & $\sigma=2.50$ & \SI{69.86}{\percent} & $\sigma=1.41$         & \SI{89.78}{\percent} & \SI{71.90}{\percent} & \hphantom{0}51 -- \hphantom{0}65  &  53.4\\
+    Logistic                  & \SI{45.32}{\percent} & $\sigma=14.88$& \SI{40.85}{\percent} & $\sigma=12.56$        & \SI{51.06}{\percent} & \SI{45.49}{\percent} & \hphantom{0}38 -- \hphantom{0}93  &  74.6\\
+    Softmax                   & \SI{87.90}{\percent} & $\sigma=3.58$ & \SI{67.91}{\percent} & $\sigma=2.32$         & \SI{91.51}{\percent} & \SI{70.96}{\percent} & 108 -- 150           & 127.5\\
+    Tanh                      & \SI{85.38}{\percent} & $\sigma=4.04$ & \SI{67.65}{\percent} & $\sigma=2.01$         & \SI{90.47}{\percent} & \SI{71.29}{\percent} & 48 -- \hphantom{0}92 & 65.2\\
+    Softsign                  & \SI{88.57}{\percent} & $\sigma=4.00$ & \SI{69.32}{\percent} & $\sigma=1.68$         & \SI{93.04}{\percent} & \SI{72.40}{\percent} & 55 -- 117            & 83.2\\
+    \gls{ReLU}                & \SI{94.35}{\percent} & $\sigma=3.38$ & \SI{71.01}{\percent} & $\sigma=1.63$         & \SI{98.20}{\percent} & \SI{74.85}{\percent} & 52 -- \hphantom{0}98 & 75.5\\
+    Softplus                  & \SI{83.03}{\percent} & $\sigma=2.07$ & \SI{68.28}{\percent} & $\sigma=1.74$         & \SI{93.04}{\percent} & \SI{75.99}{\percent} & 56 -- \hphantom{0}89 & 68.9\\
+    \gls{LReLU}               & \SI{93.83}{\percent} & $\sigma=3.89$ & \SI{74.66}{\percent} & $\sigma=2.11$         & \SI{97.56}{\percent} & \SI{78.08}{\percent} & 52 -- 120 & 80.1\\
+    \gls{PReLU}               & \SI{95.53}{\percent} & $\sigma=1.92$ & \SI{71.69}{\percent} & $\sigma=1.37$         & \SI{98.17}{\percent} & \SI{74.69}{\percent} & 59 -- 101 & 78.8\\
+    \gls{ELU}                 & \SI{95.42}{\percent} & $\sigma=3.57$ & \SI{75.09}{\percent} & $\sigma=2.39$         & \SI{98.54}{\percent} & \SI{78.66}{\percent} & 66 -- \hphantom{0}72 & 67.2\\
+    \bottomrule
+    \end{tabular}
+    \caption[Activation function evaluation results on STL-10]{Test accuracy of
+             adjusted baseline models trained with different activation
+             functions on STL-10. For LReLU, $\alpha = 0.3$ was chosen.}
+    \label{table:STL-10-accuracies-activation-functions}
+\end{table}
+
+\twocolumn
