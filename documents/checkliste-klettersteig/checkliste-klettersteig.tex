@@ -1,0 +1,109 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[binary-units=true]{siunitx}
+\usepackage{parskip}
+\usepackage{marvosym}
+\usepackage{hyperref}
+\usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
+\usepackage{fontawesome}
+\usepackage{phaistos}
+
+\geometry{a4paper,left=10mm,right=10mm, top=1cm, bottom=2cm}
+
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+\begin{document}
+\clearpage
+\section*{Checkliste Wandern 14. - 16. Juli 2017}
+\vspace*{\fill}
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{cllllllll}
+        \toprule
+                  & \textbf{Datum}  & \textbf{ab} & \textbf{an} & \textbf{von}        & \textbf{nach}     & \textbf{Distanz} & \textbf{Höhenmeter} & \textbf{Plan}\\ \midrule
+    \faCar        & 14.07.2016      & 15:00       & 18:00       & Karlsruhe           & München           & 292km            & -           & Google Maps\\
+    \faCar        & 14.07.2016      & 21:00       & 23:20       & München             & Hoch-Imst         & 146km            & -           & Google Maps\\
+    \PHpedestrian & 14.07.2016      & 23:20       & 01:50       & Hoch-Imst           & Muttekopfhütte    & 5km              & +16m, -533m & \href{https://www.bergwelten.com/t/w/6811}{bergwelten.com}\\
+    \PHpedestrian & 15.07.2017      & 08:30       & 17:00       & Muttekopfhütte      & Hoch-Imst         & ?                & +1620m      & \href{http://www.bergsteigen.com/klettersteig/tirol/lechtaler-alpen/imster-klettersteig}{bergsteigen.com}\\
+        \bottomrule
+        \end{tabular}
+        \caption{Reiseplan}
+        \label{table:reiseplan}
+    \end{table}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{ll}
+    \toprule
+    \textbf{Kostenpunkt}         & \textbf{Preis} \\ \midrule
+    Übernachtung Muttekopf-Hütte & 22.00 Euro \\
+    Frühstück Muttekopf-Hütte    & 11.00 Euro \\\midrule
+    Gesamt                       & 33.00 Euro \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\vfill % equivalent to \vspace{\fill}
+
+\section*{Checkliste}
+\begin{multicols}{3}
+\begin{todolist}
+    \item Bargeld (min. 50 Euro)
+    \item Handtuch + T-Shirt (im Auto lassen)
+    \item Karte
+    \item Hütte\dots
+    \begin{todolist}
+        \item Ausweis
+        \item Buchungsbestätigung der Herberge
+        \item Spielkarten
+        \item Hüttenschlafsack
+    \end{todolist}
+    \item Kleidung\dots
+    \begin{todolist}
+        \item 2 Boxershorts
+        \item 2 Paar Socken
+        \item Schlafsachen
+        \item Softshell
+        \item Schal
+    \end{todolist}
+    \item Hygiene\dots
+    \begin{todolist}
+        \item Zahnbürste
+        \item Zahnseide
+        \item Zahnpasta
+        \item 2 Pkg Taschentücher
+        \item Reisehandtuch
+        \item Kleine Packung Shampoo
+    \end{todolist}
+    \item Elektronik\dots
+    \begin{todolist}
+        \item Digicam
+        \item Powerbank
+        \item Smartphone
+    \end{todolist}
+    \item Klettern\dots
+    \begin{todolist}
+        \item Gurt
+        \item Klettersteigset
+        \item Helm
+        \item Handschuhe
+        \item Karabiner
+        \item Bandschlinge
+        \item Wanderschuhe
+        \item Helmlampe (!)
+    \end{todolist}
+    \item Essen\dots
+    \begin{todolist}
+        \item 8 Müsli-Rigel
+        \item 2 Äpfel
+        \item 2 Wasserflaschen
+    \end{todolist}
+\end{todolist}
+\end{multicols}
+\end{document}
