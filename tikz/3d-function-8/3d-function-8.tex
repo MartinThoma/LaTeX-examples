@@ -18,8 +18,8 @@
     view={65}{65},
     enlargelimits=false,
     grid=major,
-    domain=-5:5,
-    y domain=-5:5,
+    domain=-1:1,
+    y domain=-1:1,
     samples=50, %57 : TeX capacity exceeded, sorry [main memory size=3000000].
                 % see also http://tex.stackexchange.com/a/7954/5645
     xlabel=$x$,
@@ -33,7 +33,7 @@
         title={$f(x,y)$}
     }
     ]
-      \addplot3[surf] {(x^2+y^2)*sin(1/(x^2+y^2))};
+      \addplot3[surf] {(x^2+y^2)*sin(deg (1/(x^2+y^2)))};
     \end{axis}
 \end{tikzpicture}
 \end{preview}
