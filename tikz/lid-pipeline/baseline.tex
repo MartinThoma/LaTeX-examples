@@ -1,0 +1,28 @@
+\newcommand{\width}{0.2}
+\newcommand{\height}{0.4}
+\newcommand{\disty}{0.2}
+\definecolor{colorbblue}{HTML}{0072B2}
+\definecolor{colorbgreen}{HTML}{009E73}
+\definecolor{colorborange}{HTML}{D55E00}
+
+
+\tikzstyle{act}=[draw=black, fill=black!10]
+\def \coldist {2.3}
+\def \widthb {1.9}
+
+\begin{tikzpicture}[scale=2]
+    \draw[->, -Latex, line width=5pt]
+        (1.0+0*\coldist, 0.2) --(1.0+0*\coldist, -0*\disty-1*\height-0.3) --(2.1+0*\coldist, -0*\disty-1*\height-0.3) --(2.2+0*\coldist, 0.2)
+     -- (1.0+1*\coldist, 0.2) --(1.0+1*\coldist, -0*\disty-1*\height-0.3) --(2.1+1*\coldist, -0*\disty-1*\height-0.3) --(2.2+1*\coldist, 0.2)
+     -- (1.0+2*\coldist, 0.2) --(1.0+2*\coldist, -0*\disty-1*\height-0.6);% --(2.1+4*\coldist, -4.3) --(2.2+4*\coldist, 0.5)
+     % -- (1.0+5*\coldist, 0.5) --(1.0+5*\coldist, -4.5);
+
+    \draw[act]       (0*\coldist,-0*\height-0*\disty) rectangle (0*\coldist+\widthb,-0*\disty-1*\height) node[pos=.5] {Preprocessing};
+    \draw[act]       (1*\coldist,-0*\height-0*\disty) rectangle (1*\coldist+\widthb,-0*\disty-1*\height) node[pos=.5] {Feature Extraction};
+    \draw[act]       (2*\coldist,-0*\height-0*\disty) rectangle (2*\coldist+\widthb,-0*\disty-1*\height) node[pos=.5] {Classification};
+
+    \draw[draw=none, align=center] (0.5 + 0*\coldist,+0.5*\disty-0*\height) rectangle (0.5 + 0*\coldist,+0.5*\disty-0*\height) node[pos=.5] {Raw Text};
+    \draw[draw=none, align=center] (1.0 + 0*\coldist,-0*\disty-2*\height) rectangle (1.0 + 0*\coldist,-2*\disty-2*\height) node[pos=.5] {Cleaned\\Text};
+    \draw[draw=none, align=center] (1.0 + 1*\coldist,-0*\disty-2*\height) rectangle (1.0 + 1*\coldist,-2*\disty-2*\height) node[pos=.5] {Fixed-length\\float array};
+    \draw[draw=none, align=center] (1.0 + 2*\coldist,-0*\disty-2*\height) rectangle (1.0 + 2*\coldist,-3*\disty-2*\height) node[pos=.5] {Language probabilities};
+\end{tikzpicture}
