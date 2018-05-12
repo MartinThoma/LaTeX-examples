@@ -1,0 +1,74 @@
+\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vorname}{Martin}     % Vorname                         %
+\newcommand{\Nachname}{Thoma}     % Nachname                        %
+\newcommand{\Strasse}{Thalkirchner Str.} % Deine Straße             %
+\newcommand{\Hausnummer}{25}      % Deine Hausnummer                %
+\newcommand{\PLZ}{80337}          % Deine PLZ                       %
+\newcommand{\Ort}{München}        % Dein Ort                        %
+\newcommand{\Mietobjekt}{Thalkirchner Str. 25, 80337 München}       %
+                                                                    %
+\newcommand{\Kaution}{1800.00 Euro}                                 %
+\newcommand{\BankaccountOwner}{Martin Thoma}                        %
+\newcommand{\BankaccountIBAN}{DE12 3456 1234 1234 1234 12}          %
+\newcommand{\BankaccountBIC}{KARSDE66XXX}                           %
+\newcommand{\BankaccountBank}{Sparkasse Karlsruhe Ettlingen}        %
+\newcommand{\Schluesseluebergabe}{31.03.2018 um 12:00 Uhr}          %
+\newcommand{\Kuendigungsdatum}{31.03.2018}                          %
+\newcommand{\Empfaenger}{Herr Max Mustermann} % Der Empfänger     %
+\newcommand{\EStrasse}{Musterstraße 123}    % Straße des Empfängers %
+\newcommand{\EPLZ}{81541}                   % PLZ des Empfängers    %
+\newcommand{\EOrt}{München}                 % Ort des Empfängers    %
+                                                                    %
+\newcommand{\DocTitle}{Kündigung des Mietvertrags} %Titel des Dokuments%
+% Datum der Kündigung                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% pdfinfo
+\pdfinfo{
+   /Author (\Nachname, \Vorname)
+   /Title  (\DocTitle)
+   /Subject (\DocTitle)
+   /Keywords (Kündigung)
+}
+
+% set letter variables
+\signature{\Vorname~\Nachname}
+\backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
+\newenvironment{allintypewriter}{\ttfamily}{\par}
+\setlength\parindent{0pt}
+% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
+    \date{\today}%Change this if you want a different date than today
+    \subject{Kündigung des Mietvertrags}
+    \opening{Sehr geehrter \Empfaenger,}
+    hiermit kündige ich den Mietvertrag für das Mietobjekt \Mietobjekt{} unter
+    Einhaltung der vertraglich vereinbarten Kündigungsfrist zum
+    \Kuendigungsdatum{}.\\
+    \\
+    Ich bitte Sie, mir zum Zeichen der Bestätigung des Erhalts meiner
+    Kündigung und um Bestätigung der Beendigung des Mietvertrages zum
+    \Kuendigungsdatum{} die beigefügte Abschrift unterschrieben zurückzusenden.\\
+    \\
+    Als Abnahmetermin schlage ich den \Schluesseluebergabe{} vor. Sollten Sie zu diesem Termin verhindert sein, bitte ich Sie, mir einen alternativen Übergabetermin zu nennen. Ich bitte Sie die Kaution von \Kaution{}
+    inklusive Zinsertrag an folgendes Konto zu überweisen:
+
+    \begin{allintypewriter}
+    \begin{tabbing}
+    Inhaber: \=\BankaccountOwner{}\\
+    IBAN:    \>\BankaccountIBAN{}\\
+    BIC:     \>\BankaccountBIC{}\\
+    Bank:    \>\BankaccountBank{}\\
+    \end{tabbing}
+    \end{allintypewriter}
+
+    \closing{Mit freundlichen Grüßen,}
+    \end{letter}
+\end{document}
