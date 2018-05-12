@@ -1,0 +1,65 @@
+\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
+\usepackage{csquotes}
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vorname}{Martin}     % Vorname                         %
+\newcommand{\Nachname}{Thoma}     % Nachname                        %
+\newcommand{\Strasse}{Thalkirchner Str.} % Deine Straße             %
+\newcommand{\Hausnummer}{25}      % Deine Hausnummer                %
+\newcommand{\PLZ}{80337}          % Deine PLZ                       %
+\newcommand{\Ort}{München}        % Dein Ort                        %
+\newcommand{\Mietobjekt}{Thalkirchner Str. 25, 80337 München}       %
+                                                                    %
+\newcommand{\Empfaenger}{M-net Telekommunikations GmbH} % Der Empfänger     %
+\newcommand{\EStrasse}{Emmy-Noether-Strasse 2}    % Straße des Empfängers %
+\newcommand{\EPLZ}{80992}                   % PLZ des Empfängers    %
+\newcommand{\EOrt}{München}                 % Ort des Empfängers    %
+                                                                    %
+\newcommand{\DocTitle}{Sonderkündigung wegen Umzug} %Titel des Dokuments%
+\newcommand{\Kundennr}{1234567}    % Deine Kundennummer              %
+% Datum der Kündigung                                               %
+\newcommand{\Kuendigungsdatum}{31.03.2018}                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% pdfinfo
+\pdfinfo{
+   /Author (\Nachname, \Vorname)
+   /Title  (\DocTitle)
+   /Subject (\DocTitle)
+   /Keywords (Kündigung)
+}
+
+% set letter variables
+\signature{\Vorname~\Nachname}
+\backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
+\customer{\Kundennr}
+\setlength\parindent{0pt}
+% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
+    \date{\today}%Change this if you want a different date than today
+    \subject{\DocTitle}
+    \opening{Sehr geehrter \Empfaenger,}
+    hiermit mache ich von meinem Sonderkündigungsrecht gebrauch und kündige den
+    Vertrag~1234567 unter Einhaltung der 3-Monats-Frist zum 31.~Mai aufgrund
+    eines Umzuges des Vertragsinhabers.\\
+
+    Ich ziehe zum 1.~April 2018 in die Alte Allee 107 in 81245~München um. Dort
+    ist laut shop.m-net.de nur eine Downloadgeschwindigkeit von 18~Mbit/s
+    verfügbar. Der Vertrag~1234567 \enquote{Surf-Flat} ist jedoch über 25~Mbit/s.\\
+
+% Ihre neue Anschlussadresse
+% Einen Umzugsnachweis (Mietvertrag oder Meldebescheinigung)
+
+    Bitte senden Sie mir eine schriftliche Bestätigung der Kündigung unter
+    Angabe des Beendigungszeitpunktes zu. Gleichzeitig widerrufe ich die
+    vorliegende Einzugsermächtigung zum 31. Mai 2018.
+
+    \closing{Mit freundlichen Grüßen,}
+    \end{letter}
+\end{document}
