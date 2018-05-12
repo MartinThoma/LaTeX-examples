@@ -7,7 +7,15 @@
 \usepackage{amsmath,amssymb}
 \usepackage[table]{xcolor}
 \usepackage[absolute,overlay]{textpos}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart, calc}
 \usepackage{csquotes}
 \usepackage[binary-units,group-separator={,}]{siunitx}
 \sisetup{per-mode=fraction,
@@ -59,7 +67,7 @@
 \usepackage{braket}         % needed for \Set
 \usepackage{algorithm,algpseudocode}
 
-\usepackage[xindy,toc,section=chapter,numberedsection=autolabel]{glossaries}
+\usepackage[xindy,toc,section=section]{glossaries}
 
 % Make document nicer
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -93,6 +101,7 @@
 \input{content}
 \bibliographystyle{IEEEtranSA}
 \bibliography{bibliography}
+\printglossaries%
 \input{appendix}
 
 

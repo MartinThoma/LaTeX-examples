@@ -1,24 +1,42 @@
 %!TEX root = main.tex
 \section{Introduction}
-TODO\cite{Thoma:2014}
+Artificial neural networks have dozends of hyperparameters which influence
+their behaviour during training and evaluation time. One parameter is the
+choice of activation functions. While in principle every neuron could have a
+different activation function, in practice networks only use two activation
+functions: The softmax function for the output layer in order to obtain a
+probability distribution over the possible classes and one activation function
+for all other neurons.
 
-\section{Terminology}
-TODO
+Activation functions should have the following properties:
+\begin{itemize}
+    \item \textbf{Non-linearity}: A linear activation function in a simple feed
+          forward network leads to a linear function. This means no matter how
+          many layers the network uses, there is an equivalent network with
+          only the input and the output layer. Please note that \glspl{CNN} are
+          different. Padding and pooling are also non-linear operations.
+    \item \textbf{Differentiability}: Activation functions need to be
+          differentiable in order to be able to apply gradient descent. It is
+          not necessary that they are differentiable at any point. In practice,
+          the gradient at non-differentiable points can simply be set to zero
+          in order to prevent weight updates at this point.
+    \item \textbf{Non-zero gradient}: The sign function is not suitable for
+          gradient descent based optimizers as its gradient is zero at all
+          differentiable points. An activation function should have infinitely
+          many points with non-zero gradient.
+\end{itemize}
 
-
-\section{Activation Functions}
-Nonlinear, differentiable activation functions are important for neural
-networks to allow them to learn nonlinear decision boundaries. One of the
-simplest and most widely used activation functions for \glspl{CNN} is
-\gls{ReLU}~\cite{AlexNet-2012}, but others such as
+One of the simplest and most widely used activation functions for \glspl{CNN}
+is \gls{ReLU}~\cite{AlexNet-2012}, but others such as
 \gls{ELU}~\cite{clevert2015fast}, \gls{PReLU}~\cite{he2015delving}, softplus~\cite{7280459}
-and softsign~\cite{bergstra2009quadratic} have been proposed. The baseline uses
-\gls{ELU}.
+and softsign~\cite{bergstra2009quadratic} have been proposed.
 
 Activation functions differ in the range of values and the derivative. The
 definitions and other comparisons of eleven activation functions are given
 in~\cref{table:activation-functions-overview}.
 
+
+\section{Important Differences of Proposed Activation Functions}
 Theoretical explanations why one activation function is preferable to another
 in some scenarios are the following:
 \begin{itemize}
@@ -96,6 +114,7 @@ in~\cref{table:HASYv2-accuracies-activation-functions}. For both datasets, the
 logistic function has a much shorter training time and a noticeably lower test
 accuracy.
 
+\glsunset{LReLU}
 \begin{table}[H]
     \centering
     \begin{tabular}{lccc}
@@ -111,7 +130,7 @@ accuracy.
     ReLU          & \cellcolor{yellow!25}Yes\footnotemark & \cellcolor{red!25} No & \cellcolor{yellow!25}Half-sided \\
     Softplus      & \cellcolor{green!25}No    & \cellcolor{red!25}   No      & \cellcolor{yellow!25}Half-sided \\
     S2ReLU        & \cellcolor{green!25}No    & \cellcolor{green!25}Yes      & \cellcolor{green!25} No \\
-    LReLU/PReLU   & \cellcolor{green!25}No    & \cellcolor{green!25}Yes      & \cellcolor{green!25} No \\
+    \gls{LReLU}/PReLU   & \cellcolor{green!25}No    & \cellcolor{green!25}Yes      & \cellcolor{green!25} No \\
     ELU           & \cellcolor{green!25}No    & \cellcolor{green!25}Yes      & \cellcolor{green!25} No \\
     \bottomrule
     \end{tabular}
@@ -119,8 +138,6 @@ accuracy.
     \label{table:properties-of-activation-functions}
 \end{table}
 \footnotetext{The dying ReLU problem is similar to the vanishing gradient problem.}
-
-\glsunset{LReLU}
 
 \begin{table}[H]
     \centering
@@ -174,3 +191,4 @@ accuracy.
     \label{table:MNIST-accuracies-activation-functions}
 \end{table}
 \glsreset{LReLU}
+

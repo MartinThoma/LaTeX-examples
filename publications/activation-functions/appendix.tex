@@ -7,17 +7,17 @@
     \centering
     \hspace*{-1cm}\begin{tabular}{lllll}
     \toprule
-    Name                     & Function $\varphi(x)$ & Range of Values & $\varphi'(x)$ \\\midrule % & Used by 
-    Sign function$^\dagger$  & $\begin{cases}+1 &\text{if } x \geq 0\\-1 &\text{if } x < 0\end{cases}$ & $\Set{-1,1}$                              & $0$                    \\%& \cite{971754} \\
-    \parbox[t]{2.6cm}{Heaviside\\step function$^\dagger$} & $\begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$ & $\Set{0, 1}$  & $0$                       \\%& \cite{mcculloch1943logical}\\
-    Logistic function        & $\frac{1}{1+e^{-x}}$                           & $[0, 1]$                                                        & $\frac{e^x}{(e^x +1)^2}$  \\%& \cite{duch1999survey} \\
-    Tanh                     & $\frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)$ & $[-1, 1]$                                                       & $\sech^2(x)$              \\%& \cite{LeNet-5,Thoma:2014}\\
-    \gls{ReLU}$^\dagger$           & $\max(0, x)$                                   & $[0, +\infty)$                                                  & $\begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$      \\%& \cite{AlexNet-2012}\\
-    \parbox[t]{2.6cm}{\gls{LReLU}$^\dagger$\footnotemark\\(\gls{PReLU})} & $\varphi(x) = \max(\alpha x, x)$                        & $(-\infty, +\infty)$                                             & $\begin{cases}1 &\text{if } x > 0\\\alpha &\text{if } x < 0\end{cases}$ \\%& \cite{maas2013rectifier,he2015delving} \\
-    Softplus                 & $\log(e^x + 1)$                                & $(0, +\infty)$                                       & $\frac{e^x}{e^x + 1}$    \\%& \cite{dugas2001incorporating,glorot2011deep} \\
-    \gls{ELU}                & $\begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{if } x \leq 0\end{cases}$ & $(-\infty, +\infty)$ & $\begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}$ \\%& \cite{clevert2015fast} \\
-    Softmax$^\ddagger$       & $o(\mathbf{x})_j = \frac{e^{x_j}}{\sum_{k=1}^K e^{x_k}}$    & $[0, 1]^K$                                           & $o(\mathbf{x})_j \cdot \frac{\sum_{k=1}^K e^{x_k} - e^{x_j}}{\sum_{k=1}^K e^{x_k}}$          \\%& \cite{AlexNet-2012,Thoma:2014}\\
-    Maxout$^\ddagger$        & $o(\mathbf{x}) = \max_{x \in \mathbf{x}} x$                 & $(-\infty, +\infty)$                                 & $\begin{cases}1 &\text{if } x_i = \max \mathbf{x}\\0 &\text{otherwise}\end{cases}$          \\%& \cite{goodfellow2013maxout}       \\
+    Name                     & Function $\varphi(x)$ & Range of Values & $\varphi'(x)$ & Used by \\\midrule % 
+    Sign function$^\dagger$  & $\begin{cases}+1 &\text{if } x \geq 0\\-1 &\text{if } x < 0\end{cases}$ & $\Set{-1,1}$                              & $0$                    & \cite{971754} \\
+    \parbox[t]{2.6cm}{Heaviside\\step function$^\dagger$} & $\begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$ & $\Set{0, 1}$  & $0$                       & \cite{mcculloch1943logical}\\
+    Logistic function        & $\frac{1}{1+e^{-x}}$                           & $[0, 1]$                                                        & $\frac{e^x}{(e^x +1)^2}$  & \cite{duch1999survey} \\
+    Tanh                     & $\frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)$ & $[-1, 1]$                                                       & $\sech^2(x)$              & \cite{LeNet-5,Thoma:2014}\\
+    \gls{ReLU}$^\dagger$           & $\max(0, x)$                                   & $[0, +\infty)$                                                  & $\begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$      & \cite{AlexNet-2012}\\
+    \parbox[t]{2.6cm}{\gls{LReLU}$^\dagger$\footnotemark\\(\gls{PReLU})} & $\varphi(x) = \max(\alpha x, x)$                        & $(-\infty, +\infty)$                                             & $\begin{cases}1 &\text{if } x > 0\\\alpha &\text{if } x < 0\end{cases}$ & \cite{maas2013rectifier,he2015delving} \\
+    Softplus                 & $\log(e^x + 1)$                                & $(0, +\infty)$                                       & $\frac{e^x}{e^x + 1}$    & \cite{dugas2001incorporating,glorot2011deep} \\
+    \gls{ELU}                & $\begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{if } x \leq 0\end{cases}$ & $(-\infty, +\infty)$ & $\begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}$ & \cite{clevert2015fast} \\
+    Softmax$^\ddagger$       & $o(\mathbf{x})_j = \frac{e^{x_j}}{\sum_{k=1}^K e^{x_k}}$    & $[0, 1]^K$                                           & $o(\mathbf{x})_j \cdot \frac{\sum_{k=1}^K e^{x_k} - e^{x_j}}{\sum_{k=1}^K e^{x_k}}$         & \cite{AlexNet-2012,Thoma:2014}\\
+    Maxout$^\ddagger$        & $o(\mathbf{x}) = \max_{x \in \mathbf{x}} x$                 & $(-\infty, +\infty)$                                 & $\begin{cases}1 &\text{if } x_i = \max \mathbf{x}\\0 &\text{otherwise}\end{cases}$          & \cite{goodfellow2013maxout}       \\
     \bottomrule
     \end{tabular}
     \caption[Activation functions]{Overview of activation functions. Functions
@@ -63,12 +63,10 @@
     \end{tabular}
     \caption[Activation function evaluation results on CIFAR-100]{Training and
              test accuracy of adjusted baseline models trained with different
-             activation functions on CIFAR-100. For LReLU, $\alpha = 0.3$ was
+             activation functions on CIFAR-100. For \gls{LReLU}, $\alpha = 0.3$ was
              chosen.}
     \label{table:CIFAR-100-accuracies-activation-functions}
 \end{table}
-
-\glsreset{LReLU}
 
 \begin{table}[H]
     \centering
@@ -91,7 +89,7 @@
     \end{tabular}
     \caption[Activation function evaluation results on HASYv2]{Test accuracy of
              adjusted baseline models trained with different activation
-             functions on HASYv2. For LReLU, $\alpha = 0.3$ was chosen.}
+             functions on HASYv2. For \gls{LReLU}, $\alpha = 0.3$ was chosen.}
     \label{table:HASYv2-accuracies-activation-functions}
 \end{table}
 
@@ -116,8 +114,93 @@
     \end{tabular}
     \caption[Activation function evaluation results on STL-10]{Test accuracy of
              adjusted baseline models trained with different activation
-             functions on STL-10. For LReLU, $\alpha = 0.3$ was chosen.}
+             functions on STL-10. For \gls{LReLU}, $\alpha = 0.3$ was chosen.}
     \label{table:STL-10-accuracies-activation-functions}
 \end{table}
 
+\begin{table}[H]
+    \centering
+    \hspace*{-1cm}\begin{tabular}{lllll}
+    \toprule
+    Name                     & Function $\varphi(x)$ & Range of Values & $\varphi'(x)$ \\\midrule % & Used by 
+    Sign function$^\dagger$  & $\begin{cases}+1 &\text{if } x \geq 0\\-1 &\text{if } x < 0\end{cases}$ & $\Set{-1,1}$                              & $0$                    \\%& \cite{971754} \\
+    \parbox[t]{2.6cm}{Heaviside\\step function$^\dagger$} & $\begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$ & $\Set{0, 1}$  & $0$                       \\%& \cite{mcculloch1943logical}\\
+    Logistic function        & $\frac{1}{1+e^{-x}}$                           & $[0, 1]$                                                        & $\frac{e^x}{(e^x +1)^2}$  \\%& \cite{duch1999survey} \\
+    Tanh                     & $\frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)$ & $[-1, 1]$                                                       & $\sech^2(x)$              \\%& \cite{LeNet-5,Thoma:2014}\\
+    \gls{ReLU}$^\dagger$           & $\max(0, x)$                                   & $[0, +\infty)$                                                  & $\begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$      \\%& \cite{AlexNet-2012}\\
+    \parbox[t]{2.6cm}{\gls{LReLU}$^\dagger$\footnotemark\\(\gls{PReLU})} & $\varphi(x) = \max(\alpha x, x)$                        & $(-\infty, +\infty)$                                             & $\begin{cases}1 &\text{if } x > 0\\\alpha &\text{if } x < 0\end{cases}$ \\%& \cite{maas2013rectifier,he2015delving} \\
+    Softplus                 & $\log(e^x + 1)$                                & $(0, +\infty)$                                       & $\frac{e^x}{e^x + 1}$    \\%& \cite{dugas2001incorporating,glorot2011deep} \\
+    \gls{ELU}                & $\begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{if } x \leq 0\end{cases}$ & $(-\infty, +\infty)$ & $\begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}$ \\%& \cite{clevert2015fast} \\
+    Softmax$^\ddagger$       & $o(\mathbf{x})_j = \frac{e^{x_j}}{\sum_{k=1}^K e^{x_k}}$    & $[0, 1]^K$                                           & $o(\mathbf{x})_j \cdot \frac{\sum_{k=1}^K e^{x_k} - e^{x_j}}{\sum_{k=1}^K e^{x_k}}$          \\%& \cite{AlexNet-2012,Thoma:2014}\\
+    Maxout$^\ddagger$        & $o(\mathbf{x}) = \max_{x \in \mathbf{x}} x$                 & $(-\infty, +\infty)$                                 & $\begin{cases}1 &\text{if } x_i = \max \mathbf{x}\\0 &\text{otherwise}\end{cases}$          \\%& \cite{goodfellow2013maxout}       \\
+    \bottomrule
+    \end{tabular}
+    \caption[Activation functions]{Overview of activation functions. Functions
+             marked with $\dagger$ are not differentiable at 0 and functions
+             marked with $\ddagger$ operate on all elements of a layer
+             simultaneously. The hyperparameters $\alpha \in (0, 1)$ of Leaky
+             ReLU and ELU are typically $\alpha = 0.01$. Other activation
+             function like randomized leaky ReLUs exist~\cite{xu2015empirical},
+             but are far less commonly used.\\
+             Some functions are smoothed versions of others, like the logistic
+             function for the Heaviside step function, tanh for the sign
+             function, softplus for ReLU.\\
+             Softmax is the standard activation function for the last layer of
+             a classification network as it produces a probability
+             distribution. See \Cref{fig:activation-functions-plot} for a plot
+             of some of them.}
+    \label{table:activation-functions-overview}
+\end{table}
+\footnotetext{$\alpha$ is a hyperparameter in leaky ReLU, but a learnable parameter in the parametric ReLU function.}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \definecolor{color1}{HTML}{E66101}
+        \definecolor{color2}{HTML}{FDB863}
+        \definecolor{color3}{HTML}{B2ABD2}
+        \definecolor{color4}{HTML}{5E3C99}
+        \begin{axis}[
+            legend pos=north west,
+            legend cell align={left},
+            axis x line=middle,
+            axis y line=middle,
+            x tick label style={/pgf/number format/fixed,
+                                /pgf/number format/fixed zerofill,
+                                /pgf/number format/precision=1},
+            y tick label style={/pgf/number format/fixed,
+                                /pgf/number format/fixed zerofill,
+                                /pgf/number format/precision=1},
+            grid = major,
+            width=16cm,
+            height=8cm,
+            grid style={dashed, gray!30},
+            xmin=-2,     % start the diagram at this x-coordinate
+            xmax= 2,     % end   the diagram at this x-coordinate
+            ymin=-1,     % start the diagram at this y-coordinate
+            ymax= 2,     % end   the diagram at this y-coordinate
+            xlabel=x,
+            ylabel=y,
+            tick align=outside,
+            enlargelimits=false]
+          \addplot[domain=-2:2, color1, ultra thick,samples=500] {1/(1+exp(-x))};
+          \addplot[domain=-2:2, color2, ultra thick,samples=500] {tanh(x)};
+          \addplot[domain=-2:2, color4, ultra thick,samples=500] {max(0, x)};
+          \addplot[domain=-2:2, color4, ultra thick,samples=500, dashed] {ln(exp(x) + 1)};
+          \addplot[domain=-2:2, color3, ultra thick,samples=500, dotted] {max(x, exp(x) - 1)};
+          \addlegendentry{$\varphi_1(x)=\frac{1}{1+e^{-x}}$}
+          \addlegendentry{$\varphi_2(x)=\tanh(x)$}
+          \addlegendentry{$\varphi_3(x)=\max(0, x)$}
+          \addlegendentry{$\varphi_4(x)=\log(e^x + 1)$}
+          \addlegendentry{$\varphi_5(x)=\max(x, e^x - 1)$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption[Activation functions]{Activation functions plotted in $[-2, +2]$.
+             $\tanh$ and ELU are able to produce negative numbers. The image of
+             ELU, ReLU and Softplus is not bound on the positive side, whereas
+             $\tanh$ and the logistic function are always below~1.}
+    \label{fig:activation-functions-plot}
+\end{figure}
+
+\glsreset{LReLU}
 \twocolumn
