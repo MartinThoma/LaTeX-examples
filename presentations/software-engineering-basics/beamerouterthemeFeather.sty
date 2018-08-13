@@ -1,0 +1,266 @@
+% This is the outer theme file of the Feather theme.
+% Copyright (c) 2014 by Lilyana Vaskova Vankova <lilqna.v@gmail.com>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerouterthemeFeather}[2014/04/08 v1.0.0 The Feather Beamer Theme]
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% load required packages
+
+\RequirePackage{tikz}
+\RequirePackage{calc}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theme options, definitions and templates.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% options for the progress bar/circle
+
+               \def\beamer@progressmovingCircCnt{movingCircCnt} % moving circular counter
+               \def\beamer@progressfixedCircCnt{fixedCircCnt} % fixed circular counter
+               \def\beamer@progresscorner{corner} % a counter
+               \def\beamer@progressstyle{movingCircCnt} % default
+               \DeclareOptionBeamer{progressstyle}{\def\beamer@progressstyle{#1}}
+               \DeclareOptionBeamer{rotationcw}{\def\beamer@rotationcw{true}}
+               \DeclareOptionBeamer{shownavsym}{\def\beamer@shownavsym{true}}
+               \ProcessOptionsBeamer
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% the height of the header is 2.5 times the lineheight of the frame title
+
+               \newlength{\beamer@height}
+               \usebeamerfont{frametitle} %use the frame title font
+               \setlength{\beamer@height}{2.5\baselineskip}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% reset fonts
+
+               \reset@font
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% radius of the logo
+
+               \newlength{\beamer@logoradius}
+               \setlength{\beamer@logoradius}{0.95\beamer@height/2}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% width of the border
+
+               \newlength{\beamer@borderwidth}
+               \setlength{\beamer@borderwidth}{1.05mm}  % as small is the thickness of the border the whole circle goes up
+ 
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% inner radius of border of the logo frame
+
+               \newlength{\beamer@logoinnerradius}
+               \setlength{\beamer@logoinnerradius}{0.85\beamer@logoradius} 
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% radius of the outer border of the logo frame
+
+               \newlength{\beamer@logoouterradius}
+               \setlength{\beamer@logoouterradius}{\beamer@logoinnerradius+\beamer@borderwidth}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% radius of the counters
+
+               \newlength{\beamer@counterradius}
+               \setlength{\beamer@counterradius}{\beamer@logoinnerradius/2+\beamer@logoouterradius/2}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% beamer specific options
+
+               \mode<presentation> % refers to the first four modes (beamer,handout,second and trans). That is, to all modes except the article mode
+{
+               \ifbeamercolorempty[fg]{Feather}
+   {
+               \setbeamercolor{Feather}{use={structure,palette sidebar primary},fg=palette sidebar primary.fg,bg=structure.fg}
+    }
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+ % headline
+
+               \setbeamertemplate{headline}
+   {
+               \featherheaderbackground
+    }
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% footline  
+
+               \setbeamertemplate{footline}
+    {
+        \begin{beamercolorbox}[wd=1.0\paperwidth,ht=1.25ex,dp=1ex,left]{headfoot}
+                {\usebeamercolor[fg]{frametitle}\usebeamerfont{section in head/foot}\hspace*{3.5ex}
+                \insertshortauthor\ |\ 
+                \insertshorttitle
+                \insertshortsubtitle
+                 }
+        \end{beamercolorbox}
+     }
+
+%----------------------------------------------------------------------------------------------------------------------------------
+  
+% frame title
+
+                \setbeamertemplate{frametitle}
+    {
+        \begin{minipage}[c][0.9\beamer@height][c]{\textwidth}
+                {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par}
+                {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}
+        \end{minipage}
+     }
+                \ifx\beamer@shownavsym\undefined % insert navigation symbols
+                \setbeamertemplate{navigation symbols}
+
+                \fi
+}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% macros used in the theme 
+%% coordinate the fancy header background
+
+                \newcommand{\featherheaderbackground}[0]
+{
+        \begin{tikzpicture}[overlay]
+
+                \coordinate (UL) at (0,0); %upper left corner of the slide
+                \coordinate (HLR) at (\paperwidth,-0.9\beamer@height); %lower right of the header
+
+                \coordinate (ULL) at (0,-0.95\beamer@height); % upper left corner of the line 
+                \coordinate (LLR) at (\paperwidth,-1\beamer@height); % lower right corner of the line 
+
+                \coordinate (ULF) at (0,-5.90\beamer@height); % upper left corner of the footline 
+                \coordinate (LFR) at (\paperwidth,-6.08\beamer@height); % lower right corner of the footline 
+
+                \coordinate (logopos) at ([shift={(-\beamer@logoouterradius-2.05\beamer@borderwidth,\beamer@height-\beamer@logoouterradius-5.5\beamer@borderwidth)}] HLR); % coordinate of the logo and the circ position
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%%draw the background of the header, the circle and the logo
+
+     {
+                \usebeamercolor{Feather}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% draw the blue background rectangle of the header and the line below it
+
+                \draw[draw=none,fill=Feather.bg] (UL) rectangle (HLR); % background rectabgle
+                \draw[draw=none,fill=Feather.fg] (ULL) rectangle (LLR); % line below the background rectangle
+                \draw[draw=none,fill=Feather.bg] (ULF) rectangle (LFR); % footline 
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% draw the outer circle
+
+                \fill[fill=Feather.fg] (logopos) circle (\beamer@logoouterradius);
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% draw the inner circle
+
+                \fill[fill=normal text.bg] (logopos) circle (\beamer@logoinnerradius);
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% place the logo in the circle
+
+                \node at (logopos) {\includegraphics[width=1.75\beamer@logoradius]{Feathergraphics/2}};
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% draw progress circle/bar
+
+                \ifx\beamer@progressstyle\beamer@progressmovingCircCnt% the circular counter with a moving counter
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% calculate end position
+
+                \ifx\beamer@rotationcw\undefined% counterclockwise rotation
+                \pgfmathsetmacro{\progress}{220*\insertframestartpage/\inserttotalframenumber}; %%% 220 covers the entire circle, while 360 it goes twice 
+                \else% clockwise rotation
+                \pgfmathsetmacro{\progress}{-220*\insertframestartpage/\inserttotalframenumber}; 
+                \fi
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% draw the arc
+                
+                \draw[color=Feather.bg,line width=0.2*\beamer@borderwidth] ([xshift=\beamer@counterradius] logopos)  arc[radius=\beamer@counterradius, start angle=0, end angle=\progress];
+                \fill[fill=Feather.bg] ([shift={(\progress:\beamer@counterradius)}] logopos) circle (0.25\beamer@borderwidth);
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% place the current frame number
+
+                \node[fill=normal text.bg,draw=Feather.fg,thick,circle,minimum width=2*\beamer@borderwidth] at ([xshift=\beamer@counterradius]logopos) {{\usebeamercolor[fg]{normal text}\insertframenumber}};
+                \fi      
+                \ifx\beamer@progressstyle\beamer@progressfixedCircCnt % the circular counter with a fixed counter
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% draw the current frame number
+
+                \ifx\beamer@rotationcw\undefined % counterclockwise rotation
+                \pgfmathsetmacro{\progress}{360*\insertframestartpage};
+                else% clockwise rotation
+                \pgfmathsetmacro{\progress}{-360*\insertframestartpage};
+                \fi
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% draw the arc
+
+                \draw[color=Feather.bg,line width=0.5*\beamer@borderwidth] ([xshift=\beamer@counterradius] logopos) arc (0:\progress:\beamer@counterradius);
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%% place the current frame number
+
+                \node[fill=normal text.bg,draw=Feather.fg,circle,thick,minimum width=2*\beamer@borderwidth] at ([shift={(\progress:\beamer@counterradius)}] logopos) {{\usebeamercolor[fg]{normal text}\insertframenumber}};
+                \fi
+    }
+        \end{tikzpicture}
+}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%%setting the blocks
+
+                \setbeamertemplate{blocks}[rounded][shadow=true]
+                \setbeamercolor{block title}{fg=frametitle.fg, bg=frametitle.bg} 
+                \setbeamercolor{block body}{parent=normal text, use=block title,bg=Feather.fg!30}
+
+\mode<all>

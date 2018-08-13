@@ -1,0 +1,105 @@
+% This is the inner theme file of the Feather theme.
+% Copyright (c) 2014 by Lilyana Vaskova Vankova <lilqna.v@gmail.com>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerinnerthemeFeather}[2014/04/08 v1.0.0 The Feather Beamer Theme]
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theme options, definitions and templates.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% beamer specific options
+
+               \mode<presentation> %refers to the first four modes (beamer,handout,second and trans). That is, to all modes except the article mode
+{
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% title page
+%% definitions for fonts of the different elements
+  
+               \setbeamerfont{institute}{family=\rmfamily, size = \footnotesize}
+               \setbeamerfont{title}{family=\rmfamily, size = \Large} 
+               \setbeamerfont{subtitle}{family=\rmfamily, size = \large}
+               \setbeamerfont{author}{family=\rmfamily, size = \normalsize}
+               \setbeamerfont{date}{family=\rmfamily, size = \footnotesize}
+
+               \setbeamertemplate{title page}
+   {
+
+%% setting the above deffinitions
+
+        \begin{minipage}[c][\textheight][c]{\textwidth}
+
+                  \centering
+
+                 {\usebeamerfont{institute}\insertinstitute}\vspace*{30pt}
+
+                 {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\vspace*{10pt}
+
+                 {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\vspace*{30pt}
+
+                 {\usebeamerfont{author}\insertauthor}\vspace*{30pt}
+
+                 {\usebeamerfont{date}\insertdate}\vspace*{\baselineskip}
+
+         \end{minipage}
+   }
+  
+%----------------------------------------------------------------------------------------------------------------------------------
+  
+% final page
+
+                  \defbeamertemplate{final page}{text}[1]
+   {
+         \begin{minipage}[c][\textheight][c]{\textwidth}
+                  \centering
+                  #1
+         \end{minipage}
+   }
+                  \newcommand{\finalpage}[1]
+   {
+                  \setbeamertemplate{final page}[text]{#1}
+                  \usebeamertemplate{final page}
+   }
+
+%----------------------------------------------------------------------------------------------------------------------------------
+  
+% add the feather to the background of the titlepage and the final page
+
+                  \newcommand{\1}
+   {
+                  \setbeamertemplate{background}
+      {
+                  \includegraphics[width=\paperwidth,height=\paperheight]{Feathergraphics/1}
+                  \tikz[overlay] \fill[fill opacity=0.75,fill=white] (0,0) rectangle (-\paperwidth,\paperheight);
+       }
+    }
+
+%----------------------------------------------------------------------------------------------------------------------------------
+  
+% use numbers instead of a picture for the references
+
+                  \setbeamertemplate{bibliography item}[text]
+
+}
+
+\mode<all>

@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>GitFlow</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.11.4/gitgraph.css" />
+  </head>
+  <body>
+    <canvas id="gitGraph"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.11.4/gitgraph.min.js"></script>
+    <script>
+/***********************
+ *  CUSTOM TEMPLATES   *
+ ***********************/
+
+var myTemplateConfig = {
+  colors: ["#979797", "#008fb5", "#f1c109"],
+  branch: {
+            lineWidth: 10,
+            spacingX: 50,
+            labelRotation: 0
+          },
+  commit: {
+    spacingY: -80,
+    dot: {
+      size: 12
+    },
+    message: {
+      displayAuthor: false,
+      displayBranch: false,
+      displayHash: false,
+      font: "normal 12pt Arial"
+    },
+    tooltipHTMLFormatter: function(commit) {
+      return "<b>" + commit.sha1 + "</b>" + ": " + commit.message;
+    }
+  }
+};
+var myTemplate = new GitGraph.Template(myTemplateConfig);
+
+      var gitgraph = new GitGraph({
+        template: "metro",
+        reverseArrow: false,
+        orientation: "vertical",
+        //mode: "compact"
+      });
+      var master = gitgraph.branch("master");
+      master.commit({message: "ENH: feature 1", author: "Alice <alice@xyz.com>"});
+      master.commit({message: "ENH: feature 2", author: "Alice <alice@xyz.com>"});
+      feature = master.branch("feature");
+      master.commit({message: "ENH: feature 3", author: "Alice <alice@xyz.com>"});
+      feature.commit({message: "ENH: feature 4", author: "Alice <alice@xyz.com>"});
+      feature.commit({message: "ENH: feature 4 - fix 1", author: "Alice <alice@xyz.com>"});
+      feature.commit({message: "ENH: feature 4 - fix 2", author: "Alice <alice@xyz.com>"});
+      feature.merge(master);
+    </script>
+  </body>
+</html>

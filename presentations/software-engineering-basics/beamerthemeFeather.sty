@@ -1,0 +1,52 @@
+% This is the main beamer theme file of the Feather theme.
+% Copyright (c) 2014 by Lilyana Vaskova Vankova <lilqna.v@gmail.com>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeFeather}[2014/04/08 v1.0.0 The Feather Beamer Theme]
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% load required packages
+
+\RequirePackage{tikz}
+\RequirePackage{calc}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theme options and definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+               \DeclareOptionBeamer{progressstyle}{\PassOptionsToPackage{progressstyle=#1}{beamerouterthemeFeather}}
+               \DeclareOptionBeamer{rotationcw}{\PassOptionsToPackage{rotationcw}{beamerouterthemeFeather}}
+               \DeclareOptionBeamer{shownavsym}{\PassOptionsToPackage{shownavsym}{beamerouterthemeFeather}}
+               \ProcessOptionsBeamer
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%beamer specific options
+
+               \mode<presentation> %refers to the first four modes (beamer, handout, second and trans). That is, to all modes except the article mode
+{
+               \useinnertheme{Feather}
+               \useoutertheme{Feather}
+               \usecolortheme{Feather}
+}
+
+\mode<all>
