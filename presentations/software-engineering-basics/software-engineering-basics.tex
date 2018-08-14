@@ -148,6 +148,44 @@ If the implementation is easy to explain, it may be a good idea.\\
 Namespaces are one honking great idea -- let's do more of those!
 \end{frame}
 
+
+\begin{frame}{commit messages}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}[<+->]
+                \item Can I understand what the commit was about?
+                \item Use prefixes
+                \item Mention issues
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \only<1>{cleanup, fixed bug, new feature, \dots}
+            \only<2>{
+
+                \begin{itemize}
+                    \item BUG: bug fix
+                    \item DEV: development tool or utility
+                    \item DOC: documentation
+                    \item ENH: Enhancement, a new feature
+                    \item MAINT: Maintenance task
+                    \item REL: release
+                    \item STY: Stylistic change
+                    \item TST: addition or modification of tests
+                \end{itemize}
+
+                Source: \href{https://docs.scipy.org/doc/numpy-1.13.0/dev/gitwash/development_workflow.html}{Scipy Development Workflow}
+            }
+            \only<3>{
+                \begin{itemize}
+                    \item See issue \#123
+                    \item Closes issue \#123
+                \end{itemize}
+            }
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
 \begin{frame}{commit squashing}
     \begin{columns}
         \begin{column}{0.5\textwidth}
