@@ -195,6 +195,7 @@ Namespaces are one honking great idea -- let's do more of those!
 \end{frame}
 
 
+\section{Falsehood Data Scientists Beliefes}
 \begin{frame}{Falsehood Data Scientists Beliefes}
 \begin{centering}
 (1) Floating point numbers always look like this: 1.23456 or 0.000004577 or 12345.467765.
@@ -275,6 +276,21 @@ Namespaces are one honking great idea -- let's do more of those!
         \item<3-> Timezones
         \item<4-> Whenever possible, store the timezone and use \textbf{ISO 8601}:
                   \texttt{2012-04-23T18:25:43.511+02:30} (\href{https://stackoverflow.com/a/15952652/562769}{reasons})
+    \end{itemize}
+}
+\end{frame}
+
+
+\begin{frame}{Falsehood Data Scientists Beliefes}
+\begin{centering}
+(5) The (physical) unit of a column / an API can be guessed.
+\end{centering}
+
+\uncover<2->{
+    \begin{itemize}
+        \item<2-> Clarify it
+        \item<3-> See if the distribution / quantiles are reasonable
+        \item<4-> Internally, use unit library \href{http://pint.readthedocs.io/en/latest/}{Pint}
     \end{itemize}
 }
 \end{frame}
