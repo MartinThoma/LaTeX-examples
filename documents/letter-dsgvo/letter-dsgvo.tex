@@ -1,0 +1,156 @@
+\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
+\usepackage{parskip}
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vorname}{Martin}     % Vorname                         %
+\newcommand{\Nachname}{Thoma}     % Nachname                        %
+\newcommand{\Strasse}{Alte Allee} % Deine Straße                %
+\newcommand{\Hausnummer}{107}      % Deine Hausnummer                %
+\newcommand{\PLZ}{81245}          % Deine PLZ                       %
+\newcommand{\Ort}{München}      % Dein Ort                        %
+\newcommand{\myEmail}{info@martin-thoma.de}    % Deine Kundennummer              %
+
+                                                                    %
+\newcommand{\Empfaenger}{Cision}            % Der Empfänger         %
+\newcommand{\EStrasse}{Westhafenplatz 1}    % Straße des Empfängers %
+\newcommand{\EPLZ}{60327}                   % PLZ des Empfängers    %
+\newcommand{\EOrt}{Frankfurt am Main}       % Ort des Empfängers    %
+                                                                    %
+\newcommand{\DocTitle}{DSGVO Anfrage} %Titel des Dokuments%
+\newcommand{\Datenschutzbehoerde}{BfDI}  % DSB in Österreich        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% pdfinfo
+\pdfinfo{
+   /Author (\Nachname, \Vorname)
+   /Title  (\DocTitle)
+   /Subject (\DocTitle)
+   /Keywords (DSGVO Anfrage)
+}
+
+% set letter variables
+\signature{\Vorname~\Nachname}
+\backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
+
+% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
+    \date{\today}%Change this if you want a different date than today
+    \subject{DSGVO Anfrage}
+    \opening{Sehr geehrte Damen und Herren,}
+    % \Kundennr~ zum \Kuendigungsdatum.\\
+
+    % \noindent Ich bitte um eine Bestätigung der Kündigung.
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    Ich bitte Sie um Zugang zu meinen personenbezogenen Daten gemäß Art. 15 der
+    Datenschutz-Grundverordnung.
+
+    Im Anhang finden Sie einen Nachweis meiner Identität. Sollten Sie weitere
+    Informationen benötigen, erreichen Sie mich gerne jederzeit postalisch
+    unter oben angegebener Adresse. Gerne können Sie die Antwort auch direkt
+    per E-Mail an \myEmail{} schicken.
+
+    Ich möchte, dass Sie von vornherein wissen, dass ich, gemäß Art. 12 der
+    DSGVO, eine Beantwortung meiner Anfrage innerhalb eines Monats erwarte,
+    andernfalls werde ich diese Anfrage mit einer Beschwerde an das
+    \Datenschutzbehoerde{} weiterleiten.
+
+    Bitte informieren Sie mich über folgende Punkte:
+    \begin{enumerate}
+        \item Bitte bestätigen Sie mir, ob meine persönlichen Daten verarbeitet werden oder nicht. Wenn dies der Fall ist, teilen Sie mir bitte die Kategorien der persönlichen Daten mit, die Sie über mich in Ihren Dateien und Datenbanken haben.
+        \begin{enumerate}
+            \item Bitte sagen Sie mir insbesondere, was genau Sie in Ihren Informationssystemen über mich wissen, ob diese Daten sich in Datenbanken befinden oder nicht — einschließlich E-Mails, Dokumenten, Audio-Dateien oder in Medien-Formaten, die Sie verwenden.
+            \item Bitte teilen Sie mir außerdem mit, in welchen Ländern meine persönlichen Daten gespeichert sind oder von wo aus Sie darauf zugreifen können. Wenn Sie Cloud-Dienste zum Speichern oder Verarbeiten meiner Daten nutzen, geben Sie bitte die Länder an, in denen sich die Server befinden und wo meine Daten gespeichert sind oder waren (in den letzten 12 Monaten).
+            \item Bitte stellen Sie mir eine Kopie von oder Zugang zu meinen persönlichen Daten zur Verfügung, die Sie haben oder bearbeiten.
+        \end{enumerate}
+        \item Bitte geben Sie mir einen detaillierten Bericht über die spezifischen Verwendungen, die Sie mit meinen persönlichen Daten gemacht haben, machen oder machen werden.
+        \item Bitte geben Sie eine Liste aller Dritten an, mit denen Sie meine persönlichen Daten teilen, geteilt haben oder geteilt haben könnten.
+        \begin{enumerate}
+            \item Wenn Sie die spezifischen Dritten, denen Sie meine
+            persönlichen Daten mitgeteilt haben, nicht mit Sicherheit
+            identifizieren können, geben Sie bitte eine Liste von Dritten an,
+            denen Sie möglicherweise meine persönlichen Daten mitgeteilt haben.
+            \item Bitte geben Sie auch an, aufgrund welcher Rechtsgrundlage, wie oben in 1b) beschrieben, diese dritten Parteien, mit denen Sie meine persönlichen Daten geteilt oder geteilt haben könnten, auf meine persönlichen Daten zugreifen oder diese speichern konnten. Bitte geben Sie auch einen Einblick in die rechtliche Grundlage für die Übermittlung meiner persönlichen Daten an diese Rechtsordnungen. Bitte informieren Sie mich, ob Sie dies auf der Grundlage geeigneter Sicherheitsvorkehrungen getan haben oder tun, und legen Sie bitte eine Kopie dieser bei.
+            \item Darüber hinaus würde ich gerne wissen, welche Sicherheitsvorkehrungen in Bezug auf diese Dritten getroffen wurden, die Sie in Bezug auf die Übermittlung meiner persönlichen Daten identifiziert haben.
+        \end{enumerate}
+
+        \item Bitte geben Sie an, wie lange Sie meine persönlichen Daten
+        speichern. Wenn die Speicherung auf der Kategorie personenbezogener
+        Daten basiert, geben Sie bitte an, wie lange die einzelnen Kategorien
+        aufbewahrt werden.
+        \item Wenn Sie zusätzlich personenbezogene Daten über mich von einer
+        anderen Quelle als mir erheben, stellen Sie mir bitte alle
+        Informationen über diese Quelle gemäß Art. 14 der DSGVO zur Verfügung.
+        \item Wenn Sie automatisierte Entscheidungen über mich treffen,
+        einschließlich Profilerstellung, ob auf der Grundlage von Art. 22 der
+        Datenschutz-Grundverordnung oder nicht, geben Sie mir bitte
+        Informationen über die Grundlagen für die Logik solcher automatisierter
+        Entscheidungen und die Bedeutung und Konsequenzen von solcher
+        Verarbeitung.
+        \item Ich würde gerne wissen, ob meine persönlichen Daten in der Vergangenheit versehentlich von Ihrem Unternehmen oder aufgrund einer Sicherheits- oder Datenschutzverletzung offengelegt wurden.
+
+       \begin{enumerate}
+           \item Wenn ja, bitte informieren Sie mich über die folgenden Details jedes einzelnen Verstoßes:
+
+           \begin{enumerate*}[label=(\roman*)]
+               \item eine allgemeine Beschreibung dessen, was passiert ist;
+               \item Datum und Uhrzeit des Verstoßes (oder die bestmögliche Schätzung);
+               \item das Datum und die Uhrzeit, zu der der Verstoß entdeckt wurde;
+               \item die Quelle des Verstoßes (entweder Ihre eigene Organisation oder ein Dritter, dem Sie meine persönlichen Daten übermittelt haben);
+               \item Details meiner persönlichen Daten, die veröffentlicht wurden;
+               \item die Einschätzung Ihres Unternehmens bezüglich des Risikos eines Schadens für mich als Folge des Verstoßes;
+               \item eine Beschreibung der getroffenen oder geplanten Maßnahmen, um weiteren unbefugten Zugriff auf meine persönlichen Daten zu verhindern;
+               \item Kontaktinformationen, damit ich mehr Informationen und Unterstützung in Bezug auf einen solchen Verstoß erhalten kann, und
+               \item Informationen und Ratschläge darüber, was ich tun kann, um mich vor Schäden zu schützen, einschließlich Identitätsdiebstahl und Betrug.
+           \end{enumerate*}
+        \item Wenn Sie nicht mit Sicherheit sagen können, ob ein solcher Verstoß stattgefunden hat, geben Sie bitte an, welche mildernden Maßnahmen Sie unter Verwendung geeigneter Technologien ergriffen haben, wie z.B.
+
+        \begin{enumerate*}[label=(\roman*)]
+            \item Verschlüsselung meiner persönlichen Daten;
+            \item Datenminimierungs-Strategien;
+            \item Anonymisierung oder Pseudonymisierung;
+            \item irgendwelche anderen Mittel
+        \end{enumerate*}
+       \end{enumerate}
+        \item Ich würde gerne Ihre Informationspolitik und -standards kennen, die Sie in Bezug auf den Schutz meiner persönlichen Daten befolgen, z.B. ob Sie ISO27001 zur Informationssicherheit einhalten, und insbesondere Ihre Praktiken in Bezug auf Folgendes:
+
+\begin{enumerate}
+    \item Bitte teilen Sie mir mit, ob Sie meine persönlichen Daten auf Band, Diskette oder anderen Medien gesichert haben und wo sie gespeichert sind und wie sie gesichert sind, einschließlich der Schritte, die Sie unternommen haben, um meine persönlichen Daten vor Verlust oder Diebstahl zu schützen, und ob diese Schritte Verschlüsselung mit einschließen.
+    \item Bitte geben Sie auch an, ob Sie über eine Technologie verfügen, mit der Sie mit hinreichender Sicherheit wissen können, ob meine persönlichen Daten offengelegt wurden, einschließlich, aber nicht beschränkt auf:
+
+    \begin{enumerate*}[label=(\roman*)]
+        \item Einbruchs-Erkennungssystem;
+        \item Firewall-Technologien;
+        \item Zugangs- und Identitätsmanagement-Technologien;
+        \item Datenbankprüfungs- und / oder Sicherheitstools;
+        \item Verhaltensanalyse-Tools, Log-Analyse-Tools oder Audit-Tools;
+    \end{enumerate*}
+\end{enumerate}
+        \item In Bezug auf Mitarbeiter und Auftragnehmer, informieren Sie mich bitte über Folgendes:
+
+\begin{enumerate}
+    \item Mit welchen Technologien oder Prozessen Sie sicherstellen, dass Personen innerhalb Ihrer Organisation überwacht werden, um sicherzustellen, dass sie nicht absichtlich oder unabsichtlich personenbezogene Daten außerhalb Ihres Unternehmens per E-Mail, Webmail, Instant Messaging oder auf andere Weise weitergeben.
+    \item Hatten Sie in den letzten zwölf Monaten Situationen, in denen Mitarbeiter oder Auftragnehmer entlassen wurden und / oder strafrechtlich belangt wurden, weil Sie auf meine persönlichen Daten oder, wenn Sie dies nicht genau feststellen können, auf Kundendaten unangemessen zugegriffen haben.
+    \item Bitte geben Sie an, welche Schulungs- und Sensibilisierungs-Maßnahmen Sie ergriffen haben, um sicherzustellen, dass Mitarbeiter und Auftragnehmer in Übereinstimmung mit der Datenschutz-Grundverordnung auf meine persönlichen Daten zugreifen und diese verarbeiten.
+\end{enumerate}
+    \item Bitte geben Sie an, über welche Quelle Sie an meine persönlichen
+    Informationen, insbesondere an meine E-Mail Adresse \myEmail, gekommen
+    sind.
+    \item Bitte löschen Sie sämtliche Daten, die Sie von mir besitzen. Ich will
+          nie wieder einen Ihrer Newsletter erhalten.
+    \end{enumerate}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \includegraphics[width=\textwidth]{ausweis}
+    \closing{Mit freundlichen Grüßen,}
+    \end{letter}
+
+\end{document}
