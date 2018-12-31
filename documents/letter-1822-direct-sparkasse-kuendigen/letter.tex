@@ -1,0 +1,64 @@
+\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vorname}{Martin}     % Vorname                         %
+\newcommand{\Nachname}{Thoma}     % Nachname                        %
+\newcommand{\Strasse}{Alte Alle}  % Deine Straße                    %
+\newcommand{\Hausnummer}{107}     % Deine Hausnummer                %
+\newcommand{\PLZ}{81245}          % Deine PLZ                       %
+\newcommand{\Ort}{München}        % Dein Ort                        %
+\newcommand{\Kundennr}{DE05 5005 0000 0000 0000 00}    % Deine Kundennummer              %
+                                                                    %
+\newcommand{\Empfaenger}{1822direkt} % Der Empfänger         %
+\newcommand{\EStrasse}{Borsigallee. 19 }    % Straße des Empfängers %
+\newcommand{\EPLZ}{60388}                   % PLZ des Empfängers    %
+\newcommand{\EOrt}{Frankfurt}               % Ort des Empfängers    %
+                                                                    %
+\newcommand{\DocTitle}{Kündigung aller Konten} %Titel des Dokuments%
+% Datum der Kündigung                                               %
+\newcommand{\Kuendigungsdatum}{nächstmöglichen Termin}              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% pdfinfo
+\pdfinfo{
+   /Author (\Nachname, \Vorname)
+   /Title  (\DocTitle)
+   /Subject (\DocTitle)
+   /Keywords (Kündigung)
+}
+
+% set letter variables
+\signature{\Vorname~\Nachname}
+\customer{\Kundennr}
+\backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
+
+% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{letter}{\Empfaenger \\ G. der Frankfurter Sparkasse mbH\\ \EStrasse \\ \EPLZ~\EOrt}
+    \date{\today}%Change this if you want a different date than today
+    \subject{Kündigung}
+    \opening{Sehr geehrte Damen und Herren,}
+    hiermit kündige ich mein Konto
+
+    {}\Kundennr{}
+
+    sowie alle eventuell zusätzlich bei ihnen existierenden Konten
+    zum nächstmöglichen Zeitpunkt.
+    Bitte überweisen Sie Restguthaben auf folgendes Konto:
+
+Kontoinhaber: Martin Thoma\\
+IBAN: DE32100100000000000000\\
+BIC: NTSBDEB1XXX\\
+Name der neuen Bank: N26\\
+
+Gleichzeitig widerrufe ich eventuell erteile Freistellungsaufträge. Ich hätte
+auch gerne eine kostenlose Jahressteuerbescheinigung.
+
+    \closing{Mit freundlichen Grüßen,}
+    \end{letter}
+\end{document}
