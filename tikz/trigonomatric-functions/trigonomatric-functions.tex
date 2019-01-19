@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{shapes, calc, decorations}
+\usepackage{amsmath,amssymb}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily,scale=2]
+    \newcommand\anglePoint{40}
+    \tkzDefPoint(0,0){O}
+    \tkzDefPoint(1,0){D}
+    \tkzDefPoint(0,1){E}
+    \tkzDefPoint(1,1){up}
+    \tkzDefPoint({cos(\anglePoint * 0.0174533),0}){C}
+    \tkzDefPoint(0,{sin(\anglePoint * 0.0174533)}){S}
+    \tkzDefPoint(\anglePoint:1){P}
+
+    % Axes
+    \draw[gray] (O) circle (1);
+    \node[gray,below right] at (1,0) {1};
+    \node[blue,left] at (\anglePoint/2:1) {b};
+    \node[gray,above right] at (0,1) {1};
+    \node[gray,below right] at (-1,0) {-1};
+    \node[gray,above right] at (0,-1) {-1};
+    \draw[gray,->] (-1.2, 0) -- (1.2,0);
+    \draw[gray,->] (0,-1.2) -- (0,1.2);
+
+    % \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=left:{$C_1$}] (C1) at (0,0) {};
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](O)
+    \tkzLabelPoints[above right,font=\sansmath\sffamily](D)
+    \tkzLabelPoints[above left,font=\sansmath\sffamily](E)
+    \tkzLabelPoints[above,font=\sansmath\sffamily](P)
+    \tkzLabelPoints[below,font=\sansmath\sffamily](C)
+    \tkzLabelPoints[left,font=\sansmath\sffamily](S)
+
+    \draw[red] (0,0) -- (\anglePoint:1);
+
+    \tkzInterLL(O,P)(E,up)
+    \tkzGetPoint{K}
+    \tkzInterLL(O,P)(D,up)
+    \tkzGetPoint{T}
+
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](T)
+    \tkzLabelPoints[below right,font=\sansmath\sffamily](K)
+    \draw (S) -- (P);
+    \draw (C) -- (P);
+    \draw (E) -- (K);
+    \draw (D) -- (T);
+    \draw ({\anglePoint+180}:1.2) -- (\anglePoint:1.8);
+    \tkzMarkAngle[color=blue,arc=l,size=1cm,line width=1.5pt](D,O,P)
+    \tkzDrawPoints[size=2,fill=black](C, D, E, S, T, K, P)
+
+
+    % \tkzLabelPoints[below right,font=\sansmath\sffamily](B)
+    % \tkzLabelPoints[above,font=\sansmath\sffamily](C)
+
+    % % Draw polygon
+    % \tkzDrawPolygon[thick,fill=gray!10](A,B,C)
+
+    % % Mark angles
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=red!30](B,A,C)
+    % \tkzLabelAngle[pos=0.3](B,A,C){$\alpha$}
+
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=blue!30](C,B,A)
+    % \tkzLabelAngle[pos=0.4](C,B,A){$\beta$}
+
+    % \tkzMarkAngle[arc=l,size=0.6cm,fill=blue!30](A,C,B)
+    % \tkzLabelAngle[pos=0.4](A,C,B){$\gamma$}
+
+    % % Label lines
+    % \tkzLabelSegment[below](A,B){$c$}
+    % \tkzLabelSegment[left](A,C){$b$}
+    % \tkzLabelSegment[right](B,C){$a$}
+
+    % % Draw polygon
+    % \tkzDrawPolygon[thick](A,B,C)
+
+    % \tkzDrawSegments[very thick,red](A,B A,C)
+\end{tikzpicture}
+\end{preview}
+\end{document}
