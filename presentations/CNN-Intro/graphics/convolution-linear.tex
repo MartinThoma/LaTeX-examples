@@ -1,0 +1,217 @@
+
+\newcommand{\filtersize}{3}
+\newcommand{\filterx}{8}
+\newcommand{\filtery}{2.2}
+\newcommand{\filteroffset}{1}
+
+\newcommand{\filterxres}{12}
+
+\newcommand{\imagesize}{7}
+\newcommand{\imagex}{0}
+\newcommand{\imagey}{0}
+\newcommand{\imageoffset}{2}
+
+\newcommand{\outx}{16}
+\newcommand{\outy}{0}
+\newcommand{\outoffset}{2}
+
+\newcommand{\percx}{1}
+\newcommand{\percy}{2}
+\begin{tikzpicture}[scale=0.6]
+    \tikzstyle{point}=[draw=none,inner sep=0pt]
+
+
+    % draw perceptive field
+    \node (p1)[point] at (\imagex+\percx,
+                          \imagey+\percy+\percx*\imageoffset/\imagesize) {};
+    \node (p2)[point] at (\imagex+\percx+\filtersize,
+                          \imagey+\percy+\percx*\imageoffset/\imagesize+\filtersize*\imageoffset/\imagesize) {};
+    \node (p3)[point,blue] at (\imagex+\percx+\filtersize,
+                          \imagey+\percy+\filtersize+\percx*\imageoffset/\imagesize+\filtersize*\imageoffset/\imagesize) {};
+    \node (p4)[point] at (\imagex+\percx,
+                          \imagey+\percy+\filtersize+\percx*\imageoffset/\imagesize) {};
+    \draw[fill=gray] (p1.center) -- (p2.center) -- (p3.center) -- (p4.center) -- (p1.center);
+
+    % draw output point
+    \node (o1)[point] at (\outx+\percx+1,
+                          \outy+\percy+\percx*\outoffset/\imagesize+1+1*\outoffset/\imagesize) {};
+    \node (o2)[point] at (\outx+\percx+2,
+                          \outy+\percy+\percx*\outoffset/\imagesize+1*\outoffset/\imagesize+1+1*\outoffset/\imagesize) {};
+    \node (o3)[point,blue] at (\outx+\percx+2,
+                          \outy+\percy+1+\percx*\outoffset/\imagesize+1*\outoffset/\imagesize+1+1*\outoffset/\imagesize) {};
+    \node (o4)[point] at (\outx+\percx+1,
+                          \outy+\percy+2+\percx*\outoffset/\imagesize+1*\outoffset/\imagesize) {};
+    \draw[fill=gray] (o1.center) -- (o2.center) -- (o3.center) -- (o4.center) -- (o1.center);
+
+    % draw image
+    \foreach \x in {0,...,\imagesize}
+    {
+    \draw (\imagex+\x, \imagey+\x*\imageoffset/\imagesize) -- (\imagex+\x, \imagey+\imagesize+\x*\imageoffset/\imagesize);
+    \draw (\imagex, \imagey+\x) -- (\imagex+\imagesize, \imagey+\x+\imageoffset);
+    }
+
+    % draw filter
+    \foreach \x in {0,...,\filtersize}
+    {
+    \draw (\filterx+\x, \filtery+\x*\filteroffset/\filtersize) -- (\filterx+\x, \filtery+\filtersize+\x*\filteroffset/\filtersize);
+    \draw (\filterx, \filtery+\x) -- (\filterx+\filtersize, \filtery+\x+\filteroffset);
+    }
+
+    % draw filter result
+    \foreach \x in {0,...,\filtersize}
+    {
+    \draw (\filterxres+\x, \filtery+\x*\filteroffset/\filtersize) -- (\filterxres+\x, \filtery+\filtersize+\x*\filteroffset/\filtersize);
+    \draw (\filterxres, \filtery+\x) -- (\filterxres+\filtersize, \filtery+\x+\filteroffset);
+    }
+
+    % draw out
+    \foreach \x in {0,...,\imagesize}
+    {
+    \draw (\outx+\x, \outy+\x*\outoffset/\imagesize) -- (\outx+\x, \outy+\imagesize+\x*\outoffset/\imagesize);
+    \draw (\outx, \outy+\x) -- (\outx+\imagesize, \outy+\x+\outoffset);
+    }
+
+    \node at (\imagex + \imagesize/2,\imagey + \imagesize + 2) {\Huge $I \in \mathbb{R}^{\imagesize \times \imagesize}$};
+     \node[text width=4cm, align=center] at (\filterx + \filtersize/2,\filtery + \filtersize - 4) {\large Filter kernel\\$F \in \mathbb{R}^{\filtersize \times \filtersize}$};
+    \node[text width=4cm, align=center] at (\filterx + 4 + \filtersize/2,\filtery + \filtersize - 4) {\large Result of point-wise multiplication};
+    \node at (\outx + \imagesize/2,\outy + \imagesize + 2) {\Huge $I' \in \mathbb{R}^{\imagesize \times \imagesize}$};
+
+    % Start image (left to right, top to bottom)
+    \node[draw=none] at (0.5, 6.6) {\large 104};
+    \node[draw=none] at (1.5, 6.9) {\large 116};
+    \node[draw=none] at (2.5, 7.2) {\large 116};
+    \node[draw=none] at (3.5, 7.5) {\large 112};
+    \node[draw=none] at (4.5, 7.8) {\large  58};
+    \node[draw=none] at (5.5, 8.1) {\large  47};
+    \node[draw=none] at (6.5, 8.4) {\large  47};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \node[draw=none] at (0.5, 5.6) {\large 109};
+    \node[draw=none] at (1.5, 5.9) {\large  97};
+    \node[draw=none] at (2.5, 6.2) {\large 114};
+    \node[draw=none] at (3.5, 6.5) {\large 116};
+    \node[draw=none] at (4.5, 6.8) {\large 105};
+    \node[draw=none] at (5.5, 7.1) {\large 110};
+    \node[draw=none] at (6.5, 7.4) {\large  45};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \node[draw=none] at (0.5, 4.6) {\large 116};
+    \node[draw=none] at (1.5, 4.9) {\large 104};
+    \node[draw=none] at (2.5, 5.2) {\large 111};
+    \node[draw=none] at (3.5, 5.5) {\large 109};
+    \node[draw=none] at (4.5, 5.8) {\large  97};
+    \node[draw=none] at (5.5, 6.1) {\large  46};
+    \node[draw=none] at (6.5, 6.4) {\large 100};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \node[draw=none] at (0.5, 3.6) {\large 101};
+    \node[draw=none] at (1.5, 3.9) {\large  47};
+    \node[draw=none] at (2.5, 4.2) {\large 109};
+    \node[draw=none] at (3.5, 4.5) {\large  97};
+    \node[draw=none] at (4.5, 4.8) {\large 115};
+    \node[draw=none] at (5.5, 5.1) {\large 116};
+    \node[draw=none] at (6.5, 5.4) {\large 101};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \node[draw=none] at (0.5, 2.6) {\large 114};
+    \node[draw=none] at (1.5, 2.9) {\large  47};
+    \node[draw=none] at (2.5, 3.2) {\large  99};
+    \node[draw=none] at (3.5, 3.5) {\large  97};
+    \node[draw=none] at (4.5, 3.8) {\large 116};
+    \node[draw=none] at (5.5, 4.1) {\large  99};
+    \node[draw=none] at (6.5, 4.4) {\large  97};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \node[draw=none] at (0.5, 1.6) {\large 116};
+    \node[draw=none] at (1.5, 1.9) {\large  99};
+    \node[draw=none] at (2.5, 2.2) {\large  97};
+    \node[draw=none] at (3.5, 2.5) {\large 116};
+    \node[draw=none] at (4.5, 2.8) {\large  46};
+    \node[draw=none] at (5.5, 3.1) {\large 112};
+    \node[draw=none] at (6.5, 3.4) {\large 104};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \node[draw=none] at (0.5, 0.6) {\large 112};
+    \node[draw=none] at (1.5, 0.9) {\large  63};
+    \node[draw=none] at (2.5, 1.2) {\large 118};
+    \node[draw=none] at (3.5, 1.5) {\large  61};
+    \node[draw=none] at (4.5, 1.8) {\large  49};
+    \node[draw=none] at (5.5, 2.1) {\large  46};
+    \node[draw=none] at (6.5, 2.4) {\large  48};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    % Filter
+    \node[draw=none] at ( 8.5, 4.8) {\large  9};
+    \node[draw=none] at ( 9.5, 5.1) {\large -3};
+    \node[draw=none] at (10.5, 5.4) {\large -1};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \node[draw=none] at ( 8.5, 3.8) {\large -6};
+    \node[draw=none] at ( 9.5, 4.1) {\large  5};
+    \node[draw=none] at (10.5, 4.4) {\large  3};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \node[draw=none] at ( 8.5, 2.8) {\large  2};
+    \node[draw=none] at ( 9.5, 3.1) {\large -8};
+    \node[draw=none] at (10.5, 3.4) {\large  0};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    % Result
+    \node[draw=none] at (12.5, 4.8) {\large  936};
+    \node[draw=none] at (13.5, 5.1) {\large -333};
+    \node[draw=none] at (14.5, 5.4) {\large -109};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \node[draw=none] at (12.5, 3.8) {\large -282};
+    \node[draw=none] at (13.5, 4.1) {\large  545};
+    \node[draw=none] at (14.5, 4.4) {\large  291};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \node[draw=none] at (12.5, 2.8) {\large   94};
+    \node[draw=none] at (13.5, 3.1) {\large -792};
+    \node[draw=none] at (14.5, 3.4) {\large  0};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    % Result image (left to right, top to bottom)
+    % [[  -4 -254 -498 -662 -849 -642 -187]
+    \node[draw=none] at (16.5, 6.6) {\large -4};
+    \node[draw=none] at (17.5, 6.9) {\large -254};
+    \node[draw=none] at (18.5, 7.2) {\large -498};
+    \node[draw=none] at (19.5, 7.5) {\large -662};
+    \node[draw=none] at (20.5, 7.8) {\large -849};
+    \node[draw=none] at (21.5, 8.1) {\large -642};
+    \node[draw=none] at (22.5, 8.4) {\large 187};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %  [-520   45  240  211  388  215 -861]
+    \node[draw=none] at (16.5, 5.6) {\large-520};
+    \node[draw=none] at (17.5, 5.9) {\large  45};
+    \node[draw=none] at (18.5, 6.2) {\large 240};
+    \node[draw=none] at (19.5, 6.5) {\large 211};
+    \node[draw=none] at (20.5, 6.8) {\large 388};
+    \node[draw=none] at (21.5, 7.1) {\large 215};
+    \node[draw=none] at (22.5, 7.4) {\large-861};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %  [-340  559 -105  185 -138 -180  503]
+    \node[draw=none] at (16.5, 4.6) {\large -340};
+    \node[draw=none] at (17.5, 4.9) {\large  559};
+    \node[draw=none] at (18.5, 5.2) {\large -105};
+    \node[draw=none] at (19.5, 5.5) {\large  185};
+    \node[draw=none] at (20.5, 5.8) {\large -138};
+    \node[draw=none] at (21.5, 6.1) {\large -180};
+    \node[draw=none] at (22.5, 6.4) {\large  503};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %  [-718  429  350  173  251  268 -655]
+    \node[draw=none] at (16.5, 3.6) {\large -718};
+    \node[draw=none] at (17.5, 3.9) {\large  429};
+    \node[draw=none] at (18.5, 4.2) {\large  350};
+    \node[draw=none] at (19.5, 4.5) {\large  173};
+    \node[draw=none] at (20.5, 4.8) {\large  251};
+    \node[draw=none] at (21.5, 5.1) {\large  268};
+    \node[draw=none] at (22.5, 5.4) {\large -655};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %  [-567  -53  -75   80  571 -128   24]
+    \node[draw=none] at (16.5, 2.6) {\large -567};
+    \node[draw=none] at (17.5, 2.9) {\large  -53};
+    \node[draw=none] at (18.5, 3.2) {\large  -75};
+    \node[draw=none] at (19.5, 3.5) {\large   80};
+    \node[draw=none] at (20.5, 3.8) {\large  571};
+    \node[draw=none] at (21.5, 4.1) {\large -128};
+    \node[draw=none] at (22.5, 4.4) {\large   24};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %  [-408  596 -550  368   26  976  156]
+    \node[draw=none] at (16.5, 1.6) {\large -408};
+    \node[draw=none] at (17.5, 1.9) {\large  596};
+    \node[draw=none] at (18.5, 2.2) {\large -550};
+    \node[draw=none] at (19.5, 2.5) {\large  368};
+    \node[draw=none] at (20.5, 2.8) {\large   26};
+    \node[draw=none] at (21.5, 3.1) {\large  976};
+    \node[draw=none] at (22.5, 3.4) {\large  156};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %  [ 302  647  879  223  811   54  660]]
+    \node[draw=none] at (16.5, 0.6) {\large 302};
+    \node[draw=none] at (17.5, 0.9) {\large 647};
+    \node[draw=none] at (18.5, 1.2) {\large 879};
+    \node[draw=none] at (19.5, 1.5) {\large 223};
+    \node[draw=none] at (20.5, 1.8) {\large 811};
+    \node[draw=none] at (21.5, 2.1) {\large  54};
+    \node[draw=none] at (22.5, 2.4) {\large 660};%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{tikzpicture}

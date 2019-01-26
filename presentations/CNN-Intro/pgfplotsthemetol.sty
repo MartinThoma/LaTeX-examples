@@ -1,0 +1,123 @@
+%%
+%% This is file `pgfplotsthemetol.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% pgfplotsthemetol.dtx  (with options: `package')
+%% ---------------------------------------------------------------------------
+%% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
+%% contributors can be found at
+%% 
+%%     https://github.com/matze/mtheme/graphs/contributors
+%% 
+%% and the original template was based on the HSRM theme by Benjamin Weiss.
+%% 
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/).
+%% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pgfplotsthemetol}
+    [2017/01/23 PGFplots colors based on Paul Tol's SRON technical note]
+\definecolor{TolDarkPurple}{HTML}{332288}
+\definecolor{TolDarkBlue}{HTML}{6699CC}
+\definecolor{TolLightBlue}{HTML}{88CCEE}
+\definecolor{TolLightGreen}{HTML}{44AA99}
+\definecolor{TolDarkGreen}{HTML}{117733}
+\definecolor{TolDarkBrown}{HTML}{999933}
+\definecolor{TolLightBrown}{HTML}{DDCC77}
+\definecolor{TolDarkRed}{HTML}{661100}
+\definecolor{TolLightRed}{HTML}{CC6677}
+\definecolor{TolLightPink}{HTML}{AA4466}
+\definecolor{TolDarkPink}{HTML}{882255}
+\definecolor{TolLightPurple}{HTML}{AA4499}
+\pgfplotscreateplotcyclelist{mbarplot cycle}{%
+  {draw=TolDarkBlue,    fill=TolDarkBlue!70},
+  {draw=TolLightBrown,  fill=TolLightBrown!70},
+  {draw=TolLightGreen,  fill=TolLightGreen!70},
+  {draw=TolDarkPink,    fill=TolDarkPink!70},
+  {draw=TolDarkPurple,  fill=TolDarkPurple!70},
+  {draw=TolDarkRed,     fill=TolDarkRed!70},
+  {draw=TolDarkBrown,   fill=TolDarkBrown!70},
+  {draw=TolLightRed,    fill=TolLightRed!70},
+  {draw=TolLightPink,   fill=TolLightPink!70},
+  {draw=TolLightPurple, fill=TolLightPurple!70},
+  {draw=TolLightBlue,   fill=TolLightBlue!70},
+  {draw=TolDarkGreen,   fill=TolDarkGreen!70},
+}
+\pgfplotscreateplotcyclelist{mlineplot cycle}{%
+  {TolDarkBlue, mark=*, mark size=1.5pt},
+  {TolLightBrown, mark=square*, mark size=1.3pt},
+  {TolLightGreen, mark=triangle*, mark size=1.5pt},
+  {TolDarkBrown, mark=diamond*, mark size=1.5pt},
+}
+\pgfplotsset{
+  compat=1.9,
+  mlineplot/.style={
+    mbaseplot,
+    xmajorgrids=true,
+    ymajorgrids=true,
+    major grid style={dotted},
+    axis x line=bottom,
+    axis y line=left,
+    legend style={
+      cells={anchor=west},
+      draw=none
+    },
+    cycle list name=mlineplot cycle,
+  },
+  mbarplot base/.style={
+    mbaseplot,
+    bar width=6pt,
+    axis y line*=none,
+  },
+  mbarplot/.style={
+    mbarplot base,
+    ybar,
+    xmajorgrids=false,
+    ymajorgrids=true,
+    area legend,
+    legend image code/.code={%
+      \draw[#1] (0cm,-0.1cm) rectangle (0.15cm,0.1cm);
+    },
+    cycle list name=mbarplot cycle,
+  },
+  horizontal mbarplot/.style={
+    mbarplot base,
+    xmajorgrids=true,
+    ymajorgrids=false,
+    xbar stacked,
+    area legend,
+    legend image code/.code={%
+      \draw[#1] (0cm,-0.1cm) rectangle (0.15cm,0.1cm);
+    },
+    cycle list name=mbarplot cycle,
+  },
+  mbaseplot/.style={
+    legend style={
+      draw=none,
+      fill=none,
+      cells={anchor=west},
+    },
+    x tick label style={
+      font=\footnotesize
+    },
+    y tick label style={
+      font=\footnotesize
+    },
+    legend style={
+      font=\footnotesize
+    },
+    major grid style={
+      dotted,
+    },
+    axis x line*=bottom,
+  },
+  disable thousands separator/.style={
+    /pgf/number format/.cd,
+      1000 sep={}
+  },
+}
+\endinput
+%%
+%% End of file `pgfplotsthemetol.sty'.

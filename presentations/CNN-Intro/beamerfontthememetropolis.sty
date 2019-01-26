@@ -1,0 +1,325 @@
+%%
+%% This is file `beamerfontthememetropolis.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% beamerfontthememetropolis.dtx  (with options: `package')
+%% ---------------------------------------------------------------------------
+%% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
+%% contributors can be found at
+%% 
+%%     https://github.com/matze/mtheme/graphs/contributors
+%% 
+%% and the original template was based on the HSRM theme by Benjamin Weiss.
+%% 
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/).
+%% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerfontthememetropolis}[2017/01/23 Metropolis font theme]
+\RequirePackage{etoolbox}
+\RequirePackage{ifxetex}
+\RequirePackage{ifluatex}
+\RequirePackage{pgfopts}
+\ifboolexpr{bool {xetex} or bool {luatex}}{
+  \@ifpackageloaded{fontspec}{
+    \PassOptionsToPackage{no-math}{fontspec}
+  }{
+    \RequirePackage[no-math]{fontspec}
+  }
+  \newcounter{fontsnotfound}
+  \newcommand{\checkfont}[1]{%
+    \suppressfontnotfounderror=1%
+    \font\x = "#1" at 10pt
+    \selectfont
+    \ifx\x\nullfont%
+      \stepcounter{fontsnotfound}%
+    \fi%
+    \suppressfontnotfounderror=0%
+  }
+
+  \newcommand{\iffontsavailable}[3]{%
+    \setcounter{fontsnotfound}{0}%
+    \expandafter\forcsvlist\expandafter%
+    \checkfont\expandafter{#1}%
+    \ifnum\value{fontsnotfound}=0%
+      #2%
+    \else%
+      #3%
+    \fi%
+  }
+  \iffontsavailable{Fira Sans Light,%
+                    Fira Sans Light Italic,%
+                    Fira Sans,%
+                    Fira Sans Italic}%
+  {%
+    \setsansfont[ItalicFont={Fira Sans Light Italic},%
+                 BoldFont={Fira Sans},%
+                 BoldItalicFont={Fira Sans Italic}]%
+                {Fira Sans Light}%
+  }{%
+    \iffontsavailable{Fira Sans Light OT,%
+                      Fira Sans Light Italic OT,%
+                      Fira Sans OT,%
+                      Fira Sans Italic OT}%
+    {%
+      \setsansfont[ItalicFont={Fira Sans Light Italic OT},%
+                   BoldFont={Fira Sans OT},%
+                   BoldItalicFont={Fira Sans Italic OT}]%
+                  {Fira Sans Light OT}%
+    }{%
+      \PackageWarning{beamerthememetropolis}{%
+        Could not find Fira Sans fonts%
+      }
+    }
+  }
+  \iffontsavailable{Fira Mono, Fira Mono Bold}{%
+    \setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}%
+  }{%
+    \iffontsavailable{Fira Mono OT, Fira Mono Bold OT}{%
+      \setmonofont[BoldFont={Fira Mono Medium OT}]{Fira Mono OT}%
+    }{%
+      \PackageWarning{beamerthememetropolis}{%
+        Could not find Fira Mono fonts%
+      }
+    }
+  }
+  \AtBeginEnvironment{tabular}{%
+    \addfontfeature{Numbers={Monospaced}}%
+  }
+}{%
+  \PackageWarning{beamerthememetropolis}{%
+    You need to compile with XeLaTeX or LuaLaTeX to use the Fira fonts%
+  }
+}
+\setbeamerfont{title}{size=\Large,%
+                      series=\bfseries}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{section title}{size=\Large,%
+                              series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize,%
+                            series=\bfseries}
+\setbeamerfont{block title alerted}{size=\normalsize,%
+                                    series=\bfseries}
+\setbeamerfont*{subtitle}{size=\large}
+\setbeamerfont{frametitle}{size=\large,%
+                           series=\bfseries}
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{caption name}{series=\bfseries}
+\setbeamerfont{description item}{series=\bfseries}
+\setbeamerfont{page number in head/foot}{size=\scriptsize}
+\setbeamerfont{bibliography entry author}{size=\normalsize,%
+                                          series=\normalfont}
+\setbeamerfont{bibliography entry title}{size=\normalsize,%
+                                         series=\bfseries}
+\setbeamerfont{bibliography entry location}{size=\normalsize,%
+                                            series=\normalfont}
+\setbeamerfont{bibliography entry note}{size=\small,%
+                                        series=\normalfont}
+\setbeamerfont{standout}{size=\Large,%
+                         series=\bfseries}
+\pgfkeys{
+  /metropolis/font/titleformat title/.cd,
+    .is choice,
+    regular/.code={%
+      \let\metropolis@titleformat\@empty%
+      \setbeamerfont{title}{shape=\normalfont}%
+    },
+    smallcaps/.code={%
+      \let\metropolis@titleformat\@empty%
+      \setbeamerfont{title}{shape=\scshape}%
+    },
+    allsmallcaps/.code={%
+      \let\metropolis@titleformat\lowercase%
+      \setbeamerfont{title}{shape=\scshape}%
+      \PackageWarning{beamerthememetropolis}{%
+        Be aware that titleformat title=allsmallcaps can lead to problems%
+      }
+    },
+    allcaps/.code={%
+      \let\metropolis@titleformat\uppercase%
+      \setbeamerfont{title}{shape=\normalfont}
+      \PackageWarning{beamerthememetropolis}{%
+        Be aware that titleformat title=allcaps can lead to problems%
+      }
+    },
+}
+\pgfkeys{
+  /metropolis/font/titleformat subtitle/.cd,
+    .is choice,
+    regular/.code={%
+      \let\metropolis@subtitleformat\@empty%
+      \setbeamerfont{subtitle}{shape=\normalfont}%
+    },
+    smallcaps/.code={%
+      \let\metropolis@subtitleformat\@empty%
+      \setbeamerfont{subtitle}{shape=\scshape}%
+    },
+    allsmallcaps/.code={%
+      \let\metropolis@subtitleformat\lowercase%
+      \setbeamerfont{subtitle}{shape=\scshape}%
+      \PackageWarning{beamerthememetropolis}{%
+        Be aware that titleformat subtitle=allsmallcaps can lead to problems%
+      }
+    },
+    allcaps/.code={%
+      \let\metropolis@subtitleformat\uppercase%
+      \setbeamerfont{subtitle}{shape=\normalfont}%
+      \PackageWarning{beamerthememetropolis}{%
+        Be aware that titleformat subtitle=allcaps can lead to problems%
+      }
+    },
+}
+\pgfkeys{
+  /metropolis/font/titleformat section/.cd,
+    .is choice,
+    regular/.code={%
+      \let\metropolis@sectiontitleformat\@empty%
+      \setbeamerfont{section title}{shape=\normalfont}%
+    },
+    smallcaps/.code={%
+      \let\metropolis@sectiontitleformat\@empty%
+      \setbeamerfont{section title}{shape=\scshape}%
+    },
+    allsmallcaps/.code={%
+      \let\metropolis@sectiontitleformat\MakeLowercase%
+      \setbeamerfont{section title}{shape=\scshape}%
+      \PackageWarning{beamerthememetropolis}{%
+        Be aware that titleformat section=allsmallcaps can lead to problems%
+      }
+    },
+    allcaps/.code={%
+      \let\metropolis@sectiontitleformat\MakeUppercase%
+      \setbeamerfont{section title}{shape=\normalfont}%
+      \PackageWarning{beamerthememetropolis}{%
+        Be aware that titleformat section=allcaps can lead to problems%
+      }
+    },
+}
+\pgfkeys{
+  /metropolis/font/titleformat frame/.cd,
+    .is choice,
+    regular/.code={%
+      \let\metropolis@frametitleformat\@empty%
+      \setbeamerfont{frametitle}{shape=\normalfont}%
+    },
+    smallcaps/.code={%
+      \let\metropolis@frametitleformat\@empty%
+      \setbeamerfont{frametitle}{shape=\scshape}%
+    },
+    allsmallcaps/.code={%
+      \let\metropolis@frametitleformat\MakeLowercase%
+      \setbeamerfont{frametitle}{shape=\scshape}%
+      \PackageWarning{beamerthememetropolis}{%
+        Be aware that titleformat frame=allsmallcaps can lead to problems%
+      }
+    },
+    allcaps/.code={%
+      \let\metropolis@frametitleformat\MakeUppercase%
+      \setbeamerfont{frametitle}{shape=\normalfont}
+      \PackageWarning{beamerthememetropolis}{%
+        Be aware that titleformat frame=allcaps can lead to problems%
+      }
+    },
+}
+\pgfkeys{
+  /metropolis/font/.cd,
+  titleformattitle/.code=\pgfkeysalso{titleformat title=#1},
+  titleformatsubtitle/.code=\pgfkeysalso{titleformat subtitle=#1},
+  titleformatsection/.code=\pgfkeysalso{titleformat section=#1},
+  titleformatframe/.code=\pgfkeysalso{titleformat frame=#1},
+}
+\newcommand{\metropolis@font@setdefaults}{
+  \pgfkeys{/metropolis/font/.cd,
+    titleformat title=regular,
+    titleformat subtitle=regular,
+    titleformat section=regular,
+    titleformat frame=regular,
+  }
+}
+\def\metropolis@titleformat#1{#1}
+\def\metropolis@subtitleformat#1{#1}
+\def\metropolis@sectiontitleformat#1{#1}
+\def\metropolis@frametitleformat#1{#1}
+\patchcmd{\beamer@title}%
+  {\def\inserttitle{#2}}%
+  {\def\inserttitle{\metropolis@titleformat{#2}}}%
+  {}%
+  {\PackageError{beamerfontthememetropolis}{Patching title failed}\@ehc}
+\patchcmd{\beamer@subtitle}%
+  {\def\insertsubtitle{#2}}%
+  {\def\insertsubtitle{\metropolis@subtitleformat{#2}}}%
+  {}%
+  {\PackageError{beamerfontthememetropolis}{Patching subtitle failed}\@ehc}
+\patchcmd{\sectionentry}
+  {\def\insertsectionhead{#2}}
+  {\def\insertsectionhead{\metropolis@sectiontitleformat{#2}}}
+  {}
+  {\PackageError{beamerfontthememetropolis}{Patching section title failed}\@ehc}
+\@tempswafalse
+\patchcmd{\beamer@section}
+  {\edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{\unexpanded{#1}}}}
+  {\edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
+    \noexpand\metropolis@sectiontitleformat{\unexpanded{#1}}}}}
+  {\@tempswatrue}
+  {}
+\patchcmd{\beamer@section}
+  {\def\insertsectionhead{\hyperlink{Navigation\the\c@page}{#1}}}
+  {\def\insertsectionhead{\hyperlink{Navigation\the\c@page}{%
+    \metropolis@sectiontitleformat{#1}}}}
+  {\@tempswatrue}
+  {}
+\patchcmd{\beamer@section}
+  {\protected@edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{#1}}}
+  {\protected@edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
+    \noexpand\metropolis@sectiontitleformat{#1}}}}
+  {\@tempswatrue}
+  {}
+\if@tempswa\else
+  \PackageError{beamerfontthememetropolis}{Patching section title failed}\@ehc
+\fi
+\@tempswafalse
+\patchcmd{\beamer@subsection}
+  {\edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{\unexpanded{#1}}}}
+  {\edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
+    \noexpand\metropolis@sectiontitleformat{\unexpanded{#1}}}}}
+  {\@tempswatrue}
+  {}
+\patchcmd{\beamer@subsection}
+  {\def\insertsubsectionhead{\hyperlink{Navigation\the\c@page}{#1}}}
+  {\def\insertsubsectionhead{\hyperlink{Navigation\the\c@page}{%
+    \metropolis@sectiontitleformat{#1}}}}
+  {\@tempswatrue}
+  {}
+\patchcmd{\beamer@subsection}
+  {\protected@edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{#1}}}
+  {\protected@edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
+    \noexpand\metropolis@sectiontitleformat{#1}}}}
+  {\@tempswatrue}
+  {}
+\if@tempswa\else
+  \PackageError{beamerfontthememetropolis}{Patching section title failed}\@ehc
+\fi
+\patchcmd{\beamer@@frametitle}
+  {{%
+      \gdef\insertframetitle{{#2\ifnum\beamer@autobreakcount>0\relax{}\space%
+      \usebeamertemplate*{frametitle continuation}\fi}}%
+    \gdef\beamer@frametitle{#2}%
+    \gdef\beamer@shortframetitle{#1}%
+    }}
+  {{%
+      \gdef\insertframetitle{{\metropolis@frametitleformat{#2}\ifnum%
+      \beamer@autobreakcount>0\relax{}\space%
+      \usebeamertemplate*{frametitle continuation}\fi}}%
+    \gdef\beamer@frametitle{#2}%
+    \gdef\beamer@shortframetitle{#1}%
+    }}
+  {}
+  {\PackageError{beamerfontthememetropolis}{Patching frame title failed}\@ehc}
+\metropolis@font@setdefaults
+\ProcessPgfPackageOptions{/metropolis/font}
+\endinput
+%%
+%% End of file `beamerfontthememetropolis.sty'.

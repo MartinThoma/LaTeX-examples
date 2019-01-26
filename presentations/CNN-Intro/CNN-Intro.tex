@@ -1,0 +1,119 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[english]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes.multipart, calc}
+
+\begin{document}
+
+\title{Convolutional Neural Networks (CNNs)}
+\subtitle{Theory and Applications}
+\author{Martin Thoma}
+\date{22. February 2019}
+\subject{Machine Learning, AI, Neural Networks, Convolutional Neural Networks}
+
+\frame{\titlepage}
+
+% \section{Neural Network Basics}
+% \subsection{}
+\begin{frame}{Artificial Neuron (Perceptron)}
+    $$f: \mathbb{R}^n \rightarrow \mathbb{R}$$
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/artificial-neuron.pdf}
+    \end{figure}
+    % $$f(x) = ax^2 + bx + c \text{ with } f(0) = 3, f(1) = 2, f(-1) = 6$$
+    % \begin{align*}
+    %     \onslide<2->{f(0) &= a \cdot 0^2 + b \cdot 0 + c = 3} &\onslide<3->{\Rightarrow c &= 3\\}
+    %     \onslide<4->{f(1) &= a \cdot 1^2 + b \cdot 1 + 3 = 2} &\onslide<5->{\Rightarrow a &= -1-b\\}
+    %     \onslide<6->{f(-1) &= a \cdot {(-1)}^2 - b + 3 = 6\\}
+    %     \onslide<7->{\Leftrightarrow 3&=a - b\\}
+    %     \onslide<8->{\Leftrightarrow 3&= (-1-b) - b\\}
+    %     \onslide<9->{\Leftrightarrow b&= -2\\}
+    %     \onslide<10>{\Rightarrow \quad f(x) &= x^2 -2 x + 3\\}
+    % \end{align*}
+%     \only<1>{$$f: \mathbb{R}^n \rightarrow \mathbb{R}^m$$}
+%     \only<2>{$$f: \mathbb{R}^2 \rightarrow \mathbb{R}$$
+% # 2x - 1
+% # (x-1)^2 + 1
+%     Examples:
+%         \begin{itemize}
+%             \item $1 \rightarrow 1$: $f(x) = x$
+%             \item $2 \rightarrow 3$: $f(x) = $
+%             % \item $3 \rightarrow 3$
+%         \end{itemize}
+%     }
+\end{frame}
+
+\begin{frame}{Multi-Layer Perceptron (MLP)}
+    $$f: \mathbb{R}^n \rightarrow \mathbb{R}^m$$
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/perceptron-notation.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{}
+    \begin{itemize}[<+->]
+        \item Predict housing prices: (bed rooms, size, age) $\rightarrow$ Price
+        \item Product categorization: (weight, volume, price) $\rightarrow$ \{shoe, handbag, shirt\}
+        \item Image classification: List of pixel colors $\rightarrow$ \{cat, dog\}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+    \begin{center}
+    \Huge Data
+    \end{center}
+\end{frame}
+
+\begin{frame}{Necessary Data}
+    \begin{itemize}
+        \item $f(x) = w_0$
+        \item $f(x) = w_1 \cdot x + w_0$
+        \item $f(x) = w_2^2 \cdot x^2 + w_1^2 \cdot x + w_0$
+        \item sin, cos, tan, \dots
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Convolution}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth]{graphics/convolution-linear.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Convolutional Layer}
+\begin{figure}[ht]
+    \centering
+    \input{graphics/convolution-layer}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Max Pooling}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth]{graphics/max-pooling.pdf}
+\end{figure}
+\end{frame}
+
+\section{Applications}
+\begin{frame}{Symbol recognizer}
+    \begin{center}
+        \href{http://write-math.com}{write-math.com}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Symbol recognizer}
+GANs
+\end{frame}
+
+\end{document}
