@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
 \usepackage[english]{babel} % this is needed for german umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage{caption}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations.pathreplacing}
@@ -11,6 +12,7 @@
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{shapes.multipart, calc}
+\usepackage{minted} % needed for the inclusion of source code
 
 \begin{document}
 
@@ -107,13 +109,94 @@
 
 \section{Applications}
 \begin{frame}{Symbol recognizer}
-    \begin{center}
-        \href{http://write-math.com}{write-math.com}
-    \end{center}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/symbol-recognizer.png}
+    \captionsetup{labelformat=empty}
+    \caption{\href{http://write-math.com}{write-math.com}}
+\end{figure}
 \end{frame}
 
-\begin{frame}{Symbol recognizer}
-GANs
+\begin{frame}{}
+\inputminted[linenos,
+               numbersep=7pt,
+               gobble=0,
+               % frame=none,
+               % framesep=2mm,
+                fontsize=\footnotesize, tabsize=4]{python}{cnn.py}
+\end{frame}
+
+\begin{frame}{Super Resolution}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/pixel-recursive-super-resolution.png}
+    \captionsetup{labelformat=empty}
+    \caption{Dahl, Norouzi, Shlens: Pixel recursive super resolution (2017)}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Colorization: The Problem}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/multimodality-apple.png}
+    \captionsetup{labelformat=empty}
+    \caption{Cinarel: Automatic Colorization of Webtoons Using Deep Convolutional Neural Networks (2018)}
+\end{figure}
+
+Interactive Demo: \href{http://richzhang.github.io/colorization/}{richzhang.github.io/colorization}
+\end{frame}
+
+
+\begin{frame}{Colorization - Photographs}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/colorful-image-colorization.png}
+    \captionsetup{labelformat=empty}
+    \caption{Zhang, Isola, Efros: Colorful Image Colorization (2016)}
+\end{figure}
+
+Interactive Demo: \href{http://richzhang.github.io/colorization/}{richzhang.github.io/colorization}
+\end{frame}
+
+
+\begin{frame}{Colorization - Comic}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/comic-colorization.png}
+    \captionsetup{labelformat=empty}
+    \caption{Ci, Ma, Wang, Li, Luo: User-Guided Deep Anime Line Art Colorization with Conditional Adversarial Networks (2018)}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Denoising}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/denoising.png}
+    \captionsetup{labelformat=empty}
+    \caption{Zhang, Zuo, Gu, Zhang: Learning Deep CNN Denoiser Prior for Image Restoration (2017)}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Image Inpainting (Watermark removal)}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/leopard-inpainting.png}
+    \captionsetup{labelformat=empty}
+    \caption{Yang, Lu, Lin, Shechtman, Wang, Li: High-Resolution Image Inpainting using Multi-Scale Neural Patch Synthesis (2017)}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{CNNs in NLP}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\paperwidth, height=0.7\paperheight, keepaspectratio]{graphics/tdnns.png}
+    \captionsetup{labelformat=empty}
+    \caption{Collobert, Weston, Bottou, Karlen, Kavukcuoglu, Kuksa: 
+Natural Language Processing (almost) from Scratch (2011)}
+\end{figure}
 \end{frame}
 
 \end{document}
