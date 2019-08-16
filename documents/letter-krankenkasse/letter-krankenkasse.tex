@@ -6,7 +6,6 @@
 
 % Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Vorname}{Martin}     % Vorname                         %
-\newcommand{\VornameVater}{Otto}  % Vorname                         %
 \newcommand{\Nachname}{Thoma}     % Nachname                        %
 \newcommand{\Strasse}{Parkstraße} % Deine Straße                    %
 \newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
@@ -14,10 +13,8 @@
 \newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
 \newcommand{\Kundennr}{F012345678}% Deine Kundennummer              %
 \newcommand{\Email}{info@martin-thoma.de}   % Deine email           %
-\newcommand{\Bank}{Sparkasse Karlsruhe Ettlingen}                   %
-\newcommand{\KontoNr}{123456}                                       %
-\newcommand{\BLZ}{123 456 78}                                       %
-\newcommand{\BIC}{KARSDE12XXX}                                      %
+\newcommand{\Bank}{N26 Bank}                   %
+\newcommand{\BIC}{NTSBDEB1XXX}                                      %
 \newcommand{\IBAN}{DE1234567890123}                                 %
                                                                     %
 \newcommand{\EmpfaengerName}{Frau XY}       % Der Empfänger         %
@@ -25,11 +22,8 @@
 \newcommand{\EStrasse}{Jordanstr. 6 }       % Straße des Empfängers %
 \newcommand{\EPLZ}{34117}                   % PLZ des Empfängers    %
 \newcommand{\EOrt}{Kassel}                  % Ort des Empfängers    %
-\newcommand{\EFax}{+49 (123) 45678 - 9012}  % Fax des Empfängers    %
                                                                     %
-\newcommand{\DocTitle}{Erstattung: Professionelle Zahnreinigung} %Titel des Dokuments%
-\newcommand{\DatumZahnreinigung}{01.01.2014}                        %
-\newcommand{\GeldZahnreinigung}{90,00 Euro}                         %
+\newcommand{\DocTitle}{Erstattung: Reiseimpfungen} %Titel des Dokuments%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -48,29 +42,23 @@
 
 % Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt \\ Fax: \EFax }
+    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
     \date{\today}%Change this if you want a different date than today
     \subject{\DocTitle}
     \opening{Sehr geehrte \EmpfaengerName{},}
-    hiermit bitte ich um Erstattung der Kosten einer professionellen
-    Zahnreinigung.\\
-
-    \noindent{}Ich habe am \DatumZahnreinigung{} eine professionelle Zahnreinigung machen
-    lassen, für die ich \GeldZahnreinigung{} gezahlt habe.\\
+    hiermit bitte ich um Erstattung der Kosten für die Beratung (20 EUR) und Durchführung
+    der Polio (26 EUR), Hepatitis A und Typhus (118 EUR) Impfungen.\\
 
     \noindent{}Bitte überweisen Sie die Erstattung auf folgendes Konto:
 
     \begin{tabular}{ll}
     Kontoinhaber & \Vorname{} \Nachname{}        \\
     Bank         & \Bank     \\
-    Konto-Nr.    & \KontoNr  \\
-    BLZ          & \BLZ      \\
     BIC          & \BIC      \\
     IBAN         & \IBAN     \\
     \end{tabular}
 
-    Ich bin über \VornameVater{} \Nachname{} familienversichert. Meine
-    Versicherungsnummer ist \Kundennr{}.
+    Meine Versicherungsnummer ist \Kundennr{}.
 
     \closing{Mit freundlichen Grüßen,}
     \end{letter}
