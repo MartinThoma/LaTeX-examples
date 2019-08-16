@@ -11,8 +11,8 @@
 
 \begin{document}
 \begin{preview}
-\begin{tikzpicture}[very thick,font=\sansmath\sffamily,scale=2]
-    \newcommand\anglePoint{40}
+\begin{tikzpicture}[very thick,font=\sansmath\sffamily,scale=2.5]
+    \newcommand\anglePoint{50}
     \tkzDefPoint(0,0){O}
     \tkzDefPoint(1,0){D}
     \tkzDefPoint(0,1){E}
@@ -22,7 +22,7 @@
     \tkzDefPoint(\anglePoint:1){P}
 
     % Axes
-    \draw[gray] (O) circle (1);
+    \draw[gray, fill=gray!10] (O) circle (1);
     \node[gray,below right] at (1,0) {1};
     \node[blue,left] at (\anglePoint/2:1) {b};
     \node[gray,above right] at (0,1) {1};
@@ -33,7 +33,7 @@
 
     % \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=left:{$C_1$}] (C1) at (0,0) {};
     \tkzLabelPoints[below right,font=\sansmath\sffamily](O)
-    \tkzLabelPoints[above right,font=\sansmath\sffamily](D)
+    \tkzLabelPoints[below left,font=\sansmath\sffamily](D)
     \tkzLabelPoints[above left,font=\sansmath\sffamily](E)
     \tkzLabelPoints[above,font=\sansmath\sffamily](P)
     \tkzLabelPoints[below,font=\sansmath\sffamily](C)
@@ -46,8 +46,8 @@
     \tkzInterLL(O,P)(D,up)
     \tkzGetPoint{T}
 
-    \tkzLabelPoints[below right,font=\sansmath\sffamily](T)
-    \tkzLabelPoints[below right,font=\sansmath\sffamily](K)
+    \tkzLabelPoints[right,font=\sansmath\sffamily](T)
+    \tkzLabelPoints[above,font=\sansmath\sffamily](K)
     \draw (S) -- (P);
     \draw (C) -- (P);
     \draw (E) -- (K);
