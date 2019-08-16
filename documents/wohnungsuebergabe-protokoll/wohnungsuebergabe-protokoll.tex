@@ -1,0 +1,59 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage[a4paper, left=5mm, top=5mm]{geometry}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\pagenumbering{gobble}
+\begin{document}
+\section*{Wohnungsübergabeprotokoll}
+
+\begin{tabular*}{\textwidth}{ll@{}}
+Vermieter:               & Anna Beta, Schulstr. 1337, 80933 München \\
+Mieter:                  & Max Mustermann, Poststr. 42, 80933 München \\
+Adresse des Mietobjekts: & Hauptstr. 13, 80933 München \\
+\end{tabular*}
+
+\section*{Notizen}
+\begin{tabular*}{\textwidth}{|L{2.5cm}|L{14.2cm}@{}|}
+\hline
+\textbf{Raum}   & \textbf{Inventar / Möbel / Bemerkungen / Mängel} \\ \hline
+Zimmer & $\square$ Schreibtisch \\
+~      & $\square$ Bett         \\
+~      & $\square$ Matratze     \\[55pt] \hline
+WC     &                        \\[55pt] \hline
+Bad    &                        \\[55pt] \hline
+Küche  &                        \\[55pt] \hline
+Gang   &                        \\[25pt] \hline
+\end{tabular*}
+
+
+\section*{Zählerstände am 17. August 2019}
+
+\begin{tabular*}{\textwidth}{|l|L{4cm}|l|L{7.2cm}|}
+\hline
+Stromzähler & ~ & Wasser, warm & ~ \\[10pt] \hline
+Gaszähler   & ~ & Wasser, kalt & ~ \\[10pt] \hline
+\end{tabular*}
+
+
+\section*{Übergebene Schlüssel}
+
+\begin{tabular*}{\textwidth}{|L{5cm}|L{5cm}|L{6cm}|}
+\hline
+Hausschlüssel: & Wohnungsschlüssel:  & Kellerschlüssel: \\ \hline
+Briefkasten:   & \multicolumn{2}{l|}{Sonstige Schlüssel:}    \\ \hline
+\end{tabular*}
+
+\vspace{2.4cm}
+
+\begin{tabular}{@{}p{.5cm}p{6cm}p{2cm}p{6cm}@{}}
+& \hrulefill                & & \hrulefill\\
+& Ort, Datum, Unterschrift  & & Ort, Datum, Unterschrift\\
+& (Mieter, Max Mustermann)   & & (Vermieter)\\
+\end{tabular}
+
+\end{document}
