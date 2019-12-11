@@ -1,0 +1,37 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage[a4paper, left=5mm, top=5mm]{geometry}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\pagenumbering{gobble}
+\begin{document}
+\section*{WG-Zimmer Checkliste}
+
+
+\begin{tabular*}{\textwidth}{ll@{}}
+Vermieter:               &  \\ % Anna Beta, Schulstr. 1337, 80933 München
+Mieter:                  &  \\ % Max Mustermann, Poststr. 42, 80933 München
+Adresse des Mietobjekts: &  \\ % Hauptstr. 13, 80933 München
+\end{tabular*}
+
+\begin{tabular*}{\textwidth}{|l|p{4cm}|l|p{4cm}|}
+\hline
+Kaltmiete          & ~ & Warmmiete                                    & ~ \\\hline
+Ablöse             & ~ & Strom: $\square$ Wasser: $\square$   & Warmwasser: $\square$ \\\hline
+                   & ~ & Heizung: $\square$ Internet $\square$ & ~ \\\hline
+Mietbeginn         & ~ & Zimmer Fläche                                & ~ \\\hline
+Bewohner in der WG & ~ & Toiletten                                    & ~ \\\hline
+Rolladen           & ~ & Waschmaschine                                & ~ \\\hline
+Möbel              & ~ & Fahrradstellplatz                            & ~ \\\hline
+Steckdosen         & ~ & ~                                            & ~ \\\hline
+\end{tabular*}
+
+
+\section*{Notizen}
+
+
+\end{document}
