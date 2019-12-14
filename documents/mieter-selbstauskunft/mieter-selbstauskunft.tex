@@ -1,0 +1,113 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{enumerate}% http://ctan.org/pkg/enumerate
+\usepackage[a4paper]{geometry} % , left=5mm, top=5mm
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage{makecell}
+\renewcommand{\cellalign}{cl}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\pagenumbering{gobble}
+
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vorname}{TODO}            % Vorname                    %
+\newcommand{\Nachname}{TODO}           % Nachname                   %
+\newcommand{\Geburtsdatum}{28.04.1990} % Geburtsdatum in TT.MM.YYYY %
+\newcommand{\Mietbeginn}{01.01.2020}   % Mietbeginn in TT.MM.YYYY   %
+\newcommand{\AktuelleAdresse}{TODOstr 107\\81245 München}           %
+\newcommand{\NeueAdresse}{TODOstr. 22, 81243 München}               %
+\newcommand{\Handy}{+49 162 26 89 537}                              %
+\newcommand{\Email}{TODO@TODO.de}                                   %
+\newcommand{\Beruf}{IT-Berater}                                     %
+\newcommand{\Nettoeinkommen}{1234 EUR}                              %
+\newcommand{\Arbeitgeber}{TODO GmbH\\TODOstr. 5\\81245 München}     %
+\newcommand{\ArbeitgeberSeit}{19.06.2017}   %  in TT.MM.YYYY        %
+\newcommand{\AktuellerVermieter}{TODO TODO\\TODOstr 107\\81245 München}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\section*{Mieter-Selbstauskunft}
+Ich bin an der Anmietung des Objekts
+
+\bgroup
+\def\arraystretch{2}
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|Xl|}
+\hline
+\textbf{Adresse}: \makecell{\NeueAdresse}& \\
+\hline
+\end{tabularx}
+\end{table}
+\egroup
+
+ab dem \Mietbeginn{} interessiert.
+
+\bgroup
+\def\arraystretch{2}
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|X|l|}
+\hline
+~                                & \textbf{Mietinteressent} \\ \hline
+\textbf{Name, Vorname}           & \Nachname, \Vorname \\ \hline
+\textbf{Geburtsdatum}            & \Geburtsdatum       \\ \hline
+\textbf{Handy-Nummer}            & \Handy              \\ \hline
+\textbf{E-Mail Adresse}          & \Email              \\ \hline\hline
+\makecell{\textbf{Aktuelle Anschrift} \\ {\tiny Straße $\vert$ PLZ Ort}}      & \makecell{\AktuelleAdresse}  \\ \hline
+\makecell{\textbf{Derzeitiger Vermieter} \\ {\tiny Name $\vert$ Anschrift $\vert$ Telefon}}   & \makecell{\AktuellerVermieter} \\ \hline\hline
+\textbf{Ausgeübter Beruf}        & \Beruf              \\ \hline
+\textbf{Mtl. Nettoeinkommen}     & \Nettoeinkommen     \\ \hline
+\makecell{\textbf{Derzeitiger Arbeitgeber}\\ {\tiny Name $\vert$ Anschrift $\vert$ Telefon}} & \makecell{\Arbeitgeber}        \\ \hline
+\textbf{Aktuelles Arbeitsverhältnis seit} & \makecell{\ArbeitgeberSeit}        \\ \hline
+\end{tabularx}
+\end{table}
+\egroup
+
+Außer mir sollen noch andere Personen die Wohnung / das WG-Zimmer beziehen:\\
+Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}
+\pagebreak
+
+\bgroup
+\def\arraystretch{2}
+\begin{table}[h]
+    \begin{tabularx}{\textwidth}{|p{10cm}|X|}
+    \hline
+    ~                                                                               & \textbf{Mietinteressent} \\ \hline
+    Bestehen Mietrückstände aus bisherigen Mietverhältnissen?                       & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    In den letzten fünf Jahren wurde Räumungsklage gegen mich erhoben               & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    In den letzten fünf Jahren wurde Zwangsvollstreckung gegen mich eingeleitet     & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    In den letzten fünf Jahren habe ich eine eidesstattliche Versicherung abgegeben & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    In den letzten fünf Jahren wurde ein Insolvenzverfahren gegen mich eröffnet     & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    Vorstrafen/ Haftbefehl                                                          & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    Ich beziehe Sozialleistungen zur Zahlung der Miete/ Kaution                     & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    Ist eine gewerbliche Nutzung der Wohnung beabsichtigt?                          & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    Tierhaltung beabsichtigt?                                                       & Ja $\square$ Nein \makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} \\ \hline
+    \end{tabularx}
+\end{table}
+\egroup
+
+\begin{enumerate}[I]
+\item Ich erkläre, dass ich in der Lage bin, alle zu übernehmenden
+      Verpflichtungen aus dem Mietvertrag, insbesondere die Erbringung der
+      Mietkaution sowie Miete nebst Nebenkosten, zu leisten.
+\item Ich erkläre, dass die vorgenannten Angaben vollständig und wahrheitsgemäß
+      gemacht wurden. Bei Abschluss eines Mietvertrages können Falschangaben
+      die Aufhebung oder fristlose Kündigung des Mietverhältnisses zur Folge
+      haben.
+\item Ich bin damit einverstanden, dass der Vermieter bei der SCHUFA Holding AG die Schufa‐
+      Verbraucherauskunft zum Zwecke der Vermietung einholt. Auf Wunsch kann
+      auch eine SCHUFA Selbstauskunft vorgelegt werden.
+\item Der Vermieter ist berechtigt, diese freiwillige Selbstauskunft nur zum
+      Zwecke der eigenen Vermietung zu nutzen. Sofern die Auskünfte nicht mehr
+      benötigt werden ‐ wenn ein Mietvertrag nicht zustande kommt ‐ hat der
+      Vermieter diese Daten gemäß Bundesdatenschutzgesetz unverzüglich zu
+      vernichten.
+\end{enumerate}
+
+\end{document}
