@@ -1,0 +1,54 @@
+\documentclass[border=2pt]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{yellow}{HTML}{cccc00}
+\definecolor{neongreen}{HTML}{00dd00}
+\definecolor{turquoise}{HTML}{00cccc}
+\definecolor{lila}{HTML}{aa00aa}
+
+
+\begin{document}
+\pgfplotscreateplotcyclelist{mylist}{%
+{yellow},
+{neongreen, densely dashed},
+{turquoise, dashed},
+{blue,densely dotted},
+{lila,dotted},
+{red,loosely dotted},
+{black}}
+\begin{tikzpicture}
+    \begin{axis}[
+        title=$\chi^2_k$,
+        legend style={at={(0.95, 0.95), anchor=north west}},
+        axis x line=middle,
+        axis y line=middle,
+        grid  = major,
+        width = 16cm,
+        height= 9cm,
+        grid style={dashed, gray!30},
+        domain = 0.01:8,
+        restrict y to domain = 0:0.5,
+        axis background/.style={fill=white},
+        xlabel=$x$,
+        ylabel=$f_k(x)$,
+        tick align=outside,
+        enlargelimits=true,
+        every axis plot/.append style={very thick},
+        cycle list name=mylist
+        ]
+    \foreach \k in {1, 2, 3, 4, 6, 9} {%
+      \addplot+[mark={}] gnuplot[raw gnuplot] {%
+        isint(x) = (int(x)==x);
+        log2 = 0.693147180559945;
+        chisq(x,k)=k<=0||!isint(k)?1/0:x<=0?0.0:exp((0.5*k-1.0)*log(x)-0.5*x-lgamma(0.5*k)-k*0.5*log2);
+        set xrange [1.00000e-5:8];
+        set yrange [0.00000:0.500000];
+        samples=800;
+        plot chisq(x,\k)};
+    \addlegendentryexpanded{$k = \k$}}
+    \end{axis}
+\end{tikzpicture}
+\end{document}
