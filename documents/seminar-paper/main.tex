@@ -1,0 +1,26 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[raiselinks=true,
+            bookmarks=true,
+            bookmarksopenlevel=1,
+            bookmarksopen=true,
+            bookmarksnumbered=true,
+            breaklinks,
+            hyperindex=true,
+            plainpages=false,
+            pdfpagelabels=true,
+            pdfborder={0 0 0.5}]{hyperref}
+
+\usepackage[
+natbib,
+backend=biber,
+style=alphabetic,
+citestyle=authoryear
+]{biblatex}
+\addbibresource{bibliography.bib}
+
+\begin{document}
+Reference sentences are too often Lorem Ipsum \parencites[p. 345]{alice}[p. 123]{bob}
+\end{document}
