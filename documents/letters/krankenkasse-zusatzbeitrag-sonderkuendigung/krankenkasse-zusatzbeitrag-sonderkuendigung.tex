@@ -1,0 +1,54 @@
+\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
+
+% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vorname}{Martin}     % Vorname                         %
+\newcommand{\Nachname}{Thoma}     % Nachname                        %
+\newcommand{\Strasse}{Alte Allee} % Deine Straße                    %
+\newcommand{\Hausnummer}{107}     % Deine Hausnummer                %
+\newcommand{\PLZ}{81245}          % Deine PLZ                       %
+\newcommand{\Ort}{München}        % Dein Ort                        %
+\newcommand{\Kundennr}{F123456789}% Deine Kundennummer              %
+\newcommand{\Email}{info@martin-thoma.de}   % Deine email           %
+                                                                    %
+\newcommand{\Empfaenger}{BKK Herkules }     % Der Empfänger         %
+\newcommand{\EStrasse}{Jordanstr. 6 }       % Straße des Empfängers %
+\newcommand{\EPLZ}{34117}                   % PLZ des Empfängers    %
+\newcommand{\EOrt}{Kassel}                  % Ort des Empfängers    %
+                                                                    %
+\newcommand{\DocTitle}{Kündigung der Mitgliedschaft} %Titel des Dokuments%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% pdfinfo
+\pdfinfo{
+   /Author (\Nachname, \Vorname)
+   /Title  (\DocTitle)
+   /Subject (\DocTitle)
+   /Keywords (Erstattung)
+}
+
+% set letter variables
+\signature{\Vorname~\Nachname}
+\customer{\Kundennr}
+\backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort, \Email}
+
+% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
+    \date{\today}%Change this if you want a different date than today
+    \subject{\DocTitle}
+    \opening{Sehr geehrte Damen und Herren,}
+    aufgrund der zum 1. Mai 2019 angekündigten Erhebung oder Erhöhung eines
+    Zusatzbeitrags mache ich von meinem Recht zur Sonderkündigung gem. § 175
+    Abs. 4 SGB V Gebrauch, da ich zum nächstmöglichen Zeitpunkt in eine andere
+    gesetzliche Krankenkasse wechseln möchte.
+
+    Meine Versicherungsnummer ist \Kundennr{}.
+
+    \closing{Mit freundlichen Grüßen,}
+    \end{letter}
+\end{document}
