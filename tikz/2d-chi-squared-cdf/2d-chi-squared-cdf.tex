@@ -1,0 +1,52 @@
+\documentclass[border=2pt]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{yellow}{HTML}{cccc00}
+\definecolor{neongreen}{HTML}{00dd00}
+\definecolor{turquoise}{HTML}{00cccc}
+\definecolor{lila}{HTML}{aa00aa}
+
+\begin{document}
+\pgfplotscreateplotcyclelist{mylist}{%
+{yellow},
+{neongreen, densely dashed},
+{turquoise, dashed},
+{blue,densely dotted},
+{lila,dotted},
+{red,loosely dotted},
+{black}}
+\begin{tikzpicture}
+    \begin{axis}[
+        title=$\chi^2_k$,
+        legend style={at={(0.95, 0.95), anchor=north west}},
+        axis x line=middle,
+        axis y line=middle,
+        grid  = major,
+        width = 16cm,
+        height= 9cm,
+        grid style={dashed, gray!30},
+        domain = 0.01:8,
+        restrict y to domain = 0:1,
+        axis background/.style={fill=white},
+        xlabel=$x$,
+        ylabel=$F_k(x)$,
+        tick align=outside,
+        enlargelimits=true,
+        every axis plot/.append style={very thick},
+        cycle list name=mylist
+        ]
+    \foreach \k in {1, 2, 3, 4, 6, 9} {%
+      \addplot+[mark={}] gnuplot[raw gnuplot] {%
+        igamma2(a,x) = igamma(a,x)*gamma(a);
+        chisq(x,k)=igamma2(k/2.0, x/2.0) / gamma(k/2.0);
+        set xrange [1.00000e-5:8];
+        set yrange [0.00000:1.0];
+        samples=800;
+        plot chisq(x,\k)};
+    \addlegendentryexpanded{$k = \k$}}
+    \end{axis}
+\end{tikzpicture}
+\end{document}
