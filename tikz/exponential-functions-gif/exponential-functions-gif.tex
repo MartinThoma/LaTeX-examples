@@ -1,6 +1,7 @@
 \documentclass[varwidth=false, border=2pt]{beamer}
 
 \usepackage{tikz,pgfplots,multido}
+\usetikzlibrary{backgrounds}
 \pgfplotsset{compat=1.17}
 \usepackage{nicefrac}
 \pgfplotsset{every axis legend/.append style={
@@ -10,8 +11,8 @@ anchor=north east}}
 \usepackage[active,tightpage]{preview}
 \PreviewEnvironment{tikzpicture}
 \begin{document}
-\multido{\i=0+1}{10}{%
-\begin{tikzpicture}
+\multido{\i=0+1}{100}{%
+\begin{tikzpicture}%[background rectangle/.style={fill=white}, show background rectangle]
     \begin{axis}[
         axis x line=middle,
         axis y line=middle,
@@ -33,7 +34,9 @@ anchor=north east}}
         tick align=outside,
         enlargelimits=false]
       % plot the function
-      \addplot[domain=-2:{4*\i/10}, red, ultra thick,samples=500] {2^x};
+      \addplot[domain=-2:{-1.5 + (9.5*\i/100)}, red, ultra thick,samples=500] {2^x};
+      \addplot[domain=-2:{-1.5 + (7.5*\i/100)}, blue, ultra thick,samples=500] {3^x};
+      \addplot[domain=-2:{-1.5 + (6.5*\i/100)}, green, ultra thick,samples=500] {4^x};
     \end{axis}
 \end{tikzpicture}
 }
