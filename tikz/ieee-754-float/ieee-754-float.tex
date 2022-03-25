@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart, calc, decorations.pathreplacing}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[array/.style={rectangle split,rectangle split horizontal, rectangle split parts=#1,draw, anchor=center, rectangle split part fill={blue!20, green!20, blue!20!green!90}}]
+\node[array=3] (a) {
+\nodepart{one}0
+\nodepart{two}01001100
+\nodepart{three}01001111000000001111111
+};
+
+\draw [decoration={brace,raise=2pt},decorate] ($(a.two) + (-0.13,+0.35)$) --  node[above=3pt]{Exponent (8 bit)}($(a.three) + (-0.13,+0.35)$);
+\draw [decoration={brace,mirror,raise=2pt},decorate] ($(a.three) + (-0.13,-0.14)$) --  node[below=3pt]{Mantissa (23 bit)}(a.south east);
+\draw [decoration={brace,mirror,raise=2pt},decorate] ($(a.one) + (-0.13,-0.14)$) --  node[below=3pt]{Sign (1 bit)}($(a.two) + (-0.13,-0.15)$);
+\end{tikzpicture}
+\end{preview}
+\end{document}
