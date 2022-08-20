@@ -1,0 +1,212 @@
+\documentclass{article}
+
+% Preamble stuff
+\input{./tex-src/preamble.tex}
+\input{./tex-src/theorems.tex}
+\input{./tex-src/references.tex}
+\input{./tex-src/times.tex}
+
+% New command stuff
+\let\d\pgfcalendarshorthand
+\newcommand\formatdate[2]{\pgfcalendar{cal}{#1}{#1}{#2}}
+
+\newcommand\firstdate{2022-01-01}
+\newcommand\lastdate{\year-\month-\day}
+
+\newcommand\grayrule{{\color{gray} \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}}
+
+\def\firstoftwo#1#2{#1}
+\def\secondoftwo#1#2{#2}
+\def\iffileempty#1{%
+	\ifnum0\pdffilesize{#1}>0
+		\expandafter\secondoftwo
+	\else
+		\expandafter\firstoftwo
+	\fi
+}
+\newcommand\emptyentry[3]{%
+	\iffileempty{#1}{
+		\pgfcalendarifdate{#3}{equals=\year-\month-\day}{
+			\phantomsection\addcontentsline{toc}{subsubsection}{#2 (Empty) (Today)}
+		}{
+			\phantomsection\addcontentsline{toc}{subsubsection}{#2 (Empty)}
+		}
+		\newline {\LARGE {\color{red}No journal entry for today!
+			}}}{
+		\pgfcalendarifdate{#3}{equals=\year-\month-\day}{
+			\phantomsection\addcontentsline{toc}{subsubsection}{#2 (Today)}
+		}{
+			\phantomsection\addcontentsline{toc}{subsubsection}{#2}
+		}
+		\input{#1}
+	}
+}
+
+\iffalse
+	Different commands you can use with the \d command:
+
+	d: day
+	w: week
+	m: month
+	y: year
+
+	Different kinds of arguments you can use with the \d command:
+
+	-:    Numerical representation with no leading zeros;
+	=:    Numerical representation with a leading space for single digit numbers;
+	0:    Numerical representation with a leading zero for single digit numbers;
+	t:    Textual representation;
+	.:    Abbreviated textual representation.
+
+	Examples:
+	\d{d}-    ->    1, 2, 3, 4, 5, ...
+	\d{d}=    ->     1,  2,  3,  4,  5, ...
+	\d{d}0    ->    01, 02, 03, 04, 05, ...
+	\d{d}t    ->    no output
+	\d{d}.    ->    no output
+
+	\d{w}-    ->    no output
+	\d{w}=    ->    no output
+	\d{w}0    ->    no output
+	\d{w}t    ->    Monday, Tuesday, Wednesday, ...
+	\d{w}.    ->    Mon, Tue, Wed, ...
+
+	\d{m}-    ->    1, 2, 3, 4, 5, ...
+	\d{m}=    ->     1,  2,  3,  4,  5, ...
+	\d{m}0    ->    01, 02, 03, 04, 05, ...
+	\d{m}t    ->    January, February, March, ...
+	\d{m}.    ->    Jan, Feb, Mar, ...
+
+	\d{y}-    ->    2022, 2023, 2024, 2025, ...
+	\d{y}=    ->    2022, 2023, 2024, 2025, ...
+	\d{y}0    ->    2022, 2023, 2024, 2025, ...
+	\d{y}t    ->    no output
+	\d{y}.    ->    no output
+\fi
+
+% Main document
+\begin{document}
+%%%%%%%%%%%%%%%%
+%  Title Page  %
+%%%%%%%%%%%%%%%%
+
+\begin{center}
+	\huge{Journal}\\[0.4em]
+	\Large{Your Name}\\[0.2em]
+	\emph{
+		From August 1 2022 to
+		\formatdate{\lastdate}{\d{m}t \d{d}- \d{y}-}
+	}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%  Table of Contents  %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Iterate through all dates from the first date to the last date  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfcalendar{cal}{\firstdate}{\lastdate}{
+	% Set some variables so I don't keep re-typing stuff
+	\def\formatteddate{\d{y}0/\d{m}0/\d{d}0} % EXM: 2022/06/10
+	\def\todayformatted{\d{y}0-\d{m}0-\d{d}0} % EXM: 2022-06-10
+
+	\def\firstdayofyear{2022-01-01} % EXM: 2022-01-01
+	\def\yeargoalsformat{./\d{y}0/goals.tex} % EXM: 2022/goals.tex
+
+	\def\firstdayofmonth{\d{y}0-\d{m}0-01} % EXM: 2022-08-01
+	\def\monthgoalsformat{./\d{y}0/\d{m}0/goals.tex} % EXM: 2022/01/goals.tex
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%  Check if it's the first day of the year  %
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\pgfcalendarifdate{\todayformatted}{equals=\firstdayofyear}{
+		\noteday{Year \d{y}0}
+		% Add the year to the table of contents
+		{\Huge \d{y}0}
+		\phantomsection\addcontentsline{toc}{section}{\d{y}0}%
+		% Check if there's a file EXM: 2022/goals.tex
+		\IfFileExists{\yeargoalsformat}{
+			\newline
+			\newline
+			% Add the goals to the table of contents
+			{\LARGE Goals for \d{y}0}
+			\phantomsection\addcontentsline{toc}{subsection}{Goals for \textbf{\d{y}0}}
+			\newline
+			\newline
+			\input{\yeargoalsformat}
+			\newpage
+		}{}
+	}{}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%  Check if it's the first day of the month  %
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\ifdate{equals=\firstdayofmonth}{
+		\noteday{Month \d{m}t}
+		% Check if there's a file EXM: 2022/07/goals.tex
+		\IfFileExists{\monthgoalsformat}{
+			% Add the month to the table of contents
+			% \section*{\d{m}t}
+			{\LARGE \d{m}t}
+			\phantomsection\addcontentsline{toc}{subsection}{\d{m}t}
+			\newline
+			\newline
+			% Add the goals to the table of contents
+			{\Large Goals for \d{m}t}
+			\phantomsection\addcontentsline{toc}{subsubsection}{Goals for \textbf{\d{m}t}}
+			\newline
+			\newline
+			\input{\monthgoalsformat}
+			\newpage
+		}{}
+	}{}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%  Check if the note.tex file exists in the following example directory %
+	%                       EXM: 2022/05/14/note.tex                        %
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\IfFileExists{./\formatteddate/note.tex}{
+		\def\dayout{}
+		\def\dayouttotable{}
+
+		% Checking if it's the first day of the month
+		\ifthenelse{\equal{\d{d}0}{\string 01}}{
+			\def\dayout{\d{w}t the \d{d}-st of \d{m}t, \d{y}0}
+			\def\dayouttotable{\d{w}t the \d{d}0st of \d{m}t, \d{y}0}
+		}{
+			% Checking if it's the second day of the month
+			\ifthenelse{\equal{\d{d}0}{\string 02}}{
+				\def\dayout{\d{w}t the \d{d}-nd of \d{m}t, \d{y}0}
+				\def\dayouttotable{\d{w}t the \d{d}0nd of \d{m}t, \d{y}0}
+			}{
+				% Checking if it's the third day of the month
+				\ifthenelse{\equal{\d{d}0}{\string 03}}{
+					\def\dayout{\d{w}t the \d{d}-rd of \d{m}t, \d{y}0}
+					\def\dayouttotable{\d{w}t the \d{d}0rd of \d{m}t, \d{y}0}
+				}{
+					\def\dayout{\d{w}t the \d{d}-th of \d{m}t, \d{y}0}
+					\def\dayouttotable{\d{w}t the \d{d}0th of \d{m}t, \d{y}0}
+				}
+			}
+		}
+
+		\noteday{\dayout}
+
+		\vspace*{1em}
+		{\Large \dayout}
+		\emptyentry{./\formatteddate/note.tex}{\dayouttotable}{\todayformatted}
+		\begin{flushright}
+			\IfFileExists{./\formatteddate/note.xopp}{\hfill \xournal}{\hfill \\ }
+		\end{flushright}
+		\newpage
+	}{}
+}
+\end{document}

@@ -1,0 +1,53 @@
+\usepackage{tcolorbox}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\mdfsetup{
+  skipabove=1em,
+  skipbelow=0em,
+  innertopmargin=5pt,
+  innerbottommargin=6pt
+}
+
+\newmdenv[
+	backgroundcolor = red!10,
+	frametitle=Wrong
+]{wrong}
+\newmdenv[
+	backgroundcolor = green!10,
+	frametitle=Correct
+]{correct}
+\renewmdenv[
+	bottomline=false,
+	topline=false,
+	rightline=false,
+	fontcolor=black!70,
+]{quote}
+\newmdenv[
+	backgroundcolor = blue!10,
+	frametitle=Goals for Today
+]{goals}
+\newmdenv[
+	backgroundcolor = blue!10,
+	frametitle=Status for my Goals
+]{status}
+\newmdenv[
+	backgroundcolor = blue!10,
+	frametitle=The results of my Goals
+]{results}
+
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ nobreak } ]{mainenv}
+
+\declaretheorem[style=mainenv, name=Definition]{definition}
+\declaretheorem[style=mainenv, name=Question]{question}
+\declaretheorem[style=mainenv, name=Confusion]{confusion}
+\declaretheorem[style=mainenv, name=Answer]{answer}
+\declaretheorem[style=mainenv, name=Thought]{thought}
+\declaretheorem[style=mainenv, name=Idea]{idea}
+\declaretheorem[style=mainenv, name=Claim]{claim}
+\declaretheorem[style=mainenv, name=Remark]{remark}
+\declaretheorem[style=mainenv, name=Problem]{problem}
+\declaretheorem[style=mainenv, name=Example]{example}
+\declaretheorem[style=mainenv, name=Rant]{rant}
+\declaretheorem[style=mainenv, name=Note]{note}
+\declaretheorem[style=mainenv, name=TODO]{todo}

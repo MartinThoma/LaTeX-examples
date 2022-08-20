@@ -1,0 +1,24 @@
+\newcommand{\morning}{\subsection*{Morning}\vspace*{1em}}
+\newcommand{\afternoon}{\subsection*{Afternoon}\vspace*{1em}}
+\newcommand{\evening}{\subsection*{Evening}\vspace*{1em}}
+\newcommand{\night}{\subsection*{Night}\vspace*{1em}}
+\newcommand{\todostatus}[1]{
+  \ifthenelse{\equal{#1}{\string 0}}
+    {\hfill\textbf{Done}}{}
+  \ifthenelse{\equal{#1}{\string 1}}
+    {\hfill\textbf{In Progress}}{}
+  \ifthenelse{\equal{#1}{\string 2}}
+   {\hfill\textbf{To-Do}}{}
+}
+
+\newcommand{\contentment}[1]{
+  \begin{flushright}
+    \textbf{Feeling of contentment for the day:}\hfill\textbf{\underline{#1/10}}
+  \end{flushright}
+}
+
+\renewcommand{\time}[1]{
+  \begin{flushright}
+    \hfill\textbf{Current logging time: \underline{#1}}
+  \end{flushright}
+}
