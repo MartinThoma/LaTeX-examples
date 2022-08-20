@@ -1,0 +1,65 @@
+% Multi language stuff
+\usepackage{arabtex}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[icelandic,latin,dutch,spanish,arabic,english]{babel}
+
+% \usepackage{cmbright}
+\usepackage{stix}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{titlesec}
+\usepackage{pgfmath}
+\usepackage{pgfcalendar}
+\usepackage{float}
+\usepackage{lastpage}
+
+% page layout
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+% figure support
+\usepackage{import}
+\usepackage[shortlabels]{enumitem}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[2]{%
+  \includepdf[pages=#2,pagecommand={},width=\textwidth]{#1}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{soul}
+
+\makeatletter
+
+\def\@noteday{}
+\newcommand{\noteday}[1]{
+  \def\@noteday{#1}
+}
+
+% fancy headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead{}
+\fancyfoot[C]{\textit{\Large\@noteday}}
+\fancyfoot[R]{\Large{\thepage\ of \pageref{LastPage}}}
+\fancyfoot[L]{\Large{Hashem A. Damrah}}
+
+\makeatother
+
+\newcommand{\nothingtosay}{{\color{red}I don't feel like writing anything.}}

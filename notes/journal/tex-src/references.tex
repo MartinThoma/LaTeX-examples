@@ -1,0 +1,25 @@
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{fontawesome}
+\usepackage{xifthen}% provides \isempty test
+\newcommand\pdfref[3]{%
+  \href{phd://open-paper?id=#1&page=#2}{%
+  \textup{[\textbf{\ifthenelse{\isempty{#3}}{here}{#3}}]}}%
+}
+\newcommand\urlref[2]{%
+  \href{#1}{\raisebox{0.15ex}{\scriptsize \faLink}\:\textup{\textbf{#2}}}%
+}
+\newcommand\absolutefileref[2]{%
+  \href{run:#1}{\raisebox{0.15ex}{\scriptsize \faFile}\:\textup{\textbf{#2}}}%
+}
+
+% this will contain the current date in yyyy-mm-dd format
+\def\formatteddate{}
+\newcommand\fileref[2]{
+  \IfFileExists{./\formatteddate/#1}{
+    \absolutefileref{./\formatteddate/#1}{#2}
+  }{
+    \textcolor{gray}{\absolutefileref{./\formatteddate/#1}{#2}}
+  }
+}
+\newcommand{\xournal}{\fileref{note.xopp}{Handwritten notes}}%
