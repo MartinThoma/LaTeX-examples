@@ -3,7 +3,7 @@
 \setlength\PreviewBorder{2mm}
 
 \usepackage{tikz}
-\usetikzlibrary{calc,shapes.multipart,chains,arrows}
+\usetikzlibrary{shapes.multipart,chains,arrows}
 
 \tikzset{
     squarecross/.style={
@@ -36,9 +36,9 @@
   \node[list,on chain] (B) {99};
   \node[list,on chain] (C) {37};
   \node[squarecross]   (D) [right=of C] {};
-  \draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
-  \draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
-  \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
+  \draw[*->] (A.two |- A.center) -- (B);
+  \draw[*->] (B.two |- B.center) -- (C);
+  \draw[*->] (C.two |- C.center) -- (D);
 \end{tikzpicture}
 \end{preview}
 \end{document}
